@@ -249,6 +249,12 @@
               <kerning>true</kerning>
              </font>
             </property>
+            <property name="toolTip">
+             <string>How many subs have been stacked in this session</string>
+            </property>
+            <property name="statusTip">
+             <string>How many subs have been stacked in this session</string>
+            </property>
             <property name="text">
              <string notr="true">0</string>
             </property>
@@ -271,6 +277,12 @@
               <pointsize>15</pointsize>
               <kerning>true</kerning>
              </font>
+            </property>
+            <property name="toolTip">
+             <string>Stack total exposure time</string>
+            </property>
+            <property name="statusTip">
+             <string>Stack total exposure time</string>
             </property>
             <property name="text">
              <string notr="true">0</string>
@@ -349,6 +361,12 @@
                 <height>30</height>
                </size>
               </property>
+              <property name="toolTip">
+               <string>Stacking method</string>
+              </property>
+              <property name="statusTip">
+               <string>Stacking method</string>
+              </property>
              </widget>
             </item>
             <item>
@@ -400,7 +418,10 @@
                </size>
               </property>
               <property name="toolTip">
-               <string/>
+               <string>Required number of common asterisms with stack reference</string>
+              </property>
+              <property name="statusTip">
+               <string>Required number of common asterisms with stack reference</string>
               </property>
               <property name="minimum">
                <number>5</number>
@@ -730,6 +751,12 @@
          <height>40</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>Show issues in session log</string>
+       </property>
+       <property name="statusTip">
+        <string>Show issues in session log</string>
+       </property>
        <property name="text">
         <string>Issues</string>
        </property>
@@ -772,6 +799,12 @@
            <height>40</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Acknowledge all issues</string>
+         </property>
+         <property name="statusTip">
+          <string>Acknowledge all issues</string>
+         </property>
          <property name="text">
           <string>Acknowledge</string>
          </property>
@@ -779,6 +812,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="btn_issues_only">
+         <property name="toolTip">
+          <string>Show issues only</string>
+         </property>
+         <property name="statusTip">
+          <string>Show issues only</string>
+         </property>
          <property name="text">
           <string>issues only</string>
          </property>
@@ -807,6 +846,12 @@
            <width>150</width>
            <height>0</height>
           </size>
+         </property>
+         <property name="toolTip">
+          <string>Ensure latest events are visible</string>
+         </property>
+         <property name="statusTip">
+          <string>Ensure latest events are visible</string>
          </property>
          <property name="text">
           <string>follow</string>
@@ -936,6 +981,12 @@
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <widget class="QPushButton" name="btn_stretch_reset">
+            <property name="toolTip">
+             <string>Reset parameters to their default values</string>
+            </property>
+            <property name="statusTip">
+             <string>Reset parameters to their default values</string>
+            </property>
             <property name="text">
              <string>Reset</string>
             </property>
@@ -943,6 +994,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_stretch_reload">
+            <property name="toolTip">
+             <string>Set parameters to the value they had on latest 'apply'</string>
+            </property>
+            <property name="statusTip">
+             <string>Set parameters to the value they had on latest 'apply'</string>
+            </property>
             <property name="text">
              <string>Reload</string>
             </property>
@@ -950,6 +1007,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_stretch_apply">
+            <property name="toolTip">
+             <string>Apply curent parameters</string>
+            </property>
+            <property name="statusTip">
+             <string>Apply curent parameters</string>
+            </property>
             <property name="text">
              <string>Apply</string>
             </property>
@@ -1052,6 +1115,12 @@
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QPushButton" name="btn_levels_reset">
+            <property name="toolTip">
+             <string>Reset parameters to their default values</string>
+            </property>
+            <property name="statusTip">
+             <string>Reset parameters to their default values</string>
+            </property>
             <property name="text">
              <string>Reset</string>
             </property>
@@ -1059,6 +1128,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_levels_reload">
+            <property name="toolTip">
+             <string>Set parameters to the value they had on latest 'apply'</string>
+            </property>
+            <property name="statusTip">
+             <string>Set parameters to the value they had on latest 'apply'</string>
+            </property>
             <property name="text">
              <string>Reload</string>
             </property>
@@ -1066,6 +1141,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_levels_apply">
+            <property name="toolTip">
+             <string>Apply curent parameters</string>
+            </property>
+            <property name="statusTip">
+             <string>Apply curent parameters</string>
+            </property>
             <property name="text">
              <string>Apply</string>
             </property>
@@ -1151,6 +1232,12 @@
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
            <widget class="QPushButton" name="btn_rgb_reset">
+            <property name="toolTip">
+             <string>Reset parameters to their default values</string>
+            </property>
+            <property name="statusTip">
+             <string>Reset parameters to their default values</string>
+            </property>
             <property name="text">
              <string>Reset</string>
             </property>
@@ -1158,6 +1245,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_rgb_reload">
+            <property name="toolTip">
+             <string>Set parameters to the value they had on latest 'apply'</string>
+            </property>
+            <property name="statusTip">
+             <string>Set parameters to the value they had on latest 'apply'</string>
+            </property>
             <property name="text">
              <string>Reload</string>
             </property>
@@ -1165,6 +1258,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_rgb_apply">
+            <property name="toolTip">
+             <string>Apply curent parameters</string>
+            </property>
+            <property name="statusTip">
+             <string>Apply curent parameters</string>
+            </property>
             <property name="text">
              <string>Apply</string>
             </property>
@@ -1342,6 +1441,9 @@
    <property name="text">
     <string>Ack. issues</string>
    </property>
+   <property name="statusTip">
+    <string>Ack. issues</string>
+   </property>
    <property name="shortcut">
     <string notr="true">A</string>
    </property>
@@ -1353,6 +1455,9 @@
    <property name="text">
     <string notr="true">QR Code</string>
    </property>
+   <property name="statusTip">
+    <string>Show QR code window</string>
+   </property>
    <property name="shortcut">
     <string notr="true">Q</string>
    </property>
@@ -1360,6 +1465,9 @@
   <action name="action_zoom_in">
    <property name="text">
     <string>Zoom &amp;In</string>
+   </property>
+   <property name="statusTip">
+    <string>Zoom in 10%</string>
    </property>
    <property name="shortcut">
     <string notr="true">Y</string>
@@ -1369,6 +1477,9 @@
    <property name="text">
     <string>Zoom &amp;Out</string>
    </property>
+   <property name="statusTip">
+    <string>Zoom out 10%</string>
+   </property>
    <property name="shortcut">
     <string notr="true">H</string>
    </property>
@@ -1376,6 +1487,12 @@
   <action name="action_adjust_image">
    <property name="text">
     <string>Ad&amp;just</string>
+   </property>
+   <property name="toolTip">
+    <string>Fit image in view</string>
+   </property>
+   <property name="statusTip">
+    <string>Fit image in view</string>
    </property>
    <property name="shortcut">
     <string notr="true">B</string>
