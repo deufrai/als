@@ -12,7 +12,6 @@ pip install --upgrade astroid==2.2.0
 python setup.py develop
 
 VERSION=$(echo ${ALS_VERSION_STRING} | sed "s/^v//")
-artifact_name="als-${VERSION}"
 echo "version = \"${VERSION}\"" > src/als/version.py
 
 VERPARTS=(${VERSION//-/ })
@@ -26,6 +25,7 @@ done
 
 VERCODE=$(echo ${VERNUM} | sed "s/\./, /g")
 
+artifact_name="als-${ALS_VERSION_STRING}"
 echo "Building package ${artifact_name}.exe ..."
 
 sed -e "s/##VERSION##/${VERSION}/g" \
