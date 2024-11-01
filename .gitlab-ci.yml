@@ -34,7 +34,7 @@ Build PC/Linux:
   - amd64
   - linux
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
     - ci/builds/build_dist_amd64_linux.sh
   artifacts:
@@ -48,7 +48,7 @@ Build RaspBerry/Linux:
   - arm64
   - linux
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
     - ci/builds/build_dist_arm64_linux.sh
   artifacts:
@@ -62,7 +62,7 @@ Build Mac/Intel:
   - amd64
   - mac
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
     - ci/builds/build_dist_amd64_osx.sh
   artifacts:
@@ -76,7 +76,7 @@ Build PC/Windows:
   - amd64
   - win
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
     - sh ci/builds/build_dist_amd64_win.sh
   artifacts:
