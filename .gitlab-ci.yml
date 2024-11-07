@@ -13,81 +13,85 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_PIPELINE_SOURCE == "schedule"
     - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "tag"
     - if: $CI_PIPELINE_SOURCE == "push"
       when: never
 
 Configure Build:
-  extends: .default-job
   tags:
   - infra
   stage: setup
+  timeout: 5m
   script:
-    - ci/setup_build.sh
+    - ci/builds/setup_build.sh
   artifacts:
     reports:
       dotenv: .dotenv
 
 
 Build PC/Linux:
-  extends: .default-job
   tags:
   - amd64
   - linux
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
-    - ci/build_dist_amd64_linux.sh
+    - ci/builds/build_dist_amd64_linux.sh
   artifacts:
-    expose_as: ALS for amd64 Linux
+    expose_as: 'ALS for Linux amd64'
     paths:
       - als-$ALS_VERSION_STRING.run
 
 
 Build RaspBerry/Linux:
-  extends: .default-job
   tags:
   - arm64
   - linux
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
-    - ci/build_dist_arm64_linux.sh
+    - ci/builds/build_dist_arm64_linux.sh
   artifacts:
-    expose_as: ALS for arm64 Linux
+    expose_as: 'ALS for Linux arm64'
     paths:
       - als-$ALS_VERSION_STRING.tgz
 
 
 Build Mac/Intel:
-  extends: .default-job
   tags:
   - amd64
   - mac
   stage: build
-  timeout: 20m
+  timeout: 30m
   script:
-    - ci/build_dist_amd64_osx.sh
+    - ci/builds/build_dist_amd64_osx.sh
   artifacts:
-    expose_as: ALS for Mac Intel
+    expose_as: 'ALS for OSX amd64'
     paths:
       - als-$ALS_VERSION_STRING.dmg
 
 
 Build PC/Windows:
-  extends: .default-job
   tags:
   - amd64
   - win
   stage: build
-  timeout: 35m
+  timeout: 30m
   script:
-    - sh ci/build_dist_amd64_win.sh
+    - sh ci/builds/build_dist_amd64_win.sh
   artifacts:
-    expose_as: ALS for amd64 Windows
+    expose_as: 'ALS for Windows amd64'
     paths:
       - als-$ALS_VERSION_STRING.exe
 
 
-.default-job:
-  before_script:
-    - sh -c "env | sort"
+Deploy nightlies:
+  tags:
+    - infra
+  stage: deploy
+  script: ci/deploy/deploy_nightlies.sh
+  environment:
+    name: Nightlies
+    url: https://als-app.org/nightlies
+  rules:
+    - if: $CI_SCHEDULE_ID == "1"

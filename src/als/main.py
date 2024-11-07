@@ -8,7 +8,6 @@ import platform
 import sys
 from logging import getLogger
 
-import psutil
 from PyQt5.QtCore import QTranslator, QT_TRANSLATE_NOOP, QThread, Qt
 from PyQt5.QtWidgets import QApplication
 
@@ -64,14 +63,6 @@ def main():
         QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
         config.setup()
         log_sys_info()
-
-        # look for existing "Stacker" processes and kill them
-        #
-        # Those Stacker processes are leftovers from a previous ALS crash occurring while stacking
-        # using multiprocessing
-        for process in psutil.process_iter():
-            if process.status() != psutil.STATUS_ZOMBIE and process.name() == "Stacker":
-                process.kill()
 
         locale_prefix = config.get_lang()
         if locale_prefix == 'sys':
