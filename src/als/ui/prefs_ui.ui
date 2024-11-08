@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
-    <height>568</height>
+    <width>620</width>
+    <height>579</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,7 +19,7 @@
   <property name="windowTitle">
    <string>ALS preferences</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_11">
+  <layout class="QVBoxLayout" name="verticalLayout_12">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="minimumSize">
@@ -35,7 +35,7 @@
       <attribute name="title">
        <string>General</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_10">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
        <item>
         <widget class="QGroupBox" name="pathsBox">
          <property name="title">
@@ -253,7 +253,7 @@
          <property name="title">
           <string>Core (Restart needed)</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
+         <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <item>
@@ -317,30 +317,21 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="chk_stats">
-            <property name="text">
-             <string>Send usage s&amp;tats</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QCheckBox" name="chk_stats">
+              <property name="text">
+               <string>Usage s&amp;tats : On startup, send version, CPU type and OS name</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
