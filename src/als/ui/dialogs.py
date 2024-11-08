@@ -99,6 +99,8 @@ class PreferencesDialog(QDialog):
 
         self._ui.sld_mem_preserve.setValue(config.get_preserved_mem())
 
+        self._ui.chk_stats.setChecked(config.get_send_stats_active() or config.get_send_stats_active() is None )
+
     @log
     def _validate_all_paths(self):
         """
@@ -284,6 +286,8 @@ class PreferencesDialog(QDialog):
             message_box(self.tr("Restart needed"), message)
 
         config.set_preserved_mem(self._ui.sld_mem_preserve.value())
+
+        config.set_send_stats_active(self._ui.chk_stats.isChecked())
 
         super().accept()
 

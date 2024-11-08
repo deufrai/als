@@ -48,6 +48,7 @@ _NIGHT_MODE = "night_mode"
 _SAVE_ON_STOP = "save_on_stop"
 _PROFILE = "profile"
 _PRESERVED_MEM = "preserved_mem"
+_SEND_STATS = "send_stats"
 
 # keys used to describe logging level
 _LOG_LEVEL_DEBUG = "DEBUG"
@@ -87,6 +88,7 @@ _DEFAULTS = {
     _SAVE_ON_STOP:          0,
     _PROFILE:               0,
     _PRESERVED_MEM:         1,
+    _SEND_STATS:            None
 }
 _MAIN_SECTION_NAME = "main"
 
@@ -123,6 +125,33 @@ def get_full_screen_active():
         return int(_get(_FULL_SCREEN)) == 1
     except ValueError:
         return _DEFAULTS[_FULL_SCREEN]
+
+
+def set_send_stats_active(stats: bool):
+    """
+    Set send stats indicator
+
+    :param stats: should app send usage stats ?
+    :type stats: bool
+    """
+
+    _set(_SEND_STATS, "1" if stats else "0")
+
+
+def get_send_stats_active():
+    """
+    Get send stats indicator
+
+    :return: True if app should send usage stats
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_SEND_STATS)) == 1
+    except ValueError:
+        return _DEFAULTS[_SEND_STATS]
+    except TypeError:
+        return _DEFAULTS[_SEND_STATS]
 
 
 def set_night_mode_active(night: bool):

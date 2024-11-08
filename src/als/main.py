@@ -5,6 +5,7 @@ import argparse
 import locale
 import os
 import platform
+import socket
 import sys
 from logging import getLogger
 
@@ -40,6 +41,20 @@ def log_sys_info():
     _LOGGER.debug(f"Python version        : {python_version}")
     _LOGGER.debug('System info dump - END')
     _LOGGER.debug("***************************************************************************")
+
+
+def call_home():
+    home_host = "ping.als-app.org"
+    home_port = 16810
+
+    try:
+        home_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        message = f"{VERSION}||{platform.machine()}||{platform.system()}"
+        home_socket.sendto(message.encode(), (home_host, home_port))
+        home_socket.close()
+    except socket.error:
+        pass
+
 
 
 # pylint: disable=R0914
@@ -111,6 +126,9 @@ def main():
     start_message = QT_TRANSLATE_NOOP("", "Astro Live Stacker version {} started in {} ms.")
     start_message_values = [VERSION, startup.elapsed_in_milli_as_str]
     MESSAGE_HUB.dispatch_info(__name__, start_message, start_message_values)
+
+    if config.get_send_stats_active():
+        call_home()
 
     app_return_code = app.exec()
     controller.shutdown()

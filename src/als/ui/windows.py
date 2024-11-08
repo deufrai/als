@@ -158,6 +158,16 @@ class MainWindow(QMainWindow):
         self.update_display()
         MESSAGE_HUB.add_receiver(self)
 
+        if config.get_send_stats_active() is None:
+            _LOGGER.info("Send stats has never been set. Asking user")
+
+            message_box(
+                self.tr("ALS - Usage stats confirmation"),
+                self.tr("It appears you haven't yet confirmed your choice on usage statistics") + linesep*2 +
+                self.tr("Please check the settings page's 'Core' section..."))
+
+            self._open_preferences()
+
         if 0 == config.get_profile():
             self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : {I18n.VISUAL}")
         else:
