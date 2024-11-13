@@ -173,8 +173,12 @@ class MainWindow(QMainWindow):
         else:
             self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : Photo")
 
+        self._ui.action_full_screen.setChecked(config.get_full_screen_active())
+
         if config.get_full_screen_active():
-            self._ui.action_full_screen.setChecked(True)
+            self.showFullScreen()
+        elif config.get_window_maximized():
+            self.showMaximized()
         else:
             self.show()
 
@@ -358,6 +362,7 @@ class MainWindow(QMainWindow):
             config.set_window_geometry((window_rect.x(), window_rect.y(), window_rect.width(), window_rect.height()))
 
         config.set_full_screen_active(self.isFullScreen())
+        config.set_window_maximized(self.isMaximized())
         config.set_night_mode_active(self._ui.action_night_mode.isChecked())
         self._save_config()
 

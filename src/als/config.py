@@ -35,6 +35,7 @@ _WWW_DEDICATED_FOLDER = "www_dedicated_folder"
 _LOG_LEVEL = "log_level"
 _WWW_SERVER_PORT = "www_server_port"
 _WINDOW_GEOMETRY = "window_geometry"
+_WINDOW_MAXIMIZED = "window_maximized"
 _IMAGE_SAVE_FORMAT = "image_save_format"
 _FULL_SCREEN = "full_screen"
 _WWW_REFRESH_PERIOD = "web_refresh_period"
@@ -75,6 +76,7 @@ _DEFAULTS = {
     _LOG_LEVEL:             _LOG_LEVEL_INFO,
     _WWW_SERVER_PORT:       "8000",
     _WINDOW_GEOMETRY:       "50,100,1400,900",
+    _WINDOW_MAXIMIZED:      0,
     _IMAGE_SAVE_FORMAT:     IMAGE_SAVE_TYPE_JPEG,
     _FULL_SCREEN:           0,
     _WWW_REFRESH_PERIOD:    5,
@@ -125,6 +127,31 @@ def get_full_screen_active():
         return int(_get(_FULL_SCREEN)) == 1
     except ValueError:
         return _DEFAULTS[_FULL_SCREEN]
+
+
+def set_window_maximized(maximized: bool):
+    """
+    Set maximized window indicator
+
+    :param maximized: should app be launched in maximized state ?
+    :type maximized: bool
+    """
+
+    _set(_WINDOW_MAXIMIZED, "1" if maximized else "0")
+
+
+def get_window_maximized():
+    """
+    Get maximized window indicator
+
+    :return: True if app should be launched in maximized state, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_WINDOW_MAXIMIZED)) == 1
+    except ValueError:
+        return _DEFAULTS[_WINDOW_MAXIMIZED]
 
 
 def set_send_stats_active(stats: bool):
