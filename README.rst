@@ -4,7 +4,8 @@ ALS - Astro Live Stacker
 
 Website : https://als-app.org
 
-.. image:: https://img.shields.io/travis/com/deufrai/als/develop
+.. image:: https://img.shields.io/gitlab/pipeline-status/als%2Fals-app-src?gitlab_url=https%3A%2F%2Fforge.wardsback.org&branch=release%2F0.7
+   :alt: Gitlab Pipeline Status
 .. image:: https://img.shields.io/github/license/deufrai/als
 
 
