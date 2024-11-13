@@ -1,5 +1,5 @@
 # ALS Log Analyser
-Brother project for ALS - https://github.com/gehelem/als
+Brother project for ALS - https://github.com/deufrai/als
 
 This tool extracts data from ALS's detailed logs and funnels it into CSV files. User can then consume the
 data as she wishes.

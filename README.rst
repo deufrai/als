@@ -4,8 +4,8 @@ ALS - Astro Live Stacker
 
 Website : https://als-app.org
 
-.. image:: https://img.shields.io/travis/com/gehelem/als/develop
-.. image:: https://img.shields.io/github/license/gehelem/als
+.. image:: https://img.shields.io/travis/com/deufrai/als/develop
+.. image:: https://img.shields.io/github/license/deufrai/als
 
 
 A desktop application for astrophotography live stacking.
@@ -56,7 +56,7 @@ release, then cloning the repo is the way to go.
 Download an archive from GitHub
 +++++++++++++++++++++++++++++++
 
-#. Point your browser of choice to the `ALS GitHub releases page <https://github.com/gehelem/als/releases>`_
+#. Point your browser of choice to the `ALS GitHub releases page <https://github.com/deufrai/als/releases>`_
 #. CLick the version you want to use
 #. Download desired archive format, zip or tar.gz
 #. Extract the archive in the folder of your choice
@@ -90,7 +90,7 @@ below :
 
 .. code-block:: shell
 
-  $ git clone https://github.com/gehelem/als.git -b <branch_name_chosen_above>
+  $ git clone https://github.com/deufrai/als.git -b <branch_name_chosen_above>
 
 
 Installation
