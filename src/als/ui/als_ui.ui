@@ -81,6 +81,7 @@
     </property>
     <addaction name="action_image_only"/>
     <addaction name="separator"/>
+    <addaction name="action_zoom_reset"/>
     <addaction name="action_zoom_in"/>
     <addaction name="action_zoom_out"/>
     <addaction name="separator"/>
@@ -1491,6 +1492,17 @@
    </property>
    <property name="shortcut">
     <string notr="true">B</string>
+   </property>
+  </action>
+  <action name="action_zoom_reset">
+   <property name="text">
+    <string>&amp;Reset zoom</string>
+   </property>
+   <property name="statusTip">
+    <string>Reset zoom (1:1)</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">G</string>
    </property>
   </action>
  </widget>

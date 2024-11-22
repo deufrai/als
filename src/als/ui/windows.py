@@ -617,6 +617,12 @@ class MainWindow(QMainWindow):
 
     @log
     @pyqtSlot(bool)
+    def on_action_zoom_reset_triggered(self, _):
+        """ user wants to reset image zoom """
+        self._ui.image_view.reset_zoom()
+
+    @log
+    @pyqtSlot(bool)
     def on_action_adjust_image_triggered(self, _):
         """ user wants to adjust image to view """
         self._ui.image_view.adjustZoom()

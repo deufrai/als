@@ -91,6 +91,19 @@ class ImageView(QGraphicsView):
         self.adjustZoom()
 
     @log
+    def mousePressEvent(self, event):
+        """
+        trigger image zoom reset on mouse right click and keep default behaviour otherwise
+
+        :param event: The QMouseEvent instance containing details about the mouse event.
+        :return: None
+        """
+        if event.button() == Qt.RightButton:
+            self.reset_zoom()
+        else:
+            super().mousePressEvent(event)
+
+    @log
     def adjustZoom(self):
         """ Fir image into view """
         self.fitInView(self.scene().items()[0], Qt.KeepAspectRatio)
@@ -104,6 +117,11 @@ class ImageView(QGraphicsView):
     def zoom_out(self):
         """ zoom out """
         self.scale(1 / ImageView._ZOOM_FACTOR, 1 / ImageView._ZOOM_FACTOR)
+
+    @log
+    def reset_zoom(self):
+        """Reset zoom to default"""
+        self.setTransform(QtGui.QTransform())
 
 
 class HistogramView(QWidget):
