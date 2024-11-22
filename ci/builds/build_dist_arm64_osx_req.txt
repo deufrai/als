@@ -1,0 +1,26 @@
+astroalign==1.0.4
+astropy
+dtcwt
+numpy
+opencv-python-headless==4.5.5.64
+PyQt5
+pywi
+qimage2ndarray
+rawpy
+watchdog
+pylint
+Sphinx
+pytest
+pytest-cov
+coverage
+numba
+sphinx-rtd-theme
+psutil
+PyInstaller<5
+qrcode
+exifread
+
+# transitive dependencies pinning
+######################################
+
+Pillow<10
