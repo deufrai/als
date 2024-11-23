@@ -30,38 +30,35 @@ defaultContentLanguage = "fr"
     languageName = "Français"
     contentDir = "content/fr"
 
+
+    [[languages.fr.menu.main]]
+      identifier = "about"
+      name = "À propos"
+      url = "/about/"
+      weight = 10
+
+    [[languages.fr.menu.main]]
+      identifier = "docs"
+      name = "Documentation"
+      url = "/docs/"
+      weight = 20
+
   [languages.en]
     weight = 2
     languageName = "English"
     contentDir = "content/en"
 
-[[menu.main]]
-  identifier = "about"
-  name = "À propos"
-  url = "/about/"
-  weight = 10
-  language = "fr"
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "/en/about/"
+      weight = 10
 
-[[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/en/about/"
-  weight = 10
-  language = "en"
-
-[[menu.main]]
-  identifier = "docs"
-  name = "Documentation"
-  url = "/docs/"
-  weight = 20
-  language = "fr"
-
-[[menu.main]]
-  identifier = "docs"
-  name = "Docs"
-  url = "/en/docs/"
-  weight = 20
-  language = "en"
+    [[languages.en.menu.main]]
+      identifier = "docs"
+      name = "Docs"
+      url = "/en/docs/"
+      weight = 20
 
 [params.languageswitcher]
   enable = true
