@@ -4,6 +4,7 @@ title = "Astro Live Stacker"
 theme = "docsy"
 publishDir = "public"
 enableRobotsTXT = true
+defaultContentLanguage = "fr"
 
 [params]
   docs = true
@@ -28,7 +29,6 @@ enableRobotsTXT = true
     weight = 1
     languageName = "Français"
     contentDir = "content/fr"
-    defaultContentLanguage = true
 
   [languages.en]
     weight = 2
@@ -65,7 +65,7 @@ enableRobotsTXT = true
 
 [[menu.main]]
   identifier = "docs"
-  name = "Docs"
+  name = "Documentation"
   url = "/docs/"
   weight = 20
   language = "fr"
