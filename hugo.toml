@@ -1,0 +1,53 @@
+baseURL = "https://next.als-app.org/"
+languageCode = "fr"
+title = "Astro Live Stacker"
+theme = "docsy"
+publishDir = "public"
+enableRobotsTXT = true
+
+
+[params]
+  docs = true
+  disableBreadcrumb = false
+  disableFeedback = true
+  searchIndexInMemory = true
+  custom_css = "css/custom.css"
+
+[params.ui]
+  navbarVariant = "dark"
+  sidebarVariant = "dark"
+  primaryColor = "#ff0000"   # Red accents
+  primaryDarkColor = "#8b0000"  # Dark red
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[languages]
+  [languages.fr]
+    weight = 1
+    languageName = "Français"
+    contentDir = "content/fr"
+
+  [languages.en]
+    weight = 2
+    languageName = "English"
+    contentDir = "content/en"
+
+[[menu.main]]
+  identifier = "about"
+  name = "À propos"
+  url = "/about/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "docs"
+  name = "Docs"
+  url = "/docs/"
+  weight = 20
+
+[params.languageswitcher]
+  enable = true
+  style = "dropdown"   # "dropdown" or "buttons"
+
