@@ -4,7 +4,7 @@ title = "Astro Live Stacker"
 theme = "docsy"
 publishDir = "public"
 enableRobotsTXT = true
-defaultContentLanguage = "fr"
+defaultContentLanguage = "fr"  # Retain this, but avoid the problematic line in the `languages` section
 
 [params]
   docs = true
@@ -29,7 +29,6 @@ defaultContentLanguage = "fr"
     weight = 1
     languageName = "Français"
     contentDir = "content/fr"
-
 
     [[languages.fr.menu.main]]
       identifier = "about"
