@@ -36,20 +36,6 @@ defaultContentLanguage = "fr"
     contentDir = "content/en"
 
 [[menu.main]]
-  identifier = "home"
-  name = "Accueil"
-  url = "/"
-  weight = 1
-  language = "fr"
-
-[[menu.main]]
-  identifier = "home"
-  name = "Home"
-  url = "/en/"
-  weight = 1
-  language = "en"
-
-[[menu.main]]
   identifier = "about"
   name = "À propos"
   url = "/about/"
