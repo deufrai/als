@@ -6,6 +6,15 @@ if [ -z "$STAGING_DIR" ]; then
   exit 1
 fi
 
+# Check if NODE_PATH environment variable is set
+if [ -z "$NODE_PATH" ]; then
+  echo "Error: NODE_PATH environment variable is not set."
+  exit 1
+fi
+
+# Set the PATH to include Node.js binaries
+export PATH=$PATH:$NODE_PATH
+
 # Print the current status
 echo "Starting the deployment process..."
 
@@ -15,7 +24,7 @@ echo "Repository root: $REPO_ROOT"
 
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
-hugo --cleanDestinationDir
+hugo --cleanDestinationDir -v
 
 # Check if the build was successful
 if [ $? -ne 0 ]; then
