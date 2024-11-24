@@ -7,18 +7,18 @@ body {
 }
 
 header.homepage-section {
-    background-color: #8b0000 !important; /* Dark red */
+    background-color: #1b1b1b !important; /* Match background color */
     color: white !important;
-    padding: 15px !important; /* Reduced padding */
+    padding: 15px !important;
     text-align: center !important;
 }
 
 section.homepage-section {
     padding: 15px !important; /* Reduced padding */
     margin: 15px !important; /* Reduced margin */
-    background-color: #333333 !important; /* Dark grey background */
+    background-color: #1b1b1b !important; /* Match background color */
     border-radius: 8px !important;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5) !important; /* Enhanced shadow for better stand out */
 }
 
 .download-buttons {
