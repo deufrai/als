@@ -43,7 +43,7 @@ fi
 
 # Install PostCSS
 echo "Installing PostCSS..."
-npm install postcss postcss-cli
+npm install --save-dev postcss postcss-cli
 if [ $? -ne 0 ]; then
   echo "Error: PostCSS install failed."
   exit 1
