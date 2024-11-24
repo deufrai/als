@@ -1,24 +1,41 @@
-/* Custom Styles for Astro Live Stacker */
-
-/* Change the primary color */
-:root {
-    --primary-color: #ff0000;
-    --primary-dark-color: #8b0000;
-}
-
-/* Example styling */
 body {
-    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     color: #333;
 }
 
-.navbar {
-    background-color: var(--primary-color);
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-.sidebar {
-    background-color: var(--primary-dark-color);
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+.button, #downloadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover, #downloadButton:hover {
+    background-color: #45a049;
+}
+
 
 /* Ensure the main content has padding to prevent overlap */
 .content-wrapper {
