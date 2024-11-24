@@ -23,6 +23,13 @@ echo "Starting the deployment process..."
 REPO_ROOT=$(pwd)
 echo "Repository root: $REPO_ROOT"
 
+echo "Installing PostCSS..."
+npm install --save-dev autoprefixer postcss-cli
+if [ $? -ne 0 ]; then
+  echo "Error: PostCSS install failed."
+  exit 1
+fi
+
 # Initialize and update the Docsy submodule to v0.11.0
 echo "Initializing and updating Docsy submodule..."
 git submodule update --init --recursive
@@ -46,15 +53,9 @@ else
   echo "Node.js dependencies already installed."
 fi
 
-# Ensure PostCSS is available using npx
-echo "Installing PostCSS..."
-npm install --save-dev postcss postcss-cli
-if [ $? -ne 0 ]; then
-  echo "Error: PostCSS install failed."
-  exit 1
-fi
-cd ../../  # Navigate back to the repository root
 echo "Node.js dependencies installed successfully."
+
+cd ../../  # Navigate back to the repository root
 
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
