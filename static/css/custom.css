@@ -30,6 +30,12 @@ section.homepage-section {
     width: auto;
 }
 
+.catchphrase {
+    text-align: center;
+    font-size: 2em; /* Increased size to match heading */
+    margin-bottom: 20px;
+}
+
 .download-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
