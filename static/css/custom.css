@@ -21,6 +21,15 @@ section.homepage-section {
     box-shadow: 0 8px 16px rgba(0,0,0,0.5) !important; /* Enhanced shadow for better stand out */
 }
 
+.screenshot {
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* Shadow for screenshot */
+    border: none;
+    max-height: 33vh; /* Maximum height of one-third of the viewport height */
+    width: auto;
+}
+
 .download-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
