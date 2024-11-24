@@ -41,5 +41,14 @@ if [ $? -ne 0 ]; then
 fi
 echo "Files copied successfully to the target folder."
 
+# Set permissions to ensure files are accessible to the web server
+echo "Setting permissions for the target folder..."
+find "${STAGING_DIR:?}" -exec chmod -R u=rwX,go=rX {} +
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to set permissions for the target folder."
+  exit 1
+fi
+echo "Permissions set successfully."
+
 # Print the completion message
 echo "Deployment process completed successfully."
