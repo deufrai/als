@@ -14,6 +14,7 @@ fi
 
 # Set the PATH to include Node.js binaries
 export PATH=$PATH:$NODE_PATH
+export NODE_PATH="$(npm root -g):$NODE_PATH"  # Ensure global npm packages are included in NODE_PATH
 
 # Print the current status
 echo "Starting the deployment process..."
@@ -33,17 +34,21 @@ if [ $? -ne 0 ]; then
 fi
 echo "Docsy submodule updated to v0.11.0 successfully."
 
-# Install Node.js dependencies
-echo "Installing Node.js dependencies..."
-npm install
-if [ $? -ne 0 ]; then
-  echo "Error: npm install failed."
-  exit 1
+# Install Node.js dependencies if not already cached
+if [ ! -d "node_modules" ]; then
+  echo "Installing Node.js dependencies..."
+  npm install
+  if [ $? -ne 0 ]; then
+    echo "Error: npm install failed."
+    exit 1
+  fi
+else
+  echo "Node.js dependencies already installed."
 fi
 
-# Install PostCSS
+# Ensure PostCSS is available using npx
 echo "Installing PostCSS..."
-npm install --save-dev postcss postcss-cli
+npx install postcss postcss-cli
 if [ $? -ne 0 ]; then
   echo "Error: PostCSS install failed."
   exit 1

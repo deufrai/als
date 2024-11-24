@@ -1,6 +1,12 @@
 stages:
   - deploy
 
+cache:
+  paths:
+    - node_modules/
+    - themes/docsy/node_modules/
+    - public/
+
 deploy_to_staging:
   stage: deploy
   only:
