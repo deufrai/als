@@ -6,16 +6,16 @@ body {
     color: #d3d3d3; /* Light grey text */
 }
 
-header {
+.main-header {
     background-color: #8b0000; /* Dark red */
     color: white;
-    padding: 20px;
+    padding: 15px; /* Reduced padding */
     text-align: center;
 }
 
-section {
-    padding: 20px;
-    margin: 20px;
+.homepage-section {
+    padding: 15px; /* Reduced padding */
+    margin: 15px; /* Reduced margin */
     background-color: #333333; /* Dark grey background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -50,11 +50,3 @@ a {
 a:hover {
     color: #ffffff; /* White text on hover */
 }
-
-
-/* Ensure the main content has padding to prevent overlap */
-.content-wrapper {
-  overflow: auto;  /* Ensure proper layout */
-  padding-top: 80px;  /* Adjust this value as necessary */
-}
-
