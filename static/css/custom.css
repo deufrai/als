@@ -19,3 +19,10 @@ body {
 .sidebar {
     background-color: var(--primary-dark-color);
 }
+
+/* Ensure the main content has padding to prevent overlap */
+.content-wrapper {
+  overflow: auto;  /* Ensure proper layout */
+  padding-top: 80px;  /* Adjust this value as necessary */
+}
+
