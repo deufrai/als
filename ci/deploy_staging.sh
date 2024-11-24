@@ -24,7 +24,7 @@ echo "Repository root: $REPO_ROOT"
 
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
-hugo --cleanDestinationDir -v
+hugo --cleanDestinationDir
 
 # Check if the build was successful
 if [ $? -ne 0 ]; then
