@@ -12,6 +12,7 @@ defaultContentLanguage = "fr"  # Retain this, but avoid the problematic line in 
   disableFeedback = true
   searchIndexInMemory = true
   custom_css = "css/custom.css"
+  favicon = "/images/favicon.ico"
 
 [params.ui]
   navbarVariant = "dark"
