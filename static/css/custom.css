@@ -27,7 +27,8 @@ section.homepage-section {
     box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* Shadow for screenshot */
     border: none;
     max-height: 33vh; /* Maximum height of one-third of the viewport height */
-    width: auto;
+    max-width: 100%; /* Ensure width does not exceed screen space */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .catchphrase {
