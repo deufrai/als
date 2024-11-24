@@ -23,23 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function detectOS() {
-    var platform = window.navigator.platform,
-        macosIntelPlatforms = ['Macintosh', 'MacIntel'],
-        macosArmPlatforms = ['MacPPC', 'Mac68K'],
-        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-        linuxAMD64Platforms = ['Linux x86_64'],
-        linuxARM64Platforms = ['Linux aarch64'],
-        os = null;
+    var platform = window.navigator.platform;
+    var userAgent = navigator.userAgent.toLowerCase();
+    var os = null;
 
-    if (macosIntelPlatforms.indexOf(platform) !== -1) {
+    if (platform.includes('MacIntel') && !userAgent.includes('arm64')) {
         os = 'Mac-Intel';
-    } else if (macosArmPlatforms.indexOf(platform) !== -1) {
+    } else if (platform.includes('Mac') && userAgent.includes('arm64')) {
         os = 'Mac-AppleSilicon';
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    } else if (platform.includes('Win')) {
         os = 'Windows';
-    } else if (linuxAMD64Platforms.indexOf(platform) !== -1) {
+    } else if (platform.includes('Linux') && userAgent.includes('x86_64')) {
         os = 'Linux-AMD64';
-    } else if (linuxARM64Platforms.indexOf(platform) !== -1) {
+    } else if (platform.includes('Linux') && userAgent.includes('aarch64')) {
         os = 'Linux-ARM64';
     } else if (!os && /Linux/.test(platform)) {
         os = 'Linux-AMD64'; // Default to Linux AMD64
