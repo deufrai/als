@@ -19,6 +19,6 @@ nos outils faciles à utiliser, vous pouvez capturer, empiler et améliorer des 
 - **Interface Intuitive** : Un design convivial qui convient aux débutants et aux professionnels.
 - **Outils d'Édition Avancés** : Améliorez vos images avec des fonctionnalités d'édition puissantes.
 
-Explorez notre [Documentation](/fr/docs/) pour commencer, ou en savoir plus [À propos de Nous](/fr/about/).
+Explorez notre [Documentation](/docs/) pour commencer, ou en savoir plus [À propos de Nous](/about/).
   <!-- markdown content end -->
 </div>

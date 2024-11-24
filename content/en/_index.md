@@ -19,7 +19,7 @@ you can capture, stack, and enhance images of the night sky.
 - **User-Friendly Interface:** Intuitive design makes it easy for beginners and pros alike.
 - **Advanced Editing Tools:** Enhance your images with powerful editing features.
 
-Explore our [Documentation](/docs/) to get started, or learn more [About Us](/about/).
+Explore our [Documentation](/en/docs/) to get started, or learn more [About Us](/en/about/).
 
   <!-- markdown content end -->
 </div>

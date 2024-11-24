@@ -14,4 +14,4 @@ Bienvenue sur Astro Live Stacker ! Suivez ces étapes pour commencer à capturer
 3. **Capturer des Images** : Utilisez la fonctionnalité d'empilement en temps réel pour capturer et empiler des images à la volée.
 4. **Éditer et Améliorer** : Utilisez nos outils d'édition avancés pour améliorer vos images.
 
-Pour des instructions détaillées, consultez notre [Manuel de l'Utilisateur](/fr/docs/user-manual/).
+Pour des instructions détaillées, consultez notre [Manuel de l'Utilisateur](/docs/user-manual/).
