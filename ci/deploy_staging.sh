@@ -13,8 +13,8 @@ if [ -z "$NODE_PATH" ]; then
 fi
 
 # Set the PATH to include Node.js binaries
-export PATH=$PATH:$NODE_PATH
 export NODE_PATH="$(npm root -g):$NODE_PATH"  # Ensure global npm packages are included in NODE_PATH
+export PATH=$PATH:$NODE_PATH
 
 # Print the current status
 echo "Starting the deployment process..."
