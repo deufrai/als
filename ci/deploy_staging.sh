@@ -13,7 +13,6 @@ if [ -z "$NODE_PATH" ]; then
 fi
 
 # Set the PATH to include Node.js binaries
-export NODE_PATH="$(npm root -g):$NODE_PATH"  # Ensure global npm packages are included in NODE_PATH
 export PATH=$PATH:$NODE_PATH
 
 # Print the current status
