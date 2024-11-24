@@ -6,47 +6,53 @@ body {
     color: #d3d3d3; /* Light grey text */
 }
 
-.main-header {
-    background-color: #8b0000; /* Dark red */
-    color: white;
-    padding: 15px; /* Reduced padding */
-    text-align: center;
+header.homepage-section {
+    background-color: #8b0000 !important; /* Dark red */
+    color: white !important;
+    padding: 15px !important; /* Reduced padding */
+    text-align: center !important;
 }
 
-.homepage-section {
-    padding: 15px; /* Reduced padding */
-    margin: 15px; /* Reduced margin */
-    background-color: #333333; /* Dark grey background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+section.homepage-section {
+    padding: 15px !important; /* Reduced padding */
+    margin: 15px !important; /* Reduced margin */
+    background-color: #333333 !important; /* Dark grey background */
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
 }
 
 .download-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    justify-content: center !important;
 }
 
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #8b0000; /* Dark red */
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    margin-top: 10px !important;
+    background-color: #8b0000 !important; /* Dark red */
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
 }
 
 .button:hover {
-    background-color: #a30000; /* Slightly lighter red on hover */
+    background-color: #a30000 !important; /* Slightly lighter red on hover */
 }
 
 a {
-    color: #d3d3d3; /* Light grey text for links */
+    color: #d3d3d3 !important; /* Light grey text for links */
 }
 
 a:hover {
-    color: #ffffff; /* White text on hover */
+    color: #ffffff !important; /* White text on hover */
+}
+
+/* Ensure the main content has padding to prevent overlap */
+.content-wrapper {
+  overflow: auto;  /* Ensure proper layout */
+  padding-top: 80px;  /* Adjust this value as necessary */
 }
