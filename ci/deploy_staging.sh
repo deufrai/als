@@ -40,6 +40,14 @@ if [ $? -ne 0 ]; then
   echo "Error: npm install failed."
   exit 1
 fi
+
+# Install PostCSS
+echo "Installing PostCSS..."
+npm install postcss postcss-cli
+if [ $? -ne 0 ]; then
+  echo "Error: PostCSS install failed."
+  exit 1
+fi
 cd ../../  # Navigate back to the repository root
 echo "Node.js dependencies installed successfully."
 
