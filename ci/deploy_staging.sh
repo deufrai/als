@@ -22,9 +22,30 @@ echo "Starting the deployment process..."
 REPO_ROOT=$(pwd)
 echo "Repository root: $REPO_ROOT"
 
+# Initialize and update the Docsy submodule to v0.11.0
+echo "Initializing and updating Docsy submodule..."
+git submodule update --init --recursive
+cd themes/docsy || { echo "Docsy directory not found"; exit 1; }
+git checkout v0.11.0
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to checkout Docsy version v0.11.0."
+  exit 1
+fi
+echo "Docsy submodule updated to v0.11.0 successfully."
+
+# Install Node.js dependencies
+echo "Installing Node.js dependencies..."
+npm install
+if [ $? -ne 0 ]; then
+  echo "Error: npm install failed."
+  exit 1
+fi
+cd ../../  # Navigate back to the repository root
+echo "Node.js dependencies installed successfully."
+
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
-hugo --cleanDestinationDir
+hugo --cleanDestinationDir -v
 
 # Check if the build was successful
 if [ $? -ne 0 ]; then
