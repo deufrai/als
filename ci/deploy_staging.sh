@@ -48,7 +48,7 @@ fi
 
 # Ensure PostCSS is available using npx
 echo "Installing PostCSS..."
-npx install postcss postcss-cli
+npm install --save-dev postcss postcss-cli
 if [ $? -ne 0 ]; then
   echo "Error: PostCSS install failed."
   exit 1
