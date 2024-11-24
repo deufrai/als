@@ -1,0 +1,14 @@
+stages:
+  - deploy
+
+deploy_to_staging:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - infra
+  script:
+    - ./ci/deploy_staging.sh
+  environment:
+    name: staging
+    url: https://next.als-app.org/
