@@ -69,6 +69,22 @@ a:hover {
 
 /* Ensure the main content has padding to prevent overlap */
 .content-wrapper {
-  overflow: auto;  /* Ensure proper layout */
-  padding-top: 80px;  /* Adjust this value as necessary */
+    overflow: auto;  /* Ensure proper layout */
+    padding-top: 80px;  /* Adjust this value as necessary */
+}
+
+/* Features section styling */
+.features-section {
+    padding: 0 40px; /* Large lateral padding */
+}
+
+.features-list {
+    list-style-type: none; /* Hide bullet points */
+    padding: 0;
+    font-size: 1.6em; /* Increase font size for list items */
+}
+
+.features-list li {
+    margin-bottom: 40px; /* Increase vertical spacing between list items */
+    padding: 0 80px; /* Padding inside the box */
 }
