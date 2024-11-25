@@ -163,3 +163,39 @@ a:hover {
         margin-right: 80px !important;
     }
 }
+
+
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+footer a {
+  color: #ffffff;
+}
+
+footer a:hover {
+  color: #adb5bd;
+}
+
+footer h5 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+footer p, footer ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer .row {
+  display: flex;
+  justify-content: space-between;
+}
