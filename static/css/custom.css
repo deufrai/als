@@ -111,3 +111,11 @@ a:hover {
         width: 48%; /* Each item takes up about half the container's width */
     }
 }
+
+/* Adjust for single column layout */
+@media (max-width: 899px) {
+    .features-list {
+        font-size: 1em; /* Reduce font size for descriptions */
+        margin: 0 20px; /* Reduce lateral margin for the whole feature list */
+    }
+}
