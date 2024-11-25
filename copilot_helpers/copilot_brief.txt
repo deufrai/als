@@ -13,6 +13,7 @@ Communicate all your changes to me in the form of patches that I'll consume with
 whatever CSS update you make, use our custom CSS
 use hugo's i18n facility as much as possible
 don't suggest changes in docsy folder tree. use our partials as much as possible
+don't hesitate to ask for the actual content of a project file before updating it for the first time
 I will sometimes make changes on my own. In that case, I'll dump them to you so hare aware of project evolution
 I will sometimes give you commit hashes. They act as milestones. Keep track of them so we are always on the same page
 
@@ -28,12 +29,3 @@ Let's pick our brains together !
 
 ## our custom CSS is
 {{cat static/css/custom.css}}
-
-## our head partial is
-{{cat layouts/partials/head.html}}
-
-## our navbar partial is
-{{cat layouts/partials/navbar.html}}
-
-## our footer partial is
-{{cat layouts/partials/footer.html}}
