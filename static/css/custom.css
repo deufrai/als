@@ -69,7 +69,7 @@ a:hover {
 /* Ensure the main content has padding to prevent overlap */
 .content-wrapper {
     overflow: auto; /* Ensure proper layout */
-    padding-top: 80px; /* Reset padding to 80px */
+    padding-top: 80px; /* Adjusted padding to prevent overlap */
 }
 
 /* Features section styling */
@@ -154,4 +154,12 @@ a:hover {
 
 .about-section ul li strong {
     color: #ffffff; /* White text */
+}
+
+/* Add 80px lateral margin on wide screens */
+@media (min-width: 900px) {
+    .about-section {
+        margin-left: 80px !important;
+        margin-right: 80px !important;
+    }
 }
