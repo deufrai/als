@@ -153,7 +153,7 @@ a:hover {
 }
 
 .about-section ul li strong {
-    color: #ffffff; /* White text */
+    color: inherit; /* Set to default color */
 }
 
 /* Add 80px lateral margin on wide screens */
