@@ -1,5 +1,5 @@
 ---
-title: "ALS - Installation sur PC/Linux"
+title: "Installation sur PC/Linux"
 ---
 
 <div class="content-wrapper">

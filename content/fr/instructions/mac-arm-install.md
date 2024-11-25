@@ -1,5 +1,5 @@
 ---
-title: "ALS - Install sur Mac M1, M2, etc"
+title: "Install sur Mac M1, M2, etc"
 ---
 
 <div class="content-wrapper">
