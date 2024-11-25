@@ -13,6 +13,7 @@ defaultContentLanguage = "fr"  # Retain this, but avoid the problematic line in 
   searchIndexInMemory = true
   custom_css = "css/custom.css"
   favicon = "/images/favicon.ico"
+  logo = "/images/als_logo_256.png"
 
 [params.ui]
   navbarVariant = "dark"
