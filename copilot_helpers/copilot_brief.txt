@@ -1,23 +1,39 @@
+Hi there, nice to meet you :)
 ## our task context :
 - We are building the next version of the website for the software called ALS (Astro live stacker)
-- We are using hugo with docsy theme.
-Project structure is dumped at the end of this brief
-Hugo config is dumped at the end of this brief
-docsy is set up in the themes/docsy folder as a Git submodule, and it checks out the v0.11.0 tag.
-hugo site is set to use 2 languages : FR & EN. FR being the default.
-we use docsy's language picker set for displaying as drop-down
+- We are using hugo with docsy theme and docsy is set up in the themes/docsy folder as a Git submodule checked out on the v0.11.0 tag.
 
 ## what I expect from you:
 - direct answers when question implies YES/NO reply
-- whatever CSS update you make, merge it into our own custom CSS, then dump the merged result
-- use hugo's i18n facility as much as possible
 
-if this brief is clear for you, please summarize it for me after you analyse the Project structure
+## working together
+first analyse the project structure and main files contents at the end of this brief
+Project is modified by you, following my prompts
+Communicate all your changes to me in the form of patches that I'll consume with `git patch`
+whatever CSS update you make, use our custom CSS
+use hugo's i18n facility as much as possible
+don't suggest changes in docsy folder tree. use our partials as much as possible
+I will sometimes make changes on my own. In that case, I'll dump them to you so hare aware of project evolution
+I will sometimes give you commit hashes. They act as milestones. Keep track of them so we are always on the same page
 
-Let's pick our brains
+if this brief is clear for you, please summarize it for me after you analyse the Project structure and hugo config below
+
+Let's pick our brains together !
 
 ## project structure is
 {{git ls-files}}
 
 ## hugo config is
 {{cat hugo.toml}}
+
+## our custom CSS is
+{{cat static/css/custom.css}}
+
+## our head partial is
+{{cat layouts/partials/head.html}}
+
+## our navbar partial is
+{{cat layouts/partials/navbar.html}}
+
+## our footer partial is
+{{cat layouts/partials/footer.html}}
