@@ -51,6 +51,7 @@ section.homepage-section {
     text-decoration: none !important;
     border-radius: 4px !important;
     cursor: pointer !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add drop shadow */
 }
 
 .button:hover {
