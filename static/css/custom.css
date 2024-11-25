@@ -40,6 +40,8 @@ section.homepage-section {
     flex-wrap: wrap !important;
     gap: 20px !important;
     justify-content: center !important;
+    margin-top: 40px !important;  /* Increased top margin */
+    margin-bottom: 40px !important;  /* Increased bottom margin */
 }
 
 .download-buttons .button {
