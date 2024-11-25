@@ -3,13 +3,13 @@
     <ul>
       {{ if eq .Site.Language.Lang "fr" }}
         <li>
-          <a href="https://discord.com/channels/489463570552324097/1026765528108376074">
+          <a href="https://discord.com/channels/489463570552324097/1026765528108376074" target="_blank">
             <i class="fab fa-discord"></i> {{ i18n "discordASTROfr" }}
           </a>
         </li>
       {{ end }}
       <li>
-        <a href="https://github.com/deufrai/als/issues">
+        <a href="https://github.com/deufrai/als/issues" target="_blank">
           <i class="fab fa-github"></i> {{ i18n "githubIdeaProblem" }}
         </a>
       </li>
@@ -26,7 +26,7 @@
     </ul>
     <div class="footer-license">
       <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
-        <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}">{{ i18n "licenseText" }}</a>
+        <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}" target="_blank">{{ i18n "licenseText" }}</a>
       </p>
     </div>
   </div>
