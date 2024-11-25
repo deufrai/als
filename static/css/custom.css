@@ -88,3 +88,13 @@ a:hover {
     margin-bottom: 40px; /* Increase vertical spacing between list items */
     padding: 0 80px; /* Padding inside the box */
 }
+
+.features-list li strong {
+    display: block;
+    text-align: center; /* Center the title */
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+.features-list li {
+    font-size: 1em; /* Reduce font size of descriptions */
+}
