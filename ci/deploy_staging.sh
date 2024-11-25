@@ -47,14 +47,14 @@ if [ ! -d "node_modules" ]; then
   if [ $? -ne 0 ]; then
     echo "Error: npm install failed."
     exit 1
+  else
+    echo "Node.js dependencies installed successfully."
   fi
 else
   echo "Node.js dependencies already installed."
 fi
 
-echo "Node.js dependencies installed successfully."
-
-cd ../../  # Navigate back to the repository root
+cd "$REPO_ROOT" || { echo "failed to climb back to repo root"; exit 1; }
 
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
