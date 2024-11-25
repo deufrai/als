@@ -38,18 +38,18 @@ section.homepage-section {
 .download-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 10px !important;
+    gap: 20px !important;
     justify-content: center !important;
 }
 
-.button {
+.download-buttons .button {
     display: inline-block !important;
     padding: 10px 20px !important;
     margin-top: 10px !important;
     background-color: #8b0000 !important; /* Dark red */
     color: white !important;
     text-decoration: none !important;
-    border-radius: 4px !important;
+    border-radius: 16px !important;
     cursor: pointer !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add drop shadow */
 }
