@@ -69,7 +69,7 @@ a:hover {
 /* Ensure the main content has padding to prevent overlap */
 .content-wrapper {
     overflow: auto; /* Ensure proper layout */
-    padding-top: 80px; /* Adjust this value as necessary */
+    padding-top: 0px; /* Removed padding */
 }
 
 /* Features section styling */
@@ -119,4 +119,39 @@ a:hover {
         font-size: 1em; /* Reduce font size for descriptions */
         margin: 0 20px; /* Reduce lateral margin for the whole feature list */
     }
+}
+
+/* New CSS rules for the "About" page */
+.about-section {
+    padding: 15px !important; /* Match padding with homepage sections */
+    margin: 15px !important; /* Match margin with homepage sections */
+    background-color: #1b1b1b !important; /* Match background color */
+}
+
+.section-title {
+    font-size: 28px; /* Increased font size */
+    color: #d3d3d3; /* Light grey text */
+    padding-bottom: 10px;
+    margin-bottom: 10px; /* Reduced spacing */
+}
+
+.section-text {
+    font-size: 18px; /* Increased font size */
+    color: #d3d3d3; /* Light grey text */
+    line-height: 1.6;
+}
+
+.team-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.team-member {
+    font-size: 18px; /* Increased font size */
+    color: #d3d3d3; /* Light grey text */
+    margin-bottom: 8px; /* Reduced spacing */
+}
+
+.team-member strong {
+    color: #ffffff; /* White text */
 }
