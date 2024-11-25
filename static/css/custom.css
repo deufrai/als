@@ -128,30 +128,30 @@ a:hover {
     background-color: #1b1b1b !important; /* Match background color */
 }
 
-.section-title {
+.about-section h2 {
     font-size: 28px; /* Increased font size */
     color: #d3d3d3; /* Light grey text */
     padding-bottom: 10px;
     margin-bottom: 10px; /* Reduced spacing */
 }
 
-.section-text {
+.about-section p {
     font-size: 18px; /* Increased font size */
     color: #d3d3d3; /* Light grey text */
     line-height: 1.6;
 }
 
-.team-list {
+.about-section ul {
     list-style-type: none;
     padding: 0;
 }
 
-.team-member {
+.about-section ul li {
     font-size: 18px; /* Increased font size */
     color: #d3d3d3; /* Light grey text */
     margin-bottom: 8px; /* Reduced spacing */
 }
 
-.team-member strong {
+.about-section ul li strong {
     color: #ffffff; /* White text */
 }
