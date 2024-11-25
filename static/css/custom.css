@@ -164,30 +164,53 @@ a:hover {
     }
 }
 
-
+/* Footer Styles */
 footer {
-  background-color: #343a40;
-  color: #ffffff;
   padding: 20px 0;
-}
-
-footer a {
-  color: #ffffff;
 }
 
 footer a:hover {
   color: #adb5bd;
 }
 
-footer h5 {
-  margin-bottom: 10px;
-  font-size: 1.2em;
-}
-
-footer p, footer ul {
-  margin: 0;
+footer ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between; /* Ensure items are evenly spaced */
+  align-items: center;
+}
+
+footer ul li {
+  margin: 20px;
+  text-align: center;
+}
+
+footer ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2em; /* Reduced size of the text by 40% */
+}
+
+footer ul li a i {
+  font-size: 2.4em; /* Reduced size of the icons by 40% */
+  margin-bottom: 10px; /* Space between icon and text */
+}
+
+footer ul li a:hover i {
+  color: #adb5bd; /* Change color on hover */
+}
+
+footer p {
+  margin-top: 20px;
+}
+
+.footer-license {
+  text-align: center;
+  margin-top: 40px; /* Add margin to position it closer to the bottom */
 }
 
 footer .container {

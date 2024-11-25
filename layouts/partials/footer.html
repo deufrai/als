@@ -1,28 +1,33 @@
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h5>{{ i18n "contactTitle" }}</h5>
-        <ul>
-          <li>{{ i18n "generalInquiries" }}<a href="mailto:contact@als-app.org">contact@als-app.org</a></li>
-          <li>{{ i18n "needHelp" }}<a href="mailto:support@als-app.org">support@als-app.org</a></li>
-        </ul>
-      </div>
-      <div class="col-md-6">
-        <h5>{{ i18n "followUsTitle" }}</h5>
-        <ul>
-          <li><a href="https://github.com/deufrai/als"><i class="fab fa-github"></i> {{ i18n "github" }}</a></li>
-          {{ if eq .Site.Language.Lang "fr" }}
-          <li><a href="https://discord.com/channels/489463570552324097/1026765528108376074"><i class="fab fa-discord"></i> {{ i18n "discord" }}</a></li>
-          {{ end }}
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
-        <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}">{{ i18n "licenseText" }}</a></p>
-      </div>
+    <ul>
+      {{ if eq .Site.Language.Lang "fr" }}
+        <li>
+          <a href="https://discord.com/channels/489463570552324097/1026765528108376074">
+            <i class="fab fa-discord"></i> {{ i18n "discordASTROfr" }}
+          </a>
+        </li>
+      {{ end }}
+      <li>
+        <a href="https://github.com/deufrai/als/issues">
+          <i class="fab fa-github"></i> {{ i18n "githubIdeaProblem" }}
+        </a>
+      </li>
+      <li>
+        <a href="mailto:contact@als-app.org">
+          <i class="fas fa-envelope"></i> {{ i18n "contact" }}
+        </a>
+      </li>
+      <li>
+        <a href="mailto:support@als-app.org">
+          <i class="fas fa-envelope"></i> {{ i18n "support" }}
+        </a>
+      </li>
+    </ul>
+    <div class="footer-license">
+      <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
+        <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}">{{ i18n "licenseText" }}</a>
+      </p>
     </div>
   </div>
 </footer>

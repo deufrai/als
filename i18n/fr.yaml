@@ -1,15 +1,11 @@
-- id: contactTitle
-  translation: "Contactez"
-- id: followUsTitle
-  translation: "Social"
-- id: generalInquiries
-  translation: "Demandes générales : "
-- id: needHelp
-  translation: "Besoin d'aide : "
-- id: github
-  translation: "GitHub"
-- id: discord
-  translation: "Discord aux bons soins de ASTRO-fr"
+- id: contact
+  translation: "Contact"
+- id: support
+  translation: "Support"
+- id: githubIdeaProblem
+  translation: "Une idée, un problème"
+- id: discordASTROfr
+  translation: "Notre salon sur ASTRO-fr"
 - id: year
   translation: "2024"
 - id: siteName
