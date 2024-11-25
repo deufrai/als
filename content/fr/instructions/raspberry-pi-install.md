@@ -1,5 +1,5 @@
 ---
-title: "ALS - Installation sur Raspberry Pi"
+title: "ALS - Install sur Raspberry Pi"
 ---
 
 <div class="content-wrapper">

@@ -1,5 +1,5 @@
 ---
-title: "Install Windows"
+title: "ALS - Install sur Windows"
 ---
 
 <div class="content-wrapper">
