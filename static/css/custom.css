@@ -22,7 +22,7 @@ section.homepage-section {
 .screenshot {
     display: block;
     margin: 0 auto;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* Shadow for screenshot */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Shadow for screenshot */
     border: none;
     max-height: 33vh; /* Maximum height of one-third of the viewport height */
     max-width: 100%; /* Ensure width does not exceed screen space */
@@ -67,8 +67,8 @@ a:hover {
 
 /* Ensure the main content has padding to prevent overlap */
 .content-wrapper {
-    overflow: auto;  /* Ensure proper layout */
-    padding-top: 80px;  /* Adjust this value as necessary */
+    overflow: auto; /* Ensure proper layout */
+    padding-top: 80px; /* Adjust this value as necessary */
 }
 
 /* Features section styling */
@@ -80,6 +80,7 @@ a:hover {
     list-style-type: none; /* Hide bullet points */
     padding: 0;
     font-size: 1.2em; /* Font size for descriptions */
+    margin: 0 120px; /* Added left and right margins for the whole feature list */
 }
 
 /* Layout for feature items */
@@ -99,7 +100,7 @@ a:hover {
 }
 
 /* Responsive two-column layout */
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .features-list {
         display: flex;
         flex-wrap: wrap; /* Allow items to wrap to the next row */
