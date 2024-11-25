@@ -33,6 +33,10 @@ section.homepage-section {
     text-align: center;
     font-size: 2em; /* Increased size to match heading */
     margin-bottom: 20px;
+    font-size: 2.5em; /* Increased size to make it stand out more */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 30px; /* Slightly increased bottom margin */
+    color: #d3d3d3; /* Original light grey text */
 }
 
 .download-buttons {
