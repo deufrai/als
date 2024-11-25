@@ -17,8 +17,6 @@ section.homepage-section {
     padding: 15px !important; /* Reduced padding */
     margin: 15px !important; /* Reduced margin */
     background-color: #1b1b1b !important; /* Match background color */
-    border-radius: 8px !important;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5) !important; /* Enhanced shadow for better stand out */
 }
 
 .screenshot {
@@ -81,20 +79,34 @@ a:hover {
 .features-list {
     list-style-type: none; /* Hide bullet points */
     padding: 0;
-    font-size: 1.6em; /* Increase font size for list items */
+    font-size: 1.2em; /* Font size for descriptions */
 }
 
+/* Layout for feature items */
 .features-list li {
     margin-bottom: 40px; /* Increase vertical spacing between list items */
-    padding: 0 80px; /* Padding inside the box */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for each feature box */
+    border-radius: 8px; /* Rounded corners */
 }
 
+/* Center feature titles */
 .features-list li strong {
     display: block;
     text-align: center; /* Center the title */
+    font-size: 1.6em; /* Increase font size for titles */
     margin-bottom: 10px; /* Space between title and description */
 }
 
-.features-list li {
-    font-size: 1em; /* Reduce font size of descriptions */
+/* Responsive two-column layout */
+@media (min-width: 768px) {
+    .features-list {
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: space-between;
+    }
+
+    .features-list li {
+        width: 48%; /* Each item takes up about half the container's width */
+    }
 }
