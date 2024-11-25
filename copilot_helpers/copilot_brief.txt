@@ -1,10 +1,23 @@
-our task context :
-
-We are building the next version of the website for the software called ALS (Astro live stacker)
-We are using hugo with docsy theme.
-docsy is setup in themes/docsy folder as a Git submodule and it checks out the v0.11.0 tag.
+## our task context :
+- We are building the next version of the website for the software called ALS (Astro live stacker)
+- We are using hugo with docsy theme.
+Project structure is dumped at the end of this brief
+Hugo config is dumped at the end of this brief
+docsy is set up in the themes/docsy folder as a Git submodule, and it checks out the v0.11.0 tag.
 hugo site is set to use 2 languages : FR & EN. FR being the default.
-we use docsy's language picker set for dispaying as drop-down
+we use docsy's language picker set for displaying as drop-down
 
-project structure is
+## what I expect from you:
+- direct answers when question implies YES/NO reply
+- whatever CSS update you make, merge it into our own custom CSS, then dump the merged result
+- use hugo's i18n facility as much as possible
+
+if this brief is clear for you, please summarize it for me after you analyse the Project structure
+
+Let's pick our brains
+
+## project structure is
 {{git ls-files}}
+
+## hugo config is
+{{cat hugo.toml}}
