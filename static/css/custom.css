@@ -49,7 +49,10 @@ section.homepage-section {
 }
 
 .download-buttons .button {
-    display: inline-block !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-basis: 220px !important;
     padding: 10px 20px !important;
     margin-top: 10px !important;
     background-color: #8b0000 !important;
@@ -63,7 +66,9 @@ section.homepage-section {
 }
 
 .download-buttons .button i {
-    color: #a8a8a8 !important
+    color: #a8a8a8 !important;
+    margin-right: 10px !important;
+    transform: translateY(-2px) !important
 }
 
 .download-buttons .button:hover {
