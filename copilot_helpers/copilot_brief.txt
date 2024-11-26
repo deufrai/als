@@ -5,11 +5,11 @@ Hi there, nice to meet you :)
 
 ## what I expect from you:
 - direct answers when question implies YES/NO reply
+- when I point your attention to a specific part of the site, refrain from making suggestions up front.
 
 ## working together
 first analyse the project structure and main files contents at the end of this brief
 Project is modified by you, following my prompts
-Communicate all your changes to me in the form of patches that I'll consume with `git patch`
 whatever CSS update you make, use our custom CSS
 use hugo's i18n facility as much as possible
 don't suggest changes in docsy folder tree. use our partials as much as possible
