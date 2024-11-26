@@ -2,41 +2,41 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1b1b1b; /* Dark background */
-    color: #d3d3d3; /* Light grey text */
+    background-color: #1b1b1b;
+    color: #d3d3d3
 }
 
 header.homepage-section {
-    background-color: #1b1b1b !important; /* Match background color */
+    background-color: #1b1b1b !important;
     color: white !important;
     padding: 15px !important;
-    text-align: center !important;
+    text-align: center !important
 }
 
 section.homepage-section {
-    padding: 15px !important; /* Reduced padding */
-    margin: 15px !important; /* Reduced margin */
-    background-color: #1b1b1b !important; /* Match background color */
+    padding: 15px !important;
+    margin: 15px !important;
+    background-color: #1b1b1b !important
 }
 
 .screenshot {
     display: block;
     margin: 0 auto;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Shadow for screenshot */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .5);
     border: none;
-    max-height: 33vh; /* Maximum height of one-third of the viewport height */
-    max-width: 100%; /* Ensure width does not exceed screen space */
-    height: auto; /* Maintain aspect ratio */
+    max-height: 33vh;
+    max-width: 100%;
+    height: auto
 }
 
 .catchphrase {
     text-align: center;
-    font-size: 2em; /* Increased size to match heading */
+    font-size: 2em;
     margin-bottom: 20px;
-    font-size: 2.5em; /* Increased size to make it stand out more */
-    font-weight: bold; /* Make the text bold */
-    margin-bottom: 30px; /* Slightly increased bottom margin */
-    color: #d3d3d3; /* Original light grey text */
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #d3d3d3
 }
 
 .download-buttons {
@@ -44,187 +44,194 @@ section.homepage-section {
     flex-wrap: wrap !important;
     gap: 20px !important;
     justify-content: center !important;
-    margin-top: 40px !important;  /* Increased top margin */
-    margin-bottom: 40px !important;  /* Increased bottom margin */
+    margin-top: 40px !important;
+    margin-bottom: 40px !important
 }
 
 .download-buttons .button {
     display: inline-block !important;
     padding: 10px 20px !important;
     margin-top: 10px !important;
-    background-color: #8b0000 !important; /* Dark red */
+    background-color: #8b0000 !important;
     color: white !important;
     text-decoration: none !important;
     border-radius: 16px !important;
     cursor: pointer !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add drop shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5)
 }
 
 .button:hover {
-    background-color: #a30000 !important; /* Slightly lighter red on hover */
+    background-color: #a30000 !important
 }
 
 a {
-    color: #d3d3d3 !important; /* Light grey text for links */
+    color: #d3d3d3 !important
 }
 
 a:hover {
-    color: #ffffff !important; /* White text on hover */
+    color: #fff !important
 }
 
-/* Ensure the main content has padding to prevent overlap */
 .content-wrapper {
-    overflow: auto; /* Ensure proper layout */
-    padding-top: 80px; /* Adjusted padding to prevent overlap */
+    overflow: auto;
+    padding-top: 80px
 }
 
-/* Features section styling */
 .features-section {
-    padding: 0 40px; /* Large lateral padding */
+    padding: 0 40px
 }
 
 .features-list {
-    list-style-type: none; /* Hide bullet points */
+    list-style-type: none;
     padding: 0;
-    font-size: 1.2em; /* Font size for descriptions */
-    margin: 0 120px; /* Added left and right margins for the whole feature list */
+    font-size: 1.2em;
+    margin: 0 120px
 }
 
-/* Layout for feature items */
 .features-list li {
-    margin-bottom: 40px; /* Increase vertical spacing between list items */
-    padding: 20px; /* Padding inside the box */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for each feature box */
-    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    border-radius: 8px
 }
 
-/* Center feature titles */
 .features-list li strong {
     display: block;
-    text-align: center; /* Center the title */
-    font-size: 1.6em; /* Increase font size for titles */
-    margin-bottom: 10px; /* Space between title and description */
+    text-align: center;
+    font-size: 1.6em;
+    margin-bottom: 10px
 }
 
-/* Responsive two-column layout */
 @media (min-width: 900px) {
     .features-list {
         display: flex;
-        flex-wrap: wrap; /* Allow items to wrap to the next row */
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: space-between
     }
 
     .features-list li {
-        width: 48%; /* Each item takes up about half the container's width */
+        width: 48%
     }
 }
 
-/* Adjust for single column layout */
 @media (max-width: 899px) {
     .features-list {
-        font-size: 1em; /* Reduce font size for descriptions */
-        margin: 0 20px; /* Reduce lateral margin for the whole feature list */
+        font-size: 1em;
+        margin: 0 20px
     }
 }
 
-/* New CSS rules for the "About" page */
 .about-section {
-    padding: 15px !important; /* Match padding with homepage sections */
-    margin: 15px !important; /* Match margin with homepage sections */
-    background-color: #1b1b1b !important; /* Match background color */
+    padding: 15px !important;
+    margin: 15px !important;
+    background-color: #1b1b1b !important
 }
 
 .about-section h2 {
-    font-size: 28px; /* Increased font size */
-    color: #d3d3d3; /* Light grey text */
+    font-size: 28px;
+    color: #d3d3d3;
     padding-bottom: 10px;
-    margin-bottom: 10px; /* Reduced spacing */
+    margin-bottom: 10px
 }
 
 .about-section p {
-    font-size: 18px; /* Increased font size */
-    color: #d3d3d3; /* Light grey text */
-    line-height: 1.6;
+    font-size: 18px;
+    color: #d3d3d3;
+    line-height: 1.6
 }
 
 .about-section ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0
 }
 
 .about-section ul li {
-    font-size: 18px; /* Increased font size */
-    color: #d3d3d3; /* Light grey text */
-    margin-bottom: 8px; /* Reduced spacing */
+    font-size: 18px;
+    color: #d3d3d3;
+    margin-bottom: 8px
 }
 
 .about-section ul li strong {
-    color: inherit; /* Set to default color */
+    color: inherit
 }
 
-/* Add 80px lateral margin on wide screens */
 @media (min-width: 900px) {
     .about-section {
         margin-left: 80px !important;
-        margin-right: 80px !important;
+        margin-right: 80px !important
     }
 }
 
-/* Footer Styles */
 footer {
-  padding: 20px 0;
+    padding: 20px 0
 }
 
 footer a:hover {
-  color: #adb5bd;
+    color: #adb5bd
 }
 
 footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between; /* Ensure items are evenly spaced */
-  align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
 }
 
 footer ul li {
-  margin: 20px;
-  text-align: center;
+    margin: 20px;
+    text-align: center
 }
 
 footer ul li a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  font-size: 1.2em; /* Reduced size of the text by 40% */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2em
 }
 
 footer ul li a i {
-  font-size: 2.4em; /* Reduced size of the icons by 40% */
-  margin-bottom: 10px; /* Space between icon and text */
+    font-size: 2.4em;
+    margin-bottom: 10px
 }
 
 footer ul li a:hover i {
-  color: #adb5bd; /* Change color on hover */
+    color: #adb5bd
 }
 
 footer p {
-  margin-top: 20px;
+    margin-top: 20px
 }
 
 .footer-license {
-  text-align: center;
-  margin-top: 40px; /* Add margin to position it closer to the bottom */
+    text-align: center;
+    margin-top: 40px
 }
 
 footer .container {
-  max-width: 1200px;
-  margin: auto;
+    max-width: 1200px;
+    margin: auto
 }
 
-footer .row {
-  display: flex;
-  justify-content: space-between;
+@media (max-width: 599px) {
+    footer ul {
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-gap: 20px
+    }
+
+    footer ul li {
+        width: auto;
+        margin: 0
+    }
+
+    footer ul li a {
+        font-size: 1em
+    }
+
+    footer ul li a i {
+        font-size: 2em
+    }
 }

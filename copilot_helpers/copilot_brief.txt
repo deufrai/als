@@ -27,5 +27,3 @@ Let's pick our brains together !
 ## hugo config is
 {{cat hugo.toml}}
 
-## our custom CSS is
-{{cat static/css/custom.css}}
