@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #1b1b1b;
     color: #d3d3d3;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 header.homepage-section {
@@ -172,10 +173,27 @@ a:hover {
 
 footer {
     padding: 20px 0;
+    position: relative;
 }
 
-footer a:hover {
-    color: #adb5bd;
+footer p {
+    margin-top: 20px;
+    font-size: 0.8em; /* Dimmed text size */
+    color: #6c757d; /* Dimmed text color */
+    text-align: center;
+    position: absolute;
+    bottom: 10px; /* Positioning closer to the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Centering the text */
+    width: 100%;
+}
+
+footer p a {
+    color: #6c757d !important; /* Dimmed link color */
+}
+
+footer p a:hover {
+    color: #8a9097 !important; /* Dimmed hover color */
 }
 
 footer ul {
@@ -207,10 +225,6 @@ footer ul li a i {
 
 footer ul li a:hover i {
     color: #adb5bd;
-}
-
-footer p {
-    margin-top: 20px;
 }
 
 .footer-license {
