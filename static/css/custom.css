@@ -2,13 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1b1b1b;
+    background-color: #222222;
     color: #d3d3d3;
     overflow-x: hidden
 }
 
 header.homepage-section {
-    background-color: #1b1b1b !important;
+    background-color: #222222 !important;
     color: white !important;
     padding: 15px !important;
     text-align: center !important
@@ -17,7 +17,7 @@ header.homepage-section {
 section.homepage-section {
     padding: 15px !important;
     margin: 15px !important;
-    background-color: #1b1b1b !important
+    background-color: #222222 !important
 }
 
 .screenshot {
@@ -151,7 +151,7 @@ a:hover {
 .about-section {
     padding: 15px !important;
     margin: 15px !important;
-    background-color: #1b1b1b !important
+    background-color: #222222 !important
 }
 
 .about-section h2 {
