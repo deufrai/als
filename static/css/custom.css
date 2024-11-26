@@ -89,6 +89,9 @@ a:hover {
 }
 
 .features-list {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap: 100px 4em;
     list-style-type: none;
     padding: 0;
     font-size: 1.2em;
@@ -96,7 +99,6 @@ a:hover {
 }
 
 .features-list li {
-    margin-bottom: 40px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
     border-radius: 8px;
@@ -127,22 +129,17 @@ a:hover {
     text-align: center
 }
 
-@media (min-width: 900px) {
+@media (max-width: 899px) {
     .features-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between
+        grid-template-columns:1fr;
+        margin: 0 20px
     }
 
     .features-list li {
-        width: 48%
-    }
-}
-
-@media (max-width: 899px) {
-    .features-list {
-        font-size: 1em;
-        margin: 0 20px
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 40px
     }
 }
 
