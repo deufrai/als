@@ -198,10 +198,9 @@ footer p {
     color: #6c757d;
     text-align: center;
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%
+    bottom: 5px;
+    left: 5px;
+    width: auto
 }
 
 footer p a {
@@ -217,12 +216,12 @@ footer ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center
 }
 
 footer ul li {
-    margin: 20px;
+    margin: 25px 0;
     text-align: center
 }
 
@@ -231,16 +230,12 @@ footer ul li a {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    font-size: 1.2em
+    font-size: 1.3em
 }
 
 footer ul li a i {
-    font-size: 2.4em;
-    margin-bottom: 10px
-}
-
-footer ul li a:hover i {
-    color: #adb5bd
+    font-size: 2.2em;
+    padding: 5px
 }
 
 .footer-license {
@@ -272,6 +267,16 @@ footer .container {
     footer ul li a i {
         font-size: 2em
     }
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.contact-text span {
+    display: block
 }
 
 .image-container {
