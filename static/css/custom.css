@@ -99,12 +99,18 @@ a:hover {
     margin-bottom: 40px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
-    border-radius: 8px
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    padding-left: 60px;
+    padding-right: 60px
 }
 
 .features-list li i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .6);
-    margin-right: 15px;
     font-size: 1.5em;
     color: #3592cc
 }
@@ -113,7 +119,12 @@ a:hover {
     display: block;
     text-align: center;
     font-size: 1.6em;
-    margin-bottom: 10px
+    margin-bottom: 20px
+}
+
+.features-list li p {
+    margin: 0;
+    text-align: center
 }
 
 @media (min-width: 900px) {
