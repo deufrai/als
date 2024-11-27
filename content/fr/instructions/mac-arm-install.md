@@ -1,5 +1,12 @@
 ---
 title: "Install sur Mac M1, M2, etc"
+description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un Mac avec processeur M1, M2, etc."
+author: "ALS Team"
+date: 2024-11-27
+lastmod: 2024-11-27
+keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
+draft: false
+type: "instructions"
 ---
 
 <div class="content-wrapper">

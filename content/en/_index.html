@@ -1,45 +1,85 @@
 ---
-title: "Welcome to ALS Astro Live Stacker"
+title: "Astro Live Stacker"
+description: "Transform each night into a masterpiece with Astro Live Stacker (ALS). A powerful and intuitive tool for live astrophotography."
+author: "ALS Team"
+date: 2024-11-27
+lastmod: 2024-11-27
+keywords: ["astro live stacker", "livestacking", "astrophotography", "software"]
+draft: false
+type: "homepage"
 ---
 
+
 <div class="content-wrapper">
-    <header class="homepage-section main-header">
-        <h1>Welcome to ALS Astro Live Stacker</h1>
-        <p>Stack your astrophotography images live with ease.</p>
-    </header>
-    <section class="homepage-section">
-        <h2>Download ALS Astro Live Stacker</h2>
+    <p class="catchphrase">Turn every night into a masterpiece...</p>
+
+    <section class="homepage-section screenshot-section">
+        <img src="/images/als-screenshot.jpg" alt="ALS Screenshot" class="screenshot">
+    </section>
+
+    <section class="homepage-section download-section">
+        <h2 style="text-align: center;">... download ALS</h2>
         <div class="download-buttons">
-            <a href="/downloads/als.exe" class="button">
-                <img src="/images/windows-logo.svg" alt="Windows Logo" style="height: 48px; vertical-align: middle;"> Windows
+            <a href="#" class="button" onclick="downloadAndOpenInstructions('windows')" title="Download for Windows" data-matomo-action="download">
+                <i class="fab fa-windows" style="font-size: 48px; vertical-align: middle;"></i> Windows PC
             </a>
-            <a href="/downloads/als-amd64.dmg" class="button">
-                <img src="/images/apple-logo.svg" alt="Mac Intel Logo" style="height: 48px; vertical-align: middle;"> Mac (Intel)
+            <a href="#" class="button" onclick="downloadAndOpenInstructions('mac-intel')" title="Download for Mac Intel" data-matomo-action="download">
+                <i class="fab fa-apple" style="font-size: 48px; vertical-align: middle;"></i> Mac Intel
             </a>
-            <a href="/downloads/als-arm64.dmg" class="button">
-                <img src="/images/apple-logo.svg" alt="Mac Apple Silicon Logo" style="height: 48px; vertical-align: middle;"> Mac (M1, M2, M3 & newer)
+            <a href="#" class="button" onclick="downloadAndOpenInstructions('mac-arm')" title="Download for Mac Apple Silicon" data-matomo-action="download">
+                <i class="fab fa-apple" style="font-size: 48px; vertical-align: middle;"></i> Mac Silicon
             </a>
-            <a href="/downloads/als.run" class="button">
-                <img src="/images/linux-logo.svg" alt="Linux PC Logo" style="height: 48px; vertical-align: middle;"> Linux PC (Intel/AMD)
+            <a href="#" class="button" onclick="downloadAndOpenInstructions('linux')" title="Download for Linux PC" data-matomo-action="download">
+                <i class="fab fa-linux" style="font-size: 48px; vertical-align: middle;"></i> Linux PC
             </a>
-            <a href="/downloads/als.tgz" class="button">
-                <img src="/images/raspberry-pi-logo.svg" alt="Raspberry Pi Logo" style="height: 48px; vertical-align: middle;"> Raspberry Pi (ARM)
+            <a href="#" class="button" onclick="downloadAndOpenInstructions('raspberry-pi')" title="Download for Raspberry Pi" data-matomo-action="download">
+                <i class="fab fa-raspberry-pi" style="font-size: 48px; vertical-align: middle;"></i> Raspberry Pi
             </a>
         </div>
     </section>
-    <section class="homepage-section">
-        <h2>Features</h2>
-        <p>ALS offers the following features:</p>
-        <ul>
-            <li>Real-time image stacking</li>
-            <li>Advanced alignment algorithms</li>
-            <li>Customizable settings</li>
-            <li>User-friendly interface</li>
+
+    <section class="homepage-section features-section">
+        <ul class="features-list">
+            <li>
+                <i class="fas fa-globe"></i>
+                <strong>Tool for the Astrophotographer</strong>
+                ALS, your ultimate companion for live astrophotography. Perfect for EEA and photography, it transforms every session into a celestial masterpiece.
+            </li>
+            <li>
+                <i class="fas fa-camera"></i>
+                <strong>Don't Change Your Habits</strong>
+                ALS adapts to your workflow. It automatically monitors capture folders and supports most formats, including RAW and FITS files.
+            </li>
+            <li>
+                <i class="fas fa-magic"></i>
+                <strong>Preprocessing</strong>
+                ALS automatically removes hot pixels and uses your dark masters for sharper images.
+            </li>
+            <li>
+                <i class="fas fa-layer-group"></i>
+                <strong>Alignment and Stacking</strong>
+                ALS automatically aligns and stacks each image to achieve optimal quality.
+            </li>
+            <li>
+                <i class="fas fa-search"></i>
+                <strong>Free Navigation</strong>
+                Freely explore the stacked results. Zoom and navigate to discover every detail.
+            </li>
+            <li>
+                <i class="fas fa-sliders-h"></i>
+                <strong>Image Controls</strong>
+                Adjust levels and color balance to your liking with ALS controls.
+            </li>
+            <li>
+                <i class="fas fa-share-alt"></i>
+                <strong>Easy Sharing</strong>
+                Easily share your images via ALS’s built-in web server.
+            </li>
+            <li>
+                <i class="fas fa-save"></i>
+                <strong>Various output Formats</strong>
+                Save your images in various formats for maximum flexibility.
+            </li>
         </ul>
-    </section>
-    <section class="homepage-section">
-        <h2>Get Started</h2>
-        <p>Follow our user guide to get started with ALS:</p>
-        <a href="/en/docs/getting-started/" class="button">Read the Guide</a>
     </section>
 </div>
