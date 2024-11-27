@@ -1,58 +1,59 @@
 header.homepage-section {
     background-color: #222222 !important;
     color: white !important;
-    padding: 15px !important;
+    padding: 10px !important; /* Reduced padding */
     text-align: center !important;
 }
 
 section.homepage-section {
-    padding: 15px !important;
-    margin: 15px !important;
+    padding: 10px !important; /* Reduced padding */
+    margin: 10px !important; /* Reduced margin */
     background-color: #222222 !important;
-}
-
-.screenshot {
-    display: block;
-    border: none;
-    max-height: 60vh;
-    max-width: 100%;
-    height: auto;
-    margin-top: 80px;
 }
 
 .catchphrase {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em; /* Slightly smaller font size */
     margin-bottom: 20px;
-    font-size: 2.5em;
     font-weight: bold;
-    margin-bottom: 30px;
     color: #d3d3d3;
+}
+
+.screenshot-section {
+    text-align: center;
+    margin: 20px 0; /* Reduced margin */
+}
+
+.screenshot {
+    display: inline-block;
+    max-width: 50%; /* Reduced max width */
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .download-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 30px !important;
+    gap: 20px !important; /* Reduced gap */
     justify-content: center !important;
-    margin-top: 40px !important;
-    margin-bottom: 40px !important;
+    margin-top: 30px !important; /* Reduced margin */
+    margin-bottom: 30px !important; /* Reduced margin */
 }
 
 .download-buttons .button {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    flex-basis: 220px !important;
-    padding: 10px 20px !important;
-    margin-top: 10px !important;
+    flex-basis: 200px !important; /* Slightly smaller */
+    padding: 10px !important;
     background-color: #8b0000 !important;
     color: #a8a8a8 !important;
     text-decoration: none !important;
     border-radius: 16px !important;
     cursor: pointer !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
-    font-size: 1.2em;
+    font-size: 1.1em; /* Slightly smaller font size */
     transition: background-color .3s, transform .3s;
 }
 
