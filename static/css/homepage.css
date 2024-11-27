@@ -126,3 +126,8 @@ section.homepage-section {
         margin-bottom: 40px;
     }
 }
+
+/* Adding top padding to push down the content */
+.content-wrapper {
+    padding-top: 80px; /* Adjust this value to match the height of the navbar */
+}
