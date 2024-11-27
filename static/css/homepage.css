@@ -1,0 +1,127 @@
+header.homepage-section {
+    background-color: #222222 !important;
+    color: white !important;
+    padding: 15px !important;
+    text-align: center !important;
+}
+
+section.homepage-section {
+    padding: 15px !important;
+    margin: 15px !important;
+    background-color: #222222 !important;
+}
+
+.screenshot {
+    display: block;
+    border: none;
+    max-height: 60vh;
+    max-width: 100%;
+    height: auto;
+    margin-top: 80px;
+}
+
+.catchphrase {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #d3d3d3;
+}
+
+.download-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    justify-content: center !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+
+.download-buttons .button {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-basis: 220px !important;
+    padding: 10px 20px !important;
+    margin-top: 10px !important;
+    background-color: #8b0000 !important;
+    color: #a8a8a8 !important;
+    text-decoration: none !important;
+    border-radius: 16px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    font-size: 1.2em;
+    transition: background-color .3s, transform .3s;
+}
+
+.download-buttons .button i {
+    color: #a8a8a8 !important;
+    margin-right: 10px !important;
+    transform: translateY(-2px) !important;
+}
+
+.download-buttons .button:hover {
+    background-color: #a30000 !important;
+    transform: scale(1.05);
+}
+
+.features-section {
+    padding: 0 40px;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap: 100px 4em;
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+    margin: 0 120px;
+}
+
+.features-list li {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.features-list li i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .6);
+    font-size: 1.5em;
+    color: #3592cc;
+}
+
+.features-list li strong {
+    display: block;
+    text-align: center;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.features-list li p {
+    margin: 0;
+    text-align: center;
+}
+
+@media (max-width: 899px) {
+    .features-list {
+        grid-template-columns:1fr;
+        margin: 0 20px;
+    }
+
+    .features-list li {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 40px;
+    }
+}

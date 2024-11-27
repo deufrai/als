@@ -1,32 +1,41 @@
+# Basic Site Configuration
 baseURL = "https://next.als-app.org/"
 languageCode = "fr"
 title = "Astro Live Stacker"
 theme = "docsy"
 publishDir = "public"
 enableRobotsTXT = true
-defaultContentLanguage = "fr"  # Retain this, but avoid the problematic line in the `languages` section
 
+# Site Parameters
 [params]
   docs = true
   disableBreadcrumb = false
   disableFeedback = true
   searchIndexInMemory = true
-  custom_css = "css/custom.css"
   favicon = "/images/favicon.ico"
   logo = "/images/als_logo_256.png"
 
-[params.ui]
-  navbarVariant = "dark"
-  sidebarVariant = "dark"
-  primaryColor = "#ff0000"
-  primaryDarkColor = "#8b0000"
+  # UI Customization
+  [params.ui]
+    navbarVariant = "dark"
+    sidebarVariant = "dark"
+    primaryColor = "#ff0000"
+    primaryDarkColor = "#8b0000"
 
+  # Language Switcher
+  [params.languageswitcher]
+    enable = true
+    style = "dropdown"
+
+# Markup Configuration
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
 
+# Language Configuration
 [languages]
+  # French Configuration
   [languages.fr]
     weight = 1
     languageName = "Français"
@@ -44,6 +53,7 @@ defaultContentLanguage = "fr"  # Retain this, but avoid the problematic line in 
       url = "/docs/"
       weight = 20
 
+  # English Configuration
   [languages.en]
     weight = 2
     languageName = "English"
@@ -60,7 +70,3 @@ defaultContentLanguage = "fr"  # Retain this, but avoid the problematic line in 
       name = "Docs"
       url = "/en/docs/"
       weight = 20
-
-[params.languageswitcher]
-  enable = true
-  style = "dropdown"
