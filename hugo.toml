@@ -5,6 +5,7 @@ title = "Astro Live Stacker"
 theme = "docsy"
 publishDir = "public"
 enableRobotsTXT = true
+defaultContentLanguage = "fr"
 
 # Site Parameters
 [params]
