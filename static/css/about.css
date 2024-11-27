@@ -1,7 +1,8 @@
 .about-section {
     padding: 15px !important;
-    margin: 15px !important;
+    margin: 15px auto !important;
     background-color: #222222 !important;
+    max-width: 800px; /* Limit text width */
 }
 
 .about-section h2 {
@@ -9,17 +10,21 @@
     color: #d3d3d3;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .about-section p {
     font-size: 18px;
     color: #d3d3d3;
     line-height: 1.6;
+    padding: 10px 20px;
 }
 
 .about-section ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: disc;
+    padding: 0 20px;
+    margin: 10px 0;
+    line-height: 1.6;
 }
 
 .about-section ul li {
