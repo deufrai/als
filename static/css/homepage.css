@@ -1,19 +1,19 @@
 header.homepage-section {
     background-color: #222222 !important;
     color: white !important;
-    padding: 10px !important; /* Reduced padding */
+    padding: 10px !important;
     text-align: center !important;
 }
 
 section.homepage-section {
-    padding: 10px !important; /* Reduced padding */
-    margin: 10px !important; /* Reduced margin */
+    padding: 10px !important;
+    margin: 10px !important;
     background-color: #222222 !important;
 }
 
 .catchphrase {
     text-align: center;
-    font-size: 1.8em; /* Slightly smaller font size */
+    font-size: 1.8em;
     margin-bottom: 20px;
     font-weight: bold;
     color: #d3d3d3;
@@ -21,12 +21,12 @@ section.homepage-section {
 
 .screenshot-section {
     text-align: center;
-    margin: 20px 0; /* Reduced margin */
+    margin: 20px 0;
 }
 
 .screenshot {
     display: inline-block;
-    max-width: 50%; /* Reduced max width */
+    max-width: 50%;
     height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -35,17 +35,17 @@ section.homepage-section {
 .download-buttons {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 20px !important; /* Reduced gap */
+    gap: 20px !important;
     justify-content: center !important;
-    margin-top: 30px !important; /* Reduced margin */
-    margin-bottom: 30px !important; /* Reduced margin */
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
 }
 
 .download-buttons .button {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    flex-basis: 200px !important; /* Slightly smaller */
+    flex-basis: 200px !important;
     padding: 10px !important;
     background-color: #8b0000 !important;
     color: #a8a8a8 !important;
@@ -53,7 +53,7 @@ section.homepage-section {
     border-radius: 16px !important;
     cursor: pointer !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
-    font-size: 1.1em; /* Slightly smaller font size */
+    font-size: 1.1em;
     transition: background-color .3s, transform .3s;
 }
 
@@ -74,7 +74,7 @@ section.homepage-section {
 
 .features-list {
     display: grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 100px 4em;
     list-style-type: none;
     padding: 0;
@@ -115,7 +115,7 @@ section.homepage-section {
 
 @media (max-width: 899px) {
     .features-list {
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
         margin: 0 20px;
     }
 
@@ -125,9 +125,4 @@ section.homepage-section {
         margin-left: 0;
         margin-bottom: 40px;
     }
-}
-
-/* Adding top padding to push down the content */
-.content-wrapper {
-    padding-top: 80px; /* Adjust this value to match the height of the navbar */
 }
