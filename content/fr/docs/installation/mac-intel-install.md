@@ -7,12 +7,10 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
 
 
-<div class="content-wrapper">
-<!-- markdown content start -->
 
 ### Instructions d'installation d'ALS sur macOS avec CPU Intel
 
@@ -53,5 +51,4 @@ type: "instructions"
      
 Bonne utilisation d'als ! 🚀✨
 
-<!-- markdown content end -->
-</div>
+>

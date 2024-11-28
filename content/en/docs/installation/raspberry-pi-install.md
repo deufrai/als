@@ -7,12 +7,8 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "raspberry pi", "linux", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
-
-
-<div class="content-wrapper">
-  <!-- markdown content start -->
 
 ### Instructions for Extracting and Running an ALS `.tgz` Archive on Linux
 
@@ -64,6 +60,3 @@ type: "instructions"
      - If a dialog box appears asking you to confirm the execution of the file, choose the option to execute or open the file.
 
 Enjoy using ALS! 🚀✨
-
-  <!-- markdown content end -->
-</div>

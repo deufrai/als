@@ -7,12 +7,9 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "linux", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
 
-
-<div class="content-wrapper">
-  <!-- markdown content start -->
 
 ### Instructions to Run an ALS `.run` File on Linux
 
@@ -57,5 +54,3 @@ type: "instructions"
 
 Enjoy using ALS! 🚀✨
 
-  <!-- markdown content end -->
-</div>

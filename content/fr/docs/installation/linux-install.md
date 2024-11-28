@@ -7,12 +7,8 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "linux", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
-
-
-<div class="content-wrapper">
-  <!-- markdown content start -->
 
 ### Instructions pour exécuter un fichier ALS `.run` sous Linux
 
@@ -56,6 +52,3 @@ type: "instructions"
      - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution du fichier, choisissez l'option pour exécuter ou ouvrir le fichier.
 
 Bonne utilisation d'ALS ! 🚀✨
-
-  <!-- markdown content end -->
-</div>

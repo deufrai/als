@@ -7,11 +7,9 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
 
-<div class="content-wrapper">
-<!-- markdown content start -->
 
 ### Instructions d'installation d'ALS sur macOS avec M1, M2, etc
 
@@ -52,5 +50,3 @@ type: "instructions"
      
 Bonne utilisation d'als ! 🚀✨
 
-<!-- markdown content end -->
-</div>

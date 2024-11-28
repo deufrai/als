@@ -7,12 +7,10 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
 
 
-<div class="content-wrapper">
-<!-- markdown content start -->
 
 ### Instructions for Installing ALS on macOS with Intel CPU
 
@@ -52,6 +50,3 @@ type: "instructions"
      - Navigate to the `Applications` folder and double-click the `ALS` application to run it.
 
 Enjoy using ALS! 🚀✨
-
-<!-- markdown content end -->
-</div>

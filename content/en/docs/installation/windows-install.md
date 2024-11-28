@@ -7,12 +7,8 @@ date: 2024-11-27
 lastmod: 2024-11-27
 keywords: ["installation", "windows", "astro live stacker", "guide"]
 draft: false
-type: "instructions"
+type: "docs"
 ---
-
-
-<div class="content-wrapper">
-<!-- markdown content start -->
 
 ### Instructions for Running ALS on Windows
 
@@ -43,5 +39,3 @@ type: "instructions"
 
 Enjoy using ALS! 🚀✨
 
-<!-- markdown content end -->
-</div>
