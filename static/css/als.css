@@ -311,3 +311,39 @@ section.homepage-section {
         margin-bottom: 40px;
     }
 }
+
+/* Styles pour la page des contributeurs */
+.content-wrapper.contributors-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    margin: 0 auto;
+}
+
+.contributors-section {
+    padding: 15px;
+    margin: 15px auto;
+    background-color: #222222;
+    max-width: 800px;
+    line-height: 1.6;
+    color: #d3d3d3;
+}
+
+.contributors-section h2 {
+    font-size: 24px;
+    color: #d3d3d3;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.contributors-section h3 {
+    font-size: 20px;
+    color: #d3d3d3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.contributors-section ul {
+    margin-bottom: 40px; /* Ajout d'espace entre les contributeurs */
+}

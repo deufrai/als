@@ -49,6 +49,12 @@ defaultContentLanguage = "fr"
       weight = 10
 
     [[languages.fr.menu.main]]
+      identifier = "contributors"
+      name = "Contributeurs"
+      url = "/contributors/"
+      weight = 15
+
+    [[languages.fr.menu.main]]
       identifier = "docs"
       name = "Documentation"
       url = "/docs/"
@@ -65,6 +71,12 @@ defaultContentLanguage = "fr"
       name = "About"
       url = "/en/about/"
       weight = 10
+
+    [[languages.en.menu.main]]
+      identifier = "contributors"
+      name = "Contributors"
+      url = "/en/contributors/"
+      weight = 15
 
     [[languages.en.menu.main]]
       identifier = "docs"
