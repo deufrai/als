@@ -1,7 +1,9 @@
 ---
 title: "Installation"
-lastmod: 2024-11-28T16:42:59Z
+lastmod: 2024-11-28T18:40:03Z
 toc: true
+type: "docs"
+weight: 20
 ---
 
 ## Instructions d'installation
