@@ -1,14 +1,15 @@
 ---
 title: "Documentation"
-lastmod: 2024-11-28T21:29:27Z
+lastmod: 2024-11-28T23:52:38Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
 ---
 
-# Vue d'ensemble d'ALS
+# 🔭 Vue d'ensemble d'ALS
 ---
-# Configuration système requise
+
+# 🖥️ Configuration système requise
 
 Bonne nouvelle : ALS n’est pas trop gourmand en ressources.
 
@@ -23,7 +24,7 @@ Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a mieux c
 
 ---
 
-# Notes de version
+# 🆕 Notes de version
 
 ## Version 0.7
 
