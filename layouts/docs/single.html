@@ -4,8 +4,11 @@
     <h1>{{ .Title }}</h1>
     {{ if not .Draft }}
       <p>
-        {{ with .Date }}<time datetime="{{ . }}">{{ .Format "January 2, 2006" }}</time>{{ end }}
-        {{ if .Lastmod }}<span class="lastmod">Last modified {{ .Lastmod.Format "January 2, 2006" }}</span>{{ end }}
+        {{ if .GitInfo }}
+          <span class="gitinfo">
+            Last commit by {{ .GitInfo.AuthorName }} on {{ .GitInfo.AuthorDate.Format "January 2, 2006" }}<br>
+          </span>
+        {{ end }}
       </p>
     {{ end }}
   </header>
@@ -13,6 +16,5 @@
   <div class="td-page-content">
     {{ .Content }}
   </div>
-
 </article>
 {{ end }}

@@ -6,6 +6,7 @@ theme = "docsy"
 publishDir = "public"
 enableRobotsTXT = true
 defaultContentLanguage = "fr"
+enableGitInfo = true
 
 # Site Parameters
 [params]
