@@ -7,6 +7,11 @@ Version 0.7 (work in progress)
 
 - New features
 
+  - send usage statistics with user consent
+  - read .CR3 Canon Raw files
+  - introduce running profiles (sensible defaults for EEA & Photo)
+  - add QR code display that leads to HTTP served page
+  - add jpeg, png and tiff file read capability
   - French translation
   - Dark frame subtraction
   - Hot pixel removal
@@ -14,6 +19,8 @@ Version 0.7 (work in progress)
 
 - Improvements
 
+  - Better autostrech
+  - Improve zoom with reset to default and keyboard shortcuts
   - Log to file in user home folder
   - Ability to only show problems in session log
   - Ability to manually override Bayer pattern used for demosaicing
