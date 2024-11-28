@@ -12,7 +12,7 @@
     margin: 15px auto !important;
     background-color: #222222 !important;
     max-width: 800px;
-    line-height: 1.6;
+    line-height: 1.4; /* Reduced line spacing */
 }
 
 .about-section h2 {
@@ -26,7 +26,7 @@
 .about-section p {
     font-size: 18px;
     color: #d3d3d3;
-    line-height: 1.8;
+    line-height: 1.6; /* Reduced line spacing */
     padding: 10px 20px;
     margin-bottom: 20px;
 }
@@ -41,6 +41,7 @@
     font-size: 18px;
     color: #d3d3d3;
     margin-bottom: 10px;
+    line-height: 1.4; /* Reduced line spacing */
 }
 
 .about-section ul li strong {
