@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px; /* Adjust this size as needed */
+    line-height: 1.6;
+    margin: 0; /* Ensure no default margin */
+    padding: 0; /* Ensure no default padding */
+    background-color: #222222; /* Ensure background color */
+    color: #d3d3d3; /* Ensure text color */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 .content-wrapper.about-page {
     display: flex;
     flex-direction: column;
@@ -134,14 +152,6 @@ footer .container {
     footer ul li a i {
         font-size: 2em;
     }
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #222222;
-    color: #d3d3d3;
-    overflow-x: hidden;
 }
 
 a {
