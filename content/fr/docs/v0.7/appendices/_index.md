@@ -3,15 +3,14 @@ title: "Annexes"
 description: "Informations sur les licences et remerciements."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-11-28T18:40:03Z
+lastmod: 2024-11-28T18:59:10Z
 keywords: ["Annexes", "ALS", "documentation"]
 draft: false
 type: "docs"
-weight: 50
+weight: 70
 ---
 
 
-# Annexes
-## Informations sur les licences
-## Remerciements
+# Informations sur les licences
+# Remerciements
 

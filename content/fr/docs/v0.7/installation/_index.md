@@ -1,12 +1,12 @@
 ---
 title: "Installation"
-lastmod: 2024-11-28T18:40:03Z
+lastmod: 2024-11-28T18:59:10Z
 toc: true
 type: "docs"
 weight: 20
 ---
 
-## Instructions d'installation
+# Instructions d'installation
 
 Vous trouverez ici toutes les instructions nécessaires pour installer ALS sur diverses plateformes.
 

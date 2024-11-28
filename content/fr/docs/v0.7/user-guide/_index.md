@@ -1,13 +1,13 @@
 ---
-title: "Introduction"
-description: "Vue d'ensemble, Fonctionnalités Principales, Notes de Version, Exigences Système."
+title: "Guide Utilisateur"
+description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 date: 2024-11-28
 lastmod: 2024-11-28T18:59:10Z
-keywords: ["Introduction", "ALS", "documentation"]
+keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
-weight: 10
+weight: 30
 ---
 
 # Vue d'ensemble d'ALS
