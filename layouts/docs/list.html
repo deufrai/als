@@ -14,19 +14,6 @@
     {{ .Content }}
   </div>
 
-  {{/* Commented out to avoid showing child pages */}}
-  {{/*
-  {{ with .Pages }}
-    <h2>Child Pages</h2>
-    <ul>
-      {{ range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-      {{ end }}
-    </ul>
-  {{ end }}
-  */}}
-
-  {{/* partial "taxonomy_terms_cloud.html" . */}}
   {{ partial "disqus-comment.html" . }}
 </article>
 {{ end }}
