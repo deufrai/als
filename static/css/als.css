@@ -7,30 +7,42 @@
 
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    font-size: 16px; /* Adjust this size as needed */
+    font-size: 18px;
     line-height: 1.6;
-    margin: 0; /* Ensure no default margin */
-    padding: 0; /* Ensure no default padding */
-    background-color: #222222; /* Ensure background color */
-    color: #d3d3d3; /* Ensure text color */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+    color: #d3d3d3;
+    overflow-x: hidden;
+}
+
+a {
+    color: #d3d3d3 !important;
+}
+
+a:hover {
+    color: #fff !important;
+}
+
+.content-wrapper {
+    overflow: auto;
+    padding-top: 80px;
 }
 
 .content-wrapper.about-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 80px; /* Ajusté selon la hauteur de la navbar */
+    padding-top: 80px;
     margin: 0 auto;
 }
 
-/* Autres règles déjà existantes */
 .about-section {
     padding: 15px !important;
     margin: 15px auto !important;
     background-color: #222222 !important;
     max-width: 800px;
-    line-height: 1.4; /* Reduced line spacing */
+    line-height: 1.4;
 }
 
 .about-section h2 {
@@ -44,7 +56,7 @@ body {
 .about-section p {
     font-size: 18px;
     color: #d3d3d3;
-    line-height: 1.6; /* Reduced line spacing */
+    line-height: 1.6;
     padding: 10px 20px;
     margin-bottom: 20px;
 }
@@ -59,7 +71,7 @@ body {
     font-size: 18px;
     color: #d3d3d3;
     margin-bottom: 10px;
-    line-height: 1.4; /* Reduced line spacing */
+    line-height: 1.4;
 }
 
 .about-section ul li strong {
@@ -72,6 +84,7 @@ body {
         margin-right: 80px !important;
     }
 }
+
 footer {
     padding: 20px 0;
     position: relative;
@@ -136,7 +149,7 @@ footer .container {
 @media (max-width: 599px) {
     footer ul {
         display: grid;
-        grid-template-columns:1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
     }
 
@@ -152,19 +165,6 @@ footer .container {
     footer ul li a i {
         font-size: 2em;
     }
-}
-
-a {
-    color: #d3d3d3 !important;
-}
-
-a:hover {
-    color: #fff !important;
-}
-
-.content-wrapper {
-    overflow: auto;
-    padding-top: 80px; /* Adjust this value to match the height of the navbar */
 }
 
 .contact-text {
@@ -183,7 +183,6 @@ a:hover {
     height: 60vh;
 }
 
-/* Add other common styles here */
 header.homepage-section {
     background-color: #222222 !important;
     color: white !important;
