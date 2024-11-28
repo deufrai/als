@@ -68,20 +68,7 @@
 {{ end -}}
 
 <!-- Link to global CSS -->
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/global.css">
-
-<!-- Link to homepage CSS, only on the homepage -->
-{{ if .IsHome }}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/homepage.css">
-{{ end }}
-
-<!-- Link to about page CSS, based on page type -->
-{{ if eq .Type "about" }}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/about.css">
-{{ end }}
-
-<!-- Link to footer CSS -->
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/footer.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als.css">
 
 <!-- Matomo -->
 <script>

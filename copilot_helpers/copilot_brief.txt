@@ -10,7 +10,7 @@ Hi there, nice to meet you :)
 ## working together
 first analyse the project structure and main files contents at the end of this brief
 Project is modified by you, following my prompts
-whatever CSS update you make, use our custom CSS
+whatever CSS update you make, use our als.css
 use hugo's i18n facility as much as possible
 don't suggest changes in docsy folder tree. use our partials as much as possible
 don't hesitate to ask for the actual content of a project file before updating it for the first time
