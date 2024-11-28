@@ -347,3 +347,44 @@ section.homepage-section {
 .contributors-section ul {
     margin-bottom: 40px; /* Ajout d'espace entre les contributeurs */
 }
+
+@keyframes bounceButton {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.join-us {
+    text-align: center;
+    margin-top: 40px; /* Added vertical spacing */
+}
+
+.join-us .button {
+    display: inline-block;
+    background-color: transparent;
+    color: #f0f0f0; /* Dimmed white color */
+    padding: 15px 30px;
+    text-decoration: none;
+    border: 1px solid #f0f0f0; /* Reduced border size */
+    border-radius: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    animation: bounceButton 2s infinite;
+}
+
+.join-us .button:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
+.join-us .button i {
+    margin-left: 8px;
+    font-size: 1.2em;
+}
