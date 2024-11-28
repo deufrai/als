@@ -1,4 +1,5 @@
 ---
+hidden: "true"
 title: "Installation sur PC/Linux"
 description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un PC sous Linux."
 author: "ALS Team"

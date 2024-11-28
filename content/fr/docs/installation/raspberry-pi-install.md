@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "Install sur Raspberry Pi"
 description: "Instructions détaillées pour extraire et exécuter Astro Live Stacker (ALS) sur un Raspberry Pi sous Linux."
 author: "ALS Team"

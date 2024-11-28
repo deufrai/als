@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "Install sur Windows"
 description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un PC sous Windows."
 author: "ALS Team"

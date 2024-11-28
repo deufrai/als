@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "Install on Mac Intel"
 description: "Detailed instructions for installing and running Astro Live Stacker (ALS) on a Mac with an Intel processor."
 author: "ALS Team"

@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "Install on Mac M1, M2, etc."
 description: "Detailed instructions for installing and running Astro Live Stacker (ALS) on a Mac with M1, M2, etc. processors."
 author: "ALS Team"
