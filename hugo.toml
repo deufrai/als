@@ -72,7 +72,7 @@ enableGitInfo = true
     [[languages.fr.menu.main]]
       identifier = "docs"
       name = "Documentation"
-      url = "/docs/"
+      url = "/docs/v0.7/"
       weight = 20
 
   # English Configuration
@@ -96,5 +96,5 @@ enableGitInfo = true
     [[languages.en.menu.main]]
       identifier = "docs"
       name = "Docs"
-      url = "/en/docs/"
+      url = "/en/docs/v0.7/"
       weight = 20
