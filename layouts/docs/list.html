@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="td-main__content">
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ if not .Draft }}
+      <p>
+        {{ with .Date }}<time datetime="{{ . }}">{{ .Format "January 2, 2006" }}</time>{{ end }}
+        {{ if .Lastmod }}<span class="lastmod">Last modified {{ .Lastmod.Format "January 2, 2006" }}</span>{{ end }}
+      </p>
+    {{ end }}
+  </header>
+
+  <div class="td-page-content">
+    {{ .Content }}
+  </div>
+
+  {{/* Commented out to avoid showing child pages */}}
+  {{/*
+  {{ with .Pages }}
+    <h2>Child Pages</h2>
+    <ul>
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  */}}
+
+  {{/* partial "taxonomy_terms_cloud.html" . */}}
+  {{ partial "disqus-comment.html" . }}
+</article>
+{{ end }}
