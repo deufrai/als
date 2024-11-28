@@ -3,10 +3,11 @@ title: "PC/Linux"
 description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un PC sous Linux."
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-28T19:08:16Z
+lastmod: 2024-11-28T19:20:40Z
 keywords: ["installation", "linux", "astro live stacker", "guide"]
 draft: false
 type: "docs"
+weight: 21
 ---
 
 ### Instructions pour exécuter un fichier ALS `.run` sous Linux

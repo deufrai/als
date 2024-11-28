@@ -3,10 +3,11 @@ title: "Raspberry Pi"
 description: "Instructions détaillées pour extraire et exécuter Astro Live Stacker (ALS) sur un Raspberry Pi sous Linux."
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-28T19:08:16Z
+lastmod: 2024-11-28T19:20:40Z
 keywords: ["installation", "raspberry pi", "linux", "astro live stacker", "guide"]
 draft: false
 type: "docs"
+weight: 22
 ---
 
 

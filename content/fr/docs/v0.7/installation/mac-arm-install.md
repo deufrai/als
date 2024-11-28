@@ -3,14 +3,15 @@ title: "Mac Apple Silicon"
 description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un Mac avec processeur M1, M2, etc."
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-28T19:08:16Z
+lastmod: 2024-11-28T19:20:40Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 draft: false
 type: "docs"
+weight: 24
 ---
 
 
-### Instructions d'installation d'ALS sur macOS avec M1, M2, etc
+### Instructions d'installation d'ALS sur Mac Apple Silicon
 
 1. **Ouvrir le dossier de téléchargements**:
    - Lorsque le téléchargement est terminé, ouvrez le Finder en cliquant sur son icône dans le Dock.
