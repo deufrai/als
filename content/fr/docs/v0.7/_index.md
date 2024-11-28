@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-lastmod: 2024-11-28T19:56:13Z
+lastmod: 2024-11-28T20:13:06Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
@@ -8,7 +8,23 @@ weight: 1
 Bienvenue dans la documentation d'ALS
 
 # Vue d'ensemble d'ALS
+---
 # Configuration système requise
+
+Bonne nouvelle : ALS n’est pas gourmand en ressources. Voici ce dont vous avez besoin pour qu'il fonctionne sans problème :
+
+## Ordinateurs de bureau et portables
+- Rien de spécial, vraiment. N'importe quel système moderne fera l'affaire.
+
+## Raspberry Pi
+- Raspberry Pi 4 minimum
+- 4 Go de RAM
+
+C'est tout ce dont vous avez besoin ! ALS est conçu pour être léger et efficace, donc pas besoin de vous inquiéter des spécifications très haut de gamme.
+
+Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a, mieux c'est ! Cela aidera ALS à fonctionner encore plus facilement. 😊
+
+---
 
 # Notes de version
 
