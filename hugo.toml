@@ -29,6 +29,17 @@ enableGitInfo = true
     enable = true
     style = "dropdown"
 
+  # Version Configuration
+  version_menu = "Version"
+  version_menu_pagelinks = true
+  [[params.versions]]
+    url = "/docs/v0.7/"
+    version = "v0.7"
+  # Add future versions here
+  # [[params.versions]]
+  #   url = "/docs/v1.0/"
+  #   version = "v1.0"
+
 # Markup Configuration
 [markup]
   [markup.goldmark]
@@ -37,7 +48,6 @@ enableGitInfo = true
   [markup.tableOfContents]
     startLevel = 1
     endLevel = 6
-
 
 # Language Configuration
 [languages]
