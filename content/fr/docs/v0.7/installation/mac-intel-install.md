@@ -1,10 +1,9 @@
 ---
-hidden: true
-title: "Install sur Mac Intel"
+title: "Mac Intel"
 description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un Mac avec processeur Intel."
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-27
+lastmod: 2024-11-28T19:08:16Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 draft: false
 type: "docs"
