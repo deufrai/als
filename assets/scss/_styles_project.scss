@@ -8,6 +8,17 @@
   color: burlywood  !important;
 }
 
+.alert-info {
+
+  background-color: #293c63;
+}
+
+.tab-body, .nav-tabs {
+
+  background-color: $default-bg;
+  color: inherit;
+}
+
 //### Colors
 //- `$primary`: Primary color (e.g., `#390040`)
 //- `$secondary`: Secondary color (e.g., `#a23b72`)
