@@ -23,7 +23,7 @@ REPO_ROOT=$(pwd)
 echo "Repository root: $REPO_ROOT"
 
 echo "Installing PostCSS..."
-npm install --save-dev autoprefixer postcss-cli
+npm install
 if [ $? -ne 0 ]; then
   echo "Error: PostCSS install failed."
   exit 1
