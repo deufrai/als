@@ -1,17 +1,14 @@
 ---
 title: "Raspberry Pi"
-description: "Instructions détaillées pour extraire et exécuter Astro Live Stacker (ALS) sur un Raspberry Pi sous Linux."
+description: "Installer ALS sur un Raspberry Pi"
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-28T19:20:40Z
+lastmod: 2024-11-29T10:12:26Z
 keywords: ["installation", "raspberry pi", "linux", "astro live stacker", "guide"]
 draft: false
 type: "docs"
 weight: 22
 ---
-
-
-### Instructions pour extraire et exécuter une archive ALS `.tgz` sous Linux
 
 1. **Ouvrir le dossier de téléchargements**:
    - Accédez à votre dossier de téléchargements. Vous pouvez généralement le trouver en cliquant sur l'icône de votre gestionnaire de fichiers (par exemple, Nautilus, Dolphin, ou Thunar) et en sélectionnant "Téléchargements" dans le menu de navigation à gauche.

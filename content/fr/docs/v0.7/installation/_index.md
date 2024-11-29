@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-lastmod: 2024-11-29T09:32:36Z
+lastmod: 2024-11-29T10:12:26Z
 toc: true
 type: "docs"
 weight: 20
@@ -19,12 +19,4 @@ configurations système requises&nbsp;: Bonne nouvelle, ALS n’est pas trop gou
 - 4 Go de RAM minimum
 
 Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a mieux c'est ! Cela rendra ALS plus fluide. 😊
-
-# ⚙️ Instructions d'installation
-
-### [Installation sur PC/Linux](./linux-install/)
-### [Installation sur Raspberry Pi](./raspberry-pi-install/)
-### [Installation sur Windows](./windows-install/)
-### [Installation sur Mac Apple Silicon](./mac-arm-install/)
-### [Installation sur Mac Intel](./mac-intel-install/)
 

@@ -1,16 +1,14 @@
 ---
 title: "Windows"
-description: "Instructions détaillées pour installer et exécuter Astro Live Stacker (ALS) sur un PC sous Windows."
+description: "Installer ALS sur un PC sous Windows"
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-28T19:20:40Z
+lastmod: 2024-11-29T10:12:26Z
 keywords: ["installation", "windows", "astro live stacker", "guide"]
 draft: false
 type: "docs"
 weight: 23
 ---
-
-### Instructions pour exécuter ALS sur Windows
 
 1. **Ouvrir le dossier de téléchargements**:
    - Lorsque le téléchargement est terminé, ouvrez l'Explorateur de fichiers en cliquant sur son icône dans la barre des tâches (une icône en forme de dossier).

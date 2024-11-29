@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
-lastmod: 2024-11-29T09:40:43Z
-description: "Astro Live Stacker."
+lastmod: 2024-11-29T10:12:26Z
+description: "Astro Live Stacker"
 type: "docs"
 weight: 1
 ---
@@ -13,7 +13,7 @@ weight: 1
 {{< /center >}}
 
 
-ALS est une application de livestacking d'astrophotographie.
+ALS est une application de livestacking.
 
 Elle est disponible pour les systèmes suivants :
 
