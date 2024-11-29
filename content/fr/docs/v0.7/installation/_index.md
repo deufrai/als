@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-lastmod: 2024-11-29T10:12:26Z
+lastmod: 2024-11-29T18:11:15Z
 toc: true
 type: "docs"
 weight: 20
@@ -20,3 +20,7 @@ configurations système requises&nbsp;: Bonne nouvelle, ALS n’est pas trop gou
 
 Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a mieux c'est ! Cela rendra ALS plus fluide. 😊
 
+{{% alert title="INFO" color="info" %}}
+Les procédures d'installation de ce chapitre sont rédigées pour un système en langue Française. Si votre système
+utilise une autre langue, faites les ajustements nécessaires. Bonne installation !
+{{% /alert %}}
