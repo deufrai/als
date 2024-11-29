@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-11-29T13:25:46Z
+lastmod: 2024-11-29T13:26:38Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -36,7 +36,7 @@ ADD reminder about launch
 - **Dosser scan** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
 - **Dossier work** : Le dossier de votre système dans lequel ALS enregistre les images produites
 
-_Pas de panique, c'est la dernière fois qu'ALS vous parlera Anglais si vous ne le souhaitez pas_ 
+_Pas de panique, c'est la dernière fois qu'ALS vous parlera anglais si vous ne le souhaitez pas_ 
 
 {{< center >}}
 {{< figure src="/images/docs/fr/first-run/welcome.png" >}}
