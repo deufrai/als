@@ -3,7 +3,7 @@ title: "Windows"
 description: "Installer ALS sur un PC sous Windows"
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-29T18:28:25Z
+lastmod: 2024-11-29T18:29:37Z
 keywords: ["installation", "windows", "astro live stacker", "guide"]
 draft: false
 type: "docs"
@@ -54,7 +54,7 @@ weight: 23
 3. **Exécuter le fichier exécutable**
    - Double-cliquez sur le fichier `als-v0.7-beta6.exe` dans le dossier où vous l'avez déplacé pour lancer l'application.
    - Une fenêtre d'alerte de sécurité de Windows s'ouvrira probablement, indiquant que l'éditeur de l'application est 
-   - inconnu.
+   inconnu.
 
 4. **Gérer l'alerte de sécurité**
    - Windows 10
