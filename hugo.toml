@@ -23,8 +23,8 @@ enableGitInfo = true
     sidebarVariant = "dark"
     primaryColor = "#ff0000"
     primaryDarkColor = "#8b0000"
-    sidebar_menu_compact = true
-    ul_show = 1
+    sidebar_menu_compact = false
+    ul_show = 2
     sidebar_menu_foldable = true
     sidebar_cache_limit = 1000
 
