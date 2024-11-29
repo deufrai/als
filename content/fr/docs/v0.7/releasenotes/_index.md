@@ -1,7 +1,7 @@
 ---
-title: "Release Notes"
-lastmod: 2024-11-29T09:45:55Z
-description: "ALS Release Notes"
+title: "Notes de versions"
+lastmod: 2024-11-29T09:46:55Z
+description: "ALS Notes de versions"
 type: "docs"
 weight: 55
 ---
