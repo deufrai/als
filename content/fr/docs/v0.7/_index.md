@@ -1,6 +1,6 @@
 ---
-title: "Documentation"
-lastmod: 2024-11-29T03:10:23Z
+title: "Introduction"
+lastmod: 2024-11-29T09:12:27Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
