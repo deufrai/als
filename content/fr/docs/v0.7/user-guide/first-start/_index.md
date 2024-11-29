@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-11-29T12:48:46Z
+lastmod: 2024-11-29T13:25:46Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -33,7 +33,13 @@ ADD reminder about launch
 
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages indispensables à son fonctionnement :
 
-- **Dosser scan** : Le dossier de votre système dans lequel ALS va surveiller l'arrivée des nouvelles brutes
-- **Dossier work** : Le dossier de votre système dans lequel ALS va enregistrer les images produites
+- **Dosser scan** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
+- **Dossier work** : Le dossier de votre système dans lequel ALS enregistre les images produites
+
+_Pas de panique, c'est la dernière fois qu'ALS vous parlera Anglais si vous ne le souhaitez pas_ 
+
+{{< center >}}
+{{< figure src="/images/docs/fr/first-run/welcome.png" >}}
+{{< /center >}}
 
 

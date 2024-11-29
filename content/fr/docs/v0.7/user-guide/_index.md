@@ -3,14 +3,12 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-11-29T11:32:34Z
+lastmod: 2024-11-29T13:25:46Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
 weight: 30
 ---
-
-## Démarrage avec ALS
 
 Bienvenue au cœur de notre guide d'utilisation. Cette section est conçue pour vous fournir toutes les informations 
 essentielles et les outils dont vous avez besoin pour naviguer et tirer le meilleur parti de ALS. Que vous soyez un 
