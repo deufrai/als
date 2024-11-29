@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-lastmod: 2024-11-29T03:04:26Z
+lastmod: 2024-11-29T03:10:23Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
@@ -63,7 +63,7 @@ Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a mieux c
 ### Nouveautés
 - Envoi de statistiques d'utilisation avec le consentement de l'utilisateur
 - Lecture des fichiers .CR3 Canon Raw
-- Introduction des profils (paramètres par défaut pour Visuel assisté & Photo)
+- Introduction des profils (paramètres par défaut pour Visuel assisté ou Photo)
 - Ajout d'un affichage de QR code menant au serveur WEB intégré
 - Ajout de la lecture des fichiers jpeg, png et tiff
 - Traduction française
