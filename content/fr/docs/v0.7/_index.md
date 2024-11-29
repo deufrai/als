@@ -1,12 +1,20 @@
 ---
 title: "Documentation"
-lastmod: 2024-11-28T23:52:38Z
+lastmod: 2024-11-29T01:49:30Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
 ---
 
 # 🔭 Vue d'ensemble d'ALS
+
+{{< center >}}
+{{< figure src="/images/docs/fr/als_doc_screenshot.png" >}}
+{{< /center >}}
+
+
+ALS est une application de livestacking d'astrophotographie
+
 ---
 
 # 🖥️ Configuration système requise
@@ -18,7 +26,7 @@ Bonne nouvelle : ALS n’est pas trop gourmand en ressources.
 
 ## Raspberry Pi
 - Raspberry Pi 4 minimum
-- 4 Go de RAM
+- 4 Go de RAM minimum
 
 Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a mieux c'est ! Cela rendra ALS plus fluide. 😊
 
