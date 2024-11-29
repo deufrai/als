@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-lastmod: 2024-11-29T09:12:27Z
+lastmod: 2024-11-29T09:19:26Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
@@ -38,21 +38,6 @@ ALS propose ensuite, sur le résultat de l'empilement, les fonctionnalités suiv
 - Publication sur le réseau via un serveur web intégré, avec possibilité d'afficher un QR code pour
 faciliter la navigation
 
-
----
-
-# 🖥️ Configuration système requise
-
-Bonne nouvelle : ALS n’est pas trop gourmand en ressources.
-
-## Ordinateurs de bureau et portables
-- Rien de spécial, vraiment. N'importe quel système moderne fera l'affaire.
-
-## Raspberry Pi
-- Raspberry Pi 4 minimum
-- 4 Go de RAM minimum
-
-Cependant, on n'a jamais trop de puissance CPU et de RAM. Plus il y en a mieux c'est ! Cela rendra ALS plus fluide. 😊
 
 ---
 
