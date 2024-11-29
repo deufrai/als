@@ -1,12 +1,12 @@
 ---
 title: "Release Notes"
-lastmod: 2024-11-29T09:40:43Z
+lastmod: 2024-11-29T09:44:40Z
 description: "ALS Release Notes"
 type: "docs"
 weight: 55
 ---
 
-## 🆕 Version 0.7
+## 🆕 Version 0.7 (C'est bientôt cuit 🍽️)
 
 ### Nouveautés
 - Envoi de statistiques d'utilisation avec le consentement de l'utilisateur
