@@ -24,9 +24,15 @@ function downloadAndOpenInstructions(platform) {
 
     var platformInfo = urls[platform];
 
+    // Track the download in Matomo
+    if (typeof _paq !== 'undefined') {
+        _paq.push(['trackLink', platformInfo.download, 'download']);
+    }
+
     // Open instructions in a new tab
     window.open(platformInfo.instructions, '_blank');
 
     // Start the download
     window.location.href = platformInfo.download;
 }
+
