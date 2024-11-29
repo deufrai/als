@@ -1,12 +1,12 @@
 ---
 title: "Documentation"
-lastmod: 2024-11-29T02:54:24Z
+lastmod: 2024-11-29T03:04:26Z
 description: "Astro Live Stacker."
 type: "docs"
 weight: 1
 ---
 
-# 🔭 Vue d'ensemble d'ALS
+# 🔭 Vue d'ensemble
 
 {{< center >}}
 {{< figure src="/images/docs/fr/als_doc_screenshot.png" >}}
