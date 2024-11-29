@@ -1,12 +1,12 @@
 ---
 title: "Release Notes"
-lastmod: 2024-11-29T09:44:40Z
+lastmod: 2024-11-29T09:45:55Z
 description: "ALS Release Notes"
 type: "docs"
 weight: 55
 ---
 
-## 🆕 Version 0.7 (C'est bientôt cuit 🍽️)
+## Version 0.7 (C'est bientôt cuit 🍽️)
 
 ### Nouveautés
 - Envoi de statistiques d'utilisation avec le consentement de l'utilisateur
@@ -35,12 +35,12 @@ weight: 55
 - Prise en charge des FITS avec extension .fts
 - RPI : crash lors de l'enregistrement des images en noir et blanc
 
-## 🆕 Version 0.6.1 (2019-11-18)
+## Version 0.6.1 (2019-11-18)
 
 ### Corrections
 - Dématriçage défectueux des images prises avec des appareils photo ayant un modèle CFA GBRG
 
-## 🆕 Version 0.6 (2019-11-14)
+## Version 0.6 (2019-11-14)
 
 ### Nouveautés
 - Boîte de dialogue des paramètres utilisateur
@@ -64,17 +64,17 @@ weight: 55
 - Crash si la nouvelle image ne peut pas être alignée avec la pile actuelle
 - Crash si une nouvelle session est démarrée alors que le dossier scan est manquant
 
-## 🆕 Version 0.5 (2019-07-10)
+## Version 0.5 (2019-07-10)
 
 ### Nouveautés
 - L'image empilée peut être servie par le nouveau serveur web intégré
 
-## 🆕 Version 0.4 (2019-06-22)
+## Version 0.4 (2019-06-22)
 
 ### Nouveautés
 - Nouveau processeur d'images empilées : Ondelettes
 
-## 🆕 Version 0.3 (2019-05-23)
+## Version 0.3 (2019-05-23)
 
 ### Nouveautés
 - Prise en charge des fichiers Raw DSLR courants
@@ -82,12 +82,12 @@ weight: 55
 - Bouton de réinitialisation des contrôles de traitement d'image
 - Nouveau processeur d'images empilées : SCNR
 
-## 🆕 Version 0.2 (2019-05-21)
+## Version 0.2 (2019-05-21)
 
 ### Nouveautés
 - Le contraste et la luminosité des images empilées peuvent être ajustés
 
-## 🆕 Version 0.1 (2019-05-18)
+## Version 0.1 (2019-05-18)
 
 ### Première release
 - Alignement et empilement des fichiers Fits
