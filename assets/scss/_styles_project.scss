@@ -1,3 +1,46 @@
 .navbar {
   background-color: $navbar-bg !important; // Apply custom navbar background color
 }
+
+.code, li code {
+
+  background-color: $code-bg !important;
+  color: burlywood  !important;
+}
+
+//### Colors
+//- `$primary`: Primary color (e.g., `#390040`)
+//- `$secondary`: Secondary color (e.g., `#a23b72`)
+//- `$success`: Success color (e.g., `#28a745`)
+//- `$info`: Info color (e.g., `#17a2b8`)
+//- `$warning`: Warning color (e.g., `#ffc107`)
+//- `$danger`: Danger color (e.g., `#dc3545`)
+//- `$light`: Light color (e.g., `#f8f9fa`)
+//- `$dark`: Dark color (e.g., `#343a40`)
+//
+//### Fonts
+//- `$font-family-base`: Base font family (e.g., `sans-serif`)
+//- `$font-family-monospace`: Monospace font family (e.g., `SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace`)
+//- `$font-size-base`: Base font size (e.g., `1rem`)
+//
+//### Spacing
+//- `$spacer`: Default spacer size (e.g., `1rem`)
+//- `$container-padding-x`: Padding for container (e.g., `1rem`)
+//- `$gutter-width`: Gutter width (e.g., `3rem`)
+//
+//### Breakpoints
+//- `$breakpoint-xs`: Extra small screen (e.g., `0`)
+//- `$breakpoint-sm`: Small screen (e.g., `576px`)
+//- `$breakpoint-md`: Medium screen (e.g., `768px`)
+//- `$breakpoint-lg`: Large screen (e.g., `992px`)
+//- `$breakpoint-xl`: Extra large screen (e.g., `1200px`)
+//
+//### Shadows
+//- `$box-shadow`: Box shadow (e.g., `0 0.25rem 0.75rem rgba(0, 0, 0, 0.1)`)
+//
+//### Gradients
+//- `$gradient-primary`: Primary gradient (e.g., `linear-gradient(45deg, #390040, #a23b72)`)
+//
+//### Code Highlighting
+//- `$code-bg`: Code block background color (e.g., `#f4f4f4`)
+//- `$code-text`: Code block text color (e.g., `#000`)
