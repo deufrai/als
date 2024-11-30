@@ -61,7 +61,6 @@
     <addaction name="separator"/>
     <addaction name="action_full_screen"/>
     <addaction name="action_night_mode"/>
-    <addaction name="action_qrcode"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -87,11 +86,23 @@
     <addaction name="separator"/>
     <addaction name="action_adjust_image"/>
    </widget>
+   <widget class="QMenu" name="menu_Utilities">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Utilities</string>
+    </property>
+    <addaction name="action_qrcode"/>
+    <addaction name="separator"/>
+    <addaction name="action_create_launcher"/>
+   </widget>
    <addaction name="menu_File"/>
    <addaction name="menuSession"/>
    <addaction name="menu_Edit"/>
    <addaction name="menu_Image"/>
    <addaction name="menuView"/>
+   <addaction name="menu_Utilities"/>
    <addaction name="menu_Help"/>
   </widget>
   <widget class="QDockWidget" name="session_dock">
@@ -1503,6 +1514,14 @@
    </property>
    <property name="shortcut">
     <string notr="true">G</string>
+   </property>
+  </action>
+  <action name="action_create_launcher">
+   <property name="text">
+    <string>Create &amp;launcher</string>
+   </property>
+   <property name="statusTip">
+    <string>Create / replace launcher for ALS in your system menu</string>
    </property>
   </action>
  </widget>

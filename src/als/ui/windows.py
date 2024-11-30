@@ -2,13 +2,15 @@
 Holds all windows used in the app
 """
 import datetime
+import platform
 from logging import getLogger
-from os import linesep
+from os import linesep, chmod, makedirs
+from pathlib import Path
 
-from PyQt5.QtCore import pyqtSlot, Qt
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource
 from PyQt5.QtGui import QPixmap, QBrush, QColor, QIcon
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, qApp, QLabel, QFrame
+    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox
 
 import als.model.data
 from als import config
@@ -181,6 +183,8 @@ class MainWindow(QMainWindow):
             self.showMaximized()
         else:
             self.show()
+
+        self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
 
     def _setup_statusbar(self):
         self._lbl_statusbar_current_profile = QLabel(self._ui.statusBar)
@@ -942,3 +946,76 @@ class MainWindow(QMainWindow):
 
             self._ui.action_ack_issues.isEnabled() and not self._ui.log_dock.isVisible()
         )
+
+    @log
+    @pyqtSlot(bool)
+    def on_action_create_launcher_triggered(self, _):
+        """
+        Creates a desktop application launcher for 'Astro Live Stacker' on Linux systems.
+
+        It involves setting up an icon in the user's local share directory,
+        creating a .desktop launcher file,
+        and handling potential errors
+
+        :return: None
+        """
+        if platform.system().lower() == 'linux':
+
+            home_path = QStandardPaths.writableLocation(QStandardPaths.HomeLocation)
+            local_share_path = Path(home_path).joinpath(".local", "share")
+            local_icons_path = Path(local_share_path).joinpath("icons")
+            local_apps_path = Path(local_share_path).joinpath("applications")
+            target_dirs = [local_icons_path, local_apps_path]
+
+            for target_dir in target_dirs:
+                makedirs(target_dir, exist_ok=True)
+
+            launcher_path = Path(local_apps_path).joinpath("als.desktop")
+            icon_path = Path(local_icons_path).joinpath("als.png")
+            resource_path = ":/icons/als_logo.png"
+
+            try:
+                with open(icon_path, 'wb') as f:
+                    f.write(QResource(resource_path).data())
+
+                # switch for PCs vs RPI64
+                if platform.machine().lower() == 'aarch64':
+                    file_filter = "als*"
+                else:
+                    file_filter = "als*.run"
+
+
+                with open(launcher_path, 'w') as f:
+                    als_path = QFileDialog.getOpenFileName(self,
+                                                     caption=self.tr("Select your ALS executable"),
+                                                     directory=home_path,
+                                                     filter=file_filter,
+                                                     options=QFileDialog.DontUseNativeDialog)[0]
+
+                    if als_path:
+                        f.write("#!/usr/bin/env xdg-open\n")
+                        f.write("[Desktop Entry]\n")
+                        f.write(f"Name=Astro Live Stacker\n")
+                        f.write(f"Type=Application\n")
+                        f.write(f"Icon={icon_path}\n")
+                        f.write(f"Version=1.0\n")
+                        f.write(f"Terminal=False\n")
+                        f.write(f"Categories=Graphics\n")
+                        f.write(f"Comment=Live Stacking Made in France\n")
+                        f.write(f"Exec={als_path}\n")
+                        chmod(str(launcher_path), 0o750)
+
+                        QMessageBox.information(self,
+                                                self.tr('ALS launcher created / updated.'),
+                                                self.tr("You'll find ALS with the graphics apps"))
+
+            except FileNotFoundError as e:
+                QMessageBox.critical(self, "File Error", f"File not found: {e}")
+            except PermissionError as e:
+                QMessageBox.critical(self, "Permission Error", f"Permission denied: {e}")
+            except OSError as e:
+                QMessageBox.critical(self, "OS Error", f"OS error: {e}")
+            except ValueError as e:
+                QMessageBox.critical(self, "Value Error", f"Value error: {e}")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"An unexpected error occurred: {e}")
