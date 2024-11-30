@@ -31,3 +31,17 @@
     </div>
   </div>
 </footer>
+
+  <!-- Cookie Consent -->
+  <div class="cookieconsent">
+    <div class="cookieconsent__message">
+      {{ i18n "cookieconsentMessage" }}
+      <a href="{{ i18n "cookieconsentPrivacyPolicyUrl" }}">{{ i18n "cookieconsentPrivacyPolicy" }}</a>
+    </div>
+    <div class="cookieconsent__actions">
+      <button class="button button--small button--cookieconsent button--decline" type="button" data-consent="false">{{ i18n "cookieconsentDecline" }}</button>
+      <button class="button button--small button--cookieconsent button--accept" type="button" data-consent="true">{{ i18n "cookieconsentAccept" }}</button>
+    </div>
+  </div>
+
+

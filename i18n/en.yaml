@@ -14,3 +14,14 @@
   translation: "All rights reserved."
 - id: licenseText
   translation: "Licensed under the GPL-3.0 License."
+- id: cookieconsentMessage
+  translation: "We use cookies to improve your experience on our site."
+- id: cookieconsentAccept
+  translation: "Accept"
+- id: cookieconsentDecline
+  translation: "Decline"
+- id: cookieconsentPrivacyPolicy
+  translation: "Privacy Policy"
+- id: cookieconsentPrivacyPolicyUrl
+  translation: "/privacy-policy"
+

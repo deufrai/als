@@ -4,6 +4,36 @@
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
+<!-- Link to global CSS -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js" defer></script>
+  <!-- Browser lang detection & cookie consent -->
+  <script>
+    (function() {
+      'use strict';
+      console.log('Language detection script executed');
+      var userLang = navigator.language || navigator.userLanguage;
+      console.log('Detected language:', userLang);
+      userLang = userLang.substring(0, 2); // Get the first two characters (e.g., 'en', 'fr')
+      var supportedLangs = ['en', 'fr'];
+      if (supportedLangs.indexOf(userLang) === -1) {
+        userLang = 'en'; // Default to English if the user's language is not supported
+      }
+      console.log('Using language:', userLang);
+      // Check if the current URL already contains a language prefix
+      if (!window.location.pathname.startsWith('/' + userLang + '/') && !sessionStorage.getItem('redirected')) {
+        sessionStorage.setItem('redirected', 'true');
+        console.log('Redirecting to:', '/' + userLang + window.location.pathname);
+        window.location.href = '/' + userLang + window.location.pathname;
+      }
+    })();
+  </script>
+  <script src="/js/cookieconsent.js" defer></script>
+
+
+
+
 {{ $outputFormat := partial "outputformat.html" . -}}
 {{ if and hugo.IsProduction (ne $outputFormat "print") -}}
     <meta name="robots" content="index, follow">
@@ -67,9 +97,6 @@
 
 {{ end -}}
 
-<!-- Link to global CSS -->
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als.css">
-
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -87,3 +114,6 @@
 <!-- End Matomo Code -->
 
 <script src="{{ "js/download.js" | relURL }}" defer></script>
+
+
+

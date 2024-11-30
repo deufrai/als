@@ -2,7 +2,7 @@
     font-family: 'Poppins';
     src: url('/fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal
 }
 
 body {
@@ -11,22 +11,22 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #222222;
-    color: #d3d3d3;
-    overflow-x: hidden;
+    background-color: #222222 !important;
+    color: #d3d3d3 !important;
+    overflow-x: hidden
 }
 
 a {
-    color: #d3d3d3 !important;
+    color: #d3d3d3 !important
 }
 
 a:hover {
-    color: #fff !important;
+    color: #fff !important
 }
 
 .content-wrapper {
     overflow: auto;
-    padding-top: 80px;
+    padding-top: 80px
 }
 
 .content-wrapper.about-page {
@@ -34,7 +34,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .about-section {
@@ -42,7 +42,7 @@ a:hover {
     margin: 15px auto !important;
     background-color: #222222 !important;
     max-width: 800px;
-    line-height: 1.4;
+    line-height: 1.4
 }
 
 .about-section h2 {
@@ -50,7 +50,7 @@ a:hover {
     color: #d3d3d3;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: center
 }
 
 .about-section p {
@@ -58,36 +58,36 @@ a:hover {
     color: #d3d3d3;
     line-height: 1.6;
     padding: 10px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .about-section ul {
     list-style-type: disc;
     padding: 0 20px;
-    margin: 20px 0;
+    margin: 20px 0
 }
 
 .about-section ul li {
     font-size: 18px;
     color: #d3d3d3;
     margin-bottom: 10px;
-    line-height: 1.4;
+    line-height: 1.4
 }
 
 .about-section ul li strong {
-    color: inherit;
+    color: inherit
 }
 
 @media (min-width: 900px) {
     .about-section {
         margin-left: 80px !important;
-        margin-right: 80px !important;
+        margin-right: 80px !important
     }
 }
 
 footer {
     padding: 20px 0;
-    position: relative;
+    position: relative
 }
 
 footer p {
@@ -98,15 +98,15 @@ footer p {
     position: absolute;
     bottom: 5px;
     left: 5px;
-    width: auto;
+    width: auto
 }
 
 footer p a {
-    color: #6c757d !important;
+    color: #6c757d !important
 }
 
 footer p a:hover {
-    color: #8a9097 !important;
+    color: #8a9097 !important
 }
 
 footer ul {
@@ -115,12 +115,12 @@ footer ul {
     margin: 0;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center
 }
 
 footer ul li {
     margin: 25px 0;
-    text-align: center;
+    text-align: center
 }
 
 footer ul li a {
@@ -128,72 +128,72 @@ footer ul li a {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    font-size: 1.3em;
+    font-size: 1.3em
 }
 
 footer ul li a i {
     font-size: 2.2em;
-    padding: 5px;
+    padding: 5px
 }
 
 .footer-license {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 40px
 }
 
 footer .container {
     max-width: 1200px;
-    margin: auto;
+    margin: auto
 }
 
 @media (max-width: 599px) {
     footer ul {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
+        grid-template-columns:1fr 1fr;
+        grid-gap: 20px
     }
 
     footer ul li {
         width: auto;
-        margin: 0;
+        margin: 0
     }
 
     footer ul li a {
-        font-size: 1em;
+        font-size: 1em
     }
 
     footer ul li a i {
-        font-size: 2em;
+        font-size: 2em
     }
 }
 
 .contact-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center
 }
 
 .contact-text span {
-    display: block;
+    display: block
 }
 
 .image-container {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 60vh
 }
 
 header.homepage-section {
     background-color: #222222 !important;
     color: white !important;
     padding: 10px !important;
-    text-align: center !important;
+    text-align: center !important
 }
 
 section.homepage-section {
     padding: 10px !important;
     margin: 10px !important;
-    background-color: #222222 !important;
+    background-color: #222222 !important
 }
 
 .catchphrase {
@@ -201,20 +201,20 @@ section.homepage-section {
     font-size: 1.8em;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #d3d3d3;
+    color: #d3d3d3
 }
 
 .screenshot-section {
     text-align: center;
-    margin: 20px 0;
+    margin: 20px 0
 }
 
 .screenshot {
     display: inline-block;
     max-width: 50%;
     height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    border-radius: 4px
 }
 
 .download-buttons {
@@ -223,7 +223,7 @@ section.homepage-section {
     gap: 20px !important;
     justify-content: center !important;
     margin-top: 30px !important;
-    margin-bottom: 30px !important;
+    margin-bottom: 30px !important
 }
 
 .download-buttons .button {
@@ -239,32 +239,32 @@ section.homepage-section {
     cursor: pointer !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
     font-size: 1.1em;
-    transition: background-color .3s, transform .3s;
+    transition: background-color .3s, transform .3s
 }
 
 .download-buttons .button i {
     color: #a8a8a8 !important;
     margin-right: 10px !important;
-    transform: translateY(-2px) !important;
+    transform: translateY(-2px) !important
 }
 
 .download-buttons .button:hover {
     background-color: #a30000 !important;
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
 
 .features-section {
-    padding: 0 40px;
+    padding: 0 40px
 }
 
 .features-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 1fr;
     grid-gap: 100px 4em;
     list-style-type: none;
     padding: 0;
     font-size: 1.2em;
-    margin: 0 120px;
+    margin: 0 120px
 }
 
 .features-list li {
@@ -274,7 +274,7 @@ section.homepage-section {
     position: relative;
     text-align: center;
     padding-left: 60px;
-    padding-right: 60px;
+    padding-right: 60px
 }
 
 .features-list li i {
@@ -283,42 +283,41 @@ section.homepage-section {
     left: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .6);
     font-size: 1.5em;
-    color: #3592cc;
+    color: #3592cc
 }
 
 .features-list li strong {
     display: block;
     text-align: center;
     font-size: 1.6em;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .features-list li p {
     margin: 0;
-    text-align: center;
+    text-align: center
 }
 
 @media (max-width: 899px) {
     .features-list {
-        grid-template-columns: 1fr;
-        margin: 0 20px;
+        grid-template-columns:1fr;
+        margin: 0 20px
     }
 
     .features-list li {
         width: 100%;
         margin-right: 0;
         margin-left: 0;
-        margin-bottom: 40px;
+        margin-bottom: 40px
     }
 }
 
-/* Styles pour la page des contributeurs */
 .content-wrapper.contributors-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .contributors-section {
@@ -327,64 +326,146 @@ section.homepage-section {
     background-color: #222222;
     max-width: 800px;
     line-height: 1.6;
-    color: #d3d3d3;
+    color: #d3d3d3
 }
 
 .contributors-section h2 {
     font-size: 24px;
     color: #d3d3d3;
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .contributors-section h3 {
     font-size: 20px;
     color: #d3d3d3;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .contributors-section ul {
-    margin-bottom: 40px; /* Ajout d'espace entre les contributeurs */
+    margin-bottom: 40px
 }
 
 @keyframes bounceButton {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translateY(0)
     }
     40% {
-        transform: translateY(-20px);
+        transform: translateY(-20px)
     }
     60% {
-        transform: translateY(-10px);
+        transform: translateY(-10px)
     }
 }
 
 .join-us {
     text-align: center;
-    margin-top: 40px; /* Added vertical spacing */
+    margin-top: 40px
 }
 
 .join-us .button {
     display: inline-block;
     background-color: transparent;
-    color: #f0f0f0; /* Dimmed white color */
+    color: #f0f0f0;
     padding: 15px 30px;
     text-decoration: none;
-    border: 1px solid #f0f0f0; /* Reduced border size */
+    border: 1px solid #f0f0f0;
     border-radius: 28px;
     font-weight: bold;
     text-transform: uppercase;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-    animation: bounceButton 2s infinite;
+    animation: bounceButton 2s infinite
 }
 
 .join-us .button:hover {
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
 
 .join-us .button i {
     margin-left: 8px;
-    font-size: 1.2em;
+    font-size: 1.2em
+}
+
+.cookieconsent {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    padding: 1em !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 14px !important
+}
+
+.cookieconsent__message {
+    flex-grow: 1 !important;
+    margin-right: 1em !important
+}
+
+.cookieconsent__message a {
+    color: #69a887 !important;
+    text-decoration: underline !important
+}
+
+.button--cookieconsent {
+    background-color: #8f8f8f !important;
+    color: #000 !important;
+    border: none !important;
+    padding: .5em 1em !important;
+    margin-left: 1em !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    border-radius: 5px !important
+}
+
+.button--cookieconsent:hover {
+    background-color: #cdcdcd !important
+}
+
+body .cookieconsent {
+  display: none !important; /* Hidden by default */
+}
+
+body .cookieconsent.js-cookieconsent-open {
+  display: flex !important; /* Shown when needed */
+}
+
+
+/* General Privacy Policy Styles */
+.privacy-policy {
+    background-color: #222222 !important;
+    color: #d3d3d3 !important;
+
+    margin: 20px auto !important;
+    max-width: 66vw !important; /* Adjusted to 66% of viewport width */
+    line-height: 1.6 !important;
+}
+
+.privacy-policy h1, .privacy-policy h2, .privacy-policy h3, .privacy-policy h4, .privacy-policy h5, .privacy-policy h6 {
+    color: #d3d3d3 !important;
+    margin-bottom: 20px !important;
+}
+
+.privacy-policy p {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #d3d3d3 !important;
+}
+
+.privacy-policy ul {
+    list-style-type: disc !important;
+    padding-left: 20px !important;
+    margin: 20px 0 !important;
+}
+
+.privacy-policy ul li {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+    color: #d3d3d3 !important;
 }

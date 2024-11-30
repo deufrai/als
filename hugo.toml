@@ -5,7 +5,6 @@ title = "Astro Live Stacker"
 theme = "docsy"
 publishDir = "public"
 enableRobotsTXT = true
-defaultContentLanguage = "fr"
 enableGitInfo = true
 
 # Site Parameters
@@ -64,19 +63,19 @@ enableGitInfo = true
     [[languages.fr.menu.main]]
       identifier = "about"
       name = "À propos"
-      url = "/about/"
+      url = "/fr/about/"
       weight = 10
 
     [[languages.fr.menu.main]]
       identifier = "contributors"
       name = "Contributeurs"
-      url = "/contributors/"
+      url = "/fr/contributors/"
       weight = 15
 
     [[languages.fr.menu.main]]
       identifier = "docs"
       name = "Documentation"
-      url = "/docs/v0.7/"
+      url = "/fr/docs/v0.7/"
       weight = 20
 
   # English Configuration
@@ -88,17 +87,17 @@ enableGitInfo = true
     [[languages.en.menu.main]]
       identifier = "about"
       name = "About"
-      url = "/en/about/"
+      url = "/about/"
       weight = 10
 
     [[languages.en.menu.main]]
       identifier = "contributors"
       name = "Contributors"
-      url = "/en/contributors/"
+      url = "/contributors/"
       weight = 15
 
     [[languages.en.menu.main]]
       identifier = "docs"
       name = "Docs"
-      url = "/en/docs/v0.7/"
+      url = "/docs/v0.7/"
       weight = 20
