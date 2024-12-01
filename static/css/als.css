@@ -1,5 +1,7 @@
 :root {
     --primary-color: darkred;
+    --dimmed: #636363;
+
 }
 
 @font-face {
@@ -11,7 +13,6 @@
 
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    overflow-x: hidden;
     color: #c6c6c6 !important;
 }
 
@@ -39,7 +40,6 @@ section {
     align-items: normal;
 }
 
-
 .als-section {
     max-width: 60vw;
     line-height: 1.6em;
@@ -48,15 +48,20 @@ section {
 .als-section h1 {
     text-align: center;
     line-height: 1.4;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .als-section h2 {
     font-size: 1.4em;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+.als-text-shadow {
+    text-shadow: 0 6px 8px rgba(0, 0, 0, .5);
 }
 
 footer {
+    margin-top: 20px;
     padding: 20px 0;
     position: relative
 }
@@ -74,10 +79,10 @@ footer p {
 footer ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 400px;
     display: flex;
     justify-content: space-around;
-    align-items: center
+    align-items: center;
 }
 
 footer ul li {
@@ -90,8 +95,7 @@ footer ul li a {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    font-size: 1.3em;
-    color: inherit;
+    color: var(--dimmed);
 }
 
 footer ul li a i {
@@ -100,7 +104,7 @@ footer ul li a i {
 }
 
 .footer-license {
-    margin-top: 40px;
+    margin-top: 20px;
     color: #494949;
 }
 
@@ -157,7 +161,7 @@ footer ul li a i {
     max-height: 55vh;
     max-width: 90vw;
     height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    box-shadow: 0 10px 10px 8px rgba(0, 0, 0, .5);
     border-radius: 4px
 }
 
@@ -206,7 +210,7 @@ footer ul li a i {
     grid-gap: 50px 4em;
     list-style-type: none;
     padding: 0;
-    margin: 0 120px
+    margin: 0 120px;
 }
 
 .features-list li {
@@ -223,7 +227,6 @@ footer ul li a i {
     position: absolute;
     top: 10px;
     left: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .6);
     font-size: 1.5em;
 }
 
