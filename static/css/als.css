@@ -47,11 +47,13 @@ section {
 
 .als-section h1 {
     text-align: center;
-    line-height: 1.4
+    line-height: 1.4;
+    padding-top: 1rem;
 }
 
 .als-section h2 {
     font-size: 1.4em;
+    padding-top: 0.5rem;
 }
 
 footer {
