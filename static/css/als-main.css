@@ -132,30 +132,12 @@ footer .row > div a i {
 
 .footer-license {
     margin-top: 20px;
-    color: #494949;
+    padding-top: 20px;
+    color: var(--dimmed);
 }
 
 .footer-license a {
     color: inherit;
-}
-
-@media (max-width: 599px) {
-    footer .row {
-        flex-direction: column;
-    }
-
-    footer .row > div {
-        width: 100%;
-        margin: 0;
-    }
-
-    footer .row > div a {
-        font-size: 1em;
-    }
-
-    footer .row > div a i {
-        font-size: 2em;
-    }
 }
 
 .contact-text span {

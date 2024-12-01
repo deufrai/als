@@ -1,35 +1,36 @@
 <footer>
-    <div class="row">
-        {{ if eq .Site.Language.Lang "fr" }}
+    <div class="container">
+        <div class="row">
+            {{ if eq .Site.Language.Lang "fr" }}
+                <div class="col-12 col-md-3 mb-3">
+                    <a href="https://discord.com/channels/489463570552324097/1026765528108376074" target="_blank">
+                        <i class="fab fa-discord"></i> {{ i18n "discordASTROfr" }}
+                    </a>
+                </div>
+            {{ end }}
             <div class="col-12 col-md-3 mb-3">
-                <a href="https://discord.com/channels/489463570552324097/1026765528108376074" target="_blank"
-                   class="text-white">
-                    <i class="fab fa-discord"></i> {{ i18n "discordASTROfr" }}
+                <a href="https://github.com/deufrai/als/issues" target="_blank">
+                    <i class="fab fa-github"></i> {{ i18n "githubIdeaProblem" }}
                 </a>
             </div>
-        {{ end }}
-        <div class="col-12 col-md-3 mb-3">
-            <a href="https://github.com/deufrai/als/issues" target="_blank" class="text-white">
-                <i class="fab fa-github"></i> {{ i18n "githubIdeaProblem" }}
-            </a>
+            <div class="col-12 col-md-3 mb-3">
+                <a href="mailto:contact@als-app.org">
+                    <i class="fas fa-envelope"></i> {{ i18n "contact" }}
+                </a>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <a href="mailto:support@als-app.org">
+                    <i class="fas fa-envelope"></i> {{ i18n "support" }}
+                </a>
+            </div>
         </div>
-        <div class="col-12 col-md-3 mb-3">
-            <a href="mailto:contact@als-app.org" class="text-white">
-                <i class="fas fa-envelope"></i> {{ i18n "contact" }}
-            </a>
-        </div>
-        <div class="col-12 col-md-3 mb-3">
-            <a href="mailto:support@als-app.org" class="text-white">
-                <i class="fas fa-envelope"></i> {{ i18n "support" }}
-            </a>
-        </div>
-    </div>
 
-    <div class="footer-license">
-        <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
-            <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}"
-               target="_blank">{{ i18n "licenseText" }}</a>
-        </p>
+        <div class="footer-license">
+            <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
+                <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}"
+                   target="_blank">{{ i18n "licenseText" }}</a>
+            </p>
+        </div>
     </div>
 </footer>
 
