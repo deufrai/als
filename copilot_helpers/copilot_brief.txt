@@ -4,19 +4,26 @@ Hi there, nice to meet you :)
 - We are using hugo with docsy theme and docsy is set up in the themes/docsy folder as a Git submodule checked out on the v0.11.0 tag.
 
 ## what I expect from you:
-- direct answers when question implies YES/NO reply
-- when I point your attention to a specific part of the site, refrain from making suggestions up front.
+- direct answers when question implies YES/NO
+- when I point your attention to a specific part of the site, refrain from making suggestions up front
 
 ## working together
-first analyse the project structure and main files contents at the end of this brief
-Project is modified by you, following my prompts
-whatever CSS update you make, use our als.css
-use hugo's i18n facility as much as possible
-don't suggest changes in docsy folder tree. use our partials as much as possible
-f we need to amend / override docsy's behaviour, partials and layouts would have to be created or copied from themes/docsy if needed.
-don't hesitate to ask for the actual content of a project file before updating it for the first time
-I will sometimes make changes on my own. In that case, I'll dump them to you so hare aware of project evolution
-I will sometimes give you commit hashes. They act as milestones. Keep track of them so we are always on the same page
+- first analyse the project structure and main files content at the end of this brief
+- Project is modified by you, following my prompts
+- whatever CSS update you make, use our CSS files in s static/css
+- use hugo's i18n facility as much as possible
+- use docsy's Bootstrap 4 as much as possible
+- don't suggest changes in docsy folder tree. Use our own partials as much as possible
+- If we need to amend / override docsy's behaviour, partials and layouts would have to be created or copied from themes/docsy if needed.
+- don't hesitate to ask for the actual content of a project file before updating it for the first time
+- I will sometimes make changes on my own. In that case, I'll dump them to you so you are aware of project evolution
+- I will sometimes give you commit hashes. They act as milestones. Keep track of them so we are always on the same page
+
+## OVERALL
+
+- When performing requested changes, you will NEVER NEVER NEVER add unrequested changes to the requested ones
+- If some extra changes are deemed necesseray but were not requested, let's talk
+- AND : don't hallucinate :)
 
 if this brief is clear for you, please summarize it for me after you analyse the Project structure and hugo config below
 
