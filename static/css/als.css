@@ -180,7 +180,7 @@ footer ul li a i {
 
 .screenshot-section {
     text-align: center;
-    margin: 20px 0
+
 }
 
 .screenshot {
@@ -189,7 +189,8 @@ footer ul li a i {
     max-width: 90vw;
     height: auto;
     box-shadow: 0 10px 10px 8px rgba(0, 0, 0, .5);
-    border-radius: 4px
+    border-radius: 4px;
+        margin: 20px 0 40px 0;
 }
 
 .download-buttons {
