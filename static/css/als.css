@@ -46,10 +46,16 @@ section {
     line-height: 1.6em;
 }
 
+.als-section p {
+
+    text-align: justify;
+}
+
 .als-section h1 {
     text-align: center;
     line-height: 1.4;
     padding-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .als-section h2 {
@@ -59,6 +65,26 @@ section {
 
 .als-text-shadow {
     text-shadow: 0 4px 4px rgba(0, 0, 0, .5);
+}
+
+.als-mission ul {
+    list-style: none;
+    padding: 0;
+    line-height: 2em;
+}
+
+.als-mission ul li i {
+    padding-right: 10px;
+}
+
+.als-team ul {
+    list-style: none;
+    padding: 0;
+    line-height: 2em;
+}
+
+.als-team ul li i {
+    padding-right: 10px;
 }
 
 footer {
