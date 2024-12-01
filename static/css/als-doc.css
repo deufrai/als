@@ -1,5 +1,5 @@
 .td-content code, pre {
-    color: var(--backhround) !important;
+    color: var(--als-background) !important;
     background-color: var(--dimmed) !important;
 }
 
@@ -13,6 +13,10 @@
 
 .td-content h2{
     font-size: 1.5em;
+}
+
+.td-content p {
+    text-align: justify;
 }
 
 div.lead {
