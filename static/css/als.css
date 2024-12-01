@@ -12,15 +12,15 @@
 body {
     font-family: 'Poppins', Arial, sans-serif;
     overflow-x: hidden;
-}
-
-section {
-
-    padding: 0 !important;
+    color: #c6c6c6 !important;
 }
 
 .navbar-brand {
     color: #c6c6c6 !important;
+}
+
+section {
+    padding: 0 !important;
 }
 
 .content-wrapper {
