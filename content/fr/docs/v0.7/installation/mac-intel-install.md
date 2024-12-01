@@ -1,12 +1,9 @@
 ---
-title: "Mac Intel"
-description: "Installer ALS sur un Mac Intel"
+title: "Installation sur un Mac Intel"
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-11-29T18:28:25Z
+lastmod: 2024-12-01T09:26:35Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
-draft: false
-type: "docs"
 weight: 24
 ---
 
@@ -45,4 +42,4 @@ weight: 24
      - Appuyez sur `Entrée`. Entrez votre mot de passe administrateur si vous y êtes invité et appuyez à nouveau sur `Entrée`.
      - Accédez au dossier `Applications`, puis double-cliquez sur l'application `ALS` pour l'exécuter.]()
      
-Bonne utilisation d'als ! 🚀
+Bonne utilisation d'als ! 🔭

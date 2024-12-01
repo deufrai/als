@@ -1,8 +1,16 @@
-.td-content code {
+.td-content code, pre {
     color: var(--backhround) !important;
     background-color: var(--dimmed) !important;
 }
 
 .td-content li{
     margin-top: 1rem;
+}
+
+.td-content h1{
+    font-weight: unset !important;
+}
+
+.td-content h2{
+    font-size: 1.5em;
 }

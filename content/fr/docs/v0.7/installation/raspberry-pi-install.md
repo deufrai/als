@@ -2,7 +2,7 @@
 title: "Installation sur Raspberry Pi"
 author: "ALS Team"
 date: 2024-11-27
-lastmod: 2024-12-01T08:59:07Z
+lastmod: 2024-12-01T09:26:35Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 22
 ---
@@ -55,4 +55,4 @@ ALS vous permet d'ajouter un lanceur à la section "Graphisme" de votre menu sys
 'Premier démarrage' du [Guide Utilisateur](/fr/docs/v0.7/user-guide/)
 {{% /alert %}}
 
-Bonne utilisation d'ALS ! 🚀
+Bonne utilisation d'ALS ! 🔭
