@@ -289,12 +289,17 @@ footer ul li a i {
     margin-top: 40px
 }
 
+.join-us p {
+    text-align: center;
+    margin-top: 60px
+}
+
 .join-us .button {
     display: inline-block;
     padding: 15px 30px;
     text-decoration: none;
     border: 1px solid #333;
-    border-radius: 28px;
+    border-radius: 14px;
     font-weight: bold;
     text-transform: uppercase;
     box-shadow: 0 8px 15px rgba(0, 0, 0, .5);
