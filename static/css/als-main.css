@@ -4,14 +4,13 @@
     --als-background: #222;
     --als-light-background: #232323;
     --color: #c6c6c6;
-
 }
 
 @font-face {
     font-family: 'Poppins';
     src: url('../fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal
+    font-style: normal;
 }
 
 body {
@@ -50,7 +49,6 @@ section {
 }
 
 .als-section p {
-
     text-align: justify;
 }
 
@@ -93,7 +91,7 @@ section {
 footer {
     margin-top: 20px;
     padding: 20px 0;
-    position: relative
+    position: relative;
 }
 
 footer p {
@@ -103,34 +101,33 @@ footer p {
     position: absolute;
     bottom: 5px;
     left: 5px;
-    width: auto
+    width: auto;
 }
 
-footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 400px;
+footer .row {
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-footer ul li {
-    margin: 25px 0;
-    text-align: center
-}
-
-footer ul li a {
+footer .row > div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    margin: 25px 0;
+}
+
+footer .row > div a {
     text-decoration: none;
     color: var(--dimmed);
 }
 
-footer ul li a i {
+footer .row > div a i {
     font-size: 2.2em;
-    padding: 5px
+    padding: 5px;
 }
 
 .footer-license {
@@ -143,34 +140,32 @@ footer ul li a i {
 }
 
 @media (max-width: 599px) {
-    footer ul {
-        display: grid;
-        grid-template-columns:1fr 1fr;
-        grid-gap: 20px
+    footer .row {
+        flex-direction: column;
     }
 
-    footer ul li {
-        width: auto;
-        margin: 0
+    footer .row > div {
+        width: 100%;
+        margin: 0;
     }
 
-    footer ul li a {
-        font-size: 1em
+    footer .row > div a {
+        font-size: 1em;
     }
 
-    footer ul li a i {
-        font-size: 2em
+    footer .row > div a i {
+        font-size: 2em;
     }
 }
 
 .contact-text span {
-    display: block
+    display: block;
 }
 
 .image-container {
     position: relative;
     width: 100%;
-    height: 60vh
+    height: 60vh;
 }
 
 .catchphrase {
@@ -183,7 +178,6 @@ footer ul li a i {
 
 .screenshot-section {
     text-align: center;
-
 }
 
 .screenshot {
@@ -193,7 +187,7 @@ footer ul li a i {
     height: auto;
     box-shadow: 0 10px 10px 8px rgba(0, 0, 0, .5);
     border-radius: 4px;
-        margin: 20px 0 40px 0;
+    margin: 20px 0 40px 0;
 }
 
 .download-buttons {
@@ -221,7 +215,7 @@ footer ul li a i {
 
 .download-buttons .button i {
     margin-right: 20px;
-    transform: translateY(-2px)
+    transform: translateY(-2px);
 }
 
 .download-buttons .button:hover {
@@ -237,7 +231,7 @@ footer ul li a i {
 
 .features-list {
     display: grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 50px 4em;
     list-style-type: none;
     padding: 0;
@@ -264,36 +258,36 @@ footer ul li a i {
     display: block;
     text-align: center;
     font-size: 1.6em;
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
 .features-list li p {
     margin: 0;
-    text-align: center
+    text-align: center;
 }
 
 @media (max-width: 899px) {
     .features-list {
-        grid-template-columns:1fr;
-        margin: 0 20px
+        grid-template-columns: 1fr;
+        margin: 0 20px;
     }
 
     .features-list li {
         width: 100%;
         margin-right: 0;
         margin-left: 0;
-        margin-bottom: 40px
+        margin-bottom: 40px;
     }
 }
 
 .join-us {
     text-align: center;
-    margin-top: 40px
+    margin-top: 40px;
 }
 
 .join-us p {
     text-align: center;
-    margin-top: 60px
+    margin-top: 60px;
 }
 
 .join-us .button {
@@ -309,12 +303,12 @@ footer ul li a i {
 
 .join-us .button:hover {
     box-shadow: 0 12px 20px rgba(0, 0, 0, .6);
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
 
 .join-us .button i {
     margin-left: 12px;
-    font-size: 1.4em
+    font-size: 1.4em;
 }
 
 .cookieconsent {
@@ -328,17 +322,17 @@ footer ul li a i {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    font-size: 14px !important
+    font-size: 14px !important;
 }
 
 .cookieconsent__message {
     flex-grow: 1 !important;
-    margin-right: 1em !important
+    margin-right: 1em !important;
 }
 
 .cookieconsent__message a {
     color: #69a887 !important;
-    text-decoration: underline !important
+    text-decoration: underline !important;
 }
 
 .button--cookieconsent {
@@ -349,11 +343,11 @@ footer ul li a i {
     margin-left: 1em !important;
     cursor: pointer !important;
     font-size: 14px !important;
-    border-radius: 5px !important
+    border-radius: 5px !important;
 }
 
 .button--cookieconsent:hover {
-    background-color: #cdcdcd !important
+    background-color: #cdcdcd !important;
 }
 
 body .cookieconsent {
@@ -367,11 +361,16 @@ body .cookieconsent.js-cookieconsent-open {
 .privacy-policy {
     margin: 20px auto;
     max-width: 66vw;
-    line-height: 1.6
+    line-height: 1.6;
 }
 
-.privacy-policy h1, .privacy-policy h2, .privacy-policy h3, .privacy-policy h4, .privacy-policy h5, .privacy-policy h6 {
-    margin-bottom: 20px
+.privacy-policy h1,
+.privacy-policy h2,
+.privacy-policy h3,
+.privacy-policy h4,
+.privacy-policy h5,
+.privacy-policy h6 {
+    margin-bottom: 20px;
 }
 
 .privacy-policy p {
