@@ -2,7 +2,7 @@
 title: Documentation ALS
 description: Documentation ALS
 author: ALZ Team
-lastmod: 2024-12-01T21:51:25Z
+lastmod: 2024-12-01T22:55:04Z
 weight: 1
 ---
 
@@ -12,7 +12,6 @@ weight: 1
 
 ---
 
-<div>
 ALS est une application de livestacking.
 
 Elle est disponible pour les systèmes suivants :
@@ -37,4 +36,3 @@ ALS propose ensuite, sur le résultat de l'empilement, les fonctionnalités suiv
 - Sauvegarde sur disque
 - Publication sur le réseau via un serveur web intégré, avec possibilité d'afficher un QR code pour
   faciliter la navigation
-</div>
