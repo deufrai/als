@@ -1,7 +1,8 @@
 :root {
     --primary-color: darkred;
     --dimmed: #636363;
-    --backhround: #222;
+    --als-background: #222;
+    --als-light-background: #232323;
     --color: #c6c6c6;
 
 }
@@ -16,7 +17,7 @@
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: var(--color) !important;
-    background-color: var(--backhround) !important;
+    background-color: var(--als-background) !important;
 }
 
 .navbar-brand {
@@ -244,19 +245,18 @@ footer ul li a i {
 }
 
 .features-list li {
-    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
     border-radius: 8px;
     position: relative;
     text-align: center;
-    padding-left: 60px;
-    padding-right: 60px
+    padding: 20px 60px;
+    background-color: var(--als-light-background);
 }
 
 .features-list li i {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     font-size: 1.5em;
 }
 
