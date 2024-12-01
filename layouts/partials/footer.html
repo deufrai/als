@@ -1,5 +1,4 @@
 <footer>
-  <div class="container">
     <ul>
       {{ if eq .Site.Language.Lang "fr" }}
         <li>
@@ -24,12 +23,12 @@
         </a>
       </li>
     </ul>
+
     <div class="footer-license">
       <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
         <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}" target="_blank">{{ i18n "licenseText" }}</a>
       </p>
     </div>
-  </div>
 </footer>
 
   <!-- Cookie Consent -->

@@ -13,41 +13,47 @@ type: "homepage"
 <div class="content-wrapper">
     <p class="catchphrase">Livestacking made in France</p>
 
-    <section class="homepage-section screenshot-section">
-        <img src="/images/als-screenshot.jpg" alt="ALS Screenshot" class="screenshot">
+    <section class="screenshot-section">
+        <img class="screenshot" src="/images/als-screenshot.jpg" alt="ALS Screenshot">
     </section>
 
-    <section class="homepage-section download-section">
-        <div class="download-buttons">
-            <a href="#" class="button" onclick="downloadAndOpenInstructions('linux')" title="Télécharger pour PC Linux" data-matomo-action="download">
-                <i class="fab fa-linux" style="font-size: 48px; vertical-align: middle;"></i> Linux PC
-            </a>
-            <a href="#" class="button" onclick="downloadAndOpenInstructions('raspberry-pi')" title="Télécharger pour Raspberry Pi" data-matomo-action="download">
-                <i class="fab fa-raspberry-pi" style="font-size: 48px; vertical-align: middle;"></i> Raspberry Pi
-            </a>
-            <a href="#" class="button" onclick="downloadAndOpenInstructions('windows')" title="Télécharger pour Windows" data-matomo-action="download">
-                <i class="fab fa-windows" style="font-size: 48px; vertical-align: middle;"></i> Windows PC
-            </a>
-            <a href="#" class="button" onclick="downloadAndOpenInstructions('mac-arm')" title="Télécharger pour Mac Apple Silicon" data-matomo-action="download">
-                <i class="fab fa-apple" style="font-size: 48px; vertical-align: middle;"></i> Mac Silicon
-            </a>
-            <a href="#" class="button" onclick="downloadAndOpenInstructions('mac-intel')" title="Télécharger pour Mac Intel" data-matomo-action="download">
-                <i class="fab fa-apple" style="font-size: 48px; vertical-align: middle;"></i> Mac Intel
-            </a>
-        </div>
-    </section>
 
-    <section class="homepage-section features-section">
+    <div class="download-buttons">
+        <a href="#" class="button" onclick="downloadAndOpenInstructions('linux')" title="Télécharger pour PC Linux"
+           data-matomo-action="download">
+            <i class="fab fa-linux" style="font-size: 48px; vertical-align: middle;"></i> Linux PC
+        </a>
+        <a href="#" class="button" onclick="downloadAndOpenInstructions('raspberry-pi')"
+           title="Télécharger pour Raspberry Pi" data-matomo-action="download">
+            <i class="fab fa-raspberry-pi" style="font-size: 48px; vertical-align: middle;"></i> Raspberry Pi
+        </a>
+        <a href="#" class="button" onclick="downloadAndOpenInstructions('windows')" title="Télécharger pour Windows"
+           data-matomo-action="download">
+            <i class="fab fa-windows" style="font-size: 48px; vertical-align: middle;"></i> Windows PC
+        </a>
+        <a href="#" class="button" onclick="downloadAndOpenInstructions('mac-arm')"
+           title="Télécharger pour Mac Apple Silicon" data-matomo-action="download">
+            <i class="fab fa-apple" style="font-size: 48px; vertical-align: middle;"></i> Mac Silicon
+        </a>
+        <a href="#" class="button" onclick="downloadAndOpenInstructions('mac-intel')" title="Télécharger pour Mac Intel"
+           data-matomo-action="download">
+            <i class="fab fa-apple" style="font-size: 48px; vertical-align: middle;"></i> Mac Intel
+        </a>
+    </div>
+
+    <section class="features-section">
         <ul class="features-list">
             <li>
                 <i class="fas fa-globe"></i>
                 <strong>Outil pour l'astrophotographe</strong>
-                ALS, votre compagnon ultime pour l'astrophotographie en direct. Parfait pour l'EEA et la photographie, il transforme chaque session en chef-d'œuvre céleste.
+                ALS, votre compagnon ultime pour l'astrophotographie en direct. Parfait pour l'EEA et la photographie,
+                il transforme chaque session en chef-d'œuvre céleste.
             </li>
             <li>
                 <i class="fas fa-camera"></i>
                 <strong>Ne changez pas vos habitudes</strong>
-                ALS s'adapte à votre flux de travail. Il surveille automatiquement les dossiers de capture et prend en charge la plupart des formats, y compris les fichiers RAW et FITS.
+                ALS s'adapte à votre flux de travail. Il surveille automatiquement les dossiers de capture et prend en
+                charge la plupart des formats, y compris les fichiers RAW et FITS.
             </li>
             <li>
                 <i class="fas fa-magic"></i>

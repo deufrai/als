@@ -20,8 +20,6 @@ enableGitInfo = true
   [params.ui]
     navbarVariant = "dark"
     sidebarVariant = "dark"
-    primaryColor = "#ff0000"
-    primaryDarkColor = "#8b0000"
     sidebar_menu_compact = false
     ul_show = 2
     sidebar_menu_foldable = true

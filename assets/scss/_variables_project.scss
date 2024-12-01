@@ -1,4 +1,78 @@
-$navbar-bg: darkred; // Custom navbar background color
-$code-bg: #1A1A1A;
-$code-color: #a64d00;
-$default-bg: #222;
+$primary: darkred;
+$font-size-base: 1.2rem;
+
+
+//// Override Bootstrap/Docsy variables
+//$secondary: #666; // Custom secondary color
+//
+//Colors
+//- $primary
+//- $secondary
+//- $success
+//- $info
+//- $warning
+//- $danger
+//- $light
+//- $dark
+//- $body-bg
+//- $body-color
+//
+//Typography
+//- $font-family-base
+//- $font-size-base
+//- $font-weight-base
+//- $line-height-base
+//- $headings-font-family
+//- $headings-font-weight
+//- $headings-line-height
+//- $headings-color
+//
+//Spacing
+//- $spacer
+//- $spacers
+//- $grid-gutter-width
+//
+//Components
+//- $btn-padding-y
+//- $btn-padding-x
+//- $btn-font-weight
+//- $btn-border-radius
+//- $btn-primary-bg
+//- $btn-primary-border
+//- $input-padding-y
+//- $input-padding-x
+//- $input-border-radius
+//
+//Navbar
+//- $navbar-padding-y
+//- $navbar-padding-x
+//- $navbar-brand-padding-y
+//- $navbar-nav-link-padding-x
+//- $navbar-dark-color
+//- $navbar-dark-hover-color
+//- $navbar-dark-active-color
+//- $navbar-light-color
+//- $navbar-light-hover-color
+//- $navbar-light-active-color
+//
+//Card
+//- $card-spacer-y
+//- $card-spacer-x
+//- $card-title-spacer-y
+//- $card-border-radius
+//- $card-border-width
+//- $card-border-color
+//- $card-bg
+//- $card-img-overlay-padding
+//
+//Alerts
+//- $alert-padding-y
+//- $alert-padding-x
+//- $alert-margin-bottom
+//- $alert-border-radius
+//- $alert-link-font-weight
+//- $alert-border-width
+//- $alert-primary-bg
+//- $alert-primary-border
+//- $alert-primary-color
+
