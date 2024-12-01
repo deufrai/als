@@ -2,6 +2,48 @@ $primary: darkred;
 $font-size-base: 1.2rem;
 $info: #61b1ff;
 $navbar-dark-color: #c6c6c6;
+$td-box-colors: red;
+
+
+//### Variables de couleur
+//- `$primary` : Couleur primaire
+//- `$secondary` : Couleur secondaire
+//- `$success` : Couleur de succès
+//- `$info` : Couleur d'information
+//- `$warning` : Couleur d'avertissement
+//- `$danger` : Couleur d'erreur
+//- `$light` : Couleur claire
+//- `$dark` : Couleur foncée
+//- `$code-color` : Couleur du code
+//- `$custom-colors` : Couleurs personnalisées
+//
+//### Variables de police
+//- `$google_font_name` : Nom de la police Google
+//- `$google_font_family` : Famille de la police Google
+//- `$font-family-sans-serif` : Famille de la police sans-serif
+//- `$font-family-monospace` : Famille de la police monospace
+//- `$font-family-base` : Famille de la police de base
+//
+//### Variables de style
+//- `$enable-gradients` : Activer les dégradés
+//- `$enable-shadows` : Activer les ombres
+//- `$td-box-colors` : Couleurs des boîtes
+//- `$link-color` : Couleur des liens
+//- `$link-shade-percentage` : Pourcentage d'ombre des liens
+//- `$td-block-space-top-base` : Espacement supérieur des blocs
+//- `$td-block-space-bottom-base` : Espacement inférieur des blocs
+//- `$pagination-color` : Couleur de la pagination
+//- `$pagination-disabled-color` : Couleur de la pagination désactivée
+//
+//### Variables de taille
+//- `$h3-font-size` : Taille de la police H3
+//- `$h4-font-size` : Taille de la police H4
+//- `$h5-font-size` : Taille de la police H5
+//
+//### Variables supplémentaires
+//- `$td-enable-google-fonts` : Activer les polices Google
+//- `$web-font-path` : Chemin des polices web
+//- `$font-awesome-font-name` : Nom de la police Font Awesome
 
 //// Override Bootstrap/Docsy variables
 //$secondary: #666; // Custom secondary color

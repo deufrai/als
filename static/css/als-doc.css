@@ -1,0 +1,8 @@
+.td-content code {
+    color: var(--backhround) !important;
+    background-color: var(--dimmed) !important;
+}
+
+.td-content li{
+    margin-top: 1rem;
+}

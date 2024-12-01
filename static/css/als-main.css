@@ -1,6 +1,8 @@
 :root {
     --primary-color: darkred;
     --dimmed: #636363;
+    --backhround: #222;
+    --color: #c6c6c6;
 
 }
 
@@ -13,12 +15,12 @@
 
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    color: #c6c6c6 !important;
-    background-color: #222 !important;
+    color: var(--color) !important;
+    background-color: var(--backhround) !important;
 }
 
 .navbar-brand {
-    color: #c6c6c6 !important;
+    color: var(--color) !important;
 }
 
 section {
