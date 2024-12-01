@@ -257,19 +257,6 @@ footer ul li a i {
     }
 }
 
-
-@keyframes bounceButton {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0)
-    }
-    40% {
-        transform: translateY(-20px)
-    }
-    60% {
-        transform: translateY(-10px)
-    }
-}
-
 .join-us {
     text-align: center;
     margin-top: 40px
@@ -279,12 +266,11 @@ footer ul li a i {
     display: inline-block;
     padding: 15px 30px;
     text-decoration: none;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #333;
     border-radius: 28px;
     font-weight: bold;
     text-transform: uppercase;
     box-shadow: 0 8px 15px rgba(0, 0, 0, .5);
-    animation: bounceButton 2s infinite
 }
 
 .join-us .button:hover {
@@ -293,8 +279,8 @@ footer ul li a i {
 }
 
 .join-us .button i {
-    margin-left: 8px;
-    font-size: 1.2em
+    margin-left: 12px;
+    font-size: 1.4em
 }
 
 .cookieconsent {
