@@ -14,3 +14,7 @@
 .td-content h2{
     font-size: 1.5em;
 }
+
+div.lead {
+    display: none;
+}

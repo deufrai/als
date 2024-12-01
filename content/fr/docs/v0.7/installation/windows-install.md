@@ -1,8 +1,9 @@
 ---
-title: "Installation sur Windows"
-author: "ALS Team"
+title: Installation sur Windows
+description: Installation d'ALS sur PC Windows
+author: ALZ Team
 date: 2024-11-27
-lastmod: 2024-12-01T09:26:35Z
+lastmod: 2024-12-01T21:51:25Z
 keywords: ["installation", "windows", "astro live stacker", "guide"]
 weight: 23
 ---

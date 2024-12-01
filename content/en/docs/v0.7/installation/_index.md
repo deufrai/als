@@ -1,6 +1,7 @@
 ---
 title: "Installation"
-lastmod: 2024-11-28T18:40:03Z
+description: Cachez cette description que je ne saurais voir
+lastmod: 2024-12-01T21:51:25Z
 toc: true
 type: "docs"
 weight: 20
