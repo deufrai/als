@@ -59,6 +59,12 @@ enableGitInfo = true
     contentDir = "content/fr"
 
     [[languages.fr.menu.main]]
+      identifier = "blog"
+      name = "Blog"
+      url = "/blog/"
+      weight = 5
+
+    [[languages.fr.menu.main]]
       identifier = "about"
       name = "À propos"
       url = "/fr/about/"

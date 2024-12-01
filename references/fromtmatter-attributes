@@ -1,0 +1,17 @@
+title: Defines the title of the page or post.
+date: Specifies the creation date of the content.
+lastmod: Indicates the last modification date of the content.
+draft: If set to true, the content will not be published.
+author: Specifies the author of the content.
+description: Provides a brief description of the content.
+keywords: Lists keywords related to the content for SEO purposes.
+type: Defines the content type, which can influence which layout is used.
+slug: Sets a custom URL slug for the content.
+aliases: Defines alternative URLs that should redirect to this content.
+categories: Categorizes the content, useful for organization and navigation.
+tags: Tags the content with relevant keywords for grouping and searching.
+layout: Specifies which layout to use for rendering the content.
+menu: Adds the content to a navigation menu.
+url: Sets a custom URL for the content.
+weight: Sets the order of the content in lists, with lower numbers appearing first.
+summary: Provides a custom summary for the content, often used in list views.
