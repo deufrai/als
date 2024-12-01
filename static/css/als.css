@@ -14,6 +14,7 @@
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: #c6c6c6 !important;
+    background-color: #222 !important;
 }
 
 .navbar-brand {
