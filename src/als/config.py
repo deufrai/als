@@ -69,9 +69,9 @@ _LOG_LEVELS = {
 
 # application default values
 _DEFAULTS = {
-    _SCAN_FOLDER_PATH:      os.path.expanduser("~/als/scan"),
-    _WORK_FOLDER_PATH:      os.path.expanduser("~/als/work"),
-    _WWW_FOLDER_PATH:       os.path.expanduser("~/als/work"),
+    _SCAN_FOLDER_PATH:      os.path.expanduser(""),
+    _WORK_FOLDER_PATH:      os.path.expanduser(""),
+    _WWW_FOLDER_PATH:       os.path.expanduser(""),
     _WWW_DEDICATED_FOLDER:  0,
     _LOG_LEVEL:             _LOG_LEVEL_INFO,
     _WWW_SERVER_PORT:       "8000",
