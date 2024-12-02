@@ -25,11 +25,17 @@
             </div>
         </div>
 
-        <div class="footer-license">
-            <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
-                <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}"
-                   target="_blank">{{ i18n "licenseText" }}</a>
-            </p>
+        <div class="footer-info">
+            <div class="footer-license">
+                <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
+                    <a href="{{ if eq .Site.Language.Lang "fr" }}https://www.gnu.org/licenses/gpl-3.0.fr.html{{ else }}https://www.gnu.org/licenses/gpl-3.0.html{{ end }}"
+                       target="_blank">{{ i18n "licenseText" }}</a>
+                </p>
+            </div>
+
+            <div class="build-commit-id">
+                <p>Build Commit ID: 76da076fe1f353cb2aace7457188a43e668e74cc</p>
+            </div>
         </div>
     </div>
 </footer>
@@ -47,5 +53,3 @@
                 data-consent="true">{{ i18n "cookieconsentAccept" }}</button>
     </div>
 </div>
-
-

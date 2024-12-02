@@ -56,6 +56,12 @@ fi
 
 cd "$REPO_ROOT" || { echo "failed to climb back to repo root"; exit 1; }
 
+# Retrieve the short commit ID
+COMMIT_ID=$(git rev-parse --short HEAD)
+
+# Replace the placeholder in the footer partial
+sed -i "s/@@COMMIT_ID@@/$COMMIT_ID/g" layouts/partials/footer.html
+
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
 hugo --cleanDestinationDir

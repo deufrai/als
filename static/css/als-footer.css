@@ -1,0 +1,77 @@
+/* everything footer, duh  */
+footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    position: relative;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: .8em;
+}
+
+footer .row {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .row > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0;
+}
+
+footer .row > div a {
+    text-decoration: none;
+    color: var(--dimmed);
+}
+
+footer .row > div a i {
+    font-size: 2.2em;
+    padding: 5px;
+}
+
+.footer-info {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--dimmed);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure content wraps if needed */
+}
+
+.footer-license p, .build-commit-id p {
+    color: var(--dimmed);
+    margin: 0;
+    font-size: 0.8em;
+    flex: 1 1 auto; /* Allow flexible width */
+}
+
+.footer-license a {
+    color: var(--dimmed);
+    text-decoration: none;
+}
+
+.footer-license a:hover {
+    color: var(--dimmed);
+}
+
+.footer-license, .build-commit-id {
+    flex: 1; /* Ensure both sections are flexible */
+    min-width: 45%; /* Allow enough space to prevent overlap */
+    box-sizing: border-box;
+}
+
+.build-commit-id {
+    text-align: right; /* Right-align text */
+}
+
+.contact-text span {
+    display: block;
+}

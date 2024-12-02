@@ -87,61 +87,6 @@ section {
     padding-right: 10px;
 }
 
-footer {
-    margin-top: 20px;
-    padding: 20px 0;
-    position: relative;
-}
-
-footer p {
-    margin-top: 20px;
-    font-size: .8em;
-    text-align: center;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    width: auto;
-}
-
-footer .row {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-footer .row > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 25px 0;
-}
-
-footer .row > div a {
-    text-decoration: none;
-    color: var(--dimmed);
-}
-
-footer .row > div a i {
-    font-size: 2.2em;
-    padding: 5px;
-}
-
-.footer-license {
-    margin-top: 20px;
-    padding-top: 20px;
-    color: var(--dimmed);
-}
-
-.footer-license a {
-    color: inherit;
-}
-
-.contact-text span {
-    display: block;
-}
 
 .image-container {
     position: relative;
