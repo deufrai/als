@@ -146,6 +146,8 @@ section {
 .download-buttons .button i {
     margin-right: 20px;
     transform: translateY(-2px);
+    font-size: 48px;
+    vertical-align: middle;
 }
 
 .download-buttons .button:hover {
