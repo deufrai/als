@@ -10,9 +10,11 @@
     }
     console.log('Using language:', userLang);
     // Check if the current URL already contains a language prefix
-    if (!window.location.pathname.startsWith('/' + userLang + '/') && !sessionStorage.getItem('redirected')) {
+    var currentPath = window.location.pathname;
+    var pathLang = currentPath.split('/')[1]; // Get the first part of the path after the slash
+    if (supportedLangs.indexOf(pathLang) === -1 && !sessionStorage.getItem('redirected')) {
         sessionStorage.setItem('redirected', 'true');
-        console.log('Redirecting to:', '/' + userLang + window.location.pathname);
-        window.location.href = '/' + userLang + window.location.pathname;
+        console.log('Redirecting to:', '/' + userLang + currentPath);
+        window.location.href = '/' + userLang + currentPath;
     }
 })();
