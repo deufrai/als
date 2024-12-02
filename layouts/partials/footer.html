@@ -2,25 +2,29 @@
     <div class="container">
         <div class="row">
             {{ if eq .Site.Language.Lang "fr" }}
-                <div class="col-12 col-md-3 mb-3">
+                <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
                     <a href="https://discord.com/channels/489463570552324097/1026765528108376074" target="_blank">
-                        <i class="fab fa-discord"></i> {{ i18n "discordASTROfr" }}
+                        <i class="fab fa-discord"></i>
+                        <span>{{ i18n "discordASTROfr" }}</span>
                     </a>
                 </div>
             {{ end }}
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
                 <a href="https://github.com/deufrai/als/issues" target="_blank">
-                    <i class="fab fa-github"></i> {{ i18n "githubIdeaProblem" }}
+                    <i class="fab fa-github"></i>
+                    <span>{{ i18n "githubIdeaProblem" }}</span>
                 </a>
             </div>
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
                 <a href="mailto:contact@als-app.org">
-                    <i class="fas fa-envelope"></i> {{ i18n "contact" }}
+                    <i class="fas fa-envelope"></i>
+                    <span>{{ i18n "contact" }}</span>
                 </a>
             </div>
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
                 <a href="mailto:support@als-app.org">
-                    <i class="fas fa-envelope"></i> {{ i18n "support" }}
+                    <i class="fas fa-envelope"></i>
+                    <span>{{ i18n "support" }}</span>
                 </a>
             </div>
         </div>
@@ -34,7 +38,7 @@
             </div>
 
             <div class="build-commit-id">
-                <p>Build Commit ID: 76da076fe1f353cb2aace7457188a43e668e74cc</p>
+                <p>Build Commit ID: @@COMMIT_ID@@</p>
             </div>
         </div>
     </div>

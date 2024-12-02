@@ -34,6 +34,11 @@ footer .row > div a {
 footer .row > div a i {
     font-size: 2.2em;
     padding: 5px;
+    display: block; /* Ensure the icon is on its own line */
+}
+
+.footer-icon-text span {
+    display: block; /* Ensure the text is on its own line */
 }
 
 .footer-info {

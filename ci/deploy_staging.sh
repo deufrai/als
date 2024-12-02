@@ -22,7 +22,7 @@ echo "Starting the deployment process..."
 REPO_ROOT=$(pwd)
 echo "Repository root: $REPO_ROOT"
 
-echo "Installing PostCSS..."
+echo "Installing Project deps..."
 npm install
 if [ $? -ne 0 ]; then
   echo "Error: PostCSS install failed."
@@ -56,11 +56,8 @@ fi
 
 cd "$REPO_ROOT" || { echo "failed to climb back to repo root"; exit 1; }
 
-# Retrieve the short commit ID
-COMMIT_ID=$(git rev-parse --short HEAD)
-
-# Replace the placeholder in the footer partial
-sed -i "s/@@COMMIT_ID@@/$COMMIT_ID/g" layouts/partials/footer.html
+echo "updating footer with current commit hash"
+sed -i "s/@@COMMIT_ID@@/${CI_COMMIT_SHORT_SHA:-UNDEFINED}/g" layouts/partials/footer.html
 
 # Clean the public directory and build the Hugo site
 echo "Building the Hugo site..."
