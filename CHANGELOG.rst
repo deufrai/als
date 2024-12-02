@@ -7,6 +7,7 @@ Version 0.7 (work in progress)
 
 - New features
 
+  - Linux : add utility to create launcher in system menu
   - send usage statistics with user consent
   - read .CR3 Canon Raw files
   - introduce running profiles (sensible defaults for EEA & Photo)
