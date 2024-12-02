@@ -498,7 +498,7 @@ class Controller:
                 }
 
                 for role, path in critical_folders_dict.items():
-                    if not Path(path).is_dir():
+                    if not path or not Path(path).is_dir():
                         title = QT_TRANSLATE_NOOP("", "Missing critical folder")
                         message = QT_TRANSLATE_NOOP("", "Your currently configured {} folder {} is missing.")
                         raise CriticalFolderMissing(

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import qrcode
 from PIL.ImageQt import ImageQt
-from PyQt5.QtCore import pyqtSlot, QT_TRANSLATE_NOOP, pyqtSignal, Qt
+from PyQt5.QtCore import pyqtSlot, QT_TRANSLATE_NOOP, pyqtSignal, Qt, QStandardPaths
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QDialog, QFileDialog, QMessageBox, QApplication
 
@@ -291,27 +291,47 @@ class PreferencesDialog(QDialog):
 
         super().accept()
 
+    @log
+    def ask_for_directory_path(self, invite, start_folder):
+        """
+        open a dialog box for the user to choose a directory path
+
+        :param invite: title of the dialog box
+        :type invite: str
+
+        :param start_folder: folder in which dialog box is opened
+        :type start_folder: str
+
+        :return: the folder path chose by the user
+        :rtype: str
+        """
+        if not start_folder:
+            start_folder = QStandardPaths.writableLocation(QStandardPaths.HomeLocation)
+
+        return QFileDialog.getExistingDirectory(self,
+                                                invite,
+                                                start_folder,
+                                                options=QFileDialog.DontUseNativeDialog)
+
     @pyqtSlot(name="on_btn_browse_scan_clicked")
     @log
     def browse_scan(self):
-        """Opens a folder dialog to choose scan folder"""
-        scan_folder_path = QFileDialog.getExistingDirectory(self,
-                                                            self.tr("Select scan folder"),
-                                                            self._ui.ln_scan_folder_path.text(),
-                                                            options=QFileDialog.DontUseNativeDialog)
+        """ Asks user to pick scan folder """
+        scan_folder_path = self.ask_for_directory_path(self.tr("Select scan folder"),
+                                                       self._ui.ln_scan_folder_path.text())
+
         if scan_folder_path:
             self._ui.ln_scan_folder_path.setText(scan_folder_path)
 
         self._validate_all_paths()
+        return scan_folder_path
 
     @pyqtSlot(name="on_btn_browse_work_clicked")
     @log
     def browse_work(self):
         """Opens a folder dialog to choose work folder"""
-        work_folder_path = QFileDialog.getExistingDirectory(self,
-                                                            self.tr("Select work folder"),
-                                                            self._ui.ln_work_folder_path.text(),
-                                                            options=QFileDialog.DontUseNativeDialog)
+        work_folder_path = self.ask_for_directory_path(self.tr("Select work folder"),
+                                                       self._ui.ln_work_folder_path.text())
         if work_folder_path:
             self._ui.ln_work_folder_path.setText(work_folder_path)
 
@@ -321,10 +341,8 @@ class PreferencesDialog(QDialog):
     @log
     def browse_web(self):
         """Opens a folder dialog to choose web folder"""
-        web_folder_path = QFileDialog.getExistingDirectory(self,
-                                                           self.tr("Select web folder"),
-                                                           self._ui.ln_web_folder_path.text(),
-                                                           options=QFileDialog.DontUseNativeDialog)
+        web_folder_path = self.ask_for_directory_path(self.tr("Select web folder"),
+                                                      self._ui.ln_web_folder_path.text())
         if web_folder_path:
             self._ui.ln_web_folder_path.setText(web_folder_path)
 
