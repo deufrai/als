@@ -1,5 +1,4 @@
 .td-content code, pre {
-    color: var(--als-background) !important;
     background-color: var(--dimmed) !important;
 }
 

@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T11:21:12Z
+lastmod: 2024-12-03T11:23:57Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -55,21 +55,22 @@ Les deux dossiers critiques d'ALS sont définis dans la partie supérieure de la
 
 Vous pouvez désigner des dossiers existants, mais nous vous conseillons de créer des dossiers spécifiques pour ALS.
 
-Commençons par le dosser **scan**. Cliquez sur le bouton **Modifier...** en regard de **Dossier scanné**
+Commençons par le dosser **scan**. Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné**
 
 {{< center >}}
 {{< figure src="prefs_02.png" >}}
 {{< /center >}}
 
 
-Naviguer vers le dossier parent souhaité (ici, le dossier personnel) puis cliquez **Créer un nouveau dossier** 
+Naviguer vers le dossier parent souhaité (ici, le dossier personnel) puis cliquez le petit bouton 
+**Créer un nouveau dossier** 
 
 
 {{< center >}}
 {{< figure src="prefs_03.png" >}}
 {{< /center >}}
 
-Saisissez le nom désiré (exemple "als_scan" )
+Saisissez le nom désiré (exemple "als_scan")
 
 {{< center >}}
 {{< figure src="prefs_04.png" >}}
