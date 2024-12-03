@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T20:10:34Z
+lastmod: 2024-12-03T20:28:02Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -34,8 +34,8 @@ Ce chapitre a pour but de vous permettre d'utiliser ALS le plus rapidement possi
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages 
 indispensables à son fonctionnement :
 
-- **Scan folder** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
-- **Work folder** : Le dossier de votre système dans lequel ALS enregistre les images produites
+- **Dossier scanné** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
+- **Dossier de travail** : Le dossier de votre système dans lequel ALS enregistre les images produites
 
 {{< center >}}
 {{< figure src="welcome.png" >}}
@@ -55,7 +55,7 @@ Les deux dossiers critiques d'ALS sont définis dans la partie supérieure de la
 
 Vous pouvez désigner des dossiers existants, mais nous vous conseillons de créer des dossiers spécifiques pour ALS.
 
-Commençons par le dosser **scan**. Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné** (1)
+Commençons par le **dossier scanné** : Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné** (1)
 
 ---
 
@@ -64,7 +64,7 @@ Commençons par le dosser **scan**. Cliquez sur le bouton `Modifier...` en regar
 {{< /center >}}
 
 
-Naviguer vers le dossier dans lequel vous voulez créer le dossier **scan** puis cliquez le petit bouton 
+Naviguer vers le dossier dans lequel vous voulez créer le **dossier scanné** puis cliquez le petit bouton 
 **Créer un nouveau dossier** 
 
 
@@ -90,8 +90,9 @@ Validez votre choix en cliquant `Choisir`
 {{< figure src="prefs_05.png" >}}
 {{< /center >}}
 
-Répéter la même procédure pour le dossier **work** et ne validez pas encore les préférences.
-Il reste un point important à aborder
+Répéter la même procédure pour le **dossier de travail** et ne validez pas encore les préférences.
+
+Il reste un point important à aborder.
 
 ---
 
