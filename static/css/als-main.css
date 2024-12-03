@@ -91,6 +91,9 @@ section {
     padding-right: 10px;
 }
 
+.als-contributors li {
+    margin-left: 2rem;
+}
 
 .image-container {
     position: relative;
