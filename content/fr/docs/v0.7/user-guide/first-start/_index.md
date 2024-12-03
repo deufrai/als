@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T11:18:28Z
+lastmod: 2024-12-03T11:21:12Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -31,7 +31,7 @@ ADD reminder about launch
   {{% /tab %}}
 {{< /tabpane >}}
 
-# Bienvue
+# Bienvenue
 
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages 
 indispensables à son fonctionnement :
