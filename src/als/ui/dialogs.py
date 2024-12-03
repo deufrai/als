@@ -324,7 +324,6 @@ class PreferencesDialog(QDialog):
             self._ui.ln_scan_folder_path.setText(scan_folder_path)
 
         self._validate_all_paths()
-        return scan_folder_path
 
     @pyqtSlot(name="on_btn_browse_work_clicked")
     @log

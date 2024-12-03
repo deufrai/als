@@ -58,7 +58,7 @@ _LOG_LEVEL_WARNING = "WARNING"
 _LOG_LEVEL_ERROR = "ERROR"
 _LOG_LEVEL_CRITICAL = "CRITICAL"
 
-# store of matches between human readable log levels and logging module constants
+# store of matches between human-readable log levels and logging module constants
 _LOG_LEVELS = {
     _LOG_LEVEL_DEBUG:       logging.DEBUG,
     _LOG_LEVEL_INFO:        logging.INFO,
@@ -69,9 +69,9 @@ _LOG_LEVELS = {
 
 # application default values
 _DEFAULTS = {
-    _SCAN_FOLDER_PATH:      os.path.expanduser(""),
-    _WORK_FOLDER_PATH:      os.path.expanduser(""),
-    _WWW_FOLDER_PATH:       os.path.expanduser(""),
+    _SCAN_FOLDER_PATH:      "",
+    _WORK_FOLDER_PATH:      "",
+    _WWW_FOLDER_PATH:       "",
     _WWW_DEDICATED_FOLDER:  0,
     _LOG_LEVEL:             _LOG_LEVEL_INFO,
     _WWW_SERVER_PORT:       "8000",
