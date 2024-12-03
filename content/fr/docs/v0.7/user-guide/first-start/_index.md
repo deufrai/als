@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T19:46:49Z
+lastmod: 2024-12-03T19:50:29Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -43,7 +43,9 @@ indispensables à son fonctionnement :
 {{< figure src="welcome.png" >}}
 {{< /center >}}
 
-Un click sur `OK` et ALS vous présente la fenêtre des préférences :
+Un click sur `OK` et ALS vous présente la fenêtre des préférences
+
+---
 
 # Configurer les dossiers critiques
 
@@ -57,6 +59,8 @@ Vous pouvez désigner des dossiers existants, mais nous vous conseillons de cré
 
 Commençons par le dosser **scan**. Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné** (1)
 
+---
+
 {{< center >}}
 {{< figure src="prefs_02.png" >}}
 {{< /center >}}
@@ -66,11 +70,15 @@ Naviguer vers le dossier dans lequel vous voulez créer le dossier **scan** puis
 **Créer un nouveau dossier** 
 
 
+---
+
 {{< center >}}
 {{< figure src="prefs_03.png" >}}
 {{< /center >}}
 
 Saisissez le nom désiré. _Exemple : "als_scan"_
+
+---
 
 {{< center >}}
 {{< figure src="prefs_04.png" >}}
@@ -78,12 +86,16 @@ Saisissez le nom désiré. _Exemple : "als_scan"_
 
 Validez votre choix en cliquant `Choisir`
 
+---
+
 {{< center >}}
 {{< figure src="prefs_05.png" >}}
 {{< /center >}}
 
 Répéter la même procédure pour le dossier **work** et ne validez pas encore les préférences.
 Il reste un point important à aborder
+
+---
 
 # Statistique d'utilisation
 
@@ -120,9 +132,12 @@ Vous pouvez vérifier la nature des informations envoyées par ALS en consultant
   ```
 </details>
 
+---
+
 # voilivoilouch !!
 
 {{< center >}}
 {{< figure src="ready.png" >}}
 {{< /center >}}
 
+bliblobliblo lorem etc... Et pecat !
