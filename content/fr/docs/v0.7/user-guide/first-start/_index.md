@@ -3,13 +3,15 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T19:50:29Z
+lastmod: 2024-12-03T19:59:08Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
 tags: ['preferences']
 weight: 31
 ---
+
+Ce chapitre a pour but de vous permettre d'utiliser ALS le plus rapidement possible. 
 
 {{% alert title="TODO" color="info" %}}
 ADD reminder about launch
