@@ -33,13 +33,19 @@ ADD reminder about launch
 
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages indispensables à son fonctionnement :
 
-- **Dosser scan** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
-- **Dossier work** : Le dossier de votre système dans lequel ALS enregistre les images produites
+- **Scan folder** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
+- **Work folder** : Le dossier de votre système dans lequel ALS enregistre les images produites
 
 _Pas de panique, c'est la dernière fois qu'ALS vous parlera anglais si vous ne le souhaitez pas_ 
 
 {{< center >}}
-{{< figure src="/images/docs/fr/first-run/welcome.png" >}}
+{{< figure src="welcome.png" >}}
+{{< /center >}}
+
+Un click sur `OK` est ALS vous présente la fenêtre des préférences.
+
+{{< center >}}
+{{< figure src="prefs_01.png" >}}
 {{< /center >}}
 
 
