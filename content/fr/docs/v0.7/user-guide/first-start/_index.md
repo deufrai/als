@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-01T05:10:31Z
+lastmod: 2024-12-03T00:38:59Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -30,6 +30,7 @@ ADD reminder about launch
   {{% /tab %}}
 {{< /tabpane >}}
 
+# Bienvue
 
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages indispensables à son fonctionnement :
 
@@ -44,8 +45,37 @@ _Pas de panique, c'est la dernière fois qu'ALS vous parlera anglais si vous ne 
 
 Un click sur `OK` est ALS vous présente la fenêtre des préférences.
 
+# Configurer les dossiers critiques
+
 {{< center >}}
 {{< figure src="prefs_01.png" >}}
 {{< /center >}}
 
+{{< center >}}
+{{< figure src="prefs_02.png" >}}
+{{< /center >}}
+
+{{< center >}}
+{{< figure src="prefs_03.png" >}}
+{{< /center >}}
+
+{{< center >}}
+{{< figure src="prefs_04.png" >}}
+{{< /center >}}
+
+{{< center >}}
+{{< figure src="prefs_05.png" >}}
+{{< /center >}}
+
+# Statistique d'utilisation
+
+{{< center >}}
+{{< figure src="prefs_06.png" >}}
+{{< /center >}}
+
+# voilivoilouch !!
+
+{{< center >}}
+{{< figure src="ready.png" >}}
+{{< /center >}}
 
