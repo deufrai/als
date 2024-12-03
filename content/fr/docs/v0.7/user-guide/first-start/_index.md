@@ -3,10 +3,11 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T10:05:15Z
+lastmod: 2024-12-03T11:18:28Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
+tags: ['preferences']
 weight: 31
 ---
 
@@ -32,18 +33,17 @@ ADD reminder about launch
 
 # Bienvue
 
-À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages indispensables à son fonctionnement :
+À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages 
+indispensables à son fonctionnement :
 
 - **Scan folder** : Le dossier de votre système dans lequel ALS surveille l'arrivée des nouvelles brutes
 - **Work folder** : Le dossier de votre système dans lequel ALS enregistre les images produites
-
-_Pas de panique, c'est la dernière fois qu'ALS vous parlera anglais si vous ne le souhaitez pas_ 
 
 {{< center >}}
 {{< figure src="welcome.png" >}}
 {{< /center >}}
 
-Un click sur `OK` et ALS vous présente la fenêtre des préférences.
+Un click sur `OK` et ALS vous présente la fenêtre des préférences :
 
 # Configurer les dossiers critiques
 
@@ -51,17 +51,31 @@ Un click sur `OK` et ALS vous présente la fenêtre des préférences.
 {{< figure src="prefs_01.png" >}}
 {{< /center >}}
 
+Les deux dossiers critiques d'ALS sont définis dans la partie supérieure de la fenêtre des préférences.
+
+Vous pouvez désigner des dossiers existants, mais nous vous conseillons de créer des dossiers spécifiques pour ALS.
+
+Commençons par le dosser **scan**. Cliquez sur le bouton **Modifier...** en regard de **Dossier scanné**
+
 {{< center >}}
 {{< figure src="prefs_02.png" >}}
 {{< /center >}}
+
+
+Naviguer vers le dossier parent souhaité (ici, le dossier personnel) puis cliquez **Créer un nouveau dossier** 
+
 
 {{< center >}}
 {{< figure src="prefs_03.png" >}}
 {{< /center >}}
 
+Saisissez le nom désiré (exemple "als_scan" )
+
 {{< center >}}
 {{< figure src="prefs_04.png" >}}
 {{< /center >}}
+
+
 
 {{< center >}}
 {{< figure src="prefs_05.png" >}}
