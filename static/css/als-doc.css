@@ -1,9 +1,19 @@
+.als-doc-content {
+    line-height: 1.5em !important;
+}
+
+.td-content p {
+    text-align: justify;
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
 .td-content code, pre {
     background-color: var(--dimmed) !important;
 }
 
 .td-content li{
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .td-content h1{
@@ -12,10 +22,6 @@
 
 .td-content h2{
     font-size: 1.5em;
-}
-
-.td-content p {
-    text-align: justify;
 }
 
 div.lead {
