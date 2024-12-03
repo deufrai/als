@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T19:13:04Z
+lastmod: 2024-12-03T19:27:25Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -76,11 +76,14 @@ Saisissez le nom désiré. _Exemple : "als_scan"_
 {{< figure src="prefs_04.png" >}}
 {{< /center >}}
 
-
+Validez votre choix en cliquant `Choisir`
 
 {{< center >}}
 {{< figure src="prefs_05.png" >}}
 {{< /center >}}
+
+Répéter la même procédure pour le dossier **work** et ne validez pas encore les préférences.
+Il reste un point important à aborder
 
 # Statistique d'utilisation
 
@@ -88,7 +91,16 @@ Saisissez le nom désiré. _Exemple : "als_scan"_
 {{< figure src="prefs_06.png" >}}
 {{< /center >}}
 
-https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46
+Il est très utile pour nous de savoir quelles versions d'ALS sont utilisées, et surtout sur quelle plateforme et quel
+système d'exploitation.
+
+Pour nous aider, vous pouvez autoriser ALS à nous envoyer les informations suivantes à chaque démarrage :
+- Version d'ALS
+- Type de processeur machine : PC, Mac ou Raspberry Pi
+- Type de système d'exploitation
+
+Vous pouvez vérifier la nature des informations envoyées par ALS en consultant le 
+[code source de cette fonctionnalité](https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46)
 
 # voilivoilouch !!
 
