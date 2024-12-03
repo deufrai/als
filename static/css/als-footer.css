@@ -60,12 +60,8 @@ footer .row > div a i {
 
 .footer-license a {
     color: var(--dimmed);
-    text-decoration: none;
 }
 
-.footer-license a:hover {
-    color: var(--dimmed);
-}
 
 .footer-license, .build-commit-id {
     flex: 1; /* Ensure both sections are flexible */

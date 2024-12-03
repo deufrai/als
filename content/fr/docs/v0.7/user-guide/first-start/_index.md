@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T00:38:59Z
+lastmod: 2024-12-03T10:05:15Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -43,7 +43,7 @@ _Pas de panique, c'est la dernière fois qu'ALS vous parlera anglais si vous ne 
 {{< figure src="welcome.png" >}}
 {{< /center >}}
 
-Un click sur `OK` est ALS vous présente la fenêtre des préférences.
+Un click sur `OK` et ALS vous présente la fenêtre des préférences.
 
 # Configurer les dossiers critiques
 
@@ -72,6 +72,8 @@ Un click sur `OK` est ALS vous présente la fenêtre des préférences.
 {{< center >}}
 {{< figure src="prefs_06.png" >}}
 {{< /center >}}
+
+https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46
 
 # voilivoilouch !!
 
