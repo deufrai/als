@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T11:32:44Z
+lastmod: 2024-12-03T19:13:04Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -24,7 +24,7 @@ ADD reminder about launch
   Welcome!
   {{% /tab %}}
   {{% tab header="Windows" %}}
-  Welcome!
+  Ta mère !
   {{% /tab %}}
   {{% tab header="Mac" %}}
   Welcome!
