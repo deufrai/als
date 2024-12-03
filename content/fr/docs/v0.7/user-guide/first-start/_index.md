@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-12-03T19:27:25Z
+lastmod: 2024-12-03T19:46:49Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -101,6 +101,24 @@ Pour nous aider, vous pouvez autoriser ALS à nous envoyer les informations suiv
 
 Vous pouvez vérifier la nature des informations envoyées par ALS en consultant le 
 [code source de cette fonctionnalité](https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46)
+
+<details>
+  <summary>code source de la fonctionnalité "call home" d'ALS</summary>
+
+  ``` python
+  def call_home():
+      home_host = "ping.als-app.org"
+      home_port = 16810
+  
+      try:
+          home_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+          message = f"{VERSION}||{platform.machine()}||{platform.system()}"
+          home_socket.sendto(message.encode(), (home_host, home_port))
+          home_socket.close()
+      except socket.error:
+          pass
+  ```
+</details>
 
 # voilivoilouch !!
 

@@ -49,6 +49,11 @@ enableGitInfo = true
   [markup.tableOfContents]
     startLevel = 1
     endLevel = 2
+  [markup.highlight]
+    lineNos = true
+    style = 'onedark'
+
+
 
 # Language Configuration
 [languages]
