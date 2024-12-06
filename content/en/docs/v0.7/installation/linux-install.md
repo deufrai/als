@@ -3,8 +3,8 @@ hidden: true
 title: "Installation on PC/Linux"
 description: "Detailed instructions for installing and running Astro Live Stacker (ALS) on a Linux PC."
 author: "ALS Team"
-date: 2024-11-27
-lastmod: 2024-11-27
+
+lastmod: 2024-12-06T21:29:57Z
 keywords: ["installation", "linux", "astro live stacker", "guide"]
 draft: false
 type: "docs"

@@ -3,8 +3,8 @@ hidden: true
 title: "Install on Raspberry Pi"
 description: "Detailed instructions for extracting and running Astro Live Stacker (ALS) on a Raspberry Pi with Linux."
 author: "ALS Team"
-date: 2024-11-27
-lastmod: 2024-11-27
+
+lastmod: 2024-12-06T21:29:57Z
 keywords: ["installation", "raspberry pi", "linux", "astro live stacker", "guide"]
 draft: false
 type: "docs"

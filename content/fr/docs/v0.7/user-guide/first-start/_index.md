@@ -2,8 +2,8 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-date: 2024-11-28
-lastmod: 2024-12-03T20:28:02Z
+
+lastmod: 2024-12-06T21:29:57Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
