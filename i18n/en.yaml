@@ -24,4 +24,7 @@
   translation: "Privacy Policy"
 - id: cookieconsentPrivacyPolicyUrl
   translation: "/privacy-policy"
-
+- id: docNavButtonPrev
+  translation: "Previous"
+- id: docNavButtonNext
+  translation: "Next"

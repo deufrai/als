@@ -1,9 +1,9 @@
 ---
-title: Installation sur un Mac Apple Silicon
-description: Installation d'ALS sur Mac Apple Silicon
+title: Installation sur un Mac Intel
+description: Installation d'ALS sur Mac Intel
 author: ALZ Team
 
-lastmod: 2024-12-06T21:29:57Z
+lastmod: 2024-12-06T22:49:50Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 24
 ---

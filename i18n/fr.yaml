@@ -24,4 +24,7 @@
   translation: "Politique de confidentialité"
 - id: cookieconsentPrivacyPolicyUrl
   translation: "/fr/politique-de-confidentialite"
-
+- id: docNavButtonPrev
+  translation: "Précédent"
+- id: docNavButtonNext
+  translation: "Suivant"

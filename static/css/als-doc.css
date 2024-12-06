@@ -32,3 +32,9 @@
 div.lead {
     display: none;
 }
+
+div.doc-navigation-buttons {
+
+    border-top: 1px solid var(--dimmed);
+    padding-top: 1rem;
+}
