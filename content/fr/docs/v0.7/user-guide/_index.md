@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-06T21:29:57Z
+lastmod: 2024-12-06T21:45:14Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -20,9 +20,9 @@ Définissons tout d'abord le contexte dans lequel nous allons évoluer.
 Tout au long de ce voyage, vous incarnerez un utilisateur type qui a les caractéristiques suivantes :
 - **Nom d'utilisateur**&nbsp;: Son nom d'utilisateur est **astrogeek**
 - **Système utilisé**&nbsp;: Il utilise ALS sur un système Linux
-- **Organisation des images capturées**&nbsp;: Son système d'acquisition enregistre les images capturées dans le dossier
-**astroshots** de son dossier personnel, organisées par cible avec les captures dans des sous-dossiers **Lights**. 
-Par exemple, pour une session d'imagerie de Messier 27 :
+- **Organisation des images capturées**&nbsp;: Les images capturées par son système d'acquisition sont enregistrées
+dans le dossier **astroshots** de son dossier personnel, organisées par cible avec les captures dans des sous-dossiers
+**Lights**. Par exemple, pour une session d'imagerie de Messier 27 :
 
 {{< center >}}
 {{< figure src="lights_placement.png" >}}
