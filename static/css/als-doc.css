@@ -21,11 +21,17 @@
     font-size: 0.9em;
 }
 
-.td-content code, pre {
+.td-content code, .td-content pre {
     background-color: var(--dimmed) !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
 }
 
-.td-content li{
+
+.td-content li {
     margin-top: 0.5rem;
 }
 
