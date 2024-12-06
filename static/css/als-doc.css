@@ -8,6 +8,16 @@
     margin: 0.2rem;
 }
 
+#td-section-nav {
+
+    font-size: 0.85em;
+}
+
+#TableOfContents {
+
+    font-size: 0.9em;
+}
+
 .td-content code, pre {
     background-color: var(--dimmed) !important;
 }

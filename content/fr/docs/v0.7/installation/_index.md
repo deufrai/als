@@ -2,7 +2,7 @@
 title: Installation
 description: installation d'ALS
 author: ALZ Team
-lastmod: 2024-12-01T22:55:04Z
+lastmod: 2024-12-06T18:21:39Z
 toc: true
 draft: false
 type: "docs"
@@ -34,6 +34,6 @@ si vous avez besoin d'aide.
 ---
 
 {{% alert title="INFO" color="info" %}}
-Les procédures d'installation de ce chapitre sont rédigées pour un système en langue Française. Si votre système
+Les procédures d'installation de ce chapitre sont rédigées pour un système en langue française. Si votre système
 utilise une autre langue, faites les ajustements nécessaires. Bonne installation !
 {{% /alert %}}
