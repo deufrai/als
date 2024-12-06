@@ -26,14 +26,6 @@
     margin-top: 0.5rem;
 }
 
-.td-content h1{
-    font-weight: unset !important;
-}
-
-.td-content h2{
-    font-size: 1.5em;
-}
-
 div.lead {
     display: none;
 }

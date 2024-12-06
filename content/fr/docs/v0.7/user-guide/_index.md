@@ -1,9 +1,9 @@
 ---
-title: "Guide Utilisateur d'ALS"
+title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 date: 2024-11-28
-lastmod: 2024-11-29T13:25:46Z
+lastmod: 2024-12-06T20:09:29Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -22,7 +22,7 @@ Tout au long de ce voyage, vous incarnerez un utilisateur type qui a les caract�
 - Son nom d'utilisateur est **astrogeek**
 - Son système de capture d'images est configuré pour enregistrer toutes les nouvelles images capturées dans un dossier 
 nommé **astroshots** placé dans son dossier personnel. Le système de capture enregistre toute nouvelle image dans un 
-dossier nommé **lights** lui-même placé dans un dossier portant le nom de la cible actuellement imagée. Ce qui donne, 
+dossier nommé **Lights** lui-même placé dans un dossier portant le nom de la cible actuellement imagée. Ce qui donne, 
 pour une session d'imagerie de Messier 27, l'organisation suivante :
 {{< center >}}
 {{< figure src="lights_placement.png" >}}
