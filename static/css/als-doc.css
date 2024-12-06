@@ -2,8 +2,11 @@
     line-height: 1.5em !important;
 }
 
-.td-content p {
+.td-content {
     text-align: justify;
+}
+
+.td-content p {
     padding: 0.2rem;
     margin: 0.2rem;
 }
