@@ -347,11 +347,6 @@
         <translation>Les préférences seront affichées après un click sur OK.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="151"/>
-        <source>Make sure the scan &amp; work folders are set correctly : They must be created by you...</source>
-        <translation>Assurez-vous que les dossiers &apos;scan&apos; et &apos;work&apos; sont correctement définis. Ils doivent être créés par vous...</translation>
-    </message>
-    <message>
         <location filename="../src/als/ui/windows.py" line="512"/>
         <source>Web server access is limited</source>
         <translation>L&apos;accès au serveur web est limité</translation>
@@ -420,19 +415,24 @@ Détails : {}</translation>
         <translation>ALS - Confirmation de statistiques d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1000"/>
+        <location filename="../src/als/ui/windows.py" line="1008"/>
         <source>ALS launcher created / updated.</source>
         <translation>Lanceur ALS créé / mis à jour avec sucès.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1000"/>
+        <location filename="../src/als/ui/windows.py" line="1008"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Vouls trouverez ALS avec les applications graphiques</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="983"/>
+        <location filename="../src/als/ui/windows.py" line="989"/>
         <source>Select your ALS executable</source>
         <translation>Selectionner votre executable ALS</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/windows.py" line="151"/>
+        <source>Please set the paths for the Scan and Work folders.</source>
+        <translation>Définissez les chemins du dossier scanné et du dossier de travail.</translation>
     </message>
 </context>
 <context>
@@ -448,22 +448,22 @@ Détails : {}</translation>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="298"/>
+        <location filename="../src/als/ui/dialogs.py" line="320"/>
         <source>Select scan folder</source>
         <translation>Sélection le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="311"/>
+        <location filename="../src/als/ui/dialogs.py" line="332"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="324"/>
+        <location filename="../src/als/ui/dialogs.py" line="343"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="337"/>
+        <location filename="../src/als/ui/dialogs.py" line="354"/>
         <source>Select dark file</source>
         <translation>Sélectionner le fichier de dark</translation>
     </message>

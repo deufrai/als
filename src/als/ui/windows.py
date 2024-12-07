@@ -152,7 +152,7 @@ class MainWindow(QMainWindow):
                 self.tr("Welcome to ALS"),
                 self.tr('It appears this is your first use of ALS. Welcome !') + linesep*2 +
                 self.tr('Clicking OK will bring up the settings page.') + linesep*2 +
-                self.tr("Make sure the scan & work folders are set correctly : They must be created by you..."))
+                self.tr("Please set the paths for the Scan and Work folders."))
 
             if self._open_preferences():
                 self.update_display()

@@ -107,17 +107,19 @@ class PreferencesDialog(QDialog):
         Draw a red border around text fields containing a path to a missing folder
         """
 
-        paths_to_check = [self._ui.ln_work_folder_path, self._ui.ln_scan_folder_path]
+        path_labels_to_check = [self._ui.ln_work_folder_path, self._ui.ln_scan_folder_path]
 
         if self._ui.chk_www_own_folder.isChecked():
-            paths_to_check.append(self._ui.ln_web_folder_path)
+            path_labels_to_check.append(self._ui.ln_web_folder_path)
 
-        for folder_path in paths_to_check:
+        for path_label in path_labels_to_check:
 
-            if not Path(folder_path.text()).is_dir():
-                folder_path.setStyleSheet(_WARNING_STYLE_SHEET)
+            label_text = path_label.text()
+
+            if not label_text or not Path(label_text).is_dir():
+                path_label.setStyleSheet(_WARNING_STYLE_SHEET)
             else:
-                folder_path.setStyleSheet(_NORMAL_STYLE_SHEET)
+                path_label.setStyleSheet(_NORMAL_STYLE_SHEET)
 
         master_dark_path = self._ui.ln_master_dark_path.text()
         if (Path(master_dark_path).is_file() or
