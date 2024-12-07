@@ -139,20 +139,54 @@ Cliquez ensuite sur `OK` pour valider les préférences.
 
 # Votre toute première session
 
-ALS est maintenant prêt à vous servir. Lancez une session avec les paramètres par défaut.
+ALS est maintenant prêt à vous servir.
 
 {{< center >}}
 {{< figure src="ready.png" >}}
 {{< /center >}}
 
-1. Cliquez sur `START` dans la section **session** en haut à gauche
-2. Lancer vos acquisitions avec votre système habituel
+## Démarrage de la session
+
+{{< figure src="start.png" >}}
+
+Cliquez sur `START` dans la section **session** en haut à gauche
+
+--- 
+
+ALS confirme le bon démarrage de la session :
+
+{{< figure src="started.png" >}}
+
+- Le statut et les boutons de contrôle de la session sont mis à jour
+
+{{< figure src="status.png" >}}
+
+
+- Le journal de session affiche les derniers événements et la barre de status et mise à jour
+
+--- 
+
+Lancez maintenant vos acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
+
+{{< center >}}
+{{< figure src="stacked_01.png" >}}
+{{< /center >}}
 
 La première image détectée par ALS sert de référence.
 
-Toutes les suivantes sont d'abord alignées avec cette référence puis empilées par moyenne sur toutes les précédentes.
+---
+
+Toutes les suivantes sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes les précédentes.
+
+{{< center >}}
+{{< figure src="stacked_15.png" >}}
+{{< /center >}}
 
 Le résultat de ces traitements est présenté dans la zone centrale d'ALS. 
+
+---
+
+## Partez à la découverte
 
 Laissez ALS travailler sur les images qui continuent à arriver et perdez-vous donc un peu dans la zone centrale :
 
@@ -160,5 +194,19 @@ Laissez ALS travailler sur les images qui continuent à arriver et perdez-vous d
 - Déplacez-vous dans l'image avec des glisser/déposer comme vous le feriez avec n'importe quel logiciel de visualisation
 - Remettez le zoom à sa valeur d'origine avec un clic droit
 
+---
+
+{{< center >}}
+{{< figure src="stacked_200.png" >}}
+{{< /center >}}
+
 À mesure que les images arrivent dans le dossier scanné, vous verrez l'image centrale gagner en contraste et en 
 qualité.
+
+---
+
+## Arrêt de la session
+
+{{< center >}}
+{{< figure src="stop.png" >}}
+{{< /center >}}
