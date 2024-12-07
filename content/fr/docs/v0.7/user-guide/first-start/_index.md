@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-07T22:02:31Z
+lastmod: 2024-12-07T22:42:23Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -29,7 +29,11 @@ Lors du premier démarrage, ALS vous accueille et vous demande de définir deux 
 - **Dossier de travail** : Le dossier où ALS enregistre les images produites.
 
 {{< center >}}
-{{< figure src="welcome.png" >}}
+{{< figure src="welcome.png" 
+    caption="Message de bienvenue" 
+    width="461px" 
+    height="172px" 
+    alt="Message de bienvenue" >}}
 {{< /center >}}
 
 Cliquez sur `OK` pour accéder aux préférences.

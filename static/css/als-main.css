@@ -20,6 +20,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: var(--color) !important;
