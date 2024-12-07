@@ -2,12 +2,12 @@
 title: Documentation ALS
 description: Documentation ALS
 author: ALZ Team
-lastmod: 2024-12-01T22:55:04Z
+lastmod: 2024-12-07T18:07:06Z
 weight: 1
 ---
 
 {{< center >}}
-{{< figure src="/images/docs/fr/als_doc_screenshot.png" >}}
+{{< figure src="/images/als-screenshot_fr.png" >}}
 {{< /center >}}
 
 ---
