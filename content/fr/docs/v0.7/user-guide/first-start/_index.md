@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-07T17:51:56Z
+lastmod: 2024-12-07T22:02:31Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -162,37 +162,42 @@ ALS confirme le bon démarrage de la session :
 {{< figure src="status.png" >}}
 
 
-- Le journal de session affiche les derniers événements et la barre de status et mise à jour
+- Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour
 
 --- 
 
-Lancez maintenant vos acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
+Démarrez maintenant vos acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
 
 {{< center >}}
 {{< figure src="stacked_01.png" >}}
 {{< /center >}}
 
-La première image détectée par ALS sert de référence.
+La première image détectée par ALS sert de **référence pour l'alignement** des images suivantes.
 
 ---
 
-Toutes les suivantes sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes les précédentes.
+Toutes les nouvelles images capturées sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes 
+les images déjà traitées.
 
 {{< center >}}
 {{< figure src="stacked_15.png" >}}
 {{< /center >}}
 
-Le résultat de ces traitements est présenté dans la zone centrale d'ALS. 
+Après chaque alignement et empilement d'une nouvelle image, ALS ajuste automatiquement la luminosité et la balance 
+des couleurs avant d'afficher le résultat dans la **zone centrale**. 
 
 ---
 
 ## Partez à la découverte
 
-Laissez ALS travailler sur les images qui continuent à arriver et perdez-vous donc un peu dans la zone centrale :
+Laissez ALS travailler sur les images qui continuent d'arriver et perdez-vous un peu dans la **zone centrale** :
 
 - Zoomez avec la molette de votre souris
 - Déplacez-vous dans l'image avec des glisser/déposer comme vous le feriez avec n'importe quel logiciel de visualisation
 - Remettez le zoom à sa valeur d'origine avec un clic droit
+
+L'image dans la zone centrale sera mise à jour instantanément après le traitement de chaque nouvelle image, sans 
+interrompre votre navigation.
 
 ---
 
@@ -200,8 +205,12 @@ Laissez ALS travailler sur les images qui continuent à arriver et perdez-vous d
 {{< figure src="stacked_200.png" >}}
 {{< /center >}}
 
-À mesure que les images arrivent dans le dossier scanné, vous verrez l'image centrale gagner en contraste et en 
-qualité.
+À mesure que les images sont traitées, vous verrez l'image gagner en contraste et en détails. Et l'aspect
+granuleux du fond de ciel s'estompera petit à petit.
+
+Nous ne couvrirons pas les autres fonctionnalités et réglages d'ALS dans ce guide de premier démarrage. Cependant, 
+ALS a été conçu pour être très simple d'utilisation. N'hésitez pas à expérimenter instinctivement les différents 
+contrôles disposés à droite de l'écran dans la zone **Traitements**
 
 ---
 
