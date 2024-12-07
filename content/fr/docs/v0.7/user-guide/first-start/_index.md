@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 
-lastmod: 2024-12-06T21:29:57Z
+lastmod: 2024-12-07T14:34:24Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -29,7 +29,7 @@ Ce chapitre a pour but de vous permettre d'utiliser ALS le plus rapidement possi
   {{% /tab %}}
 {{< /tabpane >}}
 
-# Bienvenue
+# Configuration initiale
 
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages 
 indispensables à son fonctionnement :
@@ -45,14 +45,13 @@ Un click sur `OK` et ALS vous présente la fenêtre des préférences
 
 ---
 
-# Configurer les dossiers critiques
+## Configurer les dossiers critiques
 
 Les deux dossiers critiques d'ALS sont définis dans la section **Chemins** en haut de la fenêtre des préférences.
 
-## Dossier scanné
+### Dossier scanné
 
-Le dossier scanné est le dossier dont ALS doit surveiller le contenu pour détecter l'arrivée des nouvelles images à
-empiler. Nous devons indiquer à ALS de surveiller le contenu du dossier **astroshots** 
+Nous allons indiquer à ALS de surveiller le contenu du dossier **astroshots** 
 
 {{< center >}}
 {{< figure src="prefs_01.png" >}}
@@ -67,14 +66,13 @@ Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné**. Un sélect
 {{< /center >}}
 
   1. Selectionnez le dossier **astroshots**
-  2. Cliquez **Choisir** 
+  2. Cliquez sur le bouton `Choisir` 
 
 --- 
 
-## Dossier de travail
+### Dossier de travail
 
-Le dossier de travail est le dossier dans lequel ALS enregistre les images qu'il génère. Nous allons ici créer un 
-sous-dossier spécifique à ALS dans notre dossier personnel
+Nous allons ici créer un sous-dossier spécifique à ALS, nommé **sorties_als**, dans notre dossier personnel
 
 
 {{< center >}}
@@ -89,7 +87,7 @@ Cliquez sur le bouton `Modifier...` en regard de **Dossier de travail**. Un autr
 {{< figure src="prefs_04.png" >}}
 {{< /center >}}
 
-Cliquez sur le bouton **Créer un nouveau dossier**
+Cliquez sur le bouton `Créer un nouveau dossier`
 
 ---
 
@@ -105,8 +103,8 @@ Un nouveau dossier apparaît et son nom est prêt à être modifié
 {{< figure src="prefs_06.png" >}}
 {{< /center >}}
 
-1. Saisissez directment **sorties_als**
-2. Cliquez **Choisir**
+1. Saisissez directement **sorties_als**
+2. Cliquez sur le bouton `Choisir` 
 
 ---
 
@@ -114,7 +112,7 @@ Un nouveau dossier apparaît et son nom est prêt à être modifié
 
 ---
 
-# Statistique d'utilisation
+## Statistique d'utilisation
 
 {{< center >}}
 {{< figure src="prefs_07.png" >}}
@@ -137,7 +135,7 @@ consultant le
 
 ---
 
-# voilivoilouch !!
+# Votre toute première session 
 
 {{< center >}}
 {{< figure src="ready.png" >}}
