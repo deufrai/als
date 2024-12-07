@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-07T16:32:23Z
+lastmod: 2024-12-07T17:13:49Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -109,15 +109,25 @@ Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur 
 Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous comprenons
 également que vous puissiez être réticent à autoriser une telle fonctionnalité.
 
-Sachez qu'ALS nous enverra **uniquement** les informations suivantes à chaque démarrage :
-- Version d'ALS.
-- Type de processeur.
-- Type de système d'exploitation.
+Sachez que :
+- ALS nous enverra **uniquement** les informations suivantes à chaque démarrage :
+  - Version d'ALS.
+  - Type de processeur.
+  - Type de système d'exploitation.
+- Nous ne cherchons pas à identifier ni géo-localiser la source de ces informations
 
-ALS étant un logiciel **opensource**, son code est disponible publiquement. Vous pouvez ainsi vérifier par vous-même 
-la nature des informations envoyées en consultant le
-<a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">
-code source de cette fonctionnalité</a> <i class="fa-brands fa-square-github"></i>
+<details>
+    <summary>Cliquez ici pour savoir comment vous pouvez vérifier ces affirmations par vous-même</summary>
+
+ALS et les outils associés sont des logiciels **opensource**, leur code source est disponible publiquement. 
+
+- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de la 
+fonctionnalité d'envoi des statistiques</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py" target="_blank">code du serveur 
+qui reçoit ces statistiques</a> <i class="fa-brands fa-square-github"></i>
+</details>
+
+---
 
 Cliquez ensuite sur `OK` pour valider les préférences.
 
