@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-06T21:45:14Z
+lastmod: 2024-12-07T14:22:01Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -17,7 +17,7 @@ Définissons tout d'abord le contexte dans lequel nous allons évoluer.
 
 ## Dans la peau du personnage...
 
-Tout au long de ce voyage, vous incarnerez un utilisateur type qui a les caractéristiques suivantes :
+Tout au long de ce voyage, vous incarnerez un nouvel utilisateur d'ALS :
 - **Nom d'utilisateur**&nbsp;: Son nom d'utilisateur est **astrogeek**
 - **Système utilisé**&nbsp;: Il utilise ALS sur un système Linux
 - **Organisation des images capturées**&nbsp;: Les images capturées par son système d'acquisition sont enregistrées
