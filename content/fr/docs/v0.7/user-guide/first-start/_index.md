@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-07T17:13:49Z
+lastmod: 2024-12-07T17:51:56Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -16,6 +16,10 @@ weight: 31
 - Configuré les paramètres essentiels pour ALS.
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
+{{% alert title="ℹ️ INFO" color="info" %}}
+N'oubliez pas de vous mettre <a href="/fr/docs/v0.7/user-guide/#dans-la-peau-du-personnage" target="_blank">dans la
+peau du personnage</a> avant de suivre ce guide de démarrage 🌝
+{{% /alert %}}
 
 # Configuration minimale
 
