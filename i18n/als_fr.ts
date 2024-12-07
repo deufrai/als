@@ -450,7 +450,7 @@ Détails : {}</translation>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="320"/>
         <source>Select scan folder</source>
-        <translation>Sélection le dossier à scanner</translation>
+        <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="332"/>
