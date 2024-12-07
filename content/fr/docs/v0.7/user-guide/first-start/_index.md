@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 
-lastmod: 2024-12-07T14:48:19Z
+lastmod: 2024-12-07T15:45:57Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -33,7 +33,7 @@ Un click sur `OK` et ALS vous présente la fenêtre des préférences
 
 ## Configurer les dossiers critiques
 
-Les deux dossiers critiques d'ALS sont définis dans la section **Chemins** en haut de la fenêtre des préférences.
+Les deux dossiers critiques d'ALS sont définis dans la section **Chemins** de l'onglet **Général** de la fenêtre des préférences.
 
 ### Dossier scanné
 
@@ -58,7 +58,7 @@ Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné**. Un sélect
 
 ### Dossier de travail
 
-Nous allons ici créer un sous-dossier spécifique à ALS, nommé **sorties_als**, dans notre dossier personnel
+Nous allons créer un sous-dossier spécifique à ALS, nommé **sorties_als**, dans notre dossier personnel
 
 
 {{< center >}}
@@ -94,11 +94,11 @@ Un nouveau dossier apparaît et son nom est prêt à être modifié
 
 ---
 
-**Ne validez pas encore les préférences, il reste un point important à aborder.**
+**ℹ️ Ne validez pas encore les préférences**, il reste un point important à aborder
 
 ---
 
-## Statistique d'utilisation
+## Statistiques d'utilisation
 
 {{< center >}}
 {{< figure src="prefs_07.png" >}}
