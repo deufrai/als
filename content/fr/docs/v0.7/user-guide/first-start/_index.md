@@ -47,15 +47,18 @@ Un click sur `OK` et ALS vous présente la fenêtre des préférences
 
 # Configurer les dossiers critiques
 
+Les deux dossiers critiques d'ALS sont définis dans la section **Chemins** en haut de la fenêtre des préférences.
+
+## Dossier scanné
+
+Le dossier scanné est le dossier dont ALS doit surveiller le contenu pour détecter l'arrivée des nouvelles images à
+empiler. Nous devons indiquer à ALS de surveiller le contenu du dossier **astroshots** 
+
 {{< center >}}
 {{< figure src="prefs_01.png" >}}
 {{< /center >}}
 
-Les deux dossiers critiques d'ALS sont définis dans la partie supérieure de la fenêtre des préférences.
-
-Vous pouvez désigner des dossiers existants, mais nous vous conseillons de créer des dossiers spécifiques pour ALS.
-
-Commençons par le **dossier scanné** : Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné** (1)
+Cliquez sur le bouton `Modifier...` en regard de **Dossier scanné**. Un sélecteur de dossier apparaît...
 
 ---
 
@@ -63,18 +66,22 @@ Commençons par le **dossier scanné** : Cliquez sur le bouton `Modifier...` en 
 {{< figure src="prefs_02.png" >}}
 {{< /center >}}
 
+  1. Selectionnez le dossier **astroshots**
+  2. Cliquez **Choisir** 
 
-Naviguer vers le dossier dans lequel vous voulez créer le **dossier scanné** puis cliquez le petit bouton 
-**Créer un nouveau dossier** 
+--- 
 
+## Dossier de travail
 
----
+Le dossier de travail est le dossier dans lequel ALS enregistre les images qu'il génère. Nous allons ici créer un 
+sous-dossier spécifique à ALS dans notre dossier personnel
+
 
 {{< center >}}
 {{< figure src="prefs_03.png" >}}
 {{< /center >}}
 
-Saisissez le nom désiré. _Exemple : "als_scan"_
+Cliquez sur le bouton `Modifier...` en regard de **Dossier de travail**. Un autre sélecteur de dossier apparaît...
 
 ---
 
@@ -82,7 +89,7 @@ Saisissez le nom désiré. _Exemple : "als_scan"_
 {{< figure src="prefs_04.png" >}}
 {{< /center >}}
 
-Validez votre choix en cliquant `Choisir`
+Cliquez sur le bouton **Créer un nouveau dossier**
 
 ---
 
@@ -90,46 +97,43 @@ Validez votre choix en cliquant `Choisir`
 {{< figure src="prefs_05.png" >}}
 {{< /center >}}
 
-Répéter la même procédure pour le **dossier de travail** et ne validez pas encore les préférences.
+Un nouveau dossier apparaît et son nom est prêt à être modifié 
 
-Il reste un point important à aborder.
+---
+
+{{< center >}}
+{{< figure src="prefs_06.png" >}}
+{{< /center >}}
+
+1. Saisissez directment **sorties_als**
+2. Cliquez **Choisir**
+
+---
+
+**Ne validez pas encore les préférences, il reste un point important à aborder.**
 
 ---
 
 # Statistique d'utilisation
 
 {{< center >}}
-{{< figure src="prefs_06.png" >}}
+{{< figure src="prefs_07.png" >}}
 {{< /center >}}
 
-Il est très utile pour nous de savoir quelles versions d'ALS sont utilisées, et surtout sur quelle plateforme et quel
+Il nous est très utile de savoir quelles versions d'ALS sont utilisées, et surtout sur quelle plateforme et quel
 système d'exploitation.
 
-Pour nous aider, vous pouvez autoriser ALS à nous envoyer les informations suivantes à chaque démarrage :
+C'est pourquoi nous vous demandons de bien vouloir autoriser ALS à nous envoyer les informations suivantes à chaque 
+démarrage :
 - Version d'ALS
-- Type de processeur machine : PC, Mac ou Raspberry Pi
+- Type de processeur
 - Type de système d'exploitation
 
-Vous pouvez vérifier la nature des informations envoyées par ALS en consultant le 
-[code source de cette fonctionnalité](https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46)
-
-<details>
-  <summary>code source de la fonctionnalité "call home" d'ALS</summary>
-
-  ``` python
-  def call_home():
-      home_host = "ping.als-app.org"
-      home_port = 16810
-  
-      try:
-          home_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-          message = f"{VERSION}||{platform.machine()}||{platform.system()}"
-          home_socket.sendto(message.encode(), (home_host, home_port))
-          home_socket.close()
-      except socket.error:
-          pass
-  ```
-</details>
+Nous comprenons que vous puissiez être réticent à autoriser une telle fonctionnalité. Après tout, quelle garantie
+avez-vous qu'ALS envoie bien uniquement les informations listées ci-dessus ? ALS est un **logiciel opensource** : Son code
+est disponible publiquement. Vous pouvez vérifier par vous-même la nature des informations envoyées par ALS en 
+consultant le
+<a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code source de cette fonctionnalité</a>
 
 ---
 
@@ -139,4 +143,4 @@ Vous pouvez vérifier la nature des informations envoyées par ALS en consultant
 {{< figure src="ready.png" >}}
 {{< /center >}}
 
-bliblobliblo lorem etc... Et pecat !
+bliblobliblo lorem etc... Et aussi... pecat ! On peut vagement en faire quelque chose.
