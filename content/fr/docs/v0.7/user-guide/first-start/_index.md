@@ -3,7 +3,7 @@ title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
 
-lastmod: 2024-12-07T14:34:24Z
+lastmod: 2024-12-07T14:48:19Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -11,25 +11,11 @@ tags: ['preferences']
 weight: 31
 ---
 
-Ce chapitre a pour but de vous permettre d'utiliser ALS le plus rapidement possible. 
+A la fin de chapitre, vous aurez :
+- Effectué la configuration minimale requise pour le fonctionnement d'ALS
+- Lancé votre toute première session d'empilement et obtenu vos premiers résultats
 
-{{< tabpane text=true >}}
-  {{% tab header="**Rappel : Comment lancer ALS**:" disabled=true /%}}
-  {{% tab header="PC/Linux" %}}
-  Welcome!
-  {{% /tab %}}
-  {{% tab header="Raspberry Pi" %}}
-  Welcome!
-  {{% /tab %}}
-  {{% tab header="Windows" %}}
-  Ta mère !
-  {{% /tab %}}
-  {{% tab header="Mac" %}}
-  Welcome!
-  {{% /tab %}}
-{{< /tabpane >}}
-
-# Configuration initiale
+# Configuration minimale
 
 À votre tout premier démarrage, ALS vous souhaite la bienvenue et vous demande de définir les 2 réglages 
 indispensables à son fonctionnement :
@@ -132,6 +118,8 @@ avez-vous qu'ALS envoie bien uniquement les informations listées ci-dessus ? AL
 est disponible publiquement. Vous pouvez vérifier par vous-même la nature des informations envoyées par ALS en 
 consultant le
 <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code source de cette fonctionnalité</a>
+
+Une fois votre choix fait en toute connaissance de cause, validez les préférences en cliquant le bouton `OK`
 
 ---
 
