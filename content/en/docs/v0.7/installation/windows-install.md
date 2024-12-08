@@ -1,16 +1,12 @@
 ---
-hidden: true
-title: "Install on Windows"
-description: "Detailed instructions for installing and running Astro Live Stacker (ALS) on a Windows PC."
-author: "ALS Team"
+title: Install on Windows
+description: Installing ALS on Windows
+author: ALZ Team
 
-lastmod: 2024-12-06T21:29:57Z
-keywords: ["installation", "windows", "astro live stacker", "guide"]
-draft: false
-type: "docs"
+lastmod: 2024-12-08T10:07:10Z
+keywords: ["ALS install", "windows", "astro live stacker", "guide"]
+weight: 23
 ---
-
-### Instructions for Running ALS on Windows
 
 1. **Open the Downloads Folder**:
    - When the download is complete, open File Explorer by clicking its icon in the taskbar (a folder-shaped icon).

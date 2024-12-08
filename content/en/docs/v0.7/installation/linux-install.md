@@ -1,17 +1,12 @@
 ---
-hidden: true
-title: "Installation on PC/Linux"
-description: "Detailed instructions for installing and running Astro Live Stacker (ALS) on a Linux PC."
-author: "ALS Team"
+title: Install on a Linux PC
+description: Installing ALS on a Linux PC
+author: ALZ Team
 
-lastmod: 2024-12-06T21:29:57Z
+lastmod: 2024-12-08T10:07:10Z
 keywords: ["installation", "linux", "astro live stacker", "guide"]
-draft: false
-type: "docs"
+weight: 21
 ---
-
-
-### Instructions to Run an ALS `.run` File on Linux
 
 1. **Open the Downloads Folder**:
    - Navigate to your downloads folder. You can usually find it by clicking on your file manager's icon (such as Nautilus, Dolphin, or Thunar) and selecting "Downloads" from the navigation menu on the left.

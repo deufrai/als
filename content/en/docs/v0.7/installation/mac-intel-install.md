@@ -1,18 +1,12 @@
 ---
-hidden: true
-title: "Install on Mac Intel"
-description: "Detailed instructions for installing and running Astro Live Stacker (ALS) on a Mac with an Intel processor."
-author: "ALS Team"
+title: Install on an Intel Mac
+description: Installing ALS on an Intel Mac
+author: ALZ Team
 
-lastmod: 2024-12-06T21:29:57Z
+lastmod: 2024-12-08T10:07:10Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
-draft: false
-type: "docs"
+weight: 25
 ---
-
-
-
-### Instructions for Installing ALS on macOS with Intel CPU
 
 1. **Open the Downloads Folder**:
    - When the download is complete, open Finder by clicking its icon in the Dock.
