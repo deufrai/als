@@ -1,6 +1,6 @@
 ---
 title: "Notes de versions"
-lastmod: 2024-12-01T02:31:12Z
+lastmod: 2024-12-08T18:06:53Z
 weight: 55
 ---
 
@@ -8,6 +8,7 @@ weight: 55
 Date: TBD
 
 ### Nouveautés
+- Linux : Utilitaire pour la création d'un lanceur système 
 - Envoi de statistiques d'utilisation avec le consentement de l'utilisateur
 - Lecture des fichiers .CR3 Canon Raw
 - Introduction des profils (paramètres par défaut pour Visuel assisté ou Photo)
