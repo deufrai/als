@@ -2,14 +2,8 @@
 title: Documentation ALS
 description: Documentation ALS
 author: ALZ Team
-lastmod: 2024-12-07T18:07:06Z
+lastmod: 2024-12-08T09:52:25Z
 weight: 1
----
-
-{{< center >}}
-{{< figure src="/images/als-screenshot_fr.png" >}}
-{{< /center >}}
-
 ---
 
 ALS est une application de livestacking.
