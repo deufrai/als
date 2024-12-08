@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-07T14:22:01Z
+lastmod: 2024-12-08T10:39:54Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -30,4 +30,11 @@ dans le dossier **astroshots** de son dossier personnel, organisées par cible a
 
 ## Typographie
 
-**TBD**
+Tout au long de cette documentation, les pictogrammes et le style de texte suivants seront utilisés pour indiquer des 
+éléments et des actions spécifiques :
+
+- Ceci est `Un élémént d'interface graphique`
+- Ceci est une **information importante**
+- Ce picto 🖱️ indique qu'une action à la souris est requise
+- Ce picto ⌨️ indique qu'une action au clavier est requise
+- Ce picto 🎛️ indique qu'une action en dehors d'ALS est requise
