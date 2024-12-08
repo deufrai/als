@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T13:15:24Z
+lastmod: 2024-12-08T15:11:27Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -306,6 +306,53 @@ Our quick tour is coming to an end; stop the current session.
 You will find the final result of this session in a file named **stack_image.jpg** saved in the **Work Folder**.
 
 ---
+
+{{% alert title="ℹ️ Linux Systems" color="info" %}}
+This last section is exclusively for ALS users on Linux, whether on PC or Raspberry Pi.
+{{% /alert %}}
+
+# Create a system launcher for ALS
+
+{{< center >}}
+{{< figure src="launcher_menu.png" 
+    caption="Launcher creation menu" 
+    width="537px" 
+    height="194px" 
+    alt="Menu entry for launcher creation" >}}
+{{< /center >}}
+
+🖱️ Open the **Utilities** menu in ALS and select the **Create launcher** item. A file picker appears...
+
+{{< center >}}
+{{< figure src="exe_picker.png" 
+    caption="File picker" 
+    width="661px" 
+    height="463px" 
+    alt="File picker" >}}
+{{< /center >}}
+
+1. 🖱️ Navigate to `/home/username/Applications/ALS`
+2. 🖱️ Select the `als-v0.7-beta7.run` file
+3. 🖱️ Click `Open`
+
+ALS confirms the launcher creation
+{{< center >}}
+{{< figure src="launcher_created.png" 
+    caption="Launcher creation confirmation window" 
+    width="391px" 
+    height="129px" 
+    alt="Launcher creation confirmation window" >}}
+{{< /center >}}
+
+You can now easily start ALS using your system menu
+{{< center >}}
+{{< figure src="launcher_ok.png" 
+    caption="ALS in the **Graphics** section of the system menu" 
+    width="542px" 
+    height="412px" 
+    alt="System menu" >}}
+{{< /center >}}
+
 
 # Conclusion
 
