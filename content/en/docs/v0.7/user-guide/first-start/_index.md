@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T13:07:00Z
+lastmod: 2024-12-08T13:15:24Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -26,7 +26,7 @@ before following this quick start guide 🌝
 Upon first launch, ALS welcomes you and prompts you to set two essential settings:
 
 - **Scan Folder**: The folder where ALS monitors the arrival of new raw images.
-- **Working Folder**: The folder where ALS saves the produced images.
+- **Work Folder**: The folder where ALS saves the produced images.
 
 {{< center >}}
 {{< figure src="welcome.png" 
@@ -57,7 +57,7 @@ Set up ALS to monitor the **astroshots** folder:
 {{< /center >}}
 
 
-🖱️ Click `Modify...` next to **Scan Folder**. A folder selector appears...
+🖱️ Click `Change...` next to **Scan Folder**. A folder selector appears...
 
 ---
 
@@ -74,19 +74,19 @@ Set up ALS to monitor the **astroshots** folder:
 
 ---
 
-### Working Folder
+### Work Folder
 
-Create a subfolder for ALS named **sorties_als** in your home directory:
+Create a subfolder for ALS named **als_output** in your home directory:
 
 {{< center >}}
 {{< figure src="prefs_03.png" 
-    caption="Button to set the **Working Folder**"
+    caption="Button to set the **Work Folder**"
     width="628px" 
     height="252px" 
     alt="Preferences Paths section" >}}
 {{< /center >}}
 
-🖱️ Click `Modify...` next to **Working Folder**. A folder selector appears...
+🖱️ Click `Change...` next to **Work Folder**. A folder selector appears...
 
 ---
 
@@ -98,7 +98,7 @@ Create a subfolder for ALS named **sorties_als** in your home directory:
     alt="Create new folder button" >}}
 {{< /center >}}
 
-🖱️ Click `Create a new folder`.
+🖱️ Click `Create New Folder`.
 
 ---
 
@@ -122,7 +122,7 @@ A new folder appears, ready to be renamed.
     alt="Rename new folder - step 2" >}}
 {{< /center >}}
 
-- ⌨️ Name it **sorties_als**.
+- ⌨️ Name it **als_output**.
 - 🖱️ Click `Choose`.
 
 ---
@@ -227,11 +227,11 @@ ALS confirms the session has started correctly:
     alt="ALS main window - Stack 1" >}}
 {{< /center >}}
 
-The first image detected by ALS serves as a **reference for alignment** of subsequent images.
+The first detected image serves as the **alignment reference** of subsequent images.
 
 ---
 
-All new images captured are first aligned to this reference and then stacked by averaging with all previously processed 
+All new captured images are first aligned to this reference and then stacked by averaging with all previously processed 
 images.
 
 {{< center >}}
@@ -254,11 +254,11 @@ gradually fade.
 
 Let ALS work on the images that keep coming in and lose yourself a bit in the **central area**:
 
-- 🖱️ Zoom in using your mouse wheel.
+- 🖱️ Zoom in & out using your mouse wheel.
 - 🖱️ Navigate the image by dragging it, just like with any other visualization software.
 - 🖱️ Reset the zoom by right-clicking.
 
-The image in the central area will update instantly after processing each new raw image, without interrupting your 
+The image in the central area will update instantly after ALS processes each new captured image, without interrupting your 
 navigation.
 
 ---
@@ -303,7 +303,7 @@ Our quick tour is coming to an end; stop the current session.
 
 🖱️ Click `Yes`
 
-You will find the final result of this session in a file named **stack_image.jpg** saved in the **Working Folder**.
+You will find the final result of this session in a file named **stack_image.jpg** saved in the **Work Folder**.
 
 ---
 
