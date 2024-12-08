@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T15:49:23Z
+lastmod: 2024-12-08T16:22:53Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -324,15 +324,26 @@ Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce 
 🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez l'item **Créer lanceur**. Un sélecteur de fichier apparaît...
 
 {{< center >}}
+<div style="display: flex; justify-content: center; gap: 1rem;">
 {{< figure src="exe_picker.png" 
-    caption="Sélecteur de fichier" 
+    caption="Sélecteur de fichier pour **PC**" 
     width="661px" 
     height="463px" 
-    alt="Sélecteur de fichier" >}}
+    alt="Sélecteur de fichier PC" >}}
+{{< figure src="exe_picker_rpi.png" 
+    caption="Sélecteur de fichier pour **Raspberry PI**" 
+    width="661px" 
+    height="463px" 
+    alt="Sélecteur de fichier Raspberry Pi" >}}
+</div>
 {{< /center >}}
 
-1. 🖱️ Naviguer vers `/home/nom_utilisateur/Applications/ALS`
-2. 🖱️ Sélectionner le ficher `als-v0.7-beta7.run`
+1. 🖱️ Naviguer vers le dossier où se trouve ALS
+    - **PC**: Naviguer vers `/home/astrogeek/Applications/ALS`
+    - **Raspberry PI**: Naviguer vers `/home/astrogeek/Applications/ALS/als-v0.7-beta7`
+2. 🖱️ Sélectionner l'exécutable
+    - **PC**: Sélectionner le fichier `als-v0.7-beta7.run`
+    - **Raspberry PI**: Sélectionner le fichier `als-v0.7-beta7`
 3. 🖱️ Clicker `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur
