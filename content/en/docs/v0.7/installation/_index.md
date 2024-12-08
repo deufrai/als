@@ -2,11 +2,9 @@
 title: Installation
 description: installation of ALS
 author: ALS Team
-lastmod: 2024-12-08T10:57:46Z
-toc: true
-draft: false
-type: "docs"
+lastmod: 2024-12-08T16:40:58Z
 weight: 20
+tags: ['install']
 ---
 
 # 🖥️ System Requirements
