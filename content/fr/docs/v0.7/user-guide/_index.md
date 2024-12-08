@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-08T10:39:54Z
+lastmod: 2024-12-08T13:25:40Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -18,10 +18,10 @@ Définissons tout d'abord le contexte dans lequel nous allons évoluer.
 ## Dans la peau du personnage...
 
 Tout au long de ce voyage, vous incarnerez un nouvel utilisateur d'ALS :
-- **Nom d'utilisateur**&nbsp;: Son nom d'utilisateur est **astrogeek**
-- **Système utilisé**&nbsp;: Il utilise ALS sur un système Linux
-- **Organisation des images capturées**&nbsp;: Les images capturées par son système d'acquisition sont enregistrées
-dans le dossier **astroshots** de son dossier personnel, organisées par cible avec les captures dans des sous-dossiers
+- **Nom d'utilisateur**&nbsp;: Votre nom d'utilisateur est **astrogeek**
+- **Système utilisé**&nbsp;: Vous utilisez ALS sur un système Linux
+- **Organisation des images capturées**&nbsp;: Les images capturées par votre système d'acquisition sont enregistrées
+dans le dossier **astroshots** de votre dossier personnel, organisées par cible avec les captures dans des sous-dossiers
 **Lights**. Par exemple, pour une session d'imagerie de Messier 27 :
 
 {{< center >}}
@@ -33,7 +33,7 @@ dans le dossier **astroshots** de son dossier personnel, organisées par cible a
 Tout au long de cette documentation, les pictogrammes et le style de texte suivants seront utilisés pour indiquer des 
 éléments et des actions spécifiques :
 
-- Ceci est `Un élémént d'interface graphique`
+- Ceci est un `élémént d'interface graphique`
 - Ceci est une **information importante**
 - Ce picto 🖱️ indique qu'une action à la souris est requise
 - Ce picto ⌨️ indique qu'une action au clavier est requise
