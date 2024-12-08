@@ -2,103 +2,137 @@
 Changelog
 =========
 
-Version 0.7 (work in progress)
-==============================
+Version 0.7
+===========
 
-- New features
+**Date:** TBD
 
-  - Linux : add utility to create launcher in system menu
-  - send usage statistics with user consent
-  - read .CR3 Canon Raw files
-  - introduce running profiles (sensible defaults for EEA & Photo)
-  - add QR code display that leads to HTTP served page
-  - add jpeg, png and tiff file read capability
-  - French translation
-  - Dark frame subtraction
-  - Hot pixel removal
-  - Switchable save on stop
+New Features
+------------
 
-- Improvements
+- Linux: Utility for creating a system launcher
+- Sending usage statistics with user consent
+- Reading .CR3 Canon Raw files
+- Introduction of profiles (default settings for assisted visual or photo)
+- Addition of a QR code display leading to the integrated web server
+- Addition of jpeg, png, and tiff file reading
+- French translation
+- Dark frame subtraction
+- Hot pixel removal
+- Night mode
 
-  - Better autostrech
-  - Improve zoom with reset to default and keyboard shortcuts
-  - Log to file in user home folder
-  - Ability to only show problems in session log
-  - Ability to manually override Bayer pattern used for demosaicing
-  - Minimum matches for alignment is user-definable
-  - Write web content to a specific folder
-  - session-critial info moved to statusbar so they are always visible
-  - Switchable night mode
+Improvements
+------------
 
-- Bug Fixes
+- Improved autostretch
+- Improved zoom with default settings reset and keyboard shortcuts
+- Saving logs in the user's home folder
+- Option to display only issues in the session log
+- Ability to manually override the Bayer pattern used for debayering
+- User-defined minimum number of matches for alignment
+- Writing web content to a specific folder
+- Critical session information moved to the status bar for constant visibility
+- Toggleable night mode
 
-  - Windows : fail to write images to paths with non-ascii chars
-  - Does not handle .fts files
-  - RPI : crash when saving B&W images
+Bug Fixes
+---------
 
-Version 0.6.1 (2019-11-18)
-==========================
+- Windows: Failed to write images to paths containing non-ASCII characters
+- Support for FITS files with .fts extension
+- RPI: Crash when saving black and white images
 
-- Bug Fixes
+Version 0.6.1
+=============
 
-  - Faulty debayering of images shot with cameras with a GBRG CFA pattern
+**Date:** November 18, 2019
 
-Version 0.6 (2019-11-14)
-========================
+Bug Fixes
+---------
 
-- New features
+- Defective debayering of images taken with cameras having a CFA GBRG pattern
 
-  - User settings dialog box
-  - Pan & zoom in image with mouse clicks & wheel
-  - 2 automatic brightness adjustment methods to choose from
-  - Histogram display
-  - RGB Balance
+Version 0.6
+===========
 
-- Improvements
+**Date:** November 14, 2019
 
-  - Image server port is configurable
-  - Image server page is auto-refreshed with configurable time period
-  - Remember window size and position
-  - Configurable image save file type
-  - Log window, session controls and processing controls can be hidden
-  - FullScreen mode
-  - Much more responsive GUI
+New Features
+------------
 
-- Bug Fixes
+- User settings dialog
+- Pan and zoom in the image with mouse clicks and wheel
+- Two auto-brightness adjustment methods to choose from
+- Histogram display
+- RGB color balance
 
-  - Crash if new pictures written on slow storage device
-  - Image served by webserver is too bright
-  - Crash if new picture cannot be aligned with current stack
-  - Crash if starting a new session when scan folder is missing
+Improvements
+------------
 
+- Image server port is configurable
+- Image server page auto-refreshes with a configurable time period
+- Remembering window size and position
+- Configurable image file save type
+- Log window, session controls, and image processing controls can be hidden
+- Fullscreen mode
+- Much more responsive graphical interface
 
-Version 0.5 (2019-07-10)
-========================
+Bug Fixes
+---------
 
-- New feature : Stacked image can be served by new built-in web server
+- Crash if new images are written to a slow storage device
+- Image served by the web server is too bright
+- Crash if the new image cannot be aligned with the current stack
+- Crash if a new session is started when the scan folder is missing
 
-Version 0.4 (2019-06-22)
-========================
+Version 0.5
+===========
 
-- New feature : New stacked image processor : Wavelets
+**Date:** July 10, 2019
 
-Version 0.3 (2019-05-23)
-========================
+New Features
+------------
 
-- New features :
+- Stacked image can be served by the new integrated web server
 
-  - Support for common DSLR Raw files
-  - Folder scanner can be paused
-  - Reset button for image processing controls
-  - New stacked image processor : SCNR
+Version 0.4
+===========
 
-Version 0.2 (2019-05-21)
-========================
+**Date:** June 22, 2019
 
-- New feature : Stacked image's contrast and brightness can be adjusted
+New Features
+------------
 
-Version 0.1 (2019-05-18)
-========================
+- New stacked image processor: Wavelets
 
-- First release : Align and Stacking of Fits files
+Version 0.3
+===========
 
+**Date:** May 23, 2019
+
+New Features
+------------
+
+- Support for common DSLR raw files
+- Folder scanner can be paused
+- Image processing controls reset button
+- New stacked image processor: SCNR
+
+Version 0.2
+===========
+
+**Date:** May 21, 2019
+
+New Features
+------------
+
+- Contrast and brightness of stacked images can be adjusted
+
+Version 0.1
+===========
+
+**Date:** May 18, 2019
+
+Initial Release
+---------------
+
+- Alignment and stacking of FITS files
