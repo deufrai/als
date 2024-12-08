@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T15:11:27Z
+lastmod: 2024-12-08T16:25:49Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -308,10 +308,9 @@ You will find the final result of this session in a file named **stack_image.jpg
 ---
 
 {{% alert title="ℹ️ Linux Systems" color="info" %}}
-This last section is exclusively for ALS users on Linux, whether on PC or Raspberry Pi.
-{{% /alert %}}
-
-# Create a system launcher for ALS
+This section is exclusively for ALS users on Linux, whether on PC or Raspberry Pi 
+<details>
+<summary>Creating a system launcher for ALS</summary>
 
 {{< center >}}
 {{< figure src="launcher_menu.png" 
@@ -324,15 +323,26 @@ This last section is exclusively for ALS users on Linux, whether on PC or Raspbe
 🖱️ Open the **Utilities** menu in ALS and select the **Create launcher** item. A file picker appears...
 
 {{< center >}}
+<div style="display: flex; justify-content: center; gap: 1rem;">
 {{< figure src="exe_picker.png" 
-    caption="File picker" 
+    caption="File picker for **PC**" 
     width="661px" 
     height="463px" 
-    alt="File picker" >}}
+    alt="PC file picker" >}}
+{{< figure src="exe_picker_rpi.png" 
+    caption="File picker for **Raspberry PI**" 
+    width="661px" 
+    height="463px" 
+    alt="Raspberry Pi file picker" >}}
+</div>
 {{< /center >}}
 
-1. 🖱️ Navigate to `/home/username/Applications/ALS`
-2. 🖱️ Select the `als-v0.7-beta7.run` file
+1. 🖱️ Navigate to the folder where ALS is located
+    - **PC**: Navigate to `/home/astrogeek/Applications/ALS`
+    - **Raspberry PI**: Navigate to `/home/astrogeek/Applications/ALS/als-v0.7-beta7`
+2. 🖱️ Select the executable
+    - **PC**: Select the `als-v0.7-beta7.run` file
+    - **Raspberry PI**: Select the `als-v0.7-beta7` file
 3. 🖱️ Click `Open`
 
 ALS confirms the launcher creation
@@ -352,6 +362,9 @@ You can now easily start ALS using your system menu
     height="412px" 
     alt="System menu" >}}
 {{< /center >}}
+
+</details>
+{{% /alert %}}
 
 
 # Conclusion
