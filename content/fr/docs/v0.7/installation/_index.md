@@ -2,9 +2,10 @@
 title: Installation
 description: installation d'ALS
 author: ALZ Team
-lastmod: 2024-12-08T15:06:54Z
+lastmod: 2024-12-08T16:33:46Z
 draft: false
 weight: 20
+tags: ['installation']
 ---
 
 # 🖥️ Configuration système requise

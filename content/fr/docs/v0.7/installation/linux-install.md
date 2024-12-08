@@ -2,9 +2,10 @@
 title: Installation sur PC/Linux
 description: Installation d'ALS sur PC Linux
 author: ALZ Team
-lastmod: 2024-12-08T15:06:54Z
+lastmod: 2024-12-08T16:33:46Z
 keywords: [ "installation", "linux", "astro live stacker", "guide" ]
 weight: 21
+tags: ['installation', 'Linux', 'PC']
 ---
 
 1. **Ouvrir le dossier de téléchargements**
