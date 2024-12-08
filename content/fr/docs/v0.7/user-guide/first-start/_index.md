@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T16:50:09Z
+lastmod: 2024-12-08T19:05:12Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -346,7 +346,7 @@ Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce 
 2. 🖱️ Sélectionner l'exécutable
     - **PC**: Sélectionner le fichier `als-v0.7-beta7.run`
     - **Raspberry PI**: Sélectionner le fichier `als-v0.7-beta7`
-3. 🖱️ Clicker `Ouvrir`
+3. 🖱️ Cliquez sur `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur
 {{< center >}}
