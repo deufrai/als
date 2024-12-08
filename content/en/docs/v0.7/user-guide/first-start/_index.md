@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T02:03:59Z
+lastmod: 2024-12-08T11:10:32Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -17,7 +17,7 @@ By the end of this chapter, you will have:
 - Started your first stacking session and obtained your first results.
 
 {{% alert title="ℹ️ INFO" color="info" %}}
-Don't forget to <a href="/en/docs/v0.7/user-guide/#step-into-the-character" target="_blank">step into the character</a> 
+Don't forget to <a href="../#stepping-into-the-character" target="_blank">step into the character</a> 
 before following this quick start guide 🌝
 {{% /alert %}}
 

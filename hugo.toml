@@ -1,6 +1,6 @@
 # Basic Site Configuration
 baseURL = "https://next.als-app.org/"
-languageCode = "fr"
+languageCode = "en"
 title = "Astro Live Stacker"
 theme = "docsy"
 publishDir = "public"
