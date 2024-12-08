@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T11:10:32Z
+lastmod: 2024-12-08T13:07:00Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -31,7 +31,7 @@ Upon first launch, ALS welcomes you and prompts you to set two essential setting
 {{< center >}}
 {{< figure src="welcome.png" 
     caption="Welcome Message" 
-    width="461px" 
+    width="382px" 
     height="172px" 
     alt="Welcome Message" >}}
 {{< /center >}}
@@ -52,7 +52,7 @@ Set up ALS to monitor the **astroshots** folder:
 {{< figure src="prefs_01.png"
     caption="Button to set the **Scan Folder**"
     width="628px"
-    height="254px"
+    height="250px"
     alt="Preferences Paths section" >}}
 {{< /center >}}
 
@@ -64,7 +64,7 @@ Set up ALS to monitor the **astroshots** folder:
 {{< center >}}
 {{< figure src="prefs_02.png" 
     caption="The **Scan Folder** selector" 
-    width="641px" 
+    width="635px" 
     height="443px" 
     alt="Scan Folder selector" >}}
 {{< /center >}}
@@ -82,7 +82,7 @@ Create a subfolder for ALS named **sorties_als** in your home directory:
 {{< figure src="prefs_03.png" 
     caption="Button to set the **Working Folder**"
     width="628px" 
-    height="263px" 
+    height="252px" 
     alt="Preferences Paths section" >}}
 {{< /center >}}
 
@@ -93,8 +93,8 @@ Create a subfolder for ALS named **sorties_als** in your home directory:
 {{< center >}}
 {{< figure src="prefs_04.png" 
     caption="Button to create a new folder" 
-    width="789px" 
-    height="454px" 
+    width="730px" 
+    height="455px" 
     alt="Create new folder button" >}}
 {{< /center >}}
 
@@ -105,7 +105,7 @@ Create a subfolder for ALS named **sorties_als** in your home directory:
 {{< center >}}
 {{< figure src="prefs_05.png" 
     caption="New folder ready to be renamed" 
-    width="641px" 
+    width="635px" 
     height="443px" 
     alt="Rename new folder - step 1" >}}
 {{< /center >}}
@@ -117,7 +117,7 @@ A new folder appears, ready to be renamed.
 {{< center >}}
 {{< figure src="prefs_06.png"
     caption="New folder renamed and confirmed" 
-    width="641px" 
+    width="635px" 
     height="443px" 
     alt="Rename new folder - step 2" >}}
 {{< /center >}}
@@ -187,8 +187,8 @@ ALS is now ready to serve you.
 {{< center >}}
 {{< figure src="start.png"
     caption="Session start button" 
-    width="296px" 
-    height="164px" 
+    width="297px" 
+    height="162px" 
     alt="Session control panel before starting" >}}
 {{< /center >}}
 
@@ -201,8 +201,8 @@ ALS confirms the session has started correctly:
 {{< center >}}
 {{< figure src="started.png"
     caption="Session status and control buttons updated" 
-    width="296px" 
-    height="164px" 
+    width="297px" 
+    height="162px" 
     alt="Session control panel after starting" >}}
 {{< /center >}}
 
@@ -210,8 +210,8 @@ ALS confirms the session has started correctly:
 {{< center >}}
 {{< figure src="status.png"
     caption="The **session log** displays the latest events and the **status bar** is updated" 
-    width="864px" 
-    height="178px" 
+    width="964px" 
+    height="166px" 
     alt="Session log" >}}
 {{< /center >}}
 
@@ -284,8 +284,8 @@ Our quick tour is coming to an end; stop the current session.
 {{< center >}}
 {{< figure src="stopping.png"
     caption="Session stop button" 
-    width="320px" 
-    height="164px" 
+    width="305px" 
+    height="165px" 
     alt="Session control panel before stopping" >}}
 {{< /center >}}
 
@@ -296,7 +296,7 @@ Our quick tour is coming to an end; stop the current session.
 {{< center >}}
 {{< figure src="stop.png"
     caption="Session stop confirmation window" 
-    width="608px" 
+    width="612px" 
     height="151px" 
     alt="Session stop confirmation" >}}
 {{< /center >}}

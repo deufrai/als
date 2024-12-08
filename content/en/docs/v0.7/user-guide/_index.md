@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-08T10:39:54Z
+lastmod: 2024-12-08T13:07:00Z
 keywords: ["ALS User Guide"]
 draft: false
 type: "docs"
@@ -22,7 +22,11 @@ Throughout this journey, you will embody a new ALS user:
 - **Organization of captured images**: The images captured by his acquisition system are saved in the **astroshots** folder in his home directory, organized by target with the captures in **Lights** subfolders. For example, for an imaging session of Messier 27:
 
 {{< center >}}
-{{< figure src="lights_placement.png" >}}
+{{< figure src="lights_placement.png" 
+    caption="raw captured images organization" 
+    width="899px" 
+    height="479px" 
+    alt="captures folder content" >}}
 {{< /center >}}
 
 ## Typography
