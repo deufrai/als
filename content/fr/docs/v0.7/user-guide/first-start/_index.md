@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T15:06:54Z
+lastmod: 2024-12-08T15:49:23Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -309,10 +309,9 @@ Vous retrouverez le résultat final de cette session dans le fichier nommé **st
 ---
 
 {{% alert title="ℹ️ Systèmes Linux" color="info" %}}
-Cette dernière section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce soit sur PC ou Raspberry Pi 
-{{% /alert %}}
-
-# Créer un lanceur système pour ALS
+Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce soit sur PC ou Raspberry Pi 
+<details>
+<summary>Création d'un lanceur système pour ALS</summary>
 
 {{< center >}}
 {{< figure src="launcher_menu.png" 
@@ -353,6 +352,11 @@ Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu systèm
     height="412px" 
     alt="Menu système" >}}
 {{< /center >}}
+
+</details>
+{{% /alert %}}
+
+---
 
 # Conclusion
 

@@ -52,6 +52,7 @@ figure {
 figure img {
     height: auto;
     max-width: 100%;
+    filter: url(#drop-shadow);
 }
 
 figure figcaption {
