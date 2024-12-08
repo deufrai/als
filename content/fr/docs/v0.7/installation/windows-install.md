@@ -3,7 +3,7 @@ title: Installation sur Windows
 description: Installation d'ALS sur PC Windows
 author: ALZ Team
 
-lastmod: 2024-12-08T10:07:10Z
+lastmod: 2024-12-08T13:29:09Z
 keywords: ["installation ALS", "windows", "astro live stacker", "guide"]
 weight: 23
 ---
@@ -13,7 +13,7 @@ weight: 23
    des tâches (une icône en forme de dossier).
    - Accédez à votre dossier de téléchargements en sélectionnant "Téléchargements" dans le menu de navigation à gauche.
    - Vous devriez y voir le fichier exécutable dont le nom commence par `als` et se termine par `.exe`. Par exemple, 
-   cela pourrait être `als-v0.7-beta6.exe`.
+   cela pourrait être `als-v0.7-beta7.exe`.
 
 2. **Déplacer le fichier téléchargé vers un emplacement permanent**
 
@@ -33,7 +33,7 @@ weight: 23
 
    3. **Identifier le fichier ALS**
       - Dans le dossier de téléchargements, recherchez le fichier que vous avez téléchargé. Par exemple, il pourrait 
-      s'appeler `als-v0.7-beta6.exe`.
+      s'appeler `als-v0.7-beta7.exe`.
 
    4. **Créer un répertoire pour ALS**
       - Accédez à votre répertoire personnel (`C:\Utilisateurs\nom_utilisateur`).
@@ -44,13 +44,13 @@ weight: 23
       - Nommez ce dossier `ALS`.
 
    5. **Déplacer le fichier ALS vers le nouveau dossier**
-      - Retournez dans le dossier "Téléchargements" et faites un clic droit sur le fichier `als-v0.7-beta6.exe`.
+      - Retournez dans le dossier "Téléchargements" et faites un clic droit sur le fichier `als-v0.7-beta7.exe`.
       - Sélectionnez "Couper".
       - Accédez au dossier `ALS` que vous venez de créer (`C:\Utilisateurs\nom_utilisateur\Applications\ALS`).
       - Faites un clic droit dans le dossier `ALS` et sélectionnez "Coller".
 
 3. **Exécuter le fichier exécutable**
-   - Double-cliquez sur le fichier `als-v0.7-beta6.exe` dans le dossier où vous l'avez déplacé pour lancer l'application.
+   - Double-cliquez sur le fichier `als-v0.7-beta7.exe` dans le dossier où vous l'avez déplacé pour lancer l'application.
    - Une fenêtre d'alerte de sécurité de Windows s'ouvrira probablement, indiquant que l'éditeur de l'application est 
    inconnu.
 

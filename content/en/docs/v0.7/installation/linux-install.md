@@ -3,7 +3,7 @@ title: Install on a Linux PC
 description: Installing ALS on a Linux PC
 author: ALZ Team
 
-lastmod: 2024-12-08T10:07:10Z
+lastmod: 2024-12-08T13:29:09Z
 keywords: ["installation", "linux", "astro live stacker", "guide"]
 weight: 21
 ---
@@ -16,13 +16,13 @@ weight: 21
      ```
 
 2. **Identify the ALS File**:
-   - Look for the file that starts with `als` and ends with `.run`. For example, it might be `als-v0.7-beta6.run`.
+   - Look for the file that starts with `als` and ends with `.run`. For example, it might be `als-v0.7-beta7.run`.
 
 3. **Make the File Executable**:
    - To make the file executable, you need to change its permissions. This can be done directly from the file manager or via the terminal.
    
    **Via the File Manager**:
-     - Right-click on the `als-v0.7-beta6.run` file.
+     - Right-click on the `als-v0.7-beta7.run` file.
      - Select "Properties".
      - Go to the "Permissions" tab.
      - Check the option "Allow executing file as a program".
@@ -34,17 +34,17 @@ weight: 21
        ```
      - Run the following command to make the file executable:
        ```bash
-       chmod +x als-v0.7-beta6.run
+       chmod +x als-v0.7-beta7.run
        ```
 
 4. **Run the Executable File**:
    - **Via the Terminal**:
      - Still in the terminal, run the following command:
        ```bash
-       ./als-v0.7-beta6.run
+       ./als-v0.7-beta7.run
        ```
    - **Via the File Manager**:
-     - Double-click on the `als-v0.7-beta6.run` file.
+     - Double-click on the `als-v0.7-beta7.run` file.
      - If a dialog box appears asking you to confirm the execution of the file, choose the option to execute or open the file.
 
 Enjoy using ALS! 🚀✨

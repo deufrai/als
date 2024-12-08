@@ -3,7 +3,7 @@ title: Install on an Intel Mac
 description: Installing ALS on an Intel Mac
 author: ALZ Team
 
-lastmod: 2024-12-08T10:07:10Z
+lastmod: 2024-12-08T13:29:09Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 25
 ---
@@ -13,10 +13,10 @@ weight: 25
    - Navigate to your downloads folder by selecting "Downloads" from the navigation menu on the left.
 
 2. **Identify the ALS Disk Image**:
-   - Look for the disk image that starts with `als` and ends with `-amd64.dmg`. For example, it might be `als-v0.7-beta6-amd64.dmg`.
+   - Look for the disk image that starts with `als` and ends with `-amd64.dmg`. For example, it might be `als-v0.7-beta7-amd64.dmg`.
 
 3. **Mount the Disk Image**:
-   - Double-click on the `als-v0.7-beta6-amd64.dmg` disk image. This will mount the disk image.
+   - Double-click on the `als-v0.7-beta7-amd64.dmg` disk image. This will mount the disk image.
    - A new Finder window will show the contents of the disk image. You will see the `ALS` application icon on the left and a shortcut to the system's `Applications` folder on the right.
 
 4. **Copy the Application to the Applications Folder**:
