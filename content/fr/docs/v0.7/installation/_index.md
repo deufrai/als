@@ -2,10 +2,8 @@
 title: Installation
 description: installation d'ALS
 author: ALZ Team
-lastmod: 2024-12-06T18:21:39Z
-toc: true
+lastmod: 2024-12-08T15:06:54Z
 draft: false
-type: "docs"
 weight: 20
 ---
 

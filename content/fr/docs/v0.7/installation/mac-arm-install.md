@@ -3,7 +3,7 @@ title: Installation sur un Mac Apple Silicon
 description: Installation d'ALS sur Mac Apple Silicon
 author: ALZ Team
 
-lastmod: 2024-12-08T13:29:09Z
+lastmod: 2024-12-08T15:06:54Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 weight: 24
 ---
@@ -41,6 +41,10 @@ weight: 24
        sudo xattr -r -d com.apple.quarantine /Applications/als.app
        ```
      - Appuyez sur `Entrée`. Entrez votre mot de passe administrateur si vous y êtes invité et appuyez à nouveau sur `Entrée`.
-     - Accédez au dossier `Applications`, puis double-cliquez sur l'application `ALS` pour l'exécuter.]()
+
+6. **Lancement d'ALS**
+     - Accédez au dossier `Applications`, puis double-cliquez sur l'application `ALS` pour l'exécuter.
+
+Continuez vers notre [guide utilisateur](../user-guide/). Nous vous y attendons pour vous accompagner lors de ce premier démarrage.
      
 Bonne utilisation d'als ! 🔭

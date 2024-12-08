@@ -3,7 +3,7 @@ title: Installation sur Windows
 description: Installation d'ALS sur PC Windows
 author: ALZ Team
 
-lastmod: 2024-12-08T13:29:09Z
+lastmod: 2024-12-08T15:06:54Z
 keywords: ["installation ALS", "windows", "astro live stacker", "guide"]
 weight: 23
 ---
@@ -71,5 +71,7 @@ weight: 23
    - La première fois que vous lancez ALS, une fenêtre de pare-feu Windows peut s'ouvrir, vous demandant si vous 
    souhaitez autoriser l'application à communiquer sur les réseaux publics et/ou privés.
    - Cochez les cases appropriées en fonction de vos préférences, puis cliquez sur "Autoriser l'accès".
+
+Continuez vers notre [guide utilisateur](../user-guide/). Nous vous y attendons pour vous accompagner lors de ce premier démarrage.
 
 Profitez de l'utilisation d'ALS ! 🚀

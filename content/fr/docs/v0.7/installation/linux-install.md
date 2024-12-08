@@ -2,7 +2,7 @@
 title: Installation sur PC/Linux
 description: Installation d'ALS sur PC Linux
 author: ALZ Team
-lastmod: 2024-12-08T14:37:19Z
+lastmod: 2024-12-08T15:06:54Z
 keywords: [ "installation", "linux", "astro live stacker", "guide" ]
 weight: 21
 ---
@@ -51,42 +51,6 @@ weight: 21
     - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution du fichier, choisissez l'option pour
       exécuter ou ouvrir le fichier.
 
-6. **Créer un lanceur pour ALS dans votre menu système**
-{{< center >}}
-{{< figure src="../launcher_menu.png" 
-    caption="Menu de création du lanceur" 
-    width="537px" 
-    height="194px" 
-    alt="Entrée de menu pour création du lanceur" >}}
-{{< /center >}}
-    🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez l'item **Créer lanceur**. Un sélecteur de fichier apparaît...
-    {{< center >}}
-    {{< figure src="../exe_picker.png" 
-        caption="Sélecteur de fichier" 
-        width="661px" 
-        height="463px" 
-        alt="Sélecteur de fichier" >}}
-    {{< /center >}}
-      1. 🖱️ Naviguer vers `/home/nom_utilisateur/Applications/ALS`
-      2. 🖱️ Sélectionner le ficher `als-v0.7-beta7.run`
-      3. 🖱️ Clicker `Ouvrir`
-    
-    ALS vous confirme la bonne création du lanceur
-    {{< center >}}
-    {{< figure src="../launcher_created.png" 
-        caption="Fenêtre de confirmation de création du lanceur" 
-        width="391px" 
-        height="129px" 
-        alt="Fenêtre de confirmation de création du lanceur" >}}
-    {{< /center >}}
-
-    Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu système
-    {{< center >}}
-    {{< figure src="../launcher_ok.png" 
-        caption="ALS dans la section **Graphisme** du menu système " 
-        width="542px" 
-        height="412px" 
-        alt="Menu système" >}}
-    {{< /center >}}
+Continuez vers notre [guide utilisateur](../user-guide/). Nous vous y attendons pour vous accompagner lors de ce premier démarrage. 
 
 Bonne utilisation d'ALS ! 🔭

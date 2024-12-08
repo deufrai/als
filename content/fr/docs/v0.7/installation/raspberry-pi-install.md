@@ -3,7 +3,7 @@ title: Installation sur Raspberry Pi
 description: Installation d'ALS sur Raspberry Pi
 author: ALZ Team
 
-lastmod: 2024-12-08T13:29:09Z
+lastmod: 2024-12-08T15:06:54Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 22
 ---
@@ -50,10 +50,6 @@ weight: 22
     - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution, choisissez l'option pour exécuter ou
       ouvrir le fichier.
 
-
-{{% alert title="INFO" color="info" %}}
-ALS vous permet d'ajouter un lanceur à la section "Graphisme" de votre menu système. Reportez-vous à la section 
-'Premier démarrage' du [Guide Utilisateur](/fr/docs/v0.7/user-guide/)
-{{% /alert %}}
+Continuez vers notre [guide utilisateur](../user-guide/). Nous vous y attendons pour vous accompagner lors de ce premier démarrage.
 
 Bonne utilisation d'ALS ! 🔭
