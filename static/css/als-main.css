@@ -27,6 +27,13 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: var(--color) !important;

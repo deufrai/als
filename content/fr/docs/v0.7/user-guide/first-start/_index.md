@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-07T22:42:23Z
+lastmod: 2024-12-08T00:46:59Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -13,7 +13,7 @@ weight: 31
 # Introduction
 
 À la fin de ce chapitre, vous aurez :
-- Configuré les paramètres essentiels pour ALS.
+- Configuré les seuls paramètres requis pour un démarrage rapide avec les réglages par défaut d'ALS.
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
 {{% alert title="ℹ️ INFO" color="info" %}}
@@ -36,32 +36,41 @@ Lors du premier démarrage, ALS vous accueille et vous demande de définir deux 
     alt="Message de bienvenue" >}}
 {{< /center >}}
 
-Cliquez sur `OK` pour accéder aux préférences.
+🖱️ Cliquez sur `OK` pour accéder aux préférences.
 
 ---
 
 ## Configurer les dossiers critiques
 
-Définissez les dossiers critiques dans la section **Chemins** de l'onglet **Général**.
+Les dossiers critiques sont définis dans la section **Chemins** de l'onglet **Général**.
 
 ### Dossier scanné
 
 Configurez ALS pour surveiller le dossier **astroshots** :
 
 {{< center >}}
-{{< figure src="prefs_01.png" >}}
+{{< figure src="prefs_01.png"
+    caption="Bouton permettant de définir le **dossier scanné**"
+    width="628px"
+    height="254px"
+    alt="Section chemins des préférences" >}}
 {{< /center >}}
 
-Cliquez sur `Modifier...` à côté de **Dossier scanné**. Un sélecteur de dossier apparaît.
+
+🖱️ Cliquez sur `Modifier...` à côté de **Dossier scanné**. Un sélecteur de dossier apparaît...
 
 ---
 
 {{< center >}}
-{{< figure src="prefs_02.png" >}}
+{{< figure src="prefs_02.png" 
+    caption="Le sélecteur de **dossier scanné**" 
+    width="641px" 
+    height="443px" 
+    alt="Sélecteur du dossier scanné" >}}
 {{< /center >}}
 
-1. Sélectionnez le dossier **astroshots**.
-2. Cliquez sur `Choisir`.
+1. 🖱️ Sélectionnez le dossier **astroshots**.
+2. 🖱️ Cliquez sur `Choisir`.
 
 ---
 
@@ -70,23 +79,35 @@ Cliquez sur `Modifier...` à côté de **Dossier scanné**. Un sélecteur de dos
 Créez un sous-dossier pour ALS nommé **sorties_als** dans votre dossier personnel :
 
 {{< center >}}
-{{< figure src="prefs_03.png" >}}
+{{< figure src="prefs_03.png" 
+    caption="Bouton permettant de définir le **dossier de travail**"
+    width="628px" 
+    height="263px" 
+    alt="Section chemins des préférences" >}}
 {{< /center >}}
 
-Cliquez sur `Modifier...` à côté de **Dossier de travail**. Un sélecteur de dossier apparaît.
+🖱️ Cliquez sur `Modifier...` à côté de **Dossier de travail**. Un sélecteur de dossier apparaît...
 
 ---
 
 {{< center >}}
-{{< figure src="prefs_04.png" >}}
+{{< figure src="prefs_04.png" 
+    caption="Bouton permettant de créer un nouveau dossier" 
+    width="789px" 
+    height="454px" 
+    alt="Bouton créer un nouveau dossier" >}}
 {{< /center >}}
 
-Cliquez sur `Créer un nouveau dossier`.
+🖱️ Cliquez sur `Créer un nouveau dossier`.
 
 ---
 
 {{< center >}}
-{{< figure src="prefs_05.png" >}}
+{{< figure src="prefs_05.png" 
+    caption="Nouveau dossier prêt à être renommé" 
+    width="641px" 
+    height="443px" 
+    alt="Renommage du nouveau dossier - étape 1" >}}
 {{< /center >}}
 
 Un nouveau dossier apparaît, prêt à être renommé.
@@ -94,11 +115,15 @@ Un nouveau dossier apparaît, prêt à être renommé.
 ---
 
 {{< center >}}
-{{< figure src="prefs_06.png" >}}
+{{< figure src="prefs_06.png"
+    caption="nouveau dossier renommé et validation" 
+    width="641px" 
+    height="443px" 
+    alt="Renommage du nouveau dossier - étape 2" >}}
 {{< /center >}}
 
-1. Nommez-le **sorties_als**.
-2. Cliquez sur `Choisir`.
+- ⌨️ Nommez-le **sorties_als**.
+- 🖱️ Cliquez sur `Choisir`.
 
 ---
 
@@ -111,7 +136,11 @@ Un nouveau dossier apparaît, prêt à être renommé.
 Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur quelle plateforme.
 
 {{< center >}}
-{{< figure src="prefs_07.png" >}}
+{{< figure src="prefs_07.png"
+    caption="Case indiquant le choix d'envoi des statistiques d'utilisation" 
+    width="628px" 
+    height="607px" 
+    alt="Ecran des préférences - Onglet général" >}}
 {{< /center >}}
 
 Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous comprenons
@@ -127,17 +156,17 @@ Sachez que :
 <details>
     <summary>Cliquez ici pour savoir comment vous pouvez vérifier ces affirmations par vous-même</summary>
 
-ALS et les outils associés sont des logiciels **opensource**, leur code source est disponible publiquement. 
+ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement. 
 
-- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de la 
-fonctionnalité d'envoi des statistiques</a> <i class="fa-brands fa-square-github"></i>
-- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py" target="_blank">code du serveur 
-qui reçoit ces statistiques</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de l'envoi 
+des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code de 
+l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>
 </details>
 
 ---
 
-Cliquez ensuite sur `OK` pour valider les préférences.
+🖱️ Cliquez ensuite sur `OK` pour valider les préférences.
 
 ---
 
@@ -146,34 +175,56 @@ Cliquez ensuite sur `OK` pour valider les préférences.
 ALS est maintenant prêt à vous servir.
 
 {{< center >}}
-{{< figure src="ready.png" >}}
+{{< figure src="ready.png"
+    caption="ALS prêt à démarrer sa toute première session" 
+    width="1920px" 
+    height="1053px" 
+    alt="Fenêtre principale d'ALS" >}}
 {{< /center >}}
 
 ## Démarrage de la session
 
-{{< figure src="start.png" >}}
+{{< center >}}
+{{< figure src="start.png"
+    caption="Le bouton de démarrage de session" 
+    width="296px" 
+    height="164px" 
+    alt="Panneau de contrôle de session avant démarrage" >}}
+{{< /center >}}
 
-Cliquez sur `START` dans la section **session** en haut à gauche
+🖱️ Cliquez sur `START` dans la section **session** en haut à gauche
 
 --- 
 
 ALS confirme le bon démarrage de la session :
 
-{{< figure src="started.png" >}}
+{{< center >}}
+{{< figure src="started.png"
+    caption="Le statut et les boutons de contrôle de la session sont mis à jour" 
+    width="296px" 
+    height="164px" 
+    alt="Panneau de contrôle de session après démarrage" >}}
+{{< /center >}}
 
-- Le statut et les boutons de contrôle de la session sont mis à jour
 
-{{< figure src="status.png" >}}
-
-
-- Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour
+{{< center >}}
+{{< figure src="status.png"
+    caption="Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour" 
+    width="864px" 
+    height="178px" 
+    alt="Journal de session" >}}
+{{< /center >}}
 
 --- 
 
-Démarrez maintenant vos acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
+🎛️ Démarrez maintenant vos acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
 
 {{< center >}}
-{{< figure src="stacked_01.png" >}}
+{{< figure src="stacked_01.png"
+    caption="ALS après traitement de la 1<sup>ère</sup> image" 
+    width="1920px" 
+    height="1053px" 
+    alt="Fenêtre principale d'ALS - Stack 1" >}}
 {{< /center >}}
 
 La première image détectée par ALS sert de **référence pour l'alignement** des images suivantes.
@@ -184,11 +235,18 @@ Toutes les nouvelles images capturées sont d'abord alignées sur cette référe
 les images déjà traitées.
 
 {{< center >}}
-{{< figure src="stacked_15.png" >}}
+{{< figure src="stacked_15.png"
+    caption="ALS après traitement de la 15<sup>ème</sup> image. Le contraste et le bruit s'améliorent" 
+    width="1920px" 
+    height="1053px" 
+    alt="Fenêtre principale d'ALS - Stack 15" >}}
 {{< /center >}}
 
 Après chaque alignement et empilement d'une nouvelle image, ALS ajuste automatiquement la luminosité et la balance 
 des couleurs avant d'afficher le résultat dans la **zone centrale**. 
+
+À mesure que vous empilez les images, vous verrez le résultat gagner en contraste et en détails. Et l'aspect
+granuleux du fond de ciel s'estompera petit à petit.
 
 ---
 
@@ -196,25 +254,26 @@ des couleurs avant d'afficher le résultat dans la **zone centrale**.
 
 Laissez ALS travailler sur les images qui continuent d'arriver et perdez-vous un peu dans la **zone centrale** :
 
-- Zoomez avec la molette de votre souris
-- Déplacez-vous dans l'image avec des glisser/déposer comme vous le feriez avec n'importe quel logiciel de visualisation
-- Remettez le zoom à sa valeur d'origine avec un clic droit
+- 🖱️ Zoomez en utilisant la molette de votre souris
+- 🖱️ Naviguez dans l'image en la faisant glisser, comme avec tout autre logiciel de visualisation
+- 🖱️ Réinitialisez le zoom en cliquant avec le bouton droit de la souris
 
-L'image dans la zone centrale sera mise à jour instantanément après le traitement de chaque nouvelle image, sans 
+L'image dans la zone centrale sera mise à jour instantanément après le traitement de chaque nouvelle brute, sans 
 interrompre votre navigation.
 
 ---
 
 {{< center >}}
-{{< figure src="stacked_200.png" >}}
+{{< figure src="stacked_200.png"
+    caption="ALS après traitement de la 200<sup>ème</sup> image. Une belle image, détaillée et lissée" 
+    width="1920px" 
+    height="1053px" 
+    alt="Fenêtre principale d'ALS - Stack 200" >}}
 {{< /center >}}
 
-À mesure que les images sont traitées, vous verrez l'image gagner en contraste et en détails. Et l'aspect
-granuleux du fond de ciel s'estompera petit à petit.
-
-Nous ne couvrirons pas les autres fonctionnalités et réglages d'ALS dans ce guide de premier démarrage. Cependant, 
-ALS a été conçu pour être très simple d'utilisation. N'hésitez pas à expérimenter instinctivement les différents 
-contrôles disposés à droite de l'écran dans la zone **Traitements**
+Ce guide de démarrage rapide ne couvre pas les autres fonctionnalités et réglages d'ALS. Toutefois, ALS a été conçu pour
+être très intuitif. N'hésitez pas à explorer et expérimenter les différents contrôles situés à droite de l'écran dans 
+la section **Traitements**.
 
 ---
 
