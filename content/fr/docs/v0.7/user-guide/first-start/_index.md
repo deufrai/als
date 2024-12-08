@@ -2,11 +2,11 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T00:46:59Z
+lastmod: 2024-12-08T01:37:55Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
-tags: ['preferences']
+tags: ['Initial setup', 'First Steps', 'Basics']
 weight: 31
 ---
 
@@ -217,7 +217,7 @@ ALS confirme le bon démarrage de la session :
 
 --- 
 
-🎛️ Démarrez maintenant vos acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
+🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée. 
 
 {{< center >}}
 {{< figure src="stacked_01.png"
@@ -279,6 +279,40 @@ la section **Traitements**.
 
 ## Arrêt de la session
 
+Notre visite guidée express touche à sa fin, arrêtez la session en cours.
+
 {{< center >}}
-{{< figure src="stop.png" >}}
+{{< figure src="stopping.png"
+    caption="Le bouton d'arrêt de session" 
+    width="320px" 
+    height="164px" 
+    alt="Panneau de contrôle de session avant arrêt" >}}
 {{< /center >}}
+
+🖱️ Cliquez sur `STOP` dans la section **session** en haut à gauche. Une fenêtre de confirmation apparaît...
+
+---
+
+{{< center >}}
+{{< figure src="stop.png"
+    caption="Fenêtre de confirmation d'arrêt de session" 
+    width="608px" 
+    height="151px" 
+    alt="Confirmation d'arrêt de session" >}}
+{{< /center >}}
+
+🖱️ Cliquez sur `Oui`
+
+Vous retrouverez le résultat final de cette session dans le fichier nommé **stack_image.jpg** enregistré dans le 
+**dossier de travail**
+
+---
+
+# Conclusion
+
+Nous espérons que ce chapitre vous a permis de démarrer ALS rapidement et de prendre en main les concepts de base 
+d'une session de livestacking.
+
+Prochaine étape : prise en main approfondie de l'interface graphique d'ALS
+
+
