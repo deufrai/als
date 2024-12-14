@@ -8,7 +8,7 @@ from os import linesep, chmod, makedirs
 from pathlib import Path
 
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource
-from PyQt5.QtGui import QPixmap, QBrush, QColor, QIcon
+from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
     QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox
 
@@ -135,8 +135,6 @@ class MainWindow(QMainWindow):
         self._restore_processing_dock = False
 
         # setup image display
-        self._scene = QGraphicsScene(self)
-        self._ui.image_view.setScene(self._scene)
         self._image_item = None
         self.reset_image_view()
 
@@ -350,11 +348,11 @@ class MainWindow(QMainWindow):
         """
         Reset image viewer to its initial state
         """
-        for item in self._scene.items():
-            self._scene.removeItem(item)
+        self._ui.image_view.setScene(QGraphicsScene(self))
+        self._ui.image_view.reset_zoom()
         self._image_item = QGraphicsPixmapItem(QPixmap(":/icons/window_background.png"))
-        self._ui.image_view.setBackgroundBrush(QBrush(QColor("#222222"), Qt.SolidPattern))
-        self._scene.addItem(self._image_item)
+        self._ui.image_view.scene().addItem(self._image_item)
+
 
     @log
     def closeEvent(self, event):
@@ -874,6 +872,7 @@ class MainWindow(QMainWindow):
         try:
             if DYNAMIC_DATA.session.is_stopped:
                 self._ui.log.clear()
+                self.reset_image_view()
             self._controller.start_session()
             if is_retry:
                 message_box(self.tr("Session started"), self.tr("Session successfully started after retry"))

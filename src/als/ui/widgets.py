@@ -6,7 +6,7 @@ from logging import getLogger
 
 from PyQt5 import QtGui
 from PyQt5.QtCore import QPoint, Qt
-from PyQt5.QtGui import QPainter, QPen, QColor
+from PyQt5.QtGui import QPainter, QPen, QColor, QBrush
 from PyQt5.QtWidgets import QSlider, QGraphicsView, QWidget
 
 from als.code_utilities import log, AlsLogAdapter
@@ -65,6 +65,7 @@ class ImageView(QGraphicsView):
         super().__init__(parent)
         self.setDragMode(QGraphicsView.ScrollHandDrag)
         self.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
+        self.setBackgroundBrush(QBrush(QColor("#222222"), Qt.SolidPattern))
 
     # pylint: disable=C0103
     @log
