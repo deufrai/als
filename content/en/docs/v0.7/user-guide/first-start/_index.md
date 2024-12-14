@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T16:50:09Z
+lastmod: 2024-12-14T23:12:50Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -219,7 +219,7 @@ ALS confirms the session has started correctly:
 
 🎛️ Now start acquiring with your usual system. ALS detects and processes each new captured image. 
 
-As an example, we'll be shooting Messier 27 with a ZWO ASI224MC camera : 200 frames, 4 sec. each
+As an example, we'll illustrate the following sections with a session on Messier 27 : ZWO ASI224MC camera, 200 x 4 sec. subs
 
 {{< center >}}
 {{< figure src="stacked_01.png"

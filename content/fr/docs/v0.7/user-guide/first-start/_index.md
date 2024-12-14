@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-08T19:05:12Z
+lastmod: 2024-12-14T23:12:50Z
 keywords: ["Premier démarrage d'ALS"]
 draft: false
 type: "docs"
@@ -219,7 +219,8 @@ ALS confirme le bon démarrage de la session :
 
 🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée.
 
-À titre d'exemple, nous allons imager Messier 27 avec une caméra ZWO ASI224MC : 200 poses de 4 sec.
+À titre d'exemple, nous allons illustrer les sections suivantes avec une session sur Messier 27 : caméra ZWO ASI224MC,
+200 poses de 4 sec.
 
 {{< center >}}
 {{< figure src="stacked_01.png"
