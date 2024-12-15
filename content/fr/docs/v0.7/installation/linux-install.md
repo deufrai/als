@@ -2,7 +2,7 @@
 title: Installation sur PC/Linux
 description: Installation d'ALS sur PC Linux
 author: ALZ Team
-lastmod: 2024-12-15T10:17:33Z
+lastmod: 2024-12-15T21:20:46Z
 keywords: [ "installation", "linux", "astro live stacker", "guide" ]
 weight: 21
 tags: ['installation', 'Linux', 'PC']
@@ -33,12 +33,12 @@ tags: ['installation', 'Linux', 'PC']
 
 2. **Identifier le fichier ALS**
     - Recherchez le fichier dont le nom commence par `als` et se termine par `.run`. Par exemple, cela pourrait être
-      `als-v0.7-beta7.run`.
+      `als-v0.7-beta8.run`.
 
 3. **Rendre le fichier exécutable**
     - Pour rendre le fichier exécutable, vous devez modifier ses permissions. Cela peut être fait directement depuis le
       gestionnaire de fichiers :
-        - Faites un clic droit sur le fichier `als-v0.7-beta7.run`.
+        - Faites un clic droit sur le fichier `als-v0.7-beta8.run`.
         - Sélectionnez "Propriétés".
         - Accédez à l'onglet "Permissions".
         - Cochez l'option "Autoriser l'exécution du fichier comme un programme".
@@ -62,11 +62,11 @@ tags: ['installation', 'Linux', 'PC']
     - Accédez au dossier de téléchargements (`Téléchargements`) dans une autre fenêtre de votre gestionnaire de
       fichiers. Il est important d'avoir deux fenêtres distinctes et visibles pour pouvoir glisser facilement les
       fichiers.
-    - Trouvez le fichier `als-v0.7-beta7.run` dans le dossier de téléchargements, puis faites glisser ce fichier dans le
+    - Trouvez le fichier `als-v0.7-beta8.run` dans le dossier de téléchargements, puis faites glisser ce fichier dans le
       dossier `ALS` (`/home/nom_utilisateur/Applications/ALS`).
 
 5. **Lancer le fichier exécutable**
-    - Faites un double clic sur le fichier `als-v0.7-beta7.run`.
+    - Faites un double clic sur le fichier `als-v0.7-beta8.run`.
     - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution du fichier, choisissez l'option pour
       exécuter ou ouvrir le fichier.
 

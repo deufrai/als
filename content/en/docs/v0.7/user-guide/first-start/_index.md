@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-14T23:12:50Z
+lastmod: 2024-12-15T21:20:46Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
@@ -341,10 +341,10 @@ This section is exclusively for ALS users on Linux, whether on PC or Raspberry P
 
 1. 🖱️ Navigate to the folder where ALS is located
     - **PC**: Navigate to `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Navigate to `/home/astrogeek/Applications/ALS/als-v0.7-beta7`
+    - **Raspberry PI**: Navigate to `/home/astrogeek/Applications/ALS/als-v0.7-beta8`
 2. 🖱️ Select the executable
-    - **PC**: Select the `als-v0.7-beta7.run` file
-    - **Raspberry PI**: Select the `als-v0.7-beta7` file
+    - **PC**: Select the `als-v0.7-beta8.run` file
+    - **Raspberry PI**: Select the `als-v0.7-beta8` file
 3. 🖱️ Click `Open`
 
 ALS confirms the launcher creation
