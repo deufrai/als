@@ -7,8 +7,8 @@ from logging import getLogger
 from os import linesep, chmod, makedirs
 from pathlib import Path
 
-from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource
-from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
+from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
     QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox
 
@@ -27,7 +27,7 @@ from generated.als_ui import Ui_stack_window
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
-
+ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7/"
 
 # pylint: disable=R0904, R0902
 class MainWindow(QMainWindow):
@@ -550,6 +550,16 @@ class MainWindow(QMainWindow):
             qApp.setStyleSheet(get_text_content_of_resource(":/main/main.css"))
         else:
             qApp.setStyleSheet("")
+
+
+    @log
+    @pyqtSlot(bool)
+    def on_action_help_triggered(self, _):
+        """
+        Open the user's default browser and navigate to ALS documentation.
+        """
+        QDesktopServices.openUrl(QUrl(ALS_DOCUMENTATION_URL))
+
 
     @log
     @pyqtSlot(bool)

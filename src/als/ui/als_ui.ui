@@ -67,6 +67,8 @@
     <property name="title">
      <string>&amp;Help</string>
     </property>
+    <addaction name="action_help"/>
+    <addaction name="separator"/>
     <addaction name="action_about_als"/>
    </widget>
    <widget class="QMenu" name="menuSession">
@@ -1522,6 +1524,14 @@
    </property>
    <property name="statusTip">
     <string>Create / replace launcher for ALS in your system menu</string>
+   </property>
+  </action>
+  <action name="action_help">
+   <property name="text">
+    <string>Online &amp;Help</string>
+   </property>
+   <property name="statusTip">
+    <string>Open ALS documentation in web browser</string>
    </property>
   </action>
  </widget>
