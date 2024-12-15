@@ -3,11 +3,25 @@ title: Installation sur un Mac Intel
 description: Installation d'ALS sur Mac Intel
 author: ALZ Team
 
-lastmod: 2024-12-08T16:33:46Z
+lastmod: 2024-12-15T10:17:33Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 24
 tags: ['installation', 'Mac', 'Intel']
 ---
+
+# 🖥️ Configuration minimale requise
+
+## Version système
+
+macOS 10.13 (High Sierra) ou version ultérieure
+
+## Exigences Matérielles
+|                    | Minimum |
+|--------------------|---------|
+| **RAM**            | 4 Go    |
+| **Stockage libre** | 400 Mo  | 
+
+# 📦 Installation
 
 1. **Ouvrir le dossier de téléchargements**
    - Lorsque le téléchargement est terminé, ouvrez le Finder en cliquant sur son icône dans le Dock.

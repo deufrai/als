@@ -2,11 +2,34 @@
 title: Installation on Raspberry Pi
 description: Installing ALS on Raspberry Pi
 author: ALZ Team
-lastmod: 2024-12-08T16:40:58Z
+lastmod: 2024-12-15T10:17:33Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 22
 tags: ['install', 'Linux', 'Raspberry Pi']
 ---
+
+# 🖥️ Minimum System Requirements
+
+## 64-bit GNU/Linux Distribution*
+- Raspberry Pi OS - Bullseye (Version 11)
+- Raspberry Pi OS - Bookworm
+- any other distribution offering GLIBC 2.31 or higher
+
+## Hardware Requirements
+|                    | Minimum      |
+|--------------------|--------------|
+| **Model**          | Pi 4 Model B | 
+| **RAM**            | 4 GB         |
+| **Free Storage**   | 650 MB       | 
+
+*_The ALS versions available for download for Raspberry Pi are intended for 64-bit systems.
+However, you can easily adapt this [build script](https://github.com/deufrai/als/blob/release/0.7/ci/builds/build_dist_arm64_linux.sh)
+to package a 32-bit version of ALS from the source. The only strict requirement is to use Python version 3.6.x. 
+Feel free to [contact us](mailto://support@als-app.org) 
+if you need assistance._
+
+# 📦 Installation
+
 
 1. **Open the Downloads folder**
     - Access your Downloads folder. You can usually find it by clicking on the icon of your file manager (for example, PCManFM) and selecting "Downloads" in the navigation menu on the left.

@@ -2,11 +2,29 @@
 title: Installation on PC/Linux
 description: Installing ALS on Linux PC
 author: ALZ Team
-lastmod: 2024-12-08T16:40:58Z
+lastmod: 2024-12-15T10:17:33Z
 keywords: [ "installation", "linux", "astro live stacker", "guide" ]
 weight: 21
 tags: ['install', 'Linux', 'PC']
 ---
+
+# 🖥️ Minimum System Requirements
+
+## 64-bit GNU/Linux Distribution
+- Ubuntu 22.04 or higher
+- Fedora 34 or higher
+- Debian 11 (Bullseye) or higher
+- openSUSE Leap 15.3 or higher
+- Linux Mint 21 or higher
+- any other distribution offering GLIBC 2.35 or higher
+
+## Hardware Requirements
+|                    | Minimum |
+|--------------------|---------|
+| **RAM**            | 4 GB    |
+| **Free Storage**   | 950 MB  | 
+
+# 📦 Installation
 
 1. **Open the Downloads folder**
     - Access your Downloads folder. You can usually find it by clicking on the icon of your file manager (for example, Nautilus, Dolphin, or Thunar) and selecting "Downloads" in the navigation menu on the left.

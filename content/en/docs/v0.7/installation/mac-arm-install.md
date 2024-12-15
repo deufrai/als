@@ -2,11 +2,26 @@
 title: Installation on a Mac Apple Silicon
 description: Installing ALS on Mac Apple Silicon
 author: ALZ Team
-lastmod: 2024-12-08T16:40:58Z
+lastmod: 2024-12-15T10:17:33Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 weight: 24
 tags: ['install', 'Mac', 'Apple Silicon']
 ---
+
+# 🖥️ Minimum System Requirements
+
+## System Version
+
+macOS 10.13 (High Sierra) or later
+
+## Hardware Requirements
+|                    | Minimum |
+|--------------------|---------|
+| **RAM**            | 4 GB    |
+| **Free Storage**   | 400 MB  | 
+
+# 📦 Installation
+
 
 1. **Open the Downloads folder**
    - When the download is complete, open Finder by clicking on its icon in the Dock.

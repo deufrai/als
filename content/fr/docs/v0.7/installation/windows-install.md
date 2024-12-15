@@ -3,11 +3,25 @@ title: Installation sur Windows
 description: Installation d'ALS sur PC Windows
 author: ALZ Team
 
-lastmod: 2024-12-08T16:33:46Z
+lastmod: 2024-12-15T10:17:33Z
 keywords: ["installation ALS", "windows", "astro live stacker", "guide"]
 weight: 23
 tags: ['installation', 'Windows', 'PC']
 ---
+
+# 🖥️ Configuration minimale requise
+
+## Version système
+
+Windows 10 ou supérieur
+
+## Exigences Matérielles
+|                    | Minimum |
+|--------------------|---------|
+| **RAM**            | 4 Go    |
+| **Stockage libre** | 400 Mo  | 
+
+# 📦 Installation
 
 1. **Ouvrir le dossier de téléchargements**
    - Lorsque le téléchargement est terminé, ouvrez l'Explorateur de fichiers en cliquant sur son icône dans la barre 
