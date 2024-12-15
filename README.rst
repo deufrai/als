@@ -34,7 +34,7 @@ Downloads and documentation (Work in progress)
 
 We are currently preparing the release of ALS version 0.7.
 
-Latest 0.7 pre-release is v0.7-beta7 => https://github.com/deufrai/als/releases/tag/v0.7-beta7
+Latest 0.7 pre-release is v0.7-beta8 => https://github.com/deufrai/als/releases/tag/v0.7-beta8
 
 A **new website** is in preparation (https://next.als-app.org) and is now the **preferred way** of getting to :
 
