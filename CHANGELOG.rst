@@ -24,6 +24,7 @@ New Features
 Improvements
 ------------
 
+- Windows: ALS version is provided as a proper installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts
 - Saving logs in the user's home folder
