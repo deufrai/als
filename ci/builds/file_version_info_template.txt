@@ -34,7 +34,8 @@ VSVersionInfo(
         StringStruct(u'InternalName', u'als'),
         StringStruct(u'OriginalFilename', u'als.exe'),
         StringStruct(u'ProductName', u'als'),
-        StringStruct(u'ProductVersion', u'##VERSION##')])
+        StringStruct(u'ProductVersion', u'##VERSION##'),
+        StringStruct(u'LegalCopyright', u'© 2024 ALZ international')])
       ]), 
     VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
   ]

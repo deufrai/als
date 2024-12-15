@@ -96,7 +96,7 @@ Build PC/Windows:
   artifacts:
     expose_as: 'ALS for Windows amd64'
     paths:
-      - als-$ALS_VERSION_STRING.exe
+      - als-${ALS_VERSION_STRING}_Setup.exe
 
 
 Deploy nightlies:

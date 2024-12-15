@@ -25,21 +25,19 @@ done
 
 VERCODE=$(echo ${VERNUM} | sed "s/\./, /g")
 
-artifact_name="als-${ALS_VERSION_STRING}"
-echo "Building package ${artifact_name}.exe ..."
+echo "Building Windows installer ..."
 
 sed -e "s/##VERSION##/${VERSION}/g" \
     -e "s/##VERCODE##/${VERCODE}/g" \
     ci/builds/file_version_info_template.txt > file_version_info.txt
 
 pyinstaller -i src/resources/als_logo.ico \
-            -F \
-            -n ${artifact_name} \
+            -n als \
             --windowed \
             --version-file=file_version_info.txt \
             --add-data 'src/resources/qt.conf:.' \
             src/als/main.py
 
-mv dist/${artifact_name}.exe .
-
-echo "Build of package ${artifact_name}.exe completed OK."
+# Build the Inno Setup installer
+ISCC "//DMyAppVersion=${ALS_VERSION_STRING}" "//DMyAppName=als" ci/builds/als_win_installer.iss
+echo "ALS installer build completed OK."
