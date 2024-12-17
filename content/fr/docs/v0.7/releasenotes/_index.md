@@ -27,6 +27,7 @@ weight: 55
 
 ### Améliorations
 
+- Windows : ALS est maintenant livré sous la forme d'un installeur
 - Amélioration de l'autostretch
 - Amélioration du zoom avec réinitialisation aux paramètres par défaut et raccourcis clavier
 - Enregistrement des journaux dans le dossier personnel de l'utilisateur

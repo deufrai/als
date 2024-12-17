@@ -27,6 +27,7 @@ weight: 55
 
 ### Improvements
 
+- Windows : ALS is not delivered as an installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts
 - Saving logs in the user's home folder
