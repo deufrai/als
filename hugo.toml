@@ -12,6 +12,7 @@ enableGitInfo = true
   docs = true
   disableBreadcrumb = false
   disableFeedback = true
+  offlineSearch = true
   searchIndexInMemory = true
   favicon = "/images/favicon.ico"
   logo = "/images/als_logo_256.png"
