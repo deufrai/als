@@ -40,6 +40,10 @@ class I18n(QObject):
     SCANNER = "TEMP"
     OF = "TEMP"
 
+    SCAN_FOLDER = "TEMP"
+    WORK_FOLDER = "TEMP"
+    WEB_FOLDER = "TEMP"
+
     PROFILE = "TEMP"
     VISUAL = "TEMP"
 
@@ -97,6 +101,9 @@ class I18n(QObject):
         I18n.TOOLTIP_LEVELS_ACTIVE = self.tr("Levels active")
         I18n.STACK_SIZE = self.tr("stack size")
         I18n.SESSION = self.tr("Session")
+        I18n.SCAN_FOLDER = self.tr("scan folder")
+        I18n.WORK_FOLDER = self.tr("work folder")
+        I18n.WEB_FOLDER = self.tr("web folder")
 
 
 # pylint: disable=R0902, R0903

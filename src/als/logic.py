@@ -29,9 +29,6 @@ from PyQt5.QtCore import QFile, QT_TRANSLATE_NOOP, QCoreApplication, QThread, QT
 from als import config
 from als.code_utilities import log, AlsException, SignalingQueue, get_text_content_of_resource, get_timestamp, \
     available_memory, AlsLogAdapter
-from als.streams.input import InputScanner, ScannerStartError
-from als.streams.network import get_ip, WebServer
-from als.streams.output import ImageSaver
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image, Session, VisualProfile, PhotoProfile
 from als.model.data import (
@@ -43,6 +40,9 @@ from als.model.params import ProcessingParameter
 from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
     HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator
 from als.stack import Stacker
+from als.streams.input import InputScanner, ScannerStartError
+from als.streams.network import get_ip, WebServer
+from als.streams.output import ImageSaver
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -53,7 +53,7 @@ class SessionError(AlsException):
     """
 
 
-class CriticalFolderMissing(SessionError):
+class FolderSetupError(SessionError):
     """Raised when a critical folder is missing"""
 
 
@@ -490,20 +490,33 @@ class Controller:
                 DYNAMIC_DATA.last_timing = 0
                 DYNAMIC_DATA.total_exposure_time = 0
 
+                scan_folder_path = config.get_scan_folder_path()
+                work_folder_path = config.get_work_folder_path()
+                web_folder_path = config.get_web_folder_path()
+
                 # checking presence of critical folders
                 critical_folders_dict = {
-                    "scan": config.get_scan_folder_path(),
-                    "work": config.get_work_folder_path(),
-                    "web":  config.get_web_folder_path(),
+                    I18n.SCAN_FOLDER: scan_folder_path,
+                    I18n.WORK_FOLDER: work_folder_path,
+                    I18n.WEB_FOLDER:  web_folder_path,
                 }
 
                 for role, path in critical_folders_dict.items():
                     if not path or not Path(path).is_dir():
-                        title = QT_TRANSLATE_NOOP("", "Missing critical folder")
-                        message = QT_TRANSLATE_NOOP("", "Your currently configured {} folder {} is missing.")
-                        raise CriticalFolderMissing(
-                            QCoreApplication.translate("", title),
+                        title = QT_TRANSLATE_NOOP("", "Missing {}")
+                        message = QT_TRANSLATE_NOOP("", "Your {} does not exist :\n{}")
+                        raise FolderSetupError(
+                            QCoreApplication.translate("", title).format(role),
                             QCoreApplication.translate("", message).format(*[role, path]))
+
+                    if path is not scan_folder_path:
+                        if Path(scan_folder_path) in Path(path).parents or Path(path) == Path(scan_folder_path):
+                            title = QT_TRANSLATE_NOOP("", "Misplaced {}")
+                            message = QT_TRANSLATE_NOOP("", "Your {} :\n{}\n\nmust not be the same as or a subfolder of your {} :\n{}")
+                            raise FolderSetupError(
+                                QCoreApplication.translate("", title).format(role),
+                                QCoreApplication.translate("", message).format(*[role, path, I18n.SCAN_FOLDER, scan_folder_path])
+                            )
 
                 # setup web content
                 try:
@@ -530,8 +543,8 @@ class Controller:
 
         except SessionError as session_error:
             MESSAGE_HUB.dispatch_error(__name__,
-                                       QT_TRANSLATE_NOOP("", "Session error. {} : {}"),
-                                       [session_error.message, session_error.details])
+                                       QT_TRANSLATE_NOOP("", "Session start error: {}"),
+                                       [session_error.message])
             raise
 
     @log

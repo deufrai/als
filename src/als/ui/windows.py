@@ -16,7 +16,7 @@ import als.model.data
 from als import config
 from als.code_utilities import log, get_text_content_of_resource, AlsLogAdapter
 from als.config import CouldNotSaveConfig
-from als.logic import Controller, SessionError, CriticalFolderMissing, WebServerFailedToStart, WebServerOnLoopback
+from als.logic import Controller, SessionError, FolderSetupError, WebServerFailedToStart, WebServerOnLoopback
 from als.messaging import MESSAGE_HUB
 from als.model.data import DYNAMIC_DATA, I18n
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
@@ -887,12 +887,12 @@ class MainWindow(QMainWindow):
             if is_retry:
                 message_box(self.tr("Session started"), self.tr("Session successfully started after retry"))
 
-        except CriticalFolderMissing as folder_missing:
+        except FolderSetupError as folder_error:
 
-            text = folder_missing.details + "\n\n"
-            text += self.tr("Would you like to open the preferences box ?")
+            text = folder_error.details + "\n\n" + self.tr("Session cannot start" + "\n\n")
+            text += self.tr("Do you want to fix the issue in ALS preferences ?")
 
-            if question(folder_missing.message, text) and self._open_preferences():
+            if question(folder_error.message, text) and self._open_preferences():
                 self._start_session(is_retry=True)
 
         except SessionError as session_error:
