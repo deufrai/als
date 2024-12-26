@@ -3,7 +3,7 @@ title: "L'interface d'ALS"
 description: "Visite détaillée de la façade."
 author: "ALS Team"
 
-lastmod: 2024-12-18T09:21:50Z
+lastmod: 2024-12-26T17:54:49Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 weight: 32
@@ -101,3 +101,19 @@ weight: 32
 
 - **QR Code** : Affiche / Masque alternativement le QR Code qui mène au serveur d'images
 - **Créer lanceur** : (Ne s'affiche que sur les systèmes Linux) Démarre le processus de création du lanceur ALS dans le menu système
+
+---
+
+## Aide
+
+{{< center >}}
+{{< figure src="menu_help.png" 
+    caption="Le menu Aide" 
+    width="477px" 
+    height="73px" 
+    alt="Menu Aide" >}}
+{{< /center >}}
+
+- **Aide en ligne** : Ouvre la documentation en ligne d'ALS dans votre navigateur par défaut
+- **À propos d'ALS...** : Affiche une fenêtre avec les informations sur la version d'ALS, la license utilisée et 
+l'adresse du site Web de l'application
