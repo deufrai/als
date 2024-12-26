@@ -21,13 +21,16 @@
     font-size: 0.9em;
 }
 
-.td-content code, .td-content pre {
+.td-content code, .td-content pre, dd code {
     background-color: var(--dimmed) !important;
     overflow-x: auto;
     white-space: nowrap;
     word-break: normal;
     overflow-wrap: normal;
     hyphens: none;
+    color: inherit;
+    padding: 0.25rem;
+    border-radius: 6px;
 }
 
 div.als-doc-content h1 {

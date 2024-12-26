@@ -3,7 +3,7 @@ title: "Le menu principal d'ALS"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2024-12-26T19:27:46Z
+lastmod: 2024-12-26T20:10:22Z
 keywords: ["ALS Menu"]
 type: "docs"
 weight: 325
@@ -19,7 +19,8 @@ weight: 325
     alt="Menu fichier" >}}
 {{< /center >}}
 
-- **Quitter** : Quitte l'application
+**Quitter**
+: Quitte l'application
 
 ---
 
@@ -33,7 +34,8 @@ weight: 325
     alt="Menu Session" >}}
 {{< /center >}}
 
-- **Acquitter problèmes** : Fait disparaître l'indicateur de nouveaux problèmes 
+**Acquitter problèmes**
+: Fait disparaître l'indicateur de nouveaux problèmes
 
 ---
 
@@ -47,7 +49,8 @@ weight: 325
     alt="Menu Edition" >}}
 {{< /center >}}
 
-- **Préférences...** : Ouvre le panneau des préférences
+**Préférences...**
+: Ouvre le panneau des préférences
 
 ---
 
@@ -61,10 +64,17 @@ weight: 325
     alt="Menu Image" >}}
 {{< /center >}}
 
-- **RAZ zoom** : Remet le zoom à Zéro. 1 pixel de l'image occupe 1 pixel à l'écran
-- **Zoomer** : Agrandit l'image affichée de 10%
-- **Dézoomer** : Réduit l'image affichée de 10%
-- **Ajuster** : Ajuste le zoom pour que l'image soit affichée intégralement dans la zone centrale
+**RAZ zoom**
+: Remet le zoom à Zéro. 1 pixel de l'image occupe 1 pixel à l'écran
+
+**Zoomer**
+: Agrandit l'image affichée de 10%
+
+**Dézoomer**
+: Réduit l'image affichée de 10%
+
+**Ajuster**
+: Ajuste le zoom pour que l'image soit affichée intégralement dans la zone centrale
 
 ---
 
@@ -78,12 +88,23 @@ weight: 325
     alt="Menu Vue" >}}
 {{< /center >}}
 
-- **Contrôles principaux** : Affiche / Masque alternativement le panneau `Contrôles principaux`
-- **Panneau des traitements** : Affiche / Masque alternativement le panneau `Traitements`
-- **Journal de session** : Affiche / Masque alternativement le panneau `Journal de session`
-- **Image seule** : Affiche / Masque alternativement les 3 panneaux
-- **Plein écran** : Affiche ALS en plein écran, en masquant le cadre de la fenêtre principale
-- **Mode nuit** : Active / Désactive alternativement le mode nuit
+**Contrôles principaux**
+: Affiche / masque le panneau `Contrôles principaux`
+
+**Panneau des traitements**
+: Affiche / masque le panneau `Traitements`
+
+**Journal de session**
+: Affiche / masque le panneau `Journal de session`
+
+**Image seule**
+: Affiche / masque les 3 panneaux
+
+**Plein écran**
+: Affiche ALS en plein écran, en masquant le cadre de la fenêtre principale
+
+**Mode nuit**
+: Active / Désactive le mode nuit
 
 ---
 
@@ -97,8 +118,11 @@ weight: 325
     alt="Menu Utilitaires" >}}
 {{< /center >}}
 
-- **QR Code** : Affiche / Masque alternativement le QR Code qui mène au serveur d'images
-- **Créer lanceur** : (Ne s'affiche que sur les systèmes Linux) Démarre le processus de création du lanceur ALS dans le menu système
+**QR Code**
+: Affiche / masque le QR Code qui mène au serveur d'images
+
+**Créer lanceur**
+: (Ne s'affiche que sur les systèmes Linux) Démarre le processus de création du lanceur ALS dans le menu système
 
 ---
 
@@ -112,6 +136,8 @@ weight: 325
     alt="Menu Aide" >}}
 {{< /center >}}
 
-- **Aide en ligne** : Ouvre la documentation en ligne d'ALS dans votre navigateur par défaut
-- **À propos d'ALS...** : Affiche une fenêtre avec les informations sur la version d'ALS, la license utilisée et 
-l'adresse du site Web de l'application
+**Aide en ligne**
+: Ouvre la documentation en ligne d'ALS dans votre navigateur par défaut
+
+**À propos d'ALS...**
+: Affiche une fenêtre avec les informations sur la version d'ALS, la license utilisée et l'adresse du site Web de l'application
