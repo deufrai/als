@@ -3,9 +3,10 @@ title: "The ALS Interface"
 description: "Detailed tour of the front end."
 author: "ALS Team"
 
-lastmod: 2024-12-26T21:01:26Z
+lastmod: 2024-12-26T21:15:10Z
 keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
+tags: ["GUI"]
 weight: 320
 ---
 
