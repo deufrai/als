@@ -33,6 +33,10 @@
     border-radius: 6px;
 }
 
+dt {
+    margin-top: 1rem;
+}
+
 div.als-doc-content h1 {
     margin: 2rem 0 1rem 0;
 }

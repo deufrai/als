@@ -3,7 +3,7 @@ title: "Le menu principal d'ALS"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2024-12-26T20:10:22Z
+lastmod: 2024-12-26T20:24:16Z
 keywords: ["ALS Menu"]
 type: "docs"
 weight: 325
@@ -65,7 +65,7 @@ weight: 325
 {{< /center >}}
 
 **RAZ zoom**
-: Remet le zoom à Zéro. 1 pixel de l'image occupe 1 pixel à l'écran
+: Remet le zoom à Zéro : 1 pixel de l'image occupe 1 pixel à l'écran
 
 **Zoomer**
 : Agrandit l'image affichée de 10%
@@ -98,13 +98,13 @@ weight: 325
 : Affiche / masque le panneau `Journal de session`
 
 **Image seule**
-: Affiche / masque les 3 panneaux
+: Affiche / masque les panneaux actifs pour maximiser la zone d'affichage de l'image
 
 **Plein écran**
 : Affiche ALS en plein écran, en masquant le cadre de la fenêtre principale
 
 **Mode nuit**
-: Active / Désactive le mode nuit
+: Active / désactive le mode nuit
 
 ---
 
@@ -121,8 +121,12 @@ weight: 325
 **QR Code**
 : Affiche / masque le QR Code qui mène au serveur d'images
 
+  _Cette option n'est disponible que si le serveur d'images est démarré_
+
 **Créer lanceur**
-: (Ne s'affiche que sur les systèmes Linux) Démarre le processus de création du lanceur ALS dans le menu système
+: Démarre le processus de création du lanceur ALS dans le menu système
+
+  _Cette option n'est visible que sur les systèmes Linux_
 
 ---
 
@@ -140,4 +144,8 @@ weight: 325
 : Ouvre la documentation en ligne d'ALS dans votre navigateur par défaut
 
 **À propos d'ALS...**
-: Affiche une fenêtre avec les informations sur la version d'ALS, la license utilisée et l'adresse du site Web de l'application
+: Affiche une fenêtre avec les informations suivantes :
+  
+  - Version d'ALS
+  - La license utilisée
+  - L'adresse du site Web de l'application
