@@ -1,13 +1,19 @@
 ---
-title: "L'interface d'ALS"
-description: "Visite détaillée de la façade."
+title: "The ALS Interface"
+description: "Detailed tour of the front end."
 author: "ALS Team"
 
-lastmod: 2024-12-08T01:37:55Z
-keywords: ["ALS GUI", "Interface ALS"]
-draft: false
+lastmod: 2024-12-26T21:01:26Z
+keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
-weight: 32
+weight: 320
 ---
 
-BLI BLO
+The ALS interface is composed of the following elements:
+
+- The main menu
+- The "Main Controls" panel
+- The central area
+- The "Processing" panel
+- The "Session Log" panel
+- The status bar
