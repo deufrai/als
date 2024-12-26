@@ -2,10 +2,10 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2024-12-08T18:14:48Z
+lastmod: 2024-12-26T19:27:46Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ 'release' ]
-weight: 55
+weight: 550
 ---
 
 ## Version 0.7

@@ -3,11 +3,11 @@ title: "Communauté et Support"
 description: "Obtenir de l'aide et Forums communautaires."
 author: "ALS Team"
 
-lastmod: 2024-12-06T21:29:57Z
+lastmod: 2024-12-26T19:27:46Z
 keywords: ["Communauté et Support", "ALS", "documentation"]
 draft: false
 type: "docs"
-weight: 60
+weight: 600
 ---
 
 

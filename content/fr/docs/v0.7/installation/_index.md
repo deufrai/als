@@ -2,8 +2,8 @@
 title: Installation
 description: installation d'ALS
 author: ALZ Team
-lastmod: 2024-12-15T10:17:33Z
-weight: 20
+lastmod: 2024-12-26T19:27:46Z
+weight: 200
 tags: ['installation']
 ---
 
