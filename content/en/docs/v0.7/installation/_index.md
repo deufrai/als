@@ -2,8 +2,8 @@
 title: Installation
 description: installation of ALS
 author: ALS Team
-lastmod: 2024-12-15T10:17:33Z
-weight: 20
+lastmod: 2024-12-26T21:11:22Z
+weight: 200
 tags: ['install']
 ---
 

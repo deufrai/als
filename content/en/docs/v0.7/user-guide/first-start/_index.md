@@ -2,12 +2,12 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-15T21:20:46Z
+lastmod: 2024-12-26T21:11:22Z
 keywords: ["ALS Quick Start"]
 draft: false
 type: "docs"
 tags: ['Initial setup', 'First Steps', 'Basics']
-weight: 31
+weight: 310
 ---
 
 # Introduction
