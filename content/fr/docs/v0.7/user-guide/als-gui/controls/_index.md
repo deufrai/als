@@ -2,16 +2,25 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-26T23:00:49Z
+lastmod: 2024-12-26T23:09:45Z
 keywords: ["controles principaux d'ALS"]
 type: "docs"
 tags: ["GUI", "controls"]
 weight: 321
 ---
 
+# Introduction
+
+A la fin de ce chapitre, vous aurez :
+
+- Compris la fonction de chaque section du panneau des contrôles principaux
+- Approfondi vos connaissances sur quelques éléments internes d'ALS : Session, Stack, Serveur d'images...
+
+---
+
 <div class="row">
   <div class="col-md-8">
-    
+
 # Présentation générale
 
 Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS. Il regroupe les contrôles et affichages
