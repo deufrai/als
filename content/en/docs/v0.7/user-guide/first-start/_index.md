@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-27T09:44:14Z
+lastmod: 2024-12-27T18:55:57Z
 keywords: [ "ALS Quick Start" ]
 draft: false
 type: "docs"
@@ -174,7 +174,7 @@ ALS and our tracking tools are **opensource** software, and their source code is
 
 # Your First Session
 
-## Definition of an ALS session
+## Definition of an ALS session {#session-definition}
 
 **An ALS session** is a period during which ALS controls the detection of new images and the current image stack.
 

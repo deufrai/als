@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T18:50:03Z
+lastmod: 2024-12-27T18:55:57Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -62,7 +62,7 @@ Cette section n'est visible que si le ` Journal de session` est caché. Elle aff
 
 # Session
 
-{{% alert title="ℹ️ Rappel" color="info" %}}
+{{% alert title="🧠 Rappel" color="info" %}}
 La définition d'une session est donnée dans la section [Premier démarrage : Définition d'une session ALS](../../first-start/#session-definition)
 {{% /alert %}}
 
