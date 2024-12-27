@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T17:58:47Z
+lastmod: 2024-12-27T18:28:25Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -20,8 +20,8 @@ A la fin de ce chapitre, vous aurez :
 
 # Présentation générale
 
-Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS. Il regroupe les contrôles et affichages
-les plus utilisés en sections
+Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS. Il organise en sections les contrôles et
+affichages les plus utilisés
 
 <div class="row">
   <div class="col-md-8">
@@ -71,11 +71,11 @@ La section **session** du panneau comprend 3 zones, de haut en bas :
 
 L'accessibilité de ces boutons dépend du statut de la session.
 
-- `START` Démarre une nouvelle session ou reprend la session mise en pause.
+- `START` Démarre une nouvelle session ou redémarre la session mise en pause.
 - `PAUSE` Met en pause la session en cours.
 - `STOP` Arrête la session en cours.
 
-  Arrêter une session avec au moins une image dans la pile déclenche une fenêtre de confirmation.
+  _Arrêter une session avec au moins une image dans la pile affiche une fenêtre de confirmation._
 
 ## Informations sur la stack courante
 
@@ -123,12 +123,12 @@ L'alignement est débrayable et deux choix d'empilement sont disponibles
 
 _Ces contrôles sont accessibles uniquement quand la session est stoppée._
 
-- Case à cocher `Aligner` : active l'**alignement** des images sur la référence de la session.
-- Liste déroulante des **modes d'empilement** : Permet de définir le **mode d'empilement** utilisé pour cette session :
-    - `moyenne` : chaque pixel de l'image résultante est la moyenne des pixels correspondants de chaque image de la
-      stack courante.
-    - `somme` : chaque pixel de l'image résultante est la somme des pixels correspondants de chaque image de la stack
-      courante.
+- Case à cocher `Aligner` : active l'**alignement** des nouvelles images sur la référence de la session.
+- Liste déroulante des **modes d'empilement** : Définit le **mode d'empilement** utilisé pour cette session :
+    - `moyenne` : La valeur de chaque pixel de l'image résultante est la moyenne des valeurs des pixels correspondants
+      de chaque image de la stack courante.
+    - `somme` : La valeur de chaque pixel de l'image résultante est la somme des valeurs des pixels correspondants de
+      chaque image de la stack courante.
 
 ## Seuil de recherche de similitudes
 
@@ -164,10 +164,11 @@ alt="Section stack" >}}
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
+
 - `Aligner` est activé au démarrage d'ALS
 - Le mode de stacking est réglé sur `moyenne` au démarrage d'ALS
-- Le seuil de recherche de similitudes est mémorisé quand vous quittez ALS
-{{% /alert %}}
+- Le seuil de recherche de similitudes est conservé entre les démarrages d'ALS
+  {{% /alert %}}
 
 {{% alert title="💡 Astuce" color="light" %}}
 Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
@@ -228,35 +229,36 @@ Onglet **Sortie** section **Serveur web**.
 
 La section **Enregistreur d'images** du panneau permet de contrôler l'enregistrement des images prduites par ALS.
 
-Après le traitement complet de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du
+Après le traitement de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du
 **dossier de travail** :
 
 - **nom du fichier** : **stack_image**
 
-  Le fichier est écrasé à chaque nouvelle image.
+  Le fichier est écrasé à chaque nouvelle image traitée.
 
 - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
   les [Préférences d'ALS](../../preferences/).
 
   Par défaut : format **JPEG** et extension **.jpg**.
 
-Les contrôles d'enregistrement permettent de déclencher d'autres enregistrements
+Les contrôles d'enregistrement permettent de gérer d'autres enregistrements
 
 <div class="row">
 <div class="col-md-8">
 
 ## Contrôles d'enregristrement
 
-- Bouton `Enr. image courante` : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un nouveau
+- Bouton `Enr. image courante` : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un **nouveau**
   fichier du **dossier de travail** :
-    - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
-    - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
+    - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
+    - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
       les [Préférences d'ALS](../../preferences/).
 
-- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un nouveau
+- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un *
+  *nouveau**
   fichier du **dossier de travail** :
-    - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
-    - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
+    - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
+    - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
       les [Préférences d'ALS](../../preferences/).
 
 </div>
@@ -280,15 +282,16 @@ alt="Section enregistreur d'images" >}}
 
 # Modules
 
-Cette section est l'occasion de mieux décrire l'architecture d'ALS et le cheminement des images dans l'application.
+Cette section est l'occasion de décrire en détails l'architecture d'ALS et le cheminement des images dans l'application.
 
-## Architecture des modules
+## Architecture en modules
 
-Tous les traitements appliqués aux images sont répartis dans 4 modules principaux.
+Tous les traitements appliqués aux images sont répartis dans 4 modules placés les uns derrière les autres.
 
-Chaque module se voit assigner une file d'attente et traite séquentiellement toutes les images dans sa file d'attente.
+Chaque module se voit assigner une file d'attente et traite séquentiellement toutes les images présentes dans sa file
+d'attente.
 
-Chaque module place ses résultats de traitement successifs dans la file d'attente du module suivant.
+Le résultat du traitement de chaque image par un module est placé dans la file d'attente du module suivant.
 
 Les modules sont organisés dans cet ordre :
 
@@ -318,9 +321,10 @@ Le module de **pre-process** applique sur chaque image les pré-traitements habi
 
   </details>
 
-  Une option des [Préférences d'ALS](../../preferences/) permet de laisser ALS choisir ou de définir explicitement
-  la matrice de Bayer à utiliser. Cette option est utile si ALS ne détecte pas correctement la matrice à utiliser
-  ou si le fichier ne contient pas l'entête recherché.
+  {{% alert title="ℹ️ INFO" color="info" %}}
+  Une option des [Préférences d'ALS](../../preferences/) permet de forcer la matrice de Bayer à utiliser. Cette option
+  est utile si ALS ne détecte pas correctement la matrice à utiliser ou si le fichier ne contient pas l'entête recherché.
+  {{% /alert %}}
 
 ### Stack
 
@@ -339,8 +343,8 @@ Le fonctionnement détaillé de ces traitements a été abordé dans la section 
 
 Module de post-traitement. Il comprend les traitements suivants :
 
-- **Auto-stretch** : Ajuste automatiquement les niveaux de l'image pour maximiser le contraste
-- **Réglages d'exposition** : Permet de régler les niveaux de noir, de blanc et le niveau de gris moyen de l'image
+- **Auto stretch** : Ajuste automatiquement les niveaux de l'image pour maximiser le contraste
+- **Niveaux** : Permet de régler les niveaux de noir, de blanc et le niveau de gris moyen de l'image
 - **Balance RVB** : Permet de régler la balance des couleurs de l'image
 
 Les détails de ces traitements seront abordés dans la page consacrée au panneau **Traitements**.
