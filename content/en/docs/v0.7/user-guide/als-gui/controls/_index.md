@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-27T09:34:10Z
+lastmod: 2024-12-27T09:52:30Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -54,7 +54,7 @@ This section is only visible if the `Session Log` is hidden. It displays an indi
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="File menu" >}}
+    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="main controls panel" >}}
   </div>
 </div>
 
@@ -99,7 +99,7 @@ _In this example, the session is running._
 {{< center >}}
 {{< figure src="session.png"
 caption="The session section"
-width="294px"
+width="280px"
 height="127px"
 alt="Session section" >}}
 {{< /center >}}
@@ -154,7 +154,7 @@ The `Threshold` slider allows you to set this threshold in real-time.
 {{< center >}}
 {{< figure src="stack.png"
 caption="The stack section"
-width="294px"
+width="280px"
 height="92px"
 alt="Stack section" >}}
 {{< /center >}}
@@ -202,7 +202,7 @@ When the server is running:
 {{< center >}}
 {{< figure src="server.png"
 caption="The server section"
-width="294px"
+width="280px"
 height="92px"
 alt="Server section" >}}
 {{< /center >}}
@@ -256,8 +256,8 @@ The saving controls allow you to trigger additional saves.
 {{< center >}}
 {{< figure src="saver.png"
 caption="The Image Recorder section"
-width="294px"
-height="69px"
+width="280px"
+height="68px"
 alt="Image Recorder section" >}}
 {{< /center >}}
 
@@ -356,7 +356,7 @@ The **Modules** section of the panel displays, for each module:
 {{< center >}}
 {{< figure src="modules.png"
 caption="The Modules section"
-width="294px"
+width="280px"
 height="153px"
 alt="Modules section" >}}
 {{< /center >}}
@@ -371,7 +371,7 @@ When a new issue is detected by ALS **and the `Session Log` is hidden**, an indi
 {{< center >}}
 {{< figure src="problems.png"
 caption="New issue indicator"
-width="294px"
+width="280px"
 height="44px"
 alt="New issue indicator" >}}
 {{< /center >}}

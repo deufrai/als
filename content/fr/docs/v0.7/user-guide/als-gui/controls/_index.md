@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T09:34:10Z
+lastmod: 2024-12-27T09:52:30Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -54,7 +54,7 @@ Cette section n'est visible que si le ` Journal de session` est caché. Elle aff
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="Menu fichier" >}}
+    {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="panneau contrôles principaux" >}}
   </div>
 </div>
 
@@ -291,6 +291,7 @@ Les modules sont organisés dans cet ordre :
 Dès qu'une nouvelle image est détectée dans le **dossier scanné**, elle est ajoutée à la file d'attente de ce module.
 
 Le module de **pre-process** applique sur chaque image les pré-traitements habituels en astrophoto :
+
 - **Suppression des pixels chauds** : Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
   Ce traitement est debrayable dans les [Préférences d'ALS](../../preferences/).
 - **Soustraction de master dark** : Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique
@@ -365,8 +366,8 @@ alt="Section modules" >}}
 
 # Problèmes
 
-Quand un nouveau problème a été détecté par ALS **et que le `Journal de session` est caché**, un indicateur apparaît tout
-en bas du panneau `contrôles principaux`
+Quand un nouveau problème a été détecté par ALS **et que le `Journal de session` est caché**, un indicateur apparaît
+tout en bas du panneau `contrôles principaux`
 
 {{< center >}}
 {{< figure src="problems.png"
