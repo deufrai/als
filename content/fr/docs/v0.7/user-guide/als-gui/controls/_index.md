@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T05:48:55Z
+lastmod: 2024-12-27T05:58:42Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -240,12 +240,12 @@ Les contrôles d'enregistrement permettent de déclencher d'autres enregistremen
 
 ## Contrôles d'enregristrement
 
-- `Enr. image courante` Bouton : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un nouveau 
+- Bouton `Enr. image courante` : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un nouveau 
   fichier du **dossier de travail** :
   - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
   - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/). 
 
-- `Enr. chaque image` Case à cocher : Active l'enregistrement de chaque prochain résultat de traitement dans un nouveau 
+- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un nouveau 
   fichier du **dossier de travail** :
   - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
   - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/).
