@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T08:26:24Z
+lastmod: 2024-12-27T09:34:10Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -13,7 +13,7 @@ weight: 321
 
 A la fin de ce chapitre, vous aurez :
 
-- Compris l'organisation et la fonction de chaque section du panneau des contrôles principaux
+- Compris l'organisation et la fonction de chaque section du panneau `Contrôles principaux`
 - Approfondi vos connaissances sur les fonctionnalités d'ALS contrôlées par ces sections
 
 ---
