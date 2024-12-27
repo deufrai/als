@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T04:21:21Z
+lastmod: 2024-12-27T05:00:02Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -113,7 +113,7 @@ alt="Section session" >}}
 
 La section **stack** du panneau permet de contrôler le **module de stacking**.
 
-Ce module est en charge de l'alignement et de l'empilement des images brutes. 
+Ce module est en charge de l'alignement et de l'empilement des images brutes.
 L'alignement est débrayable et deux choix d'empilement sont disponibles
 
 <div class="row">
@@ -150,11 +150,6 @@ Le curseur `Seuil` permet de définir ce seuil en temps réel.
     - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
       panneau.
 
-{{% alert title="ℹ️ INFO" color="info" %}}
-Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
-la majorité des images soient ignorées.
-{{% /alert %}}
-
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
@@ -168,9 +163,58 @@ alt="Section stack" >}}
 </div>
 </div>
 
+{{% alert title="ℹ️ INFO" color="info" %}}
+Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
+la majorité des images soient ignorées.
+{{% /alert %}}
+
 ---
 
 # Serveur d'images
+
+La section **Serveur d'images** du panneau permet de contrôler le serveur web intégré d'ALS.
+
+Ce serveur partage l'image affichée dans la zone centrale d'ALS sur le réseau auquel la machine qui exécute
+ALS est connectée. 
+
+L'image affichée dans la page web servie est rafraîchie périodiquement par le navigateur.
+
+<div class="row">
+<div class="col-md-8">
+
+## Contrôles du serveur
+
+- `START` démarre le serveur
+- `STOP` arrête le serveur
+
+## Informations sur le serveur
+
+Affiche le statut courant du serveur. Les statuts possibles sont :
+
+- stoppé
+- démarré
+
+Quand le serveur est démarré :
+
+- son URL est ajoutée au statut
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< center >}}
+{{< figure src="server.png"
+caption="La section server"
+width="294px"
+height="92px"
+alt="Section server" >}}
+{{< /center >}}
+
+</div>
+</div>
+
+{{% alert title="ℹ️ INFO" color="info" %}}
+Des paramètres supplémentaires pour le serveur web sont disponibles dans les [Préférences d'ALS](../../preferences/).
+Onglet **Sortie** section **Serveur web**.
+{{% /alert %}}
 
 ---
 
