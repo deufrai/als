@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-27T19:05:42Z
+lastmod: 2024-12-27T19:29:57Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -26,29 +26,29 @@ displays into sections.
 <div class="row">
   <div class="col-md-8">
 
-- **Session**
+- [**Session**](#session-section)
 
   The controls for the current session are found here. They allow you to start and stop the session, and also display
   information about the current stack as well as the session status indicator.
 
-- **Stack**
+- [**Stack**](#stack-section)
 
   This section allows you to define the alignment and stacking modes for images. It also offers a threshold setting for
   similarity search during alignment.
 
-- **Image Server**
+- [**Image Server**](#server-section)
 
   Allows you to start and stop the image server and displays information about the server when it is active.
 
-- **Image Saver**
+- [**Image Saver**](#saver-section)
 
   Allows you to save the current image on the fly and activate continuous saving.
 
-- **Workers**
+- [**Workers**](#workers-section)
 
   This section provides information about the usage status of each ALS worker module.
 
-- **Issues**
+- [**Issues**](#issues-section)
 
   This section is only visible if the `Session Log` is hidden. It displays an indicator of new issues.
 
@@ -60,7 +60,7 @@ displays into sections.
 
 --- 
 
-# Session
+# Session {#session-section}
 
 {{% alert title="🧠 Reminder" color="info" %}}
 The definition of an ALS session is given in [Quick start : Definition of an ALS session](../../first-start/#session-definition)
@@ -113,7 +113,7 @@ alt="Session section" >}}
 
 ---
 
-# Stack
+# Stack {#stack-section}
 
 The **stack** section of the panel allows you to control the **stacking module**.
 
@@ -179,7 +179,7 @@ ignoring most images.
 
 ---
 
-# Image Server
+# Image Server {#server-section}
 
 The **Image Server** section of the panel allows you to control ALS's integrated web server.
 
@@ -227,7 +227,7 @@ section **Web Server**.
 
 ---
 
-# Image saver
+# Image saver {#saver-section}
 
 The **Image saver** section of the panel allows you to control the saving of images produced by ALS.
 
@@ -280,9 +280,9 @@ alt="Image Recorder section" >}}
 
 ---
 
-# Workers
+# Workers {#workers-section}
 
-This section provides an opportunity to better describe the architecture of ALS and the flow of images through the
+This section provides an opportunity to fully describe the ALS architecture and the flow of images through the
 application.
 
 ## ALS Architecture and worker modules
@@ -336,7 +336,7 @@ Handles the alignment and stacking of images.
     - Adds the current image to the current stack
     - Calculates the resulting image based on the chosen stacking mode
 
-The detailed operation of these processes was covered in the **Stack** section.
+The detailed operation of these processes was covered in the [**Stack**](#stack-section) section above.
 
 ### Process
 
@@ -352,7 +352,7 @@ The details of these processes will be covered on the page dedicated to the **Pr
 
 Image saver module.
 
-The detailed operation of the image saver was described in the **Image Recorder** section.
+The detailed operation of the image saver was described in the [**Image Saver**](#saver-section) section above.
 
 ## Modules display
 
@@ -373,7 +373,7 @@ alt="Modules section" >}}
 
 ---
 
-# Issues
+# Issues {#issues-section}
 
 When a new issue is detected by ALS **and the `Session Log` is hidden**, an indicator appears at the bottom of the
 `main controls` panel.

@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T19:05:42Z
+lastmod: 2024-12-27T19:29:57Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -26,29 +26,29 @@ affichages les plus utilisés
 <div class="row">
   <div class="col-md-8">
 
-- **Session**
+- [**Session**](#session-section)
 
   Les contrôles de la session en cours se trouvent ici. Ils permettent de démarrer et d'arrêter la session, et affichent
   également les informations sur la stack courante ainsi que l'indicateur d'état de la session.
 
-- **Stack**
+- [**Stack**](#stack-section)
 
   Cette section permet de définir le mode d'alignement et d'empilement des images. Elle propose aussi un réglage de seuil
   pour la recherche de similitudes pendant l'alignement.
 
-- **Serveur d'images**
+- [**Serveur d'images**](#server-section)
 
   Permet de démarrer et arrêter le serveur d'images et affiche des informations sur le serveur lorsqu'il est actif.
 
-- **Enregistreur d'images**
+- [**Enregistreur d'images**](#saver-section)
 
   Permet d'enregistrer à la volée l'image courante et d'activer la fonction d'enregistrement continu.
 
-- **Modules**
+- [**Modules**](#modules-section)
 
   Cette section fournit des informations sur l'état d'utilisation de chaque module.
 
-- **Problèmes**
+- [**Problèmes**](#issues-section)
 
   Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux problèmes
 
@@ -60,7 +60,7 @@ affichages les plus utilisés
 
 --- 
 
-# Session
+# Session {#session-section}
 
 {{% alert title="🧠 Rappel" color="info" %}}
 La définition d'une session est donnée dans la section [Premier démarrage : Définition d'une session ALS](../../first-start/#session-definition)
@@ -113,7 +113,7 @@ alt="Section session" >}}
 
 ---
 
-# Stack
+# Stack {#stack-section}
 
 La section **stack** du panneau permet de contrôler le **module de stacking**.
 
@@ -181,7 +181,7 @@ la majorité des images soient ignorées.
 
 ---
 
-# Serveur d'images
+# Serveur d'images {#server-section}
 
 La section **Serveur d'images** du panneau permet de contrôler le serveur web intégré d'ALS.
 
@@ -229,7 +229,7 @@ Onglet **Sortie** section **Serveur web**.
 
 ---
 
-# Enregistreur d'images
+# Enregistreur d'images {#saver-section}
 
 La section **Enregistreur d'images** du panneau permet de contrôler l'enregistrement des images prduites par ALS.
 
@@ -284,7 +284,7 @@ alt="Section enregistreur d'images" >}}
 
 ---
 
-# Modules
+# Modules {#modules-section}
 
 Cette section est l'occasion de décrire en détails l'architecture d'ALS et le cheminement des images dans l'application.
 
@@ -341,7 +341,7 @@ Prend en charge l'alignement et l'empilement des images
     - Ajout de l'image courante à la stack courante
     - calcul de l'image résultante en fonction du mode d'empilement choisi
 
-Le fonctionnement détaillé de ces traitements a été abordé dans la section **Stack**.
+Le fonctionnement détaillé de ces traitements a été abordé dans la section [**Stack**](#stack-section) ci-dessus.
 
 ### Process
 
@@ -357,7 +357,8 @@ Les détails de ces traitements seront abordés dans la page consacrée au panne
 
 Module d'enregistrement des images.
 
-Le fonctionnement détaillé de l'enregistreur d'images a été décrit dans la section **Enregistreur d'images**.
+Le fonctionnement détaillé de l'enregistreur d'images a été décrit dans la section 
+[**Enregistreur d'images**](#saver-section) ci-dessus.
 
 ## Affichage des modules
 
@@ -378,7 +379,7 @@ alt="Section modules" >}}
 
 ---
 
-# Problèmes
+# Problèmes {#issues-section}
 
 Quand un nouveau problème a été détecté par ALS **et que le `Journal de session` est caché**, un indicateur apparaît
 tout en bas du panneau `contrôles principaux`
