@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T05:00:02Z
+lastmod: 2024-12-27T05:48:55Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -175,7 +175,7 @@ la majorité des images soient ignorées.
 La section **Serveur d'images** du panneau permet de contrôler le serveur web intégré d'ALS.
 
 Ce serveur partage l'image affichée dans la zone centrale d'ALS sur le réseau auquel la machine qui exécute
-ALS est connectée. 
+ALS est connectée.
 
 L'image affichée dans la page web servie est rafraîchie périodiquement par le navigateur.
 
@@ -219,6 +219,53 @@ Onglet **Sortie** section **Serveur web**.
 ---
 
 # Enregistreur d'images
+
+La section **Enregistreur d'images** du panneau permet de contrôler l'enregistrement des images prduites par ALS.
+
+Après le traitement complet de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du 
+**dossier de travail** :
+- **nom du fichier** : **stack_image**
+
+  Le fichier est écrasé à chaque nouvelle image.
+
+- **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/). 
+  
+  Par défaut : format **JPEG** et extension **.jpg**.
+
+
+Les contrôles d'enregistrement permettent de déclencher d'autres enregistrements
+
+<div class="row">
+<div class="col-md-8">
+
+## Contrôles d'enregristrement
+
+- `Enr. image courante` Bouton : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un nouveau 
+  fichier du **dossier de travail** :
+  - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
+  - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/). 
+
+- `Enr. chaque image` Case à cocher : Active l'enregistrement de chaque prochain résultat de traitement dans un nouveau 
+  fichier du **dossier de travail** :
+  - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
+  - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/).
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< center >}}
+{{< figure src="saver.png"
+caption="La section Enregistreur d'images"
+width="294px"
+height="69px"
+alt="Section enregistreur d'images" >}}
+{{< /center >}}
+
+</div>
+</div>
+
+{{% alert title="ℹ️ INFO" color="info" %}}
+Un exemple de nom de fichier horodaté : **stack_image-2024-12-27-06-20-24-091899.jpg**.
+{{% /alert %}}
 
 ---
 
