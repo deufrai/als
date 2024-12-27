@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T06:04:42Z
+lastmod: 2024-12-27T08:16:38Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -222,16 +222,17 @@ Onglet **Sortie** section **Serveur web**.
 
 La section **Enregistreur d'images** du panneau permet de contrôler l'enregistrement des images prduites par ALS.
 
-Après le traitement complet de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du 
+Après le traitement complet de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du
 **dossier de travail** :
+
 - **nom du fichier** : **stack_image**
 
   Le fichier est écrasé à chaque nouvelle image.
 
-- **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/). 
-  
-  Par défaut : format **JPEG** et extension **.jpg**.
+- **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
+  les [Préférences d'ALS](../../preferences/).
 
+  Par défaut : format **JPEG** et extension **.jpg**.
 
 Les contrôles d'enregistrement permettent de déclencher d'autres enregistrements
 
@@ -240,15 +241,17 @@ Les contrôles d'enregistrement permettent de déclencher d'autres enregistremen
 
 ## Contrôles d'enregristrement
 
-- Bouton `Enr. image courante` : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un nouveau 
+- Bouton `Enr. image courante` : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un nouveau
   fichier du **dossier de travail** :
-  - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
-  - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/). 
+    - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
+    - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
+      les [Préférences d'ALS](../../preferences/).
 
-- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un nouveau 
+- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un nouveau
   fichier du **dossier de travail** :
-  - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
-  - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans les [Préférences d'ALS](../../preferences/).
+    - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
+    - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
+      les [Préférences d'ALS](../../preferences/).
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -270,6 +273,93 @@ Un exemple de nom de fichier horodaté : **stack_image-2024-12-27-06-20-24-09189
 ---
 
 # Modules
+
+Cette section est l'occasion de mieux décrire l'architecture d'ALS et le cheminement des images dans l'application.
+
+## Architecture des modules
+
+Tous les traitements appliqués aux images sont répartis dans 4 modules principaux.
+
+Chaque module se voit assigner une file d'attente et traite séquentiellement toutes les images dans sa file d'attente.
+
+Chaque module place ses résultats de traitement successifs dans la file d'attente du module suivant.
+
+Les modules sont organisés dans cet ordre :
+
+### Pre-process
+
+Dès qu'une nouvelle image est détectée dans le **dossier scanné**, elle est ajoutée à la file d'attente de ce module.
+
+Le module de **pre-process** applique sur chaque image les pré-traitements habituels en astrophoto :
+- **Suppression des pixels chauds** : Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
+  Ce traitement est debrayable dans les [Préférences d'ALS](../../preferences/).
+- **Soustraction de master dark** : Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique
+  de l'image. Le chemin du master dark et l'activation de ce traitement sont définis dans les
+  [Préférences d'ALS](../../preferences/).
+
+  Si le format de données du master dark fourni n'est pas le même que celui de l'image à traiter, ALS effectue une
+  conversion automatique du master dark avant la soustraction.
+
+- **Dématriçage** : Dans le cas d'une image couleur enregistrée dans un fichier FITS ou Raw, convertit l'image en
+  couleur RVB en utilisant la matrice de Bayer décrite dans les entêtes du fichier.
+
+  <details>
+    <summary>Cliquer ici pour des détails sur les entêtes utilisés</summary>
+
+    - Fichier FITS : Entête FITS standard **BAYERPAT**
+    - Fichier Raw : Entête EXIF standard
+
+  </details>
+
+  Une option des [Préférences d'ALS](../../preferences/) permet de laisser ALS choisir ou de définir explicitement
+  la matrice de Bayer à utiliser. Cette option est utile si ALS ne détecte pas correctement la matrice à utiliser
+  ou si le fichier ne contient pas l'entête recherché.
+
+### Stack
+
+Prend en charge l'alignement et l'empilement des images
+
+- **Alignement**
+    - calcul des transformations à appliquer à l'image courante pour l'aligner sur la référence de la session
+    - application des transformations à l'image courante
+- **Empilement**
+    - Ajout de l'image courante à la stack courante
+    - calcul de l'image résultante en fonction du mode d'empilement choisi
+
+Le fonctionnement détaillé de ces traitements a été abordé dans la section **Stack**.
+
+### Process
+
+Module de post-traitement. Il comprend les traitements suivants :
+
+- **Auto-stretch** : Ajuste automatiquement les niveaux de l'image pour maximiser le contraste
+- **Réglages d'exposition** : Permet de régler les niveaux de noir, de blanc et le niveau de gris moyen de l'image
+- **Balance RVB** : Permet de régler la balance des couleurs de l'image
+
+Les détails de ces traitements seront abordés dans la page consacrée au panneau **Traitements**.
+
+### Sauvegarde
+
+Module d'enregistrement des images.
+
+Le fonctionnement détaillé de l'enregistreur d'images a été décrit dans la section **Enregistreur d'images**.
+
+## Affichage des modules
+
+La section **Modules** du panneau affiche pour chaque module :
+
+- La taille de la file d'attente associée
+- L'état d'utilisation du module
+
+  Affiche **occupé** quand le module est en train de traiter une image
+
+{{< center >}}
+{{< figure src="modules.png"
+caption="La section Modules"
+width="294px"
+height="153px"
+alt="Section modules" >}}
+{{< /center >}}
 
 ---
 
