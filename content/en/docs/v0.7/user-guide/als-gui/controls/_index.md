@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-27T18:55:57Z
+lastmod: 2024-12-27T19:05:42Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -28,29 +28,29 @@ displays into sections.
 
 - **Session**
 
-The controls for the current session are found here. They allow you to start and stop the session, and also display
-information about the current stack as well as the session status indicator.
+  The controls for the current session are found here. They allow you to start and stop the session, and also display
+  information about the current stack as well as the session status indicator.
 
 - **Stack**
 
-This section allows you to define the alignment and stacking modes for images. It also offers a threshold setting for
-similarity search during alignment.
+  This section allows you to define the alignment and stacking modes for images. It also offers a threshold setting for
+  similarity search during alignment.
 
 - **Image Server**
 
-Allows you to start and stop the image server and displays information about the server when it is active.
+  Allows you to start and stop the image server and displays information about the server when it is active.
 
 - **Image Saver**
 
-Allows you to save the current image on the fly and activate continuous saving.
+  Allows you to save the current image on the fly and activate continuous saving.
 
 - **Workers**
 
-This section provides information about the usage status of each ALS worker module.
+  This section provides information about the usage status of each ALS worker module.
 
 - **Issues**
 
-This section is only visible if the `Session Log` is hidden. It displays an indicator of new issues.
+  This section is only visible if the `Session Log` is hidden. It displays an indicator of new issues.
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">

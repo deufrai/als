@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T18:55:57Z
+lastmod: 2024-12-27T19:05:42Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -28,29 +28,29 @@ affichages les plus utilisés
 
 - **Session**
 
-Les contrôles de la session en cours se trouvent ici. Ils permettent de démarrer et d'arrêter la session, et affichent
-également les informations sur la stack courante ainsi que l'indicateur d'état de la session.
+  Les contrôles de la session en cours se trouvent ici. Ils permettent de démarrer et d'arrêter la session, et affichent
+  également les informations sur la stack courante ainsi que l'indicateur d'état de la session.
 
 - **Stack**
 
-Cette section permet de définir le mode d'alignement et d'empilement des images. Elle propose aussi un réglage de seuil
-pour la recherche de similitudes pendant l'alignement.
+  Cette section permet de définir le mode d'alignement et d'empilement des images. Elle propose aussi un réglage de seuil
+  pour la recherche de similitudes pendant l'alignement.
 
 - **Serveur d'images**
 
-Permet de démarrer et arrêter le serveur d'images et affiche des informations sur le serveur lorsqu'il est actif.
+  Permet de démarrer et arrêter le serveur d'images et affiche des informations sur le serveur lorsqu'il est actif.
 
 - **Enregistreur d'images**
 
-Permet d'enregistrer à la volée l'image courante et d'activer la fonction d'enregistrement continu.
+  Permet d'enregistrer à la volée l'image courante et d'activer la fonction d'enregistrement continu.
 
 - **Modules**
 
-Cette section fournit des informations sur l'état d'utilisation de chaque module.
+  Cette section fournit des informations sur l'état d'utilisation de chaque module.
 
 - **Problèmes**
 
-Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux problèmes
+  Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux problèmes
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
