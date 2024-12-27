@@ -2,17 +2,18 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-26T19:27:46Z
-keywords: ["Premier démarrage d'ALS"]
+lastmod: 2024-12-27T01:39:16Z
+keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
-tags: ['Config initiale', 'Premier Pas', 'Bases']
+tags: [ 'Config initiale', 'Premier Pas', 'Bases' ]
 weight: 310
 ---
 
 # Introduction
 
 À la fin de ce chapitre, vous aurez :
+
 - Configuré les seuls paramètres requis pour un démarrage rapide avec les réglages par défaut d'ALS.
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
@@ -29,11 +30,11 @@ Lors du premier démarrage, ALS vous accueille et vous demande de définir deux 
 - **Dossier de travail** : Le dossier où ALS enregistre les images produites.
 
 {{< center >}}
-{{< figure src="welcome.png" 
-    caption="Message de bienvenue" 
-    width="461px" 
-    height="172px" 
-    alt="Message de bienvenue" >}}
+{{< figure src="welcome.png"
+caption="Message de bienvenue"
+width="461px"
+height="172px"
+alt="Message de bienvenue" >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `OK` pour accéder aux préférences.
@@ -50,23 +51,22 @@ Configurez ALS pour surveiller le dossier **astroshots** :
 
 {{< center >}}
 {{< figure src="prefs_01.png"
-    caption="Bouton permettant de définir le **dossier scanné**"
-    width="628px"
-    height="254px"
-    alt="Section chemins des préférences" >}}
+caption="Bouton permettant de définir le **dossier scanné**"
+width="628px"
+height="254px"
+alt="Section chemins des préférences" >}}
 {{< /center >}}
-
 
 🖱️ Cliquez sur `Modifier...` à côté de **Dossier scanné**. Un sélecteur de dossier apparaît...
 
 ---
 
 {{< center >}}
-{{< figure src="prefs_02.png" 
-    caption="Le sélecteur de **dossier scanné**" 
-    width="641px" 
-    height="443px" 
-    alt="Sélecteur du dossier scanné" >}}
+{{< figure src="prefs_02.png"
+caption="Le sélecteur de **dossier scanné**"
+width="641px"
+height="443px"
+alt="Sélecteur du dossier scanné" >}}
 {{< /center >}}
 
 1. 🖱️ Sélectionnez le dossier **astroshots**.
@@ -79,11 +79,11 @@ Configurez ALS pour surveiller le dossier **astroshots** :
 Créez un sous-dossier pour ALS nommé **sorties_als** dans votre dossier personnel :
 
 {{< center >}}
-{{< figure src="prefs_03.png" 
-    caption="Bouton permettant de définir le **dossier de travail**"
-    width="628px" 
-    height="263px" 
-    alt="Section chemins des préférences" >}}
+{{< figure src="prefs_03.png"
+caption="Bouton permettant de définir le **dossier de travail**"
+width="628px"
+height="263px"
+alt="Section chemins des préférences" >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Modifier...` à côté de **Dossier de travail**. Un sélecteur de dossier apparaît...
@@ -91,11 +91,11 @@ Créez un sous-dossier pour ALS nommé **sorties_als** dans votre dossier person
 ---
 
 {{< center >}}
-{{< figure src="prefs_04.png" 
-    caption="Bouton permettant de créer un nouveau dossier" 
-    width="789px" 
-    height="454px" 
-    alt="Bouton créer un nouveau dossier" >}}
+{{< figure src="prefs_04.png"
+caption="Bouton permettant de créer un nouveau dossier"
+width="789px"
+height="454px"
+alt="Bouton créer un nouveau dossier" >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Créer un nouveau dossier`.
@@ -103,11 +103,11 @@ Créez un sous-dossier pour ALS nommé **sorties_als** dans votre dossier person
 ---
 
 {{< center >}}
-{{< figure src="prefs_05.png" 
-    caption="Nouveau dossier prêt à être renommé" 
-    width="641px" 
-    height="443px" 
-    alt="Renommage du nouveau dossier - étape 1" >}}
+{{< figure src="prefs_05.png"
+caption="Nouveau dossier prêt à être renommé"
+width="641px"
+height="443px"
+alt="Renommage du nouveau dossier - étape 1" >}}
 {{< /center >}}
 
 Un nouveau dossier apparaît, prêt à être renommé.
@@ -116,10 +116,10 @@ Un nouveau dossier apparaît, prêt à être renommé.
 
 {{< center >}}
 {{< figure src="prefs_06.png"
-    caption="nouveau dossier renommé et validation" 
-    width="641px" 
-    height="443px" 
-    alt="Renommage du nouveau dossier - étape 2" >}}
+caption="nouveau dossier renommé et validation"
+width="641px"
+height="443px"
+alt="Renommage du nouveau dossier - étape 2" >}}
 {{< /center >}}
 
 - ⌨️ Nommez-le **sorties_als**.
@@ -137,31 +137,34 @@ Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur 
 
 {{< center >}}
 {{< figure src="prefs_07.png"
-    caption="Case indiquant le choix d'envoi des statistiques d'utilisation" 
-    width="628px" 
-    height="607px" 
-    alt="Ecran des préférences - Onglet général" >}}
+caption="Case indiquant le choix d'envoi des statistiques d'utilisation"
+width="628px"
+height="607px"
+alt="Ecran des préférences - Onglet général" >}}
 {{< /center >}}
 
-Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous comprenons
+Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous
+comprenons
 également que vous puissiez être réticent à autoriser une telle fonctionnalité.
 
 Sachez que :
+
 - ALS nous enverra **uniquement** les informations suivantes à chaque démarrage :
-  - Version d'ALS.
-  - Type de processeur.
-  - Type de système d'exploitation.
+    - Version d'ALS.
+    - Type de processeur.
+    - Type de système d'exploitation.
 - Nous ne cherchons pas à identifier ni géo-localiser la source de ces informations
 
 <details>
     <summary>Cliquez ici pour savoir comment vous pouvez vérifier ces affirmations par vous-même</summary>
 
-ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement. 
+ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement.
 
-- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de l'envoi 
-des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
-- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code de 
-l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de l'envoi
+  des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code de
+  l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>
+
 </details>
 
 ---
@@ -172,24 +175,50 @@ l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-bran
 
 # Votre toute première session
 
-ALS est maintenant prêt à vous servir.
+## Définition d'une session ALS
+
+**Une session ALS** est une période pendant laquelle ALS contrôle la détection de nouvelles images et la pile d'images
+actuelle.
+
+Dans toute cette documentation, nous utiliserons le terme **stack courante** pour désigner la pile d'images actuelle.
+
+1. **Démarrage** :
+    - La session commence quand on appuie sur `START`. Cela active le module de détection de fichiers, vide la stack
+      courante et prépare la session pour de nouvelles images.
+    - **Première Détection** : La première image détectée ensuite devient l'image de référence pour la session en cours.
+      Toutes les images suivantes seront comparées à cette référence pour l'alignement.
+
+2. **Traitement des Images** :
+    - Pendant que la session est en cours, chaque nouvelle image détectée est comparée à l'image de référence pour
+      l'alignement, puis ajoutée à la stack courante, par moyenne ou somme. Les résultats successifs de cet empilement
+      sont
+      traités et affichés par l'application.
+    - L'utilisateur gère la session en utilisant les contrôles `START` `PAUSE` et `STOP`.
+    - Avec `PAUSE`, on arrête temporairement la détection d'images, mais la stack courante est conservée. Reprendre la
+      session avec `START` relance la détection avec la stack existante.
+
+3. **Arrêt** :
+    - Quand on appuie sur `STOP`, la détection d'images s'arrête et la stack courante est vidée. On peut ensuite
+      démarrer une nouvelle session avec `START`.
+
+_**Note** : ALS ne traite pas les images déjà présentes dans le **dossier scanné** avant le lancement de la session._
 
 {{< center >}}
 {{< figure src="ready.png"
-    caption="ALS prêt à démarrer sa toute première session" 
-    width="1920px" 
-    height="1053px" 
-    alt="Fenêtre principale d'ALS" >}}
+caption="ALS prêt à démarrer sa toute première session"
+width="1920px"
+height="1053px"
+alt="Fenêtre principale d'ALS" >}}
 {{< /center >}}
 
 ## Démarrage de la session
 
 {{< center >}}
 {{< figure src="start.png"
-    caption="Le bouton de démarrage de session" 
-    width="296px" 
-    height="164px" 
-    alt="Panneau de contrôle de session avant démarrage" >}}
+caption="Le bouton de démarrage de session"
+width="296px"
+height="164px"
+alt="Panneau de contrôle de session avant démarrage" >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `START` dans la section **session** en haut à gauche
@@ -200,53 +229,53 @@ ALS confirme le bon démarrage de la session :
 
 {{< center >}}
 {{< figure src="started.png"
-    caption="Le statut et les boutons de contrôle de la session sont mis à jour" 
-    width="296px" 
-    height="164px" 
-    alt="Panneau de contrôle de session après démarrage" >}}
+caption="Le statut et les boutons de contrôle de la session sont mis à jour"
+width="296px"
+height="164px"
+alt="Panneau de contrôle de session après démarrage" >}}
 {{< /center >}}
-
 
 {{< center >}}
 {{< figure src="status.png"
-    caption="Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour" 
-    width="864px" 
-    height="178px" 
-    alt="Journal de session" >}}
+caption="Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour"
+width="864px"
+height="178px"
+alt="Journal de session" >}}
 {{< /center >}}
 
 --- 
 
-🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image capturée.
+🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image
+capturée.
 
 À titre d'exemple, nous allons illustrer les sections suivantes avec une session sur Messier 27 : caméra ZWO ASI224MC,
 200 poses de 4 sec.
 
 {{< center >}}
 {{< figure src="stacked_01.png"
-    caption="ALS après traitement de la 1<sup>ère</sup> image" 
-    width="1920px" 
-    height="1053px" 
-    alt="Fenêtre principale d'ALS - Stack 1" >}}
+caption="ALS après traitement de la 1<sup>ère</sup> image"
+width="1920px"
+height="1053px"
+alt="Fenêtre principale d'ALS - Stack 1" >}}
 {{< /center >}}
 
 La première image détectée par ALS sert de **référence pour l'alignement** des images suivantes.
 
 ---
 
-Toutes les nouvelles images capturées sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes 
+Toutes les nouvelles images capturées sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes
 les images déjà traitées.
 
 {{< center >}}
 {{< figure src="stacked_15.png"
-    caption="ALS après traitement de la 15<sup>ème</sup> image. Le contraste et le bruit s'améliorent" 
-    width="1920px" 
-    height="1053px" 
-    alt="Fenêtre principale d'ALS - Stack 15" >}}
+caption="ALS après traitement de la 15<sup>ème</sup> image. Le contraste et le bruit s'améliorent"
+width="1920px"
+height="1053px"
+alt="Fenêtre principale d'ALS - Stack 15" >}}
 {{< /center >}}
 
-Après chaque alignement et empilement d'une nouvelle image, ALS ajuste automatiquement la luminosité et la balance 
-des couleurs avant d'afficher le résultat dans la **zone centrale**. 
+Après chaque alignement et empilement d'une nouvelle image, ALS ajuste automatiquement la luminosité et la balance
+des couleurs avant d'afficher le résultat dans la **zone centrale**.
 
 À mesure que vous empilez les images, vous verrez le résultat gagner en contraste et en détails. Et l'aspect
 granuleux du fond de ciel s'estompera petit à petit.
@@ -261,21 +290,21 @@ Laissez ALS travailler sur les images qui continuent d'arriver et perdez-vous un
 - 🖱️ Naviguez dans l'image en la faisant glisser, comme avec tout autre logiciel de visualisation
 - 🖱️ Réinitialisez le zoom en cliquant avec le bouton droit de la souris
 
-L'image dans la zone centrale sera mise à jour instantanément après le traitement de chaque nouvelle brute, sans 
+L'image dans la zone centrale sera mise à jour instantanément après le traitement de chaque nouvelle brute, sans
 interrompre votre navigation.
 
 ---
 
 {{< center >}}
 {{< figure src="stacked_200.png"
-    caption="ALS après traitement de la 200<sup>ème</sup> image. Une belle image, détaillée et lissée" 
-    width="1920px" 
-    height="1053px" 
-    alt="Fenêtre principale d'ALS - Stack 200" >}}
+caption="ALS après traitement de la 200<sup>ème</sup> image. Une belle image, détaillée et lissée"
+width="1920px"
+height="1053px"
+alt="Fenêtre principale d'ALS - Stack 200" >}}
 {{< /center >}}
 
 Ce guide de démarrage rapide ne couvre pas les autres fonctionnalités et réglages d'ALS. Toutefois, ALS a été conçu pour
-être très intuitif. N'hésitez pas à explorer et expérimenter les différents contrôles situés à droite de l'écran dans 
+être très intuitif. N'hésitez pas à explorer et expérimenter les différents contrôles situés à droite de l'écran dans
 la section **Traitements**.
 
 ---
@@ -286,10 +315,10 @@ Notre visite guidée express touche à sa fin, arrêtez la session en cours.
 
 {{< center >}}
 {{< figure src="stopping.png"
-    caption="Le bouton d'arrêt de session" 
-    width="320px" 
-    height="164px" 
-    alt="Panneau de contrôle de session avant arrêt" >}}
+caption="Le bouton d'arrêt de session"
+width="320px"
+height="164px"
+alt="Panneau de contrôle de session avant arrêt" >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `STOP` dans la section **session** en haut à gauche. Une fenêtre de confirmation apparaît...
@@ -298,30 +327,30 @@ Notre visite guidée express touche à sa fin, arrêtez la session en cours.
 
 {{< center >}}
 {{< figure src="stop.png"
-    caption="Fenêtre de confirmation d'arrêt de session" 
-    width="608px" 
-    height="151px" 
-    alt="Confirmation d'arrêt de session" >}}
+caption="Fenêtre de confirmation d'arrêt de session"
+width="608px"
+height="151px"
+alt="Confirmation d'arrêt de session" >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Oui`
 
-Vous retrouverez le résultat final de cette session dans le fichier nommé **stack_image.jpg** enregistré dans le 
+Vous retrouverez le résultat final de cette session dans le fichier nommé **stack_image.jpg** enregistré dans le
 **dossier de travail**
 
 ---
 
 {{% alert title="ℹ️ Systèmes Linux" color="info" %}}
-Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce soit sur PC ou Raspberry Pi 
+Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce soit sur PC ou Raspberry Pi
 <details>
 <summary>Création d'un lanceur système pour ALS</summary>
 
 {{< center >}}
-{{< figure src="launcher_menu.png" 
-    caption="Menu de création du lanceur" 
-    width="537px" 
-    height="194px" 
-    alt="Entrée de menu pour création du lanceur" >}}
+{{< figure src="launcher_menu.png"
+caption="Menu de création du lanceur"
+width="537px"
+height="194px"
+alt="Entrée de menu pour création du lanceur" >}}
 {{< /center >}}
 
 🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez l'item **Créer lanceur**. Un sélecteur de fichier apparaît...
@@ -351,20 +380,20 @@ Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce 
 
 ALS vous confirme la bonne création du lanceur
 {{< center >}}
-{{< figure src="launcher_created.png" 
-    caption="Fenêtre de confirmation de création du lanceur" 
-    width="391px" 
-    height="129px" 
-    alt="Fenêtre de confirmation de création du lanceur" >}}
+{{< figure src="launcher_created.png"
+caption="Fenêtre de confirmation de création du lanceur"
+width="391px"
+height="129px"
+alt="Fenêtre de confirmation de création du lanceur" >}}
 {{< /center >}}
 
 Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu système
 {{< center >}}
-{{< figure src="launcher_ok.png" 
-    caption="ALS dans la section **Graphisme** du menu système " 
-    width="542px" 
-    height="412px" 
-    alt="Menu système" >}}
+{{< figure src="launcher_ok.png"
+caption="ALS dans la section **Graphisme** du menu système "
+width="542px"
+height="412px"
+alt="Menu système" >}}
 {{< /center >}}
 
 </details>
@@ -374,7 +403,7 @@ Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu systèm
 
 # Conclusion
 
-Nous espérons que ce chapitre vous a permis de démarrer ALS rapidement et de prendre en main les concepts de base 
+Nous espérons que ce chapitre vous a permis de démarrer ALS rapidement et de prendre en main les concepts de base
 d'une session de livestacking.
 
 Prochaine étape : prise en main approfondie de l'interface graphique d'ALS

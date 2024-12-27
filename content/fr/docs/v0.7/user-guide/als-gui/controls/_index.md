@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T00:54:00Z
+lastmod: 2024-12-27T01:39:16Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -19,18 +19,18 @@ A la fin de ce chapitre, vous aurez :
 
 ---
 
-<div class="row">
-  <div class="col-md-8">
-
 # Présentation générale
 
 Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS. Il regroupe les contrôles et affichages
-les plus utilisés en 5 sections :
+les plus utilisés en 5 sections
+
+<div class="row">
+  <div class="col-md-8">
 
 ## Session
 
 Les contrôles de la session en cours se trouvent ici. Ils permettent de démarrer et d'arrêter la session, et affichent
-également les informations sur la stack en cours ainsi que l'indicateur d'état de la session.
+également les informations sur la stack courante ainsi que l'indicateur d'état de la session.
 
 ## Stack
 
@@ -63,34 +63,38 @@ Cette section n'est visible que si le ` Journal de session` est caché. Elle aff
 
 # Session
 
-Avant de décrire les contrôles de session, il convient de définir ce qu'est une session dans le contexte d'ALS.
+La section **session** du panneau comprend 3 zones, de haut en bas :
 
-## Définition d'une session ALS
+<div class="row">
+<div class="col-md-8">
 
-**Une session ALS** est une période pendant laquelle ALS contrôle la détection de nouvelles images et la pile
-d'images actuelle.
+## Contrôles de session
 
-1. **Démarrage** :
-    - La session commence quand on appuie sur `START`. Cela active le module de détection de fichiers, vide la pile
-      d'images actuelle et prépare la session pour de nouvelles images.
-    - **Première Détection** : La première image détectée ensuite devient l'image de référence pour la session en cours.
-      Toutes les images suivantes seront comparées à cette référence pour l'alignement.
+`START`
+: Démarre une nouvelle session ou reprend la session mise en pause.
 
-2. **Traitement des Images** :
-    - Pendant que la session est en cours, chaque nouvelle image détectée est comparée à l'image de référence pour
-    - l'alignement, puis ajoutée à la pile, par moyenne ou somme. Les résultats successifs de cet empilement sont
-      traités et affichés par l'application.
-    - L'utilisateur gère la session en utilisant les contrôles `START` `PAUSE` et `STOP`.
-    - Avec `PAUSE`, on arrête temporairement la détection d'images, mais la pile actuelle est conservée. Reprendre la
-      session avec `START` relance la détection avec la pile existante.
+`PAUSE`
+: Met en pause la session en cours.
 
-3. **Arrêt** :
-    - Quand on appuie sur `STOP`, la détection d'images s'arrête et la pile d'images actuelle est vidée. On peut ensuite
-      démarrer une nouvelle session avec `START`.
+`STOP`
+: Arrête la session en cours.
 
-_**Note** : ALS ne traite pas les images déjà présentes dans le **dossier scanné** avant le lancement de la session._
+L'accessibilité de ces boutons dépend du statut de la session.
 
-## Contrôle de la session
+## Informations sur la stack courante
+
+Cette zone affiche le nombre total d'images empilées dans la stack courante et le temps d'exposition cumulé pour toute
+la session.
+
+_Dans cet exemple, nous avons empilé 39 images pour un total de 2m 36s._
+
+## Statut de la session
+
+Cette zone affiche le statut de la session en cours. Les statuts possibles sont : **stoppée**, **démarrée** et **en
+pause**.
+
+</div>
+<div class="col-md-4">
 
 {{< center >}}
 {{< figure src="session.png"
@@ -100,21 +104,8 @@ height="127px"
 alt="Section session" >}}
 {{< /center >}}
 
-La section **session** du panneau est découpées en 3 zones :
-
-- Boutons de contrôle de la session
-- Informations sur la stack courante
-- Statut de la session courante
-
-### START
-
-### PAUSE
-
-### STOP
-
-## Informations sur la stack courante
-
-## Statut de la session courante
+</div>
+</div>
 
 ---
 
