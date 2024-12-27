@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-27T17:38:24Z
+lastmod: 2024-12-27T17:58:47Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -162,6 +162,12 @@ alt="Stack section" >}}
 </div>
 </div>
 
+{{% alert title="ℹ️ INFO" color="info" %}}
+- `Align` is enabled on ALS startup
+- The stacking mode is set to `mean` on ALS startup
+- The similarity search threshold is remembered when you exit ALS
+{{% /alert %}}
+
 {{% alert title="💡 TIP" color="light" %}}
 If the field imaged by your system contains few stars, it may be necessary to reduce the threshold in order to avoid
 ignoring most images.
@@ -265,7 +271,7 @@ alt="Image Recorder section" >}}
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
-An example of a timestamped file name: **stack_image-2024-12-27-06-20-24-091899.jpg**.
+`Save every frame` is disabled on ALS startup.
 {{% /alert %}}
 
 ---

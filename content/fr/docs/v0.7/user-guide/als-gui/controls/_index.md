@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T17:38:24Z
+lastmod: 2024-12-27T17:58:47Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -163,6 +163,12 @@ alt="Section stack" >}}
 </div>
 </div>
 
+{{% alert title="ℹ️ INFO" color="info" %}}
+- `Aligner` est activé au démarrage d'ALS
+- Le mode de stacking est réglé sur `moyenne` au démarrage d'ALS
+- Le seuil de recherche de similitudes est mémorisé quand vous quittez ALS
+{{% /alert %}}
+
 {{% alert title="💡 Astuce" color="light" %}}
 Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
 la majorité des images soient ignorées.
@@ -267,7 +273,7 @@ alt="Section enregistreur d'images" >}}
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
-Un exemple de nom de fichier horodaté : **stack_image-2024-12-27-06-20-24-091899.jpg**.
+`Enr. chaque image` est désactivé au démarrage d'ALS.
 {{% /alert %}}
 
 ---
