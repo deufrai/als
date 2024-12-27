@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T01:39:16Z
+lastmod: 2024-12-27T02:18:15Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -70,28 +70,29 @@ La section **session** du panneau comprend 3 zones, de haut en bas :
 
 ## Contrôles de session
 
-`START`
-: Démarre une nouvelle session ou reprend la session mise en pause.
-
-`PAUSE`
-: Met en pause la session en cours.
-
-`STOP`
-: Arrête la session en cours.
-
 L'accessibilité de ces boutons dépend du statut de la session.
 
-## Informations sur la stack courante
+- `START` Démarre une nouvelle session ou reprend la session mise en pause.
+- `PAUSE` Met en pause la session en cours.
+- `STOP` Arrête la session en cours.
+  
+  Arrêter une session avec au moins une image dans la pile déclenche une fenêtre de confirmation.
 
-Cette zone affiche le nombre total d'images empilées dans la stack courante et le temps d'exposition cumulé pour toute
-la session.
+## Informations sur la stack courante
+ 
+- le nombre total d'images empilées dans la stack courante.
+- le temps d'exposition cumulé pour toute la session.
 
 _Dans cet exemple, nous avons empilé 39 images pour un total de 2m 36s._
 
 ## Statut de la session
 
-Cette zone affiche le statut de la session en cours. Les statuts possibles sont : **stoppée**, **démarrée** et **en
-pause**.
+Le statut de la session en cours. Les statuts possibles sont : 
+- stoppée
+- démarrée
+- en pause
+
+_Dans cet exemple, la session est démarrée_
 
 </div>
 <div class="col-md-4">

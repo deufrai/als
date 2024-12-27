@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-27T01:39:16Z
+lastmod: 2024-12-27T02:18:15Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -46,6 +46,12 @@ alt="Message de bienvenue" >}}
 Les dossiers critiques sont définis dans la section **Chemins** de l'onglet **Général**.
 
 ### Dossier scanné
+
+ALS surveille l'arrivée de nouvelles brutes dans ce dossier.
+
+{{% alert title="ℹ️ INFO" color="info" %}}
+La détection fonctionne, quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
+{{% /alert %}}
 
 Configurez ALS pour surveiller le dossier **astroshots** :
 
@@ -185,23 +191,23 @@ Dans toute cette documentation, nous utiliserons le terme **stack courante** pou
 1. **Démarrage** :
     - La session commence quand on appuie sur `START`. Cela active le module de détection de fichiers, vide la stack
       courante et prépare la session pour de nouvelles images.
-    - **Première Détection** : La première image détectée ensuite devient l'image de référence pour la session en cours.
-      Toutes les images suivantes seront comparées à cette référence pour l'alignement.
+    - **Première Détection** : La première image détectée devient la référence d'alignement pour la session en cours.
 
 2. **Traitement des Images** :
-    - Pendant que la session est en cours, chaque nouvelle image détectée est comparée à l'image de référence pour
-      l'alignement, puis ajoutée à la stack courante, par moyenne ou somme. Les résultats successifs de cet empilement
-      sont
-      traités et affichés par l'application.
+    - Pendant que la session est en cours, chaque nouvelle image détectée est alignée sur l'image de référence, puis
+      ajoutée à la stack courante, par moyenne ou somme. Les résultats successifs de cet empilement sont traités et
+      affichés par l'application.
     - L'utilisateur gère la session en utilisant les contrôles `START` `PAUSE` et `STOP`.
     - Avec `PAUSE`, on arrête temporairement la détection d'images, mais la stack courante est conservée. Reprendre la
       session avec `START` relance la détection avec la stack existante.
 
 3. **Arrêt** :
-    - Quand on appuie sur `STOP`, la détection d'images s'arrête et la stack courante est vidée. On peut ensuite
-      démarrer une nouvelle session avec `START`.
+    - Quand on appuie sur `STOP`, la détection d'images s'arrête et la stack courante est marquée pour être remise à
+      zéro au prochain démarrage de session avec `START`.
 
-_**Note** : ALS ne traite pas les images déjà présentes dans le **dossier scanné** avant le lancement de la session._
+{{% alert title="ℹ️ INFO" color="info" %}}
+ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
+{{% /alert %}}
 
 {{< center >}}
 {{< figure src="ready.png"
