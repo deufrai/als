@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T19:29:57Z
+lastmod: 2024-12-27T20:00:39Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -223,7 +223,7 @@ alt="Section server" >}}
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
-Des paramètres supplémentaires pour le serveur web sont disponibles dans les [Préférences d'ALS](../../preferences/).
+Des paramètres supplémentaires pour le serveur web sont disponibles dans les [Préférences](../../preferences/).
 Onglet **Sortie** section **Serveur web**.
 {{% /alert %}}
 
@@ -241,7 +241,7 @@ Après le traitement de chaque nouvelle image, ALS enregistre l'image de la zone
   Le fichier est écrasé à chaque nouvelle image traitée.
 
 - **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
-  les [Préférences d'ALS](../../preferences/).
+  les [Préférences](../../preferences/).
 
   Par défaut : format **JPEG** et extension **.jpg**.
 
@@ -256,14 +256,14 @@ Les contrôles d'enregistrement permettent de gérer d'autres enregistrements
   fichier du **dossier de travail** :
     - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
     - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
-      les [Préférences d'ALS](../../preferences/).
+      les [Préférences](../../preferences/).
 
 - Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un *
   *nouveau**
   fichier du **dossier de travail** :
     - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
     - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
-      les [Préférences d'ALS](../../preferences/).
+      les [Préférences](../../preferences/).
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -306,13 +306,16 @@ Dès qu'une nouvelle image est détectée dans le **dossier scanné**, elle est 
 Le module de **pre-process** applique sur chaque image les pré-traitements habituels en astrophoto :
 
 - **Suppression des pixels chauds** : Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
-  Ce traitement est debrayable dans les [Préférences d'ALS](../../preferences/).
+  
+  Ce traitement est debrayable dans les [Préférences](../../preferences/).
+
 - **Soustraction de master dark** : Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique
-  de l'image. Le chemin du master dark et l'activation de ce traitement sont définis dans les
-  [Préférences d'ALS](../../preferences/).
+  de l'image. 
 
   Si le format de données du master dark fourni n'est pas le même que celui de l'image à traiter, ALS effectue une
   conversion automatique du master dark avant la soustraction.
+
+  Le chemin du master dark et l'activation de ce traitement sont définis dans les [Préférences](../../preferences/).
 
 - **Dématriçage** : Dans le cas d'une image couleur enregistrée dans un fichier FITS ou Raw, convertit l'image en
   couleur RVB en utilisant la matrice de Bayer décrite dans les entêtes du fichier.
@@ -325,8 +328,8 @@ Le module de **pre-process** applique sur chaque image les pré-traitements habi
 
   </details>
 
-  {{% alert title="ℹ️ INFO" color="info" %}}
-  Une option des [Préférences d'ALS](../../preferences/) permet de forcer la matrice de Bayer à utiliser. Cette option
+  {{% alert title="💡 Astuce" color="light" %}}
+  Une option des [Préférences](../../preferences/) permet de forcer la matrice de Bayer à utiliser. Cette option
   est utile si ALS ne détecte pas correctement la matrice à utiliser ou si le fichier ne contient pas l'entête recherché.
   {{% /alert %}}
 
