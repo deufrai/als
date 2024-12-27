@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T04:18:17Z
+lastmod: 2024-12-27T04:21:21Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -114,12 +114,12 @@ alt="Section session" >}}
 La section **stack** du panneau permet de contrôler le **module de stacking**.
 
 Ce module est en charge de l'alignement et de l'empilement des images brutes. 
-L'alignement est débrayable, et deux choix d'empilement sont disponibles
+L'alignement est débrayable et deux choix d'empilement sont disponibles
 
 <div class="row">
 <div class="col-md-8">
 
-## Modes d'empilement
+## Contrôles de la stack courante
 
 _Ces contrôles sont accessibles uniquement quand la session est stoppée._
 
