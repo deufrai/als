@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T02:18:15Z
+lastmod: 2024-12-27T02:23:10Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -54,7 +54,7 @@ Cette section fournit des informations sur l'état d'utilisation de chaque modul
 Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux problèmes
 
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
     {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="Menu fichier" >}}
   </div>
 </div>
@@ -95,8 +95,7 @@ Le statut de la session en cours. Les statuts possibles sont :
 _Dans cet exemple, la session est démarrée_
 
 </div>
-<div class="col-md-4">
-
+<div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="session.png"
 caption="La section session"
