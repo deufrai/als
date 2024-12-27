@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T09:52:30Z
+lastmod: 2024-12-27T17:38:24Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -163,7 +163,7 @@ alt="Section stack" >}}
 </div>
 </div>
 
-{{% alert title="ℹ️ INFO" color="info" %}}
+{{% alert title="💡 Astuce" color="light" %}}
 Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
 la majorité des images soient ignorées.
 {{% /alert %}}

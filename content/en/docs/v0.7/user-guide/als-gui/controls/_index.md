@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-27T09:52:30Z
+lastmod: 2024-12-27T17:38:24Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -162,7 +162,7 @@ alt="Stack section" >}}
 </div>
 </div>
 
-{{% alert title="ℹ️ INFO" color="info" %}}
+{{% alert title="💡 TIP" color="light" %}}
 If the field imaged by your system contains few stars, it may be necessary to reduce the threshold in order to avoid
 ignoring most images.
 {{% /alert %}}
