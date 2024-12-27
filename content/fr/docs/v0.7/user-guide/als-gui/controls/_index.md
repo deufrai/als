@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T08:16:38Z
+lastmod: 2024-12-27T08:26:24Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -365,9 +365,24 @@ alt="Section modules" >}}
 
 # Problèmes
 
+Quand un nouveau problème a été détecté par ALS **et que le `Journal de session` est caché**, un indicateur apparaît tout
+en bas du panneau `contrôles principaux`
+
+{{< center >}}
+{{< figure src="problems.png"
+caption="L'indicateur de nouveau problème"
+width="294px"
+height="44px"
+alt="indicateur de nouveau problème" >}}
+{{< /center >}}
+
+Un click sur ce bouton affiche le `Journal de session` et permet de consulter les nouveaux problèmes détectés.
+
 ---
 
 # Conclusion
 
-Vous avez maintenant une vision claire des différentes sections du panneau des contrôles principaux.
-BLIBLIBLI
+Vous avez maintenant une vision claire de l'architecture d'ALS et des différentes sections du panneau
+`contrôles principaux`.
+
+Prochaine étape : le panneau `Traitements`
