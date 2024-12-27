@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T04:02:09Z
+lastmod: 2024-12-27T04:18:17Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -111,20 +111,23 @@ alt="Section session" >}}
 
 # Stack
 
-La section **stack** du panneau permet de contrôler le module de stacking.
+La section **stack** du panneau permet de contrôler le **module de stacking**.
+
+Ce module est en charge de l'alignement et de l'empilement des images brutes. 
+L'alignement est débrayable, et deux choix d'empilement sont disponibles
 
 <div class="row">
 <div class="col-md-8">
 
-## Contrôles d'empilement
+## Modes d'empilement
 
 _Ces contrôles sont accessibles uniquement quand la session est stoppée._
 
 - Case à cocher `Aligner` : active l'**alignement** des images sur la référence de la session.
 - Liste déroulante des **modes d'empilement** : Permet de définir le **mode d'empilement** utilisé pour cette session :
-    - `Moyenne` : chaque pixel de l'image résultante est la moyenne des pixels correspondants de chaque image de la
+    - `moyenne` : chaque pixel de l'image résultante est la moyenne des pixels correspondants de chaque image de la
       stack courante.
-    - `Somme` : chaque pixel de l'image résultante est la somme des pixels correspondants de chaque image de la stack
+    - `somme` : chaque pixel de l'image résultante est la somme des pixels correspondants de chaque image de la stack
       courante.
 
 ## Seuil de recherche de similitudes
@@ -137,9 +140,9 @@ présentant un nombre de similitudes inférieur à ce seuil sera ignorée.
 
 Le curseur `Seuil` permet de définir ce seuil en temps réel.
 
-- Valeurs possibles : 5 à 60.
-- Valeur par défaut : 25.
-- Comportement lorsqu'une image est ignorée :
+- **Valeurs possibles** : 5 à 60.
+- **Valeur par défaut** : 25.
+- **Comportement lorsqu'une image est ignorée** :
     - L'image n'est pas ajoutée à la pile. ALS se met en attente de la prochaine image.
     - Un message est ajouté au `Journal de session`. Il porte, entre autre, le texte _Alignment matches count is lower
       than configured threshold_
