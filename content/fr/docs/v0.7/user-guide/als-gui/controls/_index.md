@@ -1,8 +1,8 @@
 ---
-title: "Le panneau contrôles principaux"
+title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T18:28:25Z
+lastmod: 2024-12-27T18:31:36Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
