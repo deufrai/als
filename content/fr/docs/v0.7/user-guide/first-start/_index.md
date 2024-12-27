@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-27T02:18:15Z
+lastmod: 2024-12-27T18:50:03Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -181,7 +181,7 @@ ALS et nos outils de suivi sont des logiciels **opensource**, leur code source e
 
 # Votre toute première session
 
-## Définition d'une session ALS
+## Définition d'une session ALS {#session-definition}
 
 **Une session ALS** est une période pendant laquelle ALS contrôle la détection de nouvelles images et la pile d'images
 actuelle.
