@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T02:23:10Z
+lastmod: 2024-12-27T03:40:54Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -22,7 +22,7 @@ A la fin de ce chapitre, vous aurez :
 # Présentation générale
 
 Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS. Il regroupe les contrôles et affichages
-les plus utilisés en 5 sections
+les plus utilisés en sections
 
 <div class="row">
   <div class="col-md-8">
@@ -75,11 +75,11 @@ L'accessibilité de ces boutons dépend du statut de la session.
 - `START` Démarre une nouvelle session ou reprend la session mise en pause.
 - `PAUSE` Met en pause la session en cours.
 - `STOP` Arrête la session en cours.
-  
+
   Arrêter une session avec au moins une image dans la pile déclenche une fenêtre de confirmation.
 
 ## Informations sur la stack courante
- 
+
 - le nombre total d'images empilées dans la stack courante.
 - le temps d'exposition cumulé pour toute la session.
 
@@ -87,7 +87,8 @@ _Dans cet exemple, nous avons empilé 39 images pour un total de 2m 36s._
 
 ## Statut de la session
 
-Le statut de la session en cours. Les statuts possibles sont : 
+Le statut de la session en cours. Les statuts possibles sont :
+
 - stoppée
 - démarrée
 - en pause
@@ -110,6 +111,61 @@ alt="Section session" >}}
 ---
 
 # Stack
+
+La section **stack** du panneau permet de contrôler le module de stacking.
+
+<div class="row">
+<div class="col-md-8">
+
+## Contrôles d'empilement
+
+_Ces contrôles sont accessibles uniquement quand la session est stoppée._
+
+- Case à cocher `Aligner` : active l'**alignement** des images sur la référence de la session.
+- Liste déroulante des **modes d'empilement** : Permet de définir le **mode d'empilement** utilisé pour cette session :
+    - `Moyenne` : chaque pixel de l'image résultante est la moyenne des pixels correspondants de chaque image de la
+      stack courante.
+    - `Somme` : chaque pixel de l'image résultante est la somme des pixels correspondants de chaque image de la stack
+      courante.
+
+## Seuil de recherche de similitudes
+
+Quand l'alignement est activé, ALS détermine les transformations à appliquer à chaque nouvelle image en se basant sur
+une
+recherche de similitudes entre celle-ci et la référence de la session.
+
+Pour écarter les images de trop mauvaise qualité, ALS utilise un seuil de détection des similitudes : Toute image
+présentant un nombre de similitudes inférieur à ce seuil sera ignorée.
+
+Le curseur `Seuil` permet de définir ce seuil en temps réel.
+
+- Valeurs possibles : 5 à 60.
+- Valeur par défaut : 25.
+- Comportement lorsqu'une image est ignorée :
+    - L'image n'est pas ajoutée à la pile. ALS se met en attente de la prochaine image.
+    - Un message est ajouté au `Journal de session`. Il porte, entre autre, le texte _Alignment matches count is lower
+      than configured threshold_
+    - Le bouton `Acquitter` du `Journal de session` est activé
+    - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
+      panneau.
+
+{{% alert title="ℹ️ INFO" color="info" %}}
+Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
+la majorité des images soient ignorées.
+{{% /alert %}}
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< center >}}
+{{< figure src="stack.png"
+caption="La section stack"
+width="294px"
+height="92px"
+alt="Section stack" >}}
+{{< /center >}}
+
+</div>
+</div>
 
 ---
 
