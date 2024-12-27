@@ -2,7 +2,7 @@
 title: "Le panneau contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T03:40:54Z
+lastmod: 2024-12-27T03:45:54Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -131,8 +131,7 @@ _Ces contrôles sont accessibles uniquement quand la session est stoppée._
 ## Seuil de recherche de similitudes
 
 Quand l'alignement est activé, ALS détermine les transformations à appliquer à chaque nouvelle image en se basant sur
-une
-recherche de similitudes entre celle-ci et la référence de la session.
+une recherche de similitudes (**groupes de 3 étoiles**) entre celle-ci et la référence de la session.
 
 Pour écarter les images de trop mauvaise qualité, ALS utilise un seuil de détection des similitudes : Toute image
 présentant un nombre de similitudes inférieur à ce seuil sera ignorée.
