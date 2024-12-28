@@ -425,10 +425,7 @@ class HotPixelRemover(ImageProcessor):
                 means = HotPixelRemover._neighbors_average(image.data)
                 image.data = np.where(image.data / means > _HOT_PIXEL_RATIO, means, image.data)
             else:
-                MESSAGE_HUB.dispatch_warning(
-                    __name__,
-                    QT_TRANSLATE_NOOP("", "Hot Pixel Remover cannot work on debayered color images.")
-                )
+                _LOGGER.debug("Hot Pixel Remover skipped on color image")
 
         return image
 

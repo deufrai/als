@@ -49,17 +49,17 @@
         <translation>Session démarrée en mode {} avec alignement {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="672"/>
+        <location filename="../src/als/processing.py" line="669"/>
         <source>Start {} on {}</source>
         <translation>Démarrage {} sur {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="679"/>
+        <location filename="../src/als/processing.py" line="676"/>
         <source>End {} on {} in {} ms</source>
         <translation>Fin de {} sur {} en {} ms</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="693"/>
+        <location filename="../src/als/processing.py" line="690"/>
         <source>{} stopped</source>
         <translation>{} stoppé</translation>
     </message>
@@ -74,7 +74,7 @@
         <translation>Impossible de stacker l&apos;image {} : {}. L&apos;image est ABANDONNEE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="718"/>
+        <location filename="../src/als/processing.py" line="715"/>
         <source>Error applying process &apos;{}&apos; to image {} : {} *** Image will be ignored</source>
         <translation>Erreur en exécutant process {} à l&apos;image {} : {} *** L&apos;image sera ignorée</translation>
     </message>
@@ -99,22 +99,22 @@
         <translation>Numéro de port non valide : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="530"/>
+        <location filename="../src/als/processing.py" line="527"/>
         <source>Dark &amp; Light data types mismatch. Light: {} vs Dark: {}. Dark needs to be conformed.</source>
         <translation>Types de données différents. Light: {} vs Dark: {}. Le dark doit être mis en conformité.</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="511"/>
+        <location filename="../src/als/processing.py" line="508"/>
         <source>Could not read dark {}. Dark subtraction is SKIPPED</source>
         <translation>Erreur de lecture du dark {}. La soustraction de dark est IGNOREE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="520"/>
+        <location filename="../src/als/processing.py" line="517"/>
         <source>Data structure inconsistency. Light: {} vs Dark: {}. Dark subtraction is SKIPPED</source>
         <translation>Incohérence de la structure des données. Light: {} vs Dark: {}. La soustraction de dark est IGNOREE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="465"/>
+        <location filename="../src/als/processing.py" line="462"/>
         <source>The bayer pattern defined in your preferences differs from the one present in current image. Preferred: {} vs image: {}. Debayering result may be wrong.</source>
         <translation>La matrice de Bayer définie dans vos préférence diffère de celle présente dans l&apos;image courante. Préférences: {} vs image: {}. Le dématriçage peut produire un résultat érroné.</translation>
     </message>
@@ -122,11 +122,6 @@
         <location filename="../src/als/logic.py" line="485"/>
         <source>Starting new session...</source>
         <translation>Démarrage de nouvelle session...</translation>
-    </message>
-    <message>
-        <location filename="../src/als/processing.py" line="428"/>
-        <source>Hot Pixel Remover cannot work on debayered color images.</source>
-        <translation>La suppression des pixels chauds ne peut être faite sur une image dématricée.</translation>
     </message>
     <message>
         <location filename="../src/als/streams/input.py" line="187"/>
