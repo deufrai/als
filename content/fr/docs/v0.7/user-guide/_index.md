@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-26T19:27:46Z
+lastmod: 2024-12-28T20:19:39Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -35,6 +35,10 @@ Tout au long de cette documentation, les pictogrammes et le style de texte suiva
 
 - Ceci est un `élémént d'interface graphique`
 - Ceci est une **information importante**
-- Ce picto 🖱️ indique qu'une action à la souris est requise
-- Ce picto ⌨️ indique qu'une action au clavier est requise
-- Ce picto 🎛️ indique qu'une action en dehors d'ALS est requise
+- Ceci est un ⚠️ Avertissement
+- Ceci est une ℹ️ Information
+- Ceci est une 💡 Astuce
+- Ceci eset un 🧠 Rappel
+- 🖱️ une action à la souris est requise
+- ⌨️ une action au clavier est requise
+- 🎛️ une action en dehors d'ALS est requise

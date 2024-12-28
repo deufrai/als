@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-28T07:20:57Z
+lastmod: 2024-12-28T20:19:39Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -235,9 +235,8 @@ fonctionnement par défaut du module de sauvegarde
     - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
       les [Préférences](../../preferences/).
 
-- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un *
-  *nouveau**
-  fichier du **dossier de travail** :
+- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un 
+  **nouveau** fichier du **dossier de travail** :
     - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
     - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
       les [Préférences](../../preferences/).

@@ -3,46 +3,81 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-28T07:20:57Z
-keywords: ["concepts ALS"]
+lastmod: 2024-12-28T20:19:39Z
+keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
-tags: ["Bases"]
+tags: [ "Bases" ]
 weight: 315
 ---
 
 # Introduction
 
-À la fin de ce chapitre, l'architecture et les concepts de base d'ALS n'auront plus de secret pour vous. 
+À la fin de ce chapitre, le fonctionnement global d'ALS et la notion de sessions n'auront plus de secret pour vous.
 
 # Modules
 
-ALS adopte une architecture modulaire. Les modules partages les resources de votre ordinateur pour garantir la 
-fluidité de l'application
+ALS est architecturé en modules autonomes qui appliquent des **traitements** aux images capturées.
 
-Les modules d'ALS sont divisés en deux catégories :
+Ces modules sont répartis en deux familles :
+
+- **Modules principaux** : en charge des traitements d'image
+    - **Pre-process** : Pré-traitements astrophoto
+    - **Stack** : Alignement et empilement
+    - **Process** : Traitements visuels
+    - **Sauvegarde** : Enregistrement sur disque
+
+- **Modules utilitaires** : en charge des tâches annexes
+    - **Détecteur d'images** : surveillance du **dossier scanné**
+    - **Serveur d'images** : partage des images générées par ALS
+
+## Trajet d'une image
+
+Chaque image détectée voyage de module en module, dans l'ordre suivant :
+
+```mermaid
+graph LR
+    subgraph Modules principaux
+        B(Pre-process) --> C(Stack)
+        C --> D(Process)
+        D --> E(Sauvegarde)
+    end
+    A(Détecteur d'images) --> B
+    E -.-> F(Serveur d'images)
+
+    style A fill:#555,stroke:darkred,stroke-width:2px
+    style B fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style C fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style D fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style E fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style F fill:#555,stroke:darkred,stroke-width:2px
+```
+
+<p class="figcaption">Trajet d'une image dans ALS</p>
 
 ## Modules principaux
 
-ALS utilise 4 modules de traitements principaux organisés dans cet ordre :
+Ces modules servent à regrouper et ordonnancer les traitements d'image en fonction de leur nature.
 
-- [Pre-process](#pre-process-module)
-- [Stack](#stack-module)
-- [Process](#process-module)
-- [Sauvegarde](#save-module)
+Chacun possède sa file d'attente et exécute en boucle les actions suivantes :
 
-Chacun de ces modules possède sa propre file d'attente et exécute les actions suivantes, en boucle :
-1. Attend qu'une nouvelle image soit ajoutée à la file d'attente
+1. Attend qu'une nouvelle image se présente en file d'attente
 2. Traite l'image
-3. Ajoute l'image traitée à la file d'attente du module suivant
+3. Transmet le résultat du traitement au module suivant
 
-Entrons maintenant dans les détails de chacun des modules principaux :
+En cas d'erreur pendant le traitement d'une image :
+
+1. Le traitement de l'image est abandonné et l'image n'est pas transmise au module suivant.
+2. L'abandon de l'image est signalé discrètement dans l'application.
+3. Le module se remet à l'écoute de sa file d'attente
 
 ### Pre-process {#pre-process-module}
 
-Dès qu'une nouvelle image est détectée dans le **dossier scanné**, elle est ajoutée à la file d'attente de ce module.
+{{% alert color="info" %}}
+ℹ️ Dès qu'une nouvelle image est détectée, elle est ajoutée à la file d'attente de ce module.
+{{% /alert %}}
 
-Le module de **pre-process** applique sur chaque image les pré-traitements habituels en astrophoto :
+Le module **pre-process** regroupe les traitements suivants, habituels en calibration d'astrophoto :
 
 1. **Suppression des pixels chauds**
 
@@ -50,38 +85,31 @@ Le module de **pre-process** applique sur chaque image les pré-traitements habi
 
 2. **Soustraction de master dark**
 
-   Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique de l'image. 
-
-   Si le format de données du master dark est différent de celui de l'image à traiter, le master dark est
-   converti à la volée avant son utilisation. (_ex. : master dark en nombres flottants et brutes en entiers_)
+   Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique de l'image.
 
 3. **Dématriçage**
 
-   Les images couleur au format FITS ou Raw sont converties en couleur RVB en utilisant la matrice de Bayer décrite 
+   Les images couleur au format FITS ou Raw sont converties en couleur RVB en utilisant la matrice de Bayer décrite
    dans les entêtes du fichier.
-
-   <details>
-     <summary>Cliquer ici pour des détails sur les entêtes utilisés</summary>
-
-     - Fichier FITS : Entête FITS **BAYERPAT**
-     - Fichier Raw : Entête EXIF standard
-
-   </details>
 
 ### Stack {#stack-module}
 
-Prend en charge l'alignement et l'empilement des images et maintient la stack courante.
+Le module **Stack** maintient la stack courante et prend en charge les traitements suivants :
 
-1. **Alignement**
-    - Calcule les transformations à appliquer à l'image pour l'aligner sur la référence de la session
-    - Applique ces transformations à l'image
+1. **Alignement** : Aligne l'image sur la référence de la session
 2. **Empilement**
     - Ajoute l'image à la stack courante
-    - Calcule l'image résultante en fonction du mode d'empilement choisi
+    - Génère le résultat de l'empilement en fonction du mode choisi par l'utilisateur (_moyenne ou somme_) et l'envoie
+      au module suivant
+
+{{% alert color="info" %}}
+ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les images comparées. ALS ne peut donc aligner que des
+   images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
+{{% /alert %}}
 
 ### Process {#process-module}
 
-Module de traitement d'image proprement dit. Il applique les traitements suivants :
+Le module **Process** regroupe les traitements visuels appliqués sur le résultat de l'empilement :
 
 1. **Auto stretch**
 
@@ -95,38 +123,54 @@ Module de traitement d'image proprement dit. Il applique les traitements suivant
 
    Permet de régler la balance des couleurs de l'image
 
+{{% alert color="info" %}}
+ℹ️ L'image affichée dans la zone centrale d'ALS est remplacée par chaque image se présentant en sortie de ce module
+{{% /alert %}}
+
 ### Sauvegarde {#save-module}
 
-Module en charge de l'enregistrement sur disque des images traitées.
+Le module **Sauvegrde** est en charge de l'enregistrement sur disque des images traitées.
 
-Après le traitement de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du
-**dossier de travail** :
+Chaque image est enregistrée dans 2 fichiers du **dossier de travail** :
 
-- **nom du fichier** : **stack_image**
+1. Sortie principale :
 
-  Le fichier est écrasé à chaque nouvelle image traitée.
+    - **nom du fichier** : stack_image
+    - **Format et extension du fichier** : Au choix : JPEG, PNG ou TIFF
 
-- **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
-  les [Préférences](../../preferences/).
+      Par défaut : format **JPEG**, extension **.jpg**.
 
-  Par défaut : format **JPEG** et extension **.jpg**.
+2. Sortie serveur :
+
+    - **nom du fichier** : web_image
+    - **Format et extension du fichier** : format **JPEG**, extension **.jpg**.
+
+{{% alert color="warning" %}}
+⚠️ Ces 2 fichiers sont écrasés à par chaque nouvelle image traitée
+{{% /alert %}}
 
 ## Modules utilitaires
 
-ALS utilise d'autres modules qui ne sont pas impliqués dans les traitements d'image. Ils sont cependant essentiels au
+ALS utilise d'autres modules qui ne sont pas impliqués dans le traitement des images. Ils sont cependant essentiels au
 bon fonctionnement de l'application :
 
 ### Détecteur d'images
 
-Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les placer dans la file 
-d'attente du module de **pre-process**.
+Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les transmettre au
+module **Pre-process**.
 
-### Serveur web
+### Serveur d'image
 
-Ce module prend en charge le partage de l'image affichée dans la zone centrale d'ALS sur le réseau auquel la machine 
-qui exécute ALS est connectée.
+Ce module prend en charge le partage sur le réseau de la **sortie web** du module **Enregistreur d'images**.
 
-L'image affichée dans la page web servie est rafraîchie périodiquement par le navigateur.
+Il est accessible depuis le réseau auquel la machine qui exécute ALS est connectée.
+
+L'image affichée dans la page web servie est rafraîchie périodiquement par les navigateurs.
+
+{{% alert color="info" %}}
+ℹ️ Quand le serveur est démarré, son adresse est affichée dans l'application et un QR code peut être affiché à la
+demande.
+{{% /alert %}}
 
 ---
 
@@ -137,29 +181,32 @@ Au sain d'ALS, la session occupe une place prépondérante.
 **La session** peut être définie comme l'association de la stack courante et du détecteur d'images.
 
 1. **Démarrage** :
-    - Le démarrage de la session active le module de détection d'images et vide la stack courante.
-    - **Première Détection** : La première image détectée sera la référence d'alignement pour toute la session.
+    - Le démarrage de la session démarre le module de détection d'images et vide la stack courante.
+    - **Première Détection** : La première image détectée sert de référence pour l'alignement durant toute la session.
 
-2. **Traitement des Images** :
-    - Pendant que la session est en cours, chaque nouvelle image détectée est alignée sur l'image de référence, puis
-      ajoutée à la stack courante, par moyenne ou somme. 
+2. **Déroulement** :
+    - chaque nouvelle image détectée est successivement
+      - pré-traitée
+      - alignée sur l'image de référence
+      - empilée dans la stack courante.
+    - Les résultats successifs de cet empilement sont traités puis affichés par l'application et enregistrés sur disque.
 
-      Les résultats successifs de cet empilement sont traités et affichés par l'application.
 
-    - La session peut être mise en pause : ALS stoppe le détecteur d'images et la stack courante **est conservée**. 
+   La session peut être mise en pause : ALS stoppe le détecteur d'images et la stack courante **est conservée**.
+   Relancer la session redémarre simplement le détecteur d'images
 
-      Relancer la session redémarre simplement le détecteur d'images
+   À tout moment, l'utilisateur peut naviguer dans l'image affichée, zoomer, régler les paramètres de traitement, etc. 
 
 3. **Arrêt** :
     - À l'arrêt de la session, le détecteur d'images est stoppé et la stack courante est marquée pour être remise à
       zéro au prochain démarrage de session.
 
-{{% alert title="ℹ️ INFO" color="info" %}}
-ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
+{{% alert color="info" %}}
+ℹ️ ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
 {{% /alert %}}
 
 # Conclusion
 
-Vous avez maintenant une vision claire de l'architecture et des concepts de base d'ALS. 
+Vous avez maintenant une vision claire de l'architecture et des concepts de base d'ALS.
 
 Prochaine étape : l'interface graphique d'ALS.

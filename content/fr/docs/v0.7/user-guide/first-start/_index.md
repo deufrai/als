@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-28T07:20:57Z
+lastmod: 2024-12-28T20:19:39Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -17,8 +17,8 @@ weight: 310
 - Configuré les seuls paramètres requis pour un démarrage rapide avec les réglages par défaut d'ALS.
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
-{{% alert title="🧠 Rappel" color="info" %}}
-N'oubliez pas de vous mettre <a href="/fr/docs/v0.7/user-guide/#dans-la-peau-du-personnage" target="_blank">dans la
+{{% alert color="info" %}}
+🧠 N'oubliez pas de vous mettre <a href="/fr/docs/v0.7/user-guide/#dans-la-peau-du-personnage" target="_blank">dans la
 peau du personnage</a> avant de suivre ce guide de démarrage 🌝
 {{% /alert %}}
 
@@ -49,8 +49,8 @@ Les dossiers critiques sont définis dans la section **Chemins** de l'onglet **G
 
 ALS surveille l'arrivée de nouvelles brutes dans ce dossier.
 
-{{% alert title="ℹ️ INFO" color="info" %}}
-La détection fonctionne, quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
+{{% alert color="info" %}}
+ℹ️ La détection fonctionne, quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
 {{% /alert %}}
 
 Configurez ALS pour surveiller le dossier **astroshots** :
@@ -131,11 +131,11 @@ alt="Renommage du nouveau dossier - étape 2" >}}
 - ⌨️ Nommez-le **sorties_als**.
 - 🖱️ Cliquez sur `Choisir`.
 
----
 
-**ℹ️ Ne validez pas encore les préférences**, il reste un point important à aborder
 
----
+{{% alert color="warning" %}}
+**⚠️ Ne validez pas encore les préférences**, il reste un point important à aborder :
+{{% /alert %}}
 
 ## Statistiques d'utilisation
 
@@ -175,7 +175,7 @@ ALS et nos outils de suivi sont des logiciels **opensource**, leur code source e
 
 ---
 
-🖱️ Cliquez ensuite sur `OK` pour valider les préférences.
+🖱️ Votre choix fait, cliquez sur `OK` pour valider les préférences.
 
 ---
 
@@ -237,7 +237,9 @@ height="1053px"
 alt="Fenêtre principale d'ALS - Stack 1" >}}
 {{< /center >}}
 
-La première image détectée par ALS sert de **référence pour l'alignement** des images suivantes.
+{{% alert color="info" %}}
+ℹ️ La première image détectée sert de **référence d'alignement** pour toute la session
+{{% /alert %}}
 
 ---
 

@@ -17,6 +17,13 @@ enableGitInfo = true
   favicon = "/images/favicon.ico"
   logo = "/images/als_logo_256.png"
 
+  [params.mermaid]
+    theme = "dark"
+    align = "center"
+
+  [params.mermaid.flowchart]
+    diagramPadding = 16
+
   # UI Customization
   [params.ui]
     navbarVariant = "dark"
