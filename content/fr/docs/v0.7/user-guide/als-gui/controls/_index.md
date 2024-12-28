@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-28T03:15:50Z
+lastmod: 2024-12-28T05:53:07Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -290,12 +290,12 @@ Cette section est l'occasion de décrire en détails l'architecture d'ALS et le 
 
 ## Architecture en modules
 
-Tous les traitements appliqués aux images sont répartis dans 4 modules placés les uns derrière les autres.
+ALS est composé de 4 modules de traitements principaux.
 
-Chaque module se voit assigner une file d'attente et traite séquentiellement toutes les images présentes dans sa file
-d'attente.
-
-Le résultat du traitement de chaque image par un module est placé dans la file d'attente du module suivant.
+Chaque module possède sa propre file d'attente et exécute les actions suivantes, en boucle :
+1. Attend qu'une nouvelle image soit ajoutée à la file d'attente
+2. Traite l'image
+3. Ajoute l'image traitée à la file d'attente du module suivant
 
 Les modules sont organisés dans cet ordre :
 
@@ -305,44 +305,49 @@ Dès qu'une nouvelle image est détectée dans le **dossier scanné**, elle est 
 
 Le module de **pre-process** applique sur chaque image les pré-traitements habituels en astrophoto :
 
-- **Suppression des pixels chauds** : Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
+1. **Suppression des pixels chauds**
+
+   Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
   
-  Ce traitement est debrayable dans les [Préférences](../../preferences/).
+   _Ce traitement est débrayable dans les [Préférences](../../preferences/)_
 
-- **Soustraction de master dark** : Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique
-  de l'image. 
+2. **Soustraction de master dark**
 
-  Si le format de données du master dark fourni n'est pas le même que celui de l'image à traiter, ALS effectue une
-  conversion automatique du master dark avant la soustraction.
+   Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique de l'image. 
 
-  Le chemin du master dark et l'activation de ce traitement sont définis dans les [Préférences](../../preferences/).
+   Si le format de données du master dark est différent de celui de l'image à traiter, le master dark est
+   converti à la volée avant son utilisation. (_ex. : master dark en nombres flottants et brutes en entiers_)
 
-- **Dématriçage** : Dans le cas d'une image couleur enregistrée dans un fichier FITS ou Raw, convertit l'image en
-  couleur RVB en utilisant la matrice de Bayer décrite dans les entêtes du fichier.
+   _Le chemin du master dark et l'activation de ce traitement sont définis dans les [Préférences](../../preferences/)_
 
-  <details>
-    <summary>Cliquer ici pour des détails sur les entêtes utilisés</summary>
+3. **Dématriçage**
 
-    - Fichier FITS : Entête FITS standard **BAYERPAT**
-    - Fichier Raw : Entête EXIF standard
+   Les images couleur au format FITS ou Raw sont converties en couleur RVB en utilisant la matrice de Bayer décrite 
+   dans les entêtes du fichier.
 
-  </details>
+   <details>
+     <summary>Cliquer ici pour des détails sur les entêtes utilisés</summary>
 
-  {{% alert title="💡 Astuce" color="light" %}}
-  Une option des [Préférences](../../preferences/) permet de forcer la matrice de Bayer à utiliser. Cette option
-  est utile si ALS ne détecte pas correctement la matrice à utiliser ou si le fichier ne contient pas l'entête recherché.
-  {{% /alert %}}
+     - Fichier FITS : Entête FITS **BAYERPAT**
+     - Fichier Raw : Entête EXIF standard
+
+   </details>
+
+   {{% alert title="💡 Astuce" color="light" %}}
+   Une option des [Préférences](../../preferences/) permet de forcer la matrice de Bayer à utiliser. Cette option
+   est utile si ALS ne détecte pas correctement la matrice à utiliser ou si le fichier ne contient pas l'entête recherché.
+   {{% /alert %}}
 
 ### Stack
 
 Prend en charge l'alignement et l'empilement des images
 
-- **Alignement**
-    - calcul des transformations à appliquer à l'image courante pour l'aligner sur la référence de la session
-    - application des transformations à l'image courante
-- **Empilement**
-    - Ajout de l'image courante à la stack courante
-    - calcul de l'image résultante en fonction du mode d'empilement choisi
+1. **Alignement**
+    - Calcule les transformations à appliquer à l'image pour l'aligner sur la référence de la session
+    - Applique ces transformations à l'image
+2. **Empilement**
+    - Ajoute l'image à la stack courante
+    - Calcule l'image résultante en fonction du mode d'empilement choisi
 
 Le fonctionnement détaillé de ces traitements a été abordé dans la section [**Stack**](#stack-section) ci-dessus.
 
@@ -350,15 +355,23 @@ Le fonctionnement détaillé de ces traitements a été abordé dans la section 
 
 Module de post-traitement. Il comprend les traitements suivants :
 
-- **Auto stretch** : Ajuste automatiquement les niveaux de l'image pour maximiser le contraste
-- **Niveaux** : Permet de régler les niveaux de noir, de blanc et le niveau de gris moyen de l'image
-- **Balance RVB** : Permet de régler la balance des couleurs de l'image
+1. **Auto stretch**
+
+   Ajuste automatiquement les niveaux de l'image pour une visualisation optimale
+
+2. **Niveaux**
+
+   Permet de régler l'écrêtage des noirs et des blancs, et le niveau des tons moyens de l'image
+
+3. **Balance RVB**
+
+   Permet de régler la balance des couleurs de l'image
 
 Les détails de ces traitements seront abordés dans la page consacrée au panneau **Traitements**.
 
 ### Sauvegarde
 
-Module d'enregistrement des images.
+Ce module enregistre sur disque le résultat final du traitement de chaque image.
 
 Le fonctionnement détaillé de l'enregistreur d'images a été décrit dans la section 
 [**Enregistreur d'images**](#saver-section) ci-dessus.
