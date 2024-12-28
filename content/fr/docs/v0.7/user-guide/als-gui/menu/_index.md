@@ -1,9 +1,9 @@
 ---
-title: "Le menu principal d'ALS"
+title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2024-12-26T21:15:10Z
+lastmod: 2024-12-28T23:52:47Z
 keywords: ["ALS Menu"]
 type: "docs"
 tags: ["GUI", "menu"]
