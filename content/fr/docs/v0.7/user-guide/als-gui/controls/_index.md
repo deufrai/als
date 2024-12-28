@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-27T20:00:39Z
+lastmod: 2024-12-28T03:15:50Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -28,8 +28,8 @@ affichages les plus utilisés
 
 - [**Session**](#session-section)
 
-  Les contrôles de la session en cours se trouvent ici. Ils permettent de démarrer et d'arrêter la session, et affichent
-  également les informations sur la stack courante ainsi que l'indicateur d'état de la session.
+  Cette section regroupe les contrôles de la session, l'affichage des informations sur la stack courante ainsi 
+  que l'indicateur de statut de la session.
 
 - [**Stack**](#stack-section)
 
