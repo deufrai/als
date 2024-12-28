@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-28T20:19:39Z
+lastmod: 2024-12-28T23:45:25Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
@@ -30,8 +30,7 @@ dans le dossier **astroshots** de votre dossier personnel, organisées par cible
 
 ## Typographie
 
-Tout au long de cette documentation, les pictogrammes et le style de texte suivants seront utilisés pour indiquer des 
-éléments et des actions spécifiques :
+Tout au long de cette documentation, les mises en forme suivantes seront utilisées pour vous guider :
 
 - Ceci est un `élémént d'interface graphique`
 - Ceci est une **information importante**

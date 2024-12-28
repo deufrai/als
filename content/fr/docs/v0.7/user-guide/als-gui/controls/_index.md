@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-28T20:19:39Z
+lastmod: 2024-12-28T23:45:25Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -67,7 +67,7 @@ La section **session** du panneau comprend 3 zones, de haut en bas :
 <div class="row">
 <div class="col-md-8">
 
-## Contrôles de session
+## Contrôles de session {#session-controls}
 
 L'accessibilité de ces boutons dépend du statut de la session.
 

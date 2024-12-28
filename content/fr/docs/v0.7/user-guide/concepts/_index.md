@@ -3,7 +3,7 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-28T20:46:18Z
+lastmod: 2024-12-28T23:45:25Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -158,6 +158,8 @@ bon fonctionnement de l'application :
 
 Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les transmettre au
 module **Pre-process**.
+
+La documentation détaillée du module **détecteur d'images** est [ici](..//modules/detector/)
 
 ### Serveur d'image
 
