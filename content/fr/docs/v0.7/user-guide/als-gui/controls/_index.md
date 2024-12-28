@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-28T05:53:07Z
+lastmod: 2024-12-28T07:20:57Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -46,7 +46,7 @@ affichages les plus utilisés
 
 - [**Modules**](#modules-section)
 
-  Cette section fournit des informations sur l'état d'utilisation de chaque module.
+  Cette section fournit des informations sur l'état d'utilisation des modules principaux d'ALS.
 
 - [**Problèmes**](#issues-section)
 
@@ -61,10 +61,6 @@ affichages les plus utilisés
 --- 
 
 # Session {#session-section}
-
-{{% alert title="🧠 Rappel" color="info" %}}
-La définition d'une session est donnée dans la section [Premier démarrage : Définition d'une session ALS](../../first-start/#session-definition)
-{{% /alert %}}
 
 La section **session** du panneau comprend 3 zones, de haut en bas :
 
@@ -115,9 +111,8 @@ alt="Section session" >}}
 
 # Stack {#stack-section}
 
-La section **stack** du panneau permet de contrôler le **module de stacking**.
+La section **stack** du panneau contrôle le **module de stacking**.
 
-Ce module est en charge de l'alignement et de l'empilement des images brutes.
 L'alignement est débrayable et deux choix d'empilement sont disponibles
 
 <div class="row">
@@ -183,12 +178,7 @@ la majorité des images soient ignorées.
 
 # Serveur d'images {#server-section}
 
-La section **Serveur d'images** du panneau permet de contrôler le serveur web intégré d'ALS.
-
-Ce serveur partage l'image affichée dans la zone centrale d'ALS sur le réseau auquel la machine qui exécute
-ALS est connectée.
-
-L'image affichée dans la page web servie est rafraîchie périodiquement par le navigateur.
+La section **Serveur d'images** du panneau contrôle le serveur web intégré d'ALS.
 
 <div class="row">
 <div class="col-md-8">
@@ -231,21 +221,8 @@ Onglet **Sortie** section **Serveur web**.
 
 # Enregistreur d'images {#saver-section}
 
-La section **Enregistreur d'images** du panneau permet de contrôler l'enregistrement des images prduites par ALS.
-
-Après le traitement de chaque nouvelle image, ALS enregistre l'image de la zone centrale dans un fichier du
-**dossier de travail** :
-
-- **nom du fichier** : **stack_image**
-
-  Le fichier est écrasé à chaque nouvelle image traitée.
-
-- **Type et extension du fichier** : en fonction du format d'enregistrement choisi dans
-  les [Préférences](../../preferences/).
-
-  Par défaut : format **JPEG** et extension **.jpg**.
-
-Les contrôles d'enregistrement permettent de gérer d'autres enregistrements
+La section **Enregistreur d'images** du panneau permet de déclencher des enregistrements supplémentaires au 
+fonctionnement par défaut du module de sauvegarde
 
 <div class="row">
 <div class="col-md-8">
@@ -286,104 +263,10 @@ alt="Section enregistreur d'images" >}}
 
 # Modules {#modules-section}
 
-Cette section est l'occasion de décrire en détails l'architecture d'ALS et le cheminement des images dans l'application.
-
-## Architecture en modules
-
-ALS est composé de 4 modules de traitements principaux.
-
-Chaque module possède sa propre file d'attente et exécute les actions suivantes, en boucle :
-1. Attend qu'une nouvelle image soit ajoutée à la file d'attente
-2. Traite l'image
-3. Ajoute l'image traitée à la file d'attente du module suivant
-
-Les modules sont organisés dans cet ordre :
-
-### Pre-process
-
-Dès qu'une nouvelle image est détectée dans le **dossier scanné**, elle est ajoutée à la file d'attente de ce module.
-
-Le module de **pre-process** applique sur chaque image les pré-traitements habituels en astrophoto :
-
-1. **Suppression des pixels chauds**
-
-   Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
-  
-   _Ce traitement est débrayable dans les [Préférences](../../preferences/)_
-
-2. **Soustraction de master dark**
-
-   Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique de l'image. 
-
-   Si le format de données du master dark est différent de celui de l'image à traiter, le master dark est
-   converti à la volée avant son utilisation. (_ex. : master dark en nombres flottants et brutes en entiers_)
-
-   _Le chemin du master dark et l'activation de ce traitement sont définis dans les [Préférences](../../preferences/)_
-
-3. **Dématriçage**
-
-   Les images couleur au format FITS ou Raw sont converties en couleur RVB en utilisant la matrice de Bayer décrite 
-   dans les entêtes du fichier.
-
-   <details>
-     <summary>Cliquer ici pour des détails sur les entêtes utilisés</summary>
-
-     - Fichier FITS : Entête FITS **BAYERPAT**
-     - Fichier Raw : Entête EXIF standard
-
-   </details>
-
-   {{% alert title="💡 Astuce" color="light" %}}
-   Une option des [Préférences](../../preferences/) permet de forcer la matrice de Bayer à utiliser. Cette option
-   est utile si ALS ne détecte pas correctement la matrice à utiliser ou si le fichier ne contient pas l'entête recherché.
-   {{% /alert %}}
-
-### Stack
-
-Prend en charge l'alignement et l'empilement des images
-
-1. **Alignement**
-    - Calcule les transformations à appliquer à l'image pour l'aligner sur la référence de la session
-    - Applique ces transformations à l'image
-2. **Empilement**
-    - Ajoute l'image à la stack courante
-    - Calcule l'image résultante en fonction du mode d'empilement choisi
-
-Le fonctionnement détaillé de ces traitements a été abordé dans la section [**Stack**](#stack-section) ci-dessus.
-
-### Process
-
-Module de post-traitement. Il comprend les traitements suivants :
-
-1. **Auto stretch**
-
-   Ajuste automatiquement les niveaux de l'image pour une visualisation optimale
-
-2. **Niveaux**
-
-   Permet de régler l'écrêtage des noirs et des blancs, et le niveau des tons moyens de l'image
-
-3. **Balance RVB**
-
-   Permet de régler la balance des couleurs de l'image
-
-Les détails de ces traitements seront abordés dans la page consacrée au panneau **Traitements**.
-
-### Sauvegarde
-
-Ce module enregistre sur disque le résultat final du traitement de chaque image.
-
-Le fonctionnement détaillé de l'enregistreur d'images a été décrit dans la section 
-[**Enregistreur d'images**](#saver-section) ci-dessus.
-
-## Affichage des modules
-
-La section **Modules** du panneau affiche pour chaque module :
+La section **Modules** du panneau affiche les détails de chacun des modules principaux
 
 - La taille de la file d'attente associée
-- L'état d'utilisation du module
-
-  Affiche **occupé** quand le module est en train de traiter une image
+- Le statut du module : Affiche **occupé** quand le module est en train de traiter une image
 
 {{< center >}}
 {{< figure src="modules.png"

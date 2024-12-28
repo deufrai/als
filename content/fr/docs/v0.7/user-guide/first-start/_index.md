@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-28T03:19:13Z
+lastmod: 2024-12-28T07:20:57Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -17,7 +17,7 @@ weight: 310
 - Configuré les seuls paramètres requis pour un démarrage rapide avec les réglages par défaut d'ALS.
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
-{{% alert title="ℹ️ INFO" color="info" %}}
+{{% alert title="🧠 Rappel" color="info" %}}
 N'oubliez pas de vous mettre <a href="/fr/docs/v0.7/user-guide/#dans-la-peau-du-personnage" target="_blank">dans la
 peau du personnage</a> avant de suivre ce guide de démarrage 🌝
 {{% /alert %}}
@@ -180,34 +180,6 @@ ALS et nos outils de suivi sont des logiciels **opensource**, leur code source e
 ---
 
 # Votre toute première session
-
-## Définition d'une session ALS {#session-definition}
-
-**Une session ALS** est une période pendant laquelle ALS contrôle la détection de nouvelles images et la pile d'images
-actuelle.
-
-Dans toute cette documentation, nous utiliserons le terme **stack courante** pour désigner la pile d'images actuelle.
-
-1. **Démarrage** :
-    - La session commence quand on appuie sur `START`. Cela active le module de détection de fichiers, vide la stack
-      courante et prépare la session pour de nouvelles images.
-    - **Première Détection** : La première image détectée devient la référence d'alignement pour la session en cours.
-
-2. **Traitement des Images** :
-    - Pendant que la session est en cours, chaque nouvelle image détectée est alignée sur l'image de référence, puis
-      ajoutée à la stack courante, par moyenne ou somme. Les résultats successifs de cet empilement sont traités et
-      affichés par l'application.
-    - L'utilisateur gère le déroulement de la session en utilisant les boutons `START` `PAUSE` et `STOP`.
-    - Avec `PAUSE`, on arrête temporairement la détection d'images, mais la stack courante est conservée. Reprendre la
-      session avec `START` relance la détection avec la stack existante.
-
-3. **Arrêt** :
-    - Quand on appuie sur `STOP`, la détection d'images s'arrête et la stack courante est marquée pour être remise à
-      zéro au prochain démarrage de session avec `START`.
-
-{{% alert title="ℹ️ INFO" color="info" %}}
-ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
-{{% /alert %}}
 
 {{< center >}}
 {{< figure src="ready.png"
@@ -412,6 +384,4 @@ alt="Menu système" >}}
 Nous espérons que ce chapitre vous a permis de démarrer ALS rapidement et de prendre en main les concepts de base
 d'une session de livestacking.
 
-Prochaine étape : prise en main approfondie de l'interface graphique d'ALS
-
-
+Prochaine étape : prise en main des concepts de base d'ALS
