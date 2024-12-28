@@ -3,7 +3,7 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-28T20:19:39Z
+lastmod: 2024-12-28T20:46:18Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -13,11 +13,11 @@ weight: 315
 
 # Introduction
 
-À la fin de ce chapitre, le fonctionnement global d'ALS et la notion de sessions n'auront plus de secret pour vous.
+À la fin de ce chapitre, le fonctionnement global d'ALS et la notion de session n'auront plus de secret pour vous.
 
 # Modules
 
-ALS est architecturé en modules autonomes qui appliquent des **traitements** aux images capturées.
+ALS est architecturé en modules autonomes qui appliquent des **traitements** aux images détectées.
 
 Ces modules sont répartis en deux familles :
 
@@ -103,8 +103,8 @@ Le module **Stack** maintient la stack courante et prend en charge les traitemen
       au module suivant
 
 {{% alert color="info" %}}
-ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les images comparées. ALS ne peut donc aligner que des
-   images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
+ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les images comparées. ALS ne peut donc aligner que
+des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
 {{% /alert %}}
 
 ### Process {#process-module}
@@ -146,7 +146,7 @@ Chaque image est enregistrée dans 2 fichiers du **dossier de travail** :
     - **Format et extension du fichier** : format **JPEG**, extension **.jpg**.
 
 {{% alert color="warning" %}}
-⚠️ Ces 2 fichiers sont écrasés à par chaque nouvelle image traitée
+⚠️ Ces 2 fichiers sont écrasés par chaque nouvelle image traitée
 {{% /alert %}}
 
 ## Modules utilitaires
@@ -178,28 +178,29 @@ demande.
 
 Au sain d'ALS, la session occupe une place prépondérante.
 
-**La session** peut être définie comme l'association de la stack courante et du détecteur d'images.
+**La session** peut être vue comme la matérialisation du cycle de vie du couple formé par la **stack courante**
+et le **détecteur d'images**.
 
 1. **Démarrage** :
-    - Le démarrage de la session démarre le module de détection d'images et vide la stack courante.
-    - **Première Détection** : La première image détectée sert de référence pour l'alignement durant toute la session.
+    - ALS démarre le **détecteur d'images** et vide **la stack courante**.
+    - **Première Détection** : La première image reçue par le module **Stack** servira de **référence pour 
+      l'alignement** durant toute la session.
 
 2. **Déroulement** :
     - chaque nouvelle image détectée est successivement
-      - pré-traitée
-      - alignée sur l'image de référence
-      - empilée dans la stack courante.
+        - pré-traitée
+        - alignée sur l'image de référence
+        - empilée dans la stack courante.
     - Les résultats successifs de cet empilement sont traités puis affichés par l'application et enregistrés sur disque.
 
+   La session peut être mise en pause : ALS stoppe le **détecteur d'images** et la **stack courante** est **conservée**.
+   Relancer la session redémarre simplement le **détecteur d'images**
 
-   La session peut être mise en pause : ALS stoppe le détecteur d'images et la stack courante **est conservée**.
-   Relancer la session redémarre simplement le détecteur d'images
-
-   À tout moment, l'utilisateur peut naviguer dans l'image affichée, zoomer, régler les paramètres de traitement, etc. 
+   À tout moment, l'utilisateur peut naviguer dans l'image affichée, zoomer, régler les paramètres de traitement...
 
 3. **Arrêt** :
-    - À l'arrêt de la session, le détecteur d'images est stoppé et la stack courante est marquée pour être remise à
-      zéro au prochain démarrage de session.
+    - À l'arrêt de la session, le **détecteur d'images** est stoppé et la **stack courante** est marquée pour être
+      vidée au prochain démarrage de session.
 
 {{% alert color="info" %}}
 ℹ️ ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
