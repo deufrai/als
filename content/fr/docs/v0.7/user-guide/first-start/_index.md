@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-27T18:50:03Z
+lastmod: 2024-12-28T03:19:13Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -197,7 +197,7 @@ Dans toute cette documentation, nous utiliserons le terme **stack courante** pou
     - Pendant que la session est en cours, chaque nouvelle image détectée est alignée sur l'image de référence, puis
       ajoutée à la stack courante, par moyenne ou somme. Les résultats successifs de cet empilement sont traités et
       affichés par l'application.
-    - L'utilisateur gère la session en utilisant les contrôles `START` `PAUSE` et `STOP`.
+    - L'utilisateur gère le déroulement de la session en utilisant les boutons `START` `PAUSE` et `STOP`.
     - Avec `PAUSE`, on arrête temporairement la détection d'images, mais la stack courante est conservée. Reprendre la
       session avec `START` relance la détection avec la stack existante.
 
