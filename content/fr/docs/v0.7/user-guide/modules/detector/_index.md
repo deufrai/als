@@ -2,12 +2,14 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-28T23:45:25Z
+lastmod: 2024-12-29T00:38:38Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
 weight: 350
 ---
+
+# Introduction
 
 Le module **détecteur d'images** est le point d'entrée de vos brutes dans ALS.
 

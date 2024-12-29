@@ -12,8 +12,8 @@
         <div class="als-doc-content">
             {{ .Content }}
         </div>
-        {{ partial "doc-navigation-buttons.html" . }}
         {{ partial "section-index.html" . -}}
+        {{ partial "doc-navigation-buttons.html" . }}
         {{ partial "feedback.html" . -}}
         {{ if (.Site.Config.Services.Disqus.Shortname) -}}
             <br/>
