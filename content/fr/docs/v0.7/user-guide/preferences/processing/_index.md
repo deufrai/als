@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T02:17:04Z
+lastmod: 2024-12-29T05:01:25Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -103,11 +103,11 @@ Un seul réglage : la matrice de Bayer à utiliser
 
 Les choix possibles sont :
 
-- AUTO : ALS utilise la matrice décrite dans les entêtes de l'image
-- GRBG
-- RGGB
-- GBRG
-- BGGR
+- **AUTO** : Utilise la matrice décrite dans les métadonnées des images
+- **GRBG**
+- **RGGB**
+- **GBRG**
+- **BGGR**
 
 {{< center >}}
 {{< figure src="debayer.png"

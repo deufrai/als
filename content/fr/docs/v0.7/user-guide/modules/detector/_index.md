@@ -2,38 +2,32 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T00:38:38Z
+lastmod: 2024-12-29T05:01:25Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
 weight: 350
 ---
 
-# Introduction
+# Présentation
 
 Le module **détecteur d'images** est le point d'entrée de vos brutes dans ALS.
 
-Il surveille le **dossier scanné** et fournit les images détectées aux autres modules. 
+Il surveille le **dossier scanné** et fournit les images détectées aux autres modules.
 
-{{% alert color="info" %}}
-ℹ️ La détection fonctionne quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
-{{% /alert %}}
+# Configuration
 
-# Influences
-
-
-| Configuré par | Documentation                                                      |
-|---------------|--------------------------------------------------------------------|
-| Préférences   | [Chemin du dossier scanné](../../preferences/general/#scan-folder) |
-| Interface     | ∅                                                                  |
+| Source                                                                      | Paramètre                |
+|-----------------------------------------------------------------------------|--------------------------|
+| [Préférences : Onglet Général](../../preferences/general/#scan-folder) | Chemin du dossier scanné |  
 
 
+# Contrôle
 
-| Contrôlé par | Documentation                                                                            |
-|--------------|------------------------------------------------------------------------------------------|
-| Interface    | [Contrôles de session](../../als-gui/controls/#session-controls)                         |
-| Menus        | ∅                                                                                        |
-| Raccourcis   | - `R` bascule marche/arrêt dans la session courante<br> - `X` arrêt + clôture de session |
+| Source                                                                       | Action                                                                                   |
+|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| [Interface : Contrôles de session](../../als-gui/controls/#session-controls) | marche/arrêt                                                                             |
+| Raccourcis                                                                   | - `R` bascule marche/arrêt dans la session courante<br> - `X` arrêt + clôture de session |
 
 # Entrée
 
@@ -44,7 +38,11 @@ Il surveille le **dossier scanné** et fournit les images détectées aux autres
 
 # Comportement
 
-1. Charge l'image en mémoire, avec toutes les métadonnées disponibles
+1. Charge en mémoire l'image détectée, avec toutes ses métadonnées
+
+{{% alert color="info" %}}
+ℹ️ La détection fonctionne quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
+{{% /alert %}}
 
 # Sortie
 

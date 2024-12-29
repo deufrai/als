@@ -3,7 +3,7 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-28T23:45:25Z
+lastmod: 2024-12-29T05:01:25Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -92,6 +92,8 @@ Le module **pre-process** regroupe les traitements suivants, habituels en calibr
    Les images couleur au format FITS ou Raw sont converties en couleur RVB en utilisant la matrice de Bayer décrite
    dans les entêtes du fichier.
 
+La documentation détaillée du module **Pre-process** est [ici](../modules/preprocess/)
+
 ### Stack {#stack-module}
 
 Le module **Stack** maintient la stack courante et prend en charge les traitements suivants :
@@ -159,7 +161,7 @@ bon fonctionnement de l'application :
 Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les transmettre au
 module **Pre-process**.
 
-La documentation détaillée du module **détecteur d'images** est [ici](..//modules/detector/)
+La documentation détaillée du module **détecteur d'images** est [ici](../modules/detector/)
 
 ### Serveur d'image
 

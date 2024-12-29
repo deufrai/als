@@ -1,8 +1,8 @@
 ---
-title: "PreProcess"
+title: "Pre-process"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T00:38:38Z
+lastmod: 2024-12-29T05:01:25Z
 keywords: ["ALS pre-process"]
 draft: false
 type: "docs"
@@ -11,27 +11,18 @@ weight: 352
 
 # Introduction
 
-Le Module **Pre-Process** execute plusieurs traitements de calibration et de mise en conformité des images
+Le Module **Pre-Process** execute plusieurs traitements de calibration d'image
 
-# Influences
+# Configuration
+
+Le module **Pre-process** n'a besoin d'aucune configuration
+
+# Contrôle
 
 Le module **Pre-process** n'agit que comme orchestrateur de traitements.
 
 Il est lancé au démarrage d'ALS et **ne subit plus aucune influence extérieure** à part l'arrivée des images dans 
 sa file d'attente.
-
-| Configuré par | Documentation                                                      |
-|---------------|--------------------------------------------------------------------|
-| Préférences   | ∅ |
-| Interface     | ∅                                                                  |
-
-
-
-| Contrôlé par | Documentation                                                                            |
-|--------------|------------------------------------------------------------------------------------------|
-| Interface    | ∅                |
-| Menus        | ∅                                                                                        |
-| Raccourcis   | ∅|
 
 # Entrée
 
@@ -42,17 +33,11 @@ sa file d'attente.
 
 # Comportement
 
-Effectue 4 traitements sur l'image :
-
-  1. Suppression des pixels chauds 
-  2. Soustraction du signal de thermique 
-  3. Dématriçage
-  4. Préparation de l'image pour les modules suivants
-
-Les traitements 1 à 3 procèdent à la calibration de l'image
-
-L'étape 4 est purement technique et s'efforce de ne pas modifier la qualité de l'image
+Applique ces traitements sur l'image :
+  1. [Suppression des pixels chauds](hot_remove/)
+  2. [Soustraction du signal thermique](dark_remove/) 
+  3. [Dématriçage](debayer/)
 
 # Sortie
 
-L'image issue de l'étape 4 est transmise au module **Stack** 
+L'image issue de l'étape 3 est transmise au module **Stack** 
