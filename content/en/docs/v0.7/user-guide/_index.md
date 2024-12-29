@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-29T23:45:45Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -51,21 +51,3 @@ sub
 - ⌨️ a keyboard action is required
 - 🎛️ an action outside of ALS is required
 
-# In the shoes of the character... {#character}
-
-Throughout this journey, you will embody a new ALS user:
-
-- **Username**: Your username is **astrogeek**
-- **System used**: You use ALS on a Linux system
-- **Organization of subs**: Your acquisition system saves the subs in the **astroshots** folder of your home
-  directory, organized by target with subs in **Light** subfolders.
-
-  Example: Session on Messier 27, the subs are saved in the **astroshots/M_27/Light** folder.
-
-{{< center >}}
-{{< figure
-src="lights_placement.png"
-width="889px" height="479px"
-caption="Placement of raw images"
-alt="Placement of raw images" >}}
-{{< /center >}}

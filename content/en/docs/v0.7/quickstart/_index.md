@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T23:29:11Z
+lastmod: 2024-12-29T23:45:45Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -18,11 +18,26 @@ By the end of this chapter, you will have:
 - Configured the only required settings for a quick start with ALS's default settings.
 - Started your first stacking session and obtained your first results.
 
-{{% alert color="info" %}}
-🧠 Don't forget to put yourself [in the shoes of the character](../#character) before following this quick start guide 🌝
-{{% /alert %}}
+# In the shoes of the character... {#character}
 
-# Minimal Configuration
+Throughout this journey, you will embody a new ALS user:
+
+- **Username**: Your username is **astrogeek**
+- **System used**: You use ALS on a Linux system
+- **Organization of subs**: Your acquisition system saves the subs in the **astroshots** folder of your home
+  directory, organized by target with subs in **Light** subfolders.
+
+  Example: Session on Messier 27, the subs are saved in the **astroshots/M_27/Light** folder.
+
+{{< center >}}
+{{< figure
+src="lights_placement.png"
+width="889px" height="479px"
+caption="Placement of raw images"
+alt="Placement of raw images" >}}
+{{< /center >}}
+
+# Initial Configuration
 
 On the first start, ALS welcomes you and asks you to define two essential settings:
 

@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T18:10:20Z
+lastmod: 2024-12-29T23:45:45Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -18,12 +18,26 @@ weight: 280
 - Configuré les seuls paramètres requis pour un démarrage rapide avec les réglages par défaut d'ALS.
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
-{{% alert color="info" %}}
-🧠 N'oubliez pas de vous mettre [dans la peau du personnage](../#character) target="_blank">dans la
-peau du personnage</a> avant de suivre ce guide de démarrage 🌝
-{{% /alert %}}
+# Dans la peau du personnage... {#character}
 
-# Configuration minimale
+Tout au long de ce voyage, vous incarnerez un nouvel utilisateur d'ALS :
+
+- **Nom d'utilisateur**&nbsp;: Votre nom d'utilisateur est **astrogeek**
+- **Système utilisé**&nbsp;: Vous utilisez ALS sur un système Linux
+- **Organisation des brutes**&nbsp;: votre système d'acquisition enregistre les brutes dans le dossier **astroshots** de
+  votre dossier personnel, organisées par cible avec les brutes dans des sous-dossiers **Light**.
+
+  Exemple : Session sur Messier 27, les brutes sont enregistrées dans le dossier **astroshots/M_27/Light**.
+
+{{< center >}}
+{{< figure
+src="lights_placement.png"
+width="888px" height="484px"
+caption="Emplacement des brutes"
+alt="Emplacement des brutes" >}}
+{{< /center >}}
+
+# Configuration initiale
 
 Lors du premier démarrage, ALS vous accueille et vous demande de définir deux réglages essentiels :
 
