@@ -3,7 +3,7 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-29T21:17:25Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -18,9 +18,7 @@ weight: 315
 
 # Modules
 
-ALS est architecturé en modules autonomes qui appliquent des **traitements** aux brutes détectées.
-
-Ces modules sont répartis en deux familles :
+ALS est architecturé en modules autonomes, répartis en deux familles :
 
 - **Modules principaux** : en charge des tâches de traitement d'image
     - **Pre-process** : Calibration
@@ -98,13 +96,13 @@ Vous trouverez plus d'information sur le module **Pre-process** dans sa [documen
 
 ### Stack {#stack-module}
 
-Le module **Stack** maintient la stack courante et prend en charge les traitements suivants :
+Le module **Stack** maintient la **stack courante** et prend en charge les traitements suivants :
 
 1. **Alignement** : Aligne l'image sur la référence de la session
 2. **Empilement**
     - Ajoute l'image à la stack courante
     - Génère le résultat de l'empilement en fonction du mode choisi par l'utilisateur (_moyenne ou somme_) et l'envoie
-      au module suivant
+      au module **Process**
 
 {{% alert color="info" %}}
 ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les images comparées. ALS ne peut donc aligner que
@@ -128,7 +126,8 @@ Le module **Process** regroupe les traitements visuels appliqués sur le résult
    Permet de régler la balance des couleurs de l'image
 
 {{% alert color="info" %}}
-ℹ️ L'image affichée dans la zone centrale d'ALS est remplacée par chaque image se présentant en sortie de ce module
+ℹ️ L'image affichée dans la **zone centrale** d'ALS est remplacée par chaque image se présentant en sortie du module
+**Process**.
 {{% /alert %}}
 
 ### Sauvegarde {#save-module}
