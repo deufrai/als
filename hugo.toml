@@ -82,8 +82,8 @@ enableGitInfo = true
 
     [[languages.fr.menu.main]]
       identifier = "blog"
-      name = "Blog"
-      url = "/blog/"
+      name = "News"
+      url = "/fr/blog/"
       weight = 18
 
     [[languages.fr.menu.main]]
@@ -109,6 +109,12 @@ enableGitInfo = true
       name = "Contributors"
       url = "/contributors/"
       weight = 15
+
+    [[languages.en.menu.main]]
+      identifier = "blog"
+      name = "News"
+      url = "/blog/"
+      weight = 18
 
     [[languages.en.menu.main]]
       identifier = "docs"
