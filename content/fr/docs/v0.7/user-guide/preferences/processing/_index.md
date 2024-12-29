@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-29T22:57:32Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -90,8 +90,8 @@ height="139px"
 alt="Réglages de soustraction du signal thermique" >}}
 {{< /center >}}
 
-1. La case à cocher `soustraction de dark` permet d'activer la soustraction. 
-2. Le bouton `Modifier...` permet de désigner le fichier master dark à utiliser pour la soustraction.
+1. Activez la soustraction avec la case à cocher `soustraction de dark` 
+2. Clickez le bouton `Modifier...` pour choisir le fichier master dark à utiliser pour la soustraction.
 3. Le bouton `Vider` permet de vider le chemin du fichier master dark.
 
 {{% alert color="warning" %}}
@@ -102,7 +102,7 @@ alt="Réglages de soustraction du signal thermique" >}}
 ℹ️ Il n'est pas obligatoire que les formats de données du master dark et de l'image soient identiques.
 
   En cas de différence (_ex. master dark en flottants 32bits et brute en entiers 16bits_) : 
-  - une conversion du master dark est opérée avant la soustraction
+  - le master dark est converti avant son utilisation
   - la différence de format est signalée discrètement dans le journal de session
 {{% /alert %}}
 

@@ -3,7 +3,7 @@ title: "Basic Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T21:17:25Z
+lastmod: 2024-12-29T22:57:31Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -82,7 +82,7 @@ The **pre-process** module groups the following **calibration** processes:
 
    Uses a master dark provided by the user to subtract thermal noise from the image.
 
-3. **Demosaicing**
+3. **Debayering**
 
    **Color** images in **FITS** or **Raw** format are converted to RGB color using the Bayer matrix described in the
    file headers.

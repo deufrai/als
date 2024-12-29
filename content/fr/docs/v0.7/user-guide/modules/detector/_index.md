@@ -2,7 +2,7 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-29T22:57:32Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
@@ -37,9 +37,9 @@ Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Entrée
 
-| Type      | Description |
-|-----------|-------------|
-| Événement | Nouvelle image détectée dans le **dossier scanné** |
+| Type      | Description                                                  |
+|-----------|--------------------------------------------------------------|
+| Événement | Une nouvelle brute a été détectée dans le **dossier scanné** |
 
 
 # Comportement
