@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T06:25:00Z
+lastmod: 2024-12-29T20:11:36Z
 keywords: ["ALS general settings", "préférences générales ALS"]
 draft: false
 type: "docs"
@@ -48,7 +48,14 @@ Ici sont configurés les chemins des dossiers critiques pour le fonctionnement d
 
 ## Dossier scanné {#scan-folder}
 
-Configure le dossier surveillé par le module **Détecteur d'images**.
+- Chemin du dossier scanné
+
+    |           |                                                     |
+    |-----------|-----------------------------------------------------|
+    |Type de donnée       | Chemin vers un dossier|
+    | Requis | Oui |
+    | Valeur par défaut | ∅ |
+
 
 {{< center >}}
 {{< figure src="scan_folder_01.png"
@@ -58,14 +65,8 @@ height="133px"
 alt="Préférences dossier scanné" >}}
 {{< /center >}}
 
-1. Un clic sur le bouton `Modifier` permet de choisir le dossier à surveiller.
+1. Un clic sur le bouton `Modifier` permet de désigner le **dossier scanné**.
 2. Le chemin configuré est affiché à droite du bouton
-
-|           |                                                     |
-|-----------|-----------------------------------------------------|
-|Type de donnée       | Chemin vers un dossier|
-| Requis | Oui |
-| Valeur par défaut | ∅ |
 
 ## Dossier de travail {#work-folder}
 

@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T18:10:20Z
+lastmod: 2024-12-29T20:11:36Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -24,9 +24,17 @@ Définissons tout d'abord les termes et mises en forme que nous utiliserons tout
 brute
 : Image capturée par votre système d'acquisition
 
+calibration
+: Ensemble de traitements appliqués aux brutes dans le but d'éliminer les défauts du capteur. Cela inclut généralement
+la suppression des pixels chauds et la soustraction d'un master dark pour réduire le bruit thermique.
+
+master dark
+: Image de calibration contenant le bruit thermique du capteur. Elle est soustraite des brutes pendant la calibration 
+pour réduire le bruit thermique des images avant l'empilement.
+
 session
 : Cycle de vie de la stack actuelle, commençant par la première brute détectée, traitant chaque nouvelle brute jusqu'à
-  l'arrêt de la session.
+l'arrêt de la session.
 
 stack
 : Ensemble des brutes empilées depuis le démarrage de la session

@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:45:18Z
+lastmod: 2024-12-29T20:11:36Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -15,21 +15,23 @@ weight: 353
 
 Le Traitement **HotPixelRemove** supprime les pixels chauds de l'image
 
+Sa configuration est gérée via les préférences
+
 # Configuration
 
-| Source                                                                         | Paramètre                |
-|--------------------------------------------------------------------------------|--------------------------|
-| [Préférences : Onglet Traitement](../../../preferences/processing/#hot-remove) | Activation du traitement |  
+| Source                                                                         | Paramètre |
+|--------------------------------------------------------------------------------|-----------|
+| [Préférences : Onglet Traitement](../../../preferences/processing/#hot-remove) | ON/OFF    |  
 
 # Contrôle
 
-Ce traitement est appliqué par le module **Pre-Process** sur chaque image reçue
+Ce traitement est ordonné par le module **Pre-Process**
 
 # Entrée
 
 | Type  | Description                                  |
 |-------|----------------------------------------------|
-| Image | image reçue du module parent **Pre-process** |
+| Image | image reçue du module **Pre-process** |
 
 
 # Comportement
@@ -40,4 +42,4 @@ Sa valeur est remplacée par la valeur moyenne de ses voisins.
 
 # Sortie
 
-L'image est rendue au module **Pre-Process** pour la suite du traitement
+L'image modifiée est renvoyée au module **Pre-Process**

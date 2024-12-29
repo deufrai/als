@@ -3,12 +3,12 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T06:00:31Z
+lastmod: 2024-12-29T20:11:36Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
-categories: ["guide utilisateur"] 
-tags: ["bases", "module", "traitement", "session", "dossier scanné", "dossier de travail"]
+categories: [ "guide utilisateur" ]
+tags: [ "bases", "module", "traitement", "session", "dossier scanné", "dossier de travail" ]
 weight: 315
 ---
 
@@ -18,12 +18,12 @@ weight: 315
 
 # Modules
 
-ALS est architecturé en modules autonomes qui appliquent des **traitements** aux images détectées.
+ALS est architecturé en modules autonomes qui appliquent des **traitements** aux brutes détectées.
 
 Ces modules sont répartis en deux familles :
 
-- **Modules principaux** : en charge des traitements d'image
-    - **Pre-process** : Pré-traitements astrophoto
+- **Modules principaux** : en charge des tâches de traitement d'image
+    - **Pre-process** : Calibration
     - **Stack** : Alignement et empilement
     - **Process** : Traitements visuels
     - **Sauvegarde** : Enregistrement sur disque
@@ -34,7 +34,7 @@ Ces modules sont répartis en deux familles :
 
 ## Trajet d'une image
 
-Chaque image détectée voyage de module en module, dans l'ordre suivant :
+Chaque image détectée passe de module en module, dans l'ordre suivant :
 
 ```mermaid
 graph LR
@@ -58,9 +58,10 @@ graph LR
 
 ## Modules principaux
 
-Ces modules servent à regrouper et ordonnancer les traitements d'image en fonction de leur nature.
+Ces modules regroupent et ordonnent les traitements à appliquer aux images à mesure de leur cheminement dans la chaîne
+de traitement.
 
-Chacun possède sa file d'attente et exécute en boucle les actions suivantes :
+Chaque module possède sa file d'attente et exécute en boucle les actions suivantes :
 
 1. Attend qu'une nouvelle image se présente en file d'attente
 2. Traite l'image
@@ -75,10 +76,10 @@ En cas d'erreur pendant le traitement d'une image :
 ### Pre-process {#pre-process-module}
 
 {{% alert color="info" %}}
-ℹ️ Dès qu'une nouvelle image est détectée, elle est ajoutée à la file d'attente de ce module.
+ℹ️ Dès qu'une nouvelle brute est détectée, elle est ajoutée à la file d'attente de ce module.
 {{% /alert %}}
 
-Le module **pre-process** regroupe les traitements suivants, habituels en calibration d'astrophoto :
+Le module **pre-process** regroupe les traitements de calibration suivants :
 
 1. **Suppression des pixels chauds**
 
@@ -90,10 +91,10 @@ Le module **pre-process** regroupe les traitements suivants, habituels en calibr
 
 3. **Dématriçage**
 
-   Les images couleur au format FITS ou Raw sont converties en couleur RVB en utilisant la matrice de Bayer décrite
-   dans les entêtes du fichier.
+   Les images **couleur** au format **FITS** ou **Raw** sont converties en couleur RVB en utilisant la matrice de Bayer
+   décrite dans les entêtes du fichier.
 
-La documentation détaillée du module **Pre-process** est [ici](../modules/preprocess/)
+Vous trouverez plus d'information sur le module **Pre-process** dans sa [documentation détaillée](../modules/preprocess/) 
 
 ### Stack {#stack-module}
 
@@ -162,7 +163,8 @@ bon fonctionnement de l'application :
 Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les transmettre au
 module **Pre-process**.
 
-La documentation détaillée du module **détecteur d'images** est [ici](../modules/detector/)
+Vous trouverez plus d'information sur le module **détecteur d'images** dans 
+sa [documentation détaillée](../modules/detector/)
 
 ### Serveur d'image
 
@@ -188,7 +190,7 @@ et le **détecteur d'images**.
 
 1. **Démarrage** :
     - ALS démarre le **détecteur d'images** et vide **la stack courante**.
-    - **Première Détection** : La première image reçue par le module **Stack** servira de **référence pour 
+    - **Première Détection** : La première image reçue par le module **Stack** servira de **référence pour
       l'alignement** durant toute la session.
 
 2. **Déroulement** :

@@ -2,7 +2,7 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T06:00:31Z
+lastmod: 2024-12-29T20:11:36Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
@@ -15,7 +15,11 @@ weight: 350
 
 Le module **détecteur d'images** est le point d'entrée de vos brutes dans ALS.
 
-Il surveille le **dossier scanné** et fournit les images détectées aux autres modules.
+Il surveille le **dossier scanné** et fournit les images détectées au module **Pre-Process**.
+
+Sa configuration est gérée via les préférences.
+
+Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Configuration
 
@@ -26,10 +30,10 @@ Il surveille le **dossier scanné** et fournit les images détectées aux autres
 
 # Contrôle
 
-| Source                                                                       | Action                                                                                   |
-|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| [Interface : Contrôles de session](../../als-gui/controls/#session-controls) | marche/arrêt                                                                             |
-| Raccourcis                                                                   | - `R` bascule marche/arrêt dans la session courante<br> - `X` arrêt + clôture de session |
+| Source                                                                       | Action                                                                           |
+|------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [Interface : Contrôles de session](../../als-gui/controls/#session-controls) | ON/OFF                                                                           |
+| Raccourcis                                                                   | - `R` bascule ON/OFF dans la session courante<br> - `X` OFF + clôture de session |
 
 # Entrée
 

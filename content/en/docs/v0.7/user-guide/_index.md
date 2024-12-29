@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-29T18:10:20Z
+lastmod: 2024-12-29T20:11:36Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -21,15 +21,23 @@ First, let's define the terms and formatting we will use throughout this guide.
 
 ## Glossary
 
-sub
-: Image captured by your acquisition system
+calibration
+: Set of processes applied to subs to eliminate sensor defects. This generally includes hot pixel removal and the
+subtraction of a master dark to reduce thermal noise.
+
+master dark
+: Calibration image containing the sensor's thermal noise. It is subtracted from the subs during calibration to reduce
+thermal noise in the images before stacking.
 
 session
 : the lifecycle of the current stack, starting with the first detected sub, processing each new sub until the session is
-  stopped.
+stopped.
 
 stack
 : Set of subs stacked since the start of the session
+
+sub
+: Image captured by your acquisition system
 
 ## Typography
 
