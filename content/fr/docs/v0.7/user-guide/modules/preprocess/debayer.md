@@ -2,7 +2,7 @@
 title: "Dématriçage"
 description: "Documentation détaillée du traitement de dématriçage d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-29T23:03:09Z
 keywords: ["ALS debayer", "ALS dépatriçage"]
 draft: false
 type: "docs"
@@ -24,7 +24,7 @@ Sa configuration est gérée via les préférences
 
 | Source                                                                         | Paramètre                |
 |--------------------------------------------------------------------------------|--------------------------|
-| [Préférences : Onglet Traitement](../../../preferences/processing/#demosaic) | Matrice de Bayer |  
+| [Préférences : Onglet Traitement](../../../preferences/processing/#debayer) | Matrice de Bayer |  
 
 # Contrôle
 

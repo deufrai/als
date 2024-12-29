@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:32Z
+lastmod: 2024-12-29T23:03:09Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -23,7 +23,7 @@ Cet onglet ne contient qu'une seule section : [Pre-processing](#preprocess)
 Elle regroupe les réglages des traitements gérés par le module [**Pre-process**](../../modules/preprocess/) :
 - [Suppression des pixels chauds](#hot-remove)
 - [Soustraction de dark](#dark-remove)
-- [Dématriçage](#demosaic)
+- [Dématriçage](#debayer)
 
 </div>
 <div class="col-md-6 d-flex align-items-center justify-content-center">
@@ -106,7 +106,7 @@ alt="Réglages de soustraction du signal thermique" >}}
   - la différence de format est signalée discrètement dans le journal de session
 {{% /alert %}}
 
-## Dématriçage {#demosaic}
+## Dématriçage {#debayer}
 
 - Matrice de Bayer à utiliser
     

@@ -2,7 +2,7 @@
 title: "Pre-process"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-29T23:03:09Z
 keywords: [ "ALS pre-process" ]
 draft: false
 type: "docs"
@@ -38,7 +38,7 @@ des images dans sa file d'attente.
 Applique ces traitements sur l'image :
 
 1. [Suppression des pixels chauds](hot_remove/)
-2. [Soustraction du signal thermique](dark_remove/)
+2. [Soustraction de dark](dark_remove/)
 3. [Dématriçage](debayer/)
 
 # Sortie
