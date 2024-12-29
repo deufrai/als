@@ -2,10 +2,12 @@
 title: "Modules et traitements"
 description: "Les modules et traitements d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T00:38:38Z
+lastmod: 2024-12-29T05:45:18Z
 keywords: ["ALS modules and processes", "modules et traitements ALS"]
 draft: false
 type: "docs"
+categories: ["guide utilisateur"] 
+tags: [ "module" ]
 weight: 345
 ---
 

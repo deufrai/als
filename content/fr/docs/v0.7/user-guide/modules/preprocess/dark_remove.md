@@ -2,10 +2,12 @@
 title: "Soustraction du signal thermique"
 description: "Documentation détaillée du traitement RemoveDark d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:01:25Z
+lastmod: 2024-12-29T05:45:18Z
 keywords: ["ALS dark current subtractor", "ALS soustraction de signal thermique"]
 draft: false
 type: "docs"
+categories: ["guide utilisateur"] 
+tags: ["traitement", "dark"]
 weight: 354
 ---
 

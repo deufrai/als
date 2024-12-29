@@ -2,10 +2,12 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:01:25Z
+lastmod: 2024-12-29T05:45:18Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
+categories: ["guide utilisateur"] 
+tags: ["preferences", "traitement" ]
 weight: 332
 ---
 

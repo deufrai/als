@@ -2,10 +2,12 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:01:25Z
+lastmod: 2024-12-29T05:45:18Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
+categories: ["guide utilisateur"] 
+tags: ["module" ]
 weight: 350
 ---
 

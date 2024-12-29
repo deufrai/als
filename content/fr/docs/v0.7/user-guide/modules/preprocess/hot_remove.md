@@ -2,10 +2,12 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:01:25Z
+lastmod: 2024-12-29T05:45:18Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
+categories: ["guide utilisateur"] 
+tags: ["traitement", "pixels chauds"]
 weight: 353
 ---
 

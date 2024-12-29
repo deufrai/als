@@ -3,10 +3,12 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-28T23:45:25Z
+lastmod: 2024-12-29T05:45:18Z
 keywords: ["guide utilisateur d'ALS"]
 draft: false
 type: "docs"
+categories: ["guide utilisateur"] 
+tags: ["conventions"]
 weight: 300
 ---
 **Laissez-vous guider !** Nous allons vous montrer tout ce qu'il y a à savoir sur ALS pour une utilisation fluide et 
