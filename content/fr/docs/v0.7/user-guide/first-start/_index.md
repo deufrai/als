@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T06:00:31Z
+lastmod: 2024-12-29T17:22:37Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -224,8 +224,7 @@ alt="Journal de session" >}}
 
 --- 
 
-🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle image
-capturée.
+🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle brute détectée.
 
 À titre d'exemple, nous allons illustrer les sections suivantes avec une session sur Messier 27 : caméra ZWO ASI224MC,
 200 poses de 4 sec.
@@ -239,13 +238,13 @@ alt="Fenêtre principale d'ALS - Stack 1" >}}
 {{< /center >}}
 
 {{% alert color="info" %}}
-ℹ️ La première image détectée sert de **référence d'alignement** pour toute la session
+ℹ️ La première brute détectée sert de **référence d'alignement** pour toute la session
 {{% /alert %}}
 
 ---
 
 Toutes les nouvelles images capturées sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes
-les images déjà traitées.
+les brutes déjà traitées.
 
 {{< center >}}
 {{< figure src="stacked_15.png"
@@ -255,17 +254,17 @@ height="1053px"
 alt="Fenêtre principale d'ALS - Stack 15" >}}
 {{< /center >}}
 
-Après chaque alignement et empilement d'une nouvelle image, ALS ajuste automatiquement la luminosité et la balance
+Après chaque alignement et empilement d'une nouvelle brute, ALS ajuste automatiquement la luminosité et la balance
 des couleurs avant d'afficher le résultat dans la **zone centrale**.
 
-À mesure que vous empilez les images, vous verrez le résultat gagner en contraste et en détails. Et l'aspect
+À mesure que vous empilez les brutes, vous verrez le résultat gagner en contraste et en détails. Et l'aspect
 granuleux du fond de ciel s'estompera petit à petit.
 
 ---
 
 ## Partez à la découverte
 
-Laissez ALS travailler sur les images qui continuent d'arriver et perdez-vous un peu dans la **zone centrale** :
+Laissez ALS travailler sur les brutes qui continuent d'arriver et perdez-vous un peu dans la **zone centrale** :
 
 - 🖱️ Zoomez en utilisant la molette de votre souris
 - 🖱️ Naviguez dans l'image en la faisant glisser, comme avec tout autre logiciel de visualisation

@@ -3,42 +3,54 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-26T21:11:22Z
-keywords: ["ALS User Guide"]
+lastmod: 2024-12-29T17:22:37Z
+keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
+categories: [ "user guide" ]
+tags: [ "conventions" , "glossary" , "typography" ]
 weight: 300
 ---
-**Let yourself be guided!** We will show you everything you need to know about ALS for smooth and optimal use, tailored 
+
+**Let yourself be guided!** We will show you everything you need to know about ALS for smooth and optimal use, tailored
 to **your** needs.
 
 # Conventions
-First, let's define the context in which we will operate.
 
-## Stepping into the character...
+First, let's define the terms and formatting we will use throughout this guide.
 
-Throughout this journey, you will embody a new ALS user:
-- **Username**: Your username is **astrogeek**
-- **System used**: You use ALS on a Linux system
-- **Organization of captured images**: The images captured by your acquisition system are saved in the **astroshots** 
-folder in your home directory, organized by target with the captures in **Lights** subfolders. For example, 
-for an imaging session of Messier 27:
+## Glossary
 
-{{< center >}}
-{{< figure src="lights_placement.png" 
-    caption="raw captured images organization" 
-    width="899px" 
-    height="479px" 
-    alt="captures folder content" >}}
-{{< /center >}}
+sub
+: Image captured by your acquisition system
 
 ## Typography
 
-Throughout this documentation, the following pictograms and text styles will be used to indicate specific elements 
-and actions:
-
-- This is a `graphical user interface element`
+- This is a `graphical interface element`
 - This is an **important information**
-- This icon 🖱️ indicates that a mouse action is required
-- This icon ⌨️ indicates that a keyboard action is required
-- This icon 🎛️ indicates that an action outside of ALS is required
+- This is a ⚠️ Warning
+- This is an ℹ️ Information
+- This is a 💡 Tip
+- This is a 🧠 Reminder
+- 🖱️ a mouse action is required
+- ⌨️ a keyboard action is required
+- 🎛️ an action outside of ALS is required
+
+# In the shoes of the character...
+
+Throughout this journey, you will embody a new ALS user:
+
+- **Username**: Your username is **astrogeek**
+- **System used**: You use ALS on a Linux system
+- **Organization of subs**: Your acquisition system saves the subs in the **astroshots** folder of your home
+  directory, organized by target with subs in **Light** subfolders.
+
+  Example: Session on Messier 27, the subs are saved in the **astroshots/M_27/Light** folder.
+
+{{< center >}}
+{{< figure
+src="lights_placement.png"
+width="889px" height="479px"
+caption="Placement of raw images"
+alt="Placement of raw images" >}}
+{{< /center >}}
