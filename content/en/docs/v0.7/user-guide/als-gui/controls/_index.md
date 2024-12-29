@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-27T19:29:57Z
+lastmod: 2024-12-29T20:20:51Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -282,86 +282,10 @@ alt="Image Recorder section" >}}
 
 # Workers {#workers-section}
 
-This section provides an opportunity to fully describe the ALS architecture and the flow of images through the
-application.
-
-## ALS Architecture and worker modules
-
-All image processing tasks are distributed across four main modules.
-
-Each module is assigned a queue and processes all images in its queue sequentially.
-
-Each module places its successive processing results in the queue of the next module.
-
-The modules are organized in the following order:
-
-### Pre-process
-
-As soon as a new image is detected in the **scan folder**, it is added to the queue of this module.
-
-The **pre-process** module applies the usual astrophotography preprocessing in order :
-
-- **Hot pixel removal**: Replaces the value of hot pixels with the average value of neighboring pixels.
-  This processing can be disabled in the [ALS Preferences](../../preferences/).
-- **Dark frame subtraction**: Uses a dark frame provided by the user to subtract the thermal noise from the image. The
-  path to the dark frame and the activation of this processing are defined in the
-  [ALS Preferences](../../preferences/).
-
-  If the data format of the provided dark frame is not the same as that of the image to be processed, ALS performs a
-  conversion on-the-fly of the dark frame before subtraction.
-
-- **Demosaicing**: In the case of a color image saved in a FITS or Raw file, converts the image to RGB color using the
-  Bayer matrix described in the file headers.
-
-  <details>
-    <summary>Click here for details on the headers used</summary>
-
-    - FITS file: Standard FITS header **BAYERPAT**
-    - Raw file: Standard EXIF header
-
-  </details>
-
-  An option in the [ALS Preferences](../../preferences/) allows you to either let ALS decide or explicitly define the
-  Bayer matrix to be used. This option is useful if ALS does not correctly detect the matrix or if the file
-  does not contain the expected header.
-
-### Stack
-
-Handles the alignment and stacking of images.
-
-- **Alignment**
-    - Calculates the transformations to be applied to the current image to align it with the session reference
-    - Applies the transformations to the current image
-- **Stacking**
-    - Adds the current image to the current stack
-    - Calculates the resulting image based on the chosen stacking mode
-
-The detailed operation of these processes was covered in the [**Stack**](#stack-section) section above.
-
-### Process
-
-Post-processing module. It includes the following processes:
-
-- **Auto-stretch**: Automatically adjusts the image levels to maximize contrast
-- **Exposure settings**: Allows adjustment of the black levels, white levels, and mid-gray level of the image
-- **RGB balance**: Allows adjustment of the color balance of the image
-
-The details of these processes will be covered on the page dedicated to the **Processing** panel.
-
-### Save
-
-Image saver module.
-
-The detailed operation of the image saver was described in the [**Image Saver**](#saver-section) section above.
-
-## Modules display
-
-The **Modules** section of the panel displays, for each module:
+The **Workers** section of the panel displays the details of each main module
 
 - The size of the associated queue
-- The usage status of the module
-
-  Displays **busy** when the module is processing an image
+- The status of the module: Displays **busy** when the module is processing an image
 
 {{< center >}}
 {{< figure src="modules.png"
