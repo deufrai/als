@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T17:22:37Z
+lastmod: 2024-12-29T18:10:20Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -19,7 +19,7 @@ weight: 310
 - Lancé votre première session d'empilement et obtenu vos premiers résultats.
 
 {{% alert color="info" %}}
-🧠 N'oubliez pas de vous mettre <a href="/fr/docs/v0.7/user-guide/#dans-la-peau-du-personnage" target="_blank">dans la
+🧠 N'oubliez pas de vous mettre [dans la peau du personnage](../#character) target="_blank">dans la
 peau du personnage</a> avant de suivre ce guide de démarrage 🌝
 {{% /alert %}}
 
@@ -243,7 +243,7 @@ alt="Fenêtre principale d'ALS - Stack 1" >}}
 
 ---
 
-Toutes les nouvelles images capturées sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes
+Toutes les nouvelles brutes sont d'abord alignées sur cette référence puis empilées par moyenne avec toutes
 les brutes déjà traitées.
 
 {{< center >}}
@@ -268,10 +268,10 @@ Laissez ALS travailler sur les brutes qui continuent d'arriver et perdez-vous un
 
 - 🖱️ Zoomez en utilisant la molette de votre souris
 - 🖱️ Naviguez dans l'image en la faisant glisser, comme avec tout autre logiciel de visualisation
-- 🖱️ Réinitialisez le zoom en cliquant avec le bouton droit de la souris
+- 🖱️ Réinitialisez le zoom en cliquant avec le bouton droit de la souris dans l'image
 
-L'image dans la zone centrale sera mise à jour instantanément après le traitement de chaque nouvelle brute, sans
-interrompre votre navigation.
+L'image dans la **zone centrale** est mise à jour instantanément après le traitement de chaque nouvelle brute, sans
+interrompre la navigation.
 
 ---
 
@@ -383,7 +383,8 @@ alt="Menu système" >}}
 
 # Conclusion
 
-Nous espérons que ce chapitre vous a permis de démarrer ALS rapidement et de prendre en main les concepts de base
-d'une session de livestacking.
+ALS est maintenant correctement configuré et prêt à traiter vos brutes avec ses paramètres par défaut
 
-Prochaine étape : prise en main des concepts de base d'ALS
+Vous avez aussi terminé votre première session d'empilement et obtenu votre premier résultat.
+
+Prochaine étape : comprendre les concepts de base d'ALS

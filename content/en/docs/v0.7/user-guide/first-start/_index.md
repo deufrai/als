@@ -1,12 +1,13 @@
 ---
-title: "Quick Start"
+title: "First Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-27T18:55:57Z
-keywords: [ "ALS Quick Start" ]
+lastmod: 2024-12-29T18:10:20Z
+keywords: [ "First start with ALS" ]
 draft: false
 type: "docs"
-tags: [ 'Initial setup', 'First Steps', 'Basics' ]
+categories: [ "user guide" ]
+tags: [ "basics", "linux", "scan folder", "session", "work folder" ]
 weight: 310
 ---
 
@@ -17,56 +18,61 @@ By the end of this chapter, you will have:
 - Configured the only required settings for a quick start with ALS's default settings.
 - Started your first stacking session and obtained your first results.
 
-{{% alert title="ℹ️ INFO" color="info" %}}
-Don't forget to <a href="../#stepping-into-the-character" target="_blank">step into the character</a>
-before following this quick start guide 🌝
+{{% alert color="info" %}}
+🧠 Don't forget to put yourself [in the shoes of the character](../#character) before following this quick start guide 🌝
 {{% /alert %}}
 
 # Minimal Configuration
 
-Upon first launch, ALS welcomes you and prompts you to set two essential settings:
+On the first start, ALS welcomes you and asks you to define two essential settings:
 
-- **Scan Folder**: The folder where ALS monitors the arrival of new raw images.
-- **Work Folder**: The folder where ALS saves the produced images.
+- **Scan folder**: The folder where ALS monitors the arrival of new subs.
+- **Work folder**: The folder where ALS saves the produced images.
 
 {{< center >}}
 {{< figure src="welcome.png"
-caption="Welcome Message"
+caption="Welcome message"
 width="382px"
 height="172px"
-alt="Welcome Message" >}}
+alt="Welcome message" >}}
 {{< /center >}}
 
 🖱️ Click `OK` to access the preferences.
 
 ---
 
-## Configuring the Critical Folders
+## Configure Critical Folders
 
 The critical folders are defined in the **Paths** section of the **General** tab.
 
 ### Scan Folder
 
-Set up ALS to monitor the **astroshots** folder:
+ALS monitors the arrival of new subs in this folder.
+
+{{% alert color="info" %}}
+ℹ️ Detection works regardless of the subfolder structure inside the **scan folder**.
+{{% /alert %}}
+
+Configure ALS to monitor the **astroshots** folder:
 
 {{< center >}}
 {{< figure src="prefs_01.png"
-caption="Button to set the **Scan Folder**"
+caption="Button to set the **scan folder**"
 width="628px"
 height="250px"
-alt="Preferences Paths section" >}}
+alt="Preferences paths section" >}}
 {{< /center >}}
 
-🖱️ Click `Change...` next to **Scan Folder**. A folder selector appears...
+🖱️ Click `Change...` next to **Scan folder**. A folder selector appears...
 
 ---
 
 {{< center >}}
 {{< figure src="prefs_02.png"
-caption="The **Scan Folder** selector"
+caption="The **scan folder** selector"
 width="635px"
 height="443px"
-alt="Scan Folder selector" >}}
+alt="Scan folder selector" >}}
 {{< /center >}}
 
 1. 🖱️ Select the **astroshots** folder.
@@ -80,13 +86,13 @@ Create a subfolder for ALS named **als_output** in your home directory:
 
 {{< center >}}
 {{< figure src="prefs_03.png"
-caption="Button to set the **Work Folder**"
+caption="Button to set the **work folder**"
 width="628px"
 height="252px"
-alt="Preferences Paths section" >}}
+alt="Preferences paths section" >}}
 {{< /center >}}
 
-🖱️ Click `Change...` next to **Work Folder**. A folder selector appears...
+🖱️ Click `Change...` next to **Work folder**. A folder selector appears...
 
 ---
 
@@ -98,7 +104,7 @@ height="455px"
 alt="Create new folder button" >}}
 {{< /center >}}
 
-🖱️ Click `Create New Folder`.
+🖱️ Click `Create new folder`.
 
 ---
 
@@ -107,7 +113,7 @@ alt="Create new folder button" >}}
 caption="New folder ready to be renamed"
 width="635px"
 height="443px"
-alt="Rename new folder - step 1" >}}
+alt="Renaming the new folder - step 1" >}}
 {{< /center >}}
 
 A new folder appears, ready to be renamed.
@@ -119,21 +125,19 @@ A new folder appears, ready to be renamed.
 caption="New folder renamed and confirmed"
 width="635px"
 height="443px"
-alt="Rename new folder - step 2" >}}
+alt="Renaming the new folder - step 2" >}}
 {{< /center >}}
 
 - ⌨️ Name it **als_output**.
 - 🖱️ Click `Choose`.
 
----
-
-**ℹ️ Don't validate the preferences just yet**, there's one more important point to cover
-
----
+{{% alert color="warning" %}}
+**⚠️ Do not confirm the preferences yet**, there is one important point left:
+{{% /alert %}}
 
 ## Usage Statistics
 
-It's very useful for us to know which versions of ALS are being used and on which platform.
+It is very useful for us to know which versions of ALS are being used and on which platform.
 
 {{< center >}}
 {{< figure src="prefs_07.png"
@@ -143,65 +147,40 @@ height="607px"
 alt="Preferences screen - General tab" >}}
 {{< /center >}}
 
-We would be very grateful if you allow ALS to send us usage statistics, but we also understand if you're hesitant to
-enable this feature.
+We would be very grateful if you allow ALS to send us usage statistics, but we also understand that you may be reluctant
+to enable such a feature.
 
 Please note that:
 
-- ALS will send us **only** the following information at each startup:
+- ALS will **only** send the following information at each startup:
     - ALS version.
     - Processor type.
     - Operating system type.
-- We are not attempting to identify or geolocate the source of this information.
+- We do not seek to identify or geolocate the source of this information.
 
 <details>
     <summary>Click here to see how you can verify these claims yourself</summary>
 
-ALS and our tracking tools are **opensource** software, and their source code is publicly available.
+ALS and our tracking tools are **opensource** software, their source code is publicly available.
 
-- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">ALS statistics sending
-  code</a> <i class="fa-brands fa-square-github"></i>
-- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">Statistics recording
-  code on our servers</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code for sending
+  statistics by ALS</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code for recording
+  received statistics by our servers</a> <i class="fa-brands fa-square-github"></i>
 
 </details>
 
 ---
 
-🖱️ Then click `OK` to validate the preferences.
+🖱️ Once you have made your choice, click `OK` to confirm the preferences.
 
 ---
 
-# Your First Session
-
-## Definition of an ALS session {#session-definition}
-
-**An ALS session** is a period during which ALS controls the detection of new images and the current image stack.
-
-1. **Start**:
-    - The session begins when you press `START`. This activates the file detection module, clears the current stack, and
-      prepares the session for new images.
-    - **First Detection**: The first detected image becomes the alignment reference for the current session.
-
-2. **Image Processing**:
-    - While the session is running, each new detected image is aligned with the reference image and then added to
-      the current stack, either by averaging or summing. The successive results of this stacking are processed and
-      displayed by the application.
-    - The user manages the session using the `START` `PAUSE` and `STOP` controls.
-    - With `PAUSE`, image detection is temporarily halted, but the current stack is retained. Resuming the session with
-      `START` restarts detection with the existing stack.
-
-3. **Stop**:
-    - When you press `STOP`, image detection stops, and the current stack is marked to be reset at the next session
-      start done with `START`.
-
-{{% alert title="ℹ️ INFO" color="info" %}}
-ALS does not process images already present in the **scan folder** when a session starts.
-{{% /alert %}}
+# Your Very First Session
 
 {{< center >}}
 {{< figure src="ready.png"
-caption="ALS ready to start its first session"
+caption="ALS ready to start its very first session"
 width="1920px"
 height="1053px"
 alt="ALS main window" >}}
@@ -211,24 +190,24 @@ alt="ALS main window" >}}
 
 {{< center >}}
 {{< figure src="start.png"
-caption="Session start button"
+caption="The session start button"
 width="297px"
 height="162px"
-alt="Session control panel before starting" >}}
+alt="Session control panel before start" >}}
 {{< /center >}}
 
-🖱️ Click `START` in the **session** section at the top left.
+🖱️ Click `START` in the **session** section at the top left
 
---- 
+---
 
-ALS confirms the session has started correctly:
+ALS confirms the successful session start:
 
 {{< center >}}
 {{< figure src="started.png"
-caption="Session status and control buttons updated"
+caption="The session control buttons and session status are updated"
 width="297px"
 height="162px"
-alt="Session control panel after starting" >}}
+alt="Session control panel after start" >}}
 {{< /center >}}
 
 {{< center >}}
@@ -239,27 +218,29 @@ height="166px"
 alt="Session log" >}}
 {{< /center >}}
 
---- 
+---
 
-🎛️ Now start acquiring with your usual system. ALS detects and processes each new captured image.
+🎛️ Now start the acquisitions with your usual system. ALS detects and processes each new sub.
 
-As an example, we'll illustrate the following sections with a session on Messier 27 : ZWO ASI224MC camera, 200 x 4 sec.
+As an example, we will illustrate the following sections with a session on Messier 27: ZWO ASI224MC camera, 200 x 4 sec.
 subs
 
 {{< center >}}
 {{< figure src="stacked_01.png"
-caption="ALS after processing the 1<sup>st</sup> image"
+caption="ALS after processing the 1<sup>st</sup> sub"
 width="1920px"
 height="1053px"
 alt="ALS main window - Stack 1" >}}
 {{< /center >}}
 
-The first detected image serves as the **alignment reference** of subsequent images.
+{{% alert color="info" %}}
+ℹ️ The first detected sub serves as the **alignment reference** for the entire session
+{{% /alert %}}
 
 ---
 
-All new captured images are first aligned to this reference and then stacked by averaging with all previously processed
-images.
+All new subs are first aligned to this reference and then stacked by averaging with all previously processed
+subs.
 
 {{< center >}}
 {{< figure src="stacked_15.png"
@@ -269,52 +250,50 @@ height="1053px"
 alt="ALS main window - Stack 15" >}}
 {{< /center >}}
 
-After each alignment and stacking of a new image, ALS automatically adjusts the brightness and color balance before
+After each alignment and stacking of a new sub, ALS automatically adjusts the brightness and color balance before
 displaying the result in the **central area**.
 
-As you stack images, you will see the result gain in contrast and detail. The graininess of the sky background will
-gradually fade.
+As you stack more subs, you will see the result gain in contrast and detail. The grainy appearance of the sky background
+will gradually fade away.
 
 ---
 
-## Explore the Image
+## Explore
 
-Let ALS work on the images that keep coming in and lose yourself a bit in the **central area**:
+Let ALS work on the subs that keep coming in and lose yourself a bit in the **central area**:
 
-- 🖱️ Zoom in & out using your mouse wheel.
-- 🖱️ Navigate the image by dragging it, just like with any other visualization software.
-- 🖱️ Reset the zoom by right-clicking.
+- 🖱️ Zoom in and out using your mouse wheel
+- 🖱️ Navigate the image by dragging it, like with any other viewing software
+- 🖱️ Reset the zoom by right-clicking in the image
 
-The image in the central area will update instantly after ALS processes each new captured image, without interrupting
-your
-navigation.
+The image in the **central area** is instantly updated after each sub is processed, with no impact on navigation.
 
 ---
 
 {{< center >}}
 {{< figure src="stacked_200.png"
-caption="ALS after processing the 200<sup>th</sup> image. A beautiful, detailed, and smooth image"
+caption="ALS after processing the 200<sup>th</sup> image. A beautiful, detailed, and smoothed image"
 width="1920px"
 height="1053px"
 alt="ALS main window - Stack 200" >}}
 {{< /center >}}
 
-This quick start guide doesn't cover other ALS features and settings. However, ALS is designed to be very intuitive.
-Feel free to explore and experiment with the different controls located on the right side of the screen in the
+This quick start guide does not cover the other features and settings of ALS. However, ALS has been designed to be very
+intuitive. Feel free to explore and experiment with the various controls located on the right side of the screen in the
 **Processing** section.
 
 ---
 
 ## Stopping the Session
 
-Our quick tour is coming to an end; stop the current session.
+Our express guided tour is coming to an end, stop the current session.
 
 {{< center >}}
 {{< figure src="stopping.png"
-caption="Session stop button"
+caption="The session stop button"
 width="305px"
 height="165px"
-alt="Session control panel before stopping" >}}
+alt="Session control panel before stop" >}}
 {{< /center >}}
 
 🖱️ Click `STOP` in the **session** section at the top left. A confirmation window appears...
@@ -331,7 +310,7 @@ alt="Session stop confirmation" >}}
 
 🖱️ Click `Yes`
 
-You will find the final result of this session in a file named **stack_image.jpg** saved in the **Work Folder**.
+You will find the final result of this session in the file named **stack_image.jpg** saved in the **work folder**
 
 ---
 
@@ -343,41 +322,41 @@ This section is exclusively for ALS users on Linux, whether on PC or Raspberry P
 {{< center >}}
 {{< figure src="launcher_menu.png"
 caption="Launcher creation menu"
-width="537px"
-height="194px"
+width="491px"
+height="197px"
 alt="Menu entry for launcher creation" >}}
 {{< /center >}}
 
-🖱️ Open the **Utilities** menu in ALS and select the **Create launcher** item. A file picker appears...
+🖱️ Open the **Utilities** menu and select the **Create launcher** item. A file selector appears...
 
 {{< center >}}
 <div style="display: flex; justify-content: center; gap: 1rem;">
-{{< figure src="exe_picker.png" 
-    caption="File picker for **PC**" 
-    width="661px" 
-    height="463px" 
-    alt="PC file picker" >}}
-{{< figure src="exe_picker_rpi.png" 
-    caption="File picker for **Raspberry PI**" 
-    width="661px" 
-    height="463px" 
-    alt="Raspberry Pi file picker" >}}
+{{< figure src="exe_picker.png"
+caption="File selector for **PC**"
+width="635px"
+height="443px"
+alt="PC file selector" >}}
+{{< figure src="exe_picker_rpi.png"
+caption="File selector for **Raspberry PI**"
+width="661px"
+height="463px"
+alt="Raspberry Pi file selector" >}}
 </div>
 {{< /center >}}
 
-1. 🖱️ Navigate to the folder where ALS is located
-    - **PC**: Navigate to `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Navigate to `/home/astrogeek/Applications/ALS/als-v0.7-beta8`
+1. 🖱️ Browse to the folder where ALS is located
+    - **PC**: Browse to `/home/astrogeek/Applications/ALS`
+    - **Raspberry PI**: Browse to `/home/astrogeek/Applications/ALS/als-v0.7-beta8`
 2. 🖱️ Select the executable
-    - **PC**: Select the `als-v0.7-beta8.run` file
-    - **Raspberry PI**: Select the `als-v0.7-beta8` file
+    - **PC**: Select the file `als-v0.7-beta8.run`
+    - **Raspberry PI**: Select the file `als-v0.7-beta8`
 3. 🖱️ Click `Open`
 
-ALS confirms the launcher creation
+ALS confirms the successful creation of the launcher
 {{< center >}}
 {{< figure src="launcher_created.png"
 caption="Launcher creation confirmation window"
-width="391px"
+width="305px"
 height="129px"
 alt="Launcher creation confirmation window" >}}
 {{< /center >}}
@@ -386,17 +365,20 @@ You can now easily start ALS using your system menu
 {{< center >}}
 {{< figure src="launcher_ok.png"
 caption="ALS in the **Graphics** section of the system menu"
-width="542px"
-height="412px"
+width="536px"
+height="374px"
 alt="System menu" >}}
 {{< /center >}}
 
 </details>
 {{% /alert %}}
 
+---
+
 # Conclusion
 
-We hope this chapter has helped you quickly get started with ALS and understand the basic concepts of a livestacking
-session.
+ALS is now properly configured and ready to process your subs with its defaults settings.
 
-Next step: a deeper dive into ALS's graphical user interface.
+You have just completed your first stacking session and obtained your first result.
+
+Next step: understanding the basic concepts of ALS

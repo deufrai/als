@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-29T17:22:37Z
+lastmod: 2024-12-29T18:10:20Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -24,6 +24,13 @@ First, let's define the terms and formatting we will use throughout this guide.
 sub
 : Image captured by your acquisition system
 
+session
+: the lifecycle of the current stack, starting with the first detected sub, processing each new sub until the session is
+  stopped.
+
+stack
+: Set of subs stacked since the start of the session
+
 ## Typography
 
 - This is a `graphical interface element`
@@ -36,7 +43,7 @@ sub
 - ⌨️ a keyboard action is required
 - 🎛️ an action outside of ALS is required
 
-# In the shoes of the character...
+# In the shoes of the character... {#character}
 
 Throughout this journey, you will embody a new ALS user:
 

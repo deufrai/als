@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T17:22:37Z
+lastmod: 2024-12-29T18:10:20Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -24,6 +24,13 @@ Définissons tout d'abord les termes et mises en forme que nous utiliserons tout
 brute
 : Image capturée par votre système d'acquisition
 
+session
+: Cycle de vie de la stack actuelle, commençant par la première brute détectée, traitant chaque nouvelle brute jusqu'à
+  l'arrêt de la session.
+
+stack
+: Ensemble des brutes empilées depuis le démarrage de la session
+
 ## Typographie
 
 - Ceci est un `élémént   d'interface graphique`
@@ -36,7 +43,7 @@ brute
 - ⌨️ une action au clavier est requise
 - 🎛️ une action en dehors d'ALS est requise
 
-# Dans la peau du personnage...
+# Dans la peau du personnage... {#character}
 
 Tout au long de ce voyage, vous incarnerez un nouvel utilisateur d'ALS :
 
