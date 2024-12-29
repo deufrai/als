@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "user guide" ]
 tags: [ "basics", "linux", "scan folder", "session", "work folder" ]
-weight: 310
+weight: 280
 ---
 
 # Introduction
@@ -381,4 +381,4 @@ ALS is now properly configured and ready to process your subs with its defaults 
 
 You have just completed your first stacking session and obtained your first result.
 
-Next step: understanding the basic concepts of ALS
+Next step: diving in our user guide

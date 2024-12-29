@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["guide utilisateur"] 
 tags: ["bases", "linux", "dossier scanné", "session", "dossier de travail" ]
-weight: 310
+weight: 280
 ---
 
 # Introduction
@@ -387,4 +387,4 @@ ALS est maintenant correctement configuré et prêt à traiter vos brutes avec s
 
 Vous avez aussi terminé votre première session d'empilement et obtenu votre premier résultat.
 
-Prochaine étape : comprendre les concepts de base d'ALS
+Prochaine étape : plonger dans le guide utilisateur
