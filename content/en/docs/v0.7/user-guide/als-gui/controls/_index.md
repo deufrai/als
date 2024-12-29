@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-29T20:20:51Z
+lastmod: 2024-12-29T21:19:33Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -61,10 +61,6 @@ displays into sections.
 --- 
 
 # Session {#session-section}
-
-{{% alert title="🧠 Reminder" color="info" %}}
-The definition of an ALS session is given in [Quick start : Definition of an ALS session](../../first-start/#session-definition)
-{{% /alert %}}
 
 The **session** section of the panel includes 3 areas, from top to bottom:
 
