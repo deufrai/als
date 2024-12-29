@@ -1,9 +1,9 @@
 ---
-title: "First Start"
+title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T18:10:20Z
-keywords: [ "First start with ALS" ]
+lastmod: 2024-12-29T23:29:11Z
+keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
 categories: [ "user guide" ]
