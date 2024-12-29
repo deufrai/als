@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T06:00:31Z
+lastmod: 2024-12-29T06:25:00Z
 keywords: ["ALS general settings", "préférences générales ALS"]
 draft: false
 type: "docs"
@@ -39,6 +39,10 @@ alt="L'onglet Général des préférences" >}}
 </div>
 
 # Chemins {#paths}
+
+{{% alert color="info" %}}
+ℹ️ Ces paramètres ne sont accessibles que quand la session est stoppée
+{{% /alert %}}
 
 Ici sont configurés les chemins des dossiers critiques pour le fonctionnement d'ALS.
 

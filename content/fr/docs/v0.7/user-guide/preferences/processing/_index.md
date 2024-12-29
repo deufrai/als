@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T06:00:31Z
+lastmod: 2024-12-29T06:25:00Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -40,6 +40,9 @@ alt="L'onglet Traitement des préférences" >}}
 
 # Pre-processing {#preprocess}
 
+{{% alert color="info" %}}
+ℹ️ Ces paramètres ne sont accessibles que quand la session est stoppée
+{{% /alert %}}
 
 ## Suppression des pixels chauds {#hot-remove}
 
