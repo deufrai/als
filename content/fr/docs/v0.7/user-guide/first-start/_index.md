@@ -2,12 +2,12 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T05:45:18Z
+lastmod: 2024-12-29T06:00:31Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
 categories: ["guide utilisateur"] 
-tags: ["bases", "linux" ]
+tags: ["bases", "linux", "dossier scanné", "session", "dossier de travail" ]
 weight: 310
 ---
 

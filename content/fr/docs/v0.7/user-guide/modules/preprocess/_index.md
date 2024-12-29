@@ -2,12 +2,12 @@
 title: "Pre-process"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:45:18Z
+lastmod: 2024-12-29T06:00:31Z
 keywords: ["ALS pre-process"]
 draft: false
 type: "docs"
 categories: ["guide utilisateur"] 
-tags: ["module"]
+tags: ["module", "Pre-process"]
 weight: 352
 ---
 

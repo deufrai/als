@@ -2,11 +2,11 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:45:18Z
+lastmod: 2024-12-29T06:00:31Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["guide utilisateur"] 
-tags: ["interface", "contrôles" ]
+tags: ["interface", "contrôles", "session", "module" ]
 weight: 321
 ---
 
