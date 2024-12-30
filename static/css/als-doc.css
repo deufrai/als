@@ -33,6 +33,20 @@
     border-radius: 6px;
 }
 
+.als-ks {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    margin: 0.1rem;
+    border-radius: 2px;
+    font-weight: bold;
+    background-color: #b1b1b1;
+    color: #353535;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: nowrap;
+}
+
 dt {
     margin-top: 1rem;
 }

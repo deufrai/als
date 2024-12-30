@@ -2,7 +2,7 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:32Z
+lastmod: 2024-12-30T01:09:14Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
@@ -30,10 +30,10 @@ Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Contrôle
 
-| Source                                                                       | Action                                                                           |
-|------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| [Interface : Contrôles de session](../../als-gui/controls/#session-controls) | ON/OFF                                                                           |
-| Raccourcis                                                                   | - `R` bascule ON/OFF dans la session courante<br> - `X` OFF + clôture de session |
+| Source                                                                       | Action                                                                                                                               |
+|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| [Interface : Contrôles de session](../../als-gui/controls/#session-controls) | ON/OFF                                                                                                                               |
+| Raccourcis                                                                   | - <span class="als-ks">R</span> bascule ON/OFF dans la session courante<br> - <span class="als-ks">X</span> OFF + clôture de session |
 
 # Entrée
 

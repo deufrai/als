@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T23:45:45Z
+lastmod: 2024-12-30T01:09:14Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -42,6 +42,7 @@ stack
 ## Typographie
 
 - Ceci est un `élémént   d'interface graphique`
+- Cece est un <span class="als-ks">raccourci clavier</span>
 - Ceci est une **information importante**
 - Ceci est un ⚠️ Avertissement
 - Ceci est une ℹ️ Information

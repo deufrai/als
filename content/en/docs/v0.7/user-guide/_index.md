@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-29T23:45:45Z
+lastmod: 2024-12-30T01:09:14Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -42,6 +42,7 @@ sub
 ## Typography
 
 - This is a `graphical interface element`
+- this is a <span class="als-ks">keyboard shortcut</span>
 - This is an **important information**
 - This is a ⚠️ Warning
 - This is an ℹ️ Information
