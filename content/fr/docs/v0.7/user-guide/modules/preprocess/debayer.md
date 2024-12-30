@@ -2,7 +2,7 @@
 title: "Dématriçage"
 description: "Documentation détaillée du traitement de dématriçage d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T23:03:09Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: ["ALS debayer", "ALS dépatriçage"]
 draft: false
 type: "docs"
@@ -28,13 +28,13 @@ Sa configuration est gérée via les préférences
 
 # Contrôle
 
-Ce traitement est ordonné par le module **Pre-Process**
+Ce traitement est ordonné par le module **Preprocess**
 
 # Entrée
 
 | Type  | Description                                  |
 |-------|----------------------------------------------|
-| Image | image reçue du module parent **Pre-process** |
+| Image | image reçue du module parent **Preprocess** |
 
 
 # Comportement
@@ -43,4 +43,4 @@ L'image brute est convertie en image couleur en utilisant la matrice de Bayer co
 
 # Sortie
 
-L'image modifiée est renvoyée au module **Pre-Process**
+L'image modifiée est renvoyée au module **Preprocess**

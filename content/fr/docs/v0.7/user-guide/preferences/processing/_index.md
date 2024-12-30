@@ -2,12 +2,12 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T23:03:09Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
 categories: ["guide utilisateur"] 
-tags: ["preferences", "traitement", "Pre-process", "dématriçage", "dark", "pixels chauds"]
+tags: ["preferences", "traitement", "Preprocess", "dématriçage", "dark", "pixels chauds"]
 weight: 332
 ---
 
@@ -20,7 +20,7 @@ Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement` 
 
 Cet onglet ne contient qu'une seule section : [Pre-processing](#preprocess)
 
-Elle regroupe les réglages des traitements gérés par le module [**Pre-process**](../../modules/preprocess/) :
+Elle regroupe les réglages des traitements gérés par le module [**Preprocess**](../../modules/preprocess/) :
 - [Suppression des pixels chauds](#hot-remove)
 - [Soustraction de dark](#dark-remove)
 - [Dématriçage](#debayer)

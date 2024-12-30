@@ -3,7 +3,7 @@ title: "Basic Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T01:50:00Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -21,7 +21,7 @@ By the end of this chapter, you will know how ALS handles detected subs and what
 ALS is architected in autonomous modules, divided into two families:
 
 - **Main modules**: responsible for image processing tasks
-    - **Pre-process**: Calibration
+    - **Preprocess**: Calibration
     - **Stack**: Alignment and stacking
     - **Process**: Visual processing
     - **Save**: Disk saving
@@ -37,7 +37,7 @@ Each detected sub passes from module to module in the following order:
 ```mermaid
 graph LR
 subgraph Main Modules
-    B(Pre-process) --> C(Stack)
+    B(Preprocess) --> C(Stack)
     C --> D(Process)
     D --> E(Save)
 end
@@ -70,13 +70,13 @@ In case of an error during image processing:
 2. The skipping of the image is discreetly signaled in the application.
 3. The module resumes listening to its queue
 
-### Pre-process {#pre-process-module}
+### Preprocess {#preprocess-module}
 
 {{% alert color="info" %}}
 ℹ️ As soon as a new sub is detected, it is added to this module's queue.
 {{% /alert %}}
 
-The **pre-process** module groups the following **calibration** processes:
+The **preprocess** module groups the following **calibration** processes:
 
 1. **Hot pixel removal**
 
@@ -91,7 +91,7 @@ The **pre-process** module groups the following **calibration** processes:
    **Color** images in **FITS** or **Raw** format are converted to RGB color using the Bayer matrix described in the
    file headers.
 
-You can find more information about the **Pre-process** module in its [detailed documentation](../modules/preprocess/).
+You can find more information about the **Preprocess** module in its [detailed documentation](../modules/preprocess/).
 
 ### Stack {#stack-module}
 
@@ -158,7 +158,7 @@ of the application:
 ### Scanner
 
 This module is responsible for detecting new subs in the **scan folder** and transmitting them to the
-**Pre-process** module.
+**Preprocess** module.
 
 You can find more information about the **Scanner** module in its [detailed documentation](../modules/detector/).
 

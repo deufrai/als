@@ -2,7 +2,7 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T01:09:14Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
@@ -15,7 +15,7 @@ weight: 350
 
 Le module **détecteur d'images** est le point d'entrée de vos brutes dans ALS.
 
-Il surveille le **dossier scanné** et fournit les images détectées au module **Pre-Process**.
+Il surveille le **dossier scanné** et fournit les images détectées au module **Preprocess**.
 
 Sa configuration est gérée via les préférences.
 
@@ -52,4 +52,4 @@ Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Sortie
 
-L'image chargée est transmise au module **Pre-Process** 
+L'image chargée est transmise au module **Preprocess** 

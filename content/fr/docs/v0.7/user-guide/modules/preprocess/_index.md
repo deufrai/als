@@ -1,30 +1,30 @@
 ---
-title: "Pre-process"
+title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T23:03:09Z
-keywords: [ "ALS pre-process" ]
+lastmod: 2024-12-30T02:26:36Z
+keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
 categories: [ "guide utilisateur" ]
-tags: [ "module", "Pre-process" ]
+tags: [ "module", "Preprocess" ]
 weight: 352
 ---
 
 # Introduction
 
-Le module **Pre-Process** prend en charge les traitements de **calibration** d'image
+Le module **Preprocess** prend en charge les traitements de **calibration** d'image
 
 # Configuration
 
-Le module **Pre-process** lui-même n'a besoin d'aucune configuration.
+Le module **Preprocess** lui-même n'a besoin d'aucune configuration.
 
 La configuration des traitements de **calibration** est gérée par les **traitements** eux-mêmes.
 Voir section [Comportement](#behavior) ci-dessous.
 
 # Contrôle
 
-Le module **Pre-process** est lancé au démarrage d'ALS et **ne subit plus aucune influence extérieure** à part l'arrivée
+Le module **Preprocess** est lancé au démarrage d'ALS et **ne subit plus aucune influence extérieure** à part l'arrivée
 des images dans sa file d'attente.
 
 # Entrée

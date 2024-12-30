@@ -2,12 +2,12 @@
 title: "Process Tab"
 description: "Documentation of the Processing tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:32Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
 categories: ["user guide"]
-tags: ["preferences", "processing", "Pre-process", "debayer", "dark", "hot pixels"]
+tags: ["preferences", "processing", "Preprocess", "debayer", "dark", "hot pixels"]
 weight: 332
 ---
 
@@ -20,7 +20,7 @@ The ALS processing settings are presented in the Preferences page `Process` tab
 
 This tab contains only one section: [Pre-processing](#preprocess)
 
-It groups the settings of the processes managed by the [**Pre-process**](../../modules/preprocess/) module:
+It groups the settings of the processes managed by the [**Preprocess**](../../modules/preprocess/) module:
 - [Hot pixel removal](#hot-remove)
 - [Dark subtraction](#dark-remove)
 - [Debayering](#debayer)

@@ -2,7 +2,7 @@
 title: "Debayering"
 description: "Detailed documentation of the ALS Debayer process"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:31Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: [ "ALS debayer", "ALS debayering" ]
 draft: false
 type: "docs"
@@ -28,13 +28,13 @@ Its configuration is managed via ALS preferences page.
 
 # Control
 
-This process is triggered by the **Pre-Process** module.
+This process is triggered by the **Preprocess** module.
 
 # Input
 
 | Type  | Description                                    |
 |-------|------------------------------------------------|
-| Image | image received from the **Pre-Process** module |
+| Image | image received from the **Preprocess** module |
 
 # Behavior
 
@@ -42,4 +42,4 @@ The raw image is converted to a color image using the configured Bayer pattern.
 
 # Output
 
-The modified image is sent back to the **Pre-Process** module.
+The modified image is sent back to the **Preprocess** module.

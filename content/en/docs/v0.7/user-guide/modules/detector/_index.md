@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2024-12-30T01:09:14Z
+lastmod: 2024-12-30T02:26:36Z
 keywords: ["ALS scanner"]
 draft: false
 type: "docs"
@@ -15,7 +15,7 @@ weight: 350
 
 The **Scanner** module is your subs' entry point to ALS.
 
-It monitors the **scan folder** and provides the detected subs to the **Pre-Process** module.
+It monitors the **scan folder** and provides the detected subs to the **Preprocess** module.
 
 Its configuration is managed via ALS preferences
 
@@ -52,4 +52,4 @@ It is controlled by the interface and keyboard shortcuts.
 
 # Output
 
-The loaded image is transmitted to the **Pre-Process** module
+The loaded image is transmitted to the **Preprocess** module
