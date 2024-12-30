@@ -2,7 +2,7 @@
 title: Installation on a Mac Apple Silicon
 description: Installing ALS on Mac Apple Silicon
 author: ALZ Team
-lastmod: 2024-12-26T21:11:22Z
+lastmod: 2024-12-30T03:58:46Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 weight: 240
 tags: ['install', 'Mac', 'Apple Silicon']
@@ -60,6 +60,5 @@ macOS 10.13 (High Sierra) or later
 6. **Launch ALS**
      - Go to the `Applications` folder, then double-click the `ALS` application to run it.
 
-Continue to our [user guide](../user-guide/). We are here to assist you during this first start-up.
+Next step : Our [Quickstart](../quickstart/) guide 
 
-Enjoy using ALS! 🔭

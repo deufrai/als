@@ -2,7 +2,7 @@
 title: Installation on PC/Linux
 description: Installing ALS on Linux PC
 author: ALZ Team
-lastmod: 2024-12-26T21:11:22Z
+lastmod: 2024-12-30T03:58:46Z
 keywords: [ "installation", "linux", "astro live stacker", "guide" ]
 weight: 210
 tags: ['install', 'Linux', 'PC']
@@ -58,6 +58,4 @@ tags: ['install', 'Linux', 'PC']
     - Double-click on the `als-v0.7-beta8.run` file.
     - If a dialog box appears asking you to confirm running the file, choose the option to execute or open the file.
 
-Continue to our [user guide](../user-guide/). We are here to assist you during this first start-up.
-
-Enjoy using ALS! 🔭
+Next step : Our [Quickstart](../quickstart/) guide 

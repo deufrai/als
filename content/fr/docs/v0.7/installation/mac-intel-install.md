@@ -3,7 +3,7 @@ title: Installation sur un Mac Intel
 description: Installation d'ALS sur Mac Intel
 author: ALZ Team
 
-lastmod: 2024-12-29T05:45:18Z
+lastmod: 2024-12-30T03:58:46Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 240
 Categories: ['installation']
@@ -61,6 +61,5 @@ macOS 10.13 (High Sierra) ou version ultérieure
 6. **Lancement d'ALS**
      - Accédez au dossier `Applications`, puis double-cliquez sur l'application `ALS` pour l'exécuter.
 
-Continuez vers notre [guide utilisateur](../user-guide/). Nous vous y attendons pour vous accompagner lors de ce premier démarrage.
-     
-Bonne utilisation d'als ! 🔭
+Prochaine étape : Le guide de [premier démarrage](../quickstart/). 
+

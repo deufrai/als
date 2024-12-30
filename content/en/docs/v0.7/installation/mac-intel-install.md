@@ -2,7 +2,7 @@
 title: Installation on a Mac Intel
 description: Installing ALS on Mac Intel
 author: ALZ Team
-lastmod: 2024-12-26T21:11:22Z
+lastmod: 2024-12-30T03:58:46Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 240
 tags: ['install', 'Mac', 'Intel']
@@ -60,6 +60,4 @@ macOS 10.13 (High Sierra) or later
 6. **Launch ALS**
      - Go to the `Applications` folder, then double-click the `ALS` application to run it.
 
-Continue to our [user guide](../user-guide/). We are here to assist you during this first start-up.
-
-Enjoy using ALS! 🔭
+Next step : Our [Quickstart](../quickstart/) guide 

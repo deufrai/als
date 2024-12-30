@@ -2,7 +2,7 @@
 title: Install on Windows
 description: Installing ALS on Windows
 author: ALZ Team
-lastmod: 2024-12-26T21:11:22Z
+lastmod: 2024-12-30T03:58:46Z
 keywords: [ "ALS install", "windows", "astro live stacker", "guide" ]
 weight: 230
 tags: [ 'install', 'Windows', 'PC' ]
@@ -53,6 +53,4 @@ Windows 10 or higher
       the application to communicate on public and/or private networks.
     - Check the appropriate boxes based on your preferences, then click "Allow access".
 
-Continue to our [user guide](../user-guide/). We are here to assist you with this first start.
-
-Enjoy using ALS! 🚀
+Next step : Our [Quickstart](../quickstart/) guide 

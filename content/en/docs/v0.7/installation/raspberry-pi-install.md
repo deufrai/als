@@ -2,7 +2,7 @@
 title: Installation on Raspberry Pi
 description: Installing ALS on Raspberry Pi
 author: ALZ Team
-lastmod: 2024-12-26T21:11:22Z
+lastmod: 2024-12-30T03:58:46Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 220
 tags: ['install', 'Linux', 'Raspberry Pi']
@@ -62,6 +62,4 @@ if you need assistance._
     - Double-click on the `als-v0.7-beta8` file.
     - If a dialog box appears asking you to confirm the execution, choose the option to run or open the file.
 
-Continue to our [user guide](../user-guide/). We are here to assist you during this first start-up.
-
-Enjoy using ALS! 🔭
+Next step : Our [Quickstart](../quickstart/) guide 
