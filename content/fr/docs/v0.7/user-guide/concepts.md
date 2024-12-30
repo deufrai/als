@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T14:12:05Z
+lastmod: 2024-12-30T14:19:59Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -27,7 +27,7 @@ ALS est architecturé en modules autonomes, répartis en deux familles :
     - **Save** : Enregistrement sur disque
 
 - **Modules utilitaires** : en charge des tâches annexes
-    - **Détecteur d'images** : surveillance du **dossier scanné**
+    - **Scanner** : surveillance du **dossier scanné**
     - **Serveur d'images** : partage des images générées par ALS
 
 ## Trajet d'une image
@@ -41,7 +41,7 @@ graph LR
         C --> D(Process)
         D --> E(Save)
     end
-    A(Détecteur d'images) --> B
+    A(Scanner) --> B
     E -.-> F(Serveur d'images)
 
     style A fill:#555,stroke:darkred,stroke-width:2px
@@ -163,12 +163,12 @@ Vous trouverez plus d'information sur le module **Save** dans sa [documentation 
 ALS utilise d'autres modules qui ne sont pas impliqués dans le traitement des images. Ils sont cependant essentiels au
 bon fonctionnement de l'application :
 
-### Détecteur d'images
+### Scanner
 
 Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les transmettre au
 module **Preprocess**.
 
-Vous trouverez plus d'information sur le module **détecteur d'images** dans 
+Vous trouverez plus d'information sur le module **Scanner** dans 
 sa [documentation détaillée](../../modules/scanner/)
 
 ### Serveur d'image
@@ -191,10 +191,10 @@ demande.
 Au sain d'ALS, la session occupe une place prépondérante.
 
 **La session** peut être vue comme la matérialisation du cycle de vie du couple formé par la **stack courante**
-et le **détecteur d'images**.
+et le **Scanner**.
 
 1. **Démarrage** :
-    - ALS démarre le **détecteur d'images** et vide **la stack courante**.
+    - ALS démarre le **Scanner** et vide **la stack courante**.
     - **Première Détection** : La première image reçue par le module **Stack** servira de **référence pour
       l'alignement** durant toute la session.
 
@@ -205,13 +205,13 @@ et le **détecteur d'images**.
         - empilée dans la stack courante.
     - Les résultats successifs de cet empilement sont traités puis affichés par l'application et enregistrés sur disque.
 
-   La session peut être mise en pause : ALS stoppe le **détecteur d'images** et la **stack courante** est **conservée**.
-   Relancer la session redémarre simplement le **détecteur d'images**
+   La session peut être mise en pause : ALS stoppe le **Scanner** et la **stack courante** est **conservée**.
+   Relancer la session redémarre simplement le **Scanner**
 
    À tout moment, l'utilisateur peut naviguer dans l'image affichée, zoomer, régler les paramètres de traitement...
 
 3. **Arrêt** :
-    - À l'arrêt de la session, le **détecteur d'images** est stoppé et la **stack courante** est marquée pour être
+    - À l'arrêt de la session, le **Scanner** est stoppé et la **stack courante** est marquée pour être
       vidée au prochain démarrage de session.
 
 {{% alert color="info" %}}

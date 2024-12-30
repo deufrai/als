@@ -1,9 +1,9 @@
 ---
-title: "Détecteur d'images"
-description: "Documentation détaillée du module détecteur d'images d'ALS"
+title: "Scanner"
+description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T13:01:03Z
-keywords: ["ALS image detector", "détecteur d'images ALS"]
+lastmod: 2024-12-30T14:19:59Z
+keywords: ["ALS image detector", "scanner ALS"]
 draft: false
 type: "docs"
 categories: ["guide utilisateur"] 
@@ -13,7 +13,7 @@ weight: 350
 
 # Présentation
 
-Le module **détecteur d'images** est le point d'entrée de vos brutes dans ALS.
+Le module **Scanner** est le point d'entrée de vos brutes dans ALS.
 
 Il surveille le **dossier scanné** et fournit les images détectées au module **Preprocess**.
 
