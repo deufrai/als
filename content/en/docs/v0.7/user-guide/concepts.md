@@ -3,12 +3,12 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T09:18:42Z
+lastmod: 2024-12-30T12:16:23Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
 categories: [ "user guide" ]
-tags: [ "basics", "module", "preprocess", "stack", "processing", "session", "scanned folder", "work folder" ]
+tags: [ "basics", "module", "preprocess", "stack", "processing", "session", "scanned folder", "work folder", "web folder" ]
 weight: 315
 ---
 
@@ -139,18 +139,20 @@ Each image is saved in 2 files:
 1. Main output:
     - **file location**: **work folder**
     - **file name**: stack_image
-    - **file format and extension**: Choice of JPEG, PNG, or TIFF
+    - **file format and extension**: As defined in [Preferences](../preferences/output/#format).
 
       Default: **JPEG** format, **.jpg** extension.
 
 2. Server output:
-    - **file location**: **work folder**
+    - **file location**: **web folder**
     - **file name**: web_image
-    - **file format and extension**: As defined in [Preferences](../preferences/output/#format).
+    - **file format and extension**: **JPEG** format, **.jpg** extension.
 
 {{% alert color="warning" %}}
 ⚠️ These 2 files are overwritten by each new processed image
 {{% /alert %}}
+
+You can find more information about the **Save** module in its [detailed documentation](../../modules/save/).
 
 ## Utility Modules
 

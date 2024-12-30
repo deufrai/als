@@ -3,12 +3,12 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T09:18:42Z
+lastmod: 2024-12-30T12:16:23Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
 categories: [ "guide utilisateur" ]
-tags: [ "bases", "module", "preprocess", "stack", "traitement", "session", "dossier scanné", "dossier de travail" ]
+tags: [ "bases", "module", "preprocess", "stack", "traitement", "session", "dossier scanné", "dossier de travail", "dossier web" ]
 weight: 315
 ---
 
@@ -148,13 +148,15 @@ Chaque image est enregistrée dans 2 fichiers :
 
 2. Sortie serveur :
 
-    - **emplacement du fichier** : **dossier de travail**
+    - **emplacement du fichier** : **dossier web**
     - **nom du fichier** : web_image
     - **Format et extension du fichier** : format **JPEG**, extension **.jpg**.
 
 {{% alert color="warning" %}}
 ⚠️ Ces 2 fichiers sont écrasés par chaque nouvelle image traitée
 {{% /alert %}}
+
+Vous trouverez plus d'information sur le module **Sauvegarde** dans sa [documentation détaillée](../../modules/save/) 
 
 ## Modules utilitaires
 

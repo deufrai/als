@@ -2,12 +2,12 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T12:16:23Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
 categories: ["user guide"]
-tags: ["preferences", "output", "formats", "server"]
+tags: ["preferences", "output", "formats", "server", "web folder"]
 weight: 333
 ---
 
@@ -70,4 +70,51 @@ alt="File saving preferences" >}}
 </div>
 </div>
 
-# Server {#server}
+
+# Web Server {#server}
+
+Here are the settings for the image server
+
+<div class="row">
+<div class="col-md-8">
+
+## Server Port {#server-port}
+
+1. `Server port number` configures the port on which the image server is accessible
+
+## Refresh Period {#server-refresh}
+
+2. `Web page refresh period` configures the image refresh period used by connected browsers
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< center >}}
+{{< figure src="web_config.png"
+caption="Web server settings"
+width="480px"
+height="201px"
+alt="Web server settings" >}}
+{{< /center >}}
+
+</div>
+</div>
+
+## Web Folder {#web-folder}
+
+{{< center >}}
+{{< figure src="web_folder.png"
+caption="Web folder settings"
+width="595px"
+height="211px"
+alt="Web folder settings" >}}
+{{< /center >}}
+
+1. If `Use dedicated folder` is unchecked:
+   - the **web folder** settings are hidden
+   - the **web folder** path is the same as the **work folder**
+
+   Otherwise
+   - the **web folder** settings are displayed
+
+   2. `Change...` allows choosing a dedicated **web folder**
+   3. The **web folder** path is displayed

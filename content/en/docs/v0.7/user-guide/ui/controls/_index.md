@@ -2,7 +2,7 @@
 title: "Main Controls"
 description: "documentation of ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-30T07:18:00Z
+lastmod: 2024-12-30T12:16:23Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls", "stack" ]
@@ -228,7 +228,7 @@ of the **Save** module.
 <div class="row">
 <div class="col-md-8">
 
-## Saving Controls
+## Saving Controls {#save-controls}
 
 - `Save current` triggers the saving of the **last** result of the **Process** module into a new timestamped file:
     - **File location**: **work folder**

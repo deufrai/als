@@ -2,12 +2,12 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T12:16:23Z
 keywords: [ "ALS outout settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
 categories: [ "guide utilisateur" ]
-tags: [ "preferences", "output", "formats", "serveur" ]
+tags: [ "preferences", "output", "formats", "serveur", "dossier web" ]
 weight: 333
 ---
 
@@ -43,11 +43,11 @@ Ici sont configurés le format des images sauvegardées et la fonction de sauveg
 <div class="row">
 <div class="col-md-8">
 
-## Format
+## Format {#format}
 
 Les boutons `Format` définissent le format des fichiers enregistrés
 
-## Enregistrement auto fin de session
+## Enregistrement auto fin de session {#session-stop-save}
 
 `Enregistrement auto fin de session` active la sauvegarde automatique du **dernier** résultat
 du module **Process** dans un nouveau fichier horodaté, à chaque arrêt de session :
@@ -71,5 +71,52 @@ alt="Préférences de l'enregistreur de fichiers" >}}
 </div>
 
 
-# serveur {#server}
+# serveur web {#server}
+
+Ici sont configurés les paramètres du serveur d'images
+
+<div class="row">
+<div class="col-md-8">
+
+## Numéro de port {#server-port}
+
+1. `Numéro de port serveur` configure le port sur lequel le serveur d'images est accessible
+
+## période de rafraîchissement {#server-refresh}
+
+2. `Période de rafraîchissement` configure la période de rafraîchissement de l'image par les navigateurs connectés
+
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< center >}}
+{{< figure src="web_config.png"
+caption="Réglages du serveur web"
+width="437px"
+height="195px"
+alt="Réglages du serveur web" >}}
+{{< /center >}}
+
+</div>
+</div>
+
+## Dossier web {#web-folder}
+
+{{< center >}}
+{{< figure src="web_folder.png"
+caption="Réglage du dosser web"
+width="598px"
+height="209px"
+alt="Réglage du dossier web" >}}
+{{< /center >}}
+
+1. Si `Utiliser un dossier spécifique` est décochée :
+   - les réglages du **dossier web** sont cachés
+   - le chemin du **dossier web** est celui du **dossier de travail**
+
+   Sinon
+   - les réglages du **dossier web** sont affichés
+
+   2. `Modifier...` permet de choisir un **dossier web** spécifique.
+   3. Le chemin du **dossier web** est affiché
 

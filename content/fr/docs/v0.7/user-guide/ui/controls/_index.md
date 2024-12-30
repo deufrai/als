@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T07:18:00Z
+lastmod: 2024-12-30T12:16:23Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: [ "guide utilisateur" ]
@@ -227,7 +227,7 @@ fonctionnement par défaut du module **Save**
 <div class="row">
 <div class="col-md-8">
 
-## Contrôles d'enregristrement
+## Contrôles d'enregristrement {#save-controls}
 
 - `Enr. image courante` déclenche l'enregistrement de la **dernière image** sortie du module **Process** dans
   un nouveau fichier horodaté :
