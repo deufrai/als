@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "Documentation of the General tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:32Z
+lastmod: 2024-12-30T02:46:30Z
 keywords: ["ALS general settings", "ALS general preferences"]
 draft: false
 type: "docs"
@@ -44,18 +44,11 @@ alt="The General tab of the preferences" >}}
 ℹ️ These settings are only accessible when the session is stopped
 {{% /alert %}}
 
-Here, the paths of critical folders for the operation of ALS are configured.
+Here are defined the critial folders paths
 
 ## Scan Folder {#scan-folder}
 
-- Path to the scan folder
-
-    |           |                                                     |
-    |-----------|-----------------------------------------------------|
-    |Data type  | Path to a folder|
-    | Required  | Yes |
-    | Default value | ∅ |
-
+Sets the path of the **scan folder**
 
 {{< center >}}
 {{< figure src="scan_folder_01.png"

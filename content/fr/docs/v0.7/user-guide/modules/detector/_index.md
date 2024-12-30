@@ -2,7 +2,7 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T02:46:30Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
@@ -23,9 +23,9 @@ Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Configuration
 
-| Source                                                                      | Paramètre                |
-|-----------------------------------------------------------------------------|--------------------------|
-| [Préférences : Onglet Général](../../preferences/general/#scan-folder) | Chemin du dossier scanné |  
+| Source                            | Paramètre                | Type de donnée           | Requis | Valeur par défaut |
+|-----------------------------------|--------------------------|---------------------------| ------- | --------------- |
+| [Préférences : Onglet Général](../../preferences/general/#scan-folder) | Chemin du dossier scanné | Chemin vers un dossier | Oui     | ∅              |  
 
 
 # Contrôle

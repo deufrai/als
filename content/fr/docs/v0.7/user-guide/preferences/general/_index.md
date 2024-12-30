@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T20:11:36Z
+lastmod: 2024-12-30T02:46:30Z
 keywords: ["ALS general settings", "préférences générales ALS"]
 draft: false
 type: "docs"
@@ -44,18 +44,11 @@ alt="L'onglet Général des préférences" >}}
 ℹ️ Ces paramètres ne sont accessibles que quand la session est stoppée
 {{% /alert %}}
 
-Ici sont configurés les chemins des dossiers critiques pour le fonctionnement d'ALS.
+Ici sont configurés les chemins des dossiers critiques
 
 ## Dossier scanné {#scan-folder}
 
-- Chemin du dossier scanné
-
-    |           |                                                     |
-    |-----------|-----------------------------------------------------|
-    |Type de donnée       | Chemin vers un dossier|
-    | Requis | Oui |
-    | Valeur par défaut | ∅ |
-
+Définit le chemin du **dossier scanné**
 
 {{< center >}}
 {{< figure src="scan_folder_01.png"
