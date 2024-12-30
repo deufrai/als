@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Detailed documentation of the ALS Preprocess module"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: ["ALS preprocess"]
 draft: false
 type: "docs"
@@ -13,7 +13,7 @@ weight: 352
 
 # Introduction
 
-The **Preprocess** module handles image **calibration** processing.
+The **Preprocess** module handles sub **calibration**
 
 # Configuration
 
@@ -28,13 +28,13 @@ The **Preprocess** module is started when ALS launches and **is not influenced b
 
 # Input
 
-| Type  | Description                      |
-|-------|----------------------------------|
-| Image | image present in the queue       |
+| Type  | Description          |
+|-------|----------------------|
+| Image | sub present in queue |
 
 # Behavior {#behavior}
 
-Applies these processes to the image:
+Performs **calibration** processes on the sub:
 
 1. [Hot pixel removal](hot_remove/)
 2. [Dark subtraction](dark_remove/)

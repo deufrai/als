@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
@@ -13,7 +13,7 @@ weight: 352
 
 # Introduction
 
-Le module **Preprocess** prend en charge les traitements de **calibration** d'image
+Le module **Preprocess** prend en charge les traitements de **calibration** de brutes
 
 # Configuration
 
@@ -31,11 +31,11 @@ des images dans sa file d'attente.
 
 | Type  | Description                      |
 |-------|----------------------------------|
-| Image | image présente en file d'attente |
+| Image | brute présente en file d'attente |
 
 # Comportement {#behavior}
 
-Applique ces traitements sur l'image :
+Applique les traitements de **calibration** à la brute :
 
 1. [Suppression des pixels chauds](hot_remove/)
 2. [Soustraction de dark](dark_remove/)
@@ -43,4 +43,4 @@ Applique ces traitements sur l'image :
 
 # Sortie
 
-L'image issue de l'étape 3 est transmise au module **Stack** 
+La brute calibrée est transmise au module **Stack** 

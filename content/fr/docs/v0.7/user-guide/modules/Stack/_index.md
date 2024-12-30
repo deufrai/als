@@ -2,7 +2,7 @@
 title: "Stack"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T05:21:00Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -13,15 +13,15 @@ weight: 354
 
 # Introduction
 
-Le module **Stack** prend en charge l'alignement et l'empilement des brutes
+Le module **Stack** prend en charge l'alignement et l'empilement des brutes calibrées
 
 # Configuration
 
-| Source                                                                           | Paramètre                  | Type de donnée                  | Requis | Valeur par défaut |
-|----------------------------------------------------------------------------------|----------------------------|---------------------------------|--------|-------------------|
-| [Interface : Contrôles de stacking](../../../preferences/processing/#dark-remove) | Activation de l'alignement | ON/OFF                          | ∅      | ON                |
-| [Interface : Contrôles de stacking](../../../preferences/processing/#dark-remov) | Mode de stacking           | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
- | [Interface : Contrôles de stacking](TODO)                                        | Seuil de détection         | page de valeur : min=5 max=60   | OUI    | 25                |
+| Source                                                                 | Paramètre                  | Type de donnée                  | Requis | Valeur par défaut |
+|------------------------------------------------------------------------|----------------------------|---------------------------------|--------|-------------------|
+| [Interface : Contrôles de stacking](../../als-gui/controls/#controls)  | Activation de l'alignement | ON/OFF                          | ∅      | ON                |
+| [Interface : Contrôles de stacking](../../als-gui/controls/#controls)  | Mode d'empilement          | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
+| [Interface : Contrôles de stacking](../../als-gui/controls/#threshold) | Seuil de détection         | page de valeurs                 | OUI    | 25                |
 
 # Contrôle
 
@@ -30,16 +30,36 @@ des images dans sa file d'attente.
 
 # Entrée
 
-| Type  | Description                      |
-|-------|----------------------------------|
-| Image | image présente en file d'attente |
+| Type  | Description                             |
+|-------|-----------------------------------------|
+| Image | brute calibrée présente en file d'attente |
+| Image | référence d'alignement de la session    |
 
 # Comportement {#behavior}
 
 ## Alignement
 
+**Si l'alignement est activé**
+
+1. recherche des similitudes entre la brute calibrée et la **référence d'alignement** de la session.
+
+   {{% alert color="info" %}}
+   Si la brute calibrée présente un nombre de similitudes **inférieur** au seuil de détection configuré, elle est
+   **abandonnée** et le module **Stack** se remet à l'écoute de sa file d'attente.
+   {{% /alert %}}
+
+2. calcul des transformations nécessaires pour que la brute calibrée soit alignée sur la référence
+    - translations
+    - rotation
+    - redimensionnements
+
+3. application des transformations à la brute calibrée
+
 ## Empilement
+
+1. Ajout de la brute calibrée et alignée (si demandé) à la pile
+2. Génération d'une nouvelle image contenant le résultat de l'empilement selon le mode configuré
 
 # Sortie
 
-L'image issue de l'étape 3 est transmise au module **Process** 
+L'image générée est transmise au module **Process** 

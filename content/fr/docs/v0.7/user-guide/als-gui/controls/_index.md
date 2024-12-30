@@ -2,11 +2,11 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T05:21:00Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: [ "guide utilisateur" ]
-tags: [ "interface", "contrôles", "session", "module" ]
+tags: [ "interface", "contrôles", "stack", "session", "module" ]
 weight: 321
 ---
 
@@ -128,26 +128,24 @@ La section **stack** du panneau contrôle le module **Stack**.
 
 - `Aligner` active l'**alignement** des brutes sur la référence de la session.
 - La liste déroulante définit le **mode d'empilement** utilisé pour cette session :
-    - `moyenne` : La valeur de chaque pixel de l'image résultante est la moyenne des valeurs des pixels correspondants
-      de chaque image de la stack courante.
-    - `somme` : La valeur de chaque pixel de l'image résultante est la somme des valeurs des pixels correspondants de
-      chaque image de la stack courante.
+    - `moyenne` : La valeur de chaque pixel de l'empilement généré est la **valeur moyenne** de ce pixel dans toutes
+      les images de la stack.
+    - `somme` : La valeur de chaque pixel de l'empilement généré est la **somme** des valeurs de ce pixel dans toutes
+      les images de la stack.
 
 ## Seuil de détection {#threshold}
 
-Pour procéder à l'alignement, ALS recherche les similitudes (**groupes de 3 étoiles**) entre la brute
-et la référence de la session.
+Les images de mauvaise qualité sont écartées en utilisant un seuil de similitudes : 
 
-Les images de trop mauvaise qualité sont écartés en utilisant un seuil : Toute image présentant un nombre de similitudes
-**inférieur** à ce seuil sera ignorée.
+Toute image présentant un nombre de similitudes avec la référence de la session **inférieur** à ce seuil est ignorée.
 
-Le curseur `Seuil` permet de définir ce seuil en temps réel.
+Le curseur `Seuil` permet de définir ce seuil de détection.
 
 **Comportement lorsqu'une image est ignorée** :
 
 - L'image n'est pas ajoutée à la pile. Le module **Stack** se met en attente de la prochaine image.
-- Un message **WARNING** est ajouté au `Journal de session`. Il porte, entre autre, le texte _Alignment matches count is
-  lower than configured threshold_
+- Un message **WARNING** est ajouté au `Journal de session`. Il porte, entre autre, le texte '_Alignment matches count is
+  lower than configured threshold_'
 - Le bouton `Acquitter` du `Journal de session` est activé
 - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
   panneau.
@@ -173,8 +171,7 @@ alt="Section stack" >}}
   {{% /alert %}}
 
 {{% alert title="💡 Astuce" color="light" %}}
-Si le champ imagé par votre système contient peu d'étoiles, il peut être nécessaire de réduire le seuil pour éviter que
-la majorité des images soient ignorées.
+Réduire le seuil d'empilement est utile sur les prises de vues à longue focale où les étoiles sont peu nombreuses.
 {{% /alert %}}
 
 ---

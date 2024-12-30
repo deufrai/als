@@ -3,12 +3,12 @@ title: "Basic Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
 categories: [ "user guide" ]
-tags: [ "basics", "module", "processing", "session", "scanned folder", "work folder" ]
+tags: [ "basics", "module", "preprocess", "stack", "processing", "session", "scanned folder", "work folder" ]
 weight: 315
 ---
 
@@ -107,6 +107,8 @@ The **Stack** module maintains the **current stack** and handles the following p
 ℹ️ Alignment is based on the search for star groups in the compared images. ALS can only align deep sky images. **Planet
 or Moon images cannot be aligned**.
 {{% /alert %}}
+
+You can find more information about the **Stack** module in its [detailed documentation](../modules/stack/).
 
 ### Process {#process-module}
 

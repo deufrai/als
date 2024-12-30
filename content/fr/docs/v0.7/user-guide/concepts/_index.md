@@ -3,12 +3,12 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
 categories: [ "guide utilisateur" ]
-tags: [ "bases", "module", "traitement", "session", "dossier scanné", "dossier de travail" ]
+tags: [ "bases", "module", "preprocess", "stack", "traitement", "session", "dossier scanné", "dossier de travail" ]
 weight: 315
 ---
 
@@ -108,6 +108,8 @@ Le module **Stack** maintient la **stack courante** et prend en charge les trait
 ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les images comparées. ALS ne peut donc aligner que
 des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
 {{% /alert %}}
+
+Vous trouverez plus d'information sur le module **Stack** dans sa [documentation détaillée](../modules/stack/) 
 
 ### Process {#process-module}
 

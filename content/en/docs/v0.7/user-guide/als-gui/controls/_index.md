@@ -1,11 +1,11 @@
 ---
-title: "The Main Controls Panel"
-description: "documentation of the ALS main controls panel"
+title: "Main Controls"
+description: "documentation of ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-30T05:21:00Z
+lastmod: 2024-12-30T07:18:00Z
 keywords: [ "ALS main controls" ]
 type: "docs"
-tags: [ "GUI", "controls" ]
+tags: [ "GUI", "controls", "stack" ]
 weight: 321
 ---
 
@@ -124,27 +124,25 @@ These controls are only accessible only when the session is stopped
 {{% /alert %}}
 
 - `Align` activates the **alignment** of subs on the session reference.
-- Dropdown list defines the **stacking mode** used for this session:
-    - `mean`: each pixel of the resulting image is the average of the corresponding pixels of each image in the
-      current stack.
-    - `sum`: each pixel of the resulting image is the sum of the corresponding pixels of each image in the current
-      stack.
+- The dropdown list defines the **stacking mode** used for this session:
+- `mean` : The value of each pixel in the generated image is the **average value** of that pixel in all the images in the
+  stack.
+- `sum` : The value of each pixel in the generated image is the **sum** of the values of that pixel in all the images in
+  the stack.
 
-## Detection Threshold
+## Detection Threshold {#threshold}
 
-To proceed with alignment, ALS searches for similarities (**groups of 3 stars**) between the sub and the
-session reference.
+Subs of poor quality are discarded using a similarities threshold: 
 
-Subs of too poor quality are discarded using a threshold: Any sub with a number of similarities **below** this 
-threshold is ignored.
+Any sub having a number of similarities with the session reference **below** this threshold is ignored.
 
-The `Threshold` slider allows you to set this threshold in real-time.
+The `Threshold` slider allows you to set this detection threshold.
 
 **Behavior when an image is ignored**:
 
 - The image is not added to the stack. The **Stack** module waits for the next image.
-- A **WARNING** is added to the `Session Log`. It includes the text _Alignment matches count is lower than configured
-  threshold_.
+- A **WARNING** is added to the `Session Log`. It includes the text '_Alignment matches count is lower than configured
+  threshold_'.
 - The `Acknowledge` button in the `Session Log` is activated.
 - If the `Session Log` is hidden, the new issues indicator appears in the `Issues` section of the panel.
 
@@ -165,12 +163,11 @@ alt="Stack section" >}}
 
 - `Align` is enabled on every ALS startup
 - The stacking mode is set to `mean` on every ALS startup
-- The detection threshold is global and constantly saved 
+- The detection threshold is global and constantly saved
   {{% /alert %}}
 
 {{% alert title="💡 TIP" color="light" %}}
-If the field imaged by your system contains few stars, it may be necessary to reduce the threshold in order to avoid
-ignoring most images.
+Reducing the detection threshold is useful for long focal length shots where stars are few.
 {{% /alert %}}
 
 ---
