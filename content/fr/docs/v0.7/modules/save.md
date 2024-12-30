@@ -2,7 +2,7 @@
 title: "Enregistreur d'images"
 description: "Documentation détaillée de l'enregistreur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-30T13:01:03Z
 keywords: ["enregistreur d'images d'ALS"]
 draft: false
 type: "docs"
@@ -17,8 +17,6 @@ Le module **enregistreur d'images** prend en charge tous les enregistrements de 
 
 Sa configuration est gérée via les préférences et l'interface.
 
-Il est contrôlé par l'interface et les raccourcis clavier.
-
 # Configuration
 
 | Source                                                                          | Paramètre                                  | Type de donnée                       | Requis | Valeur par défaut    |
@@ -31,20 +29,22 @@ Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Contrôle
 
-| Type      | Source                                                                          | Raccourci                                                                                        | Action                                                                                  |
-|-----------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| Événement | [Interface : Contrôles d'enreg.](../../user-guide/ui/controls/#save-controls)  |  <span class="als-ks">S</span>                                                                                                | déclenche l'enreg. auto du dernier résutlat de traitement                               |
+Le module **Save** est lancé en tâche de fond au démarrage d'ALS
+
+| Type      | Source                                | Raccourci                         | Action                                                    |
+|-----------|---------------------------------------|-----------------------------------|-----------------------------------------------------------|
+| Événement | [Interface : Contrôles d'enreg.](../../user-guide/ui/controls/#save-controls) |  <span class="als-ks">S</span>    | déclenche l'enreg. auto du dernier résutlat de traitement |
 
 
 # Entrée
 
-| Type  | Description                              |
-|-------|------------------------------------------|
-| Image | Résultat de traitement en file d'attente |
+| Type  | Description                                    |
+|-------|------------------------------------------------|
+| Image | Sortie du module **Process** en file d'attente |
 
 # Comportement
 
-Enregistre le résultat de traitement dans un fichier image :
+Enregistre l'image dans un fichier image :
 
 | Type de sortie | Nom de Fichier                          | Emplacement du fichier | Format de fichier |
 |-------------|-----------------------------------------|------------------------|-------------------|

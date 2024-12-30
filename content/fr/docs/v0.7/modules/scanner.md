@@ -2,7 +2,7 @@
 title: "Détecteur d'images"
 description: "Documentation détaillée du module détecteur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:06Z
+lastmod: 2024-12-30T13:01:03Z
 keywords: ["ALS image detector", "détecteur d'images ALS"]
 draft: false
 type: "docs"
@@ -19,8 +19,6 @@ Il surveille le **dossier scanné** et fournit les images détectées au module 
 
 Sa configuration est gérée via les préférences.
 
-Il est contrôlé par l'interface et les raccourcis clavier.
-
 # Configuration
 
 | Source                                                                            | Paramètre                | Type de donnée           | Requis | Valeur par défaut |
@@ -30,21 +28,21 @@ Il est contrôlé par l'interface et les raccourcis clavier.
 
 # Contrôle
 
-| Source                                                                       | Action                                                                                                                               |
-|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| [Interface : Contrôles de session](../../user-guide/ui/controls/#session-controls) | ON/OFF                                                                                                                               |
-| Raccourcis                                                                   | - <span class="als-ks">R</span> bascule ON/OFF dans la session courante<br> - <span class="als-ks">X</span> OFF + clôture de session |
+| Type   | Source                                                                   | Raccourci                                                                                                                                      | Action      |
+|--------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| Événements | [Interface : Contrôles de session](../../user-guide/ui/controls/#session-controls) | - <span class="als-ks">R</span> Bascule ON/OFF dans la session en cours<br> - <span class="als-ks">X</span> OFF + fermeture de session | ON/OFF      |
+| Événement  | brute détectée dans le dossier scanné                                   | ∅                                                                                                                                              | Charge l'image  |
 
 # Entrée
 
-| Type      | Description                                                  |
-|-----------|--------------------------------------------------------------|
-| Événement | Une nouvelle brute a été détectée dans le **dossier scanné** |
+| Type              | Description                 |
+|-------------------|-----------------------------|
+| Chemin de fichier | chemin de la brute détectée |
 
 
 # Comportement
 
-1. Charge en mémoire l'image détectée, avec toutes ses métadonnées
+1. Charge en mémoire la brute détectée, avec toutes ses métadonnées
 
 {{% alert color="info" %}}
 ℹ️ La détection fonctionne quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
