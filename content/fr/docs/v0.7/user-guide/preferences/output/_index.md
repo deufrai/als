@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T02:08:09Z
+lastmod: 2024-12-30T02:10:11Z
 keywords: [ "ALS outout settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -66,7 +66,7 @@ Les boutons `Format` définissent le format des fichiers enregistrés
   | Valeur par défaut | OFF      |
 
 La case à cocher `Enregistrement auto fin de session` active la sauvegarde automatique du **dernier** résultat
-du module **Process** dans un nouveau fichier horodaté quand la session est arrêtée :
+du module **Process** dans un nouveau fichier horodaté, à chaque arrêt de session :
 
 - **emplacemnt du fichier** : **dossier de travail**
 - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
