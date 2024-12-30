@@ -1,10 +1,9 @@
 ---
 title: "Préférences"
-description: "Visite détaillée de la configuration d'ALS"
+description: "Visite détaillée des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T05:45:18Z
-keywords: ["ALS settings", "préférences ALS"]
-draft: false
+lastmod: 2024-12-30T02:02:00Z
+keywords: ["préférences ALS"]
 type: "docs"
 categories: ["guide utilisateur"] 
 tags: ["preferences" ]
@@ -17,7 +16,7 @@ Les préférences sont divisées en 3 groupes :
 
 - Général : Paramètres principaux de l'application
 - Traitement : Réglages de traitement des images
-- Sortie : Réglages de sortie disque et réseau
+- Sortie : Réglages de l'enregistrement sur disque et du serveur d'image
 
 {{% alert color="info" %}}
 ℹ️ Tous les réglages sont sauvegardés dès que la fenêtre des préférences est fermée en utilisant le bouton `OK`

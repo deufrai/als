@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T01:50:00Z
+lastmod: 2024-12-30T02:02:00Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -45,7 +45,7 @@ Here are the settings for the output file format and the **autosave on stop** fe
 
 ## Format
 
-- Format of saved images
+- Output file format
 
   |           |                                      |
   |-----------|--------------------------------------|
