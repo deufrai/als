@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T07:34:28Z
+lastmod: 2024-12-30T08:04:04Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -19,28 +19,39 @@ optimale, adaptée à **vos** besoins.
 
 Définissons tout d'abord les termes et mises en forme que nous utiliserons tout au long de ce guide.
 
-## Glossaire
+## Glossaire {#glossary}
 
-brute
-: Image capturée par votre système d'acquisition
+### brute {#sub}
 
-calibration
-: Ensemble de traitements appliqués aux brutes dans le but d'éliminer les défauts du capteur. Cela inclut généralement
-la suppression des pixels chauds et la soustraction d'un master dark pour réduire le bruit thermique.
+Image capturée par votre système d'acquisition
 
-empilement
-: Génération d'une image contenant le résultat de la somme ou de la moyenne pixel-à-pixel d'un ensemble de brutes calibrées
+### calibration {#calibration}
 
-master dark
-: Image de calibration contenant le bruit thermique du capteur. Elle est soustraite des brutes pendant la calibration
-pour réduire le bruit thermique des images avant l'empilement.
+Ensemble de traitements appliqués aux [brutes](#sub) dans le but d'éliminer les défauts du capteur. Cela inclut
+généralement la suppression des pixels chauds et la soustraction d'un [master dark](#master-dark) pour réduire le bruit
+thermique.
 
-session
-: Cycle de vie de la stack actuelle, commençant par la première brute détectée, traitant chaque nouvelle brute jusqu'à
-l'arrêt de la session.
+### empilement {#stacking}
 
-stack
-: Ensemble des brutes empilées depuis le démarrage de la session
+Génération d'une image contenant le résultat de la somme ou de la moyenne pixel-à-pixel d'un ensemble de [brutes](#sub)
+calibrées
+
+### livestacking {#livestacking}
+Pratique consistant à traiter et afficher en temps réel l'empilement d'un ensemble de [brutes](#sub) dynamique
+
+### master dark {#master-dark}
+
+Image contenant le bruit thermique du capteur. Elle est soustraite des [brutes](#sub) pendant
+la [calibration](#calibration) pour réduire le bruit thermique des images avant l'empilement.
+
+### session {#session}
+
+Cycle de vie de la [stack](#stack) actuelle, commençant par la première [brute](#sub) détectée, traitant chaque
+nouvelle [brute](#sub) jusqu'à l'arrêt de la session.
+
+### stack {#stack}
+
+Ensemble des [brutes](#sub) empilées depuis le démarrage de la [session](#session)
 
 ## Typographie
 

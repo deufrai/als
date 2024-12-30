@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-30T07:34:28Z
+lastmod: 2024-12-30T08:04:04Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -19,28 +19,39 @@ to **your** needs.
 
 First, let's define the terms and formatting we will use throughout this guide.
 
-## Glossary
+## Glossary {#glossary}
 
-calibration
-: Set of processes applied to subs to eliminate sensor defects. This generally includes hot pixel removal and the
-subtraction of a master dark to reduce thermal noise.
+### calibration {#calibration}
 
-master dark
-: Calibration image containing the sensor's thermal noise. It is subtracted from the subs during calibration to reduce
+Set of processes applied to subs to eliminate sensor defects. This generally includes hot pixel removal and the
+subtraction of a [master dark](#master-dark) to reduce thermal noise.
+
+### livestacking {#livestacking}
+
+Real-time processing and display of the stacking of a dynamic set of [subs](#sub)
+
+### master dark {#master-dark}
+
+Image containing the sensor's thermal noise. It is subtracted from the subs during [calibration](#calibration) to reduce
 thermal noise in the images before stacking.
 
-session
-: the lifecycle of the current stack, starting with the first detected sub, processing each new sub until the session is
+### session {#session}
+
+The lifecycle of the current [stack](#stack), starting with the first detected [sub](#sub), processing each new [sub](#sub) until the
+session is
 stopped.
 
-stack
-: Set of subs stacked since the start of the session
+### stack {#stack}
 
-stacking
-: Generation of an image containing the result of the pixel-to-pixel sum or average of a set of calibrated subs
+Set of subs stacked since the start of the [session](#session)
 
-sub
-: Image captured by your acquisition system
+### stacking {#stacking}
+
+Generation of an image containing the result of the pixel-to-pixel sum or average of a set of calibrated [subs](#sub)
+
+### sub {#sub}
+
+Image captured by your acquisition system
 
 ## Typography
 
