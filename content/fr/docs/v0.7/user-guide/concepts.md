@@ -1,5 +1,5 @@
 ---
-title: "Concepts de base"
+title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
