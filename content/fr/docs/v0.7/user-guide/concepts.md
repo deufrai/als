@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-30T14:12:05Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -24,7 +24,7 @@ ALS est architecturé en modules autonomes, répartis en deux familles :
     - **Preprocess** : Calibration
     - **Stack** : Alignement et empilement
     - **Process** : Traitements visuels
-    - **Sauvegarde** : Enregistrement sur disque
+    - **Save** : Enregistrement sur disque
 
 - **Modules utilitaires** : en charge des tâches annexes
     - **Détecteur d'images** : surveillance du **dossier scanné**
@@ -39,7 +39,7 @@ graph LR
     subgraph Modules principaux
         B(Preprocess) --> C(Stack)
         C --> D(Process)
-        D --> E(Sauvegarde)
+        D --> E(Save)
     end
     A(Détecteur d'images) --> B
     E -.-> F(Serveur d'images)
@@ -132,9 +132,9 @@ Le module **Process** regroupe les traitements visuels appliqués sur le résult
 **Process**.
 {{% /alert %}}
 
-### Sauvegarde {#save-module}
+### Save {#save-module}
 
-Le module **Sauvegrde** est en charge de l'enregistrement sur disque des images traitées.
+Le module **Save** est en charge de l'enregistrement sur disque des images traitées.
 
 Chaque image est enregistrée dans 2 fichiers :
 
@@ -156,7 +156,7 @@ Chaque image est enregistrée dans 2 fichiers :
 ⚠️ Ces 2 fichiers sont écrasés par chaque nouvelle image traitée
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Sauvegarde** dans sa [documentation détaillée](../../modules/save/) 
+Vous trouverez plus d'information sur le module **Save** dans sa [documentation détaillée](../../modules/save/) 
 
 ## Modules utilitaires
 
@@ -173,7 +173,7 @@ sa [documentation détaillée](../../modules/scanner/)
 
 ### Serveur d'image
 
-Ce module prend en charge le partage sur le réseau de la **sortie web** du module **Enregistreur d'images**.
+Ce module prend en charge le partage sur le réseau de la **sortie web** du module **Save**.
 
 Il est accessible depuis le réseau auquel la machine qui exécute ALS est connectée.
 

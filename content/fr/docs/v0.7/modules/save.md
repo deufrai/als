@@ -1,9 +1,9 @@
 ---
-title: "Enregistreur d'images"
-description: "Documentation détaillée de l'enregistreur d'images d'ALS"
+title: "Save"
+description: "Documentation détaillée du module SAVE d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T13:56:14Z
-keywords: ["enregistreur d'images d'ALS"]
+lastmod: 2024-12-30T14:12:05Z
+keywords: ["module Save d'ALS"]
 draft: false
 type: "docs"
 categories: ["guide utilisateur"] 
@@ -13,7 +13,7 @@ weight: 362
 
 # Présentation
 
-Le module **enregistreur d'images** prend en charge tous les enregistrements de fichiers images générés par ALS.
+Le module **save** prend en charge tous les enregistrements de fichiers images générés par ALS.
 
 Sa configuration est gérée via les préférences et l'interface.
 
