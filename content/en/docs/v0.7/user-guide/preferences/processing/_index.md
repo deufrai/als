@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "Documentation of the Processing tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T05:45:30Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -68,10 +68,15 @@ alt="Dark signal subtraction settings" >}}
 
 1. `Use dark subtraction` activates the subtraction
 2. `Change...` allows the selection of the master dark file 
-3. `Clear` emplies the master dark file path
+3. `Clear` empties the master dark file path
 
 {{% alert color="warning" %}}
 ⚠️ The master dark **must have the same dimensions** (_width x height_) as the image to be processed
+
+If the dimensions are different:
+- a **WARNING** message is added to the session log, with the message '_Data structure inconsistency_'
+- The `Acknowledge` button in the `Session Log` is activated
+- If the `session log` is hidden, the new problem indicator appears in the `Issues` section of the panel.
 {{% /alert %}}
 
 {{% alert color="info" %}}

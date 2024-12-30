@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T05:45:30Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -72,6 +72,12 @@ alt="Réglages de soustraction du signal thermique" >}}
 
 {{% alert color="warning" %}}
 ⚠️ Le master dark **doit avoir les mêmes dimensions** (_largeur x hauteur_) que l'image à traiter
+
+Si les dimensions sont différentes :
+- un message **WARNING** est ajouté au journal de session, portant le message '_incohérence de la structure des données_'
+- Le bouton `Acquitter` du `Journal de session` est activé
+- Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
+  panneau.
 {{% /alert %}}
 
 {{% alert color="info" %}}
