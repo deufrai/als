@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2024-12-30T02:46:30Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS scanner"]
 draft: false
 type: "docs"
@@ -25,7 +25,7 @@ It is controlled by the interface and keyboard shortcuts.
 
 | Source                            | Parameter                | data type | Required    | Default value |
 |-----------------------------------|--------------------------|-|-------------|---------------|
-| [Preferences: General Tab](../../preferences/general/#scan-folder) | Path to the scan folder | | Folder path | Yes           | ∅              |  
+| [Preferences: General Tab](../../preferences/general/#scan-folder) | Path to the scan folder | Folder path | Yes           | ∅              |  
 
 
 

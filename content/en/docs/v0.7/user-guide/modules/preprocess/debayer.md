@@ -2,7 +2,7 @@
 title: "Debayering"
 description: "Detailed documentation of the ALS Debayer process"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: [ "ALS debayer", "ALS debayering" ]
 draft: false
 type: "docs"
@@ -32,9 +32,9 @@ This process is triggered by the **Preprocess** module.
 
 # Input
 
-| Type  | Description                                    |
-|-------|------------------------------------------------|
-| Image | image received from the **Preprocess** module |
+| Source                                                                  | Parameter     | Data Type | Required | Default Value |
+|-------------------------------------------------------------------------|---------------|-----------|----------|---------------|
+| [Preferences: Processing Tab](../../../preferences/processing/#debayer) | Bayer pattern | choice: <br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | YES      | AUTO          |
 
 # Behavior
 

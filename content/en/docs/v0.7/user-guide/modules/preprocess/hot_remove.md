@@ -2,7 +2,7 @@
 title: "Hot Pixel Removal"
 description: "Detailed documentation of the ALS HotPixelRemove process"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS hot pixel removal", "ALS hot pixel suppression"]
 draft: false
 type: "docs"
@@ -19,9 +19,9 @@ Its configuration is managed via ALS preferences.
 
 # Configuration
 
-| Source                                                                         | Parameter |
-|--------------------------------------------------------------------------------|-----------|
-| [Preferences: Processing Tab](../../../preferences/processing/#hot-remove)     | ON/OFF    |  
+| Source                             | Parameter | Data Type | Required | Default   |
+|------------------------------------|-----------|-----------|---------|-----------|
+| [Preferences: Processing Tab](../../../preferences/processing/#hot-remove) | ON/OFF    | ON/OFF    | ∅         | OFF       |
 
 # Control
 

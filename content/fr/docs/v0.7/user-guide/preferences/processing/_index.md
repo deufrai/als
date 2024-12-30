@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -46,14 +46,6 @@ alt="L'onglet Traitement des préférences" >}}
 
 ## Suppression des pixels chauds {#hot-remove}
 
-- Activation
-
-    |           |          |
-    |-----------|----------|
-    |Type de donnée       | ON / OFF |
-    | Requis | ∅        |
-    | Valeur par défaut | OFF      |
-
 {{< center >}}
 {{< figure src="hot_remove.png"
 caption="Réglages de suppression des pixels chauds"
@@ -62,25 +54,9 @@ height="75px"
 alt="Réglages de suppression des pixels chauds" >}}
 {{< /center >}}
 
-La case à cocher `suppression des pixels chauds` permet d'activer ou de désactiver le traitement.
+`suppression des pixels chauds` active la suppression
 
 ## Soustraction de dark {#dark-remove}
-
-- Activation
-
-    |           |          |
-    |-----------|----------|
-    |Type de donnée       | ON / OFF |
-    | Requis | ∅        |
-    | Valeur par défaut | OFF      |
-
-- Chemin du fichier master dark
-
-    |           |                            |
-    |-----------|----------------------------|
-    |Type de donnée       | Chemin vers un fichier     |
-    | Requis | Quand le traitement est ON |
-    | Valeur par défaut | ∅                          |
 
 {{< center >}}
 {{< figure src="dark_remove.png"
@@ -90,9 +66,9 @@ height="139px"
 alt="Réglages de soustraction du signal thermique" >}}
 {{< /center >}}
 
-1. Activez la soustraction avec la case à cocher `soustraction de dark` 
-2. Clickez le bouton `Modifier...` pour choisir le fichier master dark à utiliser pour la soustraction.
-3. Le bouton `Vider` permet de vider le chemin du fichier master dark.
+1. `soustraction de dark` active la soustraction
+2. `Modifier...` permet de choisir le fichier master dark à utiliser pour la soustraction. 
+3. `Vider` permet de vider le chemin du fichier master dark.
 
 {{% alert color="warning" %}}
 ⚠️ Le master dark **doit avoir les mêmes dimensions** (_largeur x hauteur_) que l'image à traiter
@@ -107,15 +83,6 @@ alt="Réglages de soustraction du signal thermique" >}}
 {{% /alert %}}
 
 ## Dématriçage {#debayer}
-
-- Matrice de Bayer à utiliser
-    
-    |           |                                                                   |
-    |-----------|-------------------------------------------------------------------|
-    |Type de donnée       | choix :<br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR |
-    | Requis | OUI                                                               |
-    | Valeur par défaut | AUTO                                                              |
-    
 
 {{< center >}}
 {{< figure src="debayer.png"

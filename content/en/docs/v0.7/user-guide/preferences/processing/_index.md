@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "Documentation of the Processing tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -44,15 +44,7 @@ alt="Preferences page Process tab" >}}
 ℹ️ These settings are only accessible when the session is stopped
 {{% /alert %}}
 
-## Hot pixel remover {#hot-remove}
-
-- Activation
-
-    |           |          |
-    |-----------|----------|
-    |Data type  | ON / OFF |
-    | Required  | ∅        |
-    | Default value | OFF  |
+## Hot pixel removal {#hot-remove}
 
 {{< center >}}
 {{< figure src="hot_remove.png"
@@ -62,25 +54,9 @@ height="75px"
 alt="Hot pixel removal settings" >}}
 {{< /center >}}
 
-The `Use hot pixel remover` checkbox allows you to enable or disable hot pixel removal.
+`Use hot pixel remover` activates the removal
 
 ## Dark subtraction {#dark-remove}
-
-- Activation
-
-    |           |          |
-    |-----------|----------|
-    |Data type  | ON / OFF |
-    | Required  | ∅        |
-    | Default value | OFF  |
-
-- Master dark file path
-
-    |           |                            |
-    |-----------|----------------------------|
-    |Data type  | Path to a file             |
-    | Required  | When the process is ON     |
-    | Default value | ∅                      |
 
 {{< center >}}
 {{< figure src="dark_remove.png"
@@ -90,9 +66,9 @@ height="173px"
 alt="Dark signal subtraction settings" >}}
 {{< /center >}}
 
-1. Activate subtraction with the `Use dark subtraction` checkbox.
-2. Click the `Change...` button to pick the master dark file to use for the subtraction. 
-3. The `Clear` button allows you to empty the master dark file path.
+1. `Use dark subtraction` activates the subtraction
+2. `Change...` allows the selection of the master dark file 
+3. `Clear` emplies the master dark file path
 
 {{% alert color="warning" %}}
 ⚠️ The master dark **must have the same dimensions** (_width x height_) as the image to be processed
@@ -106,16 +82,7 @@ alt="Dark signal subtraction settings" >}}
   - the format difference is discreetly reported in the session log
 {{% /alert %}}
 
-## Debayering {#debayer}
-
-- Debayering pattern
-    
-    |           |                                                                   |
-    |-----------|-------------------------------------------------------------------|
-    |Data type  | choice:<br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR         |
-    | Required  | YES                                                               |
-    | Default value | AUTO                                                          |
-    
+## Debayering pattern {#debayer}
 
 {{< center >}}
 {{< figure src="debayer.png"

@@ -2,7 +2,7 @@
 title: "Soustraction de dark"
 description: "Documentation détaillée du traitement RemoveDark d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T02:26:36Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS soustraction de dark"]
 type: "docs"
 categories: ["guide utilisateur"] 
@@ -12,7 +12,7 @@ weight: 354
 
 # Présentation
 
-Le Traitement **DarkRemove** opère la soustraction du signal thermique de l'image en utilisant un master dark
+Le Traitement **DarkRemove** soustrait le signal thermique de l'image en utilisant un master dark
 fourni par l'utilisateur.
 
 Sa configuration est gérée via les préférences
@@ -20,10 +20,10 @@ Sa configuration est gérée via les préférences
 # Configuration
 
 
-| Source                                                                         | Paramètre             |
-|--------------------------------------------------------------------------------|-----------------------|
-| [Préférences : Onglet Traitement](../../../preferences/processing/#dark-remove) | ON/OFF                |  
-| [Préférences : Onglet Traitement](../../../preferences/processing/#dark-remove) | Chemin du master dark |  
+| Source                                                                         | Paramètre             | Type de donnée         | Requis | Valeur par défaut     |
+|--------------------------------------------------------------------------------|-----------------------|------------------------|--------|-----------------------|
+| [Préférences : Onglet Traitement](../../../preferences/processing/#dark-remove) | ON/OFF                | ON/OFF                 | ∅      | OFF                   |
+| [Préférences : Onglet Traitement](../../../preferences/processing/#dark-remove) | Chemin du master dark | chemin vers un fichier | OUI    | ∅ |  
 
 # Contrôle
 
@@ -31,10 +31,10 @@ Ce traitement est ordonné par le module **Preprocess**
 
 # Entrée
 
-| Type  | Description                                  |
-|-------|----------------------------------------------|
-| Image | image reçue du module **Preprocess** |
-| Image | master dark fourni par l'utilisateur          |
+| Type  | Description                               |
+|-------|-------------------------------------------|
+| Image | image reçue du module **Preprocess**      |
+| Image | master dark lu depuis le chemin configuré |
 
 
 # Comportement

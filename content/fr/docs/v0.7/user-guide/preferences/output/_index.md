@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T02:10:11Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: [ "ALS outout settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -45,30 +45,14 @@ Ici sont configurés le format des images sauvegardées et la fonction de sauveg
 
 ## Format
 
-- Format des images sauvegardées
-
-  |           |                                      |
-  |-----------|--------------------------------------|
-  |Type de donnée       | choix :<br>- TIFF<br>- PNG<br>- JPEG |
-  | Requis | Oui                                  |
-  | Valeur par défaut | JPEG                                 |
-
 Les boutons `Format` définissent le format des fichiers enregistrés
 
 ## Enregistrement auto fin de session
 
-- Activation
-
-  |           |          |
-  |-----------|----------|
-  |Type de donnée       | ON / OFF |
-  | Requis | ∅        |
-  | Valeur par défaut | OFF      |
-
-La case à cocher `Enregistrement auto fin de session` active la sauvegarde automatique du **dernier** résultat
+`Enregistrement auto fin de session` active la sauvegarde automatique du **dernier** résultat
 du module **Process** dans un nouveau fichier horodaté, à chaque arrêt de session :
 
-- **emplacemnt du fichier** : **dossier de travail**
+- **emplacement du fichier** : **dossier de travail**
 - **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
 - **Format et extension du fichier** : en fonction du format choisi
 

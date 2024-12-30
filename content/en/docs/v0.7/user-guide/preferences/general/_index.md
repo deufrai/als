@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "Documentation of the General tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T02:46:30Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS general settings", "ALS general preferences"]
 draft: false
 type: "docs"
@@ -58,7 +58,7 @@ height="148px"
 alt="Scan folder preferences" >}}
 {{< /center >}}
 
-1. Clicking the `Change...` button allows you to configure the **scan folder**.
+1. `Change...` allows you to configure the **scan folder**.
 2. The configured path is displayed to the right of the button
 
 ## Work Folder {#work-folder}

@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T02:10:11Z
+lastmod: 2024-12-30T03:29:59Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -45,25 +45,9 @@ Here are the settings for the output file format and the **autosave on stop** fe
 
 ## Format
 
-- Output file format
-
-  |           |                                      |
-  |-----------|--------------------------------------|
-  |Data type  | choices:<br>- TIFF<br>- PNG<br>- JPEG |
-  | Required  | Yes                                  |
-  | Default value | JPEG                             |
-
 The `Format` buttons define the output file format
 
 ## Autosave on stop
-
-- Activation
-
-  |           |          |
-  |-----------|----------|
-  |Data type  | ON / OFF |
-  | Required  | ∅        |
-  | Default value | OFF  |
 
 `Autosave on stop` activates the automatic saving of the **last** result of te **Process** module into a new 
 timestamped file, on every session stop:
