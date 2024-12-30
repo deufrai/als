@@ -2,7 +2,7 @@
 title: "Stack"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T07:18:00Z
+lastmod: 2024-12-30T08:17:17Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -19,9 +19,9 @@ Le module **Stack** prend en charge l'alignement et l'empilement des brutes cali
 
 | Source                                                                 | Paramètre                  | Type de donnée                  | Requis | Valeur par défaut |
 |------------------------------------------------------------------------|----------------------------|---------------------------------|--------|-------------------|
-| [Interface : Contrôles de stacking](../../als-gui/controls/#controls)  | Activation de l'alignement | ON/OFF                          | ∅      | ON                |
-| [Interface : Contrôles de stacking](../../als-gui/controls/#controls)  | Mode d'empilement          | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
-| [Interface : Contrôles de stacking](../../als-gui/controls/#threshold) | Seuil de détection         | page de valeurs                 | OUI    | 25                |
+| [Interface : Contrôles de stacking](../../ui/controls/#controls)  | Activation de l'alignement | ON/OFF                          | ∅      | ON                |
+| [Interface : Contrôles de stacking](../../ui/controls/#controls)  | Mode d'empilement          | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
+| [Interface : Contrôles de stacking](../../ui/controls/#threshold) | Seuil de détection         | page de valeurs                 | OUI    | 25                |
 
 # Contrôle
 

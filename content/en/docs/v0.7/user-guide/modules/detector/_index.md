@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T08:17:17Z
 keywords: ["ALS scanner"]
 draft: false
 type: "docs"
@@ -34,7 +34,7 @@ It is controlled by the interface and keyboard shortcuts.
 
 | Source                                                                       | Action                                                                                                                         |
 |------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [Interface: Session Controls](../../als-gui/controls/#session-controls) | ON/OFF                                                                                                                         |
+| [Interface: Session Controls](../../ui/controls/#session-controls) | ON/OFF                                                                                                                         |
 | Shortcuts                                                                   | - <span class="als-ks">R</span> ON/OFF toggle within current session<br> - <span class="als-ks">X</span> OFF + session closure |
 
 # Input
