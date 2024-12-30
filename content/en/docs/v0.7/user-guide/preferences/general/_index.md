@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "Documentation of the General tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T03:44:07Z
 keywords: ["ALS general settings", "ALS general preferences"]
 draft: false
 type: "docs"
@@ -62,6 +62,19 @@ alt="Scan folder preferences" >}}
 2. The configured path is displayed to the right of the button
 
 ## Work Folder {#work-folder}
+
+Sets the path of the **work folder**
+
+{{< center >}}
+{{< figure src="work_folder.png"
+caption="Work folder preferences"
+width="610px"
+height="160px"
+alt="Work folder preferences" >}}
+{{< /center >}}
+
+1. `Change...` allows you to configure the **work folder**.
+2. The configured path is displayed to the right of the button
 
 # Profile {#profile}
 

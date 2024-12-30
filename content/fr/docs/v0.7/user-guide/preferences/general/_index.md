@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T03:44:07Z
 keywords: ["ALS general settings", "préférences générales ALS"]
 draft: false
 type: "docs"
@@ -58,10 +58,23 @@ height="133px"
 alt="Préférences dossier scanné" >}}
 {{< /center >}}
 
-1. `Modifier` permet de configurer le **dossier scanné**.
+1. `Modifier...` permet de configurer le **dossier scanné**.
 2. Le chemin configuré est affiché à droite du bouton
 
 ## Dossier de travail {#work-folder}
+
+Définit le chemin du **dossier de travail**
+
+{{< center >}}
+{{< figure src="work_folder.png"
+caption="Préférences du dossier de travail"
+width="609px"
+height="153px"
+alt="Préférences dossier de travail" >}}
+{{< /center >}}
+
+1. `Modifier...` permet de configurer le **dossier de travail**.
+2. Le chemin configuré est affiché à droite du bouton
 
 # Profil {#profile}
 
