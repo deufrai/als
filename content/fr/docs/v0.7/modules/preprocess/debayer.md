@@ -2,7 +2,7 @@
 title: "Dématriçage"
 description: "Documentation détaillée du traitement de dématriçage d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T08:41:06Z
 keywords: ["ALS debayer", "ALS dépatriçage"]
 draft: false
 type: "docs"
@@ -24,7 +24,7 @@ Sa configuration est gérée via les préférences
 
 | Source                                 | Paramètre                | Type de donnée           | Requis | Valeur par défaut |
 |----------------------------------------|--------------------------|---------------------------| ------- | --------------- |
-| [Préférences : Onglet Traitement](../../../preferences/processing/#debayer) | Matrice de Bayer | choix :<br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | OUI     | AUTO              |
+| [Préférences : Onglet Traitement](../../../user-guide/preferences/processing/#debayer) | Matrice de Bayer | choix :<br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | OUI     | AUTO              |
 
 
 # Contrôle

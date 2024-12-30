@@ -3,7 +3,7 @@ title: "Basic Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T07:18:00Z
+lastmod: 2024-12-30T08:41:57Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -91,7 +91,7 @@ The **preprocess** module groups the following **calibration** processes:
    **Color** images in **FITS** or **Raw** format are converted to RGB color using the Bayer matrix described in the
    file headers.
 
-You can find more information about the **Preprocess** module in its [detailed documentation](../modules/preprocess/).
+You can find more information about the **Preprocess** module in its [detailed documentation](../../modules/preprocess/).
 
 ### Stack {#stack-module}
 
@@ -108,7 +108,7 @@ The **Stack** module maintains the **current stack** and handles the following p
 or Moon images cannot be aligned**.
 {{% /alert %}}
 
-You can find more information about the **Stack** module in its [detailed documentation](../modules/stack/).
+You can find more information about the **Stack** module in its [detailed documentation](../../modules/stack/).
 
 ### Process {#process-module}
 
@@ -162,7 +162,7 @@ of the application:
 This module is responsible for detecting new subs in the **scan folder** and transmitting them to the
 **Preprocess** module.
 
-You can find more information about the **Scanner** module in its [detailed documentation](../modules/detector/).
+You can find more information about the **Scanner** module in its [detailed documentation](../../modules/detector/).
 
 ### Server
 

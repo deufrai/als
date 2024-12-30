@@ -2,7 +2,7 @@
 title: "Dark Subtraction"
 description: "Detailed documentation ALS DarkRemove process"
 author: "ALS Team"
-lastmod: 2024-12-30T04:12:20Z
+lastmod: 2024-12-30T08:41:06Z
 keywords: ["ALS dark current subtractor", "ALS thermal signal subtraction"]
 draft: false
 type: "docs"
@@ -21,8 +21,8 @@ Its configuration is managed via ALS preferences page.
 
 | Source                                                                         | Parameter             | Data type             | Required              | Default value         |
 |--------------------------------------------------------------------------------|-----------------------|-|-----------------------|-----------------------|
-| [Preferences: Processing Tab](../../../preferences/processing/#dark-remove)    | ON/OFF                | ON/OFF                | ∅                     | OFF                   |
-| [Preferences: Processing Tab](../../../preferences/processing/#dark-remove)    | Master dark path      | File path             | Yes                   | ∅                     |
+| [Preferences: Processing Tab](../../../user-guide/preferences/processing/#dark-remove)    | ON/OFF                | ON/OFF                | ∅                     | OFF                   |
+| [Preferences: Processing Tab](../../../user-guide/preferences/processing/#dark-remove)    | Master dark path      | File path             | Yes                   | ∅                     |
 
 # Control
 

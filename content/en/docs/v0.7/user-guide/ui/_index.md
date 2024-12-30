@@ -1,9 +1,9 @@
 ---
-title: "The ALS Interface"
+title: "Interface"
 description: "Detailed tour of the front end."
 author: "ALS Team"
 
-lastmod: 2024-12-26T21:15:10Z
+lastmod: 2024-12-30T08:41:57Z
 keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
 tags: ["GUI"]

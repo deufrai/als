@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2024-12-30T08:17:17Z
+lastmod: 2024-12-30T08:41:06Z
 keywords: ["ALS scanner"]
 draft: false
 type: "docs"
@@ -25,7 +25,7 @@ It is controlled by the interface and keyboard shortcuts.
 
 | Source                            | Parameter                | data type | Required    | Default value |
 |-----------------------------------|--------------------------|-|-------------|---------------|
-| [Preferences: General Tab](../../preferences/general/#scan-folder) | Path to the scan folder | Folder path | Yes           | ∅              |  
+| [Preferences: General Tab](../../user-guide/preferences/general/#scan-folder) | Path to the scan folder | Folder path | Yes           | ∅              |  
 
 
 
@@ -34,7 +34,7 @@ It is controlled by the interface and keyboard shortcuts.
 
 | Source                                                                       | Action                                                                                                                         |
 |------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [Interface: Session Controls](../../ui/controls/#session-controls) | ON/OFF                                                                                                                         |
+| [Interface: Session Controls](../../user-guide/ui/controls/#session-controls) | ON/OFF                                                                                                                         |
 | Shortcuts                                                                   | - <span class="als-ks">R</span> ON/OFF toggle within current session<br> - <span class="als-ks">X</span> OFF + session closure |
 
 # Input

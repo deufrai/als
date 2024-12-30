@@ -3,7 +3,7 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T07:18:00Z
+lastmod: 2024-12-30T08:41:57Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -92,7 +92,7 @@ Le module **preprocess** regroupe les traitements de calibration suivants :
    Les images **couleur** au format **FITS** ou **Raw** sont converties en couleur RVB en utilisant la matrice de Bayer
    décrite dans les entêtes du fichier.
 
-Vous trouverez plus d'information sur le module **Preprocess** dans sa [documentation détaillée](../modules/preprocess/) 
+Vous trouverez plus d'information sur le module **Preprocess** dans sa [documentation détaillée](../../modules/preprocess/) 
 
 ### Stack {#stack-module}
 
@@ -109,7 +109,7 @@ Le module **Stack** maintient la **stack courante** et prend en charge les trait
 des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Stack** dans sa [documentation détaillée](../modules/stack/) 
+Vous trouverez plus d'information sur le module **Stack** dans sa [documentation détaillée](../../modules/stack/) 
 
 ### Process {#process-module}
 
@@ -167,7 +167,7 @@ Ce module est en charge de détecter les nouvelles images dans le **dossier scan
 module **Preprocess**.
 
 Vous trouverez plus d'information sur le module **détecteur d'images** dans 
-sa [documentation détaillée](../modules/detector/)
+sa [documentation détaillée](../../modules/detector/)
 
 ### Serveur d'image
 

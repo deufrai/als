@@ -2,7 +2,7 @@
 title: "Soustraction de dark"
 description: "Documentation détaillée du traitement RemoveDark d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T08:41:06Z
 keywords: ["ALS soustraction de dark"]
 type: "docs"
 categories: ["guide utilisateur"] 
@@ -22,8 +22,8 @@ Sa configuration est gérée via les préférences
 
 | Source                                                                         | Paramètre             | Type de donnée         | Requis | Valeur par défaut     |
 |--------------------------------------------------------------------------------|-----------------------|------------------------|--------|-----------------------|
-| [Préférences : Onglet Traitement](../../../preferences/processing/#dark-remove) | ON/OFF                | ON/OFF                 | ∅      | OFF                   |
-| [Préférences : Onglet Traitement](../../../preferences/processing/#dark-remove) | Chemin du master dark | chemin vers un fichier | OUI    | ∅ |  
+| [Préférences : Onglet Traitement](../../../user-guide/preferences/processing/#dark-remove) | ON/OFF                | ON/OFF                 | ∅      | OFF                   |
+| [Préférences : Onglet Traitement](../../../user-guide/preferences/processing/#dark-remove) | Chemin du master dark | chemin vers un fichier | OUI    | ∅ |  
 
 # Contrôle
 
