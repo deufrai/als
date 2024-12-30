@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T08:10:58Z
+lastmod: 2024-12-30T08:58:42Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -37,7 +37,7 @@ Génération d'une image contenant le résultat de la somme ou de la moyenne pix
 calibrées
 
 ### livestacking {#livestacking}
-Pratique consistant à traiter et afficher en temps réel l'empilement d'un ensemble de [brutes](#sub) dynamique
+Pratique consistant à traiter et afficher en temps réel l'[empilement](#stacking) d'un ensemble de [brutes](#sub) dynamique
 
 ### master dark {#master-dark}
 

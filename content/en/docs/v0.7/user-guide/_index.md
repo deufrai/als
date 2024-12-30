@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-30T08:10:58Z
+lastmod: 2024-12-30T08:58:42Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -28,7 +28,7 @@ subtraction of a [master dark](#master-dark) to reduce thermal noise.
 
 ### livestacking {#livestacking}
 
-Real-time processing and display of the stacking of a dynamic set of [subs](#sub)
+Real-time processing and display of the [stacking](#stacking) of a dynamic set of [subs](#sub)
 
 ### master dark {#master-dark}
 
