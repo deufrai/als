@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T02:02:00Z
+lastmod: 2024-12-30T02:08:09Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -65,7 +65,8 @@ The `Format` buttons define the output file format
   | Required  | ∅        |
   | Default value | OFF  |
 
-The `Autosave on stop` checkbox activates the automatic saving of the image from the **central area** into a **timestamped file** at the end of the session:
+`Autosave on stop` activates the automatic saving of the **last** result of te **Process** module into a new timestamped file 
+at the end of the session:
 
 - **file location**: **working directory**
 - **file name**: composed of **stack_image** and a timestamp suffix
