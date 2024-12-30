@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:47:09Z
+lastmod: 2024-12-30T13:56:14Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
@@ -24,14 +24,17 @@ Voir section [Comportement](#behavior) ci-dessous.
 
 # Contrôle
 
-Le module **Preprocess** est lancé au démarrage d'ALS et **ne subit plus aucune influence extérieure** à part l'arrivée
-des images dans sa file d'attente.
+Le module **Preprocess** est lancé en tâche de fond au démarrage d'ALS
+
+| Type          | Source                     | Raccourci         | Action                                                             |
+|---------------|----------------------------|-------------------|--------------------------------------------------------------------|
+| Événement     | brute(s) en file d'attente | ∅                 | lance la calibration  |
 
 # Entrée
 
-| Type  | Description                      |
-|-------|----------------------------------|
-| Image | brute présente en file d'attente |
+| Type  | Description                        |
+|-------|------------------------------------|
+| Image | brute en tête de la file d'attente |
 
 # Comportement {#behavior}
 

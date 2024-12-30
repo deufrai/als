@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Detailed documentation of the ALS Preprocess module"
 author: "ALS Team"
-lastmod: 2024-12-30T08:47:09Z
+lastmod: 2024-12-30T13:56:14Z
 keywords: ["ALS preprocess"]
 draft: false
 type: "docs"
@@ -24,13 +24,17 @@ See the [Behavior](#behavior) section below.
 
 # Control
 
-The **Preprocess** module is started when ALS launches and **is not influenced by any external factors** except for the arrival of images in its queue.
+The **Preprocess** module is launched in the background at ALS startup
+
+| Type      | Source                     | Shortcut | Action                                     |
+|-----------|----------------------------|----------|--------------------------------------------|
+| Event     | sub(s) in queue       | ∅        | trigger calibration |
 
 # Input
 
-| Type  | Description          |
-|-------|----------------------|
-| Image | sub present in queue |
+| Type  | Description        |
+|-------|--------------------|
+| Image | sub at queue front |
 
 # Behavior {#behavior}
 

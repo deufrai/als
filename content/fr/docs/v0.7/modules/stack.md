@@ -2,7 +2,7 @@
 title: "Stack"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:47:09Z
+lastmod: 2024-12-30T13:56:14Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -25,15 +25,18 @@ Le module **Stack** prend en charge l'alignement et l'empilement des brutes cali
 
 # Contrôle
 
-Le module **Stack** est lancé au démarrage d'ALS et **ne subit plus aucune influence extérieure** à part l'arrivée
-des images dans sa file d'attente.
+Le module **Stack** est lancé en tâche de fond au démarrage d'ALS
+
+| Type          | Source                     | Raccourci         | Action              |
+|---------------|----------------------------|-------------------|---------------------|
+| Événement     | brute(s) en file d'attente | ∅                 | lance le traitement |
 
 # Entrée
 
-| Type  | Description                             |
-|-------|-----------------------------------------|
-| Image | brute calibrée présente en file d'attente |
-| Image | référence d'alignement de la session    |
+| Type  | Description                                       |
+|-------|---------------------------------------------------|
+| Image | brute calibrée en tête de file d'attente |
+| Image | référence d'alignement de la session              |
 
 # Comportement {#behavior}
 

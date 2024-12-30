@@ -2,7 +2,7 @@
 title: "Stack"
 description: "Detailed documentation of the Stack module in ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:47:09Z
+lastmod: 2024-12-30T13:56:14Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -25,15 +25,18 @@ The **Stack** module handles the alignment and stacking of calibrated subs.
 
 # Control
 
-The **Stack** module is started when ALS launches and **is not influenced by any external factors** except for the
-arrival of images in its queue.
+The **Stack** module is launched in the background at ALS startup
+
+| Type      | Source                     | Shortcut | Action             |
+|-----------|----------------------------|----------|--------------------|
+| Event     | sub(s) in queue       | ∅        | trigger processing |
 
 # Input
 
-| Type  | Description                 |
-|-------|-----------------------------|
-| Image | calibrated sub in queue     |
-| Image | session alignment reference |
+| Type  | Description                   |
+|-------|-------------------------------|
+| Image | calibrated sub at queue front |
+| Image | session alignment reference   |
 
 # Behavior {#behavior}
 
