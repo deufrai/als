@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T08:41:57Z
+lastmod: 2024-12-30T09:18:42Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -162,7 +162,7 @@ of the application:
 This module is responsible for detecting new subs in the **scan folder** and transmitting them to the
 **Preprocess** module.
 
-You can find more information about the **Scanner** module in its [detailed documentation](../../modules/detector/).
+You can find more information about the **Scanner** module in its [detailed documentation](../../modules/scanner/).
 
 ### Server
 
