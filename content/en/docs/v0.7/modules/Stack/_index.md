@@ -2,7 +2,7 @@
 title: "Stack"
 description: "Detailed documentation of the Stack module in ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:06Z
+lastmod: 2024-12-30T08:47:09Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: [ "module", "stack" ]
 weight: 356
 ---
 
-# Introduction
+# Overview
 
 The **Stack** module handles the alignment and stacking of calibrated subs.
 

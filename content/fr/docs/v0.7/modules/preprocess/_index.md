@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T07:18:00Z
+lastmod: 2024-12-30T08:47:09Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: [ "module", "Preprocess" ]
 weight: 352
 ---
 
-# Introduction
+# Présentation
 
 Le module **Preprocess** prend en charge les traitements de **calibration** de brutes
 
