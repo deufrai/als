@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T01:50:00Z
+lastmod: 2024-12-30T05:21:00Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: [ "guide utilisateur" ]
@@ -115,43 +115,42 @@ alt="Section session" >}}
 
 # Stack {#stack-section}
 
-La section **stack** du panneau contrôle le **module de stacking**.
-
-L'alignement est débrayable et deux choix d'empilement sont disponibles
+La section **stack** du panneau contrôle le module **Stack**.
 
 <div class="row">
 <div class="col-md-8">
 
-## Contrôles de la stack courante
+## Alignement et mode d'empilement {#controls}
 
-_Ces contrôles sont accessibles uniquement quand la session est stoppée._
+{{% alert color="info" %}}
+ℹ️ Ces contrôles sont accessibles uniquement quand la session est stoppée.
+{{% /alert %}}
 
-- Case à cocher `Aligner` : active l'**alignement** des nouvelles images sur la référence de la session.
-- Liste déroulante des **modes d'empilement** : Définit le **mode d'empilement** utilisé pour cette session :
+- `Aligner` active l'**alignement** des brutes sur la référence de la session.
+- La liste déroulante définit le **mode d'empilement** utilisé pour cette session :
     - `moyenne` : La valeur de chaque pixel de l'image résultante est la moyenne des valeurs des pixels correspondants
       de chaque image de la stack courante.
     - `somme` : La valeur de chaque pixel de l'image résultante est la somme des valeurs des pixels correspondants de
       chaque image de la stack courante.
 
-## Seuil de recherche de similitudes
+## Seuil de détection {#threshold}
 
-Quand l'alignement est activé, ALS détermine les transformations à appliquer à chaque nouvelle image en se basant sur
-une recherche de similitudes (**groupes de 3 étoiles**) entre celle-ci et la référence de la session.
+Pour procéder à l'alignement, ALS recherche les similitudes (**groupes de 3 étoiles**) entre la brute
+et la référence de la session.
 
-Pour écarter les images de trop mauvaise qualité, ALS utilise un seuil de détection des similitudes : Toute image
-présentant un nombre de similitudes inférieur à ce seuil sera ignorée.
+Les images de trop mauvaise qualité sont écartés en utilisant un seuil : Toute image présentant un nombre de similitudes
+**inférieur** à ce seuil sera ignorée.
 
 Le curseur `Seuil` permet de définir ce seuil en temps réel.
 
-- **Valeurs possibles** : 5 à 60.
-- **Valeur par défaut** : 25.
-- **Comportement lorsqu'une image est ignorée** :
-    - L'image n'est pas ajoutée à la pile. ALS se met en attente de la prochaine image.
-    - Un message est ajouté au `Journal de session`. Il porte, entre autre, le texte _Alignment matches count is lower
-      than configured threshold_
-    - Le bouton `Acquitter` du `Journal de session` est activé
-    - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
-      panneau.
+**Comportement lorsqu'une image est ignorée** :
+
+- L'image n'est pas ajoutée à la pile. Le module **Stack** se met en attente de la prochaine image.
+- Un message **WARNING** est ajouté au `Journal de session`. Il porte, entre autre, le texte _Alignment matches count is
+  lower than configured threshold_
+- Le bouton `Acquitter` du `Journal de session` est activé
+- Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
+  panneau.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -168,9 +167,9 @@ alt="Section stack" >}}
 
 {{% alert title="ℹ️ INFO" color="info" %}}
 
-- `Aligner` est activé au démarrage d'ALS
-- Le mode de stacking est réglé sur `moyenne` au démarrage d'ALS
-- Le seuil de recherche de similitudes est conservé entre les démarrages d'ALS
+- `Aligner` est activé à chaque démarrage d'ALS
+- Le mode de stacking est réglé sur `moyenne` à chaque démarrage d'ALS
+- Le seuil de détection est global et sauvegardé en permanence
   {{% /alert %}}
 
 {{% alert title="💡 Astuce" color="light" %}}

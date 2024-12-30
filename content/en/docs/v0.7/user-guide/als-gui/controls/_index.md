@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-30T01:50:00Z
+lastmod: 2024-12-30T05:21:00Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -112,43 +112,41 @@ alt="Session section" >}}
 
 # Stack {#stack-section}
 
-The **stack** section of the panel allows you to control the **stacking module**.
-
-This module is responsible for aligning and stacking every detected images.
-Alignment can be disabled, and two stacking modes are available.
+The **stack** section of the panel allows you to control the **stack** module.
 
 <div class="row">
 <div class="col-md-8">
 
-## Controls of the current stack
+## Aligning and Stacking mode {#controls}
 
-_These controls are accessible only when the session is stopped._
+{{% alert color="info" %}}
+These controls are only accessible only when the session is stopped
+{{% /alert %}}
 
-- `Align` checkbox: activates the **alignment** of detected images on the session reference.
-- Dropdown list of **stacking modes**: Allows you to define the **stacking mode** used for this session:
+- `Align` activates the **alignment** of subs on the session reference.
+- Dropdown list defines the **stacking mode** used for this session:
     - `mean`: each pixel of the resulting image is the average of the corresponding pixels of each image in the
       current stack.
     - `sum`: each pixel of the resulting image is the sum of the corresponding pixels of each image in the current
       stack.
 
-## Similarity Search Threshold
+## Detection Threshold
 
-When alignment is enabled, ALS determines the transformations to apply to each new image based on a similarity search
-(**groups of 3 stars**) between the new image and the session reference.
+To proceed with alignment, ALS searches for similarities (**groups of 3 stars**) between the sub and the
+session reference.
 
-To exclude images of too poor quality, ALS uses a similarity detection threshold: Any image with a number of
-similarities below this threshold will be ignored.
+Subs of too poor quality are discarded using a threshold: Any sub with a number of similarities **below** this 
+threshold is ignored.
 
 The `Threshold` slider allows you to set this threshold in real-time.
 
-- **Possible values**: 5 to 60.
-- **Default value**: 25.
-- **Behavior when an image is ignored**:
-    - The image is not added to the stack. ALS waits for the next image.
-    - A message is added to the `Session Log`. It contains, among other things, the text _Alignment matches count is
-      lower than configured threshold_
-    - The `Acknowledge` button in the `Session Log` is activated.
-    - If the `Session Log` is hidden, the new issues indicator appears in the `Issues` section of the panel.
+**Behavior when an image is ignored**:
+
+- The image is not added to the stack. The **Stack** module waits for the next image.
+- A **WARNING** is added to the `Session Log`. It includes the text _Alignment matches count is lower than configured
+  threshold_.
+- The `Acknowledge` button in the `Session Log` is activated.
+- If the `Session Log` is hidden, the new issues indicator appears in the `Issues` section of the panel.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -165,9 +163,9 @@ alt="Stack section" >}}
 
 {{% alert title="ℹ️ INFO" color="info" %}}
 
-- `Align` is enabled on ALS startup
-- The stacking mode is set to `mean` on ALS startup
-- The similarity search threshold is remembered when you exit ALS
+- `Align` is enabled on every ALS startup
+- The stacking mode is set to `mean` on every ALS startup
+- The detection threshold is global and constantly saved 
   {{% /alert %}}
 
 {{% alert title="💡 TIP" color="light" %}}
@@ -227,7 +225,7 @@ section **Web Server**.
 
 # Image saver {#saver-section}
 
-The **Image Saver** section of the panel allows you to trigger additional file saves beyond the default operation 
+The **Image Saver** section of the panel allows you to trigger additional file saves beyond the default operation
 of the **Save** module.
 
 <div class="row">
