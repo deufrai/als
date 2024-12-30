@@ -3,7 +3,7 @@ title: "Basic Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T23:06:22Z
+lastmod: 2024-12-30T01:50:00Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -132,19 +132,19 @@ The **Process** module groups the visual processing applied to the stacking resu
 
 The **Save** module is responsible for saving processed images to disk.
 
-Each image is saved in 2 files in the **work folder**:
+Each image is saved in 2 files:
 
 1. Main output:
-
+    - **file location**: **work folder**
     - **file name**: stack_image
     - **file format and extension**: Choice of JPEG, PNG, or TIFF
 
       Default: **JPEG** format, **.jpg** extension.
 
 2. Server output:
-
+    - **file location**: **work folder**
     - **file name**: web_image
-    - **file format and extension**: **JPEG** format, **.jpg** extension.
+    - **file format and extension**: As defined in [Preferences](../preferences/output/#format).
 
 {{% alert color="warning" %}}
 ⚠️ These 2 files are overwritten by each new processed image

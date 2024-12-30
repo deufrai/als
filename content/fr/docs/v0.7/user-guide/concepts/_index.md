@@ -3,7 +3,7 @@ title: "Concepts de base"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-29T21:17:25Z
+lastmod: 2024-12-30T01:50:00Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -134,17 +134,19 @@ Le module **Process** regroupe les traitements visuels appliqués sur le résult
 
 Le module **Sauvegrde** est en charge de l'enregistrement sur disque des images traitées.
 
-Chaque image est enregistrée dans 2 fichiers du **dossier de travail** :
+Chaque image est enregistrée dans 2 fichiers :
 
 1. Sortie principale :
 
+    - **emplacement du fichier** : **dossier de travail**
     - **nom du fichier** : stack_image
-    - **Format et extension du fichier** : Au choix : JPEG, PNG ou TIFF
+    - **Format et extension du fichier** : Tel que défini dans les [Préférences](../preferences/output/#format).
 
       Par défaut : format **JPEG**, extension **.jpg**.
 
 2. Sortie serveur :
 
+    - **emplacement du fichier** : **dossier de travail**
     - **nom du fichier** : web_image
     - **Format et extension du fichier** : format **JPEG**, extension **.jpg**.
 

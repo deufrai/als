@@ -2,7 +2,7 @@
 title: "The Main Controls Panel"
 description: "documentation of the ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-29T21:19:33Z
+lastmod: 2024-12-30T01:50:00Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls" ]
@@ -56,6 +56,7 @@ displays into sections.
   <div class="col-md-4 d-flex align-items-center justify-content-center">
     {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="main controls panel" >}}
   </div>
+
 </div>
 
 --- 
@@ -132,7 +133,7 @@ _These controls are accessible only when the session is stopped._
 
 ## Similarity Search Threshold
 
-When alignment is enabled, ALS determines the transformations to apply to each new image based on a similarity search 
+When alignment is enabled, ALS determines the transformations to apply to each new image based on a similarity search
 (**groups of 3 stars**) between the new image and the session reference.
 
 To exclude images of too poor quality, ALS uses a similarity detection threshold: Any image with a number of
@@ -163,10 +164,11 @@ alt="Stack section" >}}
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
+
 - `Align` is enabled on ALS startup
 - The stacking mode is set to `mean` on ALS startup
 - The similarity search threshold is remembered when you exit ALS
-{{% /alert %}}
+  {{% /alert %}}
 
 {{% alert title="💡 TIP" color="light" %}}
 If the field imaged by your system contains few stars, it may be necessary to reduce the threshold in order to avoid
@@ -225,37 +227,23 @@ section **Web Server**.
 
 # Image saver {#saver-section}
 
-The **Image saver** section of the panel allows you to control the saving of images produced by ALS.
-
-After the complete processing of each new image, ALS saves the image from the central area in a file in the **work
-folder**:
-
-- **File name**: **stack_image**
-
-  The file is overwritten with each new image.
-
-- **File type and extension**: according to the saving format chosen in the [ALS Preferences](../../preferences/).
-
-  By default: **JPEG** format and **.jpg** extension.
-
-The saving controls allow you to trigger additional saves.
+The **Image Saver** section of the panel allows you to trigger additional file saves beyond the default operation 
+of the **Save** module.
 
 <div class="row">
 <div class="col-md-8">
 
 ## Saving Controls
 
-- `Save current` button: Triggers the recording of the image from the central area into a new file in the
-  **work folder**:
+- `Save current` triggers the saving of the **last** result of the **Process** module into a new timestamped file:
+    - **File location**: **work folder**
     - **File name**: composed of **stack_image** and a timestamp suffix.
-    - **File type and extension**: according to the saving format chosen in
-      the [ALS Preferences](../../preferences/).
+    - **File type and extension**: as defined [ALS Preferences](../../preferences/output/#format).
 
-- `Save every frame` checkbox: Activates the recording of each next processing result into a new file in the **work
-  folder**:
+- `Save every frame` activates the saving of **each next** result of the **Process** module into a new timestamped file:
+    - **File location**: **work folder**
     - **File name**: composed of **stack_image** and a timestamp suffix.
-    - **File type and extension**: according to the saving format chosen in
-      the [ALS Preferences](../../preferences/).
+    - **File type and extension**: as defined [ALS Preferences](../../preferences/output/#format).
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">

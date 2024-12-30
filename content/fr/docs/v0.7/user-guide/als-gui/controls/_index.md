@@ -2,11 +2,11 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-29T06:00:31Z
+lastmod: 2024-12-30T01:50:00Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
-categories: ["guide utilisateur"] 
-tags: ["interface", "contrôles", "session", "module" ]
+categories: [ "guide utilisateur" ]
+tags: [ "interface", "contrôles", "session", "module" ]
 weight: 321
 ---
 
@@ -29,12 +29,13 @@ affichages les plus utilisés
 
 - [**Session**](#session-section)
 
-  Cette section regroupe les contrôles de la session, l'affichage des informations sur la stack courante ainsi 
+  Cette section regroupe les contrôles de la session, l'affichage des informations sur la stack courante ainsi
   que l'indicateur de statut de la session.
 
 - [**Stack**](#stack-section)
 
-  Cette section permet de définir le mode d'alignement et d'empilement des images. Elle propose aussi un réglage de seuil
+  Cette section permet de définir le mode d'alignement et d'empilement des images. Elle propose aussi un réglage de
+  seuil
   pour la recherche de similitudes pendant l'alignement.
 
 - [**Serveur d'images**](#server-section)
@@ -51,12 +52,14 @@ affichages les plus utilisés
 
 - [**Problèmes**](#issues-section)
 
-  Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux problèmes
+  Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux
+  problèmes
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
     {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="panneau contrôles principaux" >}}
   </div>
+
 </div>
 
 --- 
@@ -222,25 +225,25 @@ Onglet **Sortie** section **Serveur web**.
 
 # Enregistreur d'images {#saver-section}
 
-La section **Enregistreur d'images** du panneau permet de déclencher des enregistrements supplémentaires au 
-fonctionnement par défaut du module de sauvegarde
+La section **Enregistreur d'images** du panneau permet de déclencher des enregistrements supplémentaires au
+fonctionnement par défaut du module **Save**
 
 <div class="row">
 <div class="col-md-8">
 
 ## Contrôles d'enregristrement
 
-- Bouton `Enr. image courante` : Déclenche l'enregistrement de l'image de la zone centrale d'ALS dans un **nouveau**
-  fichier du **dossier de travail** :
+- `Enr. image courante` déclenche l'enregistrement de la **dernière image** sortie du module **Process** dans
+  un nouveau fichier horodaté :
+    - **emplacement du fichier** : **dossier de travail**
     - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
-    - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
-      les [Préférences](../../preferences/).
+    - **Type et extension du fichier** : Tel que défini dans les [Préférences](../../preferences/output/#format).
 
-- Case à cocher `Enr. chaque image` : Active l'enregistrement de chaque prochain résultat de traitement dans un 
-  **nouveau** fichier du **dossier de travail** :
+- `Enr. chaque image` active l'enregistrement de **chaque image** sortie du module **Process** dans un
+  nouveau fichier horodaté :
+    - **emplacement du fichier** : **dossier de travail**
     - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
-    - **Type et extension du fichier** : En fonction du format d'enregistrement choisi dans
-      les [Préférences](../../preferences/).
+    - **Type et extension du fichier** : Tel que défini dans les [Préférences](../../preferences/output/#format).
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -256,7 +259,7 @@ alt="Section enregistreur d'images" >}}
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
-`Enr. chaque image` est désactivé au démarrage d'ALS.
+`Enr. chaque image` est désactivée au démarrage d'ALS.
 {{% /alert %}}
 
 ---

@@ -1,24 +1,24 @@
 ---
-title: "Préférences"
-description: "Visite détaillée de la configuration d'ALS"
+title: "Preferences"
+description: "Detailed tour of ALS configuration"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:32Z
-keywords: ["ALS settings", "préférences ALS"]
+lastmod: 2024-12-30T01:50:00Z
+keywords: ["ALS settings", "ALS preferences"]
 draft: false
 type: "docs"
-categories: ["guide utilisateur"] 
-tags: ["preferences" ]
+categories: ["user guide"]
+tags: ["preferences"]
 weight: 330
 ---
 
-La grande majorité des réglages de l'application sont gérés via la fenêtre des **Préférences**
+The vast majority of application settings are managed through the **Preferences** window.
 
-Les préférences sont divisées en 3 groupes :
+Preferences are divided into 3 groups:
 
-- Général : Paramètres principaux de l'application
-- Traitement : Réglages de traitement des images
-- Sortie : Réglages de sortie disque et réseau
+- General: Main application settings
+- Process: Image processing settings
+- Output: Disk and network output settings
 
 {{% alert color="info" %}}
-ℹ️ Tous les réglages sont sauvegardés dès que la fenêtre des préférences est fermée en utilisant le bouton `OK`
+ℹ️ All settings are saved as soon as the preferences window is closed using the `OK` button.
 {{% /alert %}}
