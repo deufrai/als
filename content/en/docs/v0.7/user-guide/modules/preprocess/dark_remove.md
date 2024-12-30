@@ -2,7 +2,7 @@
 title: "Dark Subtraction"
 description: "Detailed documentation ALS DarkRemove process"
 author: "ALS Team"
-lastmod: 2024-12-30T03:29:59Z
+lastmod: 2024-12-30T04:12:20Z
 keywords: ["ALS dark current subtractor", "ALS thermal signal subtraction"]
 draft: false
 type: "docs"
@@ -30,10 +30,10 @@ This process is triggered by the **Preprocess** module.
 
 # Input
 
-| Type  | Description                                  |
-|-------|----------------------------------------------|
+| Type  | Description                                   |
+|-------|-----------------------------------------------|
 | Image | image received from the **Preprocess** module |
-| Image | master dark provided by the user             |
+| Image | master dark read from configured path         |
 
 # Behavior
 
