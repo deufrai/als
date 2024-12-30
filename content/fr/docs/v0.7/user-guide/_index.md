@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T01:09:14Z
+lastmod: 2024-12-30T07:34:28Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -28,8 +28,11 @@ calibration
 : Ensemble de traitements appliqués aux brutes dans le but d'éliminer les défauts du capteur. Cela inclut généralement
 la suppression des pixels chauds et la soustraction d'un master dark pour réduire le bruit thermique.
 
+empilement
+: Génération d'une image contenant le résultat de la somme ou de la moyenne pixel-à-pixel d'un ensemble de brutes calibrées
+
 master dark
-: Image de calibration contenant le bruit thermique du capteur. Elle est soustraite des brutes pendant la calibration 
+: Image de calibration contenant le bruit thermique du capteur. Elle est soustraite des brutes pendant la calibration
 pour réduire le bruit thermique des images avant l'empilement.
 
 session

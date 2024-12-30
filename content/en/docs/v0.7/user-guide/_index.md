@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-30T01:09:14Z
+lastmod: 2024-12-30T07:34:28Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -35,6 +35,9 @@ stopped.
 
 stack
 : Set of subs stacked since the start of the session
+
+stacking
+: Generation of an image containing the result of the pixel-to-pixel sum or average of a set of calibrated subs
 
 sub
 : Image captured by your acquisition system
