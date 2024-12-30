@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:06Z
+lastmod: 2024-12-30T09:00:23Z
 keywords: ["ALS scanner"]
 draft: false
 type: "docs"
@@ -49,7 +49,7 @@ It is controlled by the interface and keyboard shortcuts.
 1. Loads the detected image into memory, with all its metadata
 
 {{% alert color="info" %}}
-ℹ️ Detection works regardless of the subfolder structure inside the **scanned folder**.
+ℹ️ Detection works regardless of the subfolder structure inside the **scan folder**.
 {{% /alert %}}
 
 # Output
