@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-30T08:04:04Z
+lastmod: 2024-12-30T08:10:58Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -32,8 +32,7 @@ Real-time processing and display of the stacking of a dynamic set of [subs](#sub
 
 ### master dark {#master-dark}
 
-Image containing the sensor's thermal noise. It is subtracted from the subs during [calibration](#calibration) to reduce
-thermal noise in the images before stacking.
+Image containing the sensor's thermal noise. It is subtracted from the [subs](#sub) during [calibration](#calibration)
 
 ### session {#session}
 

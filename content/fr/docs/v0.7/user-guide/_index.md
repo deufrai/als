@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T08:04:04Z
+lastmod: 2024-12-30T08:10:58Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -41,8 +41,7 @@ Pratique consistant à traiter et afficher en temps réel l'empilement d'un ense
 
 ### master dark {#master-dark}
 
-Image contenant le bruit thermique du capteur. Elle est soustraite des [brutes](#sub) pendant
-la [calibration](#calibration) pour réduire le bruit thermique des images avant l'empilement.
+Image contenant le bruit thermique du capteur. Elle est soustraite des [brutes](#sub) pendant la [calibration](#calibration) 
 
 ### session {#session}
 
