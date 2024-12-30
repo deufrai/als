@@ -1,8 +1,8 @@
 ---
 title: "Stack"
-description: "Detailed documentation of the Stack module in ALS"
+description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2024-12-30T13:56:14Z
+lastmod: 2024-12-30T14:27:18Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
