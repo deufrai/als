@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T02:48:28Z
+lastmod: 2024-12-31T17:38:35Z
 keywords: ["ALS image detector", "scanner ALS"]
 draft: false
 type: "docs"
@@ -28,10 +28,10 @@ Sa configuration est gérée via les préférences.
 
 # Contrôle
 
-| Type   | Source                                                                   | Raccourci                                                                                                                                      | Action      |
-|--------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| Événements | [Interface : Contrôles de session](../../userguide/ui/controls/#session-controls) | - <span class="als-ks">R</span> Bascule ON/OFF dans la session en cours<br> - <span class="als-ks">X</span> OFF + fermeture de session | ON/OFF      |
-| Événement  | brute détectée dans le dossier scanné                                   | ∅                                                                                                                                              | Charge l'image  |
+| Type          | Source                                            | Action                               |
+|---------------|----------------------------------------------------|--------------------------------------|
+| Événements    | [Interface : Contrôles de session](../../userguide/ui/controls/#session-controls)            | Surveillance dossier scanné : ON/OFF |
+| Événement     | une brute a été détectée dans le dossier scanné    | Charge la brute détectée             |
 
 # Entrée
 
