@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:43:04Z
+lastmod: 2024-12-31T12:48:02Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -140,7 +140,7 @@ You can find more information about the **Preprocess** module in its [detailed d
 
 ### Stacker {#stack-module}
 
-The **Stack** module maintains the **stack** and processes each calibrated sub:
+The **Stacker** module maintains the **stack** and processes each calibrated sub:
 
 1. **Alignment**: 
 
@@ -154,7 +154,7 @@ The **Stack** module maintains the **stack** and processes each calibrated sub:
 ℹ️ Alignment is based on the search for star groups in the compared images. ALS can only align deep sky images. **Planet or Moon images cannot be aligned**.
 {{% /alert %}}
 
-You can find more information about the **Stack** module in its [detailed documentation](../../modules/stack/).
+You can find more information about the **Stacker** module in its [detailed documentation](../../modules/stack/).
 
 ### Process {#process-module}
 
