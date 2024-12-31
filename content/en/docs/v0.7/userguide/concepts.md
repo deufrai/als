@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:48:02Z
+lastmod: 2024-12-31T13:08:50Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -238,21 +238,13 @@ A **session** can be seen as the lifecycle of the pair formed by the **stack** a
 
 1. **Session start**:
     - ALS clears the **stack** and starts the **Scanner**.
-    - The first sub received by the **Stacker** module will serve as the **alignment reference** throughout the session.
 
 2. **Progress**:
-    - each new sub detected is successively:
-        - calibrated
-        - aligned to the reference image
-        - added to the **stack**
-
-    - This addition triggers the calculation of a new stacking result by the **Stacker** module.
-    
-      The generated image is transmitted to the **Process** module and will follow its path.
-
+    - Subs are loaded and flow through the application.
+    - The first sub received by the **Stacker** module will serve as **alignment reference** throughout the session.
     - The session can be **paused**: ALS stops the **Scanner** and retains the **stack**.
 
-      Restarting the session restarts the **Scanner**. The next subs will be added to the current **stack**.
+      Resuming the session starts the **Scanner**. The next subs will be added to the current **stack**.
 
    At any time, the user can navigate the displayed image, zoom, adjust processing parameters...
 

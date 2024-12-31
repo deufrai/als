@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:38:09Z
+lastmod: 2024-12-31T13:08:50Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -248,21 +248,13 @@ Une **session** peut être vue comme le cycle de vie du couple formé par la **s
 
 1. **Démarrage de la session** :
     - ALS vide la **stack** et démarre le **Scanner**.
-    - La première brute reçue par le module **Stacker** servira de **référence d'alignement** durant toute la session.
 
 2. **Déroulement** :
-    - chaque nouvelle brute détectée est successivement :
-        - calibrée
-        - alignée sur l'image de référence
-        - Ajoutée à la **stack**
-
-    - Cet ajout déclenche le calcul d'un nouvel empilement par le module **Stacker**
-    
-      L'image générée est transmise au module **Process** et elle suivra son chemin
-
+    - Les brutes sont chargées et suivent leur chemin dans l'application.
+    - La première brute reçue par le module **Stacker** servira de **référence d'alignement** durant toute la session.
     - La session peut être mise en **pause** : ALS stoppe le **Scanner** et conserve la **stack**
 
-      Relancer la session redémarre le **Scanner**. Les prochaines brutes s'ajouteront à la **stack** en cours.
+      Relancer la session démarre le **Scanner**. Les prochaines brutes s'ajouteront à la **stack** en cours.
 
    À tout moment, l'utilisateur peut naviguer dans l'image affichée, zoomer, régler les paramètres de traitement...
 
