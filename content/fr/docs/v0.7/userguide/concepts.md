@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T06:28:46Z
+lastmod: 2024-12-31T08:36:28Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -20,17 +20,21 @@ weight: 315
 
 ALS est architecturé en modules autonomes, répartis en deux familles :
 
-- **Modules principaux** : en charge des tâches de traitement d'image
+- **Modules principaux**
+
+  En charge des traitements d'image :
     - **Preprocess** : Calibration
     - **Stack** : Alignement et empilement
     - **Process** : Traitements visuels
     - **Save** : Enregistrement sur disque
 
-- **Modules utilitaires** : en charge des tâches annexes
-    - **Scanner** : surveillance du **dossier scanné**
-    - **Serveur d'images** : partage des images générées par ALS
+- **Modules utilitaires**
 
-## Trajet des images dans l'application {#image-path}
+  En charge des tâches annexes :
+    - **Scanner** : surveillance du **dossier scanné**
+    - **Server** : partage des images sur le réseau
+
+## Trajet des images {#image-path}
 
 Les images traversent ALS depuis le dossier scanné, jusqu'à l'affichage et l'enregistrement sur disque.
 
@@ -65,15 +69,14 @@ graph LR
     style H fill:#333,stroke:darkred,stroke-width:2px
 ```
 
-<p class="figcaption">Trajet d'une image dans ALS</p>
+<p class="figcaption">Trajet des images dans ALS</p>
 
 - Vos brutes transitent du dossier scanné jusqu'au module **Stack**
-- Les résultats d'empilement et de traitement transitent du module **Stack** jusqu'aux sorties 
+- Les images générées par ALS transitent du module **Stack** jusqu'aux sorties 
 
 ## Modules principaux
 
-Ces modules regroupent et ordonnent les traitements à appliquer aux images à mesure de leur cheminement dans la chaîne
-de traitement.
+Ces modules regroupent et ordonnent les traitements à appliquer aux images
 
 Chaque module possède sa file d'attente et exécute en boucle les actions suivantes :
 
@@ -84,13 +87,13 @@ Chaque module possède sa file d'attente et exécute en boucle les actions suiva
 En cas d'erreur pendant le traitement d'une image :
 
 1. Le traitement de l'image est abandonné et l'image n'est pas transmise au module suivant.
-2. L'abandon de l'image est signalé discrètement dans l'application.
+2. L'abandon de l'image est signalé dans l'application.
 3. Le module se remet à l'écoute de sa file d'attente
 
 ### Preprocess {#preprocess-module}
 
 {{% alert color="info" %}}
-ℹ️ Dès qu'une nouvelle brute est détectée, elle est ajoutée à la file d'attente de ce module.
+ℹ️ Dès que le **Scanner** détecte une nouvelle brute, elle est chargée et ajoutée à la file d'attente de ce module.
 {{% /alert %}}
 
 Le module **preprocess** regroupe les traitements de calibration suivants :
@@ -99,9 +102,9 @@ Le module **preprocess** regroupe les traitements de calibration suivants :
 
    Remplace la valeur des pixels chauds par la valeur moyenne des pixels voisins.
 
-2. **Soustraction de master dark**
+2. **Soustraction de dark**
 
-   Utilise un master dark fourni par l'utilisateur pour soustraire le bruit thermique de l'image.
+   Utilise un master dark fourni par vous pour soustraire le bruit thermique de l'image.
 
 3. **Dématriçage**
 
@@ -190,7 +193,7 @@ bon fonctionnement de l'application :
 
 ### Scanner
 
-Ce module est en charge de détecter les nouvelles images dans le **dossier scanné** et de les transmettre au
+Ce module est en charge de détecter les nouvelles brutes dans le **dossier scanné** et de les transmettre au
 module **Preprocess**.
 
 Vous trouverez plus d'information sur le module **Scanner** dans 
