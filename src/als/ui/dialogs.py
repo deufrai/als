@@ -88,8 +88,7 @@ class PreferencesDialog(QDialog):
 
         self._ui.chk_www_own_folder.setChecked(config.get_www_use_dedicated_folder())
 
-        self._web_folder_controls = [self._ui.lbl_web_folder,
-                                     self._ui.ln_web_folder_path,
+        self._web_folder_controls = [self._ui.ln_web_folder_path,
                                      self._ui.btn_browse_web]
 
         for control in self._web_folder_controls:
