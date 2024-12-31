@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T08:36:28Z
+lastmod: 2024-12-31T12:05:52Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -14,9 +14,36 @@ weight: 315
 
 # Introduction
 
-À la fin de ce chapitre, le fonctionnement global d'ALS et la notion de session n'auront plus de secret pour vous.
+À la fin de ce chapitre, les concepts de base d'ALS vous seront familiers. 
 
-# Modules
+Vous comprendrez ce que fait ALS et comment il le fait.
+
+# Le stacking {#stacking}
+
+Le stacking (🇫🇷 empilement) est le processus de combinaison de plusieurs brutes de la même cible pour générer une image
+plus détaillée et contrastée qu'une unique brute.
+
+La qualité du résultat augmente à mesure qu'on utilise un plus grand nombre de brutes.
+
+{{< center >}}
+{{< figure
+src="../stacking.png"
+width="1203px" height="456px"
+caption="Comparaison de 8 résultats d'empilement<br>Le nombre de brutes empilées est indiqué en haut à gauche de chaque image"
+alt="" >}}
+{{< /center >}}
+
+# La stack {#stack}
+
+La **stack** (🇫🇷 pile) est l'ensemble de brutes sur lequel ALS effectue du stacking en temps réel (🇬🇧 livestacking)
+
+# Le Livestacking avec ALS
+
+ALS surveille le dossier de destination de votre système d'acquisition d'images
+
+Quand une nouvelle brute est détectée, elle est ajoutée à la **stack** et un nouvel empilement est généré.
+
+# Les modules d'ALS {#modules}
 
 ALS est architecturé en modules autonomes, répartis en deux familles :
 
@@ -24,7 +51,7 @@ ALS est architecturé en modules autonomes, répartis en deux familles :
 
   En charge des traitements d'image :
     - **Preprocess** : Calibration
-    - **Stack** : Alignement et empilement
+    - **Stacker** : Alignement et empilement
     - **Process** : Traitements visuels
     - **Save** : Enregistrement sur disque
 
@@ -36,12 +63,13 @@ ALS est architecturé en modules autonomes, répartis en deux familles :
 
 ## Trajet des images {#image-path}
 
-Les images traversent ALS depuis le dossier scanné, jusqu'à l'affichage et l'enregistrement sur disque.
+Les images traversent ALS en passant de module en module, depuis le dossier scanné jusqu'à l'affichage et 
+l'enregistrement sur disque.
 
 ```mermaid
 graph LR
 
-        B(Preprocess) -.-> C(Stack)
+        B(Preprocess) -.-> C(Stacker)
         C ---> D(Process)
         D --> E(Save)
 
@@ -50,7 +78,7 @@ graph LR
     A -.-> B
     E --> F(Dossier de Travail)
     E --> G(Dossier Web)
-    G --> H(Serveur d'images) 
+    G ---> H(Server) 
     D ---> I(Affichage)
 
 
@@ -71,8 +99,8 @@ graph LR
 
 <p class="figcaption">Trajet des images dans ALS</p>
 
-- Vos brutes transitent du dossier scanné jusqu'au module **Stack**
-- Les images générées par ALS transitent du module **Stack** jusqu'aux sorties 
+- Vos brutes transitent du dossier scanné jusqu'au module **Stacker**
+- Les images générées par ALS transitent du module **Stacker** jusqu'aux sorties 
 
 ## Modules principaux
 
@@ -96,7 +124,7 @@ En cas d'erreur pendant le traitement d'une image :
 ℹ️ Dès que le **Scanner** détecte une nouvelle brute, elle est chargée et ajoutée à la file d'attente de ce module.
 {{% /alert %}}
 
-Le module **preprocess** regroupe les traitements de calibration suivants :
+Le module **preprocess** regroupe les traitements de **calibration** des brutes :
 
 1. **Suppression des pixels chauds**
 
@@ -104,35 +132,37 @@ Le module **preprocess** regroupe les traitements de calibration suivants :
 
 2. **Soustraction de dark**
 
-   Utilise un master dark fourni par vous pour soustraire le bruit thermique de l'image.
+   Utilise un master dark fourni par vous pour soustraire le bruit thermique.
 
 3. **Dématriçage**
 
-   Les images **couleur** au format **FITS** ou **Raw** sont converties en couleur RVB en utilisant la matrice de Bayer
+   Les brutes **couleur** au format **FITS** ou **Raw** sont converties en couleur RVB en utilisant la matrice de Bayer
    décrite dans les entêtes du fichier.
 
 Vous trouverez plus d'information sur le module **Preprocess** dans sa [documentation détaillée](../../modules/preprocess/) 
 
-### Stack {#stack-module}
+### Stacker {#stack-module}
 
-Le module **Stack** maintient la **stack courante** et prend en charge les traitements suivants :
+Le module **Stacker** maintient la **stack** et prend en charge les traitements des brutes calibrées :
 
-1. **Alignement** : Aligne l'image sur la référence de la session
+1. **Alignement**
+
+   Aligne la brute sur la référence de la session
+
 2. **Empilement**
-    - Ajoute l'image à la stack courante
-    - Génère le résultat de l'empilement en fonction du mode choisi par l'utilisateur (_moyenne ou somme_) et l'envoie
-      au module **Process**
+    - Ajoute la brute à la **stack**
+    - Génère le résultat de l'empilement en fonction du mode choisi par vous (_moyenne ou somme_)
 
 {{% alert color="info" %}}
-ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les images comparées. ALS ne peut donc aligner que
+ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les brutes comparées. ALS ne peut donc aligner que
 des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Stack** dans sa [documentation détaillée](../../modules/stack/) 
+Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../modules/stack/) 
 
 ### Process {#process-module}
 
-Le module **Process** regroupe les traitements visuels appliqués sur le résultat de l'empilement :
+Le module **Process** regroupe les traitements visuels appliqués sur les résultats d'empilement :
 
 1. **Auto stretch**
 
@@ -153,23 +183,20 @@ Le module **Process** regroupe les traitements visuels appliqués sur le résult
 
 ### Save {#save-module}
 
-Le module **Save** est en charge de l'enregistrement sur disque de tous les résultats de traitement que sont les images 
-reçues du module **Process**.
+Le module **Save** est en charge de l'enregistrement sur disque des résultats de traitement
 
 Le module **Save** enregistre les images dans deux dossiers cibles :
-- Le **dossier de travail** pour les résultats de traitement
-- Le **dossier web** pour les images partagées sur le réseau, servies par le module **Serveur d'images**
+- Le **dossier de travail** pour la conservation des résultats traités
+- Le **dossier web** pour la diffusion sur le réseau par le module **Server**
 
 Chaque résultat de traitement est enregistré dans 2 fichiers :
 
 1. Sortie principale :
-
     - **Emplacement** : dossier de travail
     - **Nom** : stack_image
     - **Format** : Tel que défini dans les [Préférences](../preferences/output/#format). ℹ️ Par défaut : JPEG
 
 2. Sortie serveur :
-
     - **Emplacement** : dossier web
     - **Nom** : web_image
     - **Format** : JPEG
@@ -199,7 +226,7 @@ module **Preprocess**.
 Vous trouverez plus d'information sur le module **Scanner** dans 
 sa [documentation détaillée](../../modules/scanner/)
 
-### Serveur d'image
+### Server
 
 Ce module prend en charge le partage sur le réseau de la **sortie web** du module **Save**.
 
@@ -214,33 +241,34 @@ demande.
 
 ---
 
+
 # La session {#session}
 
-Au sain d'ALS, la session occupe une place prépondérante.
+Une **session** peut être vue comme le cycle de vie du couple formé par la **stack** et le **Scanner**.
 
-**La session** peut être vue comme la matérialisation du cycle de vie du couple formé par la **stack courante**
-et le **Scanner**.
-
-1. **Démarrage** :
-    - ALS démarre le **Scanner** et vide **la stack courante**.
-    - **Première Détection** : La première image reçue par le module **Stack** servira de **référence pour
-      l'alignement** durant toute la session.
+1. **Démarrage de la session** :
+    - ALS vide la **stack** et démarre le **Scanner**.
+    - La première image reçue par le module **Stacker** servira de **référence d'alignement** durant toute la session.
 
 2. **Déroulement** :
-    - chaque nouvelle image détectée est successivement
-        - pré-traitée
+    - chaque nouvelle brute détectée est successivement :
+        - calibrée
         - alignée sur l'image de référence
-        - empilée dans la stack courante.
-    - Les résultats successifs de cet empilement sont traités puis affichés par l'application et enregistrés sur disque.
+        - Ajoutée à la **stack**
 
-   La session peut être mise en pause : ALS stoppe le **Scanner** et la **stack courante** est **conservée**.
-   Relancer la session redémarre simplement le **Scanner**
+    - Cet ajout déclenche le calcul d'un nouvel empilement par le module **Stacker**
+    
+      L'image générée est transmise au module **Process** et elle suivra son chemin
+
+    - La session peut être mise en **pause** : ALS stoppe le **Scanner** et conserve la **stack**
+
+      Relancer la session redémarre le **Scanner**. Les prochaines brutes s'ajouteront à la **stack** en cours.
 
    À tout moment, l'utilisateur peut naviguer dans l'image affichée, zoomer, régler les paramètres de traitement...
 
-3. **Arrêt** :
-    - À l'arrêt de la session, le **Scanner** est stoppé et la **stack courante** est marquée pour être
-      vidée au prochain démarrage de session.
+3. **Arrêt de la session** :
+    - le **Scanner** est stoppé
+    - le module **Stacker** videra la **stack** au prochain démarrage de session
 
 {{% alert color="info" %}}
 ℹ️ ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
