@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-31T02:01:56Z
+lastmod: 2024-12-31T19:19:57Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -73,12 +73,12 @@ Configure ALS to monitor the **astroshots** folder:
 {{< center >}}
 {{< figure src="prefs_01.png"
 caption="Button to set the **scan folder**"
-width="628px"
-height="250px"
-alt="ALS preferences window showing the Paths section with fields for Scan and Work folder, each with a Change button next to them. A red arrow points to the Change button next to the Scan folder field." >}}
+width="622px"
+height="226px"
+alt="Screenshot of ALS preferences showing the General tab. A red arrow highlights the Scan folder button." >}}
 {{< /center >}}
 
-🖱️ Click `Change...` next to **Scan folder**. A folder selector appears...
+🖱️ Click `Scan folder...`. A folder selector appears...
 
 ---
 
@@ -101,13 +101,14 @@ Create a subfolder for ALS named **als_output** in your home directory:
 
 {{< center >}}
 {{< figure src="prefs_03.png"
-caption="Button to set the **work folder**"
-width="628px"
-height="252px"
-alt="ALS preferences window showing the Paths section with fields for Scan folder and Work folder, each with a Change button next to them. A red arrow points to the Change button next to the Work folder field." >}}
+caption="The file output settings"
+width="622px"
+height="328px"
+alt="Screenshot of ALS preferences showing the Output tab. The Work folder field is highlighted." >}}
 {{< /center >}}
 
-🖱️ Click `Change...` next to **Work folder**. A folder selector appears...
+1. Switch to the **Output** tab
+2. 🖱️ Click `Work folder...`. A folder selector appears...
 
 ---
 
@@ -143,8 +144,10 @@ height="443px"
 alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek, including several folders and a log file. The newly created folder named als_output is highlighted, and the Choose button is highlighted, indicating the user is about to confirm the selection." >}}
 {{< /center >}}
 
-- ⌨️ Name it **als_output**.
-- 🖱️ Click `Choose`.
+1. ⌨️ Name it **als_output**.
+2. 🖱️ Click `Choose`.
+
+🖱️ Switch back to the `General` tab.
 
 {{% alert color="warning" %}}
 **⚠️ Do not confirm the preferences yet**, there is one important point left:
@@ -157,9 +160,9 @@ It is very useful for us to know which versions of ALS are being used and on whi
 {{< center >}}
 {{< figure src="prefs_07.png"
 caption="Checkbox indicating the choice to send usage statistics"
-width="628px"
-height="607px"
-alt="ALS preferences window with General tab selected, showing sections for Paths, Profile, Memory Management, and Core settings. Paths section displays fields for Scan folder and Work folder with Change buttons. Profile section shows Electronically Assisted Astronomy selected. Memory slider set to A bit more. Core section has a Language dropdown set to System, unchecked Debug logs checkbox, and checked Usage stats checkbox with note: On startup, send version, CPU type and OS name." >}}
+width="622px"
+height="660px"
+alt="Screenshot of ALS preferences showing the General tab. The Data section with Usage statistics is highlighted." >}}
 {{< /center >}}
 
 We would be very grateful if you allow ALS to send us usage statistics, but we also understand that you may be reluctant
