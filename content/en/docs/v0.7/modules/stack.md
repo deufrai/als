@@ -2,11 +2,11 @@
 title: "Stack"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2024-12-31T17:55:17Z
+lastmod: 2024-12-31T20:05:37Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
-categories: [ "user guide" ]
+categories: [ "detailed documentations" ]
 tags: [ "module", "stack", "threshold" ]
 weight: 356
 ---

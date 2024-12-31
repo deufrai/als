@@ -3,11 +3,11 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T14:11:00Z
+lastmod: 2024-12-31T20:05:38Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
-categories: [ "guide utilisateur" ]
+categories: ["bien démarrer"]
 tags: [ "bases", "module", "preprocess", "stack", "traitement", "session", "dossier scanné", "dossier de travail", "dossier web" ]
 weight: 315
 ---

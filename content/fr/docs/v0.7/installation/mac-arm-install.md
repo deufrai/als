@@ -3,10 +3,10 @@ title: Installation sur un Mac Apple Silicon
 description: Installation d'ALS sur Mac Apple Silicon
 author: ALZ Team
 
-lastmod: 2024-12-30T03:58:46Z
+lastmod: 2024-12-31T20:05:37Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 weight: 240
-Categories: ['installation']
+Categories: ['procédures']
 tags: ['Mac', 'Apple Silicon']
 ---
 

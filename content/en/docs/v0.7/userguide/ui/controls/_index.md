@@ -2,11 +2,11 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T17:55:17Z
+lastmod: 2024-12-31T20:05:37Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
-categories: [ "user guide" ]
 tags: [ "interface", "controls", "stack", "session", "module", "threshold" ]
+categories: ["using ALS", "configuration"]
 weight: 321
 ---
 

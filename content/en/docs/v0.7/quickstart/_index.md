@@ -2,11 +2,11 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-31T19:19:57Z
+lastmod: 2024-12-31T20:05:37Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
-categories: [ "user guide" ]
+categories: [ "beginner's guide" ]
 tags: [ "basics", "linux", "scan folder", "session", "work folder" ]
 weight: 280
 ---

@@ -2,11 +2,11 @@
 title: "Modules and Processes"
 description: "ALS Modules and Processes"
 author: "ALS Team"
-lastmod: 2024-12-29T22:57:31Z
+lastmod: 2024-12-31T20:05:37Z
 keywords: ["ALS modules and processes", "ALS modules and processes"]
 draft: false
 type: "docs"
-categories: ["user guide"]
+categories: ["detailed documentations"]
 tags: ["module"]
 weight: 345
 ---

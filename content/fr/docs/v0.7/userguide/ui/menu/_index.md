@@ -3,10 +3,10 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2024-12-29T05:45:18Z
+lastmod: 2024-12-31T20:05:38Z
 keywords: ["ALS Menu"]
 type: "docs"
-categories: ["guide utilisateur"] 
+categories: ["utilisation"]
 tags: ["interface", "menu" ]
 weight: 325
 ---
