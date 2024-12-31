@@ -2,12 +2,12 @@
 title: "Hot Pixel Removal"
 description: "Detailed documentation of the ALS HotPixelRemove process"
 author: "ALS Team"
-lastmod: 2024-12-31T20:05:37Z
+lastmod: 2024-12-31T21:07:16Z
 keywords: ["ALS hot pixel removal", "ALS hot pixel suppression"]
 draft: false
 type: "docs"
 categories: ["detailed documentations"]
-tags: ["process", "hot pixels"]
+tags: ["process", "hot pixels", "calibration"]
 weight: 353
 ---
 

@@ -2,12 +2,12 @@
 title: "Dark Subtraction"
 description: "Detailed documentation ALS DarkRemove process"
 author: "ALS Team"
-lastmod: 2024-12-31T20:05:37Z
+lastmod: 2024-12-31T21:07:16Z
 keywords: ["ALS dark current subtractor", "ALS thermal signal subtraction"]
 draft: false
 type: "docs"
 categories: ["detailed documentations"]
-tags: ["process", "dark"]
+tags: ["process", "dark", "calibration"]
 weight: 354
 ---
 

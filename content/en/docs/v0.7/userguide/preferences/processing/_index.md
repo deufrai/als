@@ -2,12 +2,12 @@
 title: "Process Tab"
 description: "Documentation of the Processing tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-31T20:05:37Z
+lastmod: 2024-12-31T21:07:16Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
-tags: ["preferences", "processing", "Preprocess", "debayer", "dark", "hot pixels"]
+tags: ["process", "debayer", "dark", "hot pixels", "calibration"]
 weight: 332
 ---
 

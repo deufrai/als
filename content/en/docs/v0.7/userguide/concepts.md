@@ -3,12 +3,12 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T20:05:37Z
+lastmod: 2024-12-31T21:07:16Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
 categories: [ "beginner's guide" ]
-tags: [ "basics", "module", "preprocess", "stack", "processing", "session", "scan folder", "working directory", "web folder" ]
+tags: [ "module", "stack", "process", "session","output", "scan folder", "work folder", "web folder", "server", "scanner", "save", "calibration" ]
 weight: 315
 ---
 
