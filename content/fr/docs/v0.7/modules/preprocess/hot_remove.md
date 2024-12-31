@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:06Z
+lastmod: 2024-12-31T02:48:28Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -21,7 +21,7 @@ Sa configuration est gérée via les préférences
 
 | Source                                                                         | Paramètre | Type de donnée | Requis | Valeur par défaut |
 |--------------------------------------------------------------------------------|-----------|----------------|----| --------------- |
-| [Préférences : Onglet Traitement](../../../user-guide/preferences/processing/#hot-remove) | ON/OFF    | ON/OFF         |  ∅  | OFF             |
+| [Préférences : Onglet Traitement](../../../userguide/preferences/processing/#hot-remove) | ON/OFF    | ON/OFF         |  ∅  | OFF             |
 
 # Contrôle
 

@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T14:19:59Z
+lastmod: 2024-12-31T02:48:28Z
 keywords: ["ALS image detector", "scanner ALS"]
 draft: false
 type: "docs"
@@ -23,14 +23,14 @@ Sa configuration est gérée via les préférences.
 
 | Source                                                                            | Paramètre                | Type de donnée           | Requis | Valeur par défaut |
 |-----------------------------------------------------------------------------------|--------------------------|---------------------------| ------- | --------------- |
-| [Préférences : Onglet Général](../../user-guide/preferences/general/#scan-folder) | Chemin du dossier scanné | Chemin vers un dossier | Oui     | ∅              |  
+| [Préférences : Onglet Général](../../userguide/preferences/general/#scan-folder) | Chemin du dossier scanné | Chemin vers un dossier | Oui     | ∅              |  
 
 
 # Contrôle
 
 | Type   | Source                                                                   | Raccourci                                                                                                                                      | Action      |
 |--------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| Événements | [Interface : Contrôles de session](../../user-guide/ui/controls/#session-controls) | - <span class="als-ks">R</span> Bascule ON/OFF dans la session en cours<br> - <span class="als-ks">X</span> OFF + fermeture de session | ON/OFF      |
+| Événements | [Interface : Contrôles de session](../../userguide/ui/controls/#session-controls) | - <span class="als-ks">R</span> Bascule ON/OFF dans la session en cours<br> - <span class="als-ks">X</span> OFF + fermeture de session | ON/OFF      |
 | Événement  | brute détectée dans le dossier scanné                                   | ∅                                                                                                                                              | Charge l'image  |
 
 # Entrée

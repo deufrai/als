@@ -2,7 +2,7 @@
 title: "Debayering"
 description: "Detailed documentation of the ALS Debayer process"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:06Z
+lastmod: 2024-12-31T02:48:28Z
 keywords: [ "ALS debayer", "ALS debayering" ]
 draft: false
 type: "docs"
@@ -24,7 +24,7 @@ Its configuration is managed via ALS preferences page.
 
 | Source                                                                  | Parameter     | Data Type | Required | Default Value |
 |-------------------------------------------------------------------------|---------------|-----------|----------|---------------|
-| [Preferences: Processing Tab](../../../user-guide/preferences/processing/#debayer) | Bayer pattern | choice: <br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | YES      | AUTO          |
+| [Preferences: Processing Tab](../../../userguide/preferences/processing/#debayer) | Bayer pattern | choice: <br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | YES      | AUTO          |
 
 
 # Control

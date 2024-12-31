@@ -2,7 +2,7 @@
 title: "Save"
 description: "Detailed documentation of the ALS Save module"
 author: "ALS Team"
-lastmod: 2024-12-30T13:56:14Z
+lastmod: 2024-12-31T02:48:28Z
 keywords: ["ALS image Saver"]
 draft: false
 type: "docs"
@@ -21,11 +21,11 @@ Its configuration is managed via ALS preferences page and interface
 
 | Source                        | Parameter                | Data type                       | Required | Default value |
 |-------------------------------|--------------------------|---------------------------------|----------|---------------|
-| [Prefs: General Tab](../../user-guide/preferences/general/#work-folder) | work folder              | path to a folder               | Yes      | ∅             |
-| [Prefs: Output Tab](../../user-guide/preferences/output/#web-folder) | web folder               | path to a folder               | Yes      | = work folder |
-| [Prefs: Output Tab](../../user-guide/preferences/output/#format) | file format              | choices:<br>- TIFF<br>- PNG<br>- JPEG | Yes      | JPEG          |
-| [Prefs: Output Tab](../../user-guide/preferences/output/#autosave-on-stop) | auto-save (session stop) | ON/OFF                         | ∅        | OFF           |
-| [Interface: Save Controls](../../user-guide/ui/controls/#save-controls) | auto-save (every frame)  | ON/OFF                         | ∅        | OFF           |
+| [Prefs: General Tab](../../userguide/preferences/general/#work-folder) | work folder              | path to a folder               | Yes      | ∅             |
+| [Prefs: Output Tab](../../userguide/preferences/output/#web-folder) | web folder               | path to a folder               | Yes      | = work folder |
+| [Prefs: Output Tab](../../userguide/preferences/output/#format) | file format              | choices:<br>- TIFF<br>- PNG<br>- JPEG | Yes      | JPEG          |
+| [Prefs: Output Tab](../../userguide/preferences/output/#autosave-on-stop) | auto-save (session stop) | ON/OFF                         | ∅        | OFF           |
+| [Interface: Save Controls](../../userguide/ui/controls/#save-controls) | auto-save (every frame)  | ON/OFF                         | ∅        | OFF           |
 
 # Control
 
@@ -33,7 +33,7 @@ The **Save** module is launched in the background at ALS startup
 
 | Type      | Source                                                                  | Shortcut                     | Action                         |
 |-----------|-------------------------------------------------------------------------|------------------------------|--------------------------------|
-| Event     | [Interface: Save Controls](../../user-guide/ui/controls/#save-controls) | <span class="als-ks">S</span> | auto-save ON for the next save |
+| Event     | [Interface: Save Controls](../../userguide/ui/controls/#save-controls) | <span class="als-ks">S</span> | auto-save ON for the next save |
 | Event     | processed stacking(s) in queue                                          | ∅                            | Save image                     |
 
 # Input

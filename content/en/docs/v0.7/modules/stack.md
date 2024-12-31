@@ -2,7 +2,7 @@
 title: "Stack"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2024-12-30T14:27:18Z
+lastmod: 2024-12-31T02:48:28Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -19,9 +19,9 @@ The **Stack** module handles the alignment and stacking of calibrated subs.
 
 | Source                                                            | Parameter           | Data type                   | Required | Default value |
 |-------------------------------------------------------------------|---------------------|-----------------------------|----------|---------------|
-| [Interface: Stacking controls](../../user-guide/ui/controls/#controls)  | ON/OFF              | ON/OFF                      | ∅        | ON            |
-| [Interface: Stacking controls](../../user-guide/ui/controls/#controls)  | Stacking mode       | choices:<br>- mean<br>- sum | YES      | mean          |
-| [Interface: Stacking controls](../../user-guide/ui/controls/#threshold) | Detection threshold | value range                 | YES      | 25            |
+| [Interface: Stacking controls](../../userguide/ui/controls/#controls)  | ON/OFF              | ON/OFF                      | ∅        | ON            |
+| [Interface: Stacking controls](../../userguide/ui/controls/#controls)  | Stacking mode       | choices:<br>- mean<br>- sum | YES      | mean          |
+| [Interface: Stacking controls](../../userguide/ui/controls/#threshold) | Detection threshold | value range                 | YES      | 25            |
 
 # Control
 

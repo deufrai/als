@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2024-12-30T13:56:14Z
+lastmod: 2024-12-31T02:48:28Z
 keywords: ["ALS scanner"]
 draft: false
 type: "docs"
@@ -23,14 +23,14 @@ Its configuration is managed via ALS preferences
 
 | Source                            | Parameter                | data type | Required    | Default value |
 |-----------------------------------|--------------------------|-|-------------|---------------|
-| [Preferences: General Tab](../../user-guide/preferences/general/#scan-folder) | Path to the scan folder | Folder path | Yes           | ∅              |  
+| [Preferences: General Tab](../../userguide/preferences/general/#scan-folder) | Path to the scan folder | Folder path | Yes           | ∅              |  
 
 
 # Control
 
 | Type   | Source                                                                        | Shortcut                                                                                                                       | Action   |
 |--------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|----------|
-| Events | [Interface: Session Controls](../../user-guide/ui/controls/#session-controls) | - <span class="als-ks">R</span> ON/OFF toggle within current session<br> - <span class="als-ks">X</span> OFF + session closure | ON/OFF   |
+| Events | [Interface: Session Controls](../../userguide/ui/controls/#session-controls) | - <span class="als-ks">R</span> ON/OFF toggle within current session<br> - <span class="als-ks">X</span> OFF + session closure | ON/OFF   |
 | Event  | A new sub has been detected in the scan folder                                | ∅                                                                                                                               | Load sub |
 
 
