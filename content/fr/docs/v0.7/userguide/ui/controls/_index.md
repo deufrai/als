@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T02:35:04Z
+lastmod: 2024-12-31T14:39:24Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: [ "guide utilisateur" ]
@@ -230,17 +230,10 @@ fonctionnement par défaut du module **Save**
 
 ## Contrôles d'enregristrement {#save-controls}
 
-- `Enr. image courante` déclenche l'enregistrement de la **dernière image** sortie du module **Process** dans
-  un nouveau fichier horodaté :
-    - **emplacement du fichier** : **dossier de travail**
-    - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
-    - **Type et extension du fichier** : Tel que défini dans les [Préférences](../../preferences/output/#format).
-
-- `Enr. chaque image` active l'enregistrement de **chaque image** sortie du module **Process** dans un
-  nouveau fichier horodaté :
-    - **emplacement du fichier** : **dossier de travail**
-    - **nom du fichier** : Composé de **stack_image** et d'un suffixe d'horodatage
-    - **Type et extension du fichier** : Tel que défini dans les [Préférences](../../preferences/output/#format).
+- <span class="als-ks">S</span> ou 🖱️ cliquez `Enr. image courante` pour enregistrer le **dernier** 
+  résultat de traitement avec horodatage
+- <span class="als-ks">F</span> ou 🖱️ cochez `Enr. chaque image` pour activer l'enregistrement de **chaque prochain** 
+  résultat de traitement avec horodatage
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">

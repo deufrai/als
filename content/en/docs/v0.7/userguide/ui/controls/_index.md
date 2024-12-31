@@ -2,7 +2,7 @@
 title: "Main Controls"
 description: "documentation of ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-31T02:35:04Z
+lastmod: 2024-12-31T14:39:24Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls", "stack" ]
@@ -231,15 +231,8 @@ of the **Save** module.
 
 ## Saving Controls {#save-controls}
 
-- `Save current` triggers the saving of the **last** result of the **Process** module into a new timestamped file:
-    - **File location**: **work folder**
-    - **File name**: composed of **stack_image** and a timestamp suffix.
-    - **File type and extension**: as defined [ALS Preferences](../../preferences/output/#format).
-
-- `Save every frame` activates the saving of **each next** result of the **Process** module into a new timestamped file:
-    - **File location**: **work folder**
-    - **File name**: composed of **stack_image** and a timestamp suffix.
-    - **File type and extension**: as defined [ALS Preferences](../../preferences/output/#format).
+- <span class="als-ks">S</span> or 🖱️ click `Save current` to save of **the latest** processing resul with timestamp
+- <span class="als-ks">F</span> or 🖱️ tick `Save every frame` to activate the saving of **every next** processing result with timestamp
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
