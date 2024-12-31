@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-31T00:59:11Z
+lastmod: 2024-12-31T01:02:34Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -93,7 +93,7 @@ Here are the settings for the image server
 caption="Web server settings"
 width="480px"
 height="201px"
-alt="Configuration panel for web server settings, including server port number set to 8000, web page refresh period set to 5 seconds, and web folder path set to /home/astrogeek/als_web with a Change button." >}}
+alt="Configuration panel for web server settings, including server port number set to 8000, web page refresh period set to 5 seconds" >}}
 {{< /center >}}
 
 </div>
@@ -106,7 +106,7 @@ alt="Configuration panel for web server settings, including server port number s
 caption="Web folder settings"
 width="595px"
 height="211px"
-alt="Configuration panel for web server settings, showing options for using a dedicated web folder with the path set to /home/astrogeek/als_web, server port number set to 8000, and web page refresh period set to 5 seconds." >}}
+alt="Configuration panel for web server settings, showing options for using a dedicated web folder with the path set to /home/astrogeek/als_web." >}}
 {{< /center >}}
 
 1. If `Use dedicated folder` is unchecked:
