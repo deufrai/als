@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T00:59:11Z
+lastmod: 2024-12-31T03:07:07Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -44,17 +44,23 @@ alt="Fenêtre de préférences ALS avec l'onglet Général sélectionné, affich
 ℹ️ Ces paramètres ne sont accessibles que quand la session est stoppée
 {{% /alert %}}
 
-Ici sont configurés les chemins des dossiers critiques
-
 ## Dossier scanné {#scan-folder}
 
-Définit le chemin du **dossier scanné**
+Définit le chemin du dossier surveillé par ALS pour détecter les brutes enregistrées par votre système d'acquisition 
+
+{{% alert color="light" %}}
+💡 La détection fonctionne quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
+
+
+Si votre système d'acquisition enregistre les brutes dans des sous-dossiers organisés par cible ou date, configurez
+le **dossier scanné** sur le dossier parent de ces sous-dossiers.
+{{% /alert %}}
 
 {{< center >}}
 {{< figure src="scan_folder_01.png"
 caption="Préférences du dossier scanné"
-width="612px"
-height="133px"
+width="622px"
+height="198px"
 alt="Interface logicielle affichant les paramètres du dossier scanné avec le chemin défini sur /home/astrogeek/astroshots, et un bouton Modifier pour configurer ce chemin." >}}
 {{< /center >}}
 

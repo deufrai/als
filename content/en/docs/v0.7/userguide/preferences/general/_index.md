@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "Documentation of the General tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-31T00:59:11Z
+lastmod: 2024-12-31T03:07:07Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -44,17 +44,22 @@ alt="ALS preferences window with General tab selected, showing sections for Path
 ℹ️ These settings are only accessible when the session is stopped
 {{% /alert %}}
 
-Here are defined the critial folders paths
-
 ## Scan Folder {#scan-folder}
 
-Sets the path of the **scan folder**
+Defines the path of the folder monitored by ALS to detect subs recorded by your acquisition system.
+
+{{% alert color="light" %}}
+💡 Detection works regardless of the subfolder structure within the **scan folder**.
+
+If your acquisition system records subs in subfolders organized by target or date, set the **scan folder** to the parent
+folder of these subfolders.
+{{% /alert %}}
 
 {{< center >}}
 {{< figure src="scan_folder_01.png"
 caption="Scan folder preferences"
-width="612px"
-height="148px"
+width="622px"
+height="168px"
 alt="Software interface showing settings for Scan folder with the path set to /home/astrogeek/astroshots, and a Change button for configuring this path." >}}
 {{< /center >}}
 
