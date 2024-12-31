@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T00:59:11Z
+lastmod: 2024-12-31T01:06:41Z
 keywords: [ "ALS outout settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -94,7 +94,7 @@ Ici sont configurés les paramètres du serveur d'images
 caption="Réglages du serveur web"
 width="437px"
 height="195px"
-alt="Panneau de configuration des paramètres du serveur web, incluant le numéro de port du serveur réglé sur 8000, la période de rafraîchissement de la page web réglée sur 5 secondes, et le chemin du dossier web défini sur /home/astrogeek/als_web avec un bouton Modifier." >}}
+alt="Panneau de configuration des paramètres du serveur web, incluant le numéro de port du serveur réglé sur 8000, la période de rafraîchissement de la page web réglée sur 5 secondes." >}}
 {{< /center >}}
 
 </div>
@@ -107,7 +107,7 @@ alt="Panneau de configuration des paramètres du serveur web, incluant le numér
 caption="Réglage du dosser web"
 width="598px"
 height="209px"
-alt="Panneau de configuration des paramètres du serveur web, montrant des options pour utiliser un dossier web dédié avec le chemin défini sur /home/astrogeek/als_web, le numéro de port du serveur réglé sur 8000, et la période de rafraîchissement de la page web réglée sur 5 secondes." >}}
+alt="Panneau de configuration des paramètres du serveur web, montrant des options pour utiliser un dossier web dédié" >}}
 {{< /center >}}
 
 1. Si `Utiliser un dossier spécifique` est décochée :
