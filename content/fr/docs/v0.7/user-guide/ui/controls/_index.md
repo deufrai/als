@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-31T02:35:04Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: [ "guide utilisateur" ]
@@ -57,7 +57,7 @@ affichages les plus utilisés
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="panneau contrôles principaux" >}}
+    {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : Contrôles de session avec les boutons START, PAUSE et STOP, Taille Stack 39, Exposition Stack 0:02:36, Statut démarrée ; Paramètres de la stack avec Aligner, moyenne, et curseur de seuil à 19 ; Serveur d'images avec les boutons START et STOP, Statut démarré avec l'URL http://10.0.2.15:8000 ; Enregistreur d'images avec les options Enr. image courante et Enr. chaque image ; Modules avec les statuts Taille file d'attente et Statut occupé ; Problèmes avec une icône d'avertissement et le label Problèmes." >}}
   </div>
 
 </div>
@@ -105,7 +105,7 @@ _Dans cet exemple, la session est démarrée_
 caption="La section session"
 width="294px"
 height="127px"
-alt="Section session" >}}
+alt="Interface utilisateur de la section session montrant les boutons START, PAUSE et STOP. En dessous, des informations sur la session actuelle : Taille Stack 39, Exposition Stack 0:02:36, et statut démarrée." >}}
 {{< /center >}}
 
 </div>
@@ -135,7 +135,7 @@ La section **stack** du panneau contrôle le module **Stack**.
 
 ## Seuil de détection {#threshold}
 
-Les images de mauvaise qualité sont écartées en utilisant un seuil de similitudes : 
+Les images de mauvaise qualité sont écartées en utilisant un seuil de similitudes :
 
 Toute image présentant un nombre de similitudes avec la référence de la session **inférieur** à ce seuil est ignorée.
 
@@ -144,7 +144,8 @@ Le curseur `Seuil` permet de définir ce seuil de détection.
 **Comportement lorsqu'une image est ignorée** :
 
 - L'image n'est pas ajoutée à la pile. Le module **Stack** se met en attente de la prochaine image.
-- Un message **WARNING** est ajouté au `Journal de session`. Il porte, entre autre, le texte '_Alignment matches count is
+- Un message **WARNING** est ajouté au `Journal de session`. Il porte, entre autre, le texte '_Alignment matches count
+  is
   lower than configured threshold_'
 - Le bouton `Acquitter` du `Journal de session` est activé
 - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
@@ -157,7 +158,7 @@ Le curseur `Seuil` permet de définir ce seuil de détection.
 caption="La section stack"
 width="294px"
 height="92px"
-alt="Section stack" >}}
+alt="Interface utilisateur de la section stack montrant une case à cocher intitulée Aligner, cochée, et un menu déroulant avec l'option moyenne sélectionnée. En dessous, un curseur intitulé Seuil réglé à 19, positionné vers le côté gauche de sa plage." >}}
 {{< /center >}}
 
 </div>
@@ -206,7 +207,7 @@ Quand le serveur est démarré :
 caption="La section server"
 width="294px"
 height="92px"
-alt="Section server" >}}
+alt="La section serveur d'images, contenant les 2 boutons START (grisé) et STOP, le statut : démarré et l'URL du serveur" >}}
 {{< /center >}}
 
 </div>
@@ -248,7 +249,7 @@ fonctionnement par défaut du module **Save**
 caption="La section Enregistreur d'images"
 width="294px"
 height="69px"
-alt="Section enregistreur d'images" >}}
+alt="Section Enregistreur d'images de l'interface utilisateur montrant un bouton intitulé Enr. image courante et une case à cocher intitulée Enr. chaque image. La case à cocher est décochée." >}}
 {{< /center >}}
 
 </div>
@@ -272,7 +273,7 @@ La section **Modules** du panneau affiche les détails de chacun des modules pri
 caption="La section Modules"
 width="294px"
 height="153px"
-alt="Section modules" >}}
+alt="Section Modules de l'interface utilisateur montrant un tableau avec trois colonnes : Modules, Taille file d'attente et Statut. Le tableau liste quatre modules : Pre-process, Stack, Process et Sauvegarde. La taille des files d'attente pour tous les modules est 0. Le statut du module Stack est occupé, tandis que les statuts des autres modules sont indiqués par un tiret (-)." >}}
 {{< /center >}}
 
 ---
@@ -287,7 +288,7 @@ tout en bas du panneau `contrôles principaux`
 caption="L'indicateur de nouveau problème"
 width="294px"
 height="44px"
-alt="indicateur de nouveau problème" >}}
+alt="La session problèmes avec le bouton et son panneau rouge" >}}
 {{< /center >}}
 
 Un click sur ce bouton affiche le `Journal de session` et permet de consulter les nouveaux problèmes détectés.

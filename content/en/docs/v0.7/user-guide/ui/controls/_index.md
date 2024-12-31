@@ -2,7 +2,7 @@
 title: "Main Controls"
 description: "documentation of ALS main controls panel"
 author: "ALS Team"
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-31T02:35:04Z
 keywords: [ "ALS main controls" ]
 type: "docs"
 tags: [ "GUI", "controls", "stack" ]
@@ -54,7 +54,7 @@ displays into sections.
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="main controls panel" >}}
+    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="The main controls panel, featuring sections for Session, Stack, Image Server, Image Saver, Workers, and Issues. The Session section includes buttons labeled START, PAUSE, and STOP, with indicators for stack size (20) and stack exposure (0:01:20), and a status reading 'running'. The Stack section shows options for alignment (mean) and a threshold slider set to 19. The Image Server section has START and STOP buttons and displays the status 'running' with the URL http://10.0.2.15:8000. The Image Saver section includes a button labeled Save current and a checkbox labeled Save every frame. The Workers section provides queue sizes and status indicators for Pre-process, Stack, Process, and Save modules. The Issues section displays a red warning icon with the text 'Issues'." >}}
   </div>
 
 </div>
@@ -102,7 +102,7 @@ _In this example, the session is running._
 caption="The session section"
 width="280px"
 height="127px"
-alt="Session section" >}}
+alt="User interface for the session section showing the START, PAUSE, and STOP buttons. Below, information about the current session: Stack size 20, Stack exposure 0:01:20, and status running." >}}
 {{< /center >}}
 
 </div>
@@ -125,14 +125,15 @@ These controls are only accessible only when the session is stopped
 
 - `Align` activates the **alignment** of subs on the session reference.
 - The dropdown list defines the **stacking mode** used for this session:
-- `mean` : The value of each pixel in the generated image is the **average value** of that pixel in all the images in the
+- `mean` : The value of each pixel in the generated image is the **average value** of that pixel in all the images in
+  the
   stack.
 - `sum` : The value of each pixel in the generated image is the **sum** of the values of that pixel in all the images in
   the stack.
 
 ## Detection Threshold {#threshold}
 
-Subs of poor quality are discarded using a similarities threshold: 
+Subs of poor quality are discarded using a similarities threshold:
 
 Any sub having a number of similarities with the session reference **below** this threshold is ignored.
 
@@ -153,7 +154,7 @@ The `Threshold` slider allows you to set this detection threshold.
 caption="The stack section"
 width="280px"
 height="92px"
-alt="Stack section" >}}
+alt="User interface for the stack section showing a checkbox labeled Align, checked, and a dropdown menu set to mean. Below, a slider labeled Threshold set to 19, positioned towards the left end of its range." >}}
 {{< /center >}}
 
 </div>
@@ -207,7 +208,7 @@ When the server is running:
 caption="The server section"
 width="280px"
 height="92px"
-alt="Server section" >}}
+alt="The image server section, containing the START (grayed out) and STOP buttons, the status: running, and the server URL" >}}
 {{< /center >}}
 
 </div>
@@ -244,10 +245,10 @@ of the **Save** module.
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="saver.png"
-caption="The Image Recorder section"
+caption="The Image Saver section"
 width="280px"
 height="68px"
-alt="Image Recorder section" >}}
+alt="Image Saver section of the user interface showing a button labeled Save current and a checkbox labeled Save every frame. The checkbox is unchecked." >}}
 {{< /center >}}
 
 </div>
@@ -271,7 +272,7 @@ The **Workers** section of the panel displays the details of each main module
 caption="The Modules section"
 width="280px"
 height="153px"
-alt="Modules section" >}}
+alt="Workers section of the user interface showing a table with three columns: Workers, Queue size, and Status. The table lists four workers: Pre-process, Stack, Process, and Save. The queue sizes for all workers are 0. The status for the Stack worker is busy, while the statuses for the other workers are indicated with a dash (-)." >}}
 {{< /center >}}
 
 ---
@@ -286,7 +287,7 @@ When a new issue is detected by ALS **and the `Session Log` is hidden**, an indi
 caption="New issue indicator"
 width="280px"
 height="44px"
-alt="New issue indicator" >}}
+alt="the Issues section with its Issues button and its red sign" >}}
 {{< /center >}}
 
 Clicking on this button displays the `Session Log` and allows you to review the newly detected issues.
