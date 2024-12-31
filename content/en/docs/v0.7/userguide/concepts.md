@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T13:08:50Z
+lastmod: 2024-12-31T13:17:20Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -29,7 +29,7 @@ The quality of the result increases as more subs are used.
 src="/images/stacking.png"
 width="1203px" height="456px"
 caption="Comparison of 8 stacking results<br>The number of stacked subs is indicated at the top left of each image"
-alt="" >}}
+alt="A sequence of eight nebula images, each labeled with the number of subs used: 1, 2, 4, 8 (top row) and 128, 64, 32, 16 (bottom row). The image improves as subs increase." >}}
 {{< /center >}}
 
 # The stack {#stack}

@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T13:08:50Z
+lastmod: 2024-12-31T13:17:20Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -30,7 +30,7 @@ La qualité du résultat augmente à mesure qu'on utilise un plus grand nombre d
 src="/images/stacking.png"
 width="1203px" height="456px"
 caption="Comparaison de 8 résultats d'empilement<br>Le nombre de brutes empilées est indiqué en haut à gauche de chaque image"
-alt="" >}}
+alt="Séquence de huit images d'une nébuleuse, étiquetées par le nombre de brutes utilisées : 1, 2, 4, 8 (haut) et 128, 64, 32, 16 (bas). L'image s'améliore avec plus de brutes." >}}
 {{< /center >}}
 
 # La stack {#stack}
