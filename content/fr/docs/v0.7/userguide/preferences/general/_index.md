@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T03:07:07Z
+lastmod: 2024-12-31T05:32:00Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -69,7 +69,7 @@ alt="Interface logicielle affichant les paramètres du dossier scanné avec le c
 
 ## Dossier de travail {#work-folder}
 
-Définit le chemin du **dossier de travail**
+Définit le chemin du **dossier de travail** d'ALS
 
 {{< center >}}
 {{< figure src="work_folder.png"

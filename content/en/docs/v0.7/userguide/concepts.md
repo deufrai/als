@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-31T05:32:00Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -132,24 +132,32 @@ The **Process** module groups the visual processing applied to the stacking resu
 
 ### Save {#save-module}
 
-The **Save** module is responsible for saving processed images to disk.
+The **Save** module is in charge of saving to disk every image processing result received from the **Process** module.
 
-Each image is saved in 2 files:
+The **Save** module saves images in two target folders:
+- The **work folder** for processing results
+- The **web folder** for images shared over the network, served by the **Server** module
+
+Each processing result is saved in 2 files:
 
 1. Main output:
-    - **file location**: **work folder**
-    - **file name**: stack_image
-    - **file format and extension**: As defined in [Preferences](../preferences/output/#format).
-
-      Default: **JPEG** format, **.jpg** extension.
+    - **Location**: work folder
+    - **Name**: stack_image
+    - **Format**: As defined in [Preferences](../preferences/output/#format). ℹ️ Default: JPEG
 
 2. Server output:
-    - **file location**: **web folder**
-    - **file name**: web_image
-    - **file format and extension**: **JPEG** format, **.jpg** extension.
+    - **Location**: web folder
+    - **Name**: web_image
+    - **Format**: JPEG
 
 {{% alert color="warning" %}}
-⚠️ These 2 files are overwritten by each new processed image
+⚠️ These 2 files are overwritten by every successive processing result.
+{{% /alert %}}
+
+{{% alert color="info" %}}
+ℹ️ By default, the path of the **web folder** is the same as that of the **work folder**.
+
+You can define a specific **web folder** in the [Preferences](../preferences/output/#web-folder).
 {{% /alert %}}
 
 You can find more information about the **Save** module in its [detailed documentation](../../modules/save/).

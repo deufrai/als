@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-30T14:19:59Z
+lastmod: 2024-12-31T05:32:00Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -32,7 +32,7 @@ ALS est architecturé en modules autonomes, répartis en deux familles :
 
 ## Trajet d'une image
 
-Chaque image détectée passe de module en module, dans l'ordre suivant :
+Chaque image détectée dans le **dossier scanné** passe ensuite de module en module, dans l'ordre suivant :
 
 ```mermaid
 graph LR
@@ -42,14 +42,25 @@ graph LR
         D --> E(Save)
     end
     A(Scanner) --> B
-    E -.-> F(Serveur d'images)
+    E ---> F(Dossier de travail)
+    E ---> G(Dossier web)
+    G -.-> H(Serveur d'images)
+    D -.-> I(Affichage)
+    
+    S(Dossier scanné) -.-> A
 
     style A fill:#555,stroke:darkred,stroke-width:2px
     style B fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     style C fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     style D fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     style E fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style F fill:#555,stroke:darkred,stroke-width:2px
+    
+    style F fill:#333,stroke:#777,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style G fill:#333,stroke:#777,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style I fill:#222,stroke:#BBB,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style S fill:#333,stroke:#777,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    
+    style H fill:#555,stroke:darkred,stroke-width:2px
 ```
 
 <p class="figcaption">Trajet d'une image dans ALS</p>
@@ -134,26 +145,35 @@ Le module **Process** regroupe les traitements visuels appliqués sur le résult
 
 ### Save {#save-module}
 
-Le module **Save** est en charge de l'enregistrement sur disque des images traitées.
+Le module **Save** est en charge de l'enregistrement sur disque de tous les résultats de traitement que sont les images 
+reçues du module **Process**.
 
-Chaque image est enregistrée dans 2 fichiers :
+Le module **Save** enregistre les images dans deux dossiers cibles :
+- Le **dossier de travail** pour les résultats de traitement
+- Le **dossier web** pour les images partagées sur le réseau, servies par le module **Serveur d'images**
+
+Chaque résultat de traitement est enregistré dans 2 fichiers :
 
 1. Sortie principale :
 
-    - **emplacement du fichier** : **dossier de travail**
-    - **nom du fichier** : stack_image
-    - **Format et extension du fichier** : Tel que défini dans les [Préférences](../preferences/output/#format).
-
-      Par défaut : format **JPEG**, extension **.jpg**.
+    - **Emplacement** : dossier de travail
+    - **Nom** : stack_image
+    - **Format** : Tel que défini dans les [Préférences](../preferences/output/#format). ℹ️ Par défaut : JPEG
 
 2. Sortie serveur :
 
-    - **emplacement du fichier** : **dossier web**
-    - **nom du fichier** : web_image
-    - **Format et extension du fichier** : format **JPEG**, extension **.jpg**.
+    - **Emplacement** : dossier web
+    - **Nom** : web_image
+    - **Format** : JPEG
 
 {{% alert color="warning" %}}
-⚠️ Ces 2 fichiers sont écrasés par chaque nouvelle image traitée
+⚠️ Ces 2 fichiers sont écrasés par tous les résultats de traitement successifs.
+{{% /alert %}}
+
+{{% alert color="info" %}}
+ℹ️ Par défaut, le chemin du **dosser web** est identique à celui du **dossier de travail**.
+
+Vous pouvez définir un **dossier web** spécifique dans les [Préférences](../preferences/output/#web-folder).
 {{% /alert %}}
 
 Vous trouverez plus d'information sur le module **Save** dans sa [documentation détaillée](../../modules/save/) 
