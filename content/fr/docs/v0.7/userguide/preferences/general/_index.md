@@ -2,12 +2,12 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2024-12-31T21:39:29Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
-categories: ["configuration"]
-tags: [ "Dossier scanné", "memoire", "profil", "langue" ]
+categories: ["configuration", "dépannage"]
+tags: [ "dossier scanné", "memoire", "profil", "langue" ]
 weight: 331
 ---
 

@@ -2,12 +2,12 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2024-12-31T21:39:29Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
-categories: ["configuration"] 
-tags: ["traitement", "calibration", "dématriçage", "dark", "pixels chauds"]
+categories: ["configuration"]
+tags: ["traitement", "dématriçage", "dark", "pixels chauds", "calibration"]
 weight: 332
 ---
 

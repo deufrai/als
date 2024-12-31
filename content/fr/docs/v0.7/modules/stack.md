@@ -1,19 +1,19 @@
 ---
-title: "Stack"
+title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T20:05:38Z
+lastmod: 2024-12-31T21:39:29Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
-categories: [ "Documentations détaillées" ]
-tags: [ "module", "stack", "seuil" ]
+categories: [ "documentations détaillées" ]
+tags: [ "module", "traitement", "stack", "seuil" ]
 weight: 356
 ---
 
 # Présentation
 
-Le module **Stack** prend en charge l'alignement et l'empilement des brutes calibrées
+Le module **Stacker** prend en charge l'alignement et l'empilement des brutes calibrées
 
 # Configuration
 

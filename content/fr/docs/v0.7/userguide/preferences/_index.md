@@ -2,11 +2,11 @@
 title: "Préférences"
 description: "Visite détaillée des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T20:05:38Z
+lastmod: 2024-12-31T21:39:29Z
 keywords: ["préférences ALS"]
 type: "docs"
 categories: ["configuration"]
-tags: ["preferences" ]
+tags: [ ]
 weight: 330
 ---
 
