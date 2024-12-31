@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:57Z
+lastmod: 2024-12-31T00:59:11Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: ["preferences", "traitement", "Preprocess", "dématriçage", "dark", "pixe
 weight: 332
 ---
 
-Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement` des préférences.
+Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement`
 
 <div class="row">
 <div class="col-md-6">
@@ -32,7 +32,7 @@ Elle regroupe les réglages des traitements gérés par le module [**Preprocess*
 caption="L'onglet Traitement des préférences"
 width="622px"
 height="604px"
-alt="L'onglet Traitement des préférences" >}}
+alt="Fenêtre de préférences ALS avec l'onglet Traitement sélectionné, affichant les paramètres de prétraitement des images, y compris les options de suppression des pixels chauds, de soustraction dark et de motif de dématriçage, avec chemins spécifiés et boutons Modifier et Effacer." >}}
 {{< /center >}}
 
 </div>
@@ -51,7 +51,7 @@ alt="L'onglet Traitement des préférences" >}}
 caption="Réglages de suppression des pixels chauds"
 width="259px"
 height="75px"
-alt="Réglages de suppression des pixels chauds" >}}
+alt="Interface logicielle affichant la catégorie Prétraitement avec une option pour utiliser le suppresseur de pixels chauds cochée." >}}
 {{< /center >}}
 
 `suppression des pixels chauds` active la suppression
@@ -63,7 +63,7 @@ alt="Réglages de suppression des pixels chauds" >}}
 caption="Réglages de soustraction du signal thermique"
 width="588px"
 height="139px"
-alt="Réglages de soustraction du signal thermique" >}}
+alt="Interface logicielle affichant les options pour utiliser la soustraction de dark, changer le chemin du master dark spécifié et effacer le chemin." >}}
 {{< /center >}}
 
 1. `soustraction de dark` active la soustraction
@@ -95,7 +95,7 @@ Si les dimensions sont différentes :
 caption="Réglage du dématriçage"
 width="588px"
 height="139px"
-alt="Réglage du dématriçage" >}}
+alt="Interface logicielle affichant les préférences de traitement d'image avec des options pour définir le chemin de signal noir et sélectionner le motif de dématriçage, y compris AUTO et divers motifs de filtres de couleur." >}}
 {{< /center >}}
 
 {{% alert title="ℹ️ mode AUTO" color="info" %}}

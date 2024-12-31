@@ -2,16 +2,16 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T03:44:07Z
-keywords: ["ALS general settings", "préférences générales ALS"]
+lastmod: 2024-12-31T00:59:11Z
+keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
-categories: ["guide utilisateur"] 
-tags: ["preferences", "general", "dossier scanné", "dossier de travail" ]
+categories: [ "guide utilisateur" ]
+tags: [ "preferences", "general", "dossier scanné", "dossier de travail" ]
 weight: 331
 ---
 
-Les réglages les plus critiques d'ALS sont présentés dans l'onglet `Général` des préférences.
+Les réglages les plus critiques d'ALS sont présentés dans l'onglet `Général`
 
 <div class="row">
 <div class="col-md-4">
@@ -19,11 +19,11 @@ Les réglages les plus critiques d'ALS sont présentés dans l'onglet `Général
 # Vue d'ensemble
 
 Cet onglet est divisé en 4 sections :
+
 - [Chemins](#paths)
 - [Profil](#profile)
 - [Gestion de la mémoire](#memory)
 - [Général](#general)
-
 
 </div>
 <div class="col-md-8 d-flex align-items-center justify-content-center">
@@ -32,7 +32,7 @@ Cet onglet est divisé en 4 sections :
 caption="L'onglet Général des préférences"
 width="622px"
 height="604px"
-alt="L'onglet Général des préférences" >}}
+alt="Fenêtre de préférences ALS avec l'onglet Général sélectionné, affichant les sections Chemins, Profil, Gestion de la mémoire et Paramètres de base, y compris les chemins des dossiers de numérisation et de travail, les options de profil, le curseur de mémoire, le paramètre de langue, les journaux de débogage et les statistiques d'utilisation." >}}
 {{< /center >}}
 
 </div>
@@ -55,7 +55,7 @@ Définit le chemin du **dossier scanné**
 caption="Préférences du dossier scanné"
 width="612px"
 height="133px"
-alt="Préférences dossier scanné" >}}
+alt="Interface logicielle affichant les paramètres du dossier scanné avec le chemin défini sur /home/astrogeek/astroshots, et un bouton Modifier pour configurer ce chemin." >}}
 {{< /center >}}
 
 1. `Modifier...` permet de configurer le **dossier scanné**.
@@ -70,7 +70,7 @@ Définit le chemin du **dossier de travail**
 caption="Préférences du dossier de travail"
 width="609px"
 height="153px"
-alt="Préférences dossier de travail" >}}
+alt="Interface logicielle affichant les paramètres du dossier de travail avec le chemin défini sur /home/astrogeek/sorties_als, et un bouton Modifier pour configurer ce chemin." >}}
 {{< /center >}}
 
 1. `Modifier...` permet de configurer le **dossier de travail**.

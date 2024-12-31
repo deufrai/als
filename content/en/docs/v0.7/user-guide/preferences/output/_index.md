@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-31T00:59:11Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -30,7 +30,7 @@ This tab is divided into 2 sections:
 caption="The Output tab of the preferences"
 width="622px"
 height="604px"
-alt="The Output tab of the preferences" >}}
+alt="ALS preferences window with Output tab selected, showing settings for file saving format options, autosave on stop, server port number configuration, web page refresh period, and a dedicated folder checkbox." >}}
 {{< /center >}}
 
 </div>
@@ -64,7 +64,7 @@ timestamped file, on every session stop:
 caption="File saving preferences"
 width="252px"
 height="107px"
-alt="File saving preferences" >}}
+alt="Software interface showing file saving preferences with options for selecting the file format (TIFF, PNG, JPEG) and an autosave feature checkbox for enabling or disabling autosave on stop." >}}
 {{< /center >}}
 
 </div>
@@ -93,7 +93,7 @@ Here are the settings for the image server
 caption="Web server settings"
 width="480px"
 height="201px"
-alt="Web server settings" >}}
+alt="Configuration panel for web server settings, including server port number set to 8000, web page refresh period set to 5 seconds, and web folder path set to /home/astrogeek/als_web with a Change button." >}}
 {{< /center >}}
 
 </div>
@@ -106,7 +106,7 @@ alt="Web server settings" >}}
 caption="Web folder settings"
 width="595px"
 height="211px"
-alt="Web folder settings" >}}
+alt="Configuration panel for web server settings, showing options for using a dedicated web folder with the path set to /home/astrogeek/als_web, server port number set to 8000, and web page refresh period set to 5 seconds." >}}
 {{< /center >}}
 
 1. If `Use dedicated folder` is unchecked:

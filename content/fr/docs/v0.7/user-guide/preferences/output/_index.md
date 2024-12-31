@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-30T12:16:23Z
+lastmod: 2024-12-31T00:59:11Z
 keywords: [ "ALS outout settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: [ "preferences", "output", "formats", "serveur", "dossier web" ]
 weight: 333
 ---
 
-Les régissant les résultats produits sont présentés dans l'onglet `Sortie` des préférences.
+Les réglages régissant les résultats produits sont présentés dans l'onglet `Sortie`.
 
 <div class="row">
 <div class="col-md-4">
@@ -30,7 +30,7 @@ Cet onglet est divisé en 2 sections :
 caption="L'onglet Sortie des préférences"
 width="622px"
 height="604px"
-alt="L'onglet Sortie des préférences" >}}
+alt="Fenêtre de préférences ALS avec l'onglet Sortie sélectionné, affichant les paramètres pour les options de format de sauvegarde de fichier, l'enregistrement automatique à l'arrêt, la configuration du numéro de port du serveur, la période de rafraîchissement de la page web et une case à cocher pour le dossier dédié." >}}
 {{< /center >}}
 
 </div>
@@ -64,7 +64,7 @@ du module **Process** dans un nouveau fichier horodaté, à chaque arrêt de ses
 caption="Préférences de l'enregistreur de fichiers"
 width="307px"
 height="103px"
-alt="Préférences de l'enregistreur de fichiers" >}}
+alt="Interface logicielle affichant les préférences de sauvegarde de fichiers avec des options pour sélectionner le format de fichier (TIFF, PNG, JPEG) et une case à cocher pour activer ou désactiver l'enregistrement automatique à l'arrêt." >}}
 {{< /center >}}
 
 </div>
@@ -94,7 +94,7 @@ Ici sont configurés les paramètres du serveur d'images
 caption="Réglages du serveur web"
 width="437px"
 height="195px"
-alt="Réglages du serveur web" >}}
+alt="Panneau de configuration des paramètres du serveur web, incluant le numéro de port du serveur réglé sur 8000, la période de rafraîchissement de la page web réglée sur 5 secondes, et le chemin du dossier web défini sur /home/astrogeek/als_web avec un bouton Modifier." >}}
 {{< /center >}}
 
 </div>
@@ -107,7 +107,7 @@ alt="Réglages du serveur web" >}}
 caption="Réglage du dosser web"
 width="598px"
 height="209px"
-alt="Réglage du dossier web" >}}
+alt="Panneau de configuration des paramètres du serveur web, montrant des options pour utiliser un dossier web dédié avec le chemin défini sur /home/astrogeek/als_web, le numéro de port du serveur réglé sur 8000, et la période de rafraîchissement de la page web réglée sur 5 secondes." >}}
 {{< /center >}}
 
 1. Si `Utiliser un dossier spécifique` est décochée :

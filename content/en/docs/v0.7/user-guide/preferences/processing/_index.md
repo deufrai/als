@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "Documentation of the Processing tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-30T08:41:57Z
+lastmod: 2024-12-31T00:59:11Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -32,7 +32,7 @@ It groups the settings of the processes managed by the [**Preprocess**](../../..
 caption="Preferences page Process tab"
 width="622px"
 height="604px"
-alt="Preferences page Process tab" >}}
+alt="ALS preferences window with Process tab selected, showing settings for pre-processing images, including hot pixel remover, dark subtraction, and debayering pattern options, with paths specified and Change and Clear buttons." >}}
 {{< /center >}}
 
 </div>
@@ -51,7 +51,7 @@ alt="Preferences page Process tab" >}}
 caption="Hot pixel removal settings"
 width="212px"
 height="75px"
-alt="Hot pixel removal settings" >}}
+alt="Software interface showing the Pre-Processing category with an option to Use hot pixel remover checked." >}}
 {{< /center >}}
 
 `Use hot pixel remover` activates the removal
@@ -63,7 +63,7 @@ alt="Hot pixel removal settings" >}}
 caption="Dark signal subtraction settings"
 width="589px"
 height="173px"
-alt="Dark signal subtraction settings" >}}
+alt="Software interface showing settings for dark signal subtraction with options to use dark subtraction, change the dark path to a specified file, and clear the path." >}}
 {{< /center >}}
 
 1. `Use dark subtraction` activates the subtraction
@@ -94,7 +94,7 @@ If the dimensions are different:
 caption="Debayering settings"
 width="396px"
 height="196px"
-alt="Debayering settings" >}}
+alt="Software interface showing image processing preferences with options for setting Dark path and selecting Debayering pattern, including AUTO and various color filter array patterns." >}}
 {{< /center >}}
 
 {{% alert title="ℹ️ AUTO mode" color="info" %}}
