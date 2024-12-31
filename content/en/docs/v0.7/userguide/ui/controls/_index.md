@@ -1,97 +1,93 @@
 ---
-title: "Main Controls"
-description: "documentation of ALS main controls panel"
+title: "main controls"
+description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T14:39:24Z
-keywords: [ "ALS main controls" ]
+lastmod: 2024-12-31T17:15:42Z
+keywords: [ "main controls of ALS" ]
 type: "docs"
-tags: [ "GUI", "controls", "stack" ]
+categories: [ "user guide" ]
+tags: [ "interface", "controls", "stack", "session", "module" ]
 weight: 321
 ---
 
 # Introduction
 
-By the end of this chapter, you will have:
+At the end of this chapter, you will have:
 
-- Understood the organization and function of each section of the `Main controls` panel
-- Deepened your knowledge of the ALS features controlled by these sections
-
----
-
-# General Presentation
-
-The `Main Controls` panel is located on the left side of the ALS interface. It groups the most used controls and
-displays into sections.
+- Understood the organization and function of each section of the `Main Controls` panel
+- Deepened your knowledge of the features controlled by these sections
 
 <div class="row">
   <div class="col-md-8">
 
+# Overview
+
+The `Main Controls` panel is located on the left side of the interface.
+
+It organizes the most used controls and displays into sections.
+
 - [**Session**](#session-section)
 
-  The controls for the current session are found here. They allow you to start and stop the session, and also display
-  information about the current stack as well as the session status indicator.
+  Session controls, stack information, and session status
 
 - [**Stack**](#stack-section)
 
-  This section allows you to define the alignment and stacking modes for images. It also offers a threshold setting for
-  similarity search during alignment.
+  Stacking settings: Alignment, stacking mode, and detection threshold
 
 - [**Image Server**](#server-section)
 
-  Allows you to start and stop the image server and displays information about the server when it is active.
+  Image server controls and status
 
 - [**Image Saver**](#saver-section)
 
-  Allows you to save the current image on the fly and activate continuous saving.
+  Image saving tools
 
 - [**Workers**](#workers-section)
 
-  This section provides information about the usage status of each ALS worker module.
+  Information on the usage status of the main modules
 
 - [**Issues**](#issues-section)
 
-  This section is only visible if the `Session Log` is hidden. It displays an indicator of new issues.
+  Issues indicator
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="The main controls panel, featuring sections for Session, Stack, Image Server, Image Saver, Workers, and Issues. The Session section includes buttons labeled START, PAUSE, and STOP, with indicators for stack size (20) and stack exposure (0:01:20), and a status reading 'running'. The Stack section shows options for alignment (mean) and a threshold slider set to 19. The Image Server section has START and STOP buttons and displays the status 'running' with the URL http://10.0.2.15:8000. The Image Saver section includes a button labeled Save current and a checkbox labeled Save every frame. The Workers section provides queue sizes and status indicators for Pre-process, Stack, Process, and Save modules. The Issues section displays a red warning icon with the text 'Issues'." >}}
+    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="The main controls panel of ALS, with several sections: Session controls with START, PAUSE, and STOP buttons, Stack Size 39, Stack Exposure 0:02:36, Status started; Stack settings with Align, mean, and threshold slider at 19; Image server with START and STOP buttons, Status started with URL http://10.0.2.15:8000; Image saver with options Save current image and Save each image; Modules with Queue size and Busy status; Issues with a warning icon and the label Issues." >}}
   </div>
 
 </div>
 
---- 
+---
 
 # Session {#session-section}
 
-The **session** section of the panel includes 3 areas, from top to bottom:
+The **session** section of the panel includes 3 areas:
 
 <div class="row">
 <div class="col-md-8">
 
-## Session Controls
+## Session Controls {#session-controls}
 
-The accessibility of these buttons depends on the session status.
+- <span class="als-ks">R</span> or 🖱️ click `START` to start a new session or resume a paused session.
+- <span class="als-ks">R</span> or 🖱️ click `PAUSE` to pause the current session.
+- <span class="als-ks">X</span> or 🖱️ click `STOP` to stop the current session.
 
-- `START` Starts a new session or resumes paused session.
-- `PAUSE` Pauses the current session.
-- `STOP` Stops the current session.
+{{% alert color="info" %}}
+ℹ️ Stopping a session with at least one sub in the **stack** displays a confirmation prompt.
+{{% /alert %}}
 
-  Stopping a session with at least one image in the stack triggers a confirmation window.
+## Stack Information
 
-## Information about the current stack
+Below the session controls, you will find information about the **stack**:
 
-- The total number of images stacked in the current stack.
-- The total exposure time for the entire session.
+- the number of subs currently in the **stack**
+- the cumulative exposure times of the subs in the **stack**.
 
-_In this example, we have stacked 20 images for a total exposure time of 1m 20s._
+_In this example, we have stacked 39 subs for a total of 2m 36s._
 
 ## Session Status
 
-The status of the current session. Possible statuses are:
-
-- stopped
-- running
-- paused
+Finally, the status of the current session.
 
 _In this example, the session is running._
 
@@ -100,9 +96,9 @@ _In this example, the session is running._
 {{< center >}}
 {{< figure src="session.png"
 caption="The session section"
-width="280px"
+width="294px"
 height="127px"
-alt="User interface for the session section showing the START, PAUSE, and STOP buttons. Below, information about the current session: Stack size 20, Stack exposure 0:01:20, and status running." >}}
+alt="User interface of the session section showing the START, PAUSE, and STOP buttons. Below, information about the current session: Stack Size 39, Stack Exposure 0:02:36, and status started." >}}
 {{< /center >}}
 
 </div>
@@ -112,183 +108,180 @@ alt="User interface for the session section showing the START, PAUSE, and STOP b
 
 # Stack {#stack-section}
 
-The **stack** section of the panel allows you to control the **stack** module.
+The **stack** section of the panel controls the **Stacker** module.
 
 <div class="row">
 <div class="col-md-8">
 
-## Aligning and Stacking mode {#controls}
+## Alignment and Stacking Mode {#controls}
 
 {{% alert color="info" %}}
-These controls are only accessible only when the session is stopped
+ℹ️ These controls are accessible only when the session is stopped.
 {{% /alert %}}
+- <span class="als-ks">A</span> or 🖱️ check `Align` to enable subs **alignment**
 
-- `Align` activates the **alignment** of subs on the session reference.
-- The dropdown list defines the **stacking mode** used for this session:
-- `mean` : The value of each pixel in the generated image is the **average value** of that pixel in all the images in
-  the
-  stack.
-- `sum` : The value of each pixel in the generated image is the **sum** of the values of that pixel in all the images in
-  the stack.
+- Use the dropdown list to set the **stacking mode** to use:
+    - `mean`
+
+      Used for electronically assisted astronomy or for monitoring a series of acquisitions.
+
+      ⚙️ _The value of each pixel in the generated stack is the **average value** of that pixel across all subs in the **stack**._
+
+    - `sum`
+
+      Used for creating star trails or circumpolar images.
+
+      ⚙️ _The value of each pixel in the generated stack is the **sum** of the values of that pixel across all subs in the **stack**._
 
 ## Detection Threshold {#threshold}
 
-Subs of poor quality are discarded using a similarities threshold:
+Alignment works by comparing the subs with the **alignment reference**, looking for similar star groups.
 
-Any sub having a number of similarities with the session reference **below** this threshold is ignored.
+Poor quality subs, with too few or distorted stars, are discarded using a threshold:
 
-The `Threshold` slider allows you to set this detection threshold.
+Any sub with a number of similarities **below** this threshold is discarded.
 
-**Behavior when an image is ignored**:
+🖱️ Use the `Threshold` slider to adjust the value of this **detection threshold**.
 
-- The image is not added to the stack. The **Stack** module waits for the next image.
-- A **WARNING** is added to the `Session Log`. It includes the text '_Alignment matches count is lower than configured
-  threshold_'.
-- The `Acknowledge` button in the `Session Log` is activated.
-- If the `Session Log` is hidden, the new issues indicator appears in the `Issues` section of the panel.
+**When a sub is discarded**:
+
+- The sub is not added to the stack and the **Stacker** module waits for the next sub.
+- A **WARNING** is added to the **Session log**. It contains the text '_Alignment matches count is lower than configured threshold_'
+- The `Acknowledge` button in the `Session Log` panel is activated.
+
+  _If the_ `session log` _panel is hidden, the issue indicator appears in the_ **Issues** _section._
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="stack.png"
 caption="The stack section"
-width="280px"
+width="294px"
 height="92px"
-alt="User interface for the stack section showing a checkbox labeled Align, checked, and a dropdown menu set to mean. Below, a slider labeled Threshold set to 19, positioned towards the left end of its range." >}}
+alt="User interface of the stack section showing a checkbox labeled Align, checked, and a dropdown menu with the mean option selected. Below, a slider labeled Threshold set to 19, positioned towards the left side of its range." >}}
 {{< /center >}}
 
 </div>
 </div>
 
-{{% alert title="ℹ️ INFO" color="info" %}}
+{{% alert title="💡" color="light" %}}
+- Aim to set the detection threshold as high as possible without causing sub discards.
+- Lowering the stacking threshold is useful for long focal length shots where stars are few.
+{{% /alert %}}
 
-- `Align` is enabled on every ALS startup
-- The stacking mode is set to `mean` on every ALS startup
-- The detection threshold is global and constantly saved
-  {{% /alert %}}
-
-{{% alert title="💡 TIP" color="light" %}}
-Reducing the detection threshold is useful for long focal length shots where stars are few.
+{{% alert title="ℹ️" color="info" %}}
+- Alignment is enabled at each ALS startup.
+- The stacking mode is set to **mean** at each ALS startup.
+- The detection threshold is global and constantly saved.
 {{% /alert %}}
 
 ---
 
 # Image Server {#server-section}
 
-The **Image Server** section of the panel allows you to control ALS's integrated web server.
-
-This server shares the image displayed in ALS's central area on the network to which the machine running ALS is
-connected.
-
-The image displayed in the served web page is periodically refreshed by the browser.
+The **Image Server** section of the panel controls the **Server** module.
 
 <div class="row">
 <div class="col-md-8">
 
 ## Server Controls
 
-- `START` starts the server.
-- `STOP` stops the server.
+- <span class="als-ks">W</span> or 🖱️ click `START` to start the server.
+- <span class="als-ks">W</span> or 🖱️ click `STOP` to stop the server.
 
 ## Server Information
 
-Displays the current status of the server. Possible statuses are:
+Below the server controls, you will find its status display.
 
-- stopped
-- running
-
-When the server is running:
-
+When the server is **started**:
 - its URL is added to the status.
+- <span class="als-ks">Q</span> toggles the display of the QR code for the server URL.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="server.png"
 caption="The server section"
-width="280px"
+width="294px"
 height="92px"
-alt="The image server section, containing the START (grayed out) and STOP buttons, the status: running, and the server URL" >}}
+alt="The image server section, containing the 2 buttons START (grayed out) and STOP, the status: started and the server URL" >}}
 {{< /center >}}
 
 </div>
 </div>
 
-{{% alert title="ℹ️ INFO" color="info" %}}
-Additional parameters for the web server are available in the [ALS Preferences](../../preferences/). Tab **Output**
-section **Web Server**.
+{{% alert title="ℹ️" color="info" %}}
+Additional settings for the web server are available in the [Preferences](../../preferences/).
 {{% /alert %}}
 
 ---
 
-# Image saver {#saver-section}
+# Image Saver {#saver-section}
 
-The **Image Saver** section of the panel allows you to trigger additional file saves beyond the default operation
-of the **Save** module.
+The **Image Saver** section of the panel allows triggering additional saves beyond the default operation of the **Save** module.
 
 <div class="row">
 <div class="col-md-8">
 
-## Saving Controls {#save-controls}
+## Save Controls {#save-controls}
 
-- <span class="als-ks">S</span> or 🖱️ click `Save current` to save of **the latest** processing resul with timestamp
-- <span class="als-ks">F</span> or 🖱️ tick `Save every frame` to activate the saving of **every next** processing result with timestamp
+- <span class="als-ks">S</span> or 🖱️ click `Save current` to save the **last** processing result with a timestamp.
+- <span class="als-ks">F</span> or 🖱️ check `Save every frame` to enable saving **each next** processing result with a timestamp.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="saver.png"
-caption="The Image Saver section"
-width="280px"
-height="68px"
-alt="Image Saver section of the user interface showing a button labeled Save current and a checkbox labeled Save every frame. The checkbox is unchecked." >}}
+caption="The image saver section"
+width="294px"
+height="69px"
+alt="Image Saver section of the user interface showing a button labeled Save current image and a checkbox labeled Save each image. The checkbox is unchecked." >}}
 {{< /center >}}
 
 </div>
 </div>
 
 {{% alert title="ℹ️ INFO" color="info" %}}
-`Save every frame` is disabled on ALS startup.
+`Save every frame` is disabled at ALS startup.
 {{% /alert %}}
 
 ---
 
-# Workers {#workers-section}
+# Modules {#modules-section}
 
-The **Workers** section of the panel displays the details of each main module
+The **Modules** section of the panel displays details of each main module.
 
-- The size of the associated queue
-- The status of the module: Displays **busy** when the module is processing an image
+- The size of the associated queue.
+- The module status: Displays **busy** when the module is processing an image.
 
 {{< center >}}
 {{< figure src="modules.png"
 caption="The Modules section"
-width="280px"
+width="294px"
 height="153px"
-alt="Workers section of the user interface showing a table with three columns: Workers, Queue size, and Status. The table lists four workers: Pre-process, Stack, Process, and Save. The queue sizes for all workers are 0. The status for the Stack worker is busy, while the statuses for the other workers are indicated with a dash (-)." >}}
+alt="Modules section of the user interface showing a table with three columns: Modules, Queue size, and Status. The table lists four modules: Pre-process, Stack, Process, and Save. The queue size for all modules is 0. The status of the Stack module is busy, while the statuses of the other modules are indicated by a dash (-)." >}}
 {{< /center >}}
 
 ---
 
 # Issues {#issues-section}
 
-When a new issue is detected by ALS **and the `Session Log` is hidden**, an indicator appears at the bottom of the
-`main controls` panel.
+When a new issue is detected **and the `Session Log` is hidden**, the `Issues` button appears in this section.
 
 {{< center >}}
 {{< figure src="problems.png"
-caption="New issue indicator"
-width="280px"
+caption="The issue indicator"
+width="294px"
 height="44px"
-alt="the Issues section with its Issues button and its red sign" >}}
+alt="The issues section with the issues button and its red panel" >}}
 {{< /center >}}
 
-Clicking on this button displays the `Session Log` and allows you to review the newly detected issues.
+<span class="als-ks">L</span> or 🖱️ click `Issues` to display the `Session Log` and review the new issues.
 
 ---
 
 # Conclusion
 
-You now have a clear understanding of the architecture of ALS and the various sections of the `main controls` panel.
+The main controls of ALS are no longer a mystery to you!
 
 Next step: the `Processing` panel.

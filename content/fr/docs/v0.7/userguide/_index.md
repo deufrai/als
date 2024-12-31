@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:38:09Z
+lastmod: 2024-12-31T17:15:42Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -45,6 +45,7 @@ Image contenant le bruit thermique du capteur. Elle est soustraite des [brutes](
 - Ceci est une ℹ️ Information
 - Ceci est une 💡 Astuce
 - Ceci eset un 🧠 Rappel
+- Ceci est un ⚙️ Détail technique
 - 🖱️ une action à la souris est requise
 - ⌨️ une action au clavier est requise
 - 🎛️ une action en dehors d'ALS est requise

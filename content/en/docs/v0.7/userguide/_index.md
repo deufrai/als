@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:38:09Z
+lastmod: 2024-12-31T17:15:42Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -43,6 +43,7 @@ Image captured by your acquisition system
 - This is an ℹ️ Information
 - This is a 💡 Tip
 - This is a 🧠 Reminder
+- This is a ⚙️ Technical detail
 - 🖱️ a mouse action is required
 - ⌨️ a keyboard action is required
 - 🎛️ an action outside of ALS is required

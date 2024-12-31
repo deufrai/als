@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T14:39:24Z
+lastmod: 2024-12-31T17:15:42Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: [ "guide utilisateur" ]
@@ -17,43 +17,38 @@ A la fin de ce chapitre, vous aurez :
 - Compris l'organisation et la fonction de chaque section du panneau `Contrôles principaux`
 - Approfondi vos connaissances sur les fonctionnalités d'ALS contrôlées par ces sections
 
----
-
-# Présentation générale
-
-Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS. Il organise en sections les contrôles et
-affichages les plus utilisés
-
 <div class="row">
   <div class="col-md-8">
 
+# Présentation
+
+Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS
+
+Il organise en sections les contrôles et affichages les plus utilisés
+
 - [**Session**](#session-section)
 
-  Cette section regroupe les contrôles de la session, l'affichage des informations sur la stack courante ainsi
-  que l'indicateur de statut de la session.
+  Contrôles de session, informations sur la stack et le statut de la session
 
 - [**Stack**](#stack-section)
 
-  Cette section permet de définir le mode d'alignement et d'empilement des images. Elle propose aussi un réglage de
-  seuil
-  pour la recherche de similitudes pendant l'alignement.
+  Réglages du stacking : Alignement, mode d'empilement et seuil de détection
 
 - [**Serveur d'images**](#server-section)
 
-  Permet de démarrer et arrêter le serveur d'images et affiche des informations sur le serveur lorsqu'il est actif.
+  Contrôles et statut du serveur d'images
 
 - [**Enregistreur d'images**](#saver-section)
 
-  Permet d'enregistrer à la volée l'image courante et d'activer la fonction d'enregistrement continu.
+  Outils d'enregistrement d'images
 
 - [**Modules**](#modules-section)
 
-  Cette section fournit des informations sur l'état d'utilisation des modules principaux d'ALS.
+  Informations sur l'état d'utilisation des modules principaux
 
 - [**Problèmes**](#issues-section)
 
-  Cette section n'est visible que si le ` Journal de session` est caché. Elle affiche un indicateur de nouveaux
-  problèmes
+  Indicateur de problèmes
 
   </div>
   <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -66,35 +61,34 @@ affichages les plus utilisés
 
 # Session {#session-section}
 
-La section **session** du panneau comprend 3 zones, de haut en bas :
+La section **session** du panneau comprend 3 zones :
 
 <div class="row">
 <div class="col-md-8">
 
 ## Contrôles de session {#session-controls}
 
-L'accessibilité de ces boutons dépend du statut de la session.
+- <span class="als-ks">R</span> ou 🖱️ cliquez `START` pour démarrer une nouvelle session ou reprendre 
+  une session mise en pause.
+- <span class="als-ks">R</span> ou 🖱️ cliquez `PAUSE` pour mettre en pause la session en cours.
+- <span class="als-ks">X</span> ou 🖱️ cliquez `STOP` pour arrêter la session en cours.
 
-- `START` Démarre une nouvelle session ou redémarre la session mise en pause.
-- `PAUSE` Met en pause la session en cours.
-- `STOP` Arrête la session en cours.
+{{% alert color="info" %}}
+ℹ️ Arrêter une session avec au moins une brute dans la **stack** affiche une demande de confirmation
+{{% /alert %}}
 
-  _Arrêter une session avec au moins une image dans la pile affiche une fenêtre de confirmation._
+## Informations sur la stack
 
-## Informations sur la stack courante
+Sous les contrôles de session, vous trouverez les informations sur la **stack** :
 
-- le nombre total d'images empilées dans la stack courante.
-- le temps d'exposition cumulé pour toute la session.
+- le nombre de brutes actuellement dans la **stack**
+- le cumul des temps d'expositions des brutes de la **stack**.
 
-_Dans cet exemple, nous avons empilé 39 images pour un total de 2m 36s._
+_Dans cet exemple, nous avons empilé 39 brutes pour un total de 2m 36s._
 
 ## Statut de la session
 
-Le statut de la session en cours. Les statuts possibles sont :
-
-- stoppée
-- démarrée
-- en pause
+Enfin, Le statut de la session en cours
 
 _Dans cet exemple, la session est démarrée_
 
@@ -115,7 +109,7 @@ alt="Interface utilisateur de la section session montrant les boutons START, PAU
 
 # Stack {#stack-section}
 
-La section **stack** du panneau contrôle le module **Stack**.
+La section **stack** du panneau contrôle le module **Stacker**.
 
 <div class="row">
 <div class="col-md-8">
@@ -125,31 +119,43 @@ La section **stack** du panneau contrôle le module **Stack**.
 {{% alert color="info" %}}
 ℹ️ Ces contrôles sont accessibles uniquement quand la session est stoppée.
 {{% /alert %}}
+- <span class="als-ks">A</span> ou 🖱️ cochez `Aligner` pour activer l'**alignement** des brutes
 
-- `Aligner` active l'**alignement** des brutes sur la référence de la session.
-- La liste déroulante définit le **mode d'empilement** utilisé pour cette session :
-    - `moyenne` : La valeur de chaque pixel de l'empilement généré est la **valeur moyenne** de ce pixel dans toutes
-      les images de la stack.
-    - `somme` : La valeur de chaque pixel de l'empilement généré est la **somme** des valeurs de ce pixel dans toutes
-      les images de la stack.
+- Utilisez la liste déroulante pour définir le **mode d'empilement** à utiliser :
+    - `moyenne`
+
+      Utilisé pour le visuel assisté ou la surveillance d'une série d'acquisitions 
+
+      ⚙️ _La valeur de chaque pixel de l'empilement généré est la **valeur moyenne** de ce pixel sur toutes
+      les brutes de la **stack**_.
+
+    - `somme`
+
+      Utilisé pour réaliser des filés d'étoiles ou des images circum-polaires
+
+      ⚙️ _La valeur de chaque pixel de l'empilement généré est la **somme** des valeurs de ce pixel sur toutes
+      les brutes de la **stack**_.
 
 ## Seuil de détection {#threshold}
 
-Les images de mauvaise qualité sont écartées en utilisant un seuil de similitudes :
+L'alignement fonctionne en comparant les brutes avec la **référence d'alignement**, à la recherche de groupes 
+d'étoiles similaires. 
 
-Toute image présentant un nombre de similitudes avec la référence de la session **inférieur** à ce seuil est ignorée.
+Les brutes de mauvaise qualité, présentant des étoiles top peu nombreuses ou déformées, sont écartées en utilisant un 
+seuil :
 
-Le curseur `Seuil` permet de définir ce seuil de détection.
+Toute brute présentant un nombre de similitudes **inférieur** à ce seuil est abandonnée.
 
-**Comportement lorsqu'une image est ignorée** :
+🖱️ Utilisez le curseur `Seuil` pour modifier la valeur de ce **seuil de détection**
 
-- L'image n'est pas ajoutée à la pile. Le module **Stack** se met en attente de la prochaine image.
-- Un message **WARNING** est ajouté au `Journal de session`. Il porte, entre autre, le texte '_Alignment matches count
-  is
-  lower than configured threshold_'
-- Le bouton `Acquitter` du `Journal de session` est activé
-- Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
-  panneau.
+**Quand une brute est abandonnée** :
+
+- L'image n'est pas ajoutée à la pile et le module **Stacker** se met en attente de la prochaine brute.
+- Un **WARNING** est ajouté au **Journal de session**. Il porte le texte '_Alignment matches count
+  is lower than configured threshold_'
+- Le bouton `Acquitter` du panneau `Journal de session` est activé
+  
+  _Si le panneau_ `journal de session` _est caché, l'indicateur de problèmes apparaît dans la section_ **Problèmes**
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -164,41 +170,39 @@ alt="Interface utilisateur de la section stack montrant une case à cocher intit
 </div>
 </div>
 
-{{% alert title="ℹ️ INFO" color="info" %}}
-
-- `Aligner` est activé à chaque démarrage d'ALS
-- Le mode de stacking est réglé sur `moyenne` à chaque démarrage d'ALS
-- Le seuil de détection est global et sauvegardé en permanence
-  {{% /alert %}}
-
-{{% alert title="💡 Astuce" color="light" %}}
-Réduire le seuil d'empilement est utile sur les prises de vues à longue focale où les étoiles sont peu nombreuses.
+{{% alert title="💡" color="light" %}}
+- Cherchez à régler le seuil de détection le plus haut possible, sans provoquer d'abandons de brutes
+- Réduire le seuil d'empilement est utile sur les prises de vues à longue focale où les étoiles sont peu nombreuses
 {{% /alert %}}
+
+{{% alert title="ℹ️" color="info" %}}
+- L'alignement est activé à chaque démarrage d'ALS
+- Le mode de stacking est réglé sur **moyenne** à chaque démarrage d'ALS
+- Le seuil de détection est global et sauvegardé en permanence
+{{% /alert %}}
+
 
 ---
 
 # Serveur d'images {#server-section}
 
-La section **Serveur d'images** du panneau contrôle le serveur web intégré d'ALS.
+La section **Serveur d'images** du panneau contrôle le module **Server**
 
 <div class="row">
 <div class="col-md-8">
 
 ## Contrôles du serveur
 
-- `START` démarre le serveur
-- `STOP` arrête le serveur
+- <span class="als-ks">W</span> ou 🖱️ cliquez `START` pour démarrer le serveur
+- <span class="als-ks">W</span> ou 🖱️ cliquez `STOP` pour arrêter le serveur
 
 ## Informations sur le serveur
 
-Affiche le statut courant du serveur. Les statuts possibles sont :
+Sous les contrôles du serveur, vous trouverez l'affichage de son statut
 
-- stoppé
-- démarré
-
-Quand le serveur est démarré :
-
+Quand le serveur est **démarré** :
 - son URL est ajoutée au statut
+- <span class="als-ks">Q</span> bascule l'affichaque du QR code pour l'URL du serveur 
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -213,9 +217,8 @@ alt="La section serveur d'images, contenant les 2 boutons START (grisé) et STOP
 </div>
 </div>
 
-{{% alert title="ℹ️ INFO" color="info" %}}
+{{% alert title="ℹ️" color="info" %}}
 Des paramètres supplémentaires pour le serveur web sont disponibles dans les [Préférences](../../preferences/).
-Onglet **Sortie** section **Serveur web**.
 {{% /alert %}}
 
 ---
@@ -273,24 +276,24 @@ alt="Section Modules de l'interface utilisateur montrant un tableau avec trois c
 
 # Problèmes {#issues-section}
 
-Quand un nouveau problème a été détecté par ALS **et que le `Journal de session` est caché**, un indicateur apparaît
-tout en bas du panneau `contrôles principaux`
+Quand un nouveau problème a été détecté **et que le `Journal de session` est caché**, le bouton `Problèmes`
+apparaît dans cette section.
 
 {{< center >}}
 {{< figure src="problems.png"
-caption="L'indicateur de nouveau problème"
+caption="L'indicateur de problème"
 width="294px"
 height="44px"
-alt="La session problèmes avec le bouton et son panneau rouge" >}}
+alt="La section problèmes avec le bouton problèmes et son panneau rouge" >}}
 {{< /center >}}
 
-Un click sur ce bouton affiche le `Journal de session` et permet de consulter les nouveaux problèmes détectés.
+<span class="als-ks">L</span> ou 🖱️ cliquez `Problèmes` pour afficher le `Journal de session` et consulter 
+les nouveaux problèmes détectés.
 
 ---
 
 # Conclusion
 
-Vous avez maintenant une vision claire de l'architecture d'ALS et des différentes sections du panneau
-`contrôles principaux`.
+Les contrôles principaux d'ALS n'ont plus de secret pour vous ! 
 
 Prochaine étape : le panneau `Traitements`

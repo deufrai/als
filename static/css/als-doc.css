@@ -37,7 +37,7 @@
     display: inline-block;
     padding: 0.2rem 0.4rem;
     margin: 0.1rem;
-    border-radius: 2px;
+    border-radius: 3px;
     font-weight: bold;
     background-color: #b1b1b1;
     color: #353535;
@@ -52,11 +52,11 @@ dt {
 }
 
 div.als-doc-content h1 {
-    margin: 2rem 0 1rem 0;
+    margin: 1.6rem 0 1rem 0;
 }
 
 div.als-doc-content h2, div.als-doc-content h3 {
-    margin-top: 1em;
+    margin-top: .7em;
 }
 
 .td-content li {
