@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T05:32:00Z
+lastmod: 2024-12-31T06:28:46Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -32,27 +32,43 @@ ALS is architected in autonomous modules, divided into two families:
 
 ## Image Path
 
-Each detected sub passes from module to module in the following order:
+Every sub detected in the **scan folder** then passes from module to module in the following order:
 
 ```mermaid
 graph LR
-subgraph Main Modules
-    B(Preprocess) --> C(Stack)
-    C --> D(Process)
-    D --> E(Save)
-end
-A(Scanner) --> B
-E -.-> F(Server)
 
-style A fill:#555,stroke:darkred,stroke-width:2px
-style B fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style C fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style D fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style E fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style F fill:#555,stroke:darkred,stroke-width:2px
+        B(Preprocess) -.-> C(Stack)
+        C ---> D(Process)
+        D --> E(Save)
+
+
+    S(Scan Folder) -.-> A(Scanner)        
+    A -.-> B
+    E --> F(Work Folder)
+    E --> G(Web Folder)
+    G --> H(Server)
+    D ---> I(Display)
+
+
+    style A fill:#333,stroke:darkred,stroke-width:2px
+    style B fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style C fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style D fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style E fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+
+    style F fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style G fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style S fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    
+    style I fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+
+    style H fill:#333,stroke:darkred,stroke-width:2px
 ```
 
 <p class="figcaption">Image path in ALS</p>
+
+- Your subs transit from the scan folder to the **Stack** module
+- The stacking and processing results transit from the **Stack** module to the outputs
 
 ## Main Modules
 

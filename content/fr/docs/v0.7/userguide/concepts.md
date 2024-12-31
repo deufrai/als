@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T05:32:00Z
+lastmod: 2024-12-31T06:28:46Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -30,40 +30,45 @@ ALS est architecturé en modules autonomes, répartis en deux familles :
     - **Scanner** : surveillance du **dossier scanné**
     - **Serveur d'images** : partage des images générées par ALS
 
-## Trajet d'une image
+## Trajet des images dans l'application {#image-path}
 
-Chaque image détectée dans le **dossier scanné** passe ensuite de module en module, dans l'ordre suivant :
+Les images traversent ALS depuis le dossier scanné, jusqu'à l'affichage et l'enregistrement sur disque.
 
 ```mermaid
 graph LR
-    subgraph Modules principaux
-        B(Preprocess) --> C(Stack)
-        C --> D(Process)
-        D --> E(Save)
-    end
-    A(Scanner) --> B
-    E ---> F(Dossier de travail)
-    E ---> G(Dossier web)
-    G -.-> H(Serveur d'images)
-    D -.-> I(Affichage)
-    
-    S(Dossier scanné) -.-> A
 
-    style A fill:#555,stroke:darkred,stroke-width:2px
-    style B fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style C fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style D fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style E fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+        B(Preprocess) -.-> C(Stack)
+        C ---> D(Process)
+        D --> E(Save)
+
+
+    S(Dossier Scanné) -.-> A(Scanner)        
+    A -.-> B
+    E --> F(Dossier de Travail)
+    E --> G(Dossier Web)
+    G --> H(Serveur d'images) 
+    D ---> I(Affichage)
+
+
+    style A fill:#333,stroke:darkred,stroke-width:2px
+    style B fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style C fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style D fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style E fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+
+    style F fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style G fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style S fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     
-    style F fill:#333,stroke:#777,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style G fill:#333,stroke:#777,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style I fill:#222,stroke:#BBB,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style S fill:#333,stroke:#777,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    
-    style H fill:#555,stroke:darkred,stroke-width:2px
+    style I fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+
+    style H fill:#333,stroke:darkred,stroke-width:2px
 ```
 
 <p class="figcaption">Trajet d'une image dans ALS</p>
+
+- Vos brutes transitent du dossier scanné jusqu'au module **Stack**
+- Les résultats d'empilement et de traitement transitent du module **Stack** jusqu'aux sorties 
 
 ## Modules principaux
 
