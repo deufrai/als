@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T13:17:20Z
+lastmod: 2024-12-31T14:11:00Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -193,7 +193,7 @@ Chaque résultat de traitement est enregistré dans 2 fichiers :
 
 1. Sortie principale :
     - **Emplacement** : dossier de travail
-    - **Nom** : stack_image
+    - **Nom** : stack_image (+ horodatage si demandé)
     - **Format** : Tel que défini dans les [Préférences](../preferences/output/#format). ℹ️ Par défaut : JPEG
 
 2. Sortie serveur :

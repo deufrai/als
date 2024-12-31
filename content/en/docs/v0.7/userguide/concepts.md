@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T13:17:20Z
+lastmod: 2024-12-31T14:11:00Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -188,7 +188,7 @@ Each processing result is saved in 2 files:
 
 1. Main output:
     - **Location**: work folder.
-    - **Name**: stack_image.
+    - **Name**: stack_image (+ timestamp if requested).
     - **Format**: As defined in [Preferences](../preferences/output/#format). ℹ️ Default: JPEG.
 
 2. Server output:
