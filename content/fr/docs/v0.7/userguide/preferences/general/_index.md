@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T05:32:00Z
+lastmod: 2024-12-31T19:00:23Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -31,7 +31,7 @@ Cet onglet est divisé en 4 sections :
 {{< figure src="whole_tab.png"
 caption="L'onglet Général des préférences"
 width="622px"
-height="604px"
+height="660px"
 alt="Fenêtre de préférences ALS avec l'onglet Général sélectionné, affichant les sections Chemins, Profil, Gestion de la mémoire et Paramètres de base, y compris les chemins des dossiers de numérisation et de travail, les options de profil, le curseur de mémoire, le paramètre de langue, les journaux de débogage et les statistiques d'utilisation." >}}
 {{< /center >}}
 

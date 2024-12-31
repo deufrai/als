@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-31T02:01:56Z
+lastmod: 2024-12-31T19:00:23Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -73,12 +73,12 @@ Configurez ALS pour surveiller le dossier **astroshots** :
 {{< center >}}
 {{< figure src="prefs_01.png"
 caption="Bouton permettant de définir le **dossier scanné**"
-width="628px"
-height="254px"
-alt="Fenêtre des préférences ALS affichant la section Chemins avec des champs pour le dossier scanné et le dossier de travail, chacun avec un bouton Modifier à côté. Une flèche rouge pointe vers le bouton Modifier à côté du champ du dossier scanné." >}}
+width="623px"
+height="240px"
+alt="Capture d'écran des préférences ALS montrant l'onglet Général. Une flèche rouge pointe vers le bouton Dossier scanné..." >}}
 {{< /center >}}
 
-🖱️ Cliquez sur `Modifier...` à côté de **Dossier scanné**. Un sélecteur de dossier apparaît...
+🖱️ Cliquez sur `Dossier scanné...`. Un sélecteur de dossier apparaît...
 
 ---
 
@@ -101,13 +101,14 @@ Créez un sous-dossier pour ALS nommé **sorties_als** dans votre dossier person
 
 {{< center >}}
 {{< figure src="prefs_03.png"
-caption="Bouton permettant de définir le **dossier de travail**"
-width="628px"
-height="263px"
-alt="Fenêtre des préférences ALS affichant la section Chemins avec des champs pour le dossier scanné et le dossier de travail, chacun avec un bouton Modifier à côté. Une flèche rouge pointe vers le bouton Modifier à côté du champ du dossier de travail." >}}
+caption="Les réglages de l'enregistrement d'images"
+width="622px"
+height="332px"
+alt="Capture d'écran montrant l'onglet Sortie dans les préférences ALS. La section Dossiers de sortie comprend un bouton Dossier de travai... pour le configurer" >}}
 {{< /center >}}
 
-🖱️ Cliquez sur `Modifier...` à côté de **Dossier de travail**. Un sélecteur de dossier apparaît...
+1. 🖱️ Basculez vers l'onglet **Sortie**
+2. 🖱️ Cliquez `Dossier de travail...`. Un sélecteur de dossier apparaît...
 
 ---
 
@@ -143,8 +144,10 @@ height="443px"
 alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner le dossier de travail' affichant le contenu du répertoire /home/astrogeek, y compris plusieurs dossiers et un fichier journal. Le nouveau dossier nommé als_output est surligné, et le bouton Choisir est surligné, indiquant que l'utilisateur est sur le point de confirmer la sélection." >}}
 {{< /center >}}
 
-- ⌨️ Nommez-le **sorties_als**.
-- 🖱️ Cliquez sur `Choisir`.
+1. ⌨️ Nommez-le **sorties_als**. 
+2. 🖱️ Cliquez sur `Choisir`.
+
+🖱️ Revenez à l'onglet **Général**.
 
 
 
@@ -159,9 +162,9 @@ Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur 
 {{< center >}}
 {{< figure src="prefs_07.png"
 caption="Case indiquant le choix d'envoi des statistiques d'utilisation"
-width="628px"
-height="607px"
-alt="Fenêtre des préférences ALS avec l'onglet Général sélectionné, affichant les sections Chemins, Profil, Gestion de la mémoire et Paramètres de base. La section Chemins affiche des champs pour le dossier scanné et le dossier de travail avec des boutons Modifier. La section Profil montre l'option Visuel Assisté sélectionnée. Le curseur de mémoire est réglé sur Un peu plus. La section Core a un menu déroulant Langue réglé sur Système, une case à cocher Journaux détaillés non cochée et une case à cocher Stats d'usage cochée avec la note: Au démarrage, envoyer version, type de CPU et nom de l'OS." >}}
+width="622px"
+height="660px"
+alt="Capture d'écran des préférences ALS montrant l'onglet Général. La section Données est mise en une flèche rouge pointe vers une case servant à activer les Statistiques d'utilisation." >}}
 {{< /center >}}
 
 Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous
