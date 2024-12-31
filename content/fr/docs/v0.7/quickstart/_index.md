@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T23:45:45Z
+lastmod: 2024-12-31T02:01:56Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -34,7 +34,7 @@ Tout au long de ce voyage, vous incarnerez un nouvel utilisateur d'ALS :
 src="lights_placement.png"
 width="888px" height="484px"
 caption="Emplacement des brutes"
-alt="Emplacement des brutes" >}}
+alt="Fenêtre du gestionnaire de fichiers affichant le sous-dossier Light dans le répertoire astroshots/M_27/Light, montrant huit fichiers FITS." >}}
 {{< /center >}}
 
 # Configuration initiale
@@ -49,7 +49,7 @@ Lors du premier démarrage, ALS vous accueille et vous demande de définir deux 
 caption="Message de bienvenue"
 width="461px"
 height="172px"
-alt="Message de bienvenue" >}}
+alt="Boîte de dialogue de bienvenue pour ALS avec un texte indiquant qu'il s'agit de la première utilisation de l'utilisateur et des instructions pour définir les chemins des dossiers scanné et de travail. Un bouton OK est en bas à droite." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `OK` pour accéder aux préférences.
@@ -75,7 +75,7 @@ Configurez ALS pour surveiller le dossier **astroshots** :
 caption="Bouton permettant de définir le **dossier scanné**"
 width="628px"
 height="254px"
-alt="Section chemins des préférences" >}}
+alt="Fenêtre des préférences ALS affichant la section Chemins avec des champs pour le dossier scanné et le dossier de travail, chacun avec un bouton Modifier à côté. Une flèche rouge pointe vers le bouton Modifier à côté du champ du dossier scanné." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Modifier...` à côté de **Dossier scanné**. Un sélecteur de dossier apparaît...
@@ -87,7 +87,7 @@ alt="Section chemins des préférences" >}}
 caption="Le sélecteur de **dossier scanné**"
 width="641px"
 height="443px"
-alt="Sélecteur du dossier scanné" >}}
+alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner dossier scanné' avec le dossier astroshots surligné sous le répertoire de l'utilisateur astrogeek. Le bouton Choisir est surligné, indiquant que l'utilisateur est sur le point de confirmer la sélection." >}}
 {{< /center >}}
 
 1. 🖱️ Sélectionnez le dossier **astroshots**.
@@ -104,7 +104,7 @@ Créez un sous-dossier pour ALS nommé **sorties_als** dans votre dossier person
 caption="Bouton permettant de définir le **dossier de travail**"
 width="628px"
 height="263px"
-alt="Section chemins des préférences" >}}
+alt="Fenêtre des préférences ALS affichant la section Chemins avec des champs pour le dossier scanné et le dossier de travail, chacun avec un bouton Modifier à côté. Une flèche rouge pointe vers le bouton Modifier à côté du champ du dossier de travail." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Modifier...` à côté de **Dossier de travail**. Un sélecteur de dossier apparaît...
@@ -116,7 +116,7 @@ alt="Section chemins des préférences" >}}
 caption="Bouton permettant de créer un nouveau dossier"
 width="789px"
 height="454px"
-alt="Bouton créer un nouveau dossier" >}}
+alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner le dossier de travail' affichant le contenu du répertoire /home/astrogeek, montrant divers dossiers et un fichier journal. Une flèche rouge pointe vers le bouton 'Créer un nouveau dossier', indiquant l'option de créer un nouveau dossier." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Créer un nouveau dossier`.
@@ -128,7 +128,7 @@ alt="Bouton créer un nouveau dossier" >}}
 caption="Nouveau dossier prêt à être renommé"
 width="641px"
 height="443px"
-alt="Renommage du nouveau dossier - étape 1" >}}
+alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner le dossier de travail' affichant le contenu du répertoire /home/astrogeek. Un nouveau dossier nommé 'Nouveau Dossier' est surligné en bleu, prêt à être renommé. La partie inférieure de la boîte de dialogue comporte des champs pour le répertoire et le type de fichiers, avec des boutons intitulés Choisir et Annuler." >}}
 {{< /center >}}
 
 Un nouveau dossier apparaît, prêt à être renommé.
@@ -140,7 +140,7 @@ Un nouveau dossier apparaît, prêt à être renommé.
 caption="nouveau dossier renommé et validation"
 width="641px"
 height="443px"
-alt="Renommage du nouveau dossier - étape 2" >}}
+alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner le dossier de travail' affichant le contenu du répertoire /home/astrogeek, y compris plusieurs dossiers et un fichier journal. Le nouveau dossier nommé als_output est surligné, et le bouton Choisir est surligné, indiquant que l'utilisateur est sur le point de confirmer la sélection." >}}
 {{< /center >}}
 
 - ⌨️ Nommez-le **sorties_als**.
@@ -161,7 +161,7 @@ Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur 
 caption="Case indiquant le choix d'envoi des statistiques d'utilisation"
 width="628px"
 height="607px"
-alt="Ecran des préférences - Onglet général" >}}
+alt="Fenêtre des préférences ALS avec l'onglet Général sélectionné, affichant les sections Chemins, Profil, Gestion de la mémoire et Paramètres de base. La section Chemins affiche des champs pour le dossier scanné et le dossier de travail avec des boutons Modifier. La section Profil montre l'option Visuel Assisté sélectionnée. Le curseur de mémoire est réglé sur Un peu plus. La section Core a un menu déroulant Langue réglé sur Système, une case à cocher Journaux détaillés non cochée et une case à cocher Stats d'usage cochée avec la note: Au démarrage, envoyer version, type de CPU et nom de l'OS." >}}
 {{< /center >}}
 
 Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous
@@ -201,7 +201,7 @@ ALS et nos outils de suivi sont des logiciels **opensource**, leur code source e
 caption="ALS prêt à démarrer sa toute première session"
 width="1920px"
 height="1053px"
-alt="Fenêtre principale d'ALS" >}}
+alt="Fenêtre principale d'ALS montrant une interface logicielle pour empiler des images astronomiques en temps réel. L'interface comprend des sections pour les contrôles principaux (démarrer, pause, arrêter), les paramètres d'empilement (aligner, seuil), le serveur d'images (démarrer, arrêter), la sauvegarde d'images (sauvegarder l'image actuelle, sauvegarder chaque image), les modules (taille de la file d'attente, statut), le traitement (histogramme, étirement automatique, niveaux, balance RGB) et le journal de session." >}}
 {{< /center >}}
 
 ## Démarrage de la session
@@ -211,7 +211,7 @@ alt="Fenêtre principale d'ALS" >}}
 caption="Le bouton de démarrage de session"
 width="296px"
 height="164px"
-alt="Panneau de contrôle de session avant démarrage" >}}
+alt="Section des contrôles principaux d'ALS avec la sous-section Session, montrant les boutons START, PAUSE et STOP. Le bouton START est surligné avec une flèche rouge pointant vers lui. En dessous, des indicateurs pour la taille de la stack (0) et l'exposition de la pile (n/a) sont affichés. Le statut indique 'stoppée'." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `START` dans la section **session** en haut à gauche
@@ -225,7 +225,7 @@ ALS confirme le bon démarrage de la session :
 caption="Le statut et les boutons de contrôle de la session sont mis à jour"
 width="296px"
 height="164px"
-alt="Panneau de contrôle de session après démarrage" >}}
+alt="Section des contrôles principaux d'ALS avec la sous-section Session, montrant les boutons START, PAUSE et STOP. En dessous de ces boutons, des indicateurs pour la taille de la stack (0) et l'exposition de la stack (n/a) sont affichés. Le statut indique 'démarrée' avec une flèche rouge pointant vers lui." >}}
 {{< /center >}}
 
 {{< center >}}
@@ -233,7 +233,7 @@ alt="Panneau de contrôle de session après démarrage" >}}
 caption="Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour"
 width="864px"
 height="178px"
-alt="Journal de session" >}}
+alt="Journal de session affichant des messages d'information avec horodatages. Les entrées incluent 'Démarrage de nouvelle session...' 'Scanneur d'entrée démarré,' et 'Session démarrée en mode moyenne avec alignement True.' Des boutons étiquetés Acquitter, problèmes seuls, suivre. La barre de status indique 'Session démarrée'." >}}
 {{< /center >}}
 
 --- 
@@ -248,7 +248,7 @@ alt="Journal de session" >}}
 caption="ALS après traitement de la 1<sup>ère</sup> image"
 width="1920px"
 height="1053px"
-alt="Fenêtre principale d'ALS - Stack 1" >}}
+alt="Fenêtre principale d'ALS après le traitement de la première brute, affichant une image initiale et légèrement bruitée de la nébuleuse Messier 27 avec des étoiles éparpillées. Le journal de session montre des messages de traitement réussi. Le panneau de traitement sur la droite offre des ajustements de l'histogramme et des niveaux, l'équilibre RGB et les réglages d'étirement automatique." >}}
 {{< /center >}}
 
 {{% alert color="info" %}}
@@ -265,7 +265,7 @@ les brutes déjà traitées.
 caption="ALS après traitement de la 15<sup>ème</sup> image. Le contraste et le bruit s'améliorent"
 width="1920px"
 height="1053px"
-alt="Fenêtre principale d'ALS - Stack 15" >}}
+alt="Fenêtre principale d'ALS après le traitement de la 15e brute, affichant une image moins bruitée et plus détaillée de la nébuleuse Messier 27 avec des étoiles éparpillées. Le journal de session montre des messages de traitement réussi. Le panneau de traitement sur la droite offre des ajustements de l'histogramme et des niveaux, l'équilibre RGB et les réglages d'étirement automatique." >}}
 {{< /center >}}
 
 Après chaque alignement et empilement d'une nouvelle brute, ALS ajuste automatiquement la luminosité et la balance
@@ -294,7 +294,7 @@ interrompre la navigation.
 caption="ALS après traitement de la 200<sup>ème</sup> image. Une belle image, détaillée et lissée"
 width="1920px"
 height="1053px"
-alt="Fenêtre principale d'ALS - Stack 200" >}}
+alt="Fenêtre principale d'Astro Live Stacker (ALS) après le traitement de la 200e brute, affichant une image lisse, détaillée et à fort contraste de la nébuleuse Messier 27 avec de nombreuses étoiles. Le journal de session en bas montre des messages de traitement réussi et le panneau de sauvegarde d'images à gauche indique que les images ont été sauvegardées avec succès. Le panneau de droite comprend des options de traitement telles que les ajustements d'histogramme, l'étirement automatique, les niveaux et l'équilibre RGB." >}}
 {{< /center >}}
 
 Ce guide de démarrage rapide ne couvre pas les autres fonctionnalités et réglages d'ALS. Toutefois, ALS a été conçu pour
@@ -312,7 +312,7 @@ Notre visite guidée express touche à sa fin, arrêtez la session en cours.
 caption="Le bouton d'arrêt de session"
 width="320px"
 height="164px"
-alt="Panneau de contrôle de session avant arrêt" >}}
+alt="Section des contrôles principaux dans l'interface du logiciel ALS, plus précisément la zone Session affichant les boutons START, PAUSE et STOP. Le bouton STOP est surligné avec une flèche rouge pointant vers lui. En dessous des boutons se trouvent la taille de la stack (200) et l'exposition de la stack (0:13:20). Le statut indique 'démarrée'." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `STOP` dans la section **session** en haut à gauche. Une fenêtre de confirmation apparaît...
@@ -324,7 +324,7 @@ alt="Panneau de contrôle de session avant arrêt" >}}
 caption="Fenêtre de confirmation d'arrêt de session"
 width="608px"
 height="151px"
-alt="Confirmation d'arrêt de session" >}}
+alt="Boîte de dialogue intitulée 'Arrêt de session,' demandant une confirmation pour arrêter la session en cours avec un message : 'Stopper la session courante remettra la stack et les traitements à zéro. Êtes-vous sûr de vouloir stopper la session courante ?' En dessous du message se trouvent une case à cocher intitulée 'Sauver image avant arrêt' et deux boutons intitulés 'Non' et 'Oui.' Le bouton 'Non' est surligné en rouge et le bouton 'Oui' est surligné en vert." >}}
 {{< /center >}}
 
 🖱️ Cliquez sur `Oui`
@@ -344,7 +344,7 @@ Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce 
 caption="Menu de création du lanceur"
 width="537px"
 height="194px"
-alt="Entrée de menu pour création du lanceur" >}}
+alt="L'image montre une capture d'écran d'une interface logicielle avec un thème sombre. La barre de menu supérieure comprend des options telles que Fichier, Session, Édition, Image, Vue, Utilitaires et Aide. Le menu Utilitaires est développé, révélant deux options : QR Code et Créer lanceur, avec ce dernier surligné en bleu et un curseur pointant vers lui." >}}
 {{< /center >}}
 
 🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez l'item **Créer lanceur**. Un sélecteur de fichier apparaît...
@@ -355,12 +355,12 @@ alt="Entrée de menu pour création du lanceur" >}}
     caption="Sélecteur de fichier pour **PC**" 
     width="661px" 
     height="463px" 
-    alt="Sélecteur de fichier PC" >}}
+    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v0.7-beta7.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
 {{< figure src="exe_picker_rpi.png" 
     caption="Sélecteur de fichier pour **Raspberry PI**" 
     width="661px" 
     height="463px" 
-    alt="Sélecteur de fichier Raspberry Pi" >}}
+    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v0.7-beta7. Le fichier als-v0.7-beta7 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v0.7-beta7' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
 </div>
 {{< /center >}}
 
@@ -378,7 +378,7 @@ ALS vous confirme la bonne création du lanceur
 caption="Fenêtre de confirmation de création du lanceur"
 width="391px"
 height="129px"
-alt="Fenêtre de confirmation de création du lanceur" >}}
+alt="Fenêtre de notification avec le titre 'Lanceur ALS créé / mis à jour avec succès.' La notification contient une icône d'ampoule et le texte 'Vous trouverez ALS avec les applications graphiques.' Il y a un bouton 'OK' en bas à droite de la fenêtre." >}}
 {{< /center >}}
 
 Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu système
@@ -387,7 +387,7 @@ Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu systèm
 caption="ALS dans la section **Graphisme** du menu système "
 width="542px"
 height="412px"
-alt="Menu système" >}}
+alt="L'image montre une section d'un écran d'ordinateur affichant le menu 'Applications', mettant en évidence la catégorie 'Graphisme'. Le menu répertorie diverses applications liées aux graphismes disponibles sur le système, y compris Astro Live Stacker - Live Stacking Made in France. Le curseur pointe vers la catégorie 'Graphismes', indiquant qu'elle est actuellement sélectionnée." >}}
 {{< /center >}}
 
 </details>

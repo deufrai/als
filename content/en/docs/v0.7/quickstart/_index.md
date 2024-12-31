@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-29T23:45:45Z
+lastmod: 2024-12-31T02:01:56Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -34,7 +34,7 @@ Throughout this journey, you will embody a new ALS user:
 src="lights_placement.png"
 width="889px" height="479px"
 caption="Placement of raw images"
-alt="Placement of raw images" >}}
+alt="File manager window displaying the Light subfolder within the directory astroshots/M_27/Light, showing eight FITS files" >}}
 {{< /center >}}
 
 # Initial Configuration
@@ -49,7 +49,7 @@ On the first start, ALS welcomes you and asks you to define two essential settin
 caption="Welcome message"
 width="382px"
 height="172px"
-alt="Welcome message" >}}
+alt="Welcome dialog box for ALS with text indicating it's the user's first use and instructions to set paths for the Scan and Work folders. An OK button is at the bottom right." >}}
 {{< /center >}}
 
 🖱️ Click `OK` to access the preferences.
@@ -75,7 +75,7 @@ Configure ALS to monitor the **astroshots** folder:
 caption="Button to set the **scan folder**"
 width="628px"
 height="250px"
-alt="Preferences paths section" >}}
+alt="ALS preferences window showing the Paths section with fields for Scan and Work folder, each with a Change button next to them. A red arrow points to the Change button next to the Scan folder field." >}}
 {{< /center >}}
 
 🖱️ Click `Change...` next to **Scan folder**. A folder selector appears...
@@ -87,7 +87,7 @@ alt="Preferences paths section" >}}
 caption="The **scan folder** selector"
 width="635px"
 height="443px"
-alt="Scan folder selector" >}}
+alt="File selection dialog box titled 'Select scan folder' with the astroshots folder highlighted under the user astrogeek directory. The Choose button is highlighted, indicating the user is about to confirm the selection." >}}
 {{< /center >}}
 
 1. 🖱️ Select the **astroshots** folder.
@@ -104,7 +104,7 @@ Create a subfolder for ALS named **als_output** in your home directory:
 caption="Button to set the **work folder**"
 width="628px"
 height="252px"
-alt="Preferences paths section" >}}
+alt="ALS preferences window showing the Paths section with fields for Scan folder and Work folder, each with a Change button next to them. A red arrow points to the Change button next to the Work folder field." >}}
 {{< /center >}}
 
 🖱️ Click `Change...` next to **Work folder**. A folder selector appears...
@@ -116,7 +116,7 @@ alt="Preferences paths section" >}}
 caption="Button to create a new folder"
 width="730px"
 height="455px"
-alt="Create new folder button" >}}
+alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek, showing various folders and a log file. A red arrow points to the 'Create New Folder' button, indicating the option to create a new folder." >}}
 {{< /center >}}
 
 🖱️ Click `Create new folder`.
@@ -128,7 +128,7 @@ alt="Create new folder button" >}}
 caption="New folder ready to be renamed"
 width="635px"
 height="443px"
-alt="Renaming the new folder - step 1" >}}
+alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek. A newly created folder named 'New Folder' is highlighted in blue, ready to be renamed. The bottom part of the dialog box has fields for Directory and Files of type, with buttons labeled Choose and Cancel." >}}
 {{< /center >}}
 
 A new folder appears, ready to be renamed.
@@ -140,7 +140,7 @@ A new folder appears, ready to be renamed.
 caption="New folder renamed and confirmed"
 width="635px"
 height="443px"
-alt="Renaming the new folder - step 2" >}}
+alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek, including several folders and a log file. The newly created folder named als_output is highlighted, and the Choose button is highlighted, indicating the user is about to confirm the selection." >}}
 {{< /center >}}
 
 - ⌨️ Name it **als_output**.
@@ -159,7 +159,7 @@ It is very useful for us to know which versions of ALS are being used and on whi
 caption="Checkbox indicating the choice to send usage statistics"
 width="628px"
 height="607px"
-alt="Preferences screen - General tab" >}}
+alt="ALS preferences window with General tab selected, showing sections for Paths, Profile, Memory Management, and Core settings. Paths section displays fields for Scan folder and Work folder with Change buttons. Profile section shows Electronically Assisted Astronomy selected. Memory slider set to A bit more. Core section has a Language dropdown set to System, unchecked Debug logs checkbox, and checked Usage stats checkbox with note: On startup, send version, CPU type and OS name." >}}
 {{< /center >}}
 
 We would be very grateful if you allow ALS to send us usage statistics, but we also understand that you may be reluctant
@@ -198,7 +198,7 @@ ALS and our tracking tools are **opensource** software, their source code is pub
 caption="ALS ready to start its very first session"
 width="1920px"
 height="1053px"
-alt="ALS main window" >}}
+alt="ALS main window showing a software interface for stacking astronomical images in real-time. The interface includes sections for main controls (start, pause, stop), stack settings (align, threshold), image server (start, stop), image saver (save current, save every frame), workers (queue size, status), processing (histogram, auto stretch, levels, RGB balance), and session log." >}}
 {{< /center >}}
 
 ## Starting the Session
@@ -208,7 +208,7 @@ alt="ALS main window" >}}
 caption="The session start button"
 width="297px"
 height="162px"
-alt="Session control panel before start" >}}
+alt="ALS main controls section with the Session subsection, showing the START, PAUSE, and STOP buttons. The START button is highlighted with a red arrow pointing to it. Below, indicators for Stack size (0) and Stack exposure (n/a) are displayed. The status reads 'stopped'." >}}
 {{< /center >}}
 
 🖱️ Click `START` in the **session** section at the top left
@@ -222,7 +222,7 @@ ALS confirms the successful session start:
 caption="The session control buttons and session status are updated"
 width="297px"
 height="162px"
-alt="Session control panel after start" >}}
+alt="ALS main controls section with the Session subsection, showing the START, PAUSE, and STOP buttons. Below these buttons, indicators for Stack size (0) and Stack exposure (n/a) are displayed. The status reads 'running' with a red arrow pointing to it." >}}
 {{< /center >}}
 
 {{< center >}}
@@ -230,7 +230,7 @@ alt="Session control panel after start" >}}
 caption="The **session log** displays the latest events and the **status bar** is updated"
 width="964px"
 height="166px"
-alt="Session log" >}}
+alt="Session log showing informational messages with timestamps. The entries include 'Starting new session,' 'Input scanner started,' and 'Session running in mode mean with alignment True.' Buttons labeled Acknowledge, issues only, follow. Statusbar item reads : session running" >}}
 {{< /center >}}
 
 ---
@@ -245,7 +245,7 @@ subs
 caption="ALS after processing the 1<sup>st</sup> sub"
 width="1920px"
 height="1053px"
-alt="ALS main window - Stack 1" >}}
+alt="ALS main window after processing the first sub, displaying an initial, slightly noisy image of Messier 27 nebula with scattered stars. The session log shows successful processing messages. The processing panel on the right provides histogram and level adjustments, RGB balance, and auto stretch settings." >}}
 {{< /center >}}
 
 {{% alert color="info" %}}
@@ -262,7 +262,7 @@ subs.
 caption="ALS after processing the 15<sup>th</sup> image. Contrast and noise improve"
 width="1920px"
 height="1053px"
-alt="ALS main window - Stack 15" >}}
+alt="ALS main window after processing the 15th sub, displaying a less noisy and more detailed image of Messier 27 nebula with scattered stars. The session log shows successful processing messages. The processing panel on the right provides histogram and level adjustments, RGB balance, and auto stretch settings." >}}
 {{< /center >}}
 
 After each alignment and stacking of a new sub, ALS automatically adjusts the brightness and color balance before
@@ -290,7 +290,7 @@ The image in the **central area** is instantly updated after each sub is process
 caption="ALS after processing the 200<sup>th</sup> image. A beautiful, detailed, and smoothed image"
 width="1920px"
 height="1053px"
-alt="ALS main window - Stack 200" >}}
+alt="The Astro Live Stacker (ALS) main window after processing the 200th sub, displaying a smooth, detailed, and high-contrast image of the Messier 27 nebula with numerous stars. The session log at the bottom shows successful processing messages and the image saver panel on the left indicates that the images have been saved successfully. The right panel includes processing options such as histogram adjustments, auto stretch, levels, and RGB balance." >}}
 {{< /center >}}
 
 This quick start guide does not cover the other features and settings of ALS. However, ALS has been designed to be very
@@ -308,7 +308,7 @@ Our express guided tour is coming to an end, stop the current session.
 caption="The session stop button"
 width="305px"
 height="165px"
-alt="Session control panel before stop" >}}
+alt="Main controls section in ALS software interface, specifically the Session area showing START, PAUSE, and STOP buttons. The STOP button is highlighted with a red arrow pointing to it. Below the buttons are Stack size (200) and Stack exposure (0:13:20). The status shows 'running'." >}}
 {{< /center >}}
 
 🖱️ Click `STOP` in the **session** section at the top left. A confirmation window appears...
@@ -320,7 +320,7 @@ alt="Session control panel before stop" >}}
 caption="Session stop confirmation window"
 width="612px"
 height="151px"
-alt="Session stop confirmation" >}}
+alt="Dialog box titled 'Session stop,' asking for confirmation to stop the current session with a message: 'Stopping the current session will reset the stack and all image enhancements. Are you sure you want to stop the current session?' Below the message are a checkbox labeled 'Save result before stop' and two buttons labeled 'No' and 'Yes.' The 'No' button is highlighted in red, and the 'Yes' button is highlighted in green." >}}
 {{< /center >}}
 
 🖱️ Click `Yes`
@@ -339,7 +339,7 @@ This section is exclusively for ALS users on Linux, whether on PC or Raspberry P
 caption="Launcher creation menu"
 width="491px"
 height="197px"
-alt="Menu entry for launcher creation" >}}
+alt="The image shows a screenshot of a software interface with a dark theme. The top menu bar includes options such as File, Session, Edit, Image, View, Utilities, and Help. The Utilities menu is expanded, revealing two options: QR Code and Create launcher, with the latter highlighted in blue and a cursor pointing to it" >}}
 {{< /center >}}
 
 🖱️ Open the **Utilities** menu and select the **Create launcher** item. A file selector appears...
@@ -350,12 +350,12 @@ alt="Menu entry for launcher creation" >}}
 caption="File selector for **PC**"
 width="635px"
 height="443px"
-alt="PC file selector" >}}
+alt="File selection dialog box titled 'Select your ALS executable.' The directory path is set to /home/astrogeek/Applications/ALS. The file als-v0.7-beta7.run is selected, with a size of 255.47 MiB, indicating it is a run File. The Open button is highlighted, suggesting the user is about to open the selected file. Three numbered arrows point to the directory path, the selected file, and the Open button." >}}
 {{< figure src="exe_picker_rpi.png"
 caption="File selector for **Raspberry PI**"
 width="661px"
 height="463px"
-alt="Raspberry Pi file selector" >}}
+alt="File selection dialog box titled 'Select your ALS executable.' The dialog box is used to navigate through directories and select a specific file. The directory path shown is /home/astrogeek/Applications/ALS/als-v0.7-beta7. The file als-v0.7-beta7 is highlighted and selected. The dialog box has three main labeled elements: 1. The 'Look in:' field showing the current directory path. 2. The file list area where the 'als-v0.7-beta7' file is selected. 3. The 'Open' button to confirm the selection and the 'Cancel' button to cancel the operation." >}}
 </div>
 {{< /center >}}
 
@@ -373,7 +373,7 @@ ALS confirms the successful creation of the launcher
 caption="Launcher creation confirmation window"
 width="305px"
 height="129px"
-alt="Launcher creation confirmation window" >}}
+alt="Notification window with the title 'ALS launcher created / updated.' The notification contains an icon of a lightbulb and the text 'You'll find ALS with the graphics apps.' There is an 'OK' button at the bottom right of the window." >}}
 {{< /center >}}
 
 You can now easily start ALS using your system menu
@@ -382,7 +382,7 @@ You can now easily start ALS using your system menu
 caption="ALS in the **Graphics** section of the system menu"
 width="536px"
 height="374px"
-alt="System menu" >}}
+alt="The image shows a section of a computer screen displaying the 'Applications' menu, specifically highlighting the 'Graphics' category. The menu lists various graphics-related applications available on the system, including Astro Live Stacker - Live Stacking Made in France." >}}
 {{< /center >}}
 
 </details>
