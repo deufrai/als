@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:05:52Z
+lastmod: 2024-12-31T12:38:09Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -27,7 +27,7 @@ La qualité du résultat augmente à mesure qu'on utilise un plus grand nombre d
 
 {{< center >}}
 {{< figure
-src="../stacking.png"
+src="/images/stacking.png"
 width="1203px" height="456px"
 caption="Comparaison de 8 résultats d'empilement<br>Le nombre de brutes empilées est indiqué en haut à gauche de chaque image"
 alt="" >}}
@@ -248,7 +248,7 @@ Une **session** peut être vue comme le cycle de vie du couple formé par la **s
 
 1. **Démarrage de la session** :
     - ALS vide la **stack** et démarre le **Scanner**.
-    - La première image reçue par le module **Stacker** servira de **référence d'alignement** durant toute la session.
+    - La première brute reçue par le module **Stacker** servira de **référence d'alignement** durant toute la session.
 
 2. **Déroulement** :
     - chaque nouvelle brute détectée est successivement :

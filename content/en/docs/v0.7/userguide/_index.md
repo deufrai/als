@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2024-12-30T08:58:42Z
+lastmod: 2024-12-31T12:38:09Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -26,27 +26,9 @@ First, let's define the terms and formatting we will use throughout this guide.
 Set of processes applied to subs to eliminate sensor defects. This generally includes hot pixel removal and the
 subtraction of a [master dark](#master-dark) to reduce thermal noise.
 
-### livestacking {#livestacking}
-
-Real-time processing and display of the [stacking](#stacking) of a dynamic set of [subs](#sub)
-
 ### master dark {#master-dark}
 
 Image containing the sensor's thermal noise. It is subtracted from the [subs](#sub) during [calibration](#calibration)
-
-### session {#session}
-
-The lifecycle of the current [stack](#stack), starting with the first detected [sub](#sub), processing each new [sub](#sub) until the
-session is
-stopped.
-
-### stack {#stack}
-
-Set of subs stacked since the start of the [session](#session)
-
-### stacking {#stacking}
-
-Generation of an image containing the result of the pixel-to-pixel sum or average of a set of calibrated [subs](#sub)
 
 ### sub {#sub}
 
