@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T12:38:09Z
+lastmod: 2024-12-31T12:41:35Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -72,9 +72,9 @@ graph LR
         D --> E(Save)
 
 
-    S(Scan Folder) -.-> A(Scanner)
+    S(Scan Folder) -.-> A(Scanner)        
     A -.-> B
-    E --> F(Working Directory)
+    E --> F(Work Folder)
     E --> G(Web Folder)
     G ---> H(Server)
     D ---> I(Display)
@@ -89,7 +89,7 @@ graph LR
     style F fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     style G fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     style S fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-
+    
     style I fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
 
     style H fill:#333,stroke:darkred,stroke-width:2px
