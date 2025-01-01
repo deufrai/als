@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-01T03:59:57Z
+lastmod: 2025-01-01T04:15:02Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -50,8 +50,8 @@ Définit le chemin du dossier surveillé par ALS pour détecter les brutes enreg
 {{% alert color="light" %}}
 💡 La détection fonctionne quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.
 
-Si votre système d'acquisition enregistre les brutes dans des sous-dossiers organisés par cible ou date, configurez
-le **dossier scanné** sur le dossier parent de ces sous-dossiers.
+Si votre système d'acquisition enregistre les brutes dans des sous-dossiers organisés par cible ou date, surveillez
+le dossier parent de ces sous-dossiers.
 {{% /alert %}}
 
 {{< center >}}
@@ -86,7 +86,7 @@ Nous vous conseillons d'expérimenter avec un esprit ouvert et joyeux...
 # Moteur {#engine}
 
 {{% alert color="info" %}}
-ℹ️ Les modifications faites aux paramètres moteur nécessitent un redémarrage d'ALS pour être pris en compte
+ℹ️ Les modifications faites aux paramètres moteur nécessitent un redémarrage d'ALS pour être prises en compte
 {{% /alert %}}
 
 <div class="row">
