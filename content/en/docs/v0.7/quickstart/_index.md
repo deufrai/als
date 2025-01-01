@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-01T05:04:41Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -153,7 +153,7 @@ alt="File selection dialog box titled 'Select work folder' displaying the conten
 **⚠️ Do not confirm the preferences yet**, there is one important point left:
 {{% /alert %}}
 
-## Usage Statistics
+## Usage Statistics {#usage-stats}
 
 It is very useful for us to know which versions of ALS are being used and on which platform.
 
