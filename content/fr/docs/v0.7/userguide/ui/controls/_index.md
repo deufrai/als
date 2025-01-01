@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:39:29Z
+lastmod: 2025-01-01T22:17:04Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -14,8 +14,8 @@ weight: 321
 
 A la fin de ce chapitre, vous aurez :
 
-- Compris l'organisation et la fonction de chaque section du panneau `Contrôles principaux`
-- Approfondi vos connaissances sur les fonctionnalités d'ALS contrôlées par ces sections
+- acquis un contrôle total sur ALS en utilisant le panneau `Contrôles principaux`
+- approfondi vos connaissances sur les fonctionnalités associées
 
 <div class="row">
   <div class="col-md-8">
@@ -68,10 +68,11 @@ La section **session** du panneau comprend 3 zones :
 
 ## Contrôles de session {#session-controls}
 
-- <span class="als-ks">R</span> ou 🖱️ cliquez `START` pour démarrer une nouvelle session ou reprendre 
-  une session mise en pause.
-- <span class="als-ks">R</span> ou 🖱️ cliquez `PAUSE` pour mettre en pause la session en cours.
-- <span class="als-ks">X</span> ou 🖱️ cliquez `STOP` pour arrêter la session en cours.
+- <span class="als-ks">R</span> ou 🖱️ cliquez `START` pour :
+  - **démarrer** une nouvelle session
+  - **reprendre** une session mise en **pause**
+- <span class="als-ks">R</span> ou 🖱️ cliquez `PAUSE` pour mettre en **pause** une session **démarrée**.
+- <span class="als-ks">X</span> ou 🖱️ cliquez `STOP` pour **arrêter** une session **démarrée**.
 
 {{% alert color="info" %}}
 ℹ️ Arrêter une session avec au moins une brute dans la **stack** affiche une demande de confirmation

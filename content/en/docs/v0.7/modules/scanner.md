@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-01T00:18:50Z
+lastmod: 2025-01-01T22:17:04Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -15,93 +15,145 @@ weight: 350
 
 The **Scanner** module is the entry point for your subs in ALS.
 
-- Monitors the **scan folder**
-- Loads detected subs
-- Transmits subs to the **Preprocess** module
+It is responsible for:
+- Monitoring the appearance of subs in the **scan folder**
+- Loading the detected subs
+
+{{% alert color="info" %}}
+ℹ️ **Existing files are ignored**
+
+Files present in the **scan folder** before the **Scanner** module is started are not detected
+{{% /alert %}}
+
+{{% alert color="info" %}}
+ℹ️ **Detection of subs is recursive**
+
+Subs are detected regardless of the level of subfolders where they appear within the **scan folder**
+
+Even if they are saved in subfolders created after the **Scanner** module is started
+{{% /alert %}}
 
 # Configuration
 
-Its configuration is managed via preferences.
-
-| Source                                                                           | Parameter   | Data Type                        | Required | Default Value |
-|----------------------------------------------------------------------------------|-------------|----------------------------------|----------|---------------|
-| [Preferences: General Tab](../../userguide/preferences/general/#scan-folder)     | scan folder | Path to a folder                 | Yes      | ∅             |
-| [Preferences: General Tab](../../userguide/preferences/general/#profile)         | Profile     | Choice: <br>- EAA<br>- photo<br> | Yes      | EAA           |
-| [Preferences: General Tab](../../userguide/preferences/general/#memory)          | Memory Use  | fuzzy                            | Yes      | "Unfair"      |
-
+|                     | Source                                                                           | Data Type                        | Required | Default Value |
+|---------------------|----------------------------------------------------------------------------------|----------------------------------|----------|---------------|
+| **Scan Folder**     | Preferences: [General Tab](../../userguide/preferences/general/#scan-folder)     | Path to a folder                 | Yes      | ∅             |
+| **Profile**         | Preferences: [General Tab](../../userguide/preferences/general/#profile)         | Choice: <br>- EAA<br>- photo<br> | Yes      | EAA           |
+| **Memory Use**      | Preferences: [General Tab](../../userguide/preferences/general/#memory)          | fuzzy                            | Yes      | "Unfair"      |
 # Control
 
-| Source                                                                       | Type        | Action                              |
-|------------------------------------------------------------------------------|-------------|-------------------------------------|
-| [Interface: Session Controls](../../userguide/ui/controls/#session-controls) | Events      | Scan folder monitoring: ON/OFF      |
-| A sub has been detected in the scan folder                                   | Event       | Load the detected sub               |
+| Source                                                                       | Type        | Response                       |
+|------------------------------------------------------------------------------|-------------|--------------------------------|
+| Interface: [Session Controls](../../userguide/ui/controls/#session-controls) | Events      | Scan folder monitoring: ON/OFF |
+| A sub has been detected in the scan folder                                   | Event       | Load the detected sub          |
 
-{{% alert color="info" %}}
-ℹ️ Detection works regardless of the subfolder structure inside the **scan folder**.
-{{% /alert %}}
 
 # Input
 
-| Type              | Description                 |
-|-------------------|-----------------------------|
-| File path         | Path to the detected sub    |
+| Data                     | Type              |
+|--------------------------|-------------------|
+| Path to the detected sub | File path         |
 
 # Behavior
 
-## Wait for complete file {#wait}
+## RAM Test {#ram}
 
-Files are detected as soon as they **appear** in the **scan folder**
+It may happen that subs are detected more frequently than ALS can process and save the images.
 
-To avoid loading incomplete files, the **Scanner** module waits for the file to be fully written before loading it:
+To avoid saturating the system memory by loading subs uncontrollably:
 
-- Continuously checks the size of the detected file
-- Waits for the file size to stabilize over 2 consecutive checks
+- Wait until the available RAM is greater than the value configured for memory management:
 
-  The waiting time between checks depends on the configured profile:
+  | Memory Management | Amount of Memory Left for the System |
+  |-------------------|--------------------------------------|
+  | Greedy            | 256MiB                               |
+  | Unfair            | 512MiB                               |
+  | Fair              | 1GiB                                 |
+  | Cautious          | 2GiB                                 |
 
-  - **Electronically Assisted Astronomy** profile: 10ms
-  - **Astrophoto** profile: 500ms
+## Wait for Complete File {#wait}
+
+Files are detected as soon as they **appear** in the **scan folder**.
+
+To avoid loading incomplete files, the **Scanner** module waits until the file is completely written before loading it:
+
+- Poll the size of the detected file in a loop
+    - Verify that the file size is stable over 2 consecutive polls
+
+The polling interval depends on the configured profile:
+
+| Profile        | Polling Interval |
+|----------------|------------------|
+| EAA            | 10ms             |
+| Astrophoto     | 500ms            |
 
 ## Image Loading {#load}
 
-### Compatible Formats
+### Compatible Formats {#input-formats}
 
-- Common image file formats
-- **FITS** files
-- **Raw** files from cameras supported by the libRaw library [1]
+ALS determines the image format based on its file extension:
 
-### Memory Management
+The file is loaded into memory using the format determined by its extension.
 
-It may happen that subs are detected more frequently than ALS can process and save images.
-
-In this case, it is necessary to ensure that the system memory is not filled up by continuously detected subs 
-
-- Wait until the available RAM is greater than the configured value for the Memory Use configuration parameter :
-
-    | Memory Management | Amount of Memory left for the system |
-    |-------------------|--------------------------------------|
-    | Greedy            | 256MiB                               |
-    | Unfair            | 512MiB                               |
-    | Fair              | 1GiB                                 |
-    | Scared            | 2GiB                                 |
-
-### File Reading
-
-The file is read and loaded into memory.
+| Extension                                                        | Format |
+|------------------------------------------------------------------|--------|
+| <div style="font-family: monospace;">.jpg<br>.jpeg</div>         | JPEG   |
+| <span style="font-family: monospace;">.png</span>                | PNG    |
+| <div style="font-family: monospace;">.tiff<br>.tif</div>         | TIFF   |
+| <div style="font-family: monospace;">.fits<br>.fit<br>.fts</div> | FITS   |
+| All other extensions                                             | Raw    |
 
 ## Metadata Extraction
 
-Metadata extraction is supported for **FITS** and **Raw** formats.
+Supported for:
+- **FITS**
+- **Raw**
 
-The following metadata are extracted from the file and incorporated into the image in memory:
-- **Exposure time**
-- **Bayer pattern** (_for subs from a color sensor_)
-  - FITS files: **BAYERPAT** header
-  - Raw files: Standard Exif header
+Metadata extracted from file and incorporated into the loaded image:
+- **Exposure Time**
+- **Bayer Matrix** (_for subs from a color sensor_)
+    - FITS files: **BAYERPAT** header
+    - Raw files: standard Exif header
+
+```mermaid
+flowchart TB
+    START([Sub detected])
+    WAIT_RAM[Wait for RAM]
+    CHECK_RAM{{TEST: Available RAM<br>According to profile<br><br>OK?}}
+    CHECK_SIZE{{TEST: File size<br>OK?}}
+    WAIT_FILE[Wait for file<br>According to profile]
+    TEST_FORMAT{{TEST: File format}}
+    FITS[Load FITS file]
+    STANDARD[Load standard file]
+    RAW[Load Raw file]
+    METADATA[Extract metadata]
+    END((End))
+    
+    START ---> CHECK_RAM   
+    WAIT_RAM <-->|NO| CHECK_RAM
+ 
+    
+    CHECK_RAM --->|YES| CHECK_SIZE
+    WAIT_FILE <-->|NO| CHECK_SIZE   
+    CHECK_SIZE -->|YES| TEST_FORMAT
+
+    TEST_FORMAT -->  FITS
+    TEST_FORMAT -->  STANDARD
+    TEST_FORMAT -->  RAW
+    
+
+    RAW --> METADATA
+    FITS --> METADATA
+    
+    STANDARD ---> END
+    METADATA --> END
+```
 
 # Output
 
-The loaded image is transmitted to the **Preprocess** module.
+The loaded image is broadcast to whoever listens.
+
+⚙️ _ALS will pass the image to the **Preprocess** module for calibration_
 
 ---
 

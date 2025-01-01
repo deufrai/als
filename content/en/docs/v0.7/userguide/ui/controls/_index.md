@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-01T22:17:04Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -14,8 +14,8 @@ weight: 321
 
 At the end of this chapter, you will have:
 
-- Understood the organization and function of each section of the `Main Controls` panel
-- Deepened your knowledge of the features controlled by these sections
+- gained full control over ALS using the `main controls` panel
+- Deepened your knowledge on the related features
 
 <div class="row">
   <div class="col-md-8">
@@ -68,9 +68,11 @@ The **session** section of the panel includes 3 areas:
 
 ## Session Controls {#session-controls}
 
-- <span class="als-ks">R</span> or 🖱️ click `START` to start a new session or resume a paused session.
-- <span class="als-ks">R</span> or 🖱️ click `PAUSE` to pause the current session.
-- <span class="als-ks">X</span> or 🖱️ click `STOP` to stop the current session.
+- <span class="als-ks">R</span> or 🖱️ click `START` to:
+  - **start** a new session
+  - **resume** a **paused** session.
+- <span class="als-ks">R</span> or 🖱️ click `PAUSE` to **pause** a **running** session.
+- <span class="als-ks">X</span> or 🖱️ click `STOP` to **stop** a **running** session.
 
 {{% alert color="info" %}}
 ℹ️ Stopping a session with at least one sub in the **stack** displays a confirmation prompt.
