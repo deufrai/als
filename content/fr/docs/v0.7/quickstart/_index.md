@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2024-12-31T21:39:29Z
+lastmod: 2025-01-01T03:59:57Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -155,7 +155,7 @@ alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner le do
 **⚠️ Ne validez pas encore les préférences**, il reste un point important à aborder :
 {{% /alert %}}
 
-## Statistiques d'utilisation
+## Statistiques d'utilisation {#usage-stats}
 
 Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur quelle plateforme.
 

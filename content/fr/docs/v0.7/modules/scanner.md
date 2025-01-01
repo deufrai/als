@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-01T00:18:50Z
+lastmod: 2025-01-01T03:59:57Z
 keywords: ["ALS image detector", "scanner ALS"]
 draft: false
 type: "docs"
@@ -71,7 +71,7 @@ Pour éviter de charger des fichiers incomplets, le module **Scanner** attend qu
 - Les fichiers **FITS**
 - Les fichiers **Raw** des appareils photo pris en charge par la librairie libRaw [1]
 
-### Gestion de la mémoire
+### Gestion de la mémoire {#memory-management}
 
 Il peut arriver que les brutes soient détectées plus fréquemment qu'ALS ne peut traiter et 
 enregistrer les images. 
