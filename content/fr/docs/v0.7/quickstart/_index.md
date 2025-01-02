@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-01-01T03:59:57Z
+lastmod: 2025-01-02T18:36:43Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -58,11 +58,12 @@ alt="Boîte de dialogue de bienvenue pour ALS avec un texte indiquant qu'il s'ag
 
 ## Configurer les dossiers critiques
 
-Les dossiers critiques sont définis dans la section **Chemins** de l'onglet **Général**.
+Les dossiers critiques pour le fonctionnement d'ALS sont :
+
+- Le **Dossier scanné** : ALS surveille l'arrivée de nouvelles brutes dans ce dossier.
+- Le **Dossier de travail** : ALS enregistre les images produites dans ce dossier.
 
 ### Dossier scanné
-
-ALS surveille l'arrivée de nouvelles brutes dans ce dossier.
 
 {{% alert color="info" %}}
 ℹ️ La détection fonctionne, quelle que soit la structure des sous-dossiers à l'intérieur du **dossier scanné**.

@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-01-01T05:04:41Z
+lastmod: 2025-01-02T18:36:43Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -58,11 +58,12 @@ alt="Welcome dialog box for ALS with text indicating it's the user's first use a
 
 ## Configure Critical Folders
 
-The critical folders are defined in the **Paths** section of the **General** tab.
+The critical folders for ALS operation are:
 
-### Scan Folder
+- The **Scan folder**: ALS monitors the arrival of new subs in this folder.
+- The **Work folder**: ALS saves the produced images in this folder.
 
-ALS monitors the arrival of new subs in this folder.
+### Scan folder
 
 {{% alert color="info" %}}
 ℹ️ Detection works regardless of the subfolder structure inside the **scan folder**.
