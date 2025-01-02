@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T07:23:46Z
+lastmod: 2025-01-02T07:36:31Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -108,12 +108,12 @@ Each module has its own queue and continuously performs the following actions:
 
 1. Waits for a new image to appear in the queue.
 2. Processes the image.
-3. Transmits the processing result to the next module.
+3. Provides the processing result to the application.
 
 In case of an error during image processing:
 
-1. The image processing is aborted and the image is not transmitted to the next module.
-2. The skipping of the image is signaled in the application.
+1. The image processing is aborted
+2. The disposal of the image is signaled to the application.
 3. The module resumes listening to its queue.
 
 ### Preprocess {#preprocess-module}

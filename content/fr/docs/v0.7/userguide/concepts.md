@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T07:28:49Z
+lastmod: 2025-01-02T07:36:31Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -110,12 +110,12 @@ Chaque module possède sa file d'attente et exécute en boucle les actions suiva
 
 1. Attend qu'une nouvelle image se présente en file d'attente
 2. Traite l'image
-3. Transmet le résultat du traitement au module suivant
+3. Met à disposition le résultat de traitement à l'application
 
 En cas d'erreur pendant le traitement d'une image :
 
-1. Le traitement de l'image est abandonné et l'image n'est pas transmise au module suivant.
-2. L'abandon de l'image est signalé dans l'application.
+1. Le traitement de l'image est abandonné
+2. L'abandon de l'image est signalé à l'application
 3. Le module se remet à l'écoute de sa file d'attente
 
 ### Preprocess {#preprocess-module}
