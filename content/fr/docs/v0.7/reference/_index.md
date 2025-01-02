@@ -2,7 +2,7 @@
 title: "Documentation de référence"
 description: "Documentation détaillée d'ALS"
 author: "Équipe ALS"
-lastmod: 2025-01-02T07:23:47Z
+lastmod: 2025-01-02T07:42:07Z
 keywords: ["documentation de référence ALS"]
 draft: false
 type: "docs"
@@ -73,10 +73,10 @@ ALS a deux **pipelines** :
 # Domaines
 
 Comme indiqué précédemment, ALS est divisé en deux domaines :
-- le **domaine des Subs** : où vos subs sont traités
+- le **domaine des Brutes** : où vos brutes sont traitéés
 - le **domaine des Images** : où les images d'ALS sont affichées et sauvegardées
 
-## Domaine des Subs
+## Domaine des Brutes
 
 Du système de fichiers au module **Stacker**
 
