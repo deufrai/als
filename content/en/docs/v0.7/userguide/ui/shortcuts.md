@@ -3,7 +3,7 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2025-01-02T20:14:45Z
+lastmod: 2025-01-02T20:19:09Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
@@ -51,7 +51,7 @@ weight: 323
 
 ## Livestacking
 
-<span class='als-ks'>S</span> starts / resumes the session
+<span class='als-ks'>R</span> starts / resumes the session
 
 <span class='als-ks'>K</span> acknowledges issues
 
