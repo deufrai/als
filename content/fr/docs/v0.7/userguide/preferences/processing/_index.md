@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T12:16:08Z
+lastmod: 2025-01-02T15:01:52Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -20,7 +20,7 @@ Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement`
 
 Cet onglet ne contient qu'une seule section : [Preprocess](#preprocess)
 
-Elle regroupe les réglages des traitements gérés par le module [**Preprocess**](../../../reference/modules/preprocess/) :
+Elle regroupe les réglages des tâches de **calibration** :
 - [Suppression des pixels chauds](#hot-remove)
 - [Soustraction de dark](#dark-remove)
 - [Dématriçage](#debayer)
@@ -102,13 +102,14 @@ height="286px"
 alt="Interface logicielle affichant les préférences de traitement d'image avec des options pour définir le chemin de signal noir et sélectionner le motif de dématriçage, y compris AUTO et divers motifs de filtres de couleur." >}}
 {{< /center >}}
 
-{{% alert title="ℹ️ mode AUTO" color="info" %}}
+{{% alert title="ℹ️ mode AUTO recommandé" color="info" %}}
 
-La matrice utilisée est extraite des métadonnées des brutes
+La matrice utilisée est extraite des métadonnées des brutes et fonctionne **la grande majorité du temps.**
 
 Si les métadonnées ne contiennent aucune matrice
   - Les brutes ne seront pas dématricées
   - Des défauts en forme de grille ou de damiers seront visibles sur les images générées
+  - Utilisez la sélection manuelle pour corriger ce problème
 
 <details>
 <summary>Métadonnées recherchées</summary>
@@ -116,4 +117,10 @@ Si les métadonnées ne contiennent aucune matrice
 - Image au format FITS : entête FITS **BAYERPAT**
 - Image au format Raw : entête Exif standard
 </details>
+{{% /alert %}}
+
+{{% alert color="light" %}}
+💡 La sélection manuelle de la matrice de Bayer est utile dans les cas suivants :
+- Les métadonnées de l'image ne contiennent pas la matrice de Bayer
+- Le mode AUTO ne donne pas le résultat attendu (_ex. grille ou damiers sur l'image dématricée_)
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "Documentation of the Processing tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2025-01-02T07:23:47Z
+lastmod: 2025-01-02T15:01:52Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -18,9 +18,9 @@ The ALS processing settings are presented in the Preferences page `Process` tab
 
 # Overview
 
-This tab contains only one section: [Pre-processing](#preprocess)
+This tab contains only one section: [Preprocess](#preprocess)
 
-It groups the settings of the processes managed by the [**Preprocess**](../../../reference/modules/preprocess/) module:
+It gathers the settings for all **calibration** tasks:
 - [Hot pixel removal](#hot-remove)
 - [Dark subtraction](#dark-remove)
 - [Debayering](#debayer)
@@ -38,7 +38,7 @@ alt="ALS preferences window with Process tab selected, showing settings for pre-
 </div>
 </div>
 
-# Pre-processing {#preprocess}
+# Preprocess {#preprocess}
 
 {{% alert color="info" %}}
 ℹ️ These settings are only accessible when the session is stopped
@@ -49,42 +49,46 @@ alt="ALS preferences window with Process tab selected, showing settings for pre-
 {{< center >}}
 {{< figure src="hot_remove.png"
 caption="Hot pixel removal settings"
-width="212px"
-height="75px"
+width="622px"
+height="224px"
 alt="Software interface showing the Pre-Processing category with an option to Use hot pixel remover checked." >}}
 {{< /center >}}
 
-`Use hot pixel remover` activates the removal
+🖱️ Check `Remove` to activate the hot pixel removal
 
 ## Dark subtraction {#dark-remove}
 
 {{< center >}}
 {{< figure src="dark_remove.png"
-caption="Dark signal subtraction settings"
-width="589px"
-height="173px"
-alt="Software interface showing settings for dark signal subtraction with options to use dark subtraction, change the dark path to a specified file, and clear the path." >}}
+caption="Dark subtraction settings"
+width="622px"
+height="213px"
+alt="Software interface showing options to use dark subtraction, change the specified master dark path, and clear the path." >}}
 {{< /center >}}
 
-1. `Use dark subtraction` activates the subtraction
-2. `Change...` allows the selection of the master dark file 
-3. `Clear` empties the master dark file path
+- 🖱️ Check `Active` to enable dark subtraction
+- 🖱️ Click `Master dark...` to choose the master dark file to use for subtraction
+
+  The configured master dark path is displayed to the right of the button
+- 🖱️ Click `Clear` to clear the master dark file path
 
 {{% alert color="warning" %}}
 ⚠️ The master dark **must have the same dimensions** (_width x height_) as the image to be processed
 
 If the dimensions are different:
-- a **WARNING** message is added to the session log, with the message '_Data structure inconsistency_'
-- The `Acknowledge` button in the `Session Log` is activated
-- If the `session log` is hidden, the new problem indicator appears in the `Issues` section of the panel.
+- Each subtraction attempt will add a **WARNING** message to the session log:
+
+  _data structure inconsistency - dark subtraction is IGNORED_
+- The `Acknowledge` button in the `Session log` is activated
+- If the `session log` is hidden, the new issues indicator appears in the `Issues` section of the panel.
 {{% /alert %}}
 
 {{% alert color="info" %}}
-ℹ️ It is not mandatory for the data formats of the master dark and the image to be identical.
+ℹ️ It is not mandatory for the master dark and  sub data formats to be identical
 
-  In case of a difference (_e.g. master dark in 32-bit floats and raw in 16-bit integers_):
-  - the master dark is converted before use
-  - the format difference is discreetly reported in the session log
+  In case of a difference (_e.g., master dark in 32-bit floats and raw in 16-bit integers_):
+  - The master dark is converted before use
+  - The format difference is discreetly noted in the session log
 {{% /alert %}}
 
 ## Debayering pattern {#debayer}
@@ -92,14 +96,14 @@ If the dimensions are different:
 {{< center >}}
 {{< figure src="debayer.png"
 caption="Debayering settings"
-width="396px"
-height="196px"
+width="622px"
+height="293px"
 alt="Software interface showing image processing preferences with options for setting Dark path and selecting Debayering pattern, including AUTO and various color filter array patterns." >}}
 {{< /center >}}
 
-{{% alert title="ℹ️ AUTO mode" color="info" %}}
+{{% alert title="ℹ️ AUTO mode recommended" color="info" %}}
 
-The bayer pattern is extracted from the sub's metadata
+The bayer pattern is extracted from the sub's metadata and **works most of the time.**
 
 If the metadata does not contain any pattern information:
   - The sub will not be debayered
@@ -111,4 +115,10 @@ If the metadata does not contain any pattern information:
 - FITS image: **BAYERPAT** FITS header
 - Raw image: standard Exif header
 </details>
+{{% /alert %}}
+
+{{% alert color="light" %}} 
+💡 Manual Bayer pattern selection is useful in the following cases:
+- Image metadata does not contain the Bayer pattern
+- AUTO mode does not provide the expected result (_i.e. grid or checkerboard on the debayered image_)
 {{% /alert %}}
