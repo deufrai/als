@@ -3,7 +3,7 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T20:41:17Z
+lastmod: 2025-01-02T23:55:06Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
@@ -39,9 +39,9 @@ weight: 323
 
 ## Fenêtre
 
-<span class='als-ks'>F11</span> bascule le mode plein écran
+<span class='als-ks'>D</span> bascule le mode **plein écran**
 
-<span class='als-ks'>N</span> bascule le mode nuit
+<span class='als-ks'>N</span> bascule le **mode nuit**
 
 </div>
 </div>
@@ -51,15 +51,15 @@ weight: 323
 
 ## Livestacking
 
-<span class='als-ks'>R</span> démarre / reprend la session
+<span class='als-ks'>R</span> **démarre** / **reprend** la session
 
-<span class='als-ks'>K</span> acquitte les problèmes
+<span class='als-ks'>K</span> **acquitte** les problèmes
 
-<span class='als-ks'>P</span> pause la session
+<span class='als-ks'>P</span> **pause** la session
 
-<span class='als-ks'>X</span> stoppe la session
+<span class='als-ks'>X</span> **stoppe** la session
 
-<span class='als-ks'>A</span> ON /OFF alignement des brutes
+<span class='als-ks'>A</span> ON /OFF **alignement** des brutes
 </div>
 <div class="col-md-6">
 
@@ -71,7 +71,7 @@ weight: 323
 
 <span class='als-ks'>P</span> ON/OFF masquage `Traitements`
 
-<span class='als-ks'>I</span> ON/OFF mode image seule
+<span class='als-ks'>I</span> ON/OFF mode **image seule**
 
 </div>
 </div>
@@ -81,25 +81,25 @@ weight: 323
 
 ## Image
 
-<span class='als-ks'>Y</span> zoom avant
+<span class='als-ks'>Y</span> zoom **avant**
 
-<span class='als-ks'>H</span> zoom arrière
+<span class='als-ks'>H</span> zoom **arrière**
 
-<span class='als-ks'>G</span> réinitialise le zoom
+<span class='als-ks'>G</span> **réinitialise** le zoom
 
-<span class='als-ks'>B</span> ajuste l'image à la zone centrale
+<span class='als-ks'>B</span> **ajuste l'image** à la zone centrale
 </div>
 <div class="col-md-6">
 
 ## Sorties
 
-<span class='als-ks'>W</span> ON/OFF serveur d'images
+<span class='als-ks'>W</span> ON/OFF **serveur** d'images
 
-<span class='als-ks'>Q</span> ON/OFF affichage QR code
+<span class='als-ks'>Q</span> ON/OFF affichage **QR code**
 
-<span class='als-ks'>S</span> sauvegarde l'image courante
+<span class='als-ks'>S</span> sauvegarde l'**image courante**
 
-<span class='als-ks'>F</span> ON/OFF sauvegarde chaque résultat
+<span class='als-ks'>F</span> ON/OFF sauvegarde **chaque image**
 </div>
 </div>
 

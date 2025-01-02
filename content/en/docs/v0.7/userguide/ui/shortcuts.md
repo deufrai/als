@@ -3,7 +3,7 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2025-01-02T20:19:09Z
+lastmod: 2025-01-02T23:55:06Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
@@ -39,9 +39,9 @@ weight: 323
 
 ## Window
 
-<span class='als-ks'>F11</span> toggles full screen mode
+<span class='als-ks'>D</span> toggles **full screen** mode
 
-<span class='als-ks'>N</span> toggles night mode
+<span class='als-ks'>N</span> toggles **night mode**
 
 </div>
 </div>
@@ -51,15 +51,15 @@ weight: 323
 
 ## Livestacking
 
-<span class='als-ks'>R</span> starts / resumes the session
+<span class='als-ks'>R</span> **starts** / **resumes** the session
 
-<span class='als-ks'>K</span> acknowledges issues
+<span class='als-ks'>K</span> **acknowledges** issues
 
-<span class='als-ks'>P</span> pauses the session
+<span class='als-ks'>P</span> **pauses** the session
 
-<span class='als-ks'>X</span> stops the session
+<span class='als-ks'>X</span> **stops** the session
 
-<span class='als-ks'>A</span> ON /OFF alignment of subs
+<span class='als-ks'>A</span> ON /OFF subs **alignment**
 </div>
 <div class="col-md-6">
 
@@ -71,7 +71,7 @@ weight: 323
 
 <span class='als-ks'>P</span> ON/OFF toggle `Processing`
 
-<span class='als-ks'>I</span> ON/OFF image-only mode
+<span class='als-ks'>I</span> ON/OFF **image-only** mode
 
 </div>
 </div>
@@ -81,24 +81,24 @@ weight: 323
 
 ## Image
 
-<span class='als-ks'>Y</span> zoom in
+<span class='als-ks'>Y</span> zoom **in**
 
-<span class='als-ks'>H</span> zoom out
+<span class='als-ks'>H</span> zoom **out**
 
-<span class='als-ks'>G</span> reset zoom
+<span class='als-ks'>G</span> **reset** zoom
 
-<span class='als-ks'>B</span> fit image to central area
+<span class='als-ks'>B</span> **fit image** to central area
 </div>
 <div class="col-md-6">
 
 ## Outputs
 
-<span class='als-ks'>W</span> ON/OFF image server
+<span class='als-ks'>W</span> ON/OFF image **server**
 
-<span class='als-ks'>Q</span> ON/OFF QR code display
+<span class='als-ks'>Q</span> ON/OFF **QR code** display
 
-<span class='als-ks'>S</span> save current image
+<span class='als-ks'>S</span> save **current image**
 
-<span class='als-ks'>F</span> ON/OFF save each result
+<span class='als-ks'>F</span> ON/OFF save **every next image**
 </div>
 </div>
