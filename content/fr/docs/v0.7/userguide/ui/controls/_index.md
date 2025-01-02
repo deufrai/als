@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T00:57:02Z
+lastmod: 2025-01-02T08:40:38Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -133,7 +133,7 @@ La section **stack** du panneau contrôle le module **Stacker**.
 
       Utilisé pour réaliser des filés d'étoiles ou des images circum-polaires
 
-      ⚙️ _La valeur de chaque pixel de l'empilement généré est la **somme** des valeurs de ce pixel sur toutes
+      ⚙️ _La valeur de chaque pixel de l'empilement généré est la **somme des valeurs** de ce pixel sur toutes
       les brutes de la **stack**_.
 
 ## Seuil de détection {#threshold}

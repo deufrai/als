@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T00:57:02Z
+lastmod: 2025-01-02T08:40:38Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -133,7 +133,7 @@ The **stack** section of the panel controls the **Stacker** module.
 
       Used for creating star trails or circumpolar images.
 
-      ⚙️ _The value of each pixel in the generated stack is the **sum** of the values of that pixel across all subs in the **stack**._
+      ⚙️ _The value of each pixel in the generated stack is the **sum of the values** of that pixel across all subs in the **stack**._
 
 ## Detection Threshold {#threshold}
 
