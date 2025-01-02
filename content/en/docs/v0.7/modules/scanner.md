@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-02T01:55:09Z
+lastmod: 2025-01-02T03:00:54Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -148,6 +148,18 @@ flowchart LR
     
     STANDARD ---> END
     METADATA --> END
+    
+    style START fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
+    style WAIT_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style CHECK_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style CHECK_SIZE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style WAIT_FILE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style TEST_FORMAT fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style FITS fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style STANDARD fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style RAW fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style METADATA fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style END fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
 ```
 
 # Output
