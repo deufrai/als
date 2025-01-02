@@ -3,7 +3,7 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T20:19:09Z
+lastmod: 2025-01-02T20:41:17Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
@@ -51,7 +51,7 @@ weight: 323
 
 ## Livestacking
 
-<span class='als-ks'>r</span> démarre / reprend la session
+<span class='als-ks'>R</span> démarre / reprend la session
 
 <span class='als-ks'>K</span> acquitte les problèmes
 
