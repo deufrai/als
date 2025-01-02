@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-02T00:57:02Z
+lastmod: 2025-01-02T01:02:06Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -60,12 +60,12 @@ Even if they are saved in subfolders created after the **Scanner** module is sta
 
 - Wait until the available RAM is greater than the configured value:
 
-  | Memory Management | Amount of Memory Left for the System |
-  |-------------------|--------------------------------------|
-  | Greedy            | 256MiB                               |
-  | Unfair            | 512MiB                               |
-  | Fair              | 1GiB                                 |
-  | Cautious          | 2GiB                                 |
+  | Memory Use | Amount of Memory Left for the System |
+  |------------|--------------------------------------|
+  | Greedy     | 256MiB                               |
+  | Unfair     | 512MiB                               |
+  | Fair       | 1GiB                                 |
+  | Cautious   | 2GiB                                 |
 
 ## Wait for Complete File {#wait}
 

@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T00:57:02Z
+lastmod: 2025-01-02T01:02:06Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -58,12 +58,12 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 
 - Attend que la quantité de RAM disponible soit supérieure à la valeur configurée :
 
-  | Gestion de la mémoire | Quantité de Mémoire laissée au système |
-  |-----------------------|----------------------------------------|
-  | Gourmand              | 256MiB                                 |
-  | Injuste               | 512MiB                                 |
-  | Juste                 | 1GiB                                   |
-  | Peureux               | 2GiB                                   |
+  | Gestion mémoire | Quantité de Mémoire laissée au système |
+  |-----------------|----------------------------------------|
+  | Gourmand        | 256MiB                                 |
+  | Injuste         | 512MiB                                 |
+  | Juste           | 1GiB                                   |
+  | Peureux         | 2GiB                                   |
 
 ## Attente fichier complet {#wait}
 
