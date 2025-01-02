@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T21:39:29Z
+lastmod: 2025-01-02T04:51:54Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -74,12 +74,12 @@ graph LR
         D --> E(Save)
 
 
-    S(Dossier Scanné) -.-> A(Scanner)        
+    S@{ shape: lin-cyl, label: "Dossier Scanné" } -.-> A(Scanner)       
     A -.-> B
-    E --> F(Dossier de Travail)
-    E --> G(Dossier Web)
+    E --> F@{ shape: lin-cyl, label: "Dossier de Travail" }
+    E --> G@{ shape: lin-cyl, label: "Dossier Web" }
     G ---> H(Server) 
-    D ---> I(Affichage)
+    D ---> I@{ shape: curv-trap, label: "Affichage" }
 
 
     style A fill:#333,stroke:darkred,stroke-width:2px

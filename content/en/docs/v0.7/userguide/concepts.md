@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-02T04:51:54Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -72,12 +72,12 @@ graph LR
         D --> E(Save)
 
 
-    S(Scan Folder) -.-> A(Scanner)        
+    S@{ shape: lin-cyl, label: "Scan Folder" } -.-> A(Scanner)        
     A -.-> B
-    E --> F(Work Folder)
-    E --> G(Web Folder)
+    E --> F@{ shape: lin-cyl, label: "Work Folder" }
+    E --> G@{ shape: lin-cyl, label: "Web Folder" }
     G ---> H(Server)
-    D ---> I(Display)
+    D ---> I@{ shape: curv-trap, label: "Display" }
 
 
     style A fill:#333,stroke:darkred,stroke-width:2px
