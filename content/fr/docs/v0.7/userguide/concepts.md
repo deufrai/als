@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T07:36:31Z
+lastmod: 2025-01-02T08:01:56Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -79,7 +79,7 @@ graph LR
     E --> F@{ shape: lin-cyl, label: "Dossier de Travail" }
     E --> G@{ shape: lin-cyl, label: "Dossier Web" }
     G ---> H(Server) 
-    D ---> I@{ shape: curv-trap, label: "Affichage" }
+    D ---> I@{ shape: curv-trap, label: "Interface" }
 
 
     style A fill:#333,stroke:darkred,stroke-width:2px
