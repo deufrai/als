@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "Documentation of the General tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2025-01-01T05:04:41Z
+lastmod: 2025-01-02T07:23:46Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -80,7 +80,7 @@ The names associated with these slider steps are as vague as memory management c
 
 We advise you to experiment with an open and joyful mind...
 
-⚙️ Or consult the **Scanner** module's [detailed documentation](../../../modules/scanner#memory-management) 
+⚙️ Or consult the **Scanner** module's [detailed documentation](../../../reference/modules/scanner#memory-management) 
 
 # Core {#core}
 
@@ -140,7 +140,7 @@ alt="Software interface showing work folder settings with the path set to /home/
 
    Recommended for large subs arriving at a slow rate: up to several minutes between each sub.
 
-⚙️ You will find details on how profiles impact the **Scanner** in the [detailed documentation](../../../modules/scanner#wait).
+⚙️ You will find details on how profiles impact the **Scanner** in the [detailed documentation](../../../reference/modules/scanner#wait).
 
 {{% alert title="🐛 Known Bug" color="danger" %}}
 Using the **Electronically Assisted Astronomy** profile with square 1:1 subs causes alignment errors.

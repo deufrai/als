@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T04:51:54Z
+lastmod: 2025-01-02T07:23:47Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -139,7 +139,7 @@ Le module **preprocess** regroupe les traitements de **calibration** des brutes 
    Les brutes **couleur** au format **FITS** ou **Raw** sont converties en couleur RVB en utilisant la matrice de Bayer
    décrite dans les entêtes du fichier.
 
-Vous trouverez plus d'information sur le module **Preprocess** dans sa [documentation détaillée](../../modules/preprocess/) 
+Vous trouverez plus d'information sur le module **Preprocess** dans sa [documentation détaillée](../../reference/modules/preprocess/) 
 
 ### Stacker {#stack-module}
 
@@ -158,7 +158,7 @@ Le module **Stacker** maintient la **stack** et prend en charge les traitements 
 des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../modules/stack/) 
+Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../reference/modules/stacker/) 
 
 ### Process {#process-module}
 
@@ -211,7 +211,7 @@ Chaque résultat de traitement est enregistré dans 2 fichiers :
 Vous pouvez définir un **dossier web** spécifique dans les [Préférences](../preferences/output/#web-folder).
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Save** dans sa [documentation détaillée](../../modules/save/) 
+Vous trouverez plus d'information sur le module **Save** dans sa [documentation détaillée](../../reference/modules/save/)
 
 ## Modules utilitaires
 
@@ -223,8 +223,7 @@ bon fonctionnement de l'application :
 Ce module est en charge de détecter les nouvelles brutes dans le **dossier scanné** et de les transmettre au
 module **Preprocess**.
 
-Vous trouverez plus d'information sur le module **Scanner** dans 
-sa [documentation détaillée](../../modules/scanner/)
+Vous trouverez plus d'information sur le module **Scanner** dans sa [documentation détaillée](../../reference/modules/scanner/)
 
 ### Server
 

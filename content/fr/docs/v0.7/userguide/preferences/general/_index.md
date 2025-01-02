@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-01T04:15:02Z
+lastmod: 2025-01-02T07:23:47Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -81,7 +81,7 @@ Les noms associés aux valeurs de ce curseur sont aussi flous que la gestion de 
 
 Nous vous conseillons d'expérimenter avec un esprit ouvert et joyeux... 
 
-⚙️ Ou allez consulter la [documentation détaillée](../../../modules/scanner#memory-management) du module **Scanner**
+⚙️ Ou allez consulter la [documentation détaillée](../../../reference/modules/scanner#memory-management) du module **Scanner**
 
 # Moteur {#engine}
 
@@ -141,7 +141,7 @@ alt="Interface logicielle affichant les paramètres du dossier de travail avec l
 
    Recommandé pour des brutes de grande taille arrivant à cadence lente : plusieurs minutes entre chaque brute 
 
-⚙️ Vous trouverez les détails de l'impact du profil sur le **Scanner** dans la [documentation dédiée](../../../modules/scanner#wait)
+⚙️ Vous trouverez les détails de l'impact du profil sur le **Scanner** dans la [documentation dédiée](../../../reference/modules/scanner#wait)
 
 {{% alert title="🐛 Bug connu" color="danger" %}}
 Utiliser le profil **visuel assisté** avec des brutes au format carré 1:1 provoque des erreurs d'alignement
