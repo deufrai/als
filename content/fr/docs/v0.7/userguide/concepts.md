@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T07:23:47Z
+lastmod: 2025-01-02T07:28:49Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -158,7 +158,7 @@ Le module **Stacker** maintient la **stack** et prend en charge les traitements 
 des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../reference/modules/stacker/) 
+Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../reference/modules/stack/) 
 
 ### Process {#process-module}
 
