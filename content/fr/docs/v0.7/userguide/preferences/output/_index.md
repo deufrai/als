@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T17:11:19Z
+lastmod: 2025-01-02T17:55:04Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -58,7 +58,7 @@ height="213px"
 alt="" >}}
 {{< /center >}}
 
-- 🖱️ utiliser Les boutons `Format` pour définir le format de fichier de la sortie principale
+- 🖱️ utilisez Les boutons `Format` pour définir le format de fichier de la sortie principale
 
 ## Dossiers de sortie {#output-folders}
 

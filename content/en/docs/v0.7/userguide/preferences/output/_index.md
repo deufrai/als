@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-02T17:55:04Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: ["output", "server", "web folder", "work folder", "save"]
 weight: 333
 ---
 
-The settings governing ALS produced results are presented in the `Output` tab of the preferences.
+The settings governing ALS outputs are presented in the `Output` tab.
 
 <div class="row">
 <div class="col-md-4">
@@ -20,101 +20,139 @@ The settings governing ALS produced results are presented in the `Output` tab of
 
 This tab is divided into 2 sections:
 
-- [File Saving](#save)
-- [Web Server](#server)
+- [File Saver](#save)
+- [Image Server](#server)
 
 </div>
 <div class="col-md-8 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="whole_tab.png"
-caption="The Output tab of the preferences"
+caption="The Output tab in preferences"
 width="622px"
 height="604px"
-alt="ALS preferences window with Output tab selected, showing settings for file saving format options, autosave on stop, server port number configuration, web page refresh period, and a dedicated folder checkbox." >}}
+alt="" >}}
 {{< /center >}}
 
 </div>
 </div>
 
-# File Saving {#save}
+# Save {#save}
 
-Here are the settings for the output file format and the **autosave on stop** feature
+Here are the output file format, output folders, and autosave function settings 
 
-<div class="row">
-<div class="col-md-8">
+## Format {#format}
 
-## Format
+ALS saves the main output images in one of the following formats:
+- **TIFF**
+- **PNG**
+- **JPEG**
 
-The `Format` buttons define the output file format
-
-## Autosave on stop
-
-`Autosave on stop` activates the automatic saving of the **last** result of te **Process** module into a new 
-timestamped file, on every session stop:
-
-- **file location**: **working directory**
-- **file name**: composed of **stack_image** and a timestamp suffix
-- **File format and extension**: according to the chosen format
-
-</div>
-<div class="col-md-4 d-flex align-items-center justify-content-center">
+ℹ️ Default: JPEG
 
 {{< center >}}
-{{< figure src="saver.png"
-caption="File saving preferences"
-width="252px"
-height="107px"
-alt="Software interface showing file saving preferences with options for selecting the file format (TIFF, PNG, JPEG) and an autosave feature checkbox for enabling or disabling autosave on stop." >}}
+{{< figure src="formats.png"
+caption="Main output file format preferences"
+width="622px"
+height="213px"
+alt="" >}}
 {{< /center >}}
 
-</div>
-</div>
+- 🖱️ use the `Format` buttons to set the main output file format
 
+## Output Folders {#output-folders}
 
-# Web Server {#server}
+ALS uses two output folders:
+- **work folder**
 
-Here are the settings for the image server
+  Destination of the **main output**
 
-<div class="row">
-<div class="col-md-8">
+- **web folder**
 
-## Server Port {#server-port}
+  Destination of the **server output**
 
-1. `Server port number` configures the port on which the image server is accessible
+### Work Folder {#work-folder}
 
-## Refresh Period {#server-refresh}
+- 🖱️ click `Work Folder...` to configure the work folder
 
-2. `Web page refresh period` configures the image refresh period used by connected browsers
+{{< center >}}
+{{< figure src="folders.png"
+caption="Output folders preferences"
+width="622px"
+height="213px"
+alt="" >}}
+{{< /center >}}
 
-</div>
-<div class="col-md-4 d-flex align-items-center justify-content-center">
+### Web Folder {#web-folder}
+
+{{% alert color="info" %}}
+ℹ️ By default, the **web folder** is an alias leading to the **work folder**
+
+You have the option to actually separate the two ALS outputs by using a dedicated **web folder**
+{{% /alert %}}
+
+### Dedicated Web Folder {#web-dedicated}
+
+- 🖱️ check `Dedicated Web Folder` to display the dedicated **web folder** settings
+- 🖱️ click `Web Folder...` to configure the dedicated **web folder**
+
+## Autosave {#autosave}
+
+### Timestamped Result on Session Stop {#autosave-stop}
+
+Activates the saving, on **each session stop**, of the **last** processing result:
+
+- **output**: main output
+- **name**: composed of **stack_image** + _timestamp suffix_ + **_final**
+- **Format**: Configured output format
+
+{{% alert title="💡" color="light" %}}
+This function is useful when you chain sessions on different targets
+
+At each session stop, the best image for that target is saved in a file that is not at risk 
+of being overwritten
+{{% /alert %}}
+
+{{< center >}}
+{{< figure src="autosave.png"
+caption="Autosave preferences"
+width="622px"
+height="417px"
+alt="" >}}
+{{< /center >}}
+
+- 🖱️ check `Timestamped Result on Session Stop` to activate the autosave function
+
+# Server {#server}
+
+Here, the image server listening port and the image refresh period are configured.
+
+## Port Number {#server-port}
+
+The image server listening port is configured here
+
+Allowed values: 1024 to 65535
+
+ℹ️ Default: 8000
+
+- ⌨️ Enter the `port number` on which the ALS image server will be accessible
+
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Web server settings"
-width="480px"
-height="201px"
-alt="Configuration panel for web server settings, including server port number set to 8000, web page refresh period set to 5 seconds" >}}
+width="622px"
+height="215px"
+alt="" >}}
 {{< /center >}}
 
-</div>
-</div>
+## Refresh Period {#server-refresh}
 
-## Web Folder {#web-folder}
+Period, in sec., used in the web page served by ALS to force connected browsers to refresh the image
 
-{{< center >}}
-{{< figure src="web_folder.png"
-caption="Web folder settings"
-width="595px"
-height="211px"
-alt="Configuration panel for web server settings, showing options for using a dedicated web folder with the path set to /home/astrogeek/als_web." >}}
-{{< /center >}}
+ℹ️ Default: 5 sec.
 
-1. If `Use dedicated folder` is unchecked:
-   - the **web folder** settings are hidden
-   - the **web folder** path is the same as the **work folder**
+`Refresh Period` configures the refresh period
 
-   Otherwise
-   - the **web folder** settings are displayed
-
-   2. `Change...` allows choosing a dedicated **web folder**
-   3. The **web folder** path is displayed
+You can:
+- ⌨️ enter the value via keyboard
+- 🖱️ use the arrow buttons
+- 🖱️ use the mouse wheel

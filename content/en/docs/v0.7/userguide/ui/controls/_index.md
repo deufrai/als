@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T08:40:38Z
+lastmod: 2025-01-02T17:55:04Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -213,7 +213,7 @@ alt="The image server section, containing the 2 buttons START (grayed out) and S
 </div>
 
 {{% alert title="ℹ️" color="info" %}}
-Additional settings for the web server are available in the [Preferences](../../preferences/).
+Image server settings are available in the [Preferences](../../preferences/output#server)
 {{% /alert %}}
 
 ---
