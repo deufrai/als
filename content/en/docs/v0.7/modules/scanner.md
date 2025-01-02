@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-02T01:53:20Z
+lastmod: 2025-01-02T01:55:09Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -67,7 +67,7 @@ Wait until the available RAM is greater than the configured value:
 | Greedy     | 256MiB                               |
 | Unfair     | 512MiB                               |
 | Fair       | 1GiB                                 |
-| Cautious   | 2GiB                                 |
+| Scared     | 2GiB                                 |
 
 ## Wait for Complete File {#wait}
 
