@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T17:55:04Z
+lastmod: 2025-01-02T20:14:45Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -296,4 +296,4 @@ les nouveaux problèmes détectés.
 
 Les contrôles principaux d'ALS n'ont plus de secret pour vous ! 
 
-Prochaine étape : le panneau `Traitements`
+Prochaine étape : Les raccourcis clavier
