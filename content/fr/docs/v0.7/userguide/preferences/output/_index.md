@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T16:10:46Z
+lastmod: 2025-01-02T17:11:19Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -21,7 +21,7 @@ Les réglages régissant les sorties d'ALS présentés dans l'onglet `Sortie`.
 Cet onglet est divisé en 2 sections :
 
 - [Enregistreur de fichiers](#save)
-- [Serveur web](#server)
+- [Serveur d'images](#server)
 
 </div>
 <div class="col-md-8 d-flex align-items-center justify-content-center">
@@ -73,7 +73,7 @@ ALS utilise deux dossiers de sortie :
 
 ### Dossier de travail {#work-folder}
 
-- 🖱️ cliquer `Dossier de travail...` pour configurer le dossier de travail
+- 🖱️ cliquez `Dossier de travail...` pour configurer le dossier de travail
 
 {{< center >}}
 {{< figure src="folders.png"
@@ -83,80 +83,77 @@ height="213px"
 alt="" >}}
 {{< /center >}}
 
+### Dossier web{#web-folder}
+
 {{% alert color="info" %}}
 ℹ️ Par défaut, le **dossier web** est un alias menant au **dossier de travail**
 
-Vous avez la possibilité de réellement séparer les deux sorties d'ALS en utilisant un **serveur web** dédié
+Vous avez la possibilité de réellement séparer les deux sorties d'ALS en utilisant un **dossier web** dédié
 {{% /alert %}}
 
-### Dossier web dédié{#web-folder}
+### Dossier web dédié{#web-dedicated}
 
-- 🖱️ cocher `Dossier web dédié` pour afficher les réglages du **dossier web** dédié
-- 🖱️ cliquer `Dossier web...` pour configurer le **dossier web** dédié
+- 🖱️ cochez `Dossier web dédié` pour afficher les réglages du **dossier web** dédié
+- 🖱️ cliquez `Dossier web...` pour configurer le **dossier web** dédié
 
 ## Autosave {#autosave}
 
-`Enregistrement auto fin de session` active la sauvegarde automatique du **dernier** résultat
-du module **Process** dans un nouveau fichier horodaté, à chaque arrêt de session :
+### Résutlat horodaté à l'arrêt de session {#autosave-stop}
 
-- **emplacement du fichier** : **dossier de travail**
-- **nom du fichier** : composé de **stack_image** et d'un suffixe d'horodatage
-- **Format et extension du fichier** : en fonction du format choisi
+Active la sauvegarde, à **chaque arrêt de session**, du **dernier** résultat de traitement :
 
+- **sortie** : sortie principale
+- **nom** : composé de **stack_image** + _suffixe d'horodatage_ + **_final**
+- **Format** : Format de sortie configuré
 
+{{% alert title="💡" color="light" %}}
+Cette fonction est utile quand vous enchaînez les sessions sur des cibles différentes
+
+A chaque arrêt de session, la meilleure version de l'image pour cette cible est sauvegardée dans un fichier qui
+ne risque pas d'être écrasé
+{{% /alert %}}
 
 {{< center >}}
-{{< figure src="saver.png"
-caption="Préférences de l'enregistreur de fichiers"
-width="307px"
-height="103px"
-alt="Interface logicielle affichant les préférences de sauvegarde de fichiers avec des options pour sélectionner le format de fichier (TIFF, PNG, JPEG) et une case à cocher pour activer ou désactiver l'enregistrement automatique à l'arrêt." >}}
+{{< figure src="autosave.png"
+caption="Préférences de l'autosave"
+width="622px"
+height="417px"
+alt="" >}}
 {{< /center >}}
 
+- 🖱️ cochez `Résutlat horodaté à l'arrêt de session` pour activer la fonction d'autosave
 
+# Server {#server}
 
-# serveur web {#server}
-
-Ici sont configurés les paramètres du serveur d'images
-
-
+Ici sont configurés le port d'écoute du serveur d'images et la période de rafraîchissement des images
 
 ## Numéro de port {#server-port}
 
-1. `Numéro de port serveur` configure le port sur lequel le serveur d'images est accessible
+Le port d'écoute du serveur d'images est configuré ici
 
-## période de rafraîchissement {#server-refresh}
+Valeurs autorisées : 1024 à 65535
 
-2. `Période de rafraîchissement` configure la période de rafraîchissement de l'image par les navigateurs connectés
+ℹ️ Par défaut : 8000
 
-
+- ⌨️ Saisissez le `numéro de port` sur lequel le serveur d'images d'ALS sera accessible
 
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Réglages du serveur web"
-width="437px"
-height="195px"
-alt="Panneau de configuration des paramètres du serveur web, incluant le numéro de port du serveur réglé sur 8000, la période de rafraîchissement de la page web réglée sur 5 secondes." >}}
+width="622px"
+height="215px"
+alt="" >}}
 {{< /center >}}
 
+## Période de rafraîchissement {#server-refresh}
 
-## Dossier web {#web-folder}
+Période, en sec., utilisée dans la page web servie par ALS pour forcer les navigateurs connectés à rafraîchir l'image
 
-{{< center >}}
-{{< figure src="web_folder.png"
-caption="Réglage du dosser web"
-width="598px"
-height="209px"
-alt="Panneau de configuration des paramètres du serveur web, montrant des options pour utiliser un dossier web dédié" >}}
-{{< /center >}}
+ℹ️ Par défaut : 5 sec.
 
-1. Si `Utiliser un dossier spécifique` est décochée :
-   - les réglages du **dossier web** sont cachés
-   - le chemin du **dossier web** est celui du **dossier de travail**
+`Période de rafraîchissement` configure la période de rafraîchissement 
 
-   Sinon
-   - les réglages du **dossier web** sont affichés
-
-   2. `Modifier...` permet de choisir un **dossier web** spécifique.
-   3. Le chemin du **dossier web** est affiché
-
+Vous pouvez :
+- ⌨️ saisir la valeur au clavier
+- 🖱️ utiliser les boutons fléchés
+- 🖱️ utiliser la molette de la souris

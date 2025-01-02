@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T08:40:38Z
+lastmod: 2025-01-02T17:11:19Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -218,7 +218,7 @@ alt="La section serveur d'images, contenant les 2 boutons START (grisé) et STOP
 </div>
 
 {{% alert title="ℹ️" color="info" %}}
-Des paramètres supplémentaires pour le serveur web sont disponibles dans les [Préférences](../../preferences/).
+Des paramètres supplémentaires pour le serveur web sont disponibles dans les [Préférences](../../preferences/output/#server)
 {{% /alert %}}
 
 ---
