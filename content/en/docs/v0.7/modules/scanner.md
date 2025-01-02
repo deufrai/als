@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-02T01:02:06Z
+lastmod: 2025-01-02T01:51:59Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -35,17 +35,19 @@ Even if they are saved in subfolders created after the **Scanner** module is sta
 
 # Configuration
 
-|                     | Source                                                                           | Data Type                        | Required | Default Value |
-|---------------------|----------------------------------------------------------------------------------|----------------------------------|----------|---------------|
-| **Scan Folder**     | Preferences: [General Tab](../../userguide/preferences/general/#scan-folder)     | Path to a folder                 | Yes      | ∅             |
-| **Profile**         | Preferences: [General Tab](../../userguide/preferences/general/#profile)         | Choice: <br>- EAA<br>- photo<br> | Yes      | EAA           |
-| **Memory Use**      | Preferences: [General Tab](../../userguide/preferences/general/#memory)          | fuzzy                            | Yes      | "Unfair"      |
+|                     | Source                                                                           | Data Type           | Required | Default Value |
+|---------------------|----------------------------------------------------------------------------------|---------------------|----------|---------------|
+| **Scan Folder**     | Preferences: [General Tab](../../userguide/preferences/general/#scan-folder)     | Path to a folder    | Yes      | ∅             |
+| **Profile**         | Preferences: [General Tab](../../userguide/preferences/general/#profile)         | Choice: EAA / photo | Yes      | EAA           |
+| **Memory Use**      | Preferences: [General Tab](../../userguide/preferences/general/#memory)          | fuzzy               | Yes      | "Unfair"      |
+
 # Control
 
-| Source                                                                       | Type        | Response                       |
-|------------------------------------------------------------------------------|-------------|--------------------------------|
-| Interface: [Session Controls](../../userguide/ui/controls/#session-controls) | Events      | Scan folder monitoring: ON/OFF |
-| A sub has been detected in the scan folder                                   | Event       | Load the detected sub          |
+| Source                                                                          | Type                            | Response                    |
+|---------------------------------------------------------------------------------|---------------------------------|-----------------------------|
+| Interface: [Session Controls](../../userguide/ui/controls/#session-controls)    | Command: STOP                   | Scan folder monitoring: OFF |
+| Interface: [Session Controls](../../userguide/ui/controls/#session-controls)    | Command: START                  | Scan folder monitoring: ON  |
+| System event                                                                    | sub detected in the scan folder | Load the detected sub       |
 
 
 # Input

@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T01:02:06Z
+lastmod: 2025-01-02T01:51:59Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -34,17 +34,18 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 {{% /alert %}}
 
 # Configuration
-|                     | Source                                                                           | Type de donnée                 | Requis | Valeur par défaut |
-|---------------------|----------------------------------------------------------------------------------|--------------------------------|--------|-------------------|
-| **Dossier scanné**  | Préférences : [Onglet Général](../../userguide/preferences/general/#scan-folder) | Chemin vers un dossier         | Oui    | ∅                 |
-| **Profil**          | Préférences : [Onglet Général](../../userguide/preferences/general/#profile)     | choix :<br>- VA<br>- photo<br> | Oui    | VA                |
-| **Gestion mémoire** | Préférences : [Onglet Général](../../userguide/preferences/general/#memory)      | mystérieux                     | Oui    | "Injuste"         |
+|                     | Source                                                                           | Type de donnée         | Requis | Valeur par défaut |
+|---------------------|----------------------------------------------------------------------------------|------------------------|--------|-------------------|
+| **Dossier scanné**  | Préférences : [Onglet Général](../../userguide/preferences/general/#scan-folder) | Chemin vers un dossier | Oui    | ∅                 |
+| **Profil**          | Préférences : [Onglet Général](../../userguide/preferences/general/#profile)     | choix : VA / photo<br> | Oui    | VA                |
+| **Gestion mémoire** | Préférences : [Onglet Général](../../userguide/preferences/general/#memory)      | mystérieux             | Oui    | "Injuste"         |
 # Contrôle
 
-| Source                                                                            | Type       | Réponse                              |
-|-----------------------------------------------------------------------------------|------------|--------------------------------------|
-| Interface : [Contrôles de session](../../userguide/ui/controls/#session-controls) | Évenements | Surveillance dossier scanné : ON/OFF |
-| une brute a été détectée dans le dossier scanné                                   | Évenement  | Charge la brute détectée             |
+| Source                                                                                  | Type                                  | Réponse                              |
+|-----------------------------------------------------------------------------------------|---------------------------------------|--------------------------------------|
+| Interface : [Contrôles de session](../../userguide/ui/controls/#session-controls)       | Commande : STOP                       | Surveillance du dossier scanné : OFF |
+| Interface : [Contrôles de session](../../userguide/ui/controls/#session-controls)       | Commande : START                      | Surveillance du dossier scanné : ON  |
+| Événement système                                                                       | brute détectée dans le dossier scanné | Charge la brute détectée             |
 
 # Entrée
 
@@ -56,14 +57,14 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 
 ## Test RAM dispo {#ram}
 
-- Attend que la quantité de RAM disponible soit supérieure à la valeur configurée :
+Attend que la quantité de RAM disponible soit supérieure à la valeur configurée :
 
-  | Gestion mémoire | Quantité de Mémoire laissée au système |
-  |-----------------|----------------------------------------|
-  | Gourmand        | 256MiB                                 |
-  | Injuste         | 512MiB                                 |
-  | Juste           | 1GiB                                   |
-  | Peureux         | 2GiB                                   |
+| Gestion mémoire | Quantité de Mémoire laissée au système |
+|-----------------|----------------------------------------|
+| Gourmand        | 256MiB                                 |
+| Injuste         | 512MiB                                 |
+| Juste           | 1GiB                                   |
+| Peureux         | 2GiB                                   |
 
 ## Attente fichier complet {#wait}
 

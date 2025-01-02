@@ -33,6 +33,10 @@
     border-radius: 6px;
 }
 
+.als-doc-content > table > thead > tr > th {
+    font-weight: normal;
+}
+
 .als-ks {
     display: inline-block;
     padding: 0.2rem 0.4rem;
