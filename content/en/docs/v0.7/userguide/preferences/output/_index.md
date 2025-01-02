@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "Documentation of the Output tab in ALS preferences"
 author: "ALS Team"
-lastmod: 2025-01-02T17:55:04Z
+lastmod: 2025-01-02T22:10:35Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -102,7 +102,7 @@ You have the option to actually separate the two ALS outputs by using a dedicate
 Activates the saving, on **each session stop**, of the **last** processing result:
 
 - **output**: main output
-- **name**: composed of **stack_image** + _timestamp suffix_ + **_final**
+- **name**: composed of **stack_image** + **_final** + _timestamp suffix_
 - **Format**: Configured output format
 
 {{% alert title="💡" color="light" %}}

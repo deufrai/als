@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T17:55:04Z
+lastmod: 2025-01-02T22:10:36Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -103,7 +103,7 @@ Vous avez la possibilité de réellement séparer les deux sorties d'ALS en util
 Active la sauvegarde, à **chaque arrêt de session**, du **dernier** résultat de traitement :
 
 - **sortie** : sortie principale
-- **nom** : composé de **stack_image** + _suffixe d'horodatage_ + **_final**
+- **nom** : composé de **stack_image** + **_final** + _suffixe d'horodatage_
 - **Format** : Format de sortie configuré
 
 {{% alert title="💡" color="light" %}}
