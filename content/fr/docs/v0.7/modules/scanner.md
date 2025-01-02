@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-01T22:17:04Z
+lastmod: 2025-01-02T00:57:02Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -16,7 +16,7 @@ weight: 350
 Le module **Scanner** est le point d'entrée de vos brutes dans ALS.
 
 Il est en charge de :
-- surveiller l'apparition des brutes dans le **dossier scanné**
+- surveiller l'**apparition** des brutes dans le **dossier scanné**
 - charger les brutes détectées
 
 {{% alert color="info" %}}
@@ -56,12 +56,7 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 
 ## Test RAM dispo {#ram}
 
-Il peut arriver que les brutes soient détectées plus fréquemment qu'ALS ne peut traiter et
-enregistrer les images.
-
-Il faut éviter de saturer la mémoire du système en chargeant sans contrôle les brutes qui se présentent
-
-- Attend que la quantité de RAM disponible soit supérieure à la valeur configurée pour la gestion de la mémoire :
+- Attend que la quantité de RAM disponible soit supérieure à la valeur configurée :
 
   | Gestion de la mémoire | Quantité de Mémoire laissée au système |
   |-----------------------|----------------------------------------|
@@ -72,10 +67,10 @@ Il faut éviter de saturer la mémoire du système en chargeant sans contrôle l
 
 ## Attente fichier complet {#wait}
 
-Les fichiers sont détectés dès leur **apparition** dans le **dossier scanné**
 
-Pour éviter de charger des fichiers incomplets, le module **Scanner** attend que le fichier soit complètement
-écrit avant de le charger :
+ℹ️ Les fichiers sont détectés dès leur **apparition** dans le **dossier scanné**
+
+Il faut s'assurer que le fichier est complet avant de le charger en mémoire.
 
 - Interroge en boucle la taille du fichier détecté
     - Vérifie que la taille du fichier est stable sur 2 interrogations consécutives
@@ -89,11 +84,7 @@ Le temps d'attente entre les interrogations dépend du profil configuré :
 
 ## Chargement de l'image {#load}
 
-### Formats compatibles {#input-formats}
-
-ALS détermine le format de l'image à partir de son extension de fichier
-
-Le fichier est chargé en mémoire en utilisant le format déterminé par son extension : 
+Le fichier est chargé en mémoire en utilisant le format correspondant à son extension :
 
 | Extension                                                        | Format |
 |------------------------------------------------------------------|--------|
@@ -101,7 +92,7 @@ Le fichier est chargé en mémoire en utilisant le format déterminé par son ex
 | <span style="font-family: monospace;">.png</span>                | PNG    |
 | <div style="font-family: monospace;">.tiff<br>.tif</div>         | TIFF   |
 | <div style="font-family: monospace;">.fits<br>.fit<br>.fts</div> | FITS   |
-| Toutes les autres extensions                                     | Raw    | 
+| Toutes les autres extensions                                     | Raw[1] | 
 
 ## Extraction de métadonnées
 
@@ -115,39 +106,57 @@ Métadonnées extraites du fichier et incorporées à l'image en mémoire :
     - fichiers FITS : entête **BAYERPAT**
     - fichiers Raw : entête Exif standard
 
+
 ```mermaid
-flowchart TB
+flowchart LR
     START([Brute detectée])
-    WAIT_RAM[Attend RAM]
-    CHECK_RAM{{TEST : RAM dispo<br>Selon profil<br><br>OK ?}}
-    CHECK_SIZE{{TEST : taille fichier<br>OK ?}}
-    WAIT_FILE[Attend fichier<br>Selon profil]
-    TEST_FORMAT{{TEST : format fichier}}
-    FITS[Charge fichier FITS]
-    STANDARD[Charge fichier standard]
-    RAW[Charge fichie Raw]
+    
+    WAIT_FILE[Attend fichier<br><br>Selon profil :<br>Visuel assisté : 10ms<br>Astrophoto : 500ms]    
+    WAIT_RAM[Attend 20ms]
+    
+    CHECK_RAM{{Teste RAM dispo<br><br>Selon préférences :<br>Gourmand : 2 GiB<br>Injuste : 1 GiB<br>Juste : 512 MiB<br>Peureux : 256MiB<br><br>OK ?}}
+    CHECK_SIZE{{Teste taille fichier<br><br>OK ?}}
+    TEST_FORMAT{{Teste format fichier}}
+    
+    FITS[Charge FITS]
+    STANDARD[Charge standard]
+    RAW[Charge Raw]
+    
     METADATA[Extrait métadonnées]
+    
     END((Fin))
-    
-    START ---> CHECK_RAM   
+
+    START ---> CHECK_RAM
     WAIT_RAM <-->|NON| CHECK_RAM
- 
-    
+
     CHECK_RAM --->|OUI| CHECK_SIZE
-    WAIT_FILE <-->|NON| CHECK_SIZE   
+    WAIT_FILE <-->|NON| CHECK_SIZE
     CHECK_SIZE -->|OUI| TEST_FORMAT
 
     TEST_FORMAT -->  FITS
     TEST_FORMAT -->  STANDARD
     TEST_FORMAT -->  RAW
-    
 
     RAW --> METADATA
     FITS --> METADATA
-    
+
     STANDARD ---> END
     METADATA --> END
+
+    style START fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
+    style WAIT_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style CHECK_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style CHECK_SIZE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style WAIT_FILE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style TEST_FORMAT fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style FITS fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style STANDARD fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style RAW fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style METADATA fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style END fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
 ```
+
+
 
 # Sortie
 

@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-01T22:17:04Z
+lastmod: 2025-01-02T00:57:02Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -12,19 +12,19 @@ weight: 321
 
 # Introduction
 
-At the end of this chapter, you will have:
+During this chapter, you will:
 
-- gained full control over ALS using the `main controls` panel
-- Deepened your knowledge on the related features
+- get familiar with ALS main controls
+- Deepen your knowledge on key features
+
+The ALS control station is the `Main Controls` interface panel
 
 <div class="row">
   <div class="col-md-8">
 
 # Overview
 
-The `Main Controls` panel is located on the left side of the interface.
-
-It organizes the most used controls and displays into sections.
+Located on the left side of the ALS interface, it organizes the most used controls and displays into sections:
 
 - [**Session**](#session-section)
 

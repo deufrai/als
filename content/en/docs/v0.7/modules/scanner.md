@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-01T22:17:04Z
+lastmod: 2025-01-02T00:57:02Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -16,7 +16,7 @@ weight: 350
 The **Scanner** module is the entry point for your subs in ALS.
 
 It is responsible for:
-- Monitoring the appearance of subs in the **scan folder**
+- Monitoring the **appearance** of subs in the **scan folder**
 - Loading the detected subs
 
 {{% alert color="info" %}}
@@ -58,11 +58,7 @@ Even if they are saved in subfolders created after the **Scanner** module is sta
 
 ## RAM Test {#ram}
 
-It may happen that subs are detected more frequently than ALS can process and save the images.
-
-To avoid saturating the system memory by loading subs uncontrollably:
-
-- Wait until the available RAM is greater than the value configured for memory management:
+- Wait until the available RAM is greater than the configured value:
 
   | Memory Management | Amount of Memory Left for the System |
   |-------------------|--------------------------------------|
@@ -73,9 +69,9 @@ To avoid saturating the system memory by loading subs uncontrollably:
 
 ## Wait for Complete File {#wait}
 
-Files are detected as soon as they **appear** in the **scan folder**.
+ℹ️ Files are detected as soon as they **appear** in the **scan folder**.
 
-To avoid loading incomplete files, the **Scanner** module waits until the file is completely written before loading it:
+To ensure file is complete before loading it:
 
 - Poll the size of the detected file in a loop
     - Verify that the file size is stable over 2 consecutive polls
@@ -91,9 +87,7 @@ The polling interval depends on the configured profile:
 
 ### Compatible Formats {#input-formats}
 
-ALS determines the image format based on its file extension:
-
-The file is loaded into memory using the format determined by its extension.
+The file is loaded into memory using the format matching its filename extension.
 
 | Extension                                                        | Format |
 |------------------------------------------------------------------|--------|
@@ -101,7 +95,7 @@ The file is loaded into memory using the format determined by its extension.
 | <span style="font-family: monospace;">.png</span>                | PNG    |
 | <div style="font-family: monospace;">.tiff<br>.tif</div>         | TIFF   |
 | <div style="font-family: monospace;">.fits<br>.fit<br>.fts</div> | FITS   |
-| All other extensions                                             | Raw    |
+| All other extensions                                             | Raw[1] |
 
 ## Metadata Extraction
 
@@ -116,17 +110,22 @@ Metadata extracted from file and incorporated into the loaded image:
     - Raw files: standard Exif header
 
 ```mermaid
-flowchart TB
+flowchart LR
     START([Sub detected])
-    WAIT_RAM[Wait for RAM]
-    CHECK_RAM{{TEST: Available RAM<br>According to profile<br><br>OK?}}
-    CHECK_SIZE{{TEST: File size<br>OK?}}
-    WAIT_FILE[Wait for file<br>According to profile]
-    TEST_FORMAT{{TEST: File format}}
-    FITS[Load FITS file]
-    STANDARD[Load standard file]
-    RAW[Load Raw file]
+    
+    WAIT_FILE[Wait for file<br><br>According to profile:<br>EAA: 10ms<br>Astrophoto: 500ms]    
+    WAIT_RAM[Wait 20ms]
+    
+    CHECK_RAM{{Check available RAM<br><br>According to preferences:<br>Greedy: 2 GiB<br>Unfair: 1 GiB<br>Fair: 512 MiB<br>Cautious: 256MiB<br><br>OK?}}
+    CHECK_SIZE{{Check file size<br><br>OK?}}
+    TEST_FORMAT{{Check file format}}
+    
+    FITS[Load FITS]
+    STANDARD[Load standard]
+    RAW[Load Raw]
+    
     METADATA[Extract metadata]
+    
     END((End))
     
     START ---> CHECK_RAM   

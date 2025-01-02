@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-01T22:17:04Z
+lastmod: 2025-01-02T00:57:02Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -12,19 +12,18 @@ weight: 321
 
 # Introduction
 
-A la fin de ce chapitre, vous aurez :
+Au cours de ce chapitre, vous allez :
+- vous familiariser avec les contrôles principaux d'ALS
+- approfondir vos connaissances sur les fonctionnalités clés
 
-- acquis un contrôle total sur ALS en utilisant le panneau `Contrôles principaux`
-- approfondi vos connaissances sur les fonctionnalités associées
+Le poste de commande d'ALS est le panneau d'interface `Contrôles principaux`
 
 <div class="row">
   <div class="col-md-8">
 
 # Présentation
 
-Le panneau `Contrôles principaux` est situé à gauche de l'interface d'ALS
-
-Il organise en sections les contrôles et affichages les plus utilisés
+Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages les plus utilisés en sections :
 
 - [**Session**](#session-section)
 
