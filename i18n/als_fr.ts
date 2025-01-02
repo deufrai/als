@@ -816,8 +816,8 @@ Détails : {}</translation>
     </message>
     <message>
         <location filename="../src/als/ui/stop_ui.ui" line="93"/>
-        <source>Save result before stop</source>
-        <translation>Sauver image avant arrêt</translation>
+        <source>Timestamped result on session &amp;stop</source>
+        <translation>Résultat horodaté à l&apos;arrêt de &amp;session</translation>
     </message>
 </context>
 <context>

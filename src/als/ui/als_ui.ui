@@ -1409,7 +1409,7 @@
     <string>Full Screen</string>
    </property>
    <property name="shortcut">
-    <string notr="true">F11</string>
+    <string notr="true">D</string>
    </property>
   </action>
   <action name="action_image_only">
@@ -1454,7 +1454,7 @@
     <string>Ack. issues</string>
    </property>
    <property name="shortcut">
-    <string notr="true">A</string>
+    <string notr="true">K</string>
    </property>
   </action>
   <action name="action_qrcode">
