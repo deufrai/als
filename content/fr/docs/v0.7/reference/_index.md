@@ -2,7 +2,7 @@
 title: "Documentation de référence"
 description: "Documentation détaillée d'ALS"
 author: "Équipe ALS"
-lastmod: 2025-01-02T07:42:07Z
+lastmod: 2025-01-02T07:45:26Z
 keywords: ["documentation de référence ALS"]
 draft: false
 type: "docs"
@@ -88,12 +88,12 @@ flowchart LR
     end
         
     subgraph Module Scanner 
-        SCANNER_ENGINE[Engine]
+        SCANNER_ENGINE[Moteur]
     end
            
     subgraph Module Preprocess
         direction TB
-        PREPROCESS_ENGINE[Engine]
+        PREPROCESS_ENGINE[Moteur]
         HOT_PIXEL[Hot Pixel Removal]
         DARK_SUB[Dark Subtraction]
         DEBAYER[DeBayer]
@@ -101,7 +101,7 @@ flowchart LR
 
     subgraph Module Stacker
         direction TB
-        STACK_ENGINE[Engine]
+        STACK_ENGINE[Moteur]
     end
 
     SCAN_FOLDER -.-> SCANNER_ENGINE
