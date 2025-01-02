@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-02T03:00:54Z
+lastmod: 2025-01-02T08:24:33Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -166,7 +166,7 @@ flowchart LR
 
 The loaded image is broadcast to whoever listens.
 
-⚙️ _ALS will pass the image to the **Preprocess** module for calibration_
+⚙️ _ALS will put the image in the **Preprocess** module's input queue for calibration_
 
 ---
 

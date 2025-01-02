@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T01:51:59Z
+lastmod: 2025-01-02T08:24:33Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -163,7 +163,7 @@ flowchart LR
 
 L'image chargée est diffusée pour qui veut bien s'en occuper.
 
-⚙️ _ALS passera l'image au module **Prétraitement** pour la calibration_
+⚙️ _ALS placera l'image dans la file d'attente du module **Preprocess** pour la calibration_
 
 ---
 
