@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T07:23:47Z
+lastmod: 2025-01-02T12:16:08Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -18,7 +18,7 @@ Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement`
 
 # Vue d'ensemble
 
-Cet onglet ne contient qu'une seule section : [Pre-processing](#preprocess)
+Cet onglet ne contient qu'une seule section : [Preprocess](#preprocess)
 
 Elle regroupe les réglages des traitements gérés par le module [**Preprocess**](../../../reference/modules/preprocess/) :
 - [Suppression des pixels chauds](#hot-remove)
@@ -38,7 +38,7 @@ alt="Fenêtre de préférences ALS avec l'onglet Traitement sélectionné, affic
 </div>
 </div>
 
-# Pre-processing {#preprocess}
+# Preprocess {#preprocess}
 
 {{% alert color="info" %}}
 ℹ️ Ces paramètres ne sont accessibles que quand la session est stoppée
@@ -49,32 +49,36 @@ alt="Fenêtre de préférences ALS avec l'onglet Traitement sélectionné, affic
 {{< center >}}
 {{< figure src="hot_remove.png"
 caption="Réglages de suppression des pixels chauds"
-width="259px"
-height="75px"
-alt="Interface logicielle affichant la catégorie Prétraitement avec une option pour utiliser le suppresseur de pixels chauds cochée." >}}
+width="622px"
+height="217px"
+alt="" >}}
 {{< /center >}}
 
-`suppression des pixels chauds` active la suppression
+🖱️ Cochez `Supprimer` pour activer la suppression des pixels chauds
 
 ## Soustraction de dark {#dark-remove}
 
 {{< center >}}
 {{< figure src="dark_remove.png"
-caption="Réglages de soustraction du signal thermique"
-width="588px"
-height="139px"
+caption="Réglages de soustraction de dark"
+width="622px"
+height="196px"
 alt="Interface logicielle affichant les options pour utiliser la soustraction de dark, changer le chemin du master dark spécifié et effacer le chemin." >}}
 {{< /center >}}
 
-1. `soustraction de dark` active la soustraction
-2. `Modifier...` permet de choisir le fichier master dark à utiliser pour la soustraction. 
-3. `Vider` permet de vider le chemin du fichier master dark.
+- 🖱️ Cochez `Active` pour activer la soustraction de dark
+- 🖱️ Cliquez `Master dark...` pour choisir le fichier master dark à utiliser pour la soustraction
+
+  le chemin du master dark configuré est affiché à droite du bouton
+- 🖱️ Cliquez `Vider` pour vider le chemin du fichier master dark
 
 {{% alert color="warning" %}}
 ⚠️ Le master dark **doit avoir les mêmes dimensions** (_largeur x hauteur_) que l'image à traiter
 
 Si les dimensions sont différentes :
-- un message **WARNING** est ajouté au journal de session, portant le message '_incohérence de la structure des données_'
+- chaque tentative de soustraction provoque l'ajout au journal de session d'un **WARNING** portant le message :
+
+  _incohérence de la structure des données - la soustraction de dark est IGNOREE_
 - Le bouton `Acquitter` du `Journal de session` est activé
 - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
   panneau.
@@ -93,8 +97,8 @@ Si les dimensions sont différentes :
 {{< center >}}
 {{< figure src="debayer.png"
 caption="Réglage du dématriçage"
-width="588px"
-height="139px"
+width="622px"
+height="286px"
 alt="Interface logicielle affichant les préférences de traitement d'image avec des options pour définir le chemin de signal noir et sélectionner le motif de dématriçage, y compris AUTO et divers motifs de filtres de couleur." >}}
 {{< /center >}}
 
