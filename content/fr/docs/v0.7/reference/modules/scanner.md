@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T08:24:33Z
+lastmod: 2025-01-02T18:29:14Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -55,6 +55,56 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 
 # Comportement
 
+
+```mermaid
+flowchart LR
+    START([Brute detectée])
+    
+    WAIT_FILE[Attend fichier<br><br>Selon profil :<br>Visuel assisté : 10ms<br>Astrophoto : 500ms]    
+    WAIT_RAM[Attend 20ms]
+    
+    CHECK_RAM{{Teste RAM dispo<br><br>Selon préférences :<br>Gourmand : 2 GiB<br>Injuste : 1 GiB<br>Juste : 512 MiB<br>Peureux : 256MiB<br><br>OK ?}}
+    CHECK_SIZE{{Teste taille fichier<br><br>OK ?}}
+    TEST_FORMAT{{Teste format fichier}}
+    
+    FITS[Charge FITS]
+    STANDARD[Charge standard]
+    RAW[Charge Raw]
+    
+    METADATA[Extrait métadonnées]
+    
+    END((Fin))
+
+    START ---> CHECK_RAM
+    WAIT_RAM <-->|NON| CHECK_RAM
+
+    CHECK_RAM --->|OUI| CHECK_SIZE
+    WAIT_FILE <-->|NON| CHECK_SIZE
+    CHECK_SIZE -->|OUI| TEST_FORMAT
+
+    TEST_FORMAT -->  FITS
+    TEST_FORMAT -->  STANDARD
+    TEST_FORMAT -->  RAW
+
+    RAW --> METADATA
+    FITS --> METADATA
+
+    STANDARD ---> END
+    METADATA --> END
+
+    style START fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
+    style WAIT_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style CHECK_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style CHECK_SIZE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style WAIT_FILE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style TEST_FORMAT fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style FITS fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style STANDARD fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style RAW fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style METADATA fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style END fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
+```
+
 ## Test RAM dispo {#ram}
 
 Attend que la quantité de RAM disponible soit supérieure à la valeur configurée :
@@ -106,57 +156,6 @@ Métadonnées extraites du fichier et incorporées à l'image en mémoire :
 - **Matrice de Bayer** (_pour les brutes issues d'un capteur couleur_)
     - fichiers FITS : entête **BAYERPAT**
     - fichiers Raw : entête Exif standard
-
-
-```mermaid
-flowchart LR
-    START([Brute detectée])
-    
-    WAIT_FILE[Attend fichier<br><br>Selon profil :<br>Visuel assisté : 10ms<br>Astrophoto : 500ms]    
-    WAIT_RAM[Attend 20ms]
-    
-    CHECK_RAM{{Teste RAM dispo<br><br>Selon préférences :<br>Gourmand : 2 GiB<br>Injuste : 1 GiB<br>Juste : 512 MiB<br>Peureux : 256MiB<br><br>OK ?}}
-    CHECK_SIZE{{Teste taille fichier<br><br>OK ?}}
-    TEST_FORMAT{{Teste format fichier}}
-    
-    FITS[Charge FITS]
-    STANDARD[Charge standard]
-    RAW[Charge Raw]
-    
-    METADATA[Extrait métadonnées]
-    
-    END((Fin))
-
-    START ---> CHECK_RAM
-    WAIT_RAM <-->|NON| CHECK_RAM
-
-    CHECK_RAM --->|OUI| CHECK_SIZE
-    WAIT_FILE <-->|NON| CHECK_SIZE
-    CHECK_SIZE -->|OUI| TEST_FORMAT
-
-    TEST_FORMAT -->  FITS
-    TEST_FORMAT -->  STANDARD
-    TEST_FORMAT -->  RAW
-
-    RAW --> METADATA
-    FITS --> METADATA
-
-    STANDARD ---> END
-    METADATA --> END
-
-    style START fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
-    style WAIT_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style CHECK_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style CHECK_SIZE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style WAIT_FILE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style TEST_FORMAT fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style FITS fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style STANDARD fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style RAW fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style METADATA fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style END fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
-```
-
 
 
 # Sortie
