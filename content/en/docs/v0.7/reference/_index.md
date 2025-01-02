@@ -2,7 +2,7 @@
 title: "Reference documentation"
 description: "ALS Modules and Processes"
 author: "ALS Team"
-lastmod: 2025-01-02T07:23:46Z
+lastmod: 2025-01-02T12:24:10Z
 keywords: ["ALS reference documentation"]
 draft: false
 type: "docs"
@@ -38,6 +38,12 @@ Main modules are in charge of **image processing**
 
   4. go back to step as soon as the queue is not empty
 
+ALS has four **main modules**:
+- **Preprocess**
+- **Stacker**
+- **Process**
+- **Save**
+
 ## Utility modules
 
 Utility modules are responsible for auxiliary tasks
@@ -45,8 +51,8 @@ Utility modules are responsible for auxiliary tasks
 They don't have an input queue and can be started and stopped at will
 
 ALS has two **utility modules**:
-- the **Scanner** module
-- the **Server** module
+- **Scanner**
+- **Server**
 
 ## Pipelines
 
@@ -60,8 +66,19 @@ The only duty of a **pipeline** on **each image** it picks up from its queue is 
 - broadcast the result of the last process
 
 ALS has two **pipelines**:
-- the **PreProcess** module
-- the **Process** module
+- **Preprocess**
+
+  Orders the following processes:
+  - Hot pixel removal
+  - Dark subtraction
+  - Debayering
+
+- **Process**
+
+  Orders the following processes:
+    - Autostretch
+    - Levels
+    - Color balance
 
 # Realms
 

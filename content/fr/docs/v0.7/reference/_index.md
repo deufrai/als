@@ -2,7 +2,7 @@
 title: "Documentation de référence"
 description: "Documentation détaillée d'ALS"
 author: "Équipe ALS"
-lastmod: 2025-01-02T07:45:26Z
+lastmod: 2025-01-02T12:24:10Z
 keywords: ["documentation de référence ALS"]
 draft: false
 type: "docs"
@@ -40,10 +40,10 @@ Les modules principaux sont en charge du **traitement des images**
   4. reprendre à l'étape 1 dès que file d'attente n'est pas vide
 
 ALS a quatre **modules principaux** :
-- le module **Preprocess**
-- le module **Stacker**
-- le module **Process**
-- le module **Save**
+- **Preprocess**
+- **Stacker**
+- **Process**
+- **Save**
 
 ## Modules utilitaires
 
@@ -52,8 +52,8 @@ Les modules utilitaires sont responsables des tâches auxiliaires
 Ils n'ont pas de file d'attente d'entrée et peuvent être démarrés et arrêtés à volonté
 
 ALS a deux **modules utilitaires** :
-- le module **Scanner**
-- le module **Server**
+- **Scanner**
+- **Server**
 
 ## Pipelines
 
@@ -67,8 +67,19 @@ La seule tâche d'un **pipeline** sur **chaque image** qu'il prend dans sa file 
   - diffuser le résultat du dernier traitement
 
 ALS a deux **pipelines** :
-- le module **Preprocess**
-- le module **Process**
+- **Preprocess**
+
+  Ordonne les traitements suivants :
+  - Suppresion des pixels chauds
+  - Soustraction de dark
+  - Dématriçage
+
+- **Process**
+
+  Ordonne les traitements suivants :
+    - Autostretch
+    - Niveaux
+    - Balance des couleurs
 
 # Domaines
 
