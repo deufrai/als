@@ -384,4 +384,4 @@ class PhotoProfile(RunningProfile):
         self._pre_process_priority = QThread.LowPriority
         self._stacking_priority = QThread.LowPriority
         self._post_process_priority = QThread.HighestPriority
-        self._file_read_size_polling_period = .5
+        self._file_read_size_polling_period = 1.5

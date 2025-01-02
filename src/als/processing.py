@@ -368,7 +368,7 @@ class FileReader(ImageProcessor):
             size = QFileInfo(image_path).size()
             _LOGGER.debug(f"File {image_path}'s size = {size}")
 
-            if size == last_file_size:
+            if size > 0 and size == last_file_size:
                 file_is_complete = True
                 _LOGGER.debug(f"File {image_path} is ready to be read")
 
