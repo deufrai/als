@@ -3,7 +3,7 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2024-12-31T21:39:29Z
+lastmod: 2025-01-03T01:50:31Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
@@ -31,8 +31,8 @@ weight: 325
 {{< center >}}
 {{< figure src="menu_session.png" 
     caption="Le menu Session" 
-    width="364px" 
-    height="47px" 
+    width="373px" 
+    height="62px" 
     alt="Menu Session" >}}
 {{< /center >}}
 
@@ -85,8 +85,8 @@ weight: 325
 {{< center >}}
 {{< figure src="menu_view.png" 
     caption="Le menu Vue" 
-    width="497px" 
-    height="174px" 
+    width="485px" 
+    height="173px" 
     alt="Menu Vue" >}}
 {{< /center >}}
 
