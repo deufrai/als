@@ -1,12 +1,9 @@
 /* everything footer, duh  */
 footer {
-    margin-top: 20px;
-    padding: 20px 0;
     position: relative;
 }
 
 footer p {
-    margin-top: 20px;
     font-size: .8em;
 }
 
@@ -32,7 +29,7 @@ footer .row > div a {
 }
 
 footer .row > div a i {
-    font-size: 2.2em;
+    font-size: 1.4em;
     padding: 5px;
     display: block; /* Ensure the icon is on its own line */
 }
@@ -43,8 +40,6 @@ footer .row > div a i {
 
 .footer-info {
     width: 100%;
-    margin-top: 20px;
-    padding-top: 20px;
     border-top: 1px solid var(--dimmed);
     display: flex;
     justify-content: space-between;
