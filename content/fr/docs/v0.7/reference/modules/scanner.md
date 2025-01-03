@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-03T16:52:39Z
+lastmod: 2025-01-03T17:16:52Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -63,7 +63,7 @@ flowchart LR
     WAIT_FILE[Attend fichier<br><br>Selon profil :<br>Visuel assisté : 10ms<br>Astrophoto : 500ms]    
     WAIT_RAM[Attend 20ms]
     
-    CHECK_RAM{{Teste RAM dispo<br><br>Selon préférences :<br>Gourmand : 2 GiB<br>Injuste : 1 GiB<br>Juste : 512 MiB<br>Peureux : 256MiB<br><br>OK ?}}
+    CHECK_RAM{{Teste RAM dispo<br><br>Selon préférences :<br>Gourmand : 256MiB<br>Injuste : 512MiB<br>Juste : 1 GiB<br>Peureux : 2 GiB<br><br>OK ?}}
     CHECK_SIZE{{Teste taille fichier<br><br>OK ?}}
     TEST_FORMAT{{Teste format fichier}}
     
