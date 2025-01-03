@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-01-02T18:36:43Z
+lastmod: 2025-01-03T01:04:04Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -370,10 +370,10 @@ alt="L'image montre une capture d'écran d'une interface logicielle avec un thè
 
 1. 🖱️ Naviguer vers le dossier où se trouve ALS
     - **PC**: Naviguer vers `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Naviguer vers `/home/astrogeek/Applications/ALS/als-v0.7-beta8`
+    - **Raspberry PI**: Naviguer vers `/home/astrogeek/Applications/ALS/als-v0.7-beta9`
 2. 🖱️ Sélectionner l'exécutable
-    - **PC**: Sélectionner le fichier `als-v0.7-beta8.run`
-    - **Raspberry PI**: Sélectionner le fichier `als-v0.7-beta8`
+    - **PC**: Sélectionner le fichier `als-v0.7-beta9.run`
+    - **Raspberry PI**: Sélectionner le fichier `als-v0.7-beta9`
 3. 🖱️ Cliquez sur `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur

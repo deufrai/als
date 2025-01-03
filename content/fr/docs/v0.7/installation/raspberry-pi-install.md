@@ -3,7 +3,7 @@ title: Installation sur Raspberry Pi
 description: Installation d'ALS sur Raspberry Pi
 author: ALZ Team
 
-lastmod: 2024-12-31T21:39:28Z
+lastmod: 2025-01-03T01:04:04Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 220
 Categories: ['procédures']
@@ -39,11 +39,11 @@ si vous avez besoin d'aide._
 
 2. **Identifier l'archive ALS**
     - Recherchez l'archive dont le nom commence par `als` et se termine par `.tgz`. Par exemple, cela pourrait être
-      `als-v0.7-beta8.tgz`.
+      `als-v0.7-beta9.tgz`.
 
 3. **Extraire l'archive**
     - Pour extraire l'archive, vous pouvez utiliser un gestionnaire de fichiers :
-        - Faites un clic droit sur l'archive `als-v0.7-beta8.tgz`.
+        - Faites un clic droit sur l'archive `als-v0.7-beta9.tgz`.
         - Sélectionnez "Extraire ici" ou une option similaire.
 
 4. **Déplacer ALS vers un emplacement permanent**
@@ -65,12 +65,12 @@ si vous avez besoin d'aide._
     - Accédez au dossier de téléchargements (`Téléchargements`) dans une autre fenêtre de votre gestionnaire de
       fichiers. Il est important d'avoir deux fenêtres distinctes et visibles pour pouvoir glisser facilement les
       fichiers.
-    - Trouvez le dossier `als-v0.7-beta8` dans le dossier de téléchargements, puis faites glisser ce dossier dans le
+    - Trouvez le dossier `als-v0.7-beta9` dans le dossier de téléchargements, puis faites glisser ce dossier dans le
       dossier `ALS` (`/home/nom_utilisateur/Applications/ALS`).
 
 5. **Lancer l'exécutable**
-    - Accédez au dossier `als-v0.7-beta8` dans le gestionnaire de fichiers.
-    - Faites un double clic sur le fichier `als-v0.7-beta8`.
+    - Accédez au dossier `als-v0.7-beta9` dans le gestionnaire de fichiers.
+    - Faites un double clic sur le fichier `als-v0.7-beta9`.
     - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution, choisissez l'option pour exécuter ou
       ouvrir le fichier.
 
