@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-03T16:47:42Z
+lastmod: 2025-01-03T16:52:39Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -136,7 +136,7 @@ The polling interval depends on the configured profile:
 | Profile        | Polling Interval |
 |----------------|------------------|
 | EAA            | 10ms             |
-| Astrophoto     | 500ms            |
+| Astrophoto     | 1500ms           |
 
 ## Image Loading {#load}
 

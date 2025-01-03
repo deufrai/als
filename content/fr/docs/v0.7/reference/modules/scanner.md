@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-03T16:47:42Z
+lastmod: 2025-01-03T16:52:39Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -131,7 +131,7 @@ Le temps d'attente entre les interrogations dépend du profil configuré :
 | profil         | temps d'attente entre 2 interrogations |
 |----------------|----------------------------------------|
 | Visuel assisté | 10ms                                   |
-| Astrophoto     | 500ms                                  |
+| Astrophoto     | 1500ms                                 |
 
 ## Chargement de l'image {#load}
 
