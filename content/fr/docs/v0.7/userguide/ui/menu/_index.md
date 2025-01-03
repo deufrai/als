@@ -3,7 +3,7 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2025-01-03T02:56:57Z
+lastmod: 2025-01-03T16:47:42Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
@@ -46,7 +46,7 @@ Quitte ALS
 
   L'indicateur de problèmes s'éteint jusqu'à ce qu'un nouveau problème soit signalé
 
-  ℹ️ Cette option n’est disponible que si l'indicateur de problèmes est allumé
+  _Cette option n’est disponible que si l'indicateur de problèmes est allumé_
 
 
 
@@ -172,13 +172,13 @@ Ouvre les préférences
 
   <span class="als-ks">Q</span> ON/OFF affichage du QR Code du serveur d'images
 
-  ℹ️ Cette option n'est disponible que si le serveur d'images est démarré
+  _Cette option n'est disponible que si le serveur d'images est démarré_
 
 ### Créer lanceur
 
   Démarre le processus de création du lanceur ALS dans le menu système
 
-  ℹ️ Cette option n'est visible que sur les systèmes Linux
+  _Cette option n'est visible que sur les systèmes Linux_
 
 ---
 

@@ -3,7 +3,7 @@ title: "main menu"
 description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2025-01-03T02:56:57Z
+lastmod: 2025-01-03T16:47:42Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["usage"]
@@ -46,7 +46,7 @@ Quits ALS
 
   The issue indicator turns off until a new issue is reported
 
-  ℹ️ This option is only available if the issue indicator is on
+  This option is only available if the issue indicator is on
 
 ---
 
@@ -169,13 +169,13 @@ Opens preferences
 
   <span class="als-ks">Q</span> ON/OFF toggle image server QR Code display
 
-  ℹ️ This option is only available if the image server is started
+  _This option is only available if the image server is started_
 
 ### Create launcher
 
   Starts the process of creating an ALS launcher in the system menu
 
-  ℹ️ This option is only visible on Linux systems
+  _This option is only visible on Linux systems_
 
 ---
 

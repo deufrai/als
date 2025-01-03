@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2025-01-01T03:59:57Z
+lastmod: 2025-01-03T16:47:42Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -35,16 +35,20 @@ Image captured by your acquisition system
 
 ## Typography
 
-- This is a `graphical interface element`
-- this is a <span class="als-ks">keyboard shortcut</span>
-- This is an **important information**
-- This is a ⚠️ Warning
-- This is an ℹ️ Information
-- This is a 💡 Tip
-- This is a 🧠 Reminder
-- This is a ⚙️ Technical detail
-- This is a 🐛 Known issue
-- 🖱️ a mouse action is required
-- ⌨️ a keyboard action is required
-- 🎛️ an action outside of ALS is required
+### Text
+- a `graphical user interface element`
+- a <span class="als-ks">keyboard shortcut</span>
+- an **important information**
+- ⚙️ Technical detail
 
+### Paragraphs
+- ⚠️ Warning
+- ℹ️ Information
+- 💡 Tip
+- 🧠 Reminder
+- 🐛 Known bug
+
+### User Actions
+- 🖱️ mouse action required
+- ⌨️ keyboard action required
+- 🎛️ action outside of ALS required

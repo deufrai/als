@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-01T03:59:57Z
+lastmod: 2025-01-03T16:47:42Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -37,15 +37,20 @@ Image contenant le bruit thermique du capteur. Elle est soustraite des [brutes](
 
 ## Typographie
 
-- Ceci est un `élémént   d'interface graphique`
-- Cece est un <span class="als-ks">raccourci clavier</span>
-- Ceci est une **information importante**
-- Ceci est un ⚠️ Avertissement
-- Ceci est une ℹ️ Information
-- Ceci est une 💡 Astuce
-- Ceci eset un 🧠 Rappel
-- Ceci est un ⚙️ Détail technique
-- Ceci est un 🐛 Bug connu
+### Texte
+- un `élémént d'interface graphique`
+- un <span class="als-ks">raccourci clavier</span>
+- une **information importante**
+- ⚙️ Détail technique
+
+### Paragraphes
+- ⚠️ Avertissement
+- ℹ️ Information
+- 💡 Astuce
+- 🧠 Rappel
+- 🐛 Bug connu
+
+### Actions utilisateur
 - 🖱️ une action à la souris est requise
 - ⌨️ une action au clavier est requise
 - 🎛️ une action en dehors d'ALS est requise

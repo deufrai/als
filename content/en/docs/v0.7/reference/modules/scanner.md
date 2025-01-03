@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-02T18:29:14Z
+lastmod: 2025-01-03T16:47:42Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -124,7 +124,7 @@ Wait until the available RAM is greater than the configured value:
 
 ## Wait for Complete File {#wait}
 
-ℹ️ Files are detected as soon as they **appear** in the **scan folder**.
+Files are detected as soon as they **appear** in the **scan folder**.
 
 To ensure file is complete before loading it:
 

@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T18:29:14Z
+lastmod: 2025-01-03T16:47:42Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -119,7 +119,7 @@ Attend que la quantité de RAM disponible soit supérieure à la valeur configur
 ## Attente fichier complet {#wait}
 
 
-ℹ️ Les fichiers sont détectés dès leur **apparition** dans le **dossier scanné**
+Les fichiers sont détectés dès leur **apparition** dans le **dossier scanné**
 
 Il faut s'assurer que le fichier est complet avant de le charger en mémoire.
 
