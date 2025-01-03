@@ -1,13 +1,13 @@
 ---
-title: "ALS main menu"
-description: "The Main Menu"
+title: "main menu"
+description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2025-01-03T01:50:31Z
+lastmod: 2025-01-03T02:56:57Z
 keywords: ["ALS Menu"]
 type: "docs"
+categories: ["usage"]
 tags: [ ]
-categories: ["using ALS"]
 weight: 325
 ---
 
@@ -15,14 +15,18 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_file.png" 
-    caption="The File Menu" 
-    width="322px" 
+    caption="The File menu" 
+    width="364px" 
     height="47px" 
-    alt="File Menu" >}}
+    alt="File menu" >}}
 {{< /center >}}
 
 **Quit**
-: Exits the application
+
+  - <span class="als-ks">Ctrl</span> + <span class="als-ks">Q</span> on Windows and Linux
+  - <span class="als-ks">⌘</span> + <span class="als-ks">Q</span> on macOS
+
+Quits ALS
 
 ---
 
@@ -30,14 +34,19 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_session.png" 
-    caption="The Session Menu" 
-    width="335px" 
-    height="63px" 
-    alt="Session Menu" >}}
+    caption="The Session menu" 
+    width="373px" 
+    height="62px" 
+    alt="Session menu" >}}
 {{< /center >}}
 
-**Ack. issues**
-: Clears the new issues indicator
+### Ack. issues
+
+  <span class="als-ks">K</span> is used to indicate that you have acknowledged the latest reported issues
+
+  The issue indicator turns off until a new issue is reported
+
+  ℹ️ This option is only available if the issue indicator is on
 
 ---
 
@@ -45,14 +54,18 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_edit.png" 
-    caption="The Edit Menu" 
-    width="322px" 
+    caption="The Edit menu" 
+    width="364px" 
     height="47px" 
-    alt="Edit Menu" >}}
+    alt="Edit menu" >}}
 {{< /center >}}
 
 **Preferences...**
-: Opens the preferences panel
+
+  - <span class="als-ks">Ctrl</span> + <span class="als-ks">P</span> on Windows and Linux
+  - <span class="als-ks">⌘</span> + <span class="als-ks">,</span> on macOS
+
+Opens preferences
 
 ---
 
@@ -60,23 +73,36 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_image.png" 
-    caption="The Image Menu" 
-    width="321px" 
+    caption="The Image menu" 
+    width="367px" 
     height="124px" 
-    alt="Image Menu" >}}
+    alt="Image menu" >}}
 {{< /center >}}
 
-**Reset Zoom**
-: Resets the zoom: 1 pixel of the image occupies 1 pixel on the screen
+<div class="row">
+<div class="col-md-6">
 
-**Zoom In**
-: Enlarges the displayed image by 10%
+### Reset zoom
 
-**Zoom Out**
-: Reduces the displayed image by 10%
+  <span class="als-ks">G</span> resets the zoom: 1 pixel of the image occupies 1 pixel on the screen
 
-**Adjust**
-: Adjusts the zoom to fit the image in the central area
+### Zoom in
+
+  <span class="als-ks">Y</span> enlarges the displayed image by 10%
+
+</div>
+<div class="col-md-6">
+
+### Zoom out
+
+  <span class="als-ks">H</span> reduces the displayed image by 10%
+
+### Adjust
+
+  <span class="als-ks">B</span> fits the image to the central area
+
+</div>
+</div>
 
 ---
 
@@ -84,29 +110,48 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_view.png" 
-    caption="The View Menu" 
-    width="605px" 
-    height="174px" 
-    alt="View Menu" >}}
+    caption="The View menu" 
+    width="485px" 
+    height="173px" 
+    alt="View menu" >}}
 {{< /center >}}
 
-**Main Controls**
-: Toggles the `Main Controls` panel
+<div class="row">
 
-**Processing Panel**
-: Toggles the `Processing` panel
+<div class="col-md-6">
 
-**Session Log**
-: Toggles the `Session Log` panel
+### Main Controls
 
-**Image Only**
-: Toggles all active panels to maximize the image display area
+  <span class="als-ks">C</span> ON/OFF toggle `Main Controls`
 
-**Full Screen**
-: Displays ALS in full screen mode, hiding the main window frame
+### Processing panel
 
-**Night Mode**
-: Toggles night mode
+  <span class="als-ks">P</span> ON/OFF toggle `Treatments`
+
+### Session log
+
+  <span class="als-ks">L</span> ON/OFF toggle `Session Log`
+
+</div>
+
+<div class="col-md-6">
+
+### Image only
+
+  <span class="als-ks">I</span> ON/OFF **Image only** mode
+
+  ON = all panels are hidden
+
+### Full screen
+
+  <span class="als-ks">D</span> toggles full screen mode
+
+### Night mode
+
+  <span class="als-ks">N</span> toggles night mode
+
+</div>
+</div>
 
 ---
 
@@ -114,21 +159,23 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_utilities.png" 
-    caption="The Utilities Menu" 
-    width="409px" 
+    caption="The Utilities menu" 
+    width="429px" 
     height="74px" 
-    alt="Utilities Menu" >}}
+    alt="Utilities menu" >}}
 {{< /center >}}
 
-**QR Code**
-: Toggles the QR Code leading to the image server
+### QR Code
 
-  _This option is only available if the image server is started_
+  <span class="als-ks">Q</span> ON/OFF toggle image server QR Code display
 
-**Create Launcher**
-: Start the process of creating the ALS launcher in the system menu
+  ℹ️ This option is only available if the image server is started
 
-  _This option is only visible on Linux systems_
+### Create launcher
+
+  Starts the process of creating an ALS launcher in the system menu
+
+  ℹ️ This option is only visible on Linux systems
 
 ---
 
@@ -136,18 +183,19 @@ weight: 325
 
 {{< center >}}
 {{< figure src="menu_help.png" 
-    caption="The Help Menu" 
-    width="413px" 
-    height="74px" 
-    alt="Help Menu" >}}
+    caption="The Help menu" 
+    width="477px" 
+    height="73px" 
+    alt="Help menu" >}}
 {{< /center >}}
 
-**Online Help**
-: Opens the ALS online documentation in your default browser
+### Online help
 
-**About ALS...**
-: Displays a window with the following information:
-  
+  Opens the ALS online documentation in your default browser
+
+### About ALS...
+
+  Displays a window with the following information:
   - ALS version
-  - License used
+  - The license used
   - The application's website address
