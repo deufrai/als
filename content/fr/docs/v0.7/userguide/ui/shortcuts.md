@@ -3,7 +3,7 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T23:55:06Z
+lastmod: 2025-01-03T16:15:40Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
@@ -59,7 +59,7 @@ weight: 323
 
 <span class='als-ks'>X</span> **stoppe** la session
 
-<span class='als-ks'>A</span> ON /OFF **alignement** des brutes
+<span class='als-ks'>A</span> ON/OFF **alignement** des brutes
 </div>
 <div class="col-md-6">
 

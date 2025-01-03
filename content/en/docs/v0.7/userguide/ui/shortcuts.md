@@ -3,7 +3,7 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2025-01-02T23:55:06Z
+lastmod: 2025-01-03T16:15:40Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
@@ -59,7 +59,7 @@ weight: 323
 
 <span class='als-ks'>X</span> **stops** the session
 
-<span class='als-ks'>A</span> ON /OFF subs **alignment**
+<span class='als-ks'>A</span> ON/OFF subs **alignment**
 </div>
 <div class="col-md-6">
 
