@@ -1,8 +1,8 @@
 ---
 title: "General Tab"
-description: "Documentation of the General tab in ALS preferences"
+description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-02T07:23:46Z
+lastmod: 2025-01-04T16:01:47Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"

@@ -1,8 +1,8 @@
 ---
 title: "Process Tab"
-description: "Documentation of the Processing tab in ALS preferences"
+description: "ALS Preferences Process Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-02T15:01:52Z
+lastmod: 2025-01-04T16:01:47Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"

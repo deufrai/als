@@ -1,8 +1,8 @@
 ---
 title: "Output Tab"
-description: "Documentation of the Output tab in ALS preferences"
+description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-02T22:10:35Z
+lastmod: 2025-01-04T16:01:47Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
