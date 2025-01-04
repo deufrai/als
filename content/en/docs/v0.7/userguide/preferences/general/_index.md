@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-04T16:01:47Z
+lastmod: 2025-01-04T16:43:59Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -64,6 +64,8 @@ alt="Software interface showing scan folder settings with the path set to /home/
 - 🖱️ click `Scan Folder...` to configure the **scan folder**
 - The configured path is displayed to the right of the button
 
+ℹ️ Defaut : ∅
+
 # Memory Usage {#memory}
 
 Defines ALS's behavior regarding the amount of memory it leaves to other applications.
@@ -80,16 +82,17 @@ The names associated with these slider steps are as vague as memory management c
 
 We advise you to experiment with an open and joyful mind...
 
-⚙️ Or consult the **Scanner** module's [detailed documentation](../../../reference/modules/scanner#memory-management) 
+⚙️ Or consult the **Scanner** module's [detailed documentation](../../../reference/modules/scanner#memory-management)
+
+ℹ️ Default: **Unfair**
+
+---
 
 # Core {#core}
 
 {{% alert color="info" %}}
 ℹ️ Changes made to core settings require a restart of ALS to take effect.
 {{% /alert %}}
-
-<div class="row">
-<div class="col-md-6">
 
 ## Profile {#profile}
 
@@ -103,40 +106,11 @@ Profiles optimize ALS's behavior for specific uses:
 | Astrophoto                         | Normal                    | OFF                               |
 
 
-</div>
-<div class="col-md-6">
-
-## Language {#language}
-
-Defines the language of the ALS user interface.
-
-🖱️ 3 choices are offered:
-
-- **System**: ALS follows the system language
-- **French**
-- **English**
-
-If your system is set to a language other than French or English, ALS will be displayed in English.
-
-</div>
-</div>
-
-{{< center >}}
-{{< figure src="proflang.png"
-caption="Profile and language preferences"
-width="609px"
-height="153px"
-alt="Software interface showing work folder settings with the path set to /home/astrogeek/sorties_als, and a Modify button to configure this path." >}}
-{{< /center >}}
-
-
-
-
 - 🖱️ The `Electronically Assisted Astronomy` profile enforces application responsiveness.
 
    Recommended for medium-sized subs arriving at a high rate: a few seconds between each sub.
 
-- 🖱️ The `Astrophoto Session Monitoring` profile enforce processing reliability.
+- 🖱️ The `Astrophoto Session Monitoring` profile enforces processing reliability.
 
    Recommended for large subs arriving at a slow rate: up to several minutes between each sub.
 
@@ -148,6 +122,31 @@ Using the **Electronically Assisted Astronomy** profile with square 1:1 subs cau
 The subs stack up forming nested squares of decreasing sizes.
 {{% /alert %}}
 
+ℹ️ Default: **Electronically Assisted Astronomy**
+
+## Language {#language}
+
+Defines the language of the ALS user interface.
+
+- 🖱️ 3 choices are possible:
+
+  - **System**: ALS follows the system language
+  - **French**
+  - **English**
+
+If your system is set to a language other than French or English, ALS will be displayed in English.
+
+ℹ️ Default: **System**
+
+{{< center >}}
+{{< figure src="proflang.png"
+caption="Profile and language preferences"
+width="609px"
+height="153px"
+alt="Software interface showing work folder settings with the path set to /home/astrogeek/sorties_als, and a Modify button to configure this path." >}}
+{{< /center >}}
+
+---
 
 ## Data {#data}
 
@@ -158,22 +157,20 @@ Manages the level of detail in the messages written to the log file.
 The log file is named **als.log**. It is located in your home folder:
 
 {{< tabpane text=true >}}
-  {{% tab header="**System**" disabled=true /%}}
   {{% tab header="Linux" %}}
   <span style="font-family: monospace;">/home/astrogeek/als.log</span>
   {{% /tab %}}
-  {{< tab header="Windows" >}}
+  {{% tab header="Windows" %}}
   <span style="font-family: monospace;">C:\Users\astrogeek\als.log</span>
-  {{< /tab >}}
+  {{% /tab %}}
   {{% tab header="macOS"  %}}
   <span style="font-family: monospace;">/Users/astrogeek/als.log</span>
   {{% /tab %}}
 {{< /tabpane >}}
 
+- 🖱️ Check `Detailed Logs` to enable detailed message logging.
 
-🖱️ Check `Detailed Logs` to enable detailed message logging.
-
-Detailed logs can slow down the application. Use this option when you need to analyze a malfunction 
+Detailed logs can slow down the application. Use this option when you need to analyze a malfunction
 or plan to [report an issue](https://github.com/deufrai/als/issues) and provide us with as much information as possible.
 
 Detailed logs include:
@@ -195,6 +192,7 @@ Detailed logs include:
 </div>
 </div>
 
+ℹ️ Default: **OFF**
 
 {{< center >}}
 {{< figure src="data.png"
@@ -206,8 +204,10 @@ alt="" >}}
 
 ### Usage Stats
 
-🖱️ Check `Usage stats` to enable the collection of ALS usage data.
+- 🖱️ Check `Usage stats` to enable the collection of ALS usage data.
 
 The collected data is anonymous and used to improve the application.
 
 You will find details on data collection in the [quick start guide](../../../quickstart#usage-stats).
+
+ℹ️ Default: **ON, after consent**
