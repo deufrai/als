@@ -2,7 +2,7 @@
 title: "Documentation de référence"
 description: "Documentation détaillée d'ALS"
 author: "Équipe ALS"
-lastmod: 2025-01-02T12:24:10Z
+lastmod: 2025-01-05T12:01:01Z
 keywords: ["documentation de référence ALS"]
 draft: false
 type: "docs"
@@ -105,9 +105,9 @@ flowchart LR
     subgraph Module Preprocess
         direction TB
         PREPROCESS_ENGINE[Moteur]
-        HOT_PIXEL[Hot Pixel Removal]
-        DARK_SUB[Dark Subtraction]
-        DEBAYER[DeBayer]
+        HOT_PIXEL[Suppression pixels chauds]
+        DARK_SUB[Soustraction de dark]
+        DEBAYER[Dématriçage]
     end  
 
     subgraph Module Stacker
