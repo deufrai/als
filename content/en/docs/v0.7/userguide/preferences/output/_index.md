@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-04T16:01:47Z
+lastmod: 2025-01-05T10:44:51Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -47,8 +47,6 @@ ALS saves the main output images in one of the following formats:
 - **PNG**
 - **JPEG**
 
-ℹ️ Default: JPEG
-
 {{< center >}}
 {{< figure src="formats.png"
 caption="Main output file format preferences"
@@ -58,6 +56,8 @@ alt="" >}}
 {{< /center >}}
 
 - 🖱️ use the `Format` buttons to set the main output file format
+
+ℹ️ Default: JPEG
 
 ## Output Folders {#output-folders}
 
@@ -82,6 +82,8 @@ height="213px"
 alt="" >}}
 {{< /center >}}
 
+ℹ️ Default: ∅
+
 ### Web Folder {#web-folder}
 
 {{% alert color="info" %}}
@@ -94,6 +96,8 @@ You have the option to actually separate the two ALS outputs by using a dedicate
 
 - 🖱️ check `Dedicated Web Folder` to display the dedicated **web folder** settings
 - 🖱️ click `Web Folder...` to configure the dedicated **web folder**
+
+ℹ️ Default: OFF
 
 ## Autosave {#autosave}
 
@@ -122,6 +126,8 @@ alt="" >}}
 
 - 🖱️ check `Timestamped Result on Session Stop` to activate the autosave function
 
+ℹ️ Default: OFF
+
 # Server {#server}
 
 Here, the image server listening port and the image refresh period are configured.
@@ -131,8 +137,6 @@ Here, the image server listening port and the image refresh period are configure
 The image server listening port is configured here
 
 Allowed values: 1024 to 65535
-
-ℹ️ Default: 8000
 
 - ⌨️ Enter the `port number` on which the ALS image server will be accessible
 
@@ -144,11 +148,11 @@ height="215px"
 alt="" >}}
 {{< /center >}}
 
+ℹ️ Default: 8000
+
 ## Refresh Period {#server-refresh}
 
 Period, in sec., used in the web page served by ALS to force connected browsers to refresh the image
-
-ℹ️ Default: 5 sec.
 
 `Refresh Period` configures the refresh period
 
@@ -156,3 +160,5 @@ You can:
 - ⌨️ enter the value via keyboard
 - 🖱️ use the arrow buttons
 - 🖱️ use the mouse wheel
+
+ℹ️ Default: 5 sec.

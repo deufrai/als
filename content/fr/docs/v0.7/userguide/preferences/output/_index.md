@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T10:37:02Z
+lastmod: 2025-01-05T10:44:51Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -97,6 +97,8 @@ Vous avez la possibilité de réellement séparer les deux sorties d'ALS en util
 
 - 🖱️ cochez `Dossier web dédié` pour afficher les réglages du **dossier web** dédié
 - 🖱️ cliquez `Dossier web...` pour configurer le **dossier web** dédié
+
+ℹ️ Par défaut : OFF
 
 ## Autosave {#autosave}
 

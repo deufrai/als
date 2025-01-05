@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "ALS Preferences Process Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-04T16:01:47Z
+lastmod: 2025-01-05T10:44:51Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -54,7 +54,9 @@ height="224px"
 alt="Software interface showing the Pre-Processing category with an option to Use hot pixel remover checked." >}}
 {{< /center >}}
 
-🖱️ Check `Remove` to activate the hot pixel removal
+- 🖱️ Check `Remove` to activate the hot pixel removal
+
+ℹ️ Default : OFF
 
 ## Dark subtraction {#dark-remove}
 
@@ -91,6 +93,8 @@ If the dimensions are different:
   - The format difference is discreetly noted in the session log
 {{% /alert %}}
 
+ℹ️ Default : OFF
+
 ## Debayering pattern {#debayer}
 
 {{< center >}}
@@ -122,3 +126,5 @@ If the metadata does not contain any pattern information:
 - Image metadata does not contain the Bayer pattern
 - AUTO mode does not provide the expected result (_i.e. grid or checkerboard on the debayered image_)
 {{% /alert %}}
+
+ℹ️ Default : AUTO
