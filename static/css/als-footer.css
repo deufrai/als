@@ -40,7 +40,7 @@ footer .row > div a i {
 
 .footer-info {
     width: 100%;
-    border-top: 1px solid var(--dimmed);
+    /*border-top: 1px solid var(--dimmed);*/
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap; /* Ensure content wraps if needed */
