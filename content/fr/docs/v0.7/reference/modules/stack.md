@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:39:29Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -17,26 +17,26 @@ Le module **Stacker** prend en charge l'alignement et l'empilement des brutes ca
 
 # Configuration
 
-| Source                                                                 | Paramètre                  | Type de donnée                  | Requis | Valeur par défaut |
-|------------------------------------------------------------------------|----------------------------|---------------------------------|--------|-------------------|
-| [Interface : Contrôles de stacking](../../userguide/ui/controls/#controls)  | Activation de l'alignement | ON/OFF                          | ∅      | ON                |
-| [Interface : Contrôles de stacking](../../userguide/ui/controls/#controls)  | Mode d'empilement          | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
-| [Interface : Contrôles de stacking](../../userguide/ui/controls/#threshold) | Seuil de détection         | page de valeurs                 | OUI    | 25                |
+|                            | Source                                                                      | Type de donnée                  | Requis | Valeur par défaut |
+|----------------------------|-----------------------------------------------------------------------------|---------------------------------|--------|-------------------|
+| Activation de l'alignement | Interface : [Contrôles de stacking](../../userguide/ui/controls/#controls)  | ON/OFF                          | ∅      | ON                |
+| Mode d'empilement          | Interface : [Contrôles de stacking](../../userguide/ui/controls/#controls)  | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
+| Seuil de détection         | Interface : [Contrôles de stacking](../../userguide/ui/controls/#threshold) | entier                          | OUI    | 25                |
 
 # Contrôle
 
 Le module **Stack** est lancé en tâche de fond au démarrage d'ALS
 
-| Type          | Source                     | Raccourci         | Action              |
-|---------------|----------------------------|-------------------|---------------------|
-| Événement     | brute(s) en file d'attente | ∅                 | lance le traitement |
+| Source                     | Type          | Réponse             |
+|----------------------------|---------------|---------------------|
+| brute(s) en file d'attente | Événement     | lance le traitement |
 
 # Entrée
 
-| Type  | Description                                       |
-|-------|---------------------------------------------------|
-| Image | brute calibrée en tête de file d'attente |
-| Image | référence d'alignement de la session              |
+| Description                          | Type  |
+|--------------------------------------|-------|
+| brute en tête de file d'attente      | Image |
+| référence d'alignement de la session | Image |
 
 # Comportement {#behavior}
 
@@ -60,9 +60,9 @@ Le module **Stack** est lancé en tâche de fond au démarrage d'ALS
 
 ## Empilement
 
-1. Ajout de la brute calibrée et alignée (si demandé) à la pile
+1. Ajout de la brute alignée (si demandé) à la pile
 2. Génération d'une nouvelle image contenant le résultat de l'empilement selon le mode configuré
 
 # Sortie
 
-L'image générée est transmise au module **Process** 
+L'image générée est diffusée

@@ -2,7 +2,7 @@
 title: "Debayering"
 description: "Detailed documentation of the ALS Debayer process"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: [ "ALS debayer", "ALS debayering" ]
 draft: false
 type: "docs"
@@ -22,10 +22,9 @@ Its configuration is managed via ALS preferences page.
 
 # Configuration
 
-| Source                                                                  | Parameter     | Data Type | Required | Default Value |
-|-------------------------------------------------------------------------|---------------|-----------|----------|---------------|
-| [Preferences: Processing Tab](../../../userguide/preferences/processing/#debayer) | Bayer pattern | choice: <br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | YES      | AUTO          |
-
+|               | Source                                                                            | Data Type                                                  | Required | Default Value |
+|---------------|-----------------------------------------------------------------------------------|------------------------------------------------------------|----------|---------------|
+| Bayer pattern | Preferences: [Processing Tab](../../../userguide/preferences/processing/#debayer) | choice: <br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | YES      | AUTO          |
 
 # Control
 
@@ -33,13 +32,15 @@ This process is triggered by the **Preprocess** module.
 
 # Input
 
-| Type  | Description                                   |
-|-------|-----------------------------------------------|
-| Image | image received from the **Preprocess** module |
+| Data                                          | Type  |
+|-----------------------------------------------|-------|
+| image received from the **Preprocess** module | Image |
 
 # Behavior
 
 The raw image is converted to a color image using the configured Bayer pattern.
+
+- if configured pattern is set to **AUTO**, the pattern is taken from the image metadata.
 
 # Output
 

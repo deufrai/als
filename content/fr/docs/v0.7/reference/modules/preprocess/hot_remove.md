@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:39:28Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -19,19 +19,19 @@ Sa configuration est gérée via les préférences
 
 # Configuration
 
-| Source                                                                         | Paramètre | Type de donnée | Requis | Valeur par défaut |
-|--------------------------------------------------------------------------------|-----------|----------------|----| --------------- |
-| [Préférences : Onglet Traitement](../../../userguide/preferences/processing/#hot-remove) | ON/OFF    | ON/OFF         |  ∅  | OFF             |
+|        | Source                                                                                   | Type de donnée | Requis | Valeur par défaut |
+|--------|------------------------------------------------------------------------------------------|----------------|--------|-------------------|
+| ON/OFF | Préférences : [Onglet Traitement](../../../userguide/preferences/processing/#hot-remove) | ON/OFF         | ∅      | OFF               |
 
 # Contrôle
 
-Ce traitement est ordonné par le module **Preprocess**
+Ce traitement est déclenché par le module **Preprocess**
 
 # Entrée
 
-| Type  | Description                                  |
-|-------|----------------------------------------------|
-| Image | image reçue du module **Preprocess** |
+| Donnée                                     | Type  |
+|--------------------------------------------|-------|
+| image fournie par le module **Preprocess** | Image |
 
 
 # Comportement

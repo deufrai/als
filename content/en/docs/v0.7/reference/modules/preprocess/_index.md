@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Detailed documentation of the ALS Preprocess module"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: ["ALS preprocess"]
 draft: false
 type: "docs"
@@ -26,15 +26,15 @@ See the [Behavior](#behavior) section below.
 
 The **Preprocess** module is launched in the background at ALS startup
 
-| Type      | Source                     | Shortcut | Action                                     |
-|-----------|----------------------------|----------|--------------------------------------------|
-| Event     | sub(s) in queue       | ∅        | trigger calibration |
+| Source                | Type      | Response            |
+|-----------------------|-----------|---------------------|
+| sub(s) in queue       | Event     | trigger calibration |
 
 # Input
 
-| Type  | Description        |
-|-------|--------------------|
-| Image | sub at queue front |
+| Data               | Type  |
+|--------------------|-------|
+| sub at queue front | Image |
 
 # Behavior {#behavior}
 
@@ -46,4 +46,4 @@ Performs **calibration** processes on the sub:
 
 # Output
 
-The image resulting from step 3 is transmitted to the **Stack** module.
+Calibrated sub is broadcast

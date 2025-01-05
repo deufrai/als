@@ -2,7 +2,7 @@
 title: "Save"
 description: "Detailed documentation of the ALS Save module"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: ["ALS image Saver"]
 draft: false
 type: "docs"
@@ -19,11 +19,11 @@ Its configuration is managed via ALS preferences
 
 # Configuration
 
-| Source                        | Parameter                | Data type                       | Required | Default value |
-|-------------------------------|--------------------------|---------------------------------|----------|---------------|
-| [Prefs: General Tab](../../userguide/preferences/general/#work-folder) | work folder              | path to a folder               | Yes      | ∅             |
-| [Prefs: Output Tab](../../userguide/preferences/output/#web-folder) | web folder               | path to a folder               | Yes      | = work folder |
-| [Prefs: Output Tab](../../userguide/preferences/output/#format) | file format              | choices:<br>- TIFF<br>- PNG<br>- JPEG | Yes      | JPEG          |
+|             | Source                                                                | Data type                              | Required | Default value |
+|-------------|-----------------------------------------------------------------------|----------------------------------------|----------|---------------|
+| work folder | Prefs: [Output Tab](../../userguide/preferences/output/#work-folder)  | path to a folder                       | Yes      | ∅             |
+| web folder  | Prefs: [Output Tab](../../userguide/preferences/output/#web-folder)   | path to a folder                       | Yes      | = work folder |
+| file format | Prefs: [Output Tab](../../userguide/preferences/output/#format)       | choices:<br>- TIFF<br>- PNG<br>- JPEG  | Yes      | JPEG          |
 
 # Control
 
@@ -31,9 +31,9 @@ The **Save** module is launched in the background at ALS startup
 
 # Input
 
-| Type  | Description         |
-|-------|---------------------|
-| Image | image at queue head |
+| Data                | Type  |
+|---------------------|-------|
+| image at queue head | Image |
 
 # Behavior
 

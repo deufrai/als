@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:39:28Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
@@ -26,15 +26,15 @@ Voir section [Comportement](#behavior) ci-dessous.
 
 Le module **Preprocess** est lancé en tâche de fond au démarrage d'ALS
 
-| Type          | Source                     | Raccourci         | Action                                                             |
-|---------------|----------------------------|-------------------|--------------------------------------------------------------------|
-| Événement     | brute(s) en file d'attente | ∅                 | lance la calibration  |
+| Source                     | Type          | Réponse              |
+|----------------------------|---------------|----------------------|
+| brute(s) en file d'attente | Événement     | lance la calibration |
 
 # Entrée
 
-| Type  | Description                        |
-|-------|------------------------------------|
-| Image | brute en tête de la file d'attente |
+| Donnée                             | Type  |
+|------------------------------------|-------|
+| brute en tête de la file d'attente | Image |
 
 # Comportement {#behavior}
 
@@ -46,4 +46,4 @@ Applique les traitements de **calibration** à la brute :
 
 # Sortie
 
-La brute calibrée est transmise au module **Stack** 
+La brute calibrée est diffusée

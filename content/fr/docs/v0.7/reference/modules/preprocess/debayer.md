@@ -2,7 +2,7 @@
 title: "Dématriçage"
 description: "Documentation détaillée du traitement de dématriçage d'ALS"
 author: "ALS Team"
-lastmod: 2024-12-31T21:39:28Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: ["ALS debayer", "ALS dépatriçage"]
 draft: false
 type: "docs"
@@ -22,25 +22,26 @@ Sa configuration est gérée via les préférences
 
 # Configuration
 
-| Source                                 | Paramètre                | Type de donnée           | Requis | Valeur par défaut |
-|----------------------------------------|--------------------------|---------------------------| ------- | --------------- |
-| [Préférences : Onglet Traitement](../../../userguide/preferences/processing/#debayer) | Matrice de Bayer | choix :<br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | OUI     | AUTO              |
-
+|                  | Source                                                                                | Type de donnée                                            | Requis  | Valeur par défaut |
+|------------------|---------------------------------------------------------------------------------------|-----------------------------------------------------------|---------|-------------------|
+| Matrice de Bayer | Préférences : [Onglet Traitement](../../../userguide/preferences/processing/#debayer) | choix :<br>- AUTO<br>- GRBG<br>- RGGB<br>- GBRG<br>- BGGR | OUI     | AUTO              |
 
 # Contrôle
 
-Ce traitement est ordonné par le module **Preprocess**
+Ce traitement est déclenché par le module **Preprocess**
 
 # Entrée
 
-| Type  | Description                                  |
-|-------|----------------------------------------------|
-| Image | image reçue du module parent **Preprocess** |
+| Donnée                                       | Type  |
+|----------------------------------------------|-------|
+| image fournie par le module **Preprocess**   | Image |
 
 
 # Comportement
 
 L'image brute est convertie en image couleur en utilisant la matrice de Bayer configurée.
+
+- si la matrice configurée est définie sur **AUTO**, la matrice est extraite des métadonnées de l'image.
 
 # Sortie
 

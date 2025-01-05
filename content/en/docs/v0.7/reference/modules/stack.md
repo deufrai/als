@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2024-12-31T21:07:16Z
+lastmod: 2025-01-05T13:36:11Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -17,26 +17,26 @@ The **Stacker** module handles the alignment and stacking of calibrated subs.
 
 # Configuration
 
-| Source                                                            | Parameter           | Data type                   | Required | Default value |
-|-------------------------------------------------------------------|---------------------|-----------------------------|----------|---------------|
-| [Interface: Stacking controls](../../userguide/ui/controls/#controls)  | Alignment ON/OFF    | ON/OFF                      | ∅        | ON            |
-| [Interface: Stacking controls](../../userguide/ui/controls/#controls)  | Stacking mode       | choices:<br>- mean<br>- sum | YES      | mean          |
-| [Interface: Stacking controls](../../userguide/ui/controls/#threshold) | Detection threshold | value range                 | YES      | 25            |
+|                     | Source                                                                 | Data type                   | Required | Default value |
+|---------------------|------------------------------------------------------------------------|-----------------------------|----------|---------------|
+| Alignment ON/OFF    | Interface: [Stacking controls](../../userguide/ui/controls/#controls)  | ON/OFF                      | ∅        | ON            |
+| Stacking mode       | Interface: [Stacking controls](../../userguide/ui/controls/#controls)  | choices:<br>- mean<br>- sum | YES      | mean          |
+| Detection threshold | Interface: [Stacking controls](../../userguide/ui/controls/#threshold) | integer                     | YES      | 25            |
 
 # Control
 
 The **Stack** module is launched in the background at ALS startup
 
-| Type      | Source                     | Shortcut | Action             |
-|-----------|----------------------------|----------|--------------------|
-| Event     | sub(s) in queue       | ∅        | trigger processing |
+| Source                     | Type      | Response           |
+|----------------------------|-----------|--------------------|
+| sub(s) in queue            | Event     | trigger processing |
 
 # Input
 
-| Type  | Description                   |
-|-------|-------------------------------|
-| Image | calibrated sub at queue front |
-| Image | session alignment reference   |
+| Data                        | Type  |
+|-----------------------------|-------|
+| sub at queue front          | Image |
+| session alignment reference | Image |
 
 # Behavior {#behavior}
 
@@ -60,9 +60,9 @@ The **Stack** module is launched in the background at ALS startup
 
 ## Stacking
 
-1. Add the calibrated and aligned (if requested) sub to the stack.
+1. Add the aligned (if requested) sub to the stack.
 2. Generate a new image containing the stacking result according to the configured mode.
 
 # Output
 
-The generated image is passed to the **Process** module.
+The generated image is broadcast
