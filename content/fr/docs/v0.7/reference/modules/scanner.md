@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-03T17:16:52Z
+lastmod: 2025-01-05T12:45:37Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -49,9 +49,9 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 
 # Entrée
 
-| Donnée                      | Type              |
-|-----------------------------|-------------------|
-| chemin de la brute détectée | Chemin de fichier |
+| Donnée                      | Type                   |
+|-----------------------------|------------------------|
+| chemin de la brute détectée | Chemin vers un fichier |
 
 # Comportement
 
@@ -143,7 +143,10 @@ Le fichier est chargé en mémoire en utilisant le format correspondant à son e
 | <span style="font-family: monospace;">.png</span>                | PNG    |
 | <div style="font-family: monospace;">.tiff<br>.tif</div>         | TIFF   |
 | <div style="font-family: monospace;">.fits<br>.fit<br>.fts</div> | FITS   |
-| Toutes les autres extensions                                     | Raw[1] | 
+| Toutes les autres extensions                                     | Raw    | 
+
+Les fichiers Raw sont chargés en utilisant la librairie libRaw. Voir la 
+[Liste des appareils photo supportés](https://www.libraw.org/supported-cameras) 
 
 ## Extraction de métadonnées
 
@@ -163,7 +166,3 @@ Métadonnées extraites du fichier et incorporées à l'image en mémoire :
 L'image chargée est diffusée pour qui veut bien s'en occuper.
 
 ⚙️ _ALS placera l'image dans la file d'attente du module **Preprocess** pour la calibration_
-
----
-
-[1] [Liste des appareils photo pris en charge par la librairie libRaw](https://www.libraw.org/supported-cameras) 

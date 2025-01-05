@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-01-03T17:16:52Z
+lastmod: 2025-01-05T12:45:37Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -54,7 +54,7 @@ Even if they are saved in subfolders created after the **Scanner** module is sta
 
 | Data                     | Type              |
 |--------------------------|-------------------|
-| Path to the detected sub | File path         |
+| Path to the detected sub | Path to a file    |
 
 # Behavior
 
@@ -150,7 +150,9 @@ The file is loaded into memory using the format matching its filename extension.
 | <span style="font-family: monospace;">.png</span>                | PNG    |
 | <div style="font-family: monospace;">.tiff<br>.tif</div>         | TIFF   |
 | <div style="font-family: monospace;">.fits<br>.fit<br>.fts</div> | FITS   |
-| All other extensions                                             | Raw[1] |
+| All other extensions                                             | Raw    |
+
+Raw files are loaded using the libRaw library. See the [list of supported cameras](https://www.libraw.org/supported-cameras) 
 
 ## Metadata Extraction
 
@@ -169,7 +171,3 @@ Metadata extracted from file and incorporated into the loaded image:
 The loaded image is broadcast to whoever listens.
 
 ⚙️ _ALS will put the image in the **Preprocess** module's input queue for calibration_
-
----
-
-[1] [List of cameras supported by the libRaw library](https://www.libraw.org/supported-cameras)
