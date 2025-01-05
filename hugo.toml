@@ -65,7 +65,7 @@ enableGitInfo = true
   # French Configuration
   [languages.fr]
     weight = 1
-    languageName = "Français"
+    languageName = "🇫🇷 FR"
     contentDir = "content/fr"
 
     [[languages.fr.menu.main]]
@@ -95,7 +95,7 @@ enableGitInfo = true
   # English Configuration
   [languages.en]
     weight = 2
-    languageName = "English"
+    languageName = "🇬🇧 EN"
     contentDir = "content/en"
 
     [[languages.en.menu.main]]
