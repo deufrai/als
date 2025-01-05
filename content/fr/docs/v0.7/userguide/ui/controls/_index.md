@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T20:14:45Z
+lastmod: 2025-01-05T11:42:35Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -16,12 +16,12 @@ Au cours de ce chapitre, vous allez :
 - vous familiariser avec les contrôles principaux d'ALS
 - approfondir vos connaissances sur les fonctionnalités clés
 
-Le poste de commande d'ALS est le panneau d'interface `Contrôles principaux`
-
 <div class="row">
   <div class="col-md-8">
 
 # Présentation
+
+Le poste de commande d'ALS est le panneau d'interface `Contrôles principaux`
 
 Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages les plus utilisés en sections :
 
@@ -146,7 +146,7 @@ seuil :
 
 Toute brute présentant un nombre de similitudes **inférieur** à ce seuil est abandonnée.
 
-🖱️ Utilisez le curseur `Seuil` pour modifier la valeur de ce **seuil de détection**
+- 🖱️ Utilisez le curseur `Seuil` pour modifier la valeur de ce **seuil de détection**
 
 **Quand une brute est abandonnée** :
 

@@ -3,7 +3,7 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2025-01-03T16:47:42Z
+lastmod: 2025-01-05T11:42:35Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
@@ -150,7 +150,7 @@ Ouvre les préférences
 
 ### Mode nuit
 
-  <span class="als-ks">N</span> ON/OFF mode Nuit : thème sombre
+  <span class="als-ks">N</span> ON/OFF mode nuit
 
 </div>
 </div>
@@ -199,6 +199,6 @@ Ouvre les préférences
 ### À propos d'ALS...
 
   Affiche les informations de l'application :
-  - Version d'ALS
-  - La license utilisée
-  - L'adresse du site Web de l'application
+  - version
+  - license
+  - site Web

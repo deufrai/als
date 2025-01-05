@@ -3,7 +3,7 @@ title: "main menu"
 description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2025-01-03T16:47:42Z
+lastmod: 2025-01-05T11:42:35Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["usage"]
@@ -138,7 +138,7 @@ Opens preferences
 
 ### Image only
 
-  <span class="als-ks">I</span> ON/OFF **Image only** mode
+  <span class="als-ks">I</span> ON/OFF Image only mode : all panels are hidden
 
   ON = all panels are hidden
 
@@ -195,7 +195,7 @@ Opens preferences
 
 ### About ALS...
 
-  Displays a window with the following information:
-  - ALS version
-  - The license used
-  - The application's website address
+  Displays application information:
+  - version
+  - license
+  - website

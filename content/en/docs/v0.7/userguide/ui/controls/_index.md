@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T20:14:45Z
+lastmod: 2025-01-05T11:42:35Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -17,12 +17,12 @@ During this chapter, you will:
 - get familiar with ALS main controls
 - Deepen your knowledge on key features
 
-The ALS control station is the `Main Controls` interface panel
-
 <div class="row">
   <div class="col-md-8">
 
 # Overview
+
+The ALS control station is the `Main Controls` interface panel
 
 Located on the left side of the ALS interface, it organizes the most used controls and displays into sections:
 
@@ -143,7 +143,7 @@ Poor quality subs, with too few or distorted stars, are discarded using a thresh
 
 Any sub with a number of similarities **below** this threshold is discarded.
 
-🖱️ Use the `Threshold` slider to adjust the value of this **detection threshold**.
+- 🖱️ Use the `Threshold` slider to adjust the value of this **detection threshold**.
 
 **When a sub is discarded**:
 
