@@ -1,7 +1,7 @@
 function downloadAndOpenInstructions(platform) {
     var urls = {
         'windows': {
-            'download': 'https://github.com/deufrai/als/releases/download/v0.7-beta9/als-v0.7-beta8_Setup.exe',
+            'download': 'https://github.com/deufrai/als/releases/download/v0.7-beta9/als-v0.7-beta9_Setup.exe',
             'instructions': window.location.pathname.includes('/fr/') ? '/fr/docs/v0.7/installation/windows-install/' : '/docs/v0.7/installation/windows-install/'
         },
         'mac-intel': {
