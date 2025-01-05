@@ -39,9 +39,11 @@ class PreferencesDialog(QDialog):
         self._ui.setupUi(self)
 
         self._ui.tabWidget.setCurrentIndex(0)
-        self._ui.pathsBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
-        self._ui.serverBox.setDisabled(DYNAMIC_DATA.web_server_is_running or not DYNAMIC_DATA.session.is_stopped)
+        self._ui.pathsBox.setEnabled(not DYNAMIC_DATA.web_server_is_running and DYNAMIC_DATA.session.is_stopped)
+        self._ui.serverBox.setEnabled(not DYNAMIC_DATA.web_server_is_running)
+
 
         self._ui.cmb_lang.setItemData(0, 'sys')
         self._ui.cmb_lang.setItemData(1, 'en')
@@ -62,7 +64,6 @@ class PreferencesDialog(QDialog):
         self._ui.ln_master_dark_path.setToolTip(config.get_master_dark_file_path())
 
         self._ui.ln_web_server_port.setText(str(config.get_www_server_port_number()))
-        self._ui.spn_webpage_refresh_period.setValue(config.get_www_server_refresh_period())
         self._ui.chk_debug_logs.setChecked(config.is_debug_log_on())
         self._ui.chk_use_dark.setChecked(config.get_use_master_dark())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
@@ -237,8 +238,6 @@ class PreferencesDialog(QDialog):
             self._ui.ln_web_server_port.setFocus()
             self._ui.ln_web_server_port.selectAll()
             return
-
-        config.set_www_server_refresh_period(self._ui.spn_webpage_refresh_period.value())
 
         # debug log choice
         debug_old_value = config.is_debug_log_on()

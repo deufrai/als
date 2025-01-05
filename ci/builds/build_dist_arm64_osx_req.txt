@@ -19,6 +19,7 @@ psutil
 PyInstaller<5
 qrcode
 exifread
+aiohttp==3.11.11
 
 # transitive dependencies pinning
 ######################################

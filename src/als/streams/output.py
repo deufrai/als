@@ -12,6 +12,7 @@ import cv2
 from PyQt5.QtCore import QT_TRANSLATE_NOOP
 
 import als.model.data
+from als import config
 from als.code_utilities import log, SignalingQueue, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image
@@ -26,14 +27,19 @@ class ImageSaver(QueueConsumer):
 
     """
     @log
-    def __init__(self, save_queue: SignalingQueue):
+    def __init__(self, save_queue: SignalingQueue, controller):
         QueueConsumer.__init__(self, "save", save_queue)
+        self._controller = controller
 
     @log
     def _handle_item(self, image: Image):
 
         # image conversions involved in saving to various formats forces us to clone the received image
         ImageSaver._save_image(image.clone())
+
+        # if we just saved an image for the server output, have the controller notify the browsers
+        if image.destination.strip().startswith(config.get_web_folder_path()):
+            self._controller.notify_browsers_about_new_image()
 
     @staticmethod
     @log
@@ -178,4 +184,4 @@ class ImageSaver(QueueConsumer):
 
         return cv2.imwrite(target_path,
                            cv2.cvtColor(image.data, cv2_color_conversion_flag),
-                           [int(cv2.IMWRITE_JPEG_QUALITY), 100]), ''
+                           [int(cv2.IMWRITE_JPEG_QUALITY), 85]), ''

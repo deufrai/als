@@ -16,7 +16,8 @@ import als.model.data
 from als import config
 from als.code_utilities import log, get_text_content_of_resource, AlsLogAdapter
 from als.config import CouldNotSaveConfig
-from als.logic import Controller, SessionError, FolderSetupError, WebServerFailedToStart, WebServerOnLoopback
+from als.logic import Controller, SessionError, FolderSetupError, WebServerOnLoopback, \
+    PortInUseError
 from als.messaging import MESSAGE_HUB
 from als.model.data import DYNAMIC_DATA, I18n
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
@@ -502,12 +503,20 @@ class MainWindow(QMainWindow):
         """
         Qt slot executed when START web button is clicked
         """
+
+        self._ui.btn_web_start.setEnabled(False)
+        QApplication.processEvents()
+
         try:
             self._controller.start_www()
             self._qrDisplay.update_code()
 
-        except WebServerFailedToStart as start_failure:
-            error_box(start_failure.message, start_failure.details)
+        except PortInUseError:
+            error_message = self.tr("Port {} is already in use.").format(config.get_www_server_port_number())
+            error_message += "\n\n" + self.tr("Change server port number in preferences and start server again")
+            error_title = self.tr("Could not start web server")
+            MESSAGE_HUB.dispatch_error(__name__, error_message)
+            error_box(error_title, error_message)
 
         except WebServerOnLoopback:
             title = self.tr("Web server access is limited")
@@ -519,10 +528,13 @@ class MainWindow(QMainWindow):
     @log
     def on_btn_web_stop_clicked(self):
         """
-        Qt slot executed when START web button is clicked
+        Qt slot executed when STOP web button is clicked
         """
-        self._controller.stop_www()
+
+        self._ui.btn_web_stop.setEnabled(False)
         self._qrDisplay.setVisible(False)
+        QApplication.processEvents()
+        self._controller.stop_www()
 
     @log
     def on_action_full_screen_toggled(self, checked):
@@ -729,10 +741,14 @@ class MainWindow(QMainWindow):
         """
         self._image_item.setPixmap(DYNAMIC_DATA.post_processor_result_qimage)
 
-    @pyqtSlot(name="on_pbPlay_clicked")
+
+    @pyqtSlot()
     @log
-    def cb_play(self):
-        """Qt slot for mouse clicks on the 'play' button"""
+    def on_btn_session_start_clicked(self):
+        """Qt slot for mouse clicks on the session START button"""
+
+        self._ui.btn_session_start.setEnabled(False)
+        QApplication.processEvents()
 
         self._start_session()
 
@@ -797,9 +813,9 @@ class MainWindow(QMainWindow):
             self._ui.lbl_session_status.setText(f"{session_status}")
 
             # handle Start / Pause / Stop  buttons
-            self._ui.pbPlay.setEnabled(session_is_stopped or session_is_paused)
-            self._ui.pbStop.setEnabled(session_is_running or session_is_paused)
-            self._ui.pbPause.setEnabled(session_is_running)
+            self._ui.btn_session_start.setEnabled(session_is_stopped or session_is_paused)
+            self._ui.btn_session_stop.setEnabled(session_is_running or session_is_paused)
+            self._ui.btn_session_pause.setEnabled(session_is_running)
 
             # handle align + stack mode buttons
             self._ui.chk_align.setEnabled(session_is_stopped)
@@ -858,16 +874,22 @@ class MainWindow(QMainWindow):
             self._ui.sld_align_threshold.setValue(config.get_minimum_match_count())
             self._ui.lbl_align_threshold.setText(str(self._ui.sld_align_threshold.value()))
 
-    @pyqtSlot(name="on_pbStop_clicked")
+    @pyqtSlot()
     @log
-    def cb_stop(self):
-        """Qt slot for mouse clicks on the 'Stop' button"""
+    def on_btn_session_stop_clicked(self):
+        """Qt slot for mouse clicks on the session STOP button"""
+
+        self._ui.btn_session_stop.setEnabled(False)
+        QApplication.processEvents()
         self._stop_session()
 
-    @pyqtSlot(name="on_pbPause_clicked")
+    @pyqtSlot()
     @log
-    def cb_pause(self):
-        """Qt slot for mouse clicks on the 'Pause' button"""
+    def on_btn_session_pause_clicked(self):
+        """Qt slot for mouse clicks on the session PAUSE button"""
+
+        self._ui.btn_session_pause.setEnabled(False)
+        QApplication.processEvents()
         self._controller.pause_session()
 
     @log

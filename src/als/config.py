@@ -23,7 +23,7 @@ from configparser import ConfigParser, DuplicateOptionError, ParsingError
 from pathlib import Path
 
 from als.code_utilities import AlsException, AlsLogAdapter
-from als.model.data import IMAGE_SAVE_TYPE_JPEG, DYNAMIC_DATA
+from als.model.data import DYNAMIC_DATA, IMAGE_SAVE_TYPE_JPEG
 
 _CONFIG_FILE_PATH = os.path.expanduser("~/.als.cfg")
 
@@ -38,7 +38,6 @@ _WINDOW_GEOMETRY = "window_geometry"
 _WINDOW_MAXIMIZED = "window_maximized"
 _IMAGE_SAVE_FORMAT = "image_save_format"
 _FULL_SCREEN = "full_screen"
-_WWW_REFRESH_PERIOD = "web_refresh_period"
 _MINIMUM_MATCH_COUNT = "alignment_minimum_match_count"
 _USE_MASTER_DARK = "use_master_dark"
 _MASTER_DARK_FILE_PATH = "master_dark_file_path"
@@ -79,7 +78,6 @@ _DEFAULTS = {
     _WINDOW_MAXIMIZED:      0,
     _IMAGE_SAVE_FORMAT:     IMAGE_SAVE_TYPE_JPEG,
     _FULL_SCREEN:           0,
-    _WWW_REFRESH_PERIOD:    5,
     _MINIMUM_MATCH_COUNT:   25,
     _USE_MASTER_DARK:       0,
     _MASTER_DARK_FILE_PATH: "",
@@ -87,7 +85,7 @@ _DEFAULTS = {
     _LANG:                  "sys",
     _BAYER_PATTERN:         "AUTO",
     _NIGHT_MODE:            0,
-    _SAVE_ON_STOP:          0,
+    _SAVE_ON_STOP:          1,
     _PROFILE:               0,
     _PRESERVED_MEM:         1,
     _SEND_STATS:            None
@@ -401,30 +399,6 @@ def set_preserved_mem(code):
     _set(_PRESERVED_MEM, code)
 
 
-def get_www_server_refresh_period():
-    """
-    Retrieves the configured web server page refresh period.
-
-    :return: The web server page refresh period, or its default value if config entry
-             is not parsable as an int.
-    :rtype: int
-    """
-    try:
-        return int(_get(_WWW_REFRESH_PERIOD))
-    except ValueError:
-        return _DEFAULTS[_WWW_REFRESH_PERIOD]
-
-
-def set_www_server_refresh_period(period):
-    """
-    Sets web server page refresh period.
-
-    :param period: the period
-    :type period: int
-    """
-    _set(_WWW_REFRESH_PERIOD, str(period))
-
-
 def get_work_folder_path():
     """
     Retrieves work folder path.
@@ -734,6 +708,7 @@ def _setup_logging():
         'watchdog.observers.inotify_buffer',
         'exifread',
         'astropy',
+        'aiohttp.access'
     ]
     for third_party_log_polluter in third_party_polluters:
         logging.getLogger(third_party_log_polluter).setLevel(logging.CRITICAL)

@@ -78,3 +78,4 @@ typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
 watchdog==5.0.3
+aiohttp==3.11.11

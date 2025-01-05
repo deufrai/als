@@ -10,6 +10,7 @@
     <qresource prefix="web">
         <file>index.html</file>
         <file>waiting.jpg</file>
+        <file>openseadragon.min.js</file>
     </qresource>
     <qresource prefix="main">
         <file>main.css</file>
@@ -17,5 +18,23 @@
     <qresource prefix="i18n">
         <file>als_fr.qm</file>
         <file>qtbase_fr.qm</file>
+    </qresource>
+    <qresource prefix="webicons">
+        <file>fullpage_grouphover.png</file>
+        <file>fullpage_hover.png</file>
+        <file>fullpage_pressed.png</file>
+        <file>fullpage_rest.png</file>
+        <file>home_grouphover.png</file>
+        <file>home_hover.png</file>
+        <file>home_pressed.png</file>
+        <file>home_rest.png</file>
+        <file>zoomin_rest.png</file>
+        <file>zoomin_grouphover.png</file>
+        <file>zoomin_hover.png</file>
+        <file>zoomin_pressed.png</file>
+        <file>zoomout_grouphover.png</file>
+        <file>zoomout_hover.png</file>
+        <file>zoomout_pressed.png</file>
+        <file>zoomout_rest.png</file>
     </qresource>
 </RCC>

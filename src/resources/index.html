@@ -1,41 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" style="background: black">
+<html lang="en" style="background: #222">
 <head>
-    <title>ALS</title>
-    <script>
-        setInterval(refreshImage, ##PERIOD##);
-        function refreshImage(){
-            var timestamp = new Date().getTime();
-            var el = document.getElementById("web_image");
-            var queryString = "?t=" + timestamp;
-            el.src = "/web_image.jpg" + queryString;
-        }
-    </script>
+    <title>Astro Live Stacker | Webview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/openseadragon.min.js"></script>
     <style>
-
         body {
             margin: 0;
+            overflow: hidden;
         }
 
-        header {
+        #openseadragon {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .overlay {
             position: fixed;
-            z-index: 666;
-            top: 0;
-            left: 0;
-            height: 75px;
-            font-size: 14pt;
-            color: white;
-            opacity: 40%;
+            top: 5px;
+            right: 5px;
+            background: rgba(17, 17, 17, 0.5);
+            color: #a1a1a1;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
         }
 
-        a {
-            text-decoration: none;
-            color: white;
+        .overlay a {
+            color: #a1a1a1;
         }
     </style>
 </head>
-    <body>
-        <header><a href="https://als-app.org" target="_blank">Astro Live Stacker</a></header>
-        <img src="web_image.jpg" id="web_image">
-    </body>
+<body>
+
+<div id="openseadragon"></div>
+<div id="overlay" class="overlay">
+    <div><a href="https://als-app.org" target="_blank">ALS</a></div>
+    <div id="exposition">Expo:</div>
+    <div id="stack-size">Stack:</div>
+</div>
+<script>
+    var viewer = OpenSeadragon({
+        id: "openseadragon",
+        prefixUrl: "/icons/",
+        tileSources: {
+            type: 'image',
+            url: '/web_image.jpg'
+        },
+        minZoomLevel: 0.25,
+        maxZoomLevel: 20
+    });
+
+    function reloadImage() {
+        var currentZoom = viewer.viewport.getZoom();
+        var currentCenter = viewer.viewport.getCenter();
+        var tiledImage = viewer.world.getItemAt(0); // Get the first image
+
+        viewer.addTiledImage({
+            tileSource: {
+                type: 'image',
+                url: '/web_image.jpg?timestamp=' + new Date().getTime()
+            },
+            replace: true,
+            index: viewer.world.getIndexOfItem(tiledImage), // Specify the index
+            success: function () {
+                viewer.viewport.zoomTo(currentZoom, null, true); // Disable easing
+                viewer.viewport.panTo(currentCenter, true); // Disable easing
+            }
+        });
+    }
+
+    function updateOverlay(data) {
+        document.getElementById('stack-size').textContent = 'Stack: ' + data.STACK_SIZE;
+        document.getElementById('exposition').textContent = 'Expo: ' + data.EXPO;
+    }
+
+    function fetchData() {
+        fetch('/data.json')
+            .then(response => response.json())
+            .then(data => updateOverlay(data))
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Call fetchData on initial page load
+    fetchData();
+
+    // WebSocket connection
+    const ws = new WebSocket('ws://' + window.location.host + '/ws');
+
+    ws.onmessage = function(event) {
+        console.log('Received WebSocket message:', event.data);
+        const message = JSON.parse(event.data);
+        if (message.type === 'new_image') {
+            console.log('message type is new_image');
+            console.log('reloading image...');
+            reloadImage();
+            console.log('reload image OK');
+            console.log('fetching stack data...');
+            fetchData();
+            console.log('fetch stack data OK');
+        } else if (message.type === 'disconnect') {
+            console.log('Received disconnect message, closing WebSocket connection...');
+            ws.close();
+            console.log('Close WebSocket connection OK');
+        }
+    };
+
+
+    ws.onopen = function() {
+        console.log('Event : WebSocket connection established');
+    };
+
+    ws.onclose = function() {
+        console.log('Event : WebSocket connection closed');
+    };
+
+    ws.onerror = function(error) {
+        console.error('Event : WebSocket error:', error);
+    };
+</script>
+</body>
 </html>

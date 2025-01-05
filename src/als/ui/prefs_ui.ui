@@ -37,7 +37,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_11">
        <item>
-        <widget class="QGroupBox" name="pathsBox">
+        <widget class="QGroupBox" name="scannerBox">
          <property name="title">
           <string>Scanner</string>
          </property>
@@ -531,7 +531,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_6">
+           <widget class="QGroupBox" name="pathsBox">
             <property name="title">
              <string>Output folders</string>
             </property>
@@ -627,10 +627,10 @@
          <property name="title">
           <string>Server</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_12">
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
           <item>
-           <layout class="QGridLayout" name="gridLayout_2">
-            <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
              <widget class="QLabel" name="lbl_server_port">
               <property name="text">
                <string>&amp;Port number</string>
@@ -643,7 +643,7 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
+            <item>
              <widget class="QLineEdit" name="ln_web_server_port">
               <property name="maximumSize">
                <size>
@@ -656,11 +656,11 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="2">
+            <item>
              <widget class="QLabel" name="label_4">
               <property name="minimumSize">
                <size>
-                <width>320</width>
+                <width>0</width>
                 <height>0</height>
                </size>
               </property>
@@ -669,38 +669,18 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string>Image &amp;reload period</string>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-              <property name="buddy">
-               <cstring>spn_webpage_refresh_period</cstring>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="spn_webpage_refresh_period">
-              <property name="minimumSize">
+              <property name="sizeHint" stdset="0">
                <size>
-                <width>0</width>
-                <height>0</height>
+                <width>62</width>
+                <height>20</height>
                </size>
               </property>
-              <property name="minimum">
-               <number>1</number>
-              </property>
-              <property name="value">
-               <number>10</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="label_5">
-              <property name="text">
-               <string>seconds</string>
-              </property>
-             </widget>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -788,7 +768,6 @@
   <tabstop>ln_web_folder_path</tabstop>
   <tabstop>chk_save_on_stop</tabstop>
   <tabstop>ln_web_server_port</tabstop>
-  <tabstop>spn_webpage_refresh_period</tabstop>
   <tabstop>btn_Cancel</tabstop>
   <tabstop>btn_OK</tabstop>
   <tabstop>tabWidget</tabstop>
