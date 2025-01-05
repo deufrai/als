@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-02T08:01:56Z
+lastmod: 2025-01-05T11:31:56Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -203,7 +203,7 @@ Each processing result is saved in 2 files:
 {{% alert color="info" %}}
 ℹ️ By default, the path of the **web folder** is the same as that of the **work folder**.
 
-You can define a specific **web folder** in the [Preferences](../preferences/output/#web-folder).
+You can define a dedicated **web folder** in the [Preferences](../preferences/output/#web-folder).
 {{% /alert %}}
 
 You can find more information about the **Save** module in its [detailed documentation](../../reference/modules/save/).
