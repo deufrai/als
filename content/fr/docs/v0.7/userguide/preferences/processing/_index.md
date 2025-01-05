@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T15:01:52Z
+lastmod: 2025-01-05T10:37:02Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -54,7 +54,9 @@ height="217px"
 alt="" >}}
 {{< /center >}}
 
-🖱️ Cochez `Supprimer` pour activer la suppression des pixels chauds
+- 🖱️ Cochez `Supprimer` pour activer la suppression des pixels chauds
+
+ℹ️ Par défaut : OFF
 
 ## Soustraction de dark {#dark-remove}
 
@@ -92,7 +94,10 @@ Si les dimensions sont différentes :
   - la différence de format est signalée discrètement dans le journal de session
 {{% /alert %}}
 
+ℹ️ Par défaut : OFF
+
 ## Dématriçage {#debayer}
+
 
 {{< center >}}
 {{< figure src="debayer.png"
@@ -124,3 +129,5 @@ Si les métadonnées ne contiennent aucune matrice
 - Les métadonnées de l'image ne contiennent pas la matrice de Bayer
 - Le mode AUTO ne donne pas le résultat attendu (_ex. grille ou damiers sur l'image dématricée_)
 {{% /alert %}}
+
+ℹ️ Par défaut : AUTO

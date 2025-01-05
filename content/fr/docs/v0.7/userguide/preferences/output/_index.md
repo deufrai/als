@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-02T22:10:36Z
+lastmod: 2025-01-05T10:37:02Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -48,8 +48,6 @@ ALS enregistre les images de la sortie principale dans l'un des formats suivants
 - **PNG**
 - **JPEG**
 
-ℹ️ Par défaut : JPEG
-
 {{< center >}}
 {{< figure src="formats.png"
 caption="Préférences du format de fichier de la sortie principale"
@@ -59,6 +57,8 @@ alt="" >}}
 {{< /center >}}
 
 - 🖱️ utilisez Les boutons `Format` pour définir le format de fichier de la sortie principale
+
+ℹ️ Par défaut : JPEG
 
 ## Dossiers de sortie {#output-folders}
 
@@ -74,6 +74,8 @@ ALS utilise deux dossiers de sortie :
 ### Dossier de travail {#work-folder}
 
 - 🖱️ cliquez `Dossier de travail...` pour configurer le dossier de travail
+
+ℹ️ Par défaut : ∅
 
 {{< center >}}
 {{< figure src="folders.png"
@@ -123,6 +125,8 @@ alt="" >}}
 
 - 🖱️ cochez `Résutlat horodaté à l'arrêt de session` pour activer la fonction d'autosave
 
+ℹ️ Par défaut : OFF
+
 # Server {#server}
 
 Ici sont configurés le port d'écoute du serveur d'images et la période de rafraîchissement des images
@@ -132,8 +136,6 @@ Ici sont configurés le port d'écoute du serveur d'images et la période de raf
 Le port d'écoute du serveur d'images est configuré ici
 
 Valeurs autorisées : 1024 à 65535
-
-ℹ️ Par défaut : 8000
 
 - ⌨️ Saisissez le `numéro de port` sur lequel le serveur d'images d'ALS sera accessible
 
@@ -145,11 +147,11 @@ height="215px"
 alt="" >}}
 {{< /center >}}
 
+ℹ️ Par défaut : 8000
+
 ## Période de rafraîchissement {#server-refresh}
 
 Période, en sec., utilisée dans la page web servie par ALS pour forcer les navigateurs connectés à rafraîchir l'image
-
-ℹ️ Par défaut : 5 sec.
 
 `Période de rafraîchissement` configure la période de rafraîchissement 
 
@@ -157,3 +159,5 @@ Vous pouvez :
 - ⌨️ saisir la valeur au clavier
 - 🖱️ utiliser les boutons fléchés
 - 🖱️ utiliser la molette de la souris
+
+ℹ️ Par défaut : 5 sec.
