@@ -247,68 +247,6 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_13">
-          <item>
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Stack size</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lbl_stack_size">
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string>How many subs have been stacked in this session</string>
-            </property>
-            <property name="statusTip">
-             <string>How many subs have been stacked in this session</string>
-            </property>
-            <property name="text">
-             <string notr="true">0</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_10">
-            <property name="text">
-             <string>Stack exposure</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lbl_stack_exposure">
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string>Stack total exposure time</string>
-            </property>
-            <property name="statusTip">
-             <string>Stack total exposure time</string>
-            </property>
-            <property name="text">
-             <string notr="true">0</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
          <widget class="QLabel" name="lbl_session_status">
           <property name="text">
            <string/>
@@ -456,6 +394,55 @@
              </widget>
             </item>
            </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_14">
+          <item>
+           <widget class="QLabel" name="lbl_stack_size">
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+              <kerning>true</kerning>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>How many subs have been stacked in this session</string>
+            </property>
+            <property name="statusTip">
+             <string>How many subs have been stacked in this session</string>
+            </property>
+            <property name="text">
+             <string notr="true">0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_stack_exposure">
+            <property name="font">
+             <font>
+              <family>Ubuntu</family>
+              <pointsize>11</pointsize>
+              <kerning>true</kerning>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Stack total exposure time</string>
+            </property>
+            <property name="statusTip">
+             <string>Stack total exposure time</string>
+            </property>
+            <property name="text">
+             <string notr="true">0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>

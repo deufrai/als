@@ -8,7 +8,7 @@ from os import linesep, chmod, makedirs
 from pathlib import Path
 
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
-from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
+from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFont
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
     QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox
 
@@ -183,6 +183,9 @@ class MainWindow(QMainWindow):
             self.show()
 
         self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
+
+        # This is how you would set it programmatically in PyQt
+        self._ui.lbl_stack_exposure.setFont(QFont("Courier New, Menlo, DejaVu Sans Mono, monospace"))
 
     def _setup_statusbar(self):
         self._lbl_statusbar_current_profile = QLabel(self._ui.statusBar)
@@ -809,10 +812,7 @@ class MainWindow(QMainWindow):
             # update stack size and total exposure time
             stack_size_str = str(DYNAMIC_DATA.stack_size)
             self._ui.lbl_stack_size.setText(stack_size_str)
-            if DYNAMIC_DATA.total_exposure_time == 0:
-                exposure_time_str = "n/a"
-            else:
-                exposure_time_str = str(datetime.timedelta(seconds=int(round(DYNAMIC_DATA.total_exposure_time, 0))))
+            exposure_time_str = str(datetime.timedelta(seconds=int(round(DYNAMIC_DATA.total_exposure_time, 0))))
             self._ui.lbl_stack_exposure.setText(exposure_time_str)
 
             # update statusbar labels
