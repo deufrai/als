@@ -513,16 +513,19 @@ class MainWindow(QMainWindow):
 
         except PortInUseError:
             error_message = self.tr("Port {} is already in use.").format(config.get_www_server_port_number())
-            error_message += "\n\n" + self.tr("Change server port number in preferences and start server again")
+            error_message_part2 = "\n\n" + self.tr("Change server port number in preferences and start server again")
             error_title = self.tr("Could not start web server")
-            MESSAGE_HUB.dispatch_error(__name__, error_message)
-            error_box(error_title, error_message)
+            MESSAGE_HUB.dispatch_error(__name__, error_title + ". " + error_message)
+            error_box(error_title, error_message + error_message_part2)
 
         except WebServerOnLoopback:
             title = self.tr("Web server access is limited")
             message = self.tr("Web server IP address is 127.0.0.1.\n\nServer won't be reachable by other machines. "
                               "Please check your network connection")
             warning_box(title, message)
+
+        finally:
+            self.update_display()
 
     @pyqtSlot()
     @log
@@ -535,6 +538,7 @@ class MainWindow(QMainWindow):
         self._qrDisplay.setVisible(False)
         QApplication.processEvents()
         self._controller.stop_www()
+        self.update_display()
 
     @log
     def on_action_full_screen_toggled(self, checked):
@@ -751,6 +755,7 @@ class MainWindow(QMainWindow):
         QApplication.processEvents()
 
         self._start_session()
+        self.update_display()
 
     @log
     def on_message(self, message):
@@ -882,6 +887,7 @@ class MainWindow(QMainWindow):
         self._ui.btn_session_stop.setEnabled(False)
         QApplication.processEvents()
         self._stop_session()
+        self.update_display()
 
     @pyqtSlot()
     @log
@@ -891,6 +897,7 @@ class MainWindow(QMainWindow):
         self._ui.btn_session_pause.setEnabled(False)
         QApplication.processEvents()
         self._controller.pause_session()
+        self.update_display()
 
     @log
     def _start_session(self, is_retry: bool = False):
