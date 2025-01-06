@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T13:36:11Z
+lastmod: 2025-01-06T03:20:05Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -35,6 +35,23 @@ Ce traitement est déclenché par le module **Preprocess**
 
 
 # Comportement
+
+
+```mermaid
+graph LR
+  A[Start Process] --> B{Is Image Available?}
+  B -- No --> C[Return None]
+  B -- Yes --> D[Get Hot Pixel Remover Config]
+  D --> E{Is Hot Pixel Remover Enabled?}
+  E -- No --> F[Return Image Unchanged]
+  E -- Yes --> G{Is Image Color?}
+  G -- Yes --> H[Log Skipped on Color Image]
+  H --> F
+  G -- No --> I[Calculate Neighbors' Mean]
+  I --> J[Replace Hot Pixels with Neighbors' Mean]
+  J --> K[Return Modified Image]
+
+```
 
 Chaque pixel de l'image dont la valeur s'écarte trop de ses voisins est considéré comme un pixel chaud 
 
