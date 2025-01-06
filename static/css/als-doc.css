@@ -31,6 +31,7 @@
     color: inherit;
     padding: 0.25rem;
     border-radius: 6px;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.3);
 }
 
 .als-doc-content > table > thead > tr > th {
