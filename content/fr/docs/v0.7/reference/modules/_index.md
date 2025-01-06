@@ -2,7 +2,7 @@
 title: "Modules et Traitements"
 description: "Modules et Traitements ALS"
 author: "ALS Team"
-lastmod: 2025-01-06T03:17:33Z
+lastmod: 2025-01-06T07:36:08Z
 keywords: [ "modules et traitements ALS" ]
 type: "docs"
 categories: [ "documentations détaillées" ]
@@ -99,9 +99,9 @@ Une fois le dernier traitement terminé, le pipeline diffuse le résultat à l'a
 
 ```mermaid
 flowchart LR
-DÉMARRER((Démarrer))
+DÉMARRER((Start))
 TEST{{Test:<br><br>Images dans la file d'attente ?}}
-PRENDRE[Prendre l'image en tête de file]
+PRENDRE[Prend l'image en tête de file]
 subgraph Traitement
     A[Traitement A]
     B[Traitement B]
