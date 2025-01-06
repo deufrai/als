@@ -47,6 +47,8 @@ class I18n(QObject):
     PROFILE = "TEMP"
     VISUAL = "TEMP"
 
+    STARTING = "TEMP"
+    STOPPING = "TEMP"
     RUNNING_M = "TEMP"
     RUNNING_F = "TEMP"
     STOPPED_M = "TEMP"
@@ -82,6 +84,8 @@ class I18n(QObject):
         I18n.OF = self.tr("of")
         I18n.PROFILE = self.tr("Profile")
         I18n.VISUAL = self.tr("Visual")
+        I18n.STARTING = self.tr("starting...")
+        I18n.STOPPING = self.tr("stopping...")
         I18n.RUNNING_M = self.tr("running", "gender m")
         I18n.RUNNING_F = self.tr("running", "gender f")
         I18n.STOPPED_M = self.tr("stopped", "gender m")

@@ -505,6 +505,7 @@ class MainWindow(QMainWindow):
         """
 
         self._ui.btn_web_start.setEnabled(False)
+        self._ui.lbl_web_server_status_main.setText(I18n.STARTING)
         QApplication.processEvents()
 
         try:
@@ -536,6 +537,7 @@ class MainWindow(QMainWindow):
 
         self._ui.btn_web_stop.setEnabled(False)
         self._qrDisplay.setVisible(False)
+        self._ui.lbl_web_server_status_main.setText(I18n.STOPPING)
         QApplication.processEvents()
         self._controller.stop_www()
         self.update_display()
@@ -752,6 +754,7 @@ class MainWindow(QMainWindow):
         """Qt slot for mouse clicks on the session START button"""
 
         self._ui.btn_session_start.setEnabled(False)
+        self._ui.lbl_session_status.setText(I18n.STARTING)
         QApplication.processEvents()
 
         self._start_session()
@@ -885,6 +888,7 @@ class MainWindow(QMainWindow):
         """Qt slot for mouse clicks on the session STOP button"""
 
         self._ui.btn_session_stop.setEnabled(False)
+        self._ui.lbl_session_status.setText(I18n.STOPPING)
         QApplication.processEvents()
         self._stop_session()
         self.update_display()
