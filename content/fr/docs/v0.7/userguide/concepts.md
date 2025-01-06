@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-05T11:31:56Z
+lastmod: 2025-01-06T08:13:28Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -69,32 +69,51 @@ l'enregistrement sur disque.
 ```mermaid
 graph LR
 
-        B(Preprocess) -.-> C(Stacker)
-        C ---> D(Process)
-        D --> E(Save)
+    SCANNER(Scanner)
+    PREPROCESS(Preprocess)
+    STACKER(Stacker)
+    PROCESS(Process)
+    SAVE(Save)
+    SCAN_FOLDER@{ shape: lin-cyl, label: "Dossier Scanné" }
+    WORK_FOLDER@{ shape: lin-cyl, label: "Dossier de Travail" }
+    WEB_FOLDER@{ shape: lin-cyl, label: "Dossier Web" }
+    SERVER(Server) 
+    GUI@{ shape: curv-trap, label: "Interface" }
 
+    SCAN_FOLDER -.-> SCANNER
+    SCANNER -.-> PREPROCESS
+    PREPROCESS -.-> STACKER
+    STACKER ---> PROCESS
+    PROCESS --> SAVE
+    SAVE --> WORK_FOLDER
+    SAVE --> WEB_FOLDER
+    WEB_FOLDER ---> SERVER
+    PROCESS ---> GUI
 
-    S@{ shape: lin-cyl, label: "Dossier Scanné" } -.-> A(Scanner)       
-    A -.-> B
-    E --> F@{ shape: lin-cyl, label: "Dossier de Travail" }
-    E --> G@{ shape: lin-cyl, label: "Dossier Web" }
-    G ---> H(Server) 
-    D ---> I@{ shape: curv-trap, label: "Interface" }
+    style SCANNER fill:#333,stroke:darkred,stroke-width:2px
+    style PREPROCESS fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style STACKER fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style PROCESS fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    style SAVE fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
 
-
-    style A fill:#333,stroke:darkred,stroke-width:2px
-    style B fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style C fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style D fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style E fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-
-    style F fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style G fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style S fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    classDef module fill:#333,stroke:darkred,stroke-width:2px
+    classDef main_module fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    classDef folder fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    classDef display fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     
-    style I fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-
-    style H fill:#333,stroke:darkred,stroke-width:2px
+    class SCANNER module
+    class SERVER module
+    
+    class PREPROCESS main_module
+    class STACKER main_module
+    class PROCESS main_module
+    class SAVE main_module
+    
+    class SCAN_FOLDER folder
+    class WORK_FOLDER folder
+    class WEB_FOLDER folder
+    
+    class GUI display
 ```
 
 <p class="figcaption">Trajet des images dans ALS</p>
