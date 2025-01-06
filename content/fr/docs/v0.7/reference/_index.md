@@ -2,7 +2,7 @@
 title: "Documentation de référence"
 description: "Documentation détaillée d'ALS"
 author: "Équipe ALS"
-lastmod: 2025-01-05T12:01:01Z
+lastmod: 2025-01-06T08:27:40Z
 keywords: ["documentation de référence ALS"]
 draft: false
 type: "docs"
@@ -94,23 +94,23 @@ Du système de fichiers au module **Stacker**
 ```mermaid
 flowchart LR
 
-    subgraph Système de fichiers
-        SCAN_FOLDER@{ shape: lin-cyl, label: "Scan Folder" }
+    subgraph Filesystem
+        SCAN_FOLDER@{ shape: lin-cyl, label: "Dossier Scanné" }
     end
         
-    subgraph Module Scanner 
+    subgraph Scanner Module 
         SCANNER_ENGINE[Moteur]
     end
            
-    subgraph Module Preprocess
+    subgraph Preprocess Module
         direction TB
         PREPROCESS_ENGINE[Moteur]
-        HOT_PIXEL[Suppression pixels chauds]
-        DARK_SUB[Soustraction de dark]
+        HOT_PIXEL[Suppression Pixels Chauds]
+        DARK_SUB[Soustraction de Dark]
         DEBAYER[Dématriçage]
     end  
 
-    subgraph Module Stacker
+    subgraph Stacker Module
         direction TB
         STACK_ENGINE[Moteur]
     end
@@ -119,19 +119,19 @@ flowchart LR
     SCANNER_ENGINE -.-> PREPROCESS_ENGINE
     PREPROCESS_ENGINE -.-> STACK_ENGINE
     
-
-
-    style SCANNER_ENGINE fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    classDef module fill:#333,stroke:darkred,stroke-width:2px
+    classDef main_module fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    classDef process fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
+    classDef folder fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    classDef display fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
     
-    style PREPROCESS_ENGINE fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style STACK_ENGINE fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-
-
-    style HOT_PIXEL  fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
-    style DARK_SUB fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
-    style DEBAYER fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
-
-    style SCAN_FOLDER fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+    class SCANNER_ENGINE module
+    class PREPROCESS_ENGINE main_module
+    class STACK_ENGINE main_module
+    class HOT_PIXEL process
+    class DARK_SUB process
+    class DEBAYER process
+    class SCAN_FOLDER folder
 ```
 
 <p class="figcaption">Flux à l'intérieur du domaine des subs</p>
@@ -190,22 +190,23 @@ SAVE_ENGINE --> WORK_FOLDER
 
 WEB_FOLDER --> SERVER_ENGINE
 
-style SERVER_ENGINE fill:#333,stroke:darkred,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+classDef module fill:#333,stroke:darkred,stroke-width:2px
+classDef main_module fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
+classDef process fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
+classDef folder fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+classDef display fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
 
-style STACK_ENGINE fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style PROCESS_ENGINE fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style SAVE_ENGINE fill:#333,stroke:darkred,stroke-width:4px,color:#c6c6c6,font-family:'Poppins',sans-serif
-
-style STRETCH fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
-style LEVELS fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
-style COLOR_BAL fill:#262626,stroke:darkred,stroke-width:1px,color:#c3c3c3,font-family:'Poppins',sans-serif
-
-
-style WEB_FOLDER fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style WORK_FOLDER fill:#555,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-
-style SCREEN fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-style HISTOGRAM fill:#555,stroke:#222,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
+class STACK_ENGINE main_module
+class PROCESS_ENGINE main_module
+class SAVE_ENGINE main_module
+class SERVER_ENGINE module
+class SCREEN display
+class HISTOGRAM display
+class WEB_FOLDER folder
+class WORK_FOLDER folder
+class STRETCH process
+class LEVELS process
+class COLOR_BAL process
 ```
 
 
