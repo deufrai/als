@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T13:37:11Z
+lastmod: 2025-01-07T13:41:44Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -180,7 +180,7 @@ On the right of the alignment controls and threshold, you will find information 
 - the number of subs currently in the **stack**
 - the cumulative exposure times of the subs in the **stack**.
 
-_In this example, we have stacked 39 subs for a total of 2m 36s._
+_In this example, we have stacked 42 subs for a total of 2m 48s._
 
 ---
 
