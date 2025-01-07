@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T13:36:11Z
+lastmod: 2025-01-07T00:32:38Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
@@ -13,11 +13,11 @@ weight: 352
 
 # Présentation
 
-Le module **Preprocess** prend en charge les traitements de **calibration** de brutes
+Le pipeline **Preprocess** prend en charge les traitements de **calibration**
 
 # Configuration
 
-Le module **Preprocess** lui-même n'a besoin d'aucune configuration.
+Le pipeline **Preprocess** lui-même n'a besoin d'aucune configuration.
 
 La configuration des traitements de **calibration** est gérée par les **traitements** eux-mêmes.
 Voir section [Comportement](#behavior) ci-dessous.

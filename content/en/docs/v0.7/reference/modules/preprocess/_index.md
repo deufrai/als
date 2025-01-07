@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Detailed documentation of the ALS Preprocess module"
 author: "ALS Team"
-lastmod: 2025-01-05T13:36:11Z
+lastmod: 2025-01-07T00:32:38Z
 keywords: ["ALS preprocess"]
 draft: false
 type: "docs"
@@ -13,11 +13,11 @@ weight: 352
 
 # Overview
 
-The **Preprocess** module handles sub **calibration**
+The **Preprocess** pipeline handles  **calibration** processes
 
 # Configuration
 
-The **Preprocess** module itself requires no configuration.
+The **Preprocess** pipeline itself requires no configuration.
 
 The configuration of the **calibration** processes is managed by the **processes** themselves.
 See the [Behavior](#behavior) section below.
