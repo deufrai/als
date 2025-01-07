@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T00:29:54Z
+lastmod: 2025-01-07T00:47:55Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -92,17 +92,22 @@ flowchart LR
     STANDARD ---> END
     METADATA --> END
 
-    style START fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
-    style WAIT_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style CHECK_RAM fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style CHECK_SIZE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style WAIT_FILE fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style TEST_FORMAT fill:#444,stroke:#666,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style FITS fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style STANDARD fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style RAW fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style METADATA fill:#444,stroke:#970,stroke-width:2px,color:#c6c6c6,font-family:'Poppins',sans-serif
-    style END fill:#333,stroke:#666,stroke-width:2px,color:#BBB,font-family:'Poppins',sans-serif
+    classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
+    classDef step fill: #444, stroke: #662, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
+    classDef wait  fill: #444, stroke: #262,stroke-width: 2px, color: #c6c6c6, font-family:'Poppins', sans-serif
+    classDef test fill: #444, stroke: #226, stroke-width: 2px, color: #c6c6c6, font-family: 'Poppins', sans-serif
+    
+    class START bounds
+    class WAIT_FILE wait
+    class WAIT_RAM wait
+    class CHECK_RAM test
+    class CHECK_SIZE test
+    class TEST_FORMAT test
+    class FITS step
+    class STANDARD step
+    class RAW step
+    class METADATA step
+    class END bounds
 ```
 
 ## Test RAM dispo {#ram}
