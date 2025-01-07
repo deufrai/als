@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-01-07T10:08:38Z
+lastmod: 2025-01-07T11:08:56Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -210,7 +210,7 @@ alt="ALS main window showing a software interface for stacking astronomical imag
 {{< center >}}
 {{< figure src="start.png"
 caption="The session start button"
-width="300px"
+width="297px"
 height="129px"
 alt="ALS main controls section with the Session subsection, showing the START, PAUSE, and STOP buttons. The START button is highlighted with a red arrow pointing to it. Below, indicators for Stack size (0) and Stack exposure (n/a) are displayed. The status reads 'stopped'." >}}
 {{< /center >}}
@@ -224,15 +224,15 @@ ALS confirms the successful session start:
 {{< center >}}
 {{< figure src="started.png"
 caption="The session control buttons and session status are updated"
-width="301px"
-height="128px"
+width="297px"
+height="129px"
 alt="ALS main controls section with the Session subsection, showing the START, PAUSE, and STOP buttons. Below these buttons, indicators for Stack size (0) and Stack exposure (n/a) are displayed. The status reads 'running' with a red arrow pointing to it." >}}
 {{< /center >}}
 
 {{< center >}}
 {{< figure src="status.png"
 caption="The **session log** displays the latest events and the **status bar** is updated"
-width="978px"
+width="1076px"
 height="166px"
 alt="Session log showing informational messages with timestamps. The entries include 'Starting new session,' 'Input scanner started,' and 'Session running in mode mean with alignment True.' Buttons labeled Acknowledge, issues only, follow. Statusbar item reads : session running" >}}
 {{< /center >}}
@@ -310,8 +310,8 @@ Our express guided tour is coming to an end, stop the current session.
 {{< center >}}
 {{< figure src="stopping.png"
 caption="The session stop button"
-width="301px"
-height="128px"
+width="298px"
+height="129px"
 alt="Main controls section in ALS software interface, specifically the Session area showing START, PAUSE, and STOP buttons. The STOP button is highlighted with a red arrow pointing to it. Below the buttons are Stack size (200) and Stack exposure (0:13:20). The status shows 'running'." >}}
 {{< /center >}}
 
