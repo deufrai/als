@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-01-03T01:04:04Z
+lastmod: 2025-01-07T10:08:38Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -200,8 +200,8 @@ ALS and our tracking tools are **opensource** software, their source code is pub
 {{< center >}}
 {{< figure src="ready.png"
 caption="ALS ready to start its very first session"
-width="1920px"
-height="1053px"
+width="1388px"
+height="666px"
 alt="ALS main window showing a software interface for stacking astronomical images in real-time. The interface includes sections for main controls (start, pause, stop), stack settings (align, threshold), image server (start, stop), image saver (save current, save every frame), workers (queue size, status), processing (histogram, auto stretch, levels, RGB balance), and session log." >}}
 {{< /center >}}
 
@@ -210,8 +210,8 @@ alt="ALS main window showing a software interface for stacking astronomical imag
 {{< center >}}
 {{< figure src="start.png"
 caption="The session start button"
-width="297px"
-height="162px"
+width="300px"
+height="129px"
 alt="ALS main controls section with the Session subsection, showing the START, PAUSE, and STOP buttons. The START button is highlighted with a red arrow pointing to it. Below, indicators for Stack size (0) and Stack exposure (n/a) are displayed. The status reads 'stopped'." >}}
 {{< /center >}}
 
@@ -224,15 +224,15 @@ ALS confirms the successful session start:
 {{< center >}}
 {{< figure src="started.png"
 caption="The session control buttons and session status are updated"
-width="297px"
-height="162px"
+width="301px"
+height="128px"
 alt="ALS main controls section with the Session subsection, showing the START, PAUSE, and STOP buttons. Below these buttons, indicators for Stack size (0) and Stack exposure (n/a) are displayed. The status reads 'running' with a red arrow pointing to it." >}}
 {{< /center >}}
 
 {{< center >}}
 {{< figure src="status.png"
 caption="The **session log** displays the latest events and the **status bar** is updated"
-width="964px"
+width="978px"
 height="166px"
 alt="Session log showing informational messages with timestamps. The entries include 'Starting new session,' 'Input scanner started,' and 'Session running in mode mean with alignment True.' Buttons labeled Acknowledge, issues only, follow. Statusbar item reads : session running" >}}
 {{< /center >}}
@@ -247,8 +247,8 @@ subs
 {{< center >}}
 {{< figure src="stacked_01.png"
 caption="ALS after processing the 1<sup>st</sup> sub"
-width="1920px"
-height="1053px"
+width="1388px"
+height="666px"
 alt="ALS main window after processing the first sub, displaying an initial, slightly noisy image of Messier 27 nebula with scattered stars. The session log shows successful processing messages. The processing panel on the right provides histogram and level adjustments, RGB balance, and auto stretch settings." >}}
 {{< /center >}}
 
@@ -264,8 +264,8 @@ subs.
 {{< center >}}
 {{< figure src="stacked_15.png"
 caption="ALS after processing the 15<sup>th</sup> image. Contrast and noise improve"
-width="1920px"
-height="1053px"
+width="1388px"
+height="666px"
 alt="ALS main window after processing the 15th sub, displaying a less noisy and more detailed image of Messier 27 nebula with scattered stars. The session log shows successful processing messages. The processing panel on the right provides histogram and level adjustments, RGB balance, and auto stretch settings." >}}
 {{< /center >}}
 
@@ -292,8 +292,8 @@ The image in the **central area** is instantly updated after each sub is process
 {{< center >}}
 {{< figure src="stacked_200.png"
 caption="ALS after processing the 200<sup>th</sup> image. A beautiful, detailed, and smoothed image"
-width="1920px"
-height="1053px"
+width="1388px"
+height="666px"
 alt="The Astro Live Stacker (ALS) main window after processing the 200th sub, displaying a smooth, detailed, and high-contrast image of the Messier 27 nebula with numerous stars. The session log at the bottom shows successful processing messages and the image saver panel on the left indicates that the images have been saved successfully. The right panel includes processing options such as histogram adjustments, auto stretch, levels, and RGB balance." >}}
 {{< /center >}}
 
@@ -310,8 +310,8 @@ Our express guided tour is coming to an end, stop the current session.
 {{< center >}}
 {{< figure src="stopping.png"
 caption="The session stop button"
-width="305px"
-height="165px"
+width="301px"
+height="128px"
 alt="Main controls section in ALS software interface, specifically the Session area showing START, PAUSE, and STOP buttons. The STOP button is highlighted with a red arrow pointing to it. Below the buttons are Stack size (200) and Stack exposure (0:13:20). The status shows 'running'." >}}
 {{< /center >}}
 
