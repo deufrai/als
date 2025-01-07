@@ -2,7 +2,7 @@
 title: "Hot Pixel Removal"
 description: "Detailed documentation of the ALS HotPixelRemove process"
 author: "ALS Team"
-lastmod: 2025-01-07T17:56:11Z
+lastmod: 2025-01-07T17:57:43Z
 keywords: ["ALS hot pixel removal", "ALS hot pixel suppression"]
 draft: false
 type: "docs"
@@ -25,13 +25,13 @@ Its configuration is managed via ALS preferences.
 
 # Control
 
-This process is triggered by the **Preprocess** module.
+This process is controlled by the **Preprocess** pipeline.
 
 # Input
 
-| Data                                        | Type  |
-|---------------------------------------------|-------|
-| image provided by the **Preprocess** module | Image |
+| Data                                          | Type  |
+|-----------------------------------------------|-------|
+| image provided by the **Preprocess** pipeline | Image |
 
 # Behavior
 
@@ -82,4 +82,4 @@ Its value is replaced by the average value of its neighbors.
 
 # Output
 
-The modified image is sent back to the **Preprocess** module.
+The modified image is sent back to the **Preprocess** pipeline.
