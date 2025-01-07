@@ -2,7 +2,7 @@
 title: "Dark Subtraction"
 description: "Detailed documentation ALS DarkRemove process"
 author: "ALS Team"
-lastmod: 2025-01-05T13:36:11Z
+lastmod: 2025-01-07T00:35:21Z
 keywords: ["ALS dark current subtractor", "ALS thermal signal subtraction"]
 draft: false
 type: "docs"
@@ -26,14 +26,14 @@ Its configuration is managed via ALS preferences page.
 
 # Control
 
-This process is triggered by the **Preprocess** module.
+This process is triggered by the **Preprocess** pipeline.
 
 # Input
 
-| Data                                          | Type  |
-|-----------------------------------------------|-------|
-| image received from the **Preprocess** module | Image |
-| master dark read from configured path         | Image |
+| Data                                            | Type  |
+|-------------------------------------------------|-------|
+| image received from the **Preprocess** pipeline | Image |
+| master dark read from configured path           | Image |
 
 # Behavior
 
@@ -44,4 +44,4 @@ The master dark is subtracted from the image.
 
 # Output
 
-The modified image is sent back to the **Preprocess** module.
+The modified image is sent back to the **Preprocess** pipeline.

@@ -2,7 +2,7 @@
 title: "Soustraction de dark"
 description: "Documentation détaillée du traitement RemoveDark d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T13:36:11Z
+lastmod: 2025-01-07T00:35:21Z
 keywords: ["ALS soustraction de dark"]
 type: "docs"
 categories: ["documentations détaillées"]
@@ -27,14 +27,14 @@ Sa configuration est gérée via les préférences
 
 # Contrôle
 
-Ce traitement est déclenché par le module **Preprocess**
+Ce traitement est déclenché par le pipeline **Preprocess**
 
 # Entrée
 
-| Donnée                                     | Type  |
-|--------------------------------------------|-------|
-| image fournie par le module **Preprocess** | Image |
-| master dark lu depuis le chemin configuré  | Image |
+| Donnée                                       | Type  |
+|----------------------------------------------|-------|
+| image fournie par le pipeline **Preprocess** | Image |
+| master dark lu depuis le chemin configuré    | Image |
 
 
 # Comportement
@@ -46,4 +46,4 @@ Le master dark est soustrait de l'image
 
 # Sortie
 
-L'image modifiée est renvoyée au module **Preprocess**
+L'image modifiée est renvoyée au pipeline **Preprocess**
