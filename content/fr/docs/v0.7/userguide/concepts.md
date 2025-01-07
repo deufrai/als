@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-06T08:13:28Z
+lastmod: 2025-01-07T15:25:00Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -250,7 +250,9 @@ Ce module prend en charge le partage sur le réseau de la **sortie web** du modu
 
 Il est accessible depuis le réseau auquel la machine qui exécute ALS est connectée.
 
-L'image affichée dans la page web servie est rafraîchie périodiquement par les navigateurs.
+La page web servie permet de visualiser le dernier résultat de traitement et d'y naviguer comme dans l'interface graphique
+
+A chaque nouveau résultat de traitement, l'image présentée dans la page web est mise à jour automatiquement.
 
 {{% alert color="info" %}}
 ℹ️ Quand le serveur est démarré, son adresse est affichée dans l'application et un QR code peut être affiché à la

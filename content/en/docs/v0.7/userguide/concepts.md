@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-06T08:13:28Z
+lastmod: 2025-01-07T15:25:00Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -243,7 +243,9 @@ This module handles sharing the **server output** of the **Save** module over th
 
 It is accessible from the network to which the machine running ALS is connected.
 
-The image displayed on the served web page is periodically refreshed by browsers.
+The served web page allows you to view the latest processing result and navigate it as in the graphical interface.
+
+Everytime a new processing result is done, the image displayed on the web page is automatically updated.
 
 {{% alert color="info" %}}
 ℹ️ When the server is started, its address is displayed in the application and a QR code can be displayed on demand.
