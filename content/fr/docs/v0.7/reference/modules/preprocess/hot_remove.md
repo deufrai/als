@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-06T03:20:05Z
+lastmod: 2025-01-07T17:56:11Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -25,13 +25,13 @@ Sa configuration est gérée via les préférences
 
 # Contrôle
 
-Ce traitement est déclenché par le module **Preprocess**
+Ce traitement est contrôlé par le pipeline **Preprocess**
 
 # Entrée
 
-| Donnée                                     | Type  |
-|--------------------------------------------|-------|
-| image fournie par le module **Preprocess** | Image |
+| Donnée                                       | Type  |
+|----------------------------------------------|-------|
+| image fournie par le pipeline **Preprocess** | Image |
 
 
 # Comportement
@@ -39,18 +39,43 @@ Ce traitement est déclenché par le module **Preprocess**
 
 ```mermaid
 graph LR
-  A[Start Process] --> B{Is Image Available?}
-  B -- No --> C[Return None]
-  B -- Yes --> D[Get Hot Pixel Remover Config]
-  D --> E{Is Hot Pixel Remover Enabled?}
-  E -- No --> F[Return Image Unchanged]
-  E -- Yes --> G{Is Image Color?}
-  G -- Yes --> H[Log Skipped on Color Image]
-  H --> F
-  G -- No --> I[Calculate Neighbors' Mean]
-  I --> J[Replace Hot Pixels with Neighbors' Mean]
-  J --> K[Return Modified Image]
 
+    START([START])
+    
+    TEST_ENABLED{{TEST:<br><br>Ttaitement activé ?}}
+    TEST_COLOR{{TEST:<br><br>Image couleur ?}}
+    
+    COMPUTE[Calculer valeurs moyennes des voisins de chaque pixel]
+    REPLACE[Remplacer la valeur des pixels chauds par la moyenne des voisins]
+    
+    RETURN[Renoyer image modifiée]
+    UNCHANGED[Revoyer image inchangée]
+    
+    END([END])
+    
+    START --> TEST_ENABLED
+    TEST_ENABLED -->|Oui| TEST_COLOR
+    TEST_COLOR ---->|Oui| UNCHANGED
+    TEST_ENABLED ---->|Non| UNCHANGED
+    TEST_COLOR -->|Non| COMPUTE
+    COMPUTE --> REPLACE
+    REPLACE --> RETURN
+    RETURN --> END
+    UNCHANGED --> END
+    
+    classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
+    classDef step fill: #444, stroke: #622, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
+    classDef wait  fill: #444, stroke: #262,stroke-width: 2px, color: #c6c6c6, font-family:'Poppins', sans-serif
+    classDef test fill: #444, stroke: #226, stroke-width: 2px, color: #c6c6c6, font-family: 'Poppins', sans-serif
+    
+    class START bounds
+    class TEST_ENABLED test
+    class TEST_COLOR test
+    class COMPUTE step
+    class UNCHANGED step
+    class REPLACE step
+    class RETURN step
+    class END bounds
 ```
 
 Chaque pixel de l'image dont la valeur s'écarte trop de ses voisins est considéré comme un pixel chaud 
