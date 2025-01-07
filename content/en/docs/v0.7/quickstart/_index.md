@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-01-07T11:08:56Z
+lastmod: 2025-01-07T16:31:56Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -365,10 +365,10 @@ alt="File selection dialog box titled 'Select your ALS executable.' The dialog b
 
 1. 🖱️ Browse to the folder where ALS is located
     - **PC**: Browse to `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Browse to `/home/astrogeek/Applications/ALS/als-v0.7-beta9`
+    - **Raspberry PI**: Browse to `/home/astrogeek/Applications/ALS/als-v0.7-beta10`
 2. 🖱️ Select the executable
-    - **PC**: Select the file `als-v0.7-beta9.run`
-    - **Raspberry PI**: Select the file `als-v0.7-beta9`
+    - **PC**: Select the file `als-v0.7-beta10.run`
+    - **Raspberry PI**: Select the file `als-v0.7-beta10`
 3. 🖱️ Click `Open`
 
 ALS confirms the successful creation of the launcher
