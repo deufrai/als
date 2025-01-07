@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T17:56:11Z
+lastmod: 2025-01-07T18:05:05Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -84,4 +84,4 @@ Sa valeur est remplacée par la valeur moyenne de ses voisins.
 
 # Sortie
 
-L'image modifiée est renvoyée au module **Preprocess**
+L'image modifiée est renvoyée au pipeline **Preprocess**
