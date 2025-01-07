@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T14:26:57Z
+lastmod: 2025-01-07T14:31:50Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -121,7 +121,7 @@ ne risque pas d'être écrasé
 {{< figure src="autosave.png"
 caption="Préférences de l'autosave"
 width="622px"
-height="417px"
+height="178px"
 alt="" >}}
 {{< /center >}}
 

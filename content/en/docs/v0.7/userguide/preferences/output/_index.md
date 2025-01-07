@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-07T14:26:57Z
+lastmod: 2025-01-07T14:31:50Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -120,7 +120,7 @@ of being overwritten
 {{< figure src="autosave.png"
 caption="Autosave preferences"
 width="622px"
-height="417px"
+height="179px"
 alt="" >}}
 {{< /center >}}
 
