@@ -2,7 +2,7 @@
 title: "Modules et Traitements"
 description: "Modules et Traitements ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T00:17:54Z
+lastmod: 2025-01-07T08:34:13Z
 keywords: [ "modules et traitements ALS" ]
 type: "docs"
 categories: [ "documentations détaillées" ]
@@ -231,7 +231,7 @@ subgraph Module Process
     COLOR_BAL[Balance des couleurs]
 end 
 
-subgraph Module Saver
+subgraph Module Save
     direction TB
     SAVE_ENGINE[Moteur]
 end

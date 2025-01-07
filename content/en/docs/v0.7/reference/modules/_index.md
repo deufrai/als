@@ -2,7 +2,7 @@
 title: "Modules and Processes"
 description: "ALS Modules and Processes"
 author: "ALS Team"
-lastmod: 2025-01-07T00:17:54Z
+lastmod: 2025-01-07T08:34:13Z
 keywords: [ "ALS modules and processes" ]
 type: "docs"
 categories: [ "detailed documentations" ]
@@ -230,7 +230,7 @@ flowchart LR
         COLOR_BAL[Color Balance]
     end 
     
-    subgraph Saver Module
+    subgraph Save Module
         direction TB
         SAVE_ENGINE[Engine]
     end
