@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T12:45:37Z
+lastmod: 2025-01-07T00:29:54Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -146,7 +146,7 @@ Le fichier est chargé en mémoire en utilisant le format correspondant à son e
 | Toutes les autres extensions                                     | Raw    | 
 
 Les fichiers Raw sont chargés en utilisant la librairie libRaw. Voir la 
-[Liste des appareils photo supportés](https://www.libraw.org/supported-cameras) 
+[Liste des appareils photo pris en charge](https://www.libraw.org/supported-cameras) 
 
 ## Extraction de métadonnées
 
