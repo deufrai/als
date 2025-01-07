@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T11:42:35Z
+lastmod: 2025-01-07T13:37:11Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -13,7 +13,6 @@ weight: 321
 # Introduction
 
 During this chapter, you will:
-
 - get familiar with ALS main controls
 - Deepen your knowledge on key features
 
@@ -50,10 +49,14 @@ Located on the left side of the ALS interface, it organizes the most used contro
 
   Issues indicator
 
-  </div>
-  <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="The main controls panel" width="100%" alt="The main controls panel of ALS, with several sections: Session controls with START, PAUSE, and STOP buttons, Stack Size 39, Stack Exposure 0:02:36, Status started; Stack settings with Align, mean, and threshold slider at 19; Image server with START and STOP buttons, Status started with URL http://10.0.2.15:8000; Image saver with options Save current image and Save each image; Modules with Queue size and Busy status; Issues with a warning icon and the label Issues." >}}
-  </div>
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< figure src="controls.png" 
+caption="The main controls panel" 
+width="294px"
+height="613px"
+alt="The main controls panel of ALS, with several sections: Session controls with START, PAUSE, and STOP buttons, Stack Size 39, Stack Exposure 0:02:36, Status started; Stack settings with Align, mean, and threshold slider at 19; Image server with START and STOP buttons, Status started with URL http://10.0.2.15:8000; Image saver with options Save current image and Save each image; Modules with Queue size and Busy status; Issues with a warning icon and the label Issues." >}}
+</div>
 
 </div>
 
@@ -61,7 +64,7 @@ Located on the left side of the ALS interface, it organizes the most used contro
 
 # Session {#session-section}
 
-The **session** section of the panel includes 3 areas:
+The **session** section of the panel includes 2 areas:
 
 <div class="row">
 <div class="col-md-8">
@@ -78,14 +81,7 @@ The **session** section of the panel includes 3 areas:
 ℹ️ Stopping a session with at least one sub in the **stack** displays a confirmation prompt.
 {{% /alert %}}
 
-## Stack Information
 
-Below the session controls, you will find information about the **stack**:
-
-- the number of subs currently in the **stack**
-- the cumulative exposure times of the subs in the **stack**.
-
-_In this example, we have stacked 39 subs for a total of 2m 36s._
 
 ## Session Status
 
@@ -99,7 +95,7 @@ _In this example, the session is running._
 {{< figure src="session.png"
 caption="The session section"
 width="294px"
-height="127px"
+height="104px"
 alt="User interface of the session section showing the START, PAUSE, and STOP buttons. Below, information about the current session: Stack Size 39, Stack Exposure 0:02:36, and status started." >}}
 {{< /center >}}
 
@@ -159,7 +155,7 @@ Any sub with a number of similarities **below** this threshold is discarded.
 {{< figure src="stack.png"
 caption="The stack section"
 width="294px"
-height="92px"
+height="106px"
 alt="User interface of the stack section showing a checkbox labeled Align, checked, and a dropdown menu with the mean option selected. Below, a slider labeled Threshold set to 19, positioned towards the left side of its range." >}}
 {{< /center >}}
 
@@ -176,6 +172,15 @@ alt="User interface of the stack section showing a checkbox labeled Align, check
 - The stacking mode is set to **mean** at each ALS startup.
 - The detection threshold is global and constantly saved.
 {{% /alert %}}
+
+## Stack Information
+
+On the right of the alignment controls and threshold, you will find information about the **stack**:
+
+- the number of subs currently in the **stack**
+- the cumulative exposure times of the subs in the **stack**.
+
+_In this example, we have stacked 39 subs for a total of 2m 36s._
 
 ---
 

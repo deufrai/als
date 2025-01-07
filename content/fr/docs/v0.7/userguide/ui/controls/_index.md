@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T11:42:35Z
+lastmod: 2025-01-07T13:37:11Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -49,10 +49,15 @@ Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages 
 
   Indicateur de problèmes
 
-  </div>
-  <div class="col-md-4 d-flex align-items-center justify-content-center">
-    {{< figure src="controls.png" caption="Le panneau des contrôles principaux" width="100%" alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : Contrôles de session avec les boutons START, PAUSE et STOP, Taille Stack 39, Exposition Stack 0:02:36, Statut démarrée ; Paramètres de la stack avec Aligner, moyenne, et curseur de seuil à 19 ; Serveur d'images avec les boutons START et STOP, Statut démarré avec l'URL http://10.0.2.15:8000 ; Enregistreur d'images avec les options Enr. image courante et Enr. chaque image ; Modules avec les statuts Taille file d'attente et Statut occupé ; Problèmes avec une icône d'avertissement et le label Problèmes." >}}
-  </div>
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+  
+{{< figure src="controls.png" 
+caption="Le panneau des contrôles principaux" 
+width="298px" 
+height="613px"
+alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : Contrôles de session avec les boutons START, PAUSE et STOP, Taille Stack 39, Exposition Stack 0:02:36, Statut démarrée ; Paramètres de la stack avec Aligner, moyenne, et curseur de seuil à 19 ; Serveur d'images avec les boutons START et STOP, Statut démarré avec l'URL http://10.0.2.15:8000 ; Enregistreur d'images avec les options Enr. image courante et Enr. chaque image ; Modules avec les statuts Taille file d'attente et Statut occupé ; Problèmes avec une icône d'avertissement et le label Problèmes." >}}
+</div>
 
 </div>
 
@@ -60,7 +65,7 @@ Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages 
 
 # Session {#session-section}
 
-La section **session** du panneau comprend 3 zones :
+La section **session** du panneau comprend 2 zones :
 
 <div class="row">
 <div class="col-md-8">
@@ -77,14 +82,6 @@ La section **session** du panneau comprend 3 zones :
 ℹ️ Arrêter une session avec au moins une brute dans la **stack** affiche une demande de confirmation
 {{% /alert %}}
 
-## Informations sur la stack
-
-Sous les contrôles de session, vous trouverez les informations sur la **stack** :
-
-- le nombre de brutes actuellement dans la **stack**
-- le cumul des temps d'expositions des brutes de la **stack**.
-
-_Dans cet exemple, nous avons empilé 39 brutes pour un total de 2m 36s._
 
 ## Statut de la session
 
@@ -97,8 +94,8 @@ _Dans cet exemple, la session est démarrée_
 {{< center >}}
 {{< figure src="session.png"
 caption="La section session"
-width="294px"
-height="127px"
+width="298px"
+height="106px"
 alt="Interface utilisateur de la section session montrant les boutons START, PAUSE et STOP. En dessous, des informations sur la session actuelle : Taille Stack 39, Exposition Stack 0:02:36, et statut démarrée." >}}
 {{< /center >}}
 
@@ -162,8 +159,8 @@ Toute brute présentant un nombre de similitudes **inférieur** à ce seuil est 
 {{< center >}}
 {{< figure src="stack.png"
 caption="La section stack"
-width="294px"
-height="92px"
+width="298px"
+height="107px"
 alt="Interface utilisateur de la section stack montrant une case à cocher intitulée Aligner, cochée, et un menu déroulant avec l'option moyenne sélectionnée. En dessous, un curseur intitulé Seuil réglé à 19, positionné vers le côté gauche de sa plage." >}}
 {{< /center >}}
 
@@ -180,6 +177,15 @@ alt="Interface utilisateur de la section stack montrant une case à cocher intit
 - Le mode de stacking est réglé sur **moyenne** à chaque démarrage d'ALS
 - Le seuil de détection est global et sauvegardé en permanence
 {{% /alert %}}
+
+## Informations sur la stack
+
+A droite des contrôles d'alignement et de seuil, vous trouverez les informations sur la **stack** :
+
+- le nombre de brutes actuellement dans la **stack**
+- le cumul des temps d'expositions des brutes de la **stack**.
+
+_Dans cet exemple, nous avons empilé 42 brutes pour un total de 2m 48s._
 
 
 ---
