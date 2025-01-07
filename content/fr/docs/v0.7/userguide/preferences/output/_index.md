@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T10:44:51Z
+lastmod: 2025-01-07T14:04:16Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -29,7 +29,7 @@ Cet onglet est divisé en 2 sections :
 {{< figure src="whole_tab.png"
 caption="L'onglet Sortie des préférences"
 width="622px"
-height="604px"
+height="660px"
 alt="Fenêtre de préférences ALS avec l'onglet Sortie sélectionné, affichant les paramètres pour les options de format de sauvegarde de fichier, l'enregistrement automatique à l'arrêt, la configuration du numéro de port du serveur, la période de rafraîchissement de la page web et une case à cocher pour le dossier dédié." >}}
 {{< /center >}}
 
@@ -141,25 +141,15 @@ Valeurs autorisées : 1024 à 65535
 
 - ⌨️ Saisissez le `numéro de port` sur lequel le serveur d'images d'ALS sera accessible
 
+ℹ️ Par défaut : 8000
+
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Réglages du serveur web"
 width="622px"
-height="215px"
+height="175px"
 alt="" >}}
 {{< /center >}}
 
-ℹ️ Par défaut : 8000
 
-## Période de rafraîchissement {#server-refresh}
 
-Période, en sec., utilisée dans la page web servie par ALS pour forcer les navigateurs connectés à rafraîchir l'image
-
-`Période de rafraîchissement` configure la période de rafraîchissement 
-
-Vous pouvez :
-- ⌨️ saisir la valeur au clavier
-- 🖱️ utiliser les boutons fléchés
-- 🖱️ utiliser la molette de la souris
-
-ℹ️ Par défaut : 5 sec.
