@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T14:04:16Z
+lastmod: 2025-01-07T14:26:57Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -127,7 +127,7 @@ alt="" >}}
 
 - 🖱️ cochez `Résutlat horodaté à l'arrêt de session` pour activer la fonction d'autosave
 
-ℹ️ Par défaut : OFF
+ℹ️ Par défaut : ON
 
 # Server {#server}
 

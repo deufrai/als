@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-05T10:44:51Z
+lastmod: 2025-01-07T14:26:57Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -29,7 +29,7 @@ This tab is divided into 2 sections:
 {{< figure src="whole_tab.png"
 caption="The Output tab in preferences"
 width="622px"
-height="604px"
+height="660px"
 alt="" >}}
 {{< /center >}}
 
@@ -126,7 +126,7 @@ alt="" >}}
 
 - 🖱️ check `Timestamped Result on Session Stop` to activate the autosave function
 
-ℹ️ Default: OFF
+ℹ️ Default: ON
 
 # Server {#server}
 
@@ -140,25 +140,13 @@ Allowed values: 1024 to 65535
 
 - ⌨️ Enter the `port number` on which the ALS image server will be accessible
 
+ℹ️ Default: 8000
+
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Web server settings"
 width="622px"
-height="215px"
+height="175px"
 alt="" >}}
 {{< /center >}}
 
-ℹ️ Default: 8000
-
-## Refresh Period {#server-refresh}
-
-Period, in sec., used in the web page served by ALS to force connected browsers to refresh the image
-
-`Refresh Period` configures the refresh period
-
-You can:
-- ⌨️ enter the value via keyboard
-- 🖱️ use the arrow buttons
-- 🖱️ use the mouse wheel
-
-ℹ️ Default: 5 sec.
