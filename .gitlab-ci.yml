@@ -68,7 +68,21 @@ Build Mac/Intel:
   artifacts:
     expose_as: 'ALS for OSX amd64'
     paths:
-      - als-$ALS_VERSION_STRING.dmg
+      - als-$ALS_VERSION_STRING-amd64.dmg
+
+
+Build Mac/ARM:
+  tags:
+  - arm64
+  - mac
+  stage: build
+  timeout: 30m
+  script:
+    - ci/builds/build_dist_arm64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX arm64'
+    paths:
+      - als-$ALS_VERSION_STRING-arm64.dmg
 
 
 Build PC/Windows:
@@ -82,7 +96,7 @@ Build PC/Windows:
   artifacts:
     expose_as: 'ALS for Windows amd64'
     paths:
-      - als-$ALS_VERSION_STRING.exe
+      - als-${ALS_VERSION_STRING}_Setup.exe
 
 
 Deploy nightlies:

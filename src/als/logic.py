@@ -19,19 +19,19 @@
 """
 Module holding all application logic
 """
+import datetime
+import json
 import time
 from logging import getLogger
 from pathlib import Path
+from threading import Thread
 from typing import List
 
 from PyQt5.QtCore import QFile, QT_TRANSLATE_NOOP, QCoreApplication, QThread, QTimer
 
 from als import config
-from als.code_utilities import log, AlsException, SignalingQueue, get_text_content_of_resource, get_timestamp, \
+from als.code_utilities import log, AlsException, SignalingQueue, get_timestamp, \
     available_memory, AlsLogAdapter
-from als.streams.input import InputScanner, ScannerStartError
-from als.streams.network import get_ip, WebServer
-from als.streams.output import ImageSaver
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image, Session, VisualProfile, PhotoProfile
 from als.model.data import (
@@ -43,6 +43,9 @@ from als.model.params import ProcessingParameter
 from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
     HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator
 from als.stack import Stacker
+from als.streams.input import InputScanner, ScannerStartError
+from als.streams.network import get_host_ip, Server, is_port_in_use
+from als.streams.output import ImageSaver
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -53,12 +56,12 @@ class SessionError(AlsException):
     """
 
 
-class CriticalFolderMissing(SessionError):
+class FolderSetupError(SessionError):
     """Raised when a critical folder is missing"""
 
 
-class WebServerFailedToStart(AlsException):
-    """Raised when web server fails"""
+class PortInUseError(RuntimeError):
+    """Raised when web server cannot start because port is already in use"""
 
 
 class WebServerOnLoopback(Exception):
@@ -127,11 +130,13 @@ class Controller:
         self._post_process_pipeline.start(self._profile.get_post_process_priority)
 
         self._saver_queue = DYNAMIC_DATA.save_queue
-        self._saver = ImageSaver(self._saver_queue)
+        self._saver = ImageSaver(self._saver_queue, self)
         self._saver.start(QThread.LowPriority)
 
         self._last_stacking_result = None
-        self._web_server = None
+
+        self._web_server = Server(config.get_web_folder_path())
+        self._server_thread = None
 
         self._model_observers = list()
         self._image_timings = dict()
@@ -326,6 +331,7 @@ class Controller:
         image.origin = "Process result"
         DYNAMIC_DATA.post_processor_result = image
         self._notify_model_observers(image_only=True)
+        self.write_stack_info_json()
         self.save_post_process_result()
 
     @log
@@ -490,26 +496,42 @@ class Controller:
                 DYNAMIC_DATA.last_timing = 0
                 DYNAMIC_DATA.total_exposure_time = 0
 
+                scan_folder_path = config.get_scan_folder_path()
+                work_folder_path = config.get_work_folder_path()
+                web_folder_path = config.get_web_folder_path()
+
                 # checking presence of critical folders
                 critical_folders_dict = {
-                    "scan": config.get_scan_folder_path(),
-                    "work": config.get_work_folder_path(),
-                    "web":  config.get_web_folder_path(),
+                    I18n.SCAN_FOLDER: scan_folder_path,
+                    I18n.WORK_FOLDER: work_folder_path,
+                    I18n.WEB_FOLDER:  web_folder_path,
                 }
 
                 for role, path in critical_folders_dict.items():
-                    if not Path(path).is_dir():
-                        title = QT_TRANSLATE_NOOP("", "Missing critical folder")
-                        message = QT_TRANSLATE_NOOP("", "Your currently configured {} folder {} is missing.")
-                        raise CriticalFolderMissing(
-                            QCoreApplication.translate("", title),
+                    if not path or not Path(path).is_dir():
+                        title = QT_TRANSLATE_NOOP("", "Missing {}")
+                        message = QT_TRANSLATE_NOOP("", "Your {} does not exist :\n{}")
+                        raise FolderSetupError(
+                            QCoreApplication.translate("", title).format(role),
                             QCoreApplication.translate("", message).format(*[role, path]))
+
+                    if path is not scan_folder_path:
+                        if Path(scan_folder_path) in Path(path).parents or Path(path) == Path(scan_folder_path):
+                            title = QT_TRANSLATE_NOOP("", "Misplaced {}")
+                            message = QT_TRANSLATE_NOOP("", "Your {} :\n{}\n\nmust not be the same as or a subfolder of your {} :\n{}")
+                            raise FolderSetupError(
+                                QCoreApplication.translate("", title).format(role),
+                                QCoreApplication.translate("", message).format(*[role, path, I18n.SCAN_FOLDER, scan_folder_path])
+                            )
 
                 # setup web content
                 try:
-                    Controller._setup_web_content()
+                    Controller._setup_web_waiting_image()
+                    self.write_stack_info_json()
                 except OSError as os_error:
                     raise SessionError("Web folder could not be prepared", str(os_error))
+
+                self.notify_browsers_about_new_image()
 
             else:
                 # session was paused when this start was ordered. No need for checks & setup
@@ -530,8 +552,8 @@ class Controller:
 
         except SessionError as session_error:
             MESSAGE_HUB.dispatch_error(__name__,
-                                       QT_TRANSLATE_NOOP("", "Session error. {} : {}"),
-                                       [session_error.message, session_error.details])
+                                       QT_TRANSLATE_NOOP("", "Session start error: {}"),
+                                       [session_error.message])
             raise
 
     @log
@@ -561,44 +583,64 @@ class Controller:
     @log
     def start_www(self):
         """Starts web server"""
-        try:
-            # only setup web content if needed
-            if not all([Path(config.get_web_folder_path()).joinpath(Path(file)).is_file()
-                        for file in ["index.html", "favicon.ico", "web_image.jpg"]]):
-                Controller._setup_web_content()
 
-            web_folder_path = config.get_web_folder_path()
-            ip_address = get_ip()
-            port_number = config.get_www_server_port_number()
+        ip = get_host_ip()
+        port = config.get_www_server_port_number()
 
-            self._web_server = WebServer(web_folder_path)
-            self._web_server.start()
+        if is_port_in_use(ip, port):
+            raise PortInUseError()
 
-            url = f"http://{ip_address}:{port_number}"
-            MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
+        # only setup web content if needed
+        Controller._setup_web_static_content()
+        self.write_stack_info_json()
 
-            DYNAMIC_DATA.web_server_ip = ip_address
-            DYNAMIC_DATA.web_server_is_running = True
-            self._notify_model_observers()
+        ip_address = get_host_ip()
+        port_number = config.get_www_server_port_number()
 
-            # if we can only listen on loopback, keep running but notify the powers that be
-            if ip_address == "127.0.0.1":
-                raise WebServerOnLoopback()
+        if self._server_thread is None:
+            self._server_thread = Thread(target=self._web_server.start, name="WebServer")
+            self._server_thread.start()
 
-        except OSError as os_error:
-            log_message = QT_TRANSLATE_NOOP("", "Could not start web server : {}")
-            error_title = QCoreApplication.translate("", "Could not start web server")
-            MESSAGE_HUB.dispatch_error(__name__, log_message, [str(os_error), ])
-            raise WebServerFailedToStart(error_title, str(os_error))
+        url = f"http://{ip_address}:{port_number}"
+        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
+
+        DYNAMIC_DATA.web_server_ip = ip_address
+        DYNAMIC_DATA.web_server_is_running = True
+
+        # if we can only listen on loopback, keep running but notify the powers that be
+        if ip_address == "127.0.0.1":
+            raise WebServerOnLoopback()
+
+        self._notify_model_observers()
+
+
+    @log
+    def _send_message_to_clients(self, message):
+        """
+        Sends a message to all connected clients
+
+        :param message: the message to send
+        :type message: dict
+        """
+        if DYNAMIC_DATA.web_server_is_running:
+            self._web_server.send_message(message)
+
+    @log
+    def notify_browsers_about_new_image(self):
+        """
+        Notifies all connected browsers about a new image
+        """
+        self._send_message_to_clients({"type": "new_image"})
 
     @log
     def stop_www(self):
         """Stops web server"""
 
         if self._web_server and DYNAMIC_DATA.web_server_is_running:
-            self._web_server.stop()
-            self._web_server.join()
-            self._web_server = None
+            if self._server_thread is not None:
+                self._web_server.stop()
+                self._server_thread.join()
+                self._server_thread = None
             MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server stopped"))
             DYNAMIC_DATA.web_server_is_running = False
             self._notify_model_observers()
@@ -618,32 +660,77 @@ class Controller:
 
     @staticmethod
     @log
-    def _setup_web_content():
-        """Prepares the work folder."""
+    def _save_web_file(file_name, source_file):
+        """
+        Deletes the file if it exists and writes new content or copies from a source file.
+
+        :param file_name: Name of the file to be deleted and written
+        :type file_name: str
+        :param source_file: Source file to copy from
+        :type source_file: QFile
+        """
+        web_folder_path = config.get_web_folder_path()
+        file_path = Path(web_folder_path) / file_name
+
+        if file_path.is_file():
+            file_path.unlink()
+
+        source_file.copy(str(file_path.resolve()))
+        file_path.chmod(0o644)
+
+    @staticmethod
+    @log
+    def _setup_web_waiting_image():
+        """
+        Write the waiting image to web folder.
+        """
+        standby_image_path = WEB_SERVED_IMAGE_FILE_NAME_BASE + '.' + IMAGE_SAVE_TYPE_JPEG
+        Controller._save_web_file(standby_image_path, source_file=QFile(":/web/waiting.jpg"))
+
+    @staticmethod
+    @log
+    def _setup_web_static_content():
+        """Prepares the web folder."""
+
+        Controller._save_web_file("index.html", source_file=QFile(":/web/index.html"))
+
+        Controller._save_web_file("favicon.ico", source_file=QFile(":/icons/als_logo.ico"))
+
+        Controller._save_web_file("openseadragon.min.js", source_file=QFile(":/web/openseadragon.min.js"))
+
+        icons_dir = Path(config.get_web_folder_path()) / "icons"
+        icons_dir.mkdir(parents=True, exist_ok=True)
+
+        icon_files = [
+            "fullpage_grouphover.png", "fullpage_hover.png", "fullpage_pressed.png", "fullpage_rest.png",
+            "home_grouphover.png", "home_hover.png", "home_pressed.png", "home_rest.png",
+            "zoomin_grouphover.png", "zoomin_hover.png", "zoomin_pressed.png", "zoomin_rest.png",
+            "zoomout_grouphover.png", "zoomout_hover.png", "zoomout_pressed.png", "zoomout_rest.png"
+        ]
+
+        for icon_file in icon_files:
+            Controller._save_web_file(f"icons/{icon_file}", source_file=QFile(f":/webicons/{icon_file}"))
+
+
+    @log
+    def write_stack_info_json(self):
+        """
+        Writes a data.json file in the web folder containing STACK_SIZE and EXPO.
+        """
+        data = {
+            "STACK_SIZE": DYNAMIC_DATA.stack_size,
+            "EXPO": str(datetime.timedelta(seconds=int(round(DYNAMIC_DATA.total_exposure_time, 0))))
+        }
 
         web_folder_path = config.get_web_folder_path()
+        data_file_path = Path(web_folder_path) / "data.json"
 
-        index_content = get_text_content_of_resource(":/web/index.html")
-
-        # UI period in sec. <=> JS refresh period in ms.
-        index_content = index_content.replace('##PERIOD##', str(config.get_www_server_refresh_period() * 1000))
-
-        with open(web_folder_path + "/index.html", 'w') as index_file:
-            index_file.write(index_content)
-
-        standby_image_path = Path(web_folder_path) / (WEB_SERVED_IMAGE_FILE_NAME_BASE + '.' + IMAGE_SAVE_TYPE_JPEG)
-        standby_file = QFile(":/web/waiting.jpg")
-        if standby_image_path.is_file():
-            standby_image_path.unlink()
-        standby_file.copy(str(standby_image_path.resolve()))
-        standby_image_path.chmod(0o644)
-
-        favicon_image_path = Path(web_folder_path) / "favicon.ico"
-        standby_file = QFile(":/icons/als_logo.ico")
-        if favicon_image_path.is_file():
-            favicon_image_path.unlink()
-        standby_file.copy(str(favicon_image_path.resolve()))
-        favicon_image_path.chmod(0o644)
+        try:
+            with open(data_file_path, 'w') as data_file:
+                json.dump(data, data_file)
+            _LOGGER.debug(f"data.json written to {data_file_path}")
+        except OSError as e:
+            _LOGGER.error(f"Failed to write data.json: {e}")
 
     @log
     def save_post_process_result(self, final=False):
@@ -653,12 +740,6 @@ class Controller:
 
         # we save the image no matter what, then save a jpg for the web server if it is running
         image = DYNAMIC_DATA.post_processor_result
-
-        self.save_image(image,
-                        config.get_image_save_format(),
-                        config.get_work_folder_path(),
-                        STACKED_IMAGE_FILE_NAME_BASE + ("_final" if final else ""),
-                        add_timestamp=final)
 
         if not final:
             self.save_image(image,
@@ -673,6 +754,12 @@ class Controller:
                                 config.get_work_folder_path(),
                                 STACKED_IMAGE_FILE_NAME_BASE,
                                 add_timestamp=True)
+
+        self.save_image(image,
+                        config.get_image_save_format(),
+                        config.get_work_folder_path(),
+                        STACKED_IMAGE_FILE_NAME_BASE + ("_final" if final else ""),
+                        add_timestamp=final)
 
     # pylint: disable=R0913
     @log

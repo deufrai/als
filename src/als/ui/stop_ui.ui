@@ -90,7 +90,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Save result before stop</string>
+        <string>Timestamped result on session &amp;stop</string>
        </property>
       </widget>
      </item>

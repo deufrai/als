@@ -6,7 +6,7 @@ from logging import getLogger
 
 from PyQt5 import QtGui
 from PyQt5.QtCore import QPoint, Qt
-from PyQt5.QtGui import QPainter, QPen, QColor
+from PyQt5.QtGui import QPainter, QPen, QColor, QBrush
 from PyQt5.QtWidgets import QSlider, QGraphicsView, QWidget
 
 from als.code_utilities import log, AlsLogAdapter
@@ -65,6 +65,7 @@ class ImageView(QGraphicsView):
         super().__init__(parent)
         self.setDragMode(QGraphicsView.ScrollHandDrag)
         self.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
+        self.setBackgroundBrush(QBrush(QColor("#222222"), Qt.SolidPattern))
 
     # pylint: disable=C0103
     @log
@@ -91,6 +92,19 @@ class ImageView(QGraphicsView):
         self.adjustZoom()
 
     @log
+    def mousePressEvent(self, event):
+        """
+        trigger image zoom reset on mouse right click and keep default behaviour otherwise
+
+        :param event: The QMouseEvent instance containing details about the mouse event.
+        :return: None
+        """
+        if event.button() == Qt.RightButton:
+            self.reset_zoom()
+        else:
+            super().mousePressEvent(event)
+
+    @log
     def adjustZoom(self):
         """ Fir image into view """
         self.fitInView(self.scene().items()[0], Qt.KeepAspectRatio)
@@ -104,6 +118,11 @@ class ImageView(QGraphicsView):
     def zoom_out(self):
         """ zoom out """
         self.scale(1 / ImageView._ZOOM_FACTOR, 1 / ImageView._ZOOM_FACTOR)
+
+    @log
+    def reset_zoom(self):
+        """Reset zoom to default"""
+        self.setTransform(QtGui.QTransform())
 
 
 class HistogramView(QWidget):

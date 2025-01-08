@@ -2,10 +2,9 @@
 ALS - Astro Live Stacker
 ========================
 
-Website : https://als-app.org
-
-.. image:: https://img.shields.io/travis/com/gehelem/als/develop
-.. image:: https://img.shields.io/github/license/gehelem/als
+.. image:: https://img.shields.io/gitlab/pipeline-status/als%2Fals-app-src?gitlab_url=https%3A%2F%2Fforge.wardsback.org&branch=release%2F0.7
+   :alt: Gitlab Pipeline Status
+.. image:: https://img.shields.io/github/license/deufrai/als
 
 
 A desktop application for astrophotography live stacking.
@@ -18,7 +17,7 @@ Features
 
 ALS polls a folder on your machine and aligns + stacks any new picture saved into that folder.
 
-ALS is compatible with `.fit`, `.fits` and `.fts` files and RAW camera files : https://www.libraw.org/supported-cameras
+ALS is compatible with FITS files and RAW camera files : https://www.libraw.org/supported-cameras
 
 After a pre-processing stage that includes dark subtraction, hot pixel removal and debayering (if needed), pictures
 are aligned and stacked. User can then enhance the resulting image with various processes :
@@ -29,6 +28,28 @@ are aligned and stacked. User can then enhance the resulting image with various 
 
 The resulting image can be saved to disk and served by a built-in web server, so your mates at the astro
 club can see your wonderful images.
+
+Downloads and documentation (Work in progress)
+==============================================
+
+We are currently preparing the release of ALS version 0.7.
+
+Latest 0.7 pre-release is v0.7-beta10 => https://github.com/deufrai/als/releases/tag/v0.7-beta10
+
+A **new website** is in preparation (https://next.als-app.org) and is now the **preferred way** of getting to :
+
+- Application downloads for Linux (PC and Raspberry Pi), Windows & MacOS
+- Installation and first-run documentation
+
+The remaining parts of the documentation are currently under progress and are the last hurdle before the real v0.7 release.
+
+Stay tuned !
+
+Everything below this point is **very outdated** and mainly focused on development / running from sources.
+
+Everything below this point is **very outdated** and mainly focused on development / running from sources.
+
+Everything below this point is **very outdated** and mainly focused on development / running from sources.
 
 Requirements
 ============
@@ -56,7 +77,7 @@ release, then cloning the repo is the way to go.
 Download an archive from GitHub
 +++++++++++++++++++++++++++++++
 
-#. Point your browser of choice to the `ALS GitHub releases page <https://github.com/gehelem/als/releases>`_
+#. Point your browser of choice to the `ALS GitHub releases page <https://github.com/deufrai/als/releases>`_
 #. CLick the version you want to use
 #. Download desired archive format, zip or tar.gz
 #. Extract the archive in the folder of your choice
@@ -90,7 +111,7 @@ below :
 
 .. code-block:: shell
 
-  $ git clone https://github.com/gehelem/als.git -b <branch_name_chosen_above>
+  $ git clone https://github.com/deufrai/als.git -b <branch_name_chosen_above>
 
 
 Installation

@@ -141,16 +141,33 @@ class FolderScanner(FileSystemEventHandler, InputScanner, QObject):
     def on_moved(self, event):
         if event.event_type == 'moved':
             image_path = event.dest_path
-            _LOGGER.debug(f"File move detected : {image_path}")
-            self.broadcast_image_path(image_path)
+            if not self._must_ignore_file(image_path):
+                _LOGGER.debug(f"File move detected : {image_path}")
+                self.broadcast_image_path(image_path)
 
     @log
     def on_created(self, event):
         if event.event_type == 'created':
             image_path = event.src_path
-            _LOGGER.debug(f"File creation detected : {image_path}")
-            self.broadcast_image_path(image_path)
+            if not self._must_ignore_file(image_path):
+                _LOGGER.debug(f"File creation detected : {image_path}")
+                self.broadcast_image_path(image_path)
 
+    @log
+    def _must_ignore_file(self, image_path):
+        """
+        Check if the image path should be ignored based on the start patterns
+
+        :param image_path: the path to check
+        :type image_path: str
+        :return: True if the file should be ignored, False otherwise
+        :rtype: bool
+        """
+        for pattern in _IGNORED_FILENAME_START_PATTERNS:
+            if Path(image_path).name.startswith(pattern):
+                _LOGGER.debug(f"File '{image_path}' ignored : Matches filename start ignore pattern '{pattern}'")
+                return True
+        return False
 
 @log
 def read_disk_image(path: Path):
@@ -164,31 +181,23 @@ def read_disk_image(path: Path):
     :rtype: Image or None
     """
 
-    ignore_image = False
     image = None
 
-    for pattern in _IGNORED_FILENAME_START_PATTERNS:
-        if path.name.startswith(pattern):
-            ignore_image = True
-            break
+    if path.suffix.lower() in ['.fit', '.fits', '.fts']:
+        image = _read_fit_image(path)
 
-    if not ignore_image:
+    elif path.suffix.lower() in ['.jpg', '.jpeg', '.png', '.tif', '.tiff']:
+        image = _read_standard_image(path)
+    else:
+        image = _read_raw_image(path)
 
-        if path.suffix.lower() in ['.fit', '.fits', '.fts']:
-            image = _read_fit_image(path)
-
-        elif path.suffix.lower() in ['.jpg', '.jpeg', '.png', '.tif', '.tiff']:
-            image = _read_standard_image(path)
-        else:
-            image = _read_raw_image(path)
-
-        if image is not None:
-            image.origin = f"FILE : {str(path.resolve())}"
-            MESSAGE_HUB.dispatch_info(
-                __name__,
-                QT_TRANSLATE_NOOP("", "Successful image read from {}"),
-                [image.origin, ]
-            )
+    if image is not None:
+        image.origin = f"FILE : {str(path.resolve())}"
+        MESSAGE_HUB.dispatch_info(
+            __name__,
+            QT_TRANSLATE_NOOP("", "Successful image read from {}"),
+            [image.origin, ]
+        )
 
     return image
 

@@ -2,19 +2,22 @@
 Holds all windows used in the app
 """
 import datetime
+import platform
 from logging import getLogger
-from os import linesep
+from os import linesep, chmod, makedirs
+from pathlib import Path
 
-from PyQt5.QtCore import pyqtSlot, Qt
-from PyQt5.QtGui import QPixmap, QBrush, QColor, QIcon
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
+from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFont
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, qApp, QLabel, QFrame
+    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox
 
 import als.model.data
 from als import config
 from als.code_utilities import log, get_text_content_of_resource, AlsLogAdapter
 from als.config import CouldNotSaveConfig
-from als.logic import Controller, SessionError, CriticalFolderMissing, WebServerFailedToStart, WebServerOnLoopback
+from als.logic import Controller, SessionError, FolderSetupError, WebServerOnLoopback, \
+    PortInUseError
 from als.messaging import MESSAGE_HUB
 from als.model.data import DYNAMIC_DATA, I18n
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
@@ -25,7 +28,7 @@ from generated.als_ui import Ui_stack_window
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
-
+ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7/"
 
 # pylint: disable=R0904, R0902
 class MainWindow(QMainWindow):
@@ -133,8 +136,6 @@ class MainWindow(QMainWindow):
         self._restore_processing_dock = False
 
         # setup image display
-        self._scene = QGraphicsScene(self)
-        self._ui.image_view.setScene(self._scene)
         self._image_item = None
         self.reset_image_view()
 
@@ -150,7 +151,7 @@ class MainWindow(QMainWindow):
                 self.tr("Welcome to ALS"),
                 self.tr('It appears this is your first use of ALS. Welcome !') + linesep*2 +
                 self.tr('Clicking OK will bring up the settings page.') + linesep*2 +
-                self.tr("Make sure the scan & work folders are set correctly : They must be created by you..."))
+                self.tr("Please set the paths for the Scan and Work folders."))
 
             if self._open_preferences():
                 self.update_display()
@@ -158,15 +159,34 @@ class MainWindow(QMainWindow):
         self.update_display()
         MESSAGE_HUB.add_receiver(self)
 
+        if config.get_send_stats_active() is None:
+            _LOGGER.info("Send stats has never been set. Asking user")
+
+            message_box(
+                self.tr("ALS - Usage stats confirmation"),
+                self.tr("It appears you haven't yet confirmed your choice on usage statistics") + linesep*2 +
+                self.tr("Please check the settings page's 'Core' section..."))
+
+            self._open_preferences()
+
         if 0 == config.get_profile():
             self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : {I18n.VISUAL}")
         else:
             self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : Photo")
 
+        self._ui.action_full_screen.setChecked(config.get_full_screen_active())
+
         if config.get_full_screen_active():
-            self._ui.action_full_screen.setChecked(True)
+            self.showFullScreen()
+        elif config.get_window_maximized():
+            self.showMaximized()
         else:
             self.show()
+
+        self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
+
+        # This is how you would set it programmatically in PyQt
+        self._ui.lbl_stack_exposure.setFont(QFont("Courier New, Menlo, DejaVu Sans Mono, monospace"))
 
     def _setup_statusbar(self):
         self._lbl_statusbar_current_profile = QLabel(self._ui.statusBar)
@@ -332,11 +352,11 @@ class MainWindow(QMainWindow):
         """
         Reset image viewer to its initial state
         """
-        for item in self._scene.items():
-            self._scene.removeItem(item)
+        self._ui.image_view.setScene(QGraphicsScene(self))
+        self._ui.image_view.reset_zoom()
         self._image_item = QGraphicsPixmapItem(QPixmap(":/icons/window_background.png"))
-        self._ui.image_view.setBackgroundBrush(QBrush(QColor("#222222"), Qt.SolidPattern))
-        self._scene.addItem(self._image_item)
+        self._ui.image_view.scene().addItem(self._image_item)
+
 
     @log
     def closeEvent(self, event):
@@ -348,6 +368,7 @@ class MainWindow(QMainWindow):
             config.set_window_geometry((window_rect.x(), window_rect.y(), window_rect.width(), window_rect.height()))
 
         config.set_full_screen_active(self.isFullScreen())
+        config.set_window_maximized(self.isMaximized())
         config.set_night_mode_active(self._ui.action_night_mode.isChecked())
         self._save_config()
 
@@ -431,6 +452,7 @@ class MainWindow(QMainWindow):
     def cb_about(self):
         """ Qt slot for activation of the 'about' action"""
         dialog = AboutDialog(self)
+        dialog.resize(dialog.minimumSize())
         dialog.exec()
 
     @log
@@ -482,12 +504,21 @@ class MainWindow(QMainWindow):
         """
         Qt slot executed when START web button is clicked
         """
+
+        self._ui.btn_web_start.setEnabled(False)
+        self._ui.lbl_web_server_status_main.setText(I18n.STARTING)
+        QApplication.processEvents()
+
         try:
             self._controller.start_www()
             self._qrDisplay.update_code()
 
-        except WebServerFailedToStart as start_failure:
-            error_box(start_failure.message, start_failure.details)
+        except PortInUseError:
+            error_message = self.tr("Port {} is already in use.").format(config.get_www_server_port_number())
+            error_message_part2 = "\n\n" + self.tr("Change server port number in preferences and start server again")
+            error_title = self.tr("Could not start web server")
+            MESSAGE_HUB.dispatch_error(__name__, error_title + ". " + error_message)
+            error_box(error_title, error_message + error_message_part2)
 
         except WebServerOnLoopback:
             title = self.tr("Web server access is limited")
@@ -495,14 +526,22 @@ class MainWindow(QMainWindow):
                               "Please check your network connection")
             warning_box(title, message)
 
+        finally:
+            self.update_display()
+
     @pyqtSlot()
     @log
     def on_btn_web_stop_clicked(self):
         """
-        Qt slot executed when START web button is clicked
+        Qt slot executed when STOP web button is clicked
         """
-        self._controller.stop_www()
+
+        self._ui.btn_web_stop.setEnabled(False)
         self._qrDisplay.setVisible(False)
+        self._ui.lbl_web_server_status_main.setText(I18n.STOPPING)
+        QApplication.processEvents()
+        self._controller.stop_www()
+        self.update_display()
 
     @log
     def on_action_full_screen_toggled(self, checked):
@@ -533,6 +572,16 @@ class MainWindow(QMainWindow):
             qApp.setStyleSheet(get_text_content_of_resource(":/main/main.css"))
         else:
             qApp.setStyleSheet("")
+
+
+    @log
+    @pyqtSlot(bool)
+    def on_action_help_triggered(self, _):
+        """
+        Open the user's default browser and navigate to ALS documentation.
+        """
+        QDesktopServices.openUrl(QUrl(ALS_DOCUMENTATION_URL))
+
 
     @log
     @pyqtSlot(bool)
@@ -599,6 +648,12 @@ class MainWindow(QMainWindow):
     def on_action_zoom_out_triggered(self, _):
         """ user wants to zoom out of the image """
         self._ui.image_view.zoom_out()
+
+    @log
+    @pyqtSlot(bool)
+    def on_action_zoom_reset_triggered(self, _):
+        """ user wants to reset image zoom """
+        self._ui.image_view.reset_zoom()
 
     @log
     @pyqtSlot(bool)
@@ -693,12 +748,18 @@ class MainWindow(QMainWindow):
         """
         self._image_item.setPixmap(DYNAMIC_DATA.post_processor_result_qimage)
 
-    @pyqtSlot(name="on_pbPlay_clicked")
+
+    @pyqtSlot()
     @log
-    def cb_play(self):
-        """Qt slot for mouse clicks on the 'play' button"""
+    def on_btn_session_start_clicked(self):
+        """Qt slot for mouse clicks on the session START button"""
+
+        self._ui.btn_session_start.setEnabled(False)
+        self._ui.lbl_session_status.setText(I18n.STARTING)
+        QApplication.processEvents()
 
         self._start_session()
+        self.update_display()
 
     @log
     def on_message(self, message):
@@ -761,9 +822,9 @@ class MainWindow(QMainWindow):
             self._ui.lbl_session_status.setText(f"{session_status}")
 
             # handle Start / Pause / Stop  buttons
-            self._ui.pbPlay.setEnabled(session_is_stopped or session_is_paused)
-            self._ui.pbStop.setEnabled(session_is_running or session_is_paused)
-            self._ui.pbPause.setEnabled(session_is_running)
+            self._ui.btn_session_start.setEnabled(session_is_stopped or session_is_paused)
+            self._ui.btn_session_stop.setEnabled(session_is_running or session_is_paused)
+            self._ui.btn_session_pause.setEnabled(session_is_running)
 
             # handle align + stack mode buttons
             self._ui.chk_align.setEnabled(session_is_stopped)
@@ -776,10 +837,7 @@ class MainWindow(QMainWindow):
             # update stack size and total exposure time
             stack_size_str = str(DYNAMIC_DATA.stack_size)
             self._ui.lbl_stack_size.setText(stack_size_str)
-            if DYNAMIC_DATA.total_exposure_time == 0:
-                exposure_time_str = "n/a"
-            else:
-                exposure_time_str = str(datetime.timedelta(seconds=int(round(DYNAMIC_DATA.total_exposure_time, 0))))
+            exposure_time_str = str(datetime.timedelta(seconds=int(round(DYNAMIC_DATA.total_exposure_time, 0))))
             self._ui.lbl_stack_exposure.setText(exposure_time_str)
 
             # update statusbar labels
@@ -825,17 +883,26 @@ class MainWindow(QMainWindow):
             self._ui.sld_align_threshold.setValue(config.get_minimum_match_count())
             self._ui.lbl_align_threshold.setText(str(self._ui.sld_align_threshold.value()))
 
-    @pyqtSlot(name="on_pbStop_clicked")
+    @pyqtSlot()
     @log
-    def cb_stop(self):
-        """Qt slot for mouse clicks on the 'Stop' button"""
-        self._stop_session()
+    def on_btn_session_stop_clicked(self):
+        """Qt slot for mouse clicks on the session STOP button"""
 
-    @pyqtSlot(name="on_pbPause_clicked")
+        self._ui.btn_session_stop.setEnabled(False)
+        self._ui.lbl_session_status.setText(I18n.STOPPING)
+        QApplication.processEvents()
+        self._stop_session()
+        self.update_display()
+
+    @pyqtSlot()
     @log
-    def cb_pause(self):
-        """Qt slot for mouse clicks on the 'Pause' button"""
+    def on_btn_session_pause_clicked(self):
+        """Qt slot for mouse clicks on the session PAUSE button"""
+
+        self._ui.btn_session_pause.setEnabled(False)
+        QApplication.processEvents()
         self._controller.pause_session()
+        self.update_display()
 
     @log
     def _start_session(self, is_retry: bool = False):
@@ -849,16 +916,17 @@ class MainWindow(QMainWindow):
         try:
             if DYNAMIC_DATA.session.is_stopped:
                 self._ui.log.clear()
+                self.reset_image_view()
             self._controller.start_session()
             if is_retry:
                 message_box(self.tr("Session started"), self.tr("Session successfully started after retry"))
 
-        except CriticalFolderMissing as folder_missing:
+        except FolderSetupError as folder_error:
 
-            text = folder_missing.details + "\n\n"
-            text += self.tr("Would you like to open the preferences box ?")
+            text = folder_error.details + "\n\n" + self.tr("Session cannot start" + "\n\n")
+            text += self.tr("Do you want to fix the issue in ALS preferences ?")
 
-            if question(folder_missing.message, text) and self._open_preferences():
+            if question(folder_error.message, text) and self._open_preferences():
                 self._start_session(is_retry=True)
 
         except SessionError as session_error:
@@ -921,3 +989,76 @@ class MainWindow(QMainWindow):
 
             self._ui.action_ack_issues.isEnabled() and not self._ui.log_dock.isVisible()
         )
+
+    @log
+    @pyqtSlot(bool)
+    def on_action_create_launcher_triggered(self, _):
+        """
+        Creates a desktop application launcher for 'Astro Live Stacker' on Linux systems.
+
+        It involves setting up an icon in the user's local share directory,
+        creating a .desktop launcher file,
+        and handling potential errors
+
+        :return: None
+        """
+        if platform.system().lower() == 'linux':
+
+            home_path = QStandardPaths.writableLocation(QStandardPaths.HomeLocation)
+            local_share_path = Path(home_path).joinpath(".local", "share")
+            local_icons_path = Path(local_share_path).joinpath("icons")
+            local_apps_path = Path(local_share_path).joinpath("applications")
+            target_dirs = [local_icons_path, local_apps_path]
+
+            for target_dir in target_dirs:
+                makedirs(target_dir, exist_ok=True)
+
+            launcher_path = Path(local_apps_path).joinpath("als.desktop")
+            icon_path = Path(local_icons_path).joinpath("als.png")
+            resource_path = ":/icons/als_logo.png"
+
+            try:
+                with open(icon_path, 'wb') as f:
+                    f.write(QResource(resource_path).data())
+
+                # switch for PCs vs RPI64
+                if platform.machine().lower() == 'aarch64':
+                    file_filter = "als*"
+                else:
+                    file_filter = "als*.run"
+
+
+                with open(launcher_path, 'w') as f:
+                    als_path = QFileDialog.getOpenFileName(self,
+                                                     caption=self.tr("Select your ALS executable"),
+                                                     directory=home_path,
+                                                     filter=file_filter,
+                                                     options=QFileDialog.DontUseNativeDialog)[0]
+
+                    if als_path:
+                        f.write("#!/usr/bin/env xdg-open\n")
+                        f.write("[Desktop Entry]\n")
+                        f.write(f"Name=Astro Live Stacker\n")
+                        f.write(f"Type=Application\n")
+                        f.write(f"Icon={icon_path}\n")
+                        f.write(f"Version=1.0\n")
+                        f.write(f"Terminal=False\n")
+                        f.write(f"Categories=Graphics\n")
+                        f.write(f"Comment=Live Stacking Made in France\n")
+                        f.write(f"Exec={als_path}\n")
+                        chmod(str(launcher_path), 0o750)
+
+                        QMessageBox.information(self,
+                                                self.tr('ALS launcher created / updated.'),
+                                                self.tr("You'll find ALS with the graphics apps"))
+
+            except FileNotFoundError as e:
+                QMessageBox.critical(self, "File Error", f"File not found: {e}")
+            except PermissionError as e:
+                QMessageBox.critical(self, "Permission Error", f"Permission denied: {e}")
+            except OSError as e:
+                QMessageBox.critical(self, "OS Error", f"OS error: {e}")
+            except ValueError as e:
+                QMessageBox.critical(self, "Value Error", f"Value error: {e}")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"An unexpected error occurred: {e}")

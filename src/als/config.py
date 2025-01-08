@@ -23,7 +23,7 @@ from configparser import ConfigParser, DuplicateOptionError, ParsingError
 from pathlib import Path
 
 from als.code_utilities import AlsException, AlsLogAdapter
-from als.model.data import IMAGE_SAVE_TYPE_JPEG, DYNAMIC_DATA
+from als.model.data import DYNAMIC_DATA, IMAGE_SAVE_TYPE_JPEG
 
 _CONFIG_FILE_PATH = os.path.expanduser("~/.als.cfg")
 
@@ -35,9 +35,9 @@ _WWW_DEDICATED_FOLDER = "www_dedicated_folder"
 _LOG_LEVEL = "log_level"
 _WWW_SERVER_PORT = "www_server_port"
 _WINDOW_GEOMETRY = "window_geometry"
+_WINDOW_MAXIMIZED = "window_maximized"
 _IMAGE_SAVE_FORMAT = "image_save_format"
 _FULL_SCREEN = "full_screen"
-_WWW_REFRESH_PERIOD = "web_refresh_period"
 _MINIMUM_MATCH_COUNT = "alignment_minimum_match_count"
 _USE_MASTER_DARK = "use_master_dark"
 _MASTER_DARK_FILE_PATH = "master_dark_file_path"
@@ -48,6 +48,7 @@ _NIGHT_MODE = "night_mode"
 _SAVE_ON_STOP = "save_on_stop"
 _PROFILE = "profile"
 _PRESERVED_MEM = "preserved_mem"
+_SEND_STATS = "send_stats"
 
 # keys used to describe logging level
 _LOG_LEVEL_DEBUG = "DEBUG"
@@ -56,7 +57,7 @@ _LOG_LEVEL_WARNING = "WARNING"
 _LOG_LEVEL_ERROR = "ERROR"
 _LOG_LEVEL_CRITICAL = "CRITICAL"
 
-# store of matches between human readable log levels and logging module constants
+# store of matches between human-readable log levels and logging module constants
 _LOG_LEVELS = {
     _LOG_LEVEL_DEBUG:       logging.DEBUG,
     _LOG_LEVEL_INFO:        logging.INFO,
@@ -67,16 +68,16 @@ _LOG_LEVELS = {
 
 # application default values
 _DEFAULTS = {
-    _SCAN_FOLDER_PATH:      os.path.expanduser("~/als/scan"),
-    _WORK_FOLDER_PATH:      os.path.expanduser("~/als/work"),
-    _WWW_FOLDER_PATH:       os.path.expanduser("~/als/work"),
+    _SCAN_FOLDER_PATH:      "",
+    _WORK_FOLDER_PATH:      "",
+    _WWW_FOLDER_PATH:       "",
     _WWW_DEDICATED_FOLDER:  0,
     _LOG_LEVEL:             _LOG_LEVEL_INFO,
     _WWW_SERVER_PORT:       "8000",
     _WINDOW_GEOMETRY:       "50,100,1400,900",
+    _WINDOW_MAXIMIZED:      0,
     _IMAGE_SAVE_FORMAT:     IMAGE_SAVE_TYPE_JPEG,
     _FULL_SCREEN:           0,
-    _WWW_REFRESH_PERIOD:    5,
     _MINIMUM_MATCH_COUNT:   25,
     _USE_MASTER_DARK:       0,
     _MASTER_DARK_FILE_PATH: "",
@@ -84,9 +85,10 @@ _DEFAULTS = {
     _LANG:                  "sys",
     _BAYER_PATTERN:         "AUTO",
     _NIGHT_MODE:            0,
-    _SAVE_ON_STOP:          0,
+    _SAVE_ON_STOP:          1,
     _PROFILE:               0,
     _PRESERVED_MEM:         1,
+    _SEND_STATS:            None
 }
 _MAIN_SECTION_NAME = "main"
 
@@ -123,6 +125,58 @@ def get_full_screen_active():
         return int(_get(_FULL_SCREEN)) == 1
     except ValueError:
         return _DEFAULTS[_FULL_SCREEN]
+
+
+def set_window_maximized(maximized: bool):
+    """
+    Set maximized window indicator
+
+    :param maximized: should app be launched in maximized state ?
+    :type maximized: bool
+    """
+
+    _set(_WINDOW_MAXIMIZED, "1" if maximized else "0")
+
+
+def get_window_maximized():
+    """
+    Get maximized window indicator
+
+    :return: True if app should be launched in maximized state, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_WINDOW_MAXIMIZED)) == 1
+    except ValueError:
+        return _DEFAULTS[_WINDOW_MAXIMIZED]
+
+
+def set_send_stats_active(stats: bool):
+    """
+    Set send stats indicator
+
+    :param stats: should app send usage stats ?
+    :type stats: bool
+    """
+
+    _set(_SEND_STATS, "1" if stats else "0")
+
+
+def get_send_stats_active():
+    """
+    Get send stats indicator
+
+    :return: True if app should send usage stats
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_SEND_STATS)) == 1
+    except ValueError:
+        return _DEFAULTS[_SEND_STATS]
+    except TypeError:
+        return _DEFAULTS[_SEND_STATS]
 
 
 def set_night_mode_active(night: bool):
@@ -343,30 +397,6 @@ def set_preserved_mem(code):
     :type code: int
     """
     _set(_PRESERVED_MEM, code)
-
-
-def get_www_server_refresh_period():
-    """
-    Retrieves the configured web server page refresh period.
-
-    :return: The web server page refresh period, or its default value if config entry
-             is not parsable as an int.
-    :rtype: int
-    """
-    try:
-        return int(_get(_WWW_REFRESH_PERIOD))
-    except ValueError:
-        return _DEFAULTS[_WWW_REFRESH_PERIOD]
-
-
-def set_www_server_refresh_period(period):
-    """
-    Sets web server page refresh period.
-
-    :param period: the period
-    :type period: int
-    """
-    _set(_WWW_REFRESH_PERIOD, str(period))
 
 
 def get_work_folder_path():
@@ -678,6 +708,7 @@ def _setup_logging():
         'watchdog.observers.inotify_buffer',
         'exifread',
         'astropy',
+        'aiohttp.access'
     ]
     for third_party_log_polluter in third_party_polluters:
         logging.getLogger(third_party_log_polluter).setLevel(logging.CRITICAL)

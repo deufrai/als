@@ -1,19 +1,18 @@
-""" Provide networking features"""
+import asyncio
+import json
 import os
 import socket
-import threading
-from http.server import SimpleHTTPRequestHandler, HTTPServer as BaseHTTPServer
 from logging import getLogger
-from typing import Tuple
+
+from aiohttp import web
 
 from als import config
 from als.code_utilities import log, AlsLogAdapter
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
-
 @log
-def get_ip():
+def get_host_ip():
     """
     Retrieves machine's IP address.
 
@@ -30,69 +29,101 @@ def get_ip():
         test_socket.close()
     return ip_address
 
-
-class HTTPHandler(SimpleHTTPRequestHandler):
-    """This handler uses server.base_path instead of always using os.getcwd()"""
-    @log
-    def translate_path(self, path):
-        path = SimpleHTTPRequestHandler.translate_path(self, path)
-        relpath = os.path.relpath(path, os.getcwd())
-        fullpath = os.path.join(self.server.base_path, relpath)
-        return fullpath
-
-
-class HTTPServer(BaseHTTPServer):
-    """The main server, you pass in base_path which is the path you want to serve requests from"""
-    @log
-    def __init__(self, base_path, server_address, request_handler_class=HTTPHandler):
-        self.base_path = base_path
-        BaseHTTPServer.__init__(self, server_address, request_handler_class)
-
-    @log
-    def process_request(self, request: bytes, client_address: Tuple[str, int]) -> None:
-        super().process_request(request, client_address)
-
-
-class WebServer(threading.Thread):
+@log
+def is_port_in_use(ip, port):
     """
-    Thread class with a stop() method.
+    Checks if a given port on a given IP is in use.
 
-    The thread itself has to check regularly for the stopped() condition.
+    :param ip: IP address to check
+    :param port: Port number to check
+    :return: True if port is in use, False otherwise
+    :rtype: bool
     """
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        result = sock.connect_ex((ip, port))
+        return result == 0
 
-    # FIXME logging this init causes issue with server thread init. To be investigated
-    #  @log
-    def __init__(self, web_dir):
-        # web stuff
-        self.web_dir = web_dir
-        self.httpd = HTTPServer(self.web_dir, ("", config.get_www_server_port_number()))
-        self.httpd.timeout = 1
-
-        # thread stuff
-        self._stop_event = threading.Event()
-
-        # Init parent thread
-        super().__init__(target=self.serve)
+class Server:
 
     @log
-    def serve(self):
-        """
-        Continuously handles incomming HTTP requests.
-        """
-        while not self.stopped():
-            self.httpd.handle_request()
+    def __init__(self, static_path):
+        self._static_path = static_path
+        self._app = web.Application()
+        self._app.add_routes([web.get('/ws', self._websocket_handler)])
+        self._app.add_routes([web.get('/', self._index_handler)])
+
+        # Catch-all route for static files
+        self._app.router.add_static('/', self._static_path)
+
+        self._clients = []
+        self._runner = None
+        self._loop = asyncio.new_event_loop()
+        self._server_task = None
+
+    @log
+    async def _websocket_handler(self, request):
+        ws = web.WebSocketResponse()
+        await ws.prepare(request)
+        self._clients.append(ws)
+        try:
+            async for msg in ws:
+                if msg.type == web.WSMsgType.TEXT:
+                    await ws.send_str(msg.data)
+        finally:
+            self._clients.remove(ws)
+        return ws
+
+    @log
+    async def _index_handler(self, _):
+        return web.FileResponse(os.path.join(self._static_path, 'index.html'))
+
+    @log
+    async def _send_message_to_clients(self, message):
+        for ws in self._clients:
+            await ws.send_str(json.dumps(message))
+
+    @log
+    async def _start_server(self, host, port):
+        self._runner = web.AppRunner(self._app)
+        await self._runner.setup()
+        site = web.TCPSite(self._runner, host, port)
+        await site.start()
+
+        try:
+            while True:
+                await asyncio.sleep(3600)
+        except asyncio.CancelledError:
+            pass
+
+    @log
+    async def _stop_server(self):
+        # Notify clients to disconnect
+        await self._send_message_to_clients({'type': 'disconnect'})
+
+        # Wait for a short time to allow clients to disconnect
+        await asyncio.sleep(2)
+
+        if self._runner:
+            await self._runner.cleanup()
+        self._server_task.cancel()
+        try:
+            await self._server_task
+        except asyncio.CancelledError:
+            pass
 
     @log
     def stop(self):
-        """
-        Stops the web server.
-        """
-        self._stop_event.set()
+        future = asyncio.run_coroutine_threadsafe(self._stop_server(), self._loop)
+        future.result()  # Ensure the coroutine is awaited and completed
+        self._loop.call_soon_threadsafe(self._loop.stop)
 
-    def stopped(self):
-        """
-        Checks if server is stopped.
+    @log
+    def send_message(self, message):
+        future = asyncio.run_coroutine_threadsafe(self._send_message_to_clients(message), self._loop)
+        future.result()  # Ensure the coroutine is awaited and completed
 
-        :return: True if server is stopped, False otherwise
-        """
-        return self._stop_event.is_set()
+    @log
+    def start(self):
+        asyncio.set_event_loop(self._loop)
+        self._server_task = self._loop.create_task(self._start_server(get_host_ip(), config.get_www_server_port_number()))
+        self._loop.run_forever()

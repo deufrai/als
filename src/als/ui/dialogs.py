@@ -6,7 +6,7 @@ from pathlib import Path
 
 import qrcode
 from PIL.ImageQt import ImageQt
-from PyQt5.QtCore import pyqtSlot, QT_TRANSLATE_NOOP, pyqtSignal, Qt
+from PyQt5.QtCore import pyqtSlot, QT_TRANSLATE_NOOP, pyqtSignal, Qt, QStandardPaths
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QDialog, QFileDialog, QMessageBox, QApplication
 
@@ -39,9 +39,11 @@ class PreferencesDialog(QDialog):
         self._ui.setupUi(self)
 
         self._ui.tabWidget.setCurrentIndex(0)
-        self._ui.pathsBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
-        self._ui.serverBox.setDisabled(DYNAMIC_DATA.web_server_is_running)
+        self._ui.pathsBox.setEnabled(not DYNAMIC_DATA.web_server_is_running and DYNAMIC_DATA.session.is_stopped)
+        self._ui.serverBox.setEnabled(not DYNAMIC_DATA.web_server_is_running)
+
 
         self._ui.cmb_lang.setItemData(0, 'sys')
         self._ui.cmb_lang.setItemData(1, 'en')
@@ -62,7 +64,6 @@ class PreferencesDialog(QDialog):
         self._ui.ln_master_dark_path.setToolTip(config.get_master_dark_file_path())
 
         self._ui.ln_web_server_port.setText(str(config.get_www_server_port_number()))
-        self._ui.spn_webpage_refresh_period.setValue(config.get_www_server_refresh_period())
         self._ui.chk_debug_logs.setChecked(config.is_debug_log_on())
         self._ui.chk_use_dark.setChecked(config.get_use_master_dark())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
@@ -88,8 +89,7 @@ class PreferencesDialog(QDialog):
 
         self._ui.chk_www_own_folder.setChecked(config.get_www_use_dedicated_folder())
 
-        self._web_folder_controls = [self._ui.lbl_web_folder,
-                                     self._ui.ln_web_folder_path,
+        self._web_folder_controls = [self._ui.ln_web_folder_path,
                                      self._ui.btn_browse_web]
 
         for control in self._web_folder_controls:
@@ -99,23 +99,27 @@ class PreferencesDialog(QDialog):
 
         self._ui.sld_mem_preserve.setValue(config.get_preserved_mem())
 
+        self._ui.chk_stats.setChecked(config.get_send_stats_active() or config.get_send_stats_active() is None )
+
     @log
     def _validate_all_paths(self):
         """
         Draw a red border around text fields containing a path to a missing folder
         """
 
-        paths_to_check = [self._ui.ln_work_folder_path, self._ui.ln_scan_folder_path]
+        path_labels_to_check = [self._ui.ln_work_folder_path, self._ui.ln_scan_folder_path]
 
         if self._ui.chk_www_own_folder.isChecked():
-            paths_to_check.append(self._ui.ln_web_folder_path)
+            path_labels_to_check.append(self._ui.ln_web_folder_path)
 
-        for folder_path in paths_to_check:
+        for path_label in path_labels_to_check:
 
-            if not Path(folder_path.text()).is_dir():
-                folder_path.setStyleSheet(_WARNING_STYLE_SHEET)
+            label_text = path_label.text()
+
+            if not label_text or not Path(label_text).is_dir():
+                path_label.setStyleSheet(_WARNING_STYLE_SHEET)
             else:
-                folder_path.setStyleSheet(_NORMAL_STYLE_SHEET)
+                path_label.setStyleSheet(_NORMAL_STYLE_SHEET)
 
         master_dark_path = self._ui.ln_master_dark_path.text()
         if (Path(master_dark_path).is_file() or
@@ -235,8 +239,6 @@ class PreferencesDialog(QDialog):
             self._ui.ln_web_server_port.selectAll()
             return
 
-        config.set_www_server_refresh_period(self._ui.spn_webpage_refresh_period.value())
-
         # debug log choice
         debug_old_value = config.is_debug_log_on()
         debug_new_value = self._ui.chk_debug_logs.isChecked()
@@ -285,16 +287,39 @@ class PreferencesDialog(QDialog):
 
         config.set_preserved_mem(self._ui.sld_mem_preserve.value())
 
+        config.set_send_stats_active(self._ui.chk_stats.isChecked())
+
         super().accept()
+
+    @log
+    def ask_for_directory_path(self, invite, start_folder):
+        """
+        open a dialog box for the user to choose a directory path
+
+        :param invite: title of the dialog box
+        :type invite: str
+
+        :param start_folder: folder in which dialog box is opened
+        :type start_folder: str
+
+        :return: the folder path chose by the user
+        :rtype: str
+        """
+        if not start_folder:
+            start_folder = QStandardPaths.writableLocation(QStandardPaths.HomeLocation)
+
+        return QFileDialog.getExistingDirectory(self,
+                                                invite,
+                                                start_folder,
+                                                options=QFileDialog.DontUseNativeDialog)
 
     @pyqtSlot(name="on_btn_browse_scan_clicked")
     @log
     def browse_scan(self):
-        """Opens a folder dialog to choose scan folder"""
-        scan_folder_path = QFileDialog.getExistingDirectory(self,
-                                                            self.tr("Select scan folder"),
-                                                            self._ui.ln_scan_folder_path.text(),
-                                                            options=QFileDialog.DontUseNativeDialog)
+        """ Asks user to pick scan folder """
+        scan_folder_path = self.ask_for_directory_path(self.tr("Select scan folder"),
+                                                       self._ui.ln_scan_folder_path.text())
+
         if scan_folder_path:
             self._ui.ln_scan_folder_path.setText(scan_folder_path)
 
@@ -304,10 +329,8 @@ class PreferencesDialog(QDialog):
     @log
     def browse_work(self):
         """Opens a folder dialog to choose work folder"""
-        work_folder_path = QFileDialog.getExistingDirectory(self,
-                                                            self.tr("Select work folder"),
-                                                            self._ui.ln_work_folder_path.text(),
-                                                            options=QFileDialog.DontUseNativeDialog)
+        work_folder_path = self.ask_for_directory_path(self.tr("Select work folder"),
+                                                       self._ui.ln_work_folder_path.text())
         if work_folder_path:
             self._ui.ln_work_folder_path.setText(work_folder_path)
 
@@ -317,10 +340,8 @@ class PreferencesDialog(QDialog):
     @log
     def browse_web(self):
         """Opens a folder dialog to choose web folder"""
-        web_folder_path = QFileDialog.getExistingDirectory(self,
-                                                           self.tr("Select web folder"),
-                                                           self._ui.ln_web_folder_path.text(),
-                                                           options=QFileDialog.DontUseNativeDialog)
+        web_folder_path = self.ask_for_directory_path(self.tr("Select web folder"),
+                                                      self._ui.ln_web_folder_path.text())
         if web_folder_path:
             self._ui.ln_web_folder_path.setText(web_folder_path)
 
