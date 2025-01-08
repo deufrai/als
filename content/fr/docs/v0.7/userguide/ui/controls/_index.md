@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T13:37:11Z
+lastmod: 2025-01-08T15:32:35Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -27,11 +27,11 @@ Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages 
 
 - [**Session**](#session-section)
 
-  Contrôles de session, informations sur la stack et le statut de la session
+  Contrôles et statut de la session
 
 - [**Stack**](#stack-section)
 
-  Réglages du stacking : Alignement, mode d'empilement et seuil de détection
+  Contrôles du stacking et informations sur la stack
 
 - [**Serveur d'images**](#server-section)
 

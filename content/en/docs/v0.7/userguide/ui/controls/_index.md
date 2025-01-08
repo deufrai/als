@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T13:41:44Z
+lastmod: 2025-01-08T15:32:35Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues" ]
@@ -27,11 +27,11 @@ Located on the left side of the ALS interface, it organizes the most used contro
 
 - [**Session**](#session-section)
 
-  Session controls, stack information, and session status
+  Session controls and status
 
 - [**Stack**](#stack-section)
 
-  Stacking settings: Alignment, stacking mode, and detection threshold
+  Stack controls and stack information
 
 - [**Image Server**](#server-section)
 
