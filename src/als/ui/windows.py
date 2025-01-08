@@ -452,6 +452,7 @@ class MainWindow(QMainWindow):
     def cb_about(self):
         """ Qt slot for activation of the 'about' action"""
         dialog = AboutDialog(self)
+        dialog.resize(dialog.minimumSize())
         dialog.exec()
 
     @log

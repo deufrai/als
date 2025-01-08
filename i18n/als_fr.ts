@@ -172,29 +172,109 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>A propos d&apos;ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="107"/>
+        <location filename="../src/als/ui/about_ui.ui" line="94"/>
         <source>ASTRO LIVE STACKER</source>
         <translation>ASTRO LIVE STACKER</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="146"/>
+        <location filename="../src/als/ui/about_ui.ui" line="138"/>
         <source>Version :</source>
         <translation>Version :</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="192"/>
+        <location filename="../src/als/ui/about_ui.ui" line="244"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;License : &lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Licence : &lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="232"/>
+        <location filename="../src/als/ui/about_ui.ui" line="224"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Site Web : &lt;a href=&quot;https://als-app.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../src/als/ui/about_ui.ui" line="188"/>
+        <source>About</source>
+        <translation>À propos</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="207"/>
+        <source>&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Astrophoto livestacking tool</source>
+        <translation>&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Outil de livestacking astrophoto</translation>
+    </message>
+    <message>
         <location filename="../src/als/ui/about_ui.ui" line="285"/>
-        <source>OK</source>
-        <translation>OK</translation>
+        <source>Authors</source>
+        <translation>Auteurs</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="299"/>
+        <source>Authors:</source>
+        <translation>Auteurs:</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="360"/>
+        <source>Contributors:</source>
+        <translation>Contributeurs:</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="388"/>
+        <source>Project logo</source>
+        <translation>Logo du projet</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="429"/>
+        <source>Dark subtraction and alignment threshold</source>
+        <translation>Soustraction de dark et seuil d&apos;alignement</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="470"/>
+        <source>Awesome shots for our website</source>
+        <translation>Super prises de vues pour notre site web</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="511"/>
+        <source>Countless tests &amp; love</source>
+        <translation>Tests et amour sans limite</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="538"/>
+        <source>Thanks</source>
+        <translation>Remerciements</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="550"/>
+        <source>Tools and libraries:</source>
+        <translation>Outils et librairies:</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="577"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Web Image viewer : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Visionneuse d&apos;images serveur : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="652"/>
+        <source>Close</source>
+        <translation>Fermer</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="557"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Image alignment library : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Librairie d&apos;alignement d&apos;images : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="567"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Autostretch code : Las Cumbres Observatory - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Code de l&apos;autostretch : Observatoire Las Cumbres - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="234"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Source code : &lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Code source : &lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="594"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;All other more common libraries used in ALS are listed in the requirements.txt file at the top of our &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/0.7/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;source code repository&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Toutes les librairies plus courantes utilisées par ALS sont listées dans le fichier requirements.txt à la racine de notre &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/0.7/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;dépôt de code source&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -377,12 +457,12 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>Les préférences seront affichées après un click sur OK.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="523"/>
+        <location filename="../src/als/ui/windows.py" line="524"/>
         <source>Web server access is limited</source>
         <translation>L&apos;accès au serveur web est limité</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="524"/>
+        <location filename="../src/als/ui/windows.py" line="525"/>
         <source>Web server IP address is 127.0.0.1.
 
 Server won&apos;t be reachable by other machines. Please check your network connection</source>
@@ -391,22 +471,22 @@ Server won&apos;t be reachable by other machines. Please check your network conn
 Le serveur ne sera pas visible par d&apos;autres machines. Vérifiez votre connection réseau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="921"/>
+        <location filename="../src/als/ui/windows.py" line="922"/>
         <source>Session started</source>
         <translation>Session démarrée</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="921"/>
+        <location filename="../src/als/ui/windows.py" line="922"/>
         <source>Session successfully started after retry</source>
         <translation>Session démarrée avec succès après une nouvelle tentative</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="932"/>
+        <location filename="../src/als/ui/windows.py" line="933"/>
         <source>Session start aborted</source>
         <translation>Démarrage de session abandonné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="979"/>
+        <location filename="../src/als/ui/windows.py" line="980"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -415,12 +495,12 @@ Details : {}</source>
 Détails : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="849"/>
+        <location filename="../src/als/ui/windows.py" line="850"/>
         <source>Total stack exp. time: {}</source>
         <translation>Temps exp. total stack: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="851"/>
+        <location filename="../src/als/ui/windows.py" line="852"/>
         <source>Total frame proc. time: {} s</source>
         <translation>Durée totale traitement dernière image: {} s</translation>
     </message>
@@ -440,17 +520,17 @@ Détails : {}</translation>
         <translation>ALS - Confirmation de statistiques d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1050"/>
+        <location filename="../src/als/ui/windows.py" line="1051"/>
         <source>ALS launcher created / updated.</source>
         <translation>Lanceur ALS créé / mis à jour avec sucès.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1050"/>
+        <location filename="../src/als/ui/windows.py" line="1051"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Vouls trouverez ALS avec les applications graphiques</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1031"/>
+        <location filename="../src/als/ui/windows.py" line="1032"/>
         <source>Select your ALS executable</source>
         <translation>Selectionner votre executable ALS</translation>
     </message>
@@ -460,7 +540,7 @@ Détails : {}</translation>
         <translation>Définissez les chemins du dossier scanné et du dossier de travail.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="925"/>
+        <location filename="../src/als/ui/windows.py" line="926"/>
         <source>Session cannot start
 
 </source>
@@ -469,22 +549,22 @@ Détails : {}</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="926"/>
+        <location filename="../src/als/ui/windows.py" line="927"/>
         <source>Do you want to fix the issue in ALS preferences ?</source>
         <translation>Voulez-vous corriger cette erreur dans les préférences d&apos;ALS ?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="518"/>
+        <location filename="../src/als/ui/windows.py" line="519"/>
         <source>Could not start web server</source>
         <translation>Impossible de démarrer le serveur web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="517"/>
+        <location filename="../src/als/ui/windows.py" line="518"/>
         <source>Change server port number in preferences and start server again</source>
         <translation>Changez le numéro de port dans les préférences du serveur et démarrez le serveur à nouveau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="516"/>
+        <location filename="../src/als/ui/windows.py" line="517"/>
         <source>Port {} is already in use.</source>
         <translation>Le port {} est déjà utilisé.</translation>
     </message>
