@@ -2,7 +2,7 @@
 title: "Modules et Traitements"
 description: "Modules et Traitements ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T08:34:13Z
+lastmod: 2025-01-12T11:46:35Z
 keywords: [ "modules et traitements ALS" ]
 type: "docs"
 categories: [ "documentations détaillées" ]
@@ -50,7 +50,7 @@ jusqu'à ce que l'application soit fermée.
 ```mermaid
 flowchart LR
 DÉMARRER((Start))
-TEST{{Test:<br><br>Images dans la file d'attente ?}}
+TEST{{Images dans la file d'attente ?}}
 PRENDRE[Prend l'image en tête de file]
 TRAITER[Traite l'image]
 DIFFUSER[Diffuse le résultat]
@@ -100,7 +100,7 @@ Une fois le dernier traitement terminé, le pipeline diffuse le résultat à l'a
 ```mermaid
 flowchart LR
 DÉMARRER((Start))
-TEST{{Test:<br><br>Images dans la file d'attente ?}}
+TEST{{Images dans la file d'attente ?}}
 PRENDRE[Prend l'image en tête de file]
 subgraph Traitement
     A[Traitement A]

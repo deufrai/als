@@ -2,7 +2,7 @@
 title: "Modules and Processes"
 description: "ALS Modules and Processes"
 author: "ALS Team"
-lastmod: 2025-01-07T08:34:13Z
+lastmod: 2025-01-12T11:46:35Z
 keywords: [ "ALS modules and processes" ]
 type: "docs"
 categories: [ "detailed documentations" ]
@@ -48,7 +48,7 @@ A main module is started with ALS and keeps polling its queue for new images to 
 ```mermaid
 flowchart LR
     START((Start))
-    TEST{{Test:<br><br>Image in Queue ?}}
+    TEST{{Image in Queue ?}}
     TAKE[Take Image from Queue]
     PROCESS[Process Image]
     BROADCAST[Broadcast Result]
@@ -99,7 +99,7 @@ Once the last process is done, the pipeline broadcasts the result to the applica
 ```mermaid
 flowchart LR
     START((Start))
-    TEST{{Test:<br><br>Image in Queue ?}}
+    TEST{{Image in Queue ?}}
     TAKE[Take Image from Queue]
     subgraph Process
         A[Process A]

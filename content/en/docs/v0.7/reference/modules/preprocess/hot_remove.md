@@ -2,7 +2,7 @@
 title: "Hot Pixel Removal"
 description: "Detailed documentation of the ALS HotPixelRemove process"
 author: "ALS Team"
-lastmod: 2025-01-07T17:57:43Z
+lastmod: 2025-01-12T11:46:35Z
 keywords: ["ALS hot pixel removal", "ALS hot pixel suppression"]
 draft: false
 type: "docs"
@@ -40,8 +40,8 @@ graph LR
 
 START([START])
 
-TEST_ENABLED{{TEST:<br><br>Process enabled?}}
-TEST_COLOR{{TEST:<br><br>Color image?}}
+TEST_ENABLED{{Process enabled?}}
+TEST_COLOR{{Color image?}}
 
 COMPUTE[Compute average value of neighbors of each pixel]
 REPLACE[Replace hot pixel value with the average of its neighbors]
