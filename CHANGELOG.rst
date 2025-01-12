@@ -24,6 +24,7 @@ New Features
 Improvements
 ------------
 
+- Web server: better image navigation and refresh only when needed
 - Windows: ALS version is provided as a proper installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts
