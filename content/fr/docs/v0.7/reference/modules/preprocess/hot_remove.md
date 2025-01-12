@@ -2,7 +2,7 @@
 title: "Suppression des pixels chauds"
 description: "Documentation détaillée du traitement HotPixelRemove d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-12T11:46:35Z
+lastmod: 2025-01-12T13:03:24Z
 keywords: ["ALS hot pixel removal", "ALS suppression des pixels chauds"]
 draft: false
 type: "docs"
@@ -48,8 +48,8 @@ graph LR
     COMPUTE[Calculer valeurs moyennes des voisins de chaque pixel]
     REPLACE[Remplacer la valeur des pixels chauds par la moyenne des voisins]
     
-    RETURN[Renoyer image modifiée]
-    UNCHANGED[Revoyer image inchangée]
+    RETURN[Renvoyer image modifiée]
+    UNCHANGED[Renvoyer image inchangée]
     
     END([END])
     

@@ -2,7 +2,7 @@
 title: "Soustraction de dark"
 description: "Documentation détaillée du traitement RemoveDark d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-12T11:46:35Z
+lastmod: 2025-01-12T13:03:24Z
 keywords: ["ALS soustraction de dark"]
 type: "docs"
 categories: ["documentations détaillées"]
@@ -51,8 +51,8 @@ graph LR
     CONVERT[Convertir master dark]
     SUBTRACT[Soustraire master dark de l'image]
     
-    RETURN[Renoyer image modifiée]
-    UNCHANGED[Revoyer image inchangée]
+    RETURN[Renvoyer image modifiée]
+    UNCHANGED[Renvoyer image inchangée]
     
     END([END])
     
