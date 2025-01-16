@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-05T13:36:11Z
+lastmod: 2025-01-16T07:31:46Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -39,6 +39,43 @@ Le module **Stack** est lancé en tâche de fond au démarrage d'ALS
 | référence d'alignement de la session | Image |
 
 # Comportement {#behavior}
+
+```mermaid
+flowchart LR
+    Start([START])
+    FirstSub{{Première brute de la session ?}}
+    SetAlignReference[Enregistrer la brute comme référence d'alignement]
+    CheckShape{{Brute de même dimensions que le réusltat précédent ?}}
+    CheckAlign{{Alignement actif ?}}
+    AlignImage[Aligner brute]
+    StackImage[Ajouter brute à la Stack]
+    ComputeStacking[Calculer le stacking]
+    PublishReference[Renvoyer la référence d'alignement]
+    PublishResult[Renvoyer l'image générée]
+    End([END])
+
+    Start --> FirstSub
+    FirstSub -- OUI --> SetAlignReference
+    SetAlignReference --> PublishReference
+    FirstSub -- NON --> CheckShape
+    CheckShape -- OUI --> CheckAlign
+    CheckAlign -- OUI --> AlignImage
+    AlignImage --> StackImage
+    CheckAlign -- NON --> StackImage
+    StackImage --> ComputeStacking
+    ComputeStacking --> PublishResult
+    CheckShape -- NON --> End
+    PublishReference --> End
+    PublishResult --> End
+    
+    classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
+    classDef step fill: #444, stroke: #622, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
+    classDef test fill: #444, stroke: #226, stroke-width: 2px, color: #c6c6c6, font-family: 'Poppins', sans-serif
+    
+    class Start,End bounds
+    class SetAlignReference,AlignImage,StackImage,PublishResult,ComputeStacking,PublishReference step
+    class CheckShape,CheckAlign,FirstSub test
+```
 
 ## Alignement
 
