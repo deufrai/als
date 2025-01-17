@@ -159,7 +159,7 @@ must not be the same as or a subfolder of your {} :
         <translation type="unfinished">Не удалось сохранить изображение : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="237"/>
+        <location filename="../src/als/ui/dialogs.py" line="238"/>
         <source>Port number validation failed : {}</source>
         <translation type="unfinished">Ошибка проверки номера порта : {}</translation>
     </message>
@@ -242,39 +242,49 @@ must not be the same as or a subfolder of your {} :
         <translation type="unfinished">Бесчисленные тесты и любовь</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="538"/>
+        <location filename="../src/als/ui/about_ui.ui" line="598"/>
         <source>Thanks</source>
         <translation type="unfinished">Благодарности</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="550"/>
+        <location filename="../src/als/ui/about_ui.ui" line="610"/>
         <source>Tools and libraries:</source>
         <translation type="unfinished">Инструменты и библиотеки:</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="557"/>
+        <location filename="../src/als/ui/about_ui.ui" line="617"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Image alignment library : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Библиотека выравнивания изображений : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="567"/>
+        <location filename="../src/als/ui/about_ui.ui" line="627"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Autostretch code : Las Cumbres Observatory - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Код автоподстройки: Обсерватория Лас-Кумбрес - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="577"/>
+        <location filename="../src/als/ui/about_ui.ui" line="637"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Web Image viewer : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Просмотр изображений в Интернете: OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="594"/>
+        <location filename="../src/als/ui/about_ui.ui" line="654"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;All other more common libraries used in ALS are listed in the requirements.txt file at the top of our &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/0.7/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;source code repository&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Все остальные более распространенные библиотеки, используемые в ALS, перечислены в файле requirements.txt в верхней части нашего &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/0.7/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;репозитория исходного кода&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="652"/>
+        <location filename="../src/als/ui/about_ui.ui" line="712"/>
         <source>Close</source>
         <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="557"/>
+        <source>Translators:</source>
+        <translation type="unfinished">Переводчики:</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="573"/>
+        <source>Russian</source>
+        <translation type="unfinished">Русский</translation>
     </message>
 </context>
 <context>
@@ -572,32 +582,32 @@ Details : {}</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="202"/>
+        <location filename="../src/als/ui/dialogs.py" line="203"/>
         <source>Profile</source>
         <translation type="unfinished">Профиль</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="203"/>
+        <location filename="../src/als/ui/dialogs.py" line="204"/>
         <source>Debug logs</source>
         <translation type="unfinished">Журналы отладки</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="204"/>
+        <location filename="../src/als/ui/dialogs.py" line="205"/>
         <source>Language</source>
         <translation type="unfinished">Язык</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="235"/>
+        <location filename="../src/als/ui/dialogs.py" line="236"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation type="unfinished">Номер порта веб-сервера должен быть числом от 1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="236"/>
+        <location filename="../src/als/ui/dialogs.py" line="237"/>
         <source>Wrong value</source>
         <translation type="unfinished">Неправильное значение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="283"/>
+        <location filename="../src/als/ui/dialogs.py" line="284"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -606,27 +616,27 @@ Details : {}</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="286"/>
+        <location filename="../src/als/ui/dialogs.py" line="287"/>
         <source>Restart needed</source>
         <translation type="unfinished">Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="320"/>
+        <location filename="../src/als/ui/dialogs.py" line="321"/>
         <source>Select scan folder</source>
         <translation type="unfinished">Выберите папку для сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="332"/>
+        <location filename="../src/als/ui/dialogs.py" line="333"/>
         <source>Select work folder</source>
         <translation type="unfinished">Выберите рабочую папку</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="343"/>
+        <location filename="../src/als/ui/dialogs.py" line="344"/>
         <source>Select web folder</source>
         <translation type="unfinished">Выберите веб-папку</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="354"/>
+        <location filename="../src/als/ui/dialogs.py" line="355"/>
         <source>Select dark file</source>
         <translation type="unfinished">Выберите темный файл</translation>
     </message>
@@ -709,152 +719,152 @@ Details : {}</source>
         <translation type="unfinished">Система</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="255"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="260"/>
         <source>Data</source>
         <translation type="unfinished">Данные</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="264"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="269"/>
         <source>Detailed &amp;logs</source>
         <translation type="unfinished">Подробные &amp;журналы</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="277"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="282"/>
         <source>&amp;Usage stats</source>
         <translation type="unfinished">&amp;Статистика использования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="307"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="312"/>
         <source>Process</source>
         <translation type="unfinished">Процесс</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="313"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="318"/>
         <source>Preprocess</source>
         <translation type="unfinished">Предобработка</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="319"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="324"/>
         <source>Hot pixels</source>
         <translation type="unfinished">Горячие пиксели</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="325"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="330"/>
         <source>&amp;Remove</source>
         <translation type="unfinished">&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="335"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="340"/>
         <source>Dark subtraction</source>
         <translation type="unfinished">Вычитание темного</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="346"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="351"/>
         <source>&amp;Active</source>
         <translation type="unfinished">&amp;Активный</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="355"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="360"/>
         <source>Master &amp;dark...</source>
         <translation type="unfinished">Мастер &amp;темного...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="381"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="386"/>
         <source>Clear</source>
         <translation type="unfinished">Очистить</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="393"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="398"/>
         <source>Debayering</source>
         <translation type="unfinished">Дебайеризация</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="467"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="472"/>
         <source>Output</source>
         <translation type="unfinished">Вывод</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="479"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="484"/>
         <source>Save</source>
         <translation type="unfinished">Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="485"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="490"/>
         <source>Format</source>
         <translation type="unfinished">Формат</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="495"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="500"/>
         <source>T&amp;IFF</source>
         <translation type="unfinished">T&amp;IFF</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="502"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="507"/>
         <source>PN&amp;G</source>
         <translation type="unfinished">PN&amp;G</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="509"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="514"/>
         <source>&amp;JPEG</source>
         <translation type="unfinished">&amp;JPEG</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="536"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="541"/>
         <source>Output folders</source>
         <translation type="unfinished">Папки вывода</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="544"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="549"/>
         <source>&amp;Work folder...</source>
         <translation type="unfinished">&amp;Рабочая папка...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="569"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="574"/>
         <source>&amp;Dedicacted web folder</source>
         <translation type="unfinished">&amp;Выделенная веб-папка</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="578"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="583"/>
         <source>We&amp;b folder...</source>
         <translation type="unfinished">Ве&amp;б-папка...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="603"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="608"/>
         <source>Autosave</source>
         <translation type="unfinished">Автосохранение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="609"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="614"/>
         <source>Save processed image to disk when stopping a running session. Can be overriden at runtime</source>
         <translation type="unfinished">Сохранять обработанное изображение на диск при остановке текущей сессии. Может быть переопределено во время выполнения</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="615"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="620"/>
         <source>Timestamped result on session &amp;stop</source>
         <translation type="unfinished">Результат с отметкой времени при остановке сессии</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="628"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="633"/>
         <source>Server</source>
         <translation type="unfinished">Сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="636"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="641"/>
         <source>&amp;Port number</source>
         <translation type="unfinished">Номер &amp;порта</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="668"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="673"/>
         <source>1024 to 65535</source>
         <translation type="unfinished">1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="728"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="733"/>
         <source>Cancel</source>
         <translation type="unfinished">Отмена</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="735"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="740"/>
         <source>OK</source>
         <translation type="unfinished">ОК</translation>
     </message>
