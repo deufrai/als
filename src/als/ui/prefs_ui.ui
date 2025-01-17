@@ -29,7 +29,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
@@ -240,6 +240,11 @@
                  <item>
                   <property name="text">
                    <string notr="true">Français</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string notr="true">Русский</string>
                   </property>
                  </item>
                 </widget>

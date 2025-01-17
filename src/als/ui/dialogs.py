@@ -48,6 +48,7 @@ class PreferencesDialog(QDialog):
         self._ui.cmb_lang.setItemData(0, 'sys')
         self._ui.cmb_lang.setItemData(1, 'en')
         self._ui.cmb_lang.setItemData(2, 'fr')
+        self._ui.cmb_lang.setItemData(3, 'ru')
         self._ui.cmb_lang.setCurrentIndex(self._ui.cmb_lang.findData(config.get_lang()))
 
         for pattern_index in range(5):
