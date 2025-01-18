@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/als/main.py" line="126"/>
         <source>Astro Live Stacker version {} started in {} ms.</source>
-        <translation type="unfinished">Astro Live Stacker версия {} запущена за {} мс.</translation>
+        <translation type="unfinished">Astro Live Stacker версии {} запущен за {} мс.</translation>
     </message>
     <message>
         <location filename="../src/als/logic.py" line="327"/>
@@ -106,17 +106,17 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/processing.py" line="508"/>
         <source>Could not read dark {}. Dark subtraction is SKIPPED</source>
-        <translation type="unfinished">Не удалось прочитать темный {}. Вычитание темного ПРОПУЩЕНО</translation>
+        <translation type="unfinished">Не удалось прочитать темновой кадр {}. Вычитание темного кадра ПРОПУЩЕНО</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="517"/>
         <source>Data structure inconsistency. Light: {} vs Dark: {}. Dark subtraction is SKIPPED</source>
-        <translation type="unfinished">Несоответствие структуры данных. Свет: {} против Темного: {}. Вычитание темного ПРОПУЩЕНО</translation>
+        <translation type="unfinished">Несоответствие структуры данных. Кадр изображения: {} против Темного кадра: {}. Вычитание темного кадра ПРОПУЩЕНО</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="527"/>
         <source>Dark &amp; Light data types mismatch. Light: {} vs Dark: {}. Dark needs to be conformed.</source>
-        <translation type="unfinished">Несоответствие типов данных Света и Темного. Свет: {} против Темного: {}. Темный нужно привести в соответствие.</translation>
+        <translation type="unfinished">Несоответствие типов данных Кадра изображения и Темного кадра. Кадр изображения: {} против Темного кадра: {}. Темновой кадр нужно привести в соответствие.</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="669"/>
@@ -189,7 +189,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="207"/>
         <source>&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Astrophoto livestacking tool</source>
-        <translation type="unfinished">&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Инструмент для астрофотографии в реальном времени</translation>
+        <translation type="unfinished">&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Инструмент для сложения астрофотографий на лету (EAA)</translation>
     </message>
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="224"/>
@@ -229,7 +229,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="429"/>
         <source>Dark subtraction and alignment threshold</source>
-        <translation type="unfinished">Вычитание темного и порог выравнивания</translation>
+        <translation type="unfinished">Порог вычитания темнового кадра и выравнивания</translation>
     </message>
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="470"/>
@@ -259,7 +259,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="627"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Autostretch code : Las Cumbres Observatory - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Код автоподстройки: Обсерватория Лас-Кумбрес - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Код авторастяжения: Обсерватория Лас-Кумбрес - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="637"/>
@@ -391,7 +391,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/model/data.py" line="99"/>
         <source>Black clipping</source>
-        <translation type="unfinished">Черное обрезание</translation>
+        <translation type="unfinished">Обрезка черного</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="100"/>
@@ -401,12 +401,12 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/model/data.py" line="101"/>
         <source>White clipping</source>
-        <translation type="unfinished">Белое обрезание</translation>
+        <translation type="unfinished">Обрезка белого</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="102"/>
         <source>Autostretch strength</source>
-        <translation type="unfinished">Сила автоподстройки</translation>
+        <translation type="unfinished">Степень авторастяжения</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="103"/>
@@ -416,7 +416,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/model/data.py" line="104"/>
         <source>Autostretch active</source>
-        <translation type="unfinished">Активная автоподстройка</translation>
+        <translation type="unfinished">Активное авторастяжение</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="105"/>
@@ -436,17 +436,17 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/model/data.py" line="108"/>
         <source>scan folder</source>
-        <translation type="unfinished">папка сканирования</translation>
+        <translation type="unfinished">каталог сканирования</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="109"/>
         <source>work folder</source>
-        <translation type="unfinished">рабочая папка</translation>
+        <translation type="unfinished">рабочий каталог</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="110"/>
         <source>web folder</source>
-        <translation type="unfinished">веб-папка</translation>
+        <translation type="unfinished">веб-каталог</translation>
     </message>
 </context>
 <context>
@@ -459,7 +459,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/windows.py" line="150"/>
         <source>It appears this is your first use of ALS. Welcome !</source>
-        <translation type="unfinished">Похоже, это ваш первый раз использования ALS. Добро пожаловать!</translation>
+        <translation type="unfinished">Похоже, это ваш первый запуск ALS. Добро пожаловать!</translation>
     </message>
     <message>
         <location filename="../src/als/ui/windows.py" line="150"/>
@@ -469,7 +469,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/windows.py" line="150"/>
         <source>Please set the paths for the Scan and Work folders.</source>
-        <translation type="unfinished">Пожалуйста, установите пути для папок Сканирования и Работы.</translation>
+        <translation type="unfinished">Пожалуйста, установите пути для каталога сканирования и рабочего каталога.</translation>
     </message>
     <message>
         <location filename="../src/als/ui/windows.py" line="165"/>
@@ -571,7 +571,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/windows.py" line="1051"/>
         <source>ALS launcher created / updated.</source>
-        <translation type="unfinished">Запуск ALS создан / обновлен.</translation>
+        <translation type="unfinished">Стартовый файл ALS создан / обновлен.</translation>
     </message>
     <message>
         <location filename="../src/als/ui/windows.py" line="1051"/>
@@ -623,22 +623,22 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="321"/>
         <source>Select scan folder</source>
-        <translation type="unfinished">Выберите папку для сканирования</translation>
+        <translation type="unfinished">Выберите каталог для сканирования</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="333"/>
         <source>Select work folder</source>
-        <translation type="unfinished">Выберите рабочую папку</translation>
+        <translation type="unfinished">Выберите рабочий каталог</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="344"/>
         <source>Select web folder</source>
-        <translation type="unfinished">Выберите веб-папку</translation>
+        <translation type="unfinished">Выберите веб-каталог</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="355"/>
         <source>Select dark file</source>
-        <translation type="unfinished">Выберите темный файл</translation>
+        <translation type="unfinished">Выберите файл темнового кадра</translation>
     </message>
 </context>
 <context>
@@ -661,7 +661,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="50"/>
         <source>&amp;Scan folder...</source>
-        <translation type="unfinished">&amp;Папка для сканирования...</translation>
+        <translation type="unfinished">&amp;Каталог сканирования...</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="78"/>
@@ -671,22 +671,22 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="105"/>
         <source>Greedy</source>
-        <translation type="unfinished">Жадный</translation>
+        <translation type="unfinished">Жадное</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="125"/>
         <source>Unfair</source>
-        <translation type="unfinished">Несправедливый</translation>
+        <translation type="unfinished">Несправедливое</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="148"/>
         <source>Fair</source>
-        <translation type="unfinished">Справедливый</translation>
+        <translation type="unfinished">Справедливое</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="171"/>
         <source>Scared</source>
-        <translation type="unfinished">Испуганный</translation>
+        <translation type="unfinished">Испуганное</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="186"/>
@@ -701,12 +701,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="200"/>
         <source>&amp;Electronically Assisted Astronomy</source>
-        <translation type="unfinished">&amp;Астрономия с электронной поддержкой</translation>
+        <translation type="unfinished">&amp;EAA - Электронная астрономия</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="207"/>
         <source>Astro&amp;photo Session Monitoring</source>
-        <translation type="unfinished">Мониторинг астросессии</translation>
+        <translation type="unfinished">Мониторинг астрофото-сессии</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="219"/>
@@ -756,7 +756,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="340"/>
         <source>Dark subtraction</source>
-        <translation type="unfinished">Вычитание темного</translation>
+        <translation type="unfinished">Вычитание темнового кадра</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="351"/>
@@ -766,7 +766,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="360"/>
         <source>Master &amp;dark...</source>
-        <translation type="unfinished">Мастер &amp;темного...</translation>
+        <translation type="unfinished">Мастер &amp;темной кадр...</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="386"/>
@@ -811,22 +811,22 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="541"/>
         <source>Output folders</source>
-        <translation type="unfinished">Папки вывода</translation>
+        <translation type="unfinished">Каталоги вывода</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="549"/>
         <source>&amp;Work folder...</source>
-        <translation type="unfinished">&amp;Рабочая папка...</translation>
+        <translation type="unfinished">&amp;Рабочий каталог...</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="574"/>
         <source>&amp;Dedicacted web folder</source>
-        <translation type="unfinished">&amp;Выделенная веб-папка</translation>
+        <translation type="unfinished">&amp;Выделенный веб-каталог</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="583"/>
         <source>We&amp;b folder...</source>
-        <translation type="unfinished">Ве&amp;б-папка...</translation>
+        <translation type="unfinished">Ве&amp;б-каталог...</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="608"/>
@@ -879,7 +879,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/save_wait_ui.ui" line="26"/>
         <source>Please wait while all images are saved to disk</source>
-        <translation type="unfinished">Пожалуйста, подождите, пока все изображения сохраняются на диск</translation>
+        <translation type="unfinished">Пожалуйста, дождитесь, пока все изображения сохранятся на диск</translation>
     </message>
     <message>
         <location filename="../src/als/ui/save_wait_ui.ui" line="51"/>
@@ -1025,7 +1025,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="315"/>
         <source>Stacking method</source>
-        <translation type="unfinished">Метод стекования</translation>
+        <translation type="unfinished">Метод сложения</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="339"/>
@@ -1035,12 +1035,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="371"/>
         <source>Required number of common asterisms with stack reference</source>
-        <translation type="unfinished">Требуемое количество общих астеризмов с эталоном стека</translation>
+        <translation type="unfinished">Требуемое количество общих астеризмов с привязкой для сложения</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="414"/>
         <source>How many subs have been stacked in this session</source>
-        <translation type="unfinished">Сколько кадров было стековано в этой сессии</translation>
+        <translation type="unfinished">Сколько кадров было сложено в этой сессии</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="437"/>
@@ -1105,7 +1105,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="595"/>
         <source>Workers</source>
-        <translation type="unfinished">Рабочие</translation>
+        <translation type="unfinished">Рабочие процессы</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="709"/>
@@ -1125,7 +1125,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="642"/>
         <source>Save</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation type="unfinished">Сохранение</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="669"/>
@@ -1195,7 +1195,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="945"/>
         <source>Auto stretch</source>
-        <translation type="unfinished">Авто растяжка</translation>
+        <translation type="unfinished">Авторастяжка</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1165"/>
@@ -1205,7 +1205,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="960"/>
         <source>Strength</source>
-        <translation type="unfinished">Сила</translation>
+        <translation type="unfinished">Степень</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1235"/>
@@ -1245,7 +1245,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1048"/>
         <source>black</source>
-        <translation type="unfinished">черный</translation>
+        <translation type="unfinished">черного</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1058"/>
@@ -1255,7 +1255,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1065"/>
         <source>white</source>
-        <translation type="unfinished">белый</translation>
+        <translation type="unfinished">белого</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1159"/>
@@ -1265,12 +1265,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1194"/>
         <source>G</source>
-        <translation type="unfinished">З</translation>
+        <translation type="unfinished">G</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1211"/>
         <source>B</source>
-        <translation type="unfinished">С</translation>
+        <translation type="unfinished">B</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1291"/>
@@ -1300,12 +1300,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1325"/>
         <source>Main &amp;controls</source>
-        <translation type="unfinished">Основные &amp;управления</translation>
+        <translation type="unfinished">Основные элементы &amp;управления</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1331"/>
         <source>Show / hide main controls</source>
-        <translation type="unfinished">Показать / скрыть основные управления</translation>
+        <translation type="unfinished">Показать / скрыть основные элементы управления</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1345"/>
@@ -1320,12 +1320,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1359"/>
         <source>&amp;About ALS...</source>
-        <translation type="unfinished">&amp;О ALS...</translation>
+        <translation type="unfinished">&amp;Об ALS...</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1362"/>
         <source>About ALS</source>
-        <translation type="unfinished">О ALS</translation>
+        <translation type="unfinished">Об ALS</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1376"/>
@@ -1355,7 +1355,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1410"/>
         <source>Hide currently visible panels to maximize image display</source>
-        <translation type="unfinished">Скрыть текущие видимые панели для максимального отображения изображения</translation>
+        <translation type="unfinished">Скрыть текущие видимые панели для максимизации отображения изображения</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1421"/>
@@ -1405,7 +1405,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1485"/>
         <source>Ad&amp;just</source>
-        <translation type="unfinished">Под&amp;строить</translation>
+        <translation type="unfinished">Под&amp;огнать</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1491"/>
@@ -1425,12 +1425,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1510"/>
         <source>Create &amp;launcher</source>
-        <translation type="unfinished">Создать &amp;запускатель</translation>
+        <translation type="unfinished">Создать &amp;файл запуска</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1513"/>
         <source>Create / replace launcher for ALS in your system menu</source>
-        <translation type="unfinished">Создать / заменить запускатель для ALS в системном меню</translation>
+        <translation type="unfinished">Создать / заменить файл запуска для ALS в системном меню</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1518"/>
