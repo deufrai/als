@@ -10,6 +10,7 @@ Version 0.7
 New Features
 ------------
 
+- Russian translation
 - Linux: Utility for creating a system launcher
 - Sending usage statistics with user consent
 - Reading .CR3 Canon Raw files
