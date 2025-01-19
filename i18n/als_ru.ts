@@ -766,7 +766,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="360"/>
         <source>Master &amp;dark...</source>
-        <translation type="unfinished">Мастер &amp;темной кадр...</translation>
+        <translation type="unfinished">Мастер &amp;темновой кадр...</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="386"/>
@@ -811,7 +811,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="541"/>
         <source>Output folders</source>
-        <translation type="unfinished">Каталоги вывода</translation>
+        <translation type="unfinished">Каталоги сохранения результата</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="549"/>
@@ -1200,7 +1200,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1165"/>
         <source>Active</source>
-        <translation type="unfinished">Активный</translation>
+        <translation type="unfinished">Задействовать</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="960"/>
