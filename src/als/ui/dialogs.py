@@ -382,6 +382,7 @@ class AboutDialog(QDialog):
         self._ui = Ui_AboutDialog()
         self._ui.setupUi(self)
         self._ui.lblVersionValue.setText(VERSION)
+        self._ui.tabWidget.setCurrentIndex(0)
 
 
 class SaveWaitDialog(QDialog):
