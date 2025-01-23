@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-07T14:31:50Z
+lastmod: 2025-01-23T23:53:01Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -130,7 +130,7 @@ alt="" >}}
 
 # Server {#server}
 
-Here, the image server listening port and the image refresh period are configured.
+Here are the settings for the ALS image server
 
 ## Port Number {#server-port}
 

@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T14:31:50Z
+lastmod: 2025-01-23T23:53:01Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -131,7 +131,7 @@ alt="" >}}
 
 # Server {#server}
 
-Ici sont configurés le port d'écoute du serveur d'images et la période de rafraîchissement des images
+Ici est configurés le port d'écoute du serveur d'images
 
 ## Numéro de port {#server-port}
 
