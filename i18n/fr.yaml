@@ -7,13 +7,15 @@
 - id: discordASTROfr
   translation: "Notre salon sur ASTRO-fr"
 - id: year
-  translation: "2024"
+  translation: "2025"
 - id: siteName
   translation: "Astro Live Stacker"
 - id: allRightsReserved
   translation: "Tous droits réservés."
 - id: licenseText
-  translation: "Sous licence GPL-3.0."
+  translation: "Sous licence CC BY-SA 4.0"
+- id: licenseUrl
+  translation: "https://creativecommons.org/licenses/by-sa/4.0/deed.fr"
 - id: cookieconsentMessage
   translation: "Nous utilisons des cookies pour améliorer votre expérience sur notre site."
 - id: cookieconsentAccept
