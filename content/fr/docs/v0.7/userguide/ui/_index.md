@@ -3,7 +3,7 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-23T18:52:21Z
+lastmod: 2025-04-15T18:52:11Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
@@ -21,9 +21,19 @@ height="666" %}}
 
 L'interface d'ALS est composée des éléments suivants :
 
-- 1 : Le menu principal
-- 2 : Le panneau "Contrôles principaux"
-- 3 : La zone centrale
-- 4 : Le panneau "Traîtements"
-- 5 : Le panneau "Journal de session"
-- 6 : La barre d'état
+<div class="row">
+  <div class="col-md-6">
+
+- 1 : Le menu principal  
+- 2 : Le panneau "Contrôles principaux"  
+- 3 : La zone centrale  
+
+  </div>
+  <div class="col-md-6">
+  
+- 4 : Le panneau "Traîtements"  
+- 5 : Le panneau "Journal de session"  
+- 6 : La barre d'état  
+
+  </div>
+</div>
