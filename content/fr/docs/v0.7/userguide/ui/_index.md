@@ -3,7 +3,7 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-15T19:51:48Z
+lastmod: 2025-04-16T21:42:57Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
@@ -65,3 +65,29 @@ plusieurs écrans.
   - Le panneau reste flottant et indépendant de la fenêtre principale.
 
 Un panneau flottant peut être ré-ancré à sa position par défaut en double-cliquant sur sa barre de titre.
+
+# Les curseurs
+
+Les **curseurs** de l'application permettent de régler différents paramètres de manière simple et intuitive. 
+Voici les différentes façons d'interagir avec ces outils :
+
+## Glisser la poignée
+La manière la plus directe de modifier une valeur est de :
+- Cliquer sur la poignée du curseur avec la souris.
+- Maintenir le clic enfoncé tout en faisant glisser la poignée vers la gauche pour diminuer la valeur ou vers la droite 
+  pour l’augmenter.
+- Relâcher le clic une fois que la valeur souhaitée est atteinte.
+
+
+## Utiliser la molette de la souris
+Si vous possédez une souris équipée d'une molette, celle-ci peut être utilisée pour effectuer des ajustements précis :
+- Placez le curseur de la souris au-dessus de la poignée ou de la barre.
+- Faites tourner la molette vers le haut pour augmenter la valeur ou vers le bas pour la diminuer.
+
+## Cliquer sur la barre
+En cliquant directement sur la barre du curseur, vous pouvez modifier la valeur associée par des incréments plus
+importants que ceux ajustés avec la molette de la souris.
+
+--- 
+
+ℹ️ Certains curseurs disposent de fonctionnalités supplémentaires décrites dans la documentation du panneau où ils se trouvent.
