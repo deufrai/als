@@ -26,7 +26,7 @@ class ProcessingParameter:
         self.value = self.default
 
     @log
-    def reset(self):
+    def init(self):
         """
         Reset parameter value to parameter default
         """

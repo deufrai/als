@@ -39,6 +39,17 @@ class Slider(QSlider):
 
         self._default_value = default_value
 
+    @log
+    def default_value(self):
+        """
+        Accessor method to get the slider's default value.
+
+        :return: the default value
+        :rtype: int
+        """
+        return self._default_value
+
+
     # pylint: disable=C0103
     @log
     def mouseDoubleClickEvent(self, _):
