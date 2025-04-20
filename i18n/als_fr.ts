@@ -89,11 +89,6 @@
         <translation>Numéro de port non valide : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="527"/>
-        <source>Dark &amp; Light data types mismatch. Light: {} vs Dark: {}. Dark needs to be conformed.</source>
-        <translation>Types de données différents. Light: {} vs Dark: {}. Le dark doit être mis en conformité.</translation>
-    </message>
-    <message>
         <location filename="../src/als/processing.py" line="508"/>
         <source>Could not read dark {}. Dark subtraction is SKIPPED</source>
         <translation>Erreur de lecture du dark {}. La soustraction de dark est IGNOREE</translation>
@@ -162,6 +157,11 @@ must not be the same as or a subfolder of your {} :
 
 ne doit pas être identique ou un sous-dossier de votre {} :
 {}</translation>
+    </message>
+    <message>
+        <location filename="../src/als/processing.py" line="527"/>
+        <source>Dark &amp; Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark...</source>
+        <translation>Incohérence détectée entre les types de données : Light : {} vs Dark : {}. Conversion Dark...</translation>
     </message>
 </context>
 <context>
@@ -452,27 +452,27 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/als/ui/windows.py" line="150"/>
+        <location filename="../src/als/ui/windows.py" line="152"/>
         <source>Welcome to ALS</source>
         <translation>Bienvenue dans ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="150"/>
+        <location filename="../src/als/ui/windows.py" line="152"/>
         <source>It appears this is your first use of ALS. Welcome !</source>
         <translation>Il semble que ce soit votre premier lancement d&apos;ALS. Bienvenue !</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="150"/>
+        <location filename="../src/als/ui/windows.py" line="152"/>
         <source>Clicking OK will bring up the settings page.</source>
         <translation>Les préférences seront affichées après un click sur OK.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="524"/>
+        <location filename="../src/als/ui/windows.py" line="538"/>
         <source>Web server access is limited</source>
         <translation>L&apos;accès au serveur web est limité</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="525"/>
+        <location filename="../src/als/ui/windows.py" line="539"/>
         <source>Web server IP address is 127.0.0.1.
 
 Server won&apos;t be reachable by other machines. Please check your network connection</source>
@@ -481,22 +481,22 @@ Server won&apos;t be reachable by other machines. Please check your network conn
 Le serveur ne sera pas visible par d&apos;autres machines. Vérifiez votre connection réseau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="922"/>
+        <location filename="../src/als/ui/windows.py" line="936"/>
         <source>Session started</source>
         <translation>Session démarrée</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="922"/>
+        <location filename="../src/als/ui/windows.py" line="936"/>
         <source>Session successfully started after retry</source>
         <translation>Session démarrée avec succès après une nouvelle tentative</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="933"/>
+        <location filename="../src/als/ui/windows.py" line="947"/>
         <source>Session start aborted</source>
         <translation>Démarrage de session abandonné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="980"/>
+        <location filename="../src/als/ui/windows.py" line="994"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -505,52 +505,52 @@ Details : {}</source>
 Détails : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="850"/>
+        <location filename="../src/als/ui/windows.py" line="864"/>
         <source>Total stack exp. time: {}</source>
         <translation>Temps exp. total stack: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="852"/>
+        <location filename="../src/als/ui/windows.py" line="866"/>
         <source>Total frame proc. time: {} s</source>
         <translation>Durée totale traitement dernière image: {} s</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="165"/>
+        <location filename="../src/als/ui/windows.py" line="167"/>
         <source>It appears you haven&apos;t yet confirmed your choice on usage statistics</source>
         <translation>Il semble que vous n&apos;ayez jamais indiqué votre choix concernant les statistiques d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="165"/>
+        <location filename="../src/als/ui/windows.py" line="167"/>
         <source>Please check the settings page&apos;s &apos;Core&apos; section...</source>
         <translation>Vérifiez la section &apos;Général&apos; de la page des préférences...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="165"/>
+        <location filename="../src/als/ui/windows.py" line="167"/>
         <source>ALS - Usage stats confirmation</source>
         <translation>ALS - Confirmation de statistiques d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1051"/>
+        <location filename="../src/als/ui/windows.py" line="1065"/>
         <source>ALS launcher created / updated.</source>
         <translation>Lanceur ALS créé / mis à jour avec sucès.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1051"/>
+        <location filename="../src/als/ui/windows.py" line="1065"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Vouls trouverez ALS avec les applications graphiques</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1032"/>
+        <location filename="../src/als/ui/windows.py" line="1046"/>
         <source>Select your ALS executable</source>
         <translation>Selectionner votre executable ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="150"/>
+        <location filename="../src/als/ui/windows.py" line="152"/>
         <source>Please set the paths for the Scan and Work folders.</source>
         <translation>Définissez les chemins du dossier scanné et du dossier de travail.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="926"/>
+        <location filename="../src/als/ui/windows.py" line="940"/>
         <source>Session cannot start
 
 </source>
@@ -559,22 +559,22 @@ Détails : {}</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="927"/>
+        <location filename="../src/als/ui/windows.py" line="941"/>
         <source>Do you want to fix the issue in ALS preferences ?</source>
         <translation>Voulez-vous corriger cette erreur dans les préférences d&apos;ALS ?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="519"/>
+        <location filename="../src/als/ui/windows.py" line="533"/>
         <source>Could not start web server</source>
         <translation>Impossible de démarrer le serveur web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="518"/>
+        <location filename="../src/als/ui/windows.py" line="532"/>
         <source>Change server port number in preferences and start server again</source>
         <translation>Changez le numéro de port dans les préférences du serveur et démarrez le serveur à nouveau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="517"/>
+        <location filename="../src/als/ui/windows.py" line="531"/>
         <source>Port {} is already in use.</source>
         <translation>Le port {} est déjà utilisé.</translation>
     </message>
