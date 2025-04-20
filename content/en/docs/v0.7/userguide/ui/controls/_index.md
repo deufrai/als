@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-04-15T19:51:48Z
+lastmod: 2025-04-20T02:29:19Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues", "panels" ]
@@ -291,4 +291,4 @@ alt="The issues section with the issues button and its red panel" >}}
 
 The main controls of ALS are no longer a mystery to you!
 
-Next step: Keyboards shortcuts
+Next step: the Processing panel.
