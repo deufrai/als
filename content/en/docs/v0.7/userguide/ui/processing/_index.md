@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-04-20T01:11:11Z
+lastmod: 2025-04-20T01:29:27Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -39,8 +39,8 @@ Located on the right side of the interface, it groups the image processing contr
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="The Processing Panel" 
-width="294px"
-height="613px"
+width="346px"
+height="660px"
 alt="The ALS Processing Panel, including the Histogram, Auto Stretch, Levels, and RGB Balance sections with their respective sliders and controls." >}}
 </div>
 </div>
@@ -74,8 +74,8 @@ pixel intensity distribution for its respective channel, providing insights into
 {{< center >}}
 {{< figure src="histo.png"
 caption="The Histogram Section"
-width="294px"
-height="153px"
+width="318px"
+height="147px"
 alt="Dynamic histogram reflecting the distribution of intensity values in the image." >}}
 {{< /center >}}
 </div>
@@ -163,6 +163,8 @@ The **Levels** section allows you to adjust black and white points, as well as t
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="levels.png"
 caption="Histogram after Levels adjustment"
+width="320px"
+height="146px"
 alt="Histogram showing optimized tonal ranges after precise adjustments to black and white points." >}}
 </div>
 </div>
@@ -204,6 +206,8 @@ Each slider adjusts the horizontal position of the corresponding color curve.
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="rgb.png"
 caption="Color balancing with RGB Balance"
+width="320px"
+height="146px"
 alt="Histogram showing aligned peaks for RGB curves after precise adjustments." >}}
 </div>
 </div>

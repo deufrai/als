@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-04-20T01:11:11Z
+lastmod: 2025-04-20T01:29:27Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -39,8 +39,8 @@ Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles 
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="Le panneau Traitements" 
-width="344px"
-height="655px"
+width="345px"
+height="670px"
 alt="Le panneau Traitements de ALS, incluant les sections Histogramme, Auto Stretch, Niveaux, et Balance RVB avec leurs curseurs et contrôles associés." >}}
 </div>
 </div>
@@ -75,7 +75,7 @@ de chaque couleur dans l’image.
 {{< center >}}
 {{< figure src="histo.png"
 caption="La section Histogramme"
-width="321px"
+width="318px"
 height="147px"
 alt="Histogramme dynamique reflétant la répartition des valeurs d’intensité lumineuse de l’image." >}}
 {{< /center >}}
@@ -164,6 +164,8 @@ images empilées exploitables.
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="levels.png"
 caption="Histogramme après ajustement des Niveaux"
+width="318px"
+height="147px"
 alt="Histogramme montrant les courbes après réglages précis des niveaux noirs et blancs." >}}
 </div>
 </div>
@@ -204,6 +206,8 @@ Chaque curseur ajuste la position horizontale de la courbe correspondante.
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="rgb.png"
 caption="Équilibrage colorimétrique avec Balance RVB"
+width="318px"
+height="147px"
 alt="Histogramme montrant l’alignement des pics colorés avec des curseurs RVB ajustés." >}}
 </div>
 </div>
