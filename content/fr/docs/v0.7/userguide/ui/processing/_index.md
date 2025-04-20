@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-04-20T14:55:06Z
+lastmod: 2025-04-20T23:01:34Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -12,14 +12,14 @@ weight: 322
 
 # Introduction
 
-Dans ce chapitre, vous allez apprendre à améliorer vos images en utilisant le module **Process**.
+Dans ce chapitre, vous allez apprendre à améliorer vos images en utilisant le panneau `Traitements`
 
 <div class="row">
 <div class="col-md-8">
 
 # Aperçu
 
-Le panneau **Traitements** est la salle de contrôle des capacités de traitement d’image de ALS.
+Le panneau `Traitements` est la salle de contrôle du module **Process** ALS. 
 
 Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles des traitements en plusieurs sections :
 
@@ -50,27 +50,35 @@ alt="Le panneau Traitements de ALS, incluant les sections Histogramme, Auto Stre
 # Histogramme {#histogramme-section}
 
 L’**Histogramme** fournit une représentation graphique de la répartition des valeurs d’intensité lumineuse dans l’image
-affichée. Cet outil est essentiel pour évaluer rapidement l’équilibre des tons et des couleurs.
+affichée. 
+
+Cet outil est essentiel pour évaluer rapidement l’équilibre des tons et des couleurs.
 
 <div class="row">
 <div class="col-md-8">
 
-### Propriétés du Graphique
+## Propriétés du Graphique
 
 - **Axe horizontal :** Indique l’intensité lumineuse, allant des ombres à gauche (faible intensité) aux hautes lumières à
   droite (forte intensité).
 - **Axe vertical :** Représente le nombre de pixels à chaque niveau d’intensité. Les pics plus élevés indiquent une plus
   grande quantité de pixels dans cette plage tonale.
 
-Pour les images monochromes, une seule courbe blanche est affichée, représentant la répartition des pixels selon leur intensité lumineuse.
+## Mode monochrome
 
-### Images en couleur
+Pour des brutes monochromes, une seule courbe blanche est affichée, représentant la répartition des pixels selon leur 
+intensité lumineuse.
 
-Pour les images en couleur, l’histogramme affiche des courbes distinctes pour les 3 canaux. Chaque courbe
-représente la répartition des pixels selon leur intensité dans son canal respectif, offrant une vue sur la contribution
-de chaque couleur dans l’image.
+## Mode couleurs
 
+Pour des brutes en couleur, l’histogramme affiche des courbes distinctes pour les 3 canaux : rouge, vert & bleu. 
+
+Chaque courbe représente la répartition des pixels selon leur intensité dans son canal respectif, offrant une vue 
+sur la contribution de chaque couleur dans l’image.
+
+Les zones où les courbes se chevauchent sont colorées selon le mélange des couleurs impliquées.
 </div>
+
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="histo.png"
@@ -106,13 +114,13 @@ visuelle et intuitive.
 
 ## Gestion et Application des Paramètres
 
-- **Appliquer :** Génère une nouvelle image en fonction des positions actuelles des curseurs.  
+- `Appliquer` Génère une nouvelle image en fonction des positions actuelles des curseurs.  
   La vue centrale et l’histogramme seront mis à jour une fois le traitement terminé.
-- **Défaut :** Réinitialise tous les curseurs à leurs positions par défaut sans modifier l’image affichée.
-- **Recharger :** Replace les curseurs aux positions qu'ils avaient lors du dernier clic sur `Appliquer`, sans modifier
+- `Défaut` Réinitialise tous les curseurs à leurs positions par défaut sans modifier l’image affichée.
+- `Recharger` Replace les curseurs aux positions qu'ils avaient lors du dernier clic sur `Appliquer`, sans modifier
   l’image affichée.
-- **Actif :** Permet d’activer ou désactiver le traitement. Une nouvelle image est générée immédiatement après ce
-  changement, sans besoin de cliquer sur **Appliquer**.
+- `Actif` Permet d’activer ou désactiver le traitement. Une nouvelle image est générée immédiatement après ce
+  changement, sans besoin de cliquer sur `Appliquer`.
 
 ---
 
@@ -125,7 +133,7 @@ images empilées exploitables.
 
 🖱️ Utilisez le curseur `Force` pour régler la quantité d’étirement.
 
-ℹ️ Par défaut : **Un équilibre idéal magiquement défini par nous.**
+ℹ️ Par défaut : Un équilibre idéal magiquement défini par nous.
 
 ## Niveaux {#niveaux-section}
 
@@ -134,32 +142,38 @@ images empilées exploitables.
 
 ### Noir
 
-🖱️ Utilisez le curseur `Noir` pour régler le seuil des tons sombres :
+🖱️ Utilisez le curseur `Noir` pour régler le seuil des tons sombres.
+
+ℹ️ Par défaut : Gauche
 
 - **Analysez l’histogramme :** Observez l’extrémité gauche de l’histogramme et vérifiez la distance entre les courbes et
   le bord gauche.
 - **Objectif :** Placez les courbes juste au contact du bord gauche pour optimiser les tons sombres, tout en évitant de
   les écrêter.
 
-  *Déplacer le curseur vers la droite décale les courbes vers la gauche.*
+*Déplacer le curseur vers la droite décale les courbes vers la gauche.*
 
 ### Blanc
 
-🖱️ Utilisez le curseur `Blanc` pour régler le seuil des tons clairs :
+🖱️ Utilisez le curseur `Blanc` pour régler le seuil des tons clairs
+
+ℹ️ Par défaut : Droite
 
 - **Objectif :** Ajustez ce curseur visuellement pour équilibrer la luminosité des hautes lumières tout en conservant les
   détails.
 
-  *Déplacer le curseur vers la gauche décale les courbes vers la droite.*
+*Déplacer le curseur vers la gauche décale les courbes vers la droite.*
 
 ### Exposition
 
-🖱️ Utilisez le curseur `Exposition` pour contrôler la luminosité globale :
+🖱️ Utilisez le curseur `Exposition` pour contrôler la luminosité globale
+
+ℹ️ Par défaut : Centre
 
 - **Objectif :** Obtenez une exposition correcte en vous fiant à votre perception pour identifier le niveau qui met le
   mieux votre cible en valeur.
 
-  *Déplacer le curseur vers la droite éclaircit globalement l’image.*
+*Déplacer le curseur vers la droite éclaircit globalement l’image.*
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -183,7 +197,7 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
 
   ### Analysez l’Histogramme
 
-  Observez le positionnement des pics principaux des trois courbes colorées sur l’axe horizontal.
+  Observez les positions relatives des pics des trois courbes colorées
 </div>
 </div>
 
@@ -192,7 +206,10 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
 
   ### Votre Objectif
 
-  Obtenir un équilibre neutre des couleurs en alignant verticalement les pics principaux des trois courbes est souvent un bon point de départ. Les zones où les courbes se chevauchent seront colorées selon le mélange des couleurs impliquées. Alignement des pics maximise souvent la zone blanche de l’histogramme.
+  Obtenir un équilibre neutre des couleurs en alignant verticalement les pics principaux des trois courbes est souvent 
+  un bon point de départ. 
+
+  L'alignement des pics maximise souvent la zone blanche de l’histogramme.
 
 </div>
 
@@ -212,10 +229,13 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
 <div class="row">
 <div class="col-md-8">
 
-  Utilisez votre jugement et vos connaissances de la cible et de la configuration. Un équilibre neutre n’est pas toujours souhaitable.
+{{% alert color="light" %}}
+💡 En fonction de la cible et de votre équipement, certaines courbes peuvent ne pas présenter de pics principaux.
 
-  Par exemple, pour une cible dominée par le H-alpha, conserver la dominante rouge est souvent préférable.
+Par exemple, une cible riche en H-alpha présentera une courbe rouge aplatie sans pic marqué.
 
+Le mélange des couleurs de l'histogramme rend bien compte de la dominante rouge de l'image produite.
+{{% /alert %}}
 </div>
 
 <div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
@@ -235,4 +255,4 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
 
 Chaque curseur ajuste la position horizontale de la courbe correspondante.
 
-*Déplacer le curseur vers la droite décale la courbe
+*Déplacer le curseur vers la droite décale la courbe*

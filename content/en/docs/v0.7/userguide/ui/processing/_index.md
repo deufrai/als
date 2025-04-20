@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-04-20T14:55:06Z
+lastmod: 2025-04-20T23:01:34Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -12,35 +12,35 @@ weight: 322
 
 # Introduction
 
-In this chapter, you will learn how to improve your images using the **Process** Module.
+In this chapter, you will learn how to improve your images using the `Processing` panel.
 
 <div class="row">
 <div class="col-md-8">
 
 # Overview
 
-The **Processing** panel is the control room of ALS's image processing capabilities.
+The `Processing` panel is the control room for the **Process** module in ALS.
 
-Located on the right side of the interface, it groups the image processing controls into several sections:
+Located on the right side of the interface, it organizes image processing controls into several sections:
 
 - [**Histogram**](#histogram-section)  
-  A visual representation of pixel intensity distribution.
+  A graphical representation of pixel intensity distribution.
 
 - [**Auto Stretch**](#stretch-section)  
-  Adjusts the strength of the automatic stretch.
+  Adjust the strength of the automatic stretch.
 
 - [**Levels**](#levels-section)  
-  Fine-tunes global exposure as well as black and white clipping.
+  Fine-tune overall exposure and adjust black and white clipping.
 
 - [**RGB Balance**](#rgb-balance-section)  
-  Adjusts the red, green, and blue levels for color correction.
+  Adjust the red, green, and blue levels to correct color balance.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="The Processing Panel" 
 width="345px"
-height="660px"
+height="670px"
 alt="The ALS Processing Panel, including the Histogram, Auto Stretch, Levels, and RGB Balance sections with their respective sliders and controls." >}}
 </div>
 </div>
@@ -49,27 +49,32 @@ alt="The ALS Processing Panel, including the Histogram, Auto Stretch, Levels, an
 
 # Histogram {#histogram-section}
 
-The Histogram provides a graphical representation of the distribution of pixel intensity values within the image
-displayed in the central area. This tool is essential for quickly assessing the balance of tones and colors.
+The **Histogram** provides a graphical representation of the intensity distribution of pixels within the currently displayed image.
+
+This tool is essential for quickly evaluating tonal and color balance.
 
 <div class="row">
 <div class="col-md-8">
 
-### Graph properties
+## Graph Properties
 
-- **Horizontal Axis:** Indicates pixel intensity, ranging from shadows on the left (low intensity) to highlights on the
-  right (high intensity).
-- **Vertical Axis:** Represents the number of pixels at each intensity level. Higher peaks mean more pixels in that tonal
-  range.
+- **Horizontal Axis:** Indicates pixel intensity, ranging from shadows on the left (low intensity) to highlights on the right (high intensity).
+- **Vertical Axis:** Represents the number of pixels at each intensity level. Higher peaks indicate more pixels within that tonal range.
 
-For monochrome images, a single white curve is displayed, showing the pixel intensity distribution across the entire image.
+## Monochrome Mode
 
-### Color Images
+For monochrome images, a single white curve is displayed, showing the intensity distribution of all pixels in the image.
 
-For color images, the histogram displays separate curves for the 3 color channels. Each curve represents the
-pixel intensity distribution for its respective channel, providing insights into how each color contributes to the image.
+## Color Mode
+
+For color images, the histogram displays separate curves for the three channels: red, green, and blue. 
+
+Each curve represents the intensity distribution for its respective channel, giving insight into each color’s contribution to the image.
+
+Overlapping regions of the curves are colored to reflect the resulting mix of hues.
 
 </div>
+
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="histo.png"
@@ -85,87 +90,85 @@ alt="Dynamic histogram reflecting the distribution of intensity values in the im
 
 # Processing Controls {#controls-section}
 
-This section provides controls for the **Process** module and its 3 image processors:
+This section consolidates the controls for the **Process** module and its three image processors:
 - Auto Stretch
 - Levels
 - RGB Balance
 
-Controls for each processor are grouped into sections, each with its own set of sliders and buttons:
+The controls for each processor are grouped into sections, each with its own sliders and buttons:
 
 ## Adjustments
 
-Each slider corresponds to an adjustable parameter. No numerical values are displayed—this encourages a more intuitive
-and visual approach.
+Each slider corresponds to an adjustable parameter. No numerical values are displayed, encouraging an intuitive and visual workflow.
 
 {{% alert color="info" %}}
-ℹ️ All sliders in this `Processing` panel have an additional feature:  
+ℹ️ All sliders in this `Processing` panel feature an additional action:  
 🖱️ **Double-click** the slider handle to reset it to its default position.
 {{% /alert %}}
 
 ## Managing and Applying Settings
 
 - `Apply` Generates a new image based on the current slider positions.  
-  The central view and histogram will update once the processing is complete.
-- `Default` Resets all sliders to their default positions without changing the currently displayed image.
-- `Reload` Resets the sliders to the position they were in when `Apply` was last clicked, without changing the currently
-  displayed image.
-- `Active` Enables or disables the processor. A new image is immediately generated after changing this toggle,
-  without needing to click `Apply`.
+  The central view and histogram update automatically once processing completes.
+- `Default` Resets all sliders to their default positions without altering the currently displayed image.
+- `Reload` Resets the sliders to their positions when `Apply` was last clicked, without modifying the currently displayed image.
+- `Active` Enables or disables the processor. Changing this toggle generates a new image immediately, without needing to click `Apply`.
 
 ---
 
-# Tweaking the Image
+# Image Adjustments
 
 ## Auto Stretch {#stretch-section}
 
-The **Auto Stretch** section adjusts the intensity of the automatic stretch applied to the image, which is essential for
-making stacked images visually usable.
+The **Auto Stretch** section adjusts the intensity of the automatic stretch applied to the image, making stacked images visually usable.
 
-🖱️ Use the `Strength` slider to adjust the amount of stretching.
+🖱️ Adjust the stretch intensity using the `Strength` slider.
 
-ℹ️ Default: **An ideal balance magically defined by us.**
+ℹ️ Default: **An ideal balance, defined by us.**
 
 ## Levels {#levels-section}
 
 <div class="row">
 <div class="col-md-8">
 
-The **Levels** section allows you to adjust black and white points, as well as the overall image exposure.
-
 ### Black
 
-🖱️ Use the `Black` slider to set the threshold for dark tones:
+🖱️ Adjust the `Black` slider to set the threshold for dark tones.
 
-- **Analyze the histogram:** Look at the far left of the histogram and observe the distance between the curves and the
-  left edge.
-- **Objective:** Move the curves to just touch the left edge to optimize dark tones without clipping them.
+ℹ️ Default: Leftmost position.
 
-  *Sliding to the right moves the curves to the left.*
+- **Analyze the histogram:** Observe the far left of the histogram and check the distance between the curves and the left edge.
+- **Goal:** Position the curves just touching the left edge to optimize dark tones without clipping.
 
-### White Point
+*Moving the slider to the right shifts the curves to the left.*
 
-🖱️ Use the `White` slider to set the threshold for bright tones:
+### White
 
-- **Objective:** Adjust this slider visually to balance the brightness of the highlights while preserving details and
-  maintaining the overall aesthetic.
+🖱️ Adjust the `White` slider to set the threshold for bright tones.
 
-  *Sliding to the left moves the curves to the right.*
+ℹ️ Default: Rightmost position.
+
+- **Goal:** Visually balance the brightness of highlights while preserving details.
+
+*Moving the slider to the left shifts the curves to the right.*
 
 ### Exposure
 
-🖱️ Use the `Exposure` slider to control overall image brightness:
+🖱️ Adjust the `Exposure` slider to control overall brightness.
 
-- **Objective:** Aim for proper exposure. Trust your eyes to find the brightness level that best highlights your target.
+ℹ️ Default: Center position.
 
-  *Sliding to the right brightens the entire image.*
+- **Goal:** Find the brightness level that best highlights your target by trusting your eyes.
+
+*Moving the slider to the right brightens the image.*
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="levels.png"
 caption="Histogram after Levels adjustment"
-width="320px"
-height="146px"
-alt="Histogram showing optimized tonal ranges after precise adjustments to black and white points." >}}
+width="318px"
+height="147px"
+alt="Histogram showing optimized tonal ranges after adjusting black and white points." >}}
 </div>
 </div>
 
@@ -174,72 +177,68 @@ alt="Histogram showing optimized tonal ranges after precise adjustments to black
 <div class="row">
 <div class="col-md-12">
   {{% alert color="info" %}}
-  ℹ️ Only available for color images.
+  ℹ️ Available only for color images.
   {{% /alert %}}
 
-  The **RGB Balance** section adjusts the red, green, and blue levels to improve the overall color balance of the image.
+  The **RGB Balance** section adjusts the red, green, and blue levels for improved overall color balance.
 
   ### Analyze the Histogram
 
-  Observe the placement of the main peaks of the three color curves on the horizontal axis.
-</div>
-</div>
-
-
-  ### Your Objective
-
-<div class="row">
-<div class="col-md-8">
-
-Achieving a neutral color balance by vertically aligning the main peaks of the three curves is often a good starting
-point.
-
-Areas where the curves overlap are colored according to the actual blending of the overlapping colors. Aligning peaks
-often maximizes the white area of the histogram.
-
-</div>
-
-<div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
-
-{{< figure src="rgb.png"
-caption="Histogram of a color-neutral image"
-width="320px"
-height="146px"
-alt="Histogram showing aligned peaks for RGB curves after precise adjustments." >}}
-
+  Observe the relative positions of the main peaks of the three curves
 </div>
 </div>
 
 <div class="row">
 <div class="col-md-8">
 
-Use your judgment and knowledge of your target and setup: a neutral balance is not always desirable.
+  ### Your Goal
 
-Example: For a target dominated by H-alpha, keeping the global red tint is often preferred. 
+  Achieving a neutral color balance by vertically aligning the main peaks of the three curves is often a good starting point. 
+
+  Aligning the peaks typically maximizes the white area in the histogram.
 
 </div>
+
 <div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
 
-{{< figure src="h-alpha.png"
-caption="Histogram of a H-alpha target"
-width="320px"
-height="146px"
-alt="Histogram of an H-alpha image with red dominance." >}}
+  <div class="mb-3">
+    {{< figure src="rgb.png"
+    caption="Histogram of a color-neutral image"
+    width="320px"
+    height="146px"
+    alt="Histogram showing aligned peaks for RGB curves in a color-neutral image." >}}
+  </div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-8">
+
+{{% alert color="light" %}}
+💡 Depending on your target and equipment, the histogram curves might not display distinct peaks.
+
+For example, a target rich in H-alpha will show a flattened red curve without a clear peak.
+
+The blended colors in the histogram effectively show the red dominance of the processed image.
+{{% /alert %}}
+</div>
+
+<div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
+
+  <div>
+    {{< figure src="h-alpha.png"
+    caption="Histogram of an H-alpha target"
+    width="320px"
+    height="146px"
+    alt="Histogram showing the red dominance of a correctly adjusted H-alpha image." >}}
+  </div>
 
 </div>
 </div>
 
 ### Slider Actions
 
-Each slider adjusts the horizontal position of the corresponding color curve.
+Each slider adjusts the horizontal position of its respective color curve.
 
-*Sliding to the right shifts the associated curve to the right.*
-
----
-
-# Conclusion
-
-With this chapter, you're now fully equipped to master the **Processing** panel! Use these features to refine your
-images and bring out the best in them.
-
-Next step: The Session Log.
+*Moving the slider to the right shifts the curve to the right.*
