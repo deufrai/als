@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-04-20T01:29:27Z
+lastmod: 2025-04-20T14:55:06Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -107,6 +107,7 @@ visuelle et intuitive.
 ## Gestion et Application des Paramètres
 
 - **Appliquer :** Génère une nouvelle image en fonction des positions actuelles des curseurs.  
+  La vue centrale et l’histogramme seront mis à jour une fois le traitement terminé.
 - **Défaut :** Réinitialise tous les curseurs à leurs positions par défaut sans modifier l’image affichée.
 - **Recharger :** Replace les curseurs aux positions qu'ils avaient lors du dernier clic sur `Appliquer`, sans modifier
   l’image affichée.
@@ -133,7 +134,7 @@ images empilées exploitables.
 
 ### Noir
 
-🖱️ Utilisez le curseur `noir` pour régler le seuil des tons sombres :
+🖱️ Utilisez le curseur `Noir` pour régler le seuil des tons sombres :
 
 - **Analysez l’histogramme :** Observez l’extrémité gauche de l’histogramme et vérifiez la distance entre les courbes et
   le bord gauche.
@@ -144,7 +145,7 @@ images empilées exploitables.
 
 ### Blanc
 
-🖱️ Utilisez le curseur `Blancs` pour régler le seuil des tons clairs :
+🖱️ Utilisez le curseur `Blanc` pour régler le seuil des tons clairs :
 
 - **Objectif :** Ajustez ce curseur visuellement pour équilibrer la luminosité des hautes lumières tout en conservant les
   détails.
@@ -173,50 +174,65 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
 ## Balance RVB {#balance-section}
 
 <div class="row">
+<div class="col-md-12">
+  {{% alert color="info" %}}
+  ℹ️ Disponible uniquement pour les images en couleur.
+  {{% /alert %}}
+
+  La section **Balance RVB** ajuste les niveaux de rouge, vert et bleu pour améliorer l’équilibre global des couleurs de l’image.
+
+  ### Analysez l’Histogramme
+
+  Observez le positionnement des pics principaux des trois courbes colorées sur l’axe horizontal.
+</div>
+</div>
+
+<div class="row">
 <div class="col-md-8">
 
-{{% alert color="info" %}}
-ℹ️ Disponible uniquement pour les images en couleur.
-{{% /alert %}}
+  ### Votre Objectif
 
-### Analysez l’Histogramme
+  Obtenir un équilibre neutre des couleurs en alignant verticalement les pics principaux des trois courbes est souvent un bon point de départ. Les zones où les courbes se chevauchent seront colorées selon le mélange des couleurs impliquées. Alignement des pics maximise souvent la zone blanche de l’histogramme.
 
-Observez le positionnement des pics principaux des trois courbes colorées sur l’axe horizontal.
+</div>
 
-### Votre Objectif
+<div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
 
-- Obtenir un équilibre neutre des couleurs en alignant verticalement les pics principaux des trois courbes est souvent
-  un bon point de départ.
+  <div class="mb-3">
+    {{< figure src="rgb.png"
+    caption="Histogramme d'une image neutre"
+    width="320px"
+    height="146px"
+    alt="Histogramme montrant des pics alignés pour une image colorimétriquement neutre." >}}
+  </div>
 
-  Les zones où les courbes se chevauchent seront colorées selon le mélange des couleurs impliquées. Notez qu'aligner
-  les pics maximise la zone blanche de l’histogramme.
+</div>
+</div>
 
-- Faites également appel à votre jugement et à votre connaissance de la cible : un équilibre neutre n’est pas toujours
-  souhaitable.
+<div class="row">
+<div class="col-md-8">
 
-  Exemple : cible dominée par le H-alpha, on laissera volontiers une dominante rouge.
+  Utilisez votre jugement et vos connaissances de la cible et de la configuration. Un équilibre neutre n’est pas toujours souhaitable.
+
+  Par exemple, pour une cible dominée par le H-alpha, conserver la dominante rouge est souvent préférable.
+
+</div>
+
+<div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
+
+  <div>
+    {{< figure src="h-alpha.png"
+    caption="Histogramme d'une cible H-alpha"
+    width="320px"
+    height="146px"
+    alt="Histogramme montrant la dominance rouge d'une image H-alpha correctement ajustée." >}}
+  </div>
+
+</div>
+</div>
 
 ### Actions des Curseurs
 
 Chaque curseur ajuste la position horizontale de la courbe correspondante.
 
-*Déplacer le curseur vers la droite décale la courbe associée vers la droite.*
-
-</div>
-<div class="col-md-4 d-flex align-items-center justify-content-center">
-{{< figure src="rgb.png"
-caption="Équilibrage colorimétrique avec Balance RVB"
-width="318px"
-height="147px"
-alt="Histogramme montrant l’alignement des pics colorés avec des curseurs RVB ajustés." >}}
-</div>
-</div>
-
----
-
-# Conclusion
-
-Avec ce chapitre, vous êtes désormais prêt à maîtriser le panneau **Traitements** ! Explorez ses fonctionnalités pour
-améliorer vos images et en tirer le meilleur parti.
-
-Prochaine étape : Le journal de session.
+*Déplacer le curseur vers la droite décale la courbe

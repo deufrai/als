@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-04-20T01:31:58Z
+lastmod: 2025-04-20T14:55:06Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -172,45 +172,68 @@ alt="Histogram showing optimized tonal ranges after precise adjustments to black
 ## RGB Balance {#rgb-balance-section}
 
 <div class="row">
+<div class="col-md-12">
+  {{% alert color="info" %}}
+  ℹ️ Only available for color images.
+  {{% /alert %}}
+
+  The **RGB Balance** section adjusts the red, green, and blue levels to improve the overall color balance of the image.
+
+  ### Analyze the Histogram
+
+  Observe the placement of the main peaks of the three color curves on the horizontal axis.
+</div>
+</div>
+
+
+  ### Your Objective
+
+<div class="row">
 <div class="col-md-8">
 
-{{% alert color="info" %}}
-ℹ️ Only available for color images.
-{{% /alert %}}
+Achieving a neutral color balance by vertically aligning the main peaks of the three curves is often a good starting
+point.
 
-The **RGB Balance** section adjusts the red, green, and blue levels to improve the overall color balance of the image.
+Areas where the curves overlap are colored according to the actual blending of the overlapping colors. Aligning peaks
+often maximizes the white area of the histogram.
 
-### Analyze the Histogram
+</div>
 
-Observe the placement of the main peaks of the three color curves on the horizontal axis.
+<div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
 
-### Your Objective
+{{< figure src="rgb.png"
+caption="Histogram of a color-neutral image"
+width="320px"
+height="146px"
+alt="Histogram showing aligned peaks for RGB curves after precise adjustments." >}}
 
-- Achieving a neutral color balance by vertically aligning the main peaks of the three curves is often a good starting
-  point.
+</div>
+</div>
 
-  Areas where the curves overlap are colored according to the actual blending of the overlapping colors. Aligning peaks
-  often maximizes the white area of the histogram.
+<div class="row">
+<div class="col-md-8">
 
-- Use your judgment and knowledge of your target and setup: a neutral balance is not always desirable.
+Use your judgment and knowledge of your target and setup: a neutral balance is not always desirable.
 
-  Example: For a target dominated by H-alpha, keeping the global red tint is often preferred.
+Example: For a target dominated by H-alpha, keeping the global red tint is often preferred. 
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center flex-column">
+
+{{< figure src="h-alpha.png"
+caption="Histogram of a H-alpha target"
+width="320px"
+height="146px"
+alt="Histogram of an H-alpha image with red dominance." >}}
+
+</div>
+</div>
 
 ### Slider Actions
 
 Each slider adjusts the horizontal position of the corresponding color curve.
 
 *Sliding to the right shifts the associated curve to the right.*
-
-</div>
-<div class="col-md-4 d-flex align-items-center justify-content-center">
-{{< figure src="rgb.png"
-caption="Color balancing with RGB Balance"
-width="320px"
-height="146px"
-alt="Histogram showing aligned peaks for RGB curves after precise adjustments." >}}
-</div>
-</div>
 
 ---
 
