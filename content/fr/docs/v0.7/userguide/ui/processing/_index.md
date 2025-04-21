@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-04-20T23:01:34Z
+lastmod: 2025-04-21T00:24:24Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -19,7 +19,7 @@ Dans ce chapitre, vous allez apprendre à améliorer vos images en utilisant le 
 
 # Aperçu
 
-Le panneau `Traitements` est la salle de contrôle du module **Process** ALS. 
+Le panneau `Traitements` est la salle de contrôle du module **Process** 
 
 Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles des traitements en plusieurs sections :
 
@@ -54,9 +54,6 @@ affichée.
 
 Cet outil est essentiel pour évaluer rapidement l’équilibre des tons et des couleurs.
 
-<div class="row">
-<div class="col-md-8">
-
 ## Propriétés du Graphique
 
 - **Axe horizontal :** Indique l’intensité lumineuse, allant des ombres à gauche (faible intensité) aux hautes lumières à
@@ -64,12 +61,31 @@ Cet outil est essentiel pour évaluer rapidement l’équilibre des tons et des 
 - **Axe vertical :** Représente le nombre de pixels à chaque niveau d’intensité. Les pics plus élevés indiquent une plus
   grande quantité de pixels dans cette plage tonale.
 
+<div class="row">
+<div class="col-md-8">
+
 ## Mode monochrome
 
-Pour des brutes monochromes, une seule courbe blanche est affichée, représentant la répartition des pixels selon leur 
-intensité lumineuse.
+Pour des brutes monochromes, une seule courbe est affichée, représentant la répartition des intensités lumineuses des
+pixels de l’image.
+
+</div>
+
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< center >}}
+{{< figure src="histo_mono.png"
+caption="Histogramme monochrome"
+width="321px"
+height="148px"
+alt="Histogramme dynamique reflétant la répartition des valeurs d’intensité lumineuse d'une image monochrome" >}}
+{{< /center >}}
+</div>
+</div>
 
 ## Mode couleurs
+
+<div class="row">
+<div class="col-md-8">
 
 Pour des brutes en couleur, l’histogramme affiche des courbes distinctes pour les 3 canaux : rouge, vert & bleu. 
 
@@ -82,10 +98,10 @@ Les zones où les courbes se chevauchent sont colorées selon le mélange des co
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="histo.png"
-caption="La section Histogramme"
+caption="Histogramme couleur"
 width="318px"
 height="147px"
-alt="Histogramme dynamique reflétant la répartition des valeurs d’intensité lumineuse de l’image." >}}
+alt="Histogramme dynamique reflétant la répartition des valeurs d’intensité lumineuse d'une image en couleurs" >}}
 {{< /center >}}
 </div>
 </div>
@@ -153,6 +169,16 @@ images empilées exploitables.
 
 *Déplacer le curseur vers la droite décale les courbes vers la gauche.*
 
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+{{< figure src="levels.png"
+caption="Histogramme après ajustement du noir"
+width="318px"
+height="147px"
+alt="Histogramme montrant les courbes après réglages précis des niveaux noirs" >}}
+</div>
+</div>
+
 ### Blanc
 
 🖱️ Utilisez le curseur `Blanc` pour régler le seuil des tons clairs
@@ -175,16 +201,6 @@ images empilées exploitables.
 
 *Déplacer le curseur vers la droite éclaircit globalement l’image.*
 
-</div>
-<div class="col-md-4 d-flex align-items-center justify-content-center">
-{{< figure src="levels.png"
-caption="Histogramme après ajustement des Niveaux"
-width="318px"
-height="147px"
-alt="Histogramme montrant les courbes après réglages précis des niveaux noirs et blancs." >}}
-</div>
-</div>
-
 ## Balance RVB {#balance-section}
 
 <div class="row">
@@ -206,8 +222,8 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
 
   ### Votre Objectif
 
-  Obtenir un équilibre neutre des couleurs en alignant verticalement les pics principaux des trois courbes est souvent 
-  un bon point de départ. 
+  Obtenir un équilibre neutre des couleurs en alignant verticalement les pics principaux des trois courbes est 
+  généralement un bon point de départ. 
 
   L'alignement des pics maximise souvent la zone blanche de l’histogramme.
 
