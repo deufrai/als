@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-04-21T21:31:01Z
+lastmod: 2025-04-21T21:36:05Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -20,7 +20,7 @@ It wraps up the presentation of ALS main concepts before you dive into the user 
 
 ---
 
-## ⚙️ Session Setup
+## ⚙️ Setup
 
 Whether you’re shooting DSO live, preparing data for detailed post-processing, or diving into something more artistic, 
 these steps will help you get the best out of ALS every time.
@@ -60,7 +60,7 @@ If yes, use **Dark Subtraction** to clean up thermal noise.
 
 ---
 
-## 🚀 Session in Motion
+## 🚀 Progress
 
 Start the session and let ALS do its thing... 
 
@@ -93,9 +93,9 @@ desktop and mobile devices.
 
 ---
 
-## 📦 Wrap Things Up
+## 📦 Wrap Up
 
-When your session ends, you'll find the final result image in your **work folder**.
+Stop your session and find the final result image in your **work folder**.
 
 ---
 

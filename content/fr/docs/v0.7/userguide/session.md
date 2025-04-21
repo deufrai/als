@@ -3,7 +3,7 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T21:31:02Z
+lastmod: 2025-04-21T21:36:05Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -20,7 +20,7 @@ Il clôture la présentation des concepts principaux d'ALS avant de passer au gu
 
 ---
 
-# ⚙️ Configuration de la session
+# ⚙️ Configuration
 
 Que vous réalisiez des prises de vue en direct, prépariez des données pour un traitement avancé ou exploriez des approches plus artistiques, ces étapes vous garantiront une expérience optimale avec ALS.
 
@@ -60,7 +60,7 @@ Si oui, utilisez la **soustraction de dark** pour éliminer le bruit thermique.
 
 ---
 
-# 🚀 Session en cours
+# 🚀 Déroulement
 
 Lancez la session et laissez ALS prendre les commandes.  
 
@@ -92,9 +92,9 @@ Les spectateurs peuvent explorer votre image en cours d'évolution avec les mêm
 
 ---
 
-# 📦 Clôturer la session
+# 📦 Clôture
 
-À la fin de votre session, récupérez l'image finale dans le dossier de travail **work folder**.
+Stoppez votre session et récupérez l'image finale dans le **dossier de travail**.
 
 ---
 
