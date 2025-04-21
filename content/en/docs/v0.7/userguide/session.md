@@ -1,124 +1,113 @@
 ---
-title: "Typical Session"
+title: "Session phases"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-04-21T15:48:04Z
+lastmod: 2025-04-21T17:01:20Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
-categories: [ "session workflow guide" ]
-tags: [ "module", "stack", "process", "session", "output", "scan folder", "work folder", "web folder", "server", "scanner", "save", "calibration", "profile", "alignment" ]
+categories: [ "usage" ]
+tags: [ "session", "server", "profile" ]
 weight: 317
 ---
 
+# Introduction
+
+At the end of this chapter, you will know the phases of a typical ALS session, and be ready to dive into getting
+hands-on with ALS via its user interface.
+
 # Typical Session
 
-This chapter guides you through the ALS session workflow, tailored to your activity type and goals. Whether you aim to
-produce a final image during your session or monitor a photo session for later processing, ALS adapts seamlessly to your
-needs.
+This chapter is your roadmap for running an ALS successful session. 
 
 ---
 
 ## Setup
 
-### Preferences Review
+Whether you’re shooting DSO live, preparing data for detailed post-processing or diving into something more artistic,
+these steps will help you get the best out of ALS every time.
 
-#### Profile
+### Choose Your Profile
 
-Begin by choosing the profile that matches your current activity:
+<div class="row">
+<div class="col-md-6">
 
-- **Electronically Assisted Astronomy (EEA)**: Perfect for live imaging with short exposures (a few seconds). ALS
-  processes subs rapidly, producing vibrant, viewable images in real time.
-- **Astrophoto Session**: Ideal for long exposures (several minutes). ALS acts as a diagnostic tool, offering a preview
-  of your session’s results while you prepare for detailed post-processing elsewhere.
+- **Electronically Assisted Astronomy**: For live imaging with short exposures of a few seconds 
 
-The selected profile ensures ALS adapts to your imaging workflow.
+  ALS processes subs rapidly, producing vibrant, viewable images in real time.
 
----
+</div>
 
-#### Master Dark
+<div class="col-md-6">
 
-Think about this: do you have a master dark for your current setup—same sensor, same temperature? If yes, enable **Dark
-Subtraction** to clean up thermal noise and ensure it matches the dimensions of your subs. If not, no problem—ALS will
-perform perfectly without it.
+- **Astrophoto**: For long exposures of several minutes 
 
----
+  ALS acts as an acquisition and data diagnostic tool, giving you a high-quality preview of your fully processed image.
 
-### Stacking Settings
+</div>
+</div>
 
-Using the main ALS interface, configure session-specific stacking parameters to align with your objectives:
+### Prep Your Calibration
 
-- **Alignment**: Enable for deep-sky object imaging to register stars consistently, or disable for creative workflows.
-- **Stacking Mode**: Choose Mean for noise-free, smooth results when stacking deep-sky images, or Sum for amplified
-  brightness effects.
+Do you have a master dark that matches your sensor and temperature?
+
+If yes, use **Dark Subtraction** to clean up thermal noise
+
+### Adjust Stacking Settings
+
+- Use **Alignment** Deep Sky Objects imaging, or disable it for artistic shots such as star trails or time-lapses.
+
+- Set **Stacking Mode**:
+    - **Mean** for smooth and noise-free results.
+    - **Sum** for amplified brightness and a creative twist.
 
 ---
 
 ## Session in Motion
 
-As your session unfolds, ALS offers various tools and controls to keep things running smoothly, refine your results, and
-interact with the evolving image. Here’s how to make the most of the session:
+Start the session and let ALS do its thing. 
 
-### Monitor and Optimize Processing
+Here’s how to keep everything running smoothly and eventually enjoy the results.
 
-Stay on top of processing by using the available feedback tools:
+### Stay on Top of Processing
 
-- **Session Log**: Refer to the log for detailed information about potential issues, such as alignment failures or
-  calibration inconsistencies. It’s your go-to resource for understanding and troubleshooting problems during the
-  session.
-- **Modules Panel**: View queue sizes and module statuses to ensure subs are flowing through ALS efficiently.
-- **Alignment Threshold Management**: When alignment is ON, aim for the highest possible threshold. Use the session log
-  to strike the right balance—raise the threshold gradually without causing subs to drop unnecessarily.
+Keep track of your session by reviewing ALS feedbacks on performance and potential issues regarding subs processing
 
----
 
-### Fine-Tune Your Image as It Develops
+### Adapt to Conditions 
 
-Use the **Processing Panel** to shape your image in real time. This is where you achieve optimal brightness, contrast,
-and color adjustments, tailoring the evolving stack to match your goals. These dynamic tweaks help bring your image
-closer to its full potential during the session.
+Adapt threshold to match changing weather conditions or acquisition setup specifics.
 
----
+### Shape Your Image as You Go
 
-### Explore the Evolving Image
+tweak ALS image processing settings to adjust the image as it develops with each new sub
 
-Interacting with the stacked image makes the session more immersive:
+### Dive Into Your Image
 
-- Zoom in and out to inspect finer details.
-- Pan across the frame to explore specific regions.
-- Reset the view with a right-click for a fresh perspective.
+Explore the details of your stacked image:
+- Zoom in to capture intricate features.
+- Pan across the frame to find areas that deserve attention.
 
-Enjoy the satisfaction of seeing your image grow and evolve as ALS processes incoming subs.
+### Share Your Progress
+
+Want others to see what you’re working on? ALS makes it easy to share your session live:
+
+- **Public Outreach**: Engage your audience at astronomy events with live updates of your evolving image.
+- **Collaboration**: Share your session with team members or clubmates to enhance group discussions and projects.
+
+fire up the image server and display its QR code for easy access.
 
 ---
 
-### Share Your Session with Ease
+## Wrap Things Up
 
-Looking to engage others in your session? ALS’s live sharing feature is designed for collaboration and outreach, making
-it ideal for use in astronomy clubs or public stargazing events.
-
-- **Outreach**: Share your session results in real-time with the public during events, offering them a firsthand look at
-  the sky’s wonders as your image evolves.
-- **Collaboration**: Let club members or remote collaborators follow along with your imaging session, enhancing group
-  discussions or team-based observations.
-
-ALS generates a **QR Code** for easy access—participants can scan it to view live updates on their devices. This feature
-transforms your session into an interactive, shared experience, bringing astrophotography to life for audiences and
-collaborators alike.
-
----
-
-## Session Stop
-
-End your session by clicking `STOP`. The final result is saved in your work folder (e.g., `stack_image.jpg`) or
-autosaved based on your settings. ALS clears the stack, ready for the next session.
-
----
+When your session ends, you'll find the final result image in our **work folder**.
 
 ## Conclusion
 
-ALS bridges the gap between live imaging and session monitoring, offering both immediate results and diagnostic
-previews. Whether producing vibrant deep-sky images or creative workflows, its intuitive features empower all
-astrophotography workflows.
+You are now ready to learn how **you** will do all this with ALS.
+
+Let's dive into ALS user interface 
+
 
