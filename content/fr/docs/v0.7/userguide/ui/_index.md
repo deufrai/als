@@ -3,7 +3,7 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "Équipe ALS"
 
-lastmod: 2025-04-21T11:54:12Z
+lastmod: 2025-04-21T11:59:39Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
@@ -96,22 +96,22 @@ Les panneaux d'ALS offrent une interface flexible qui peut s'adapter à différe
 
 Par défaut :
 
-- Le panneau **Contrôles Principaux** est ancré sur le côté gauche de la fenêtre principale.
-- Le panneau **Traitements** est ancré sur le côté droit.
-- Le panneau **Journal de Session** est ancré en bas.
+- Le panneau `Contrôles Principaux` est ancré sur le côté gauche de la fenêtre principale.
+- Le panneau `Traitements` est ancré sur le côté droit.
+- Le panneau `Journal de Session` est ancré en bas.
 
 ### Déplacement des Panneaux
 
 Les panneaux peuvent être ancrés dans des zones spécifiques de la fenêtre principale ou détachés pour devenir
 indépendants.
 
-Ces panneaux flottants peuvent être librement positionnés dans la zone d'affichage, même sur plusieurs écrans.
+Ces panneaux indépendants peuvent être librement positionnés dans la zone d'affichage, même sur plusieurs écrans.
 
 #### Mode ancré
 
 - Cliquez sur la **barre de titre** du panneau et faites-le glisser vers une zone d’ancrage valide :
-    - Les panneaux **Contrôles Principaux** et **Traitements** peuvent être ancrés à gauche ou à droite.
-    - Le panneau **Journal de Session** peut être ancré en haut ou en bas.
+    - Les panneaux `Contrôles Principaux` et `Traitements` peuvent être ancrés à gauche ou à droite.
+    - Le panneau `Journal de Session` peut être ancré en haut ou en bas.
   - Lorsque vous approchez une zone d’ancrage valide, des **indicateurs visuels** apparaissent pour vous guider.
   - Relâchez le clic pour fixer le panneau à l’emplacement choisi.
 

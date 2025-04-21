@@ -3,7 +3,7 @@ title: "Interface"
 description: "A detailed walkthrough of the ALS user interface"
 author: "ALS Team"
 
-lastmod: 2025-04-21T11:54:12Z
+lastmod: 2025-04-21T11:59:39Z
 keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
 categories: ["usage"]
@@ -94,9 +94,9 @@ Panels in ALS allow for a flexible interface that can adapt to different workflo
 
 By default:
 
-- The **Main Controls** panel is docked on the left side of the main window.
-- The **Processing** panel is docked on the right side.
-- The **Session Log** panel is docked at the bottom.
+- The `Main Controls` panel is docked on the left side of the main window.
+- The `Processing` panel is docked on the right side.
+- The `Session Log` panel is docked at the bottom.
 
 ### Moving Panels
 
@@ -106,8 +106,8 @@ These floating panels can be freely positioned anywhere in the display area, eve
 
 #### Docked Mode
   - Click on the **title bar** of a panel and drag it towards a valid docking area:
-    - The **Main Controls** and **Processing** panels can be docked to the left or right sides.
-    - The **Session Log** panel can be docked to the top or bottom.
+    - The `Main Controls` and `Processing` panels can be docked to the left or right sides.
+    - The `Session Log` panel can be docked to the top or bottom.
   - As you approach a valid docking zone, **visual indicators** appear to guide you.
   - Release the click to anchor the panel at the chosen location.
 
