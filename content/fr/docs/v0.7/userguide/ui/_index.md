@@ -3,21 +3,13 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "Équipe ALS"
 
-lastmod: 2025-04-21T11:59:39Z
+lastmod: 2025-04-21T12:03:47Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
 tags: [ "interface", "panneaux" ]
 weight: 320
 ---
-
-{{% center %}}
-{{% figure src="6_zones.png" 
-alt="Interface d'ALS" 
-caption="Interface d'ALS" 
-width="1388" 
-height="666" %}}
-{{% /center %}}
 
 # Introduction
 
@@ -29,6 +21,14 @@ travail sans distraction inutile.
 # Éléments principaux
 
 L'interface d'ALS est composée de six éléments majeurs, chacun jouant un rôle clé dans l'ergonomie du logiciel.
+
+{{% center %}}
+{{% figure src="6_zones.png" 
+alt="ALS Interface Layout" 
+caption="ALS Interface Layout" 
+width="1388" 
+height="666" %}}
+{{% /center %}}
 
 Voici un aperçu de ces composants :
 

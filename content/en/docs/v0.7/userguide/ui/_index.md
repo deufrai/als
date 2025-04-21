@@ -3,21 +3,13 @@ title: "Interface"
 description: "A detailed walkthrough of the ALS user interface"
 author: "ALS Team"
 
-lastmod: 2025-04-21T11:59:39Z
+lastmod: 2025-04-21T12:03:47Z
 keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
 categories: ["usage"]
 tags: ["interface", "panels"]
 weight: 320
 ---
-
-{{% center %}}
-{{% figure src="6_zones.png" 
-alt="ALS Interface Layout" 
-caption="ALS Interface Layout" 
-width="1388" 
-height="666" %}}
-{{% /center %}}
 
 # Introduction
 
@@ -29,6 +21,14 @@ unnecessary distractions.
 # Main elements
 
 ALS interface is composed of six major elements, each playing a key role in the software’s usability.
+
+{{% center %}}
+{{% figure src="6_zones.png" 
+alt="ALS Interface Layout" 
+caption="ALS Interface Layout" 
+width="1388" 
+height="666" %}}
+{{% /center %}}
 
 Below is an overview of these components:
 
