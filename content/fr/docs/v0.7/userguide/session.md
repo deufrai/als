@@ -3,8 +3,8 @@ title: "Phases d'une session"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T17:25:23Z
-keywords: [ "session typique ALS", "flux de travail de session", "guide astrophotographie" ]
+lastmod: 2025-04-21T19:24:59Z
+keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
 categories: [ "utilisation" ]
@@ -14,14 +14,11 @@ weight: 317
 
 # Introduction
 
-À la fin de ce chapitre, vous connaîtrez les différentes phases d'une session typique avec ALS et serez prêt(e) à
-plonger dans l'utilisation pratique de l'interface utilisateur d'ALS.
+Ce chapitre vous servira de guide pour préparer une session ALS fructueuse et suivre son déroulement. 
+
+Il clôture la présentation des concepts principaux d'ALS avant votre prise en main au travers de l'interface utilisateur.
 
 # Phases d'une session
-
-Ce chapitre est votre guide pour réussir une session avec ALS.
-
----
 
 ## Préparation
 
@@ -114,6 +111,4 @@ Activez le serveur d'images et affichez son QR code pour un accès facile.
 
 ## Conclusion
 
-Vous êtes maintenant prêt(e) à découvrir comment **vous** ferez tout cela avec ALS.
-
-Plongeons dans l'interface utilisateur d'ALS !
+C'est maintenant à **vous** de prendre les commandes grâce au prochain chapitre : l'interface utilisateur d'ALS !

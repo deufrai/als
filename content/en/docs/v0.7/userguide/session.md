@@ -3,7 +3,7 @@ title: "Session phases"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-04-21T17:01:20Z
+lastmod: 2025-04-21T19:24:59Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -14,8 +14,9 @@ weight: 317
 
 # Introduction
 
-At the end of this chapter, you will know the phases of a typical ALS session, and be ready to dive into getting
-hands-on with ALS via its user interface.
+This chapter is your guide to running a successful ALS session.
+
+It wraps up the presentation of ALS main concepts before you dive into the user interface.
 
 # Typical Session
 
@@ -106,8 +107,4 @@ When your session ends, you'll find the final result image in our **work folder*
 
 ## Conclusion
 
-You are now ready to learn how **you** will do all this with ALS.
-
-Let's dive into ALS user interface 
-
-
+It is now time for **you** to take control of als by diving into the next chapter : ALS user interface 
