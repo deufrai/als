@@ -1,9 +1,9 @@
 ---
-title: "Session phases"
+title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-04-21T21:20:55Z
+lastmod: 2025-04-21T21:31:01Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -38,7 +38,7 @@ these steps will help you get the best out of ALS every time.
 
 <div class="col-md-6">
 
-- **Astrophoto**: For monitoring an astrophotography session
+- **Astrophoto**: For monitoring an astrophoto session
 
   ALS acts as an acquisition and data diagnostic tool, giving you a high-quality preview of your fully processed image.
 
