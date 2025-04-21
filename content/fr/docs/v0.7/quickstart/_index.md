@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-01-07T16:31:56Z
+lastmod: 2025-04-21T11:54:12Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -280,7 +280,7 @@ granuleux du fond de ciel s'estompera petit à petit.
 
 ---
 
-## Partez à la découverte
+## Partez à la découverte{#explore}
 
 Laissez ALS travailler sur les brutes qui continuent d'arriver et perdez-vous un peu dans la **zone centrale** :
 
