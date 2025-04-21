@@ -3,13 +3,13 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-15T21:23:03Z
+lastmod: 2025-04-21T01:14:15Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
 categories: [ "utilisation" ]
 tags: [ "" ]
-weight: 323
+weight: 324
 ---
 
 <div class="row">
