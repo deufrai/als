@@ -2,7 +2,7 @@
 title: "Journal de session"
 description: "Documentation du panneau Journal de session de ALS"
 author: "Équipe ALS"
-lastmod: 2025-04-20T17:32:13Z
+lastmod: 2025-04-21T01:02:32Z
 keywords: [ "journal de session", "suivi", "erreurs", "log", "panneaux" ]
 type: "docs"
 tags: [ "journal", "problèmes", "erreurs", "panneaux" ]
@@ -12,17 +12,13 @@ weight: 323
 
 # Introduction
 
-Dans cette section, vous allez apprendre comment rester informé des événements survenant pendant votre session.
+A la fin de ce chapitre, vous saurez tout sur le système de gestion des messages au sein d'ALS.
 
 # Aperçu
 
-Le `Journal de session` se compose de deux parties principales :
-
-- [**Vue du journal :**](#log-view) Une liste des messages enregistrés, affichés en temps réel.
-- [**Boutons de contrôle :**](#control-buttons) Des options interactives pour filtrer, suivre et gérer les entrées de journal.
-
-Il vous permet non seulement de surveiller les traitements, mais aussi de faciliter la résolution des
-problèmes et l’analyse des performances.
+Le `Journal de session` centralise la gestion des messages générés par ALS et se compose de deux parties principales :
+- [**Vue du journal :**](#log-view) liste les messages en temps réel.
+- [**Boutons de contrôle :**](#control-buttons) permettent de suivre, filtrer et gérer les entrées de journal.
 
 {{< center >}}
 {{< figure src="log.png"
@@ -31,6 +27,9 @@ width="1307px"
 height="210px"
 alt="Le panneau Journal de session de ALS affichant des messages de traitement." >}}
 {{< /center >}}
+
+Le `journal de session` vous permet non seulement de suivre l'évolution de votre session, mais aussi de faciliter la
+résolution des problèmes et l’analyse des performances.
 
 ---
 
@@ -72,14 +71,15 @@ Le panneau `Journal de session` inclut plusieurs boutons pour gérer l’afficha
 ## Acquitter
 
 Le bouton `Acquitter` est accompagné d'un indicateur de nouveaux problèmes.
-L'indicateur s’affiche sur le bouton lorsqu’un nouveau problème est détecté. Ce système
-visuel vous aidera à remarquer rapidement les événements notables. 
 
-🖱️ Cliquez sur `Acquitter` pour signaler que vous avez pris connaissance des nouveaux messages. L'indicateur disparaît.
+L'indicateur s’affiche sur le bouton lorsqu’un nouveau message de type WARNING ou ERROR est détecté.
+Ce système visuel vous aidera à remarquer rapidement les événements notables. 
+
+🖱️ Cliquez sur `Acquitter` pour signaler que vous avez pris connaissance des nouveaux problèmes. L'indicateur disparaît.
 
 ## Problèmes seuls
 
-Le bouton `Problèmes seuls` permet de filter l’affichage du journal pour ne montrer que les messages critiques.
+Le bouton `Problèmes seuls` permet de filter l’affichage du journal pour ne montrer que les problèmes.
 
 🖱️ Cliquez sur `Problèmes seuls` pour basculer l'état du filtre
 
