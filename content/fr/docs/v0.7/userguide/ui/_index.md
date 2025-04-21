@@ -3,7 +3,7 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "Équipe ALS"
 
-lastmod: 2025-04-21T12:03:47Z
+lastmod: 2025-04-21T21:45:13Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
@@ -78,8 +78,8 @@ Voici un aperçu de ces composants :
     - **État de la Session** : Reflète l'état d'activité de la session.
     - **Profil Actif** : Indique le nom du profil actuellement utilisé.
     - **État du Scanner** : Affiche si le scanner est actif ou arrêté et indique le chemin du dossier de scan en cours.
-    - **Taille du Stack** : Indique le nombre d'images présentes dans le stack.
-    - **Temps d'Exposition Total du Stack** : Affiche le temps d'exposition cumulé des images empilées.
+    - **Taille de la Stack** : Indique le nombre d'images présentes dans le stack.
+    - **Temps d'Exposition Total de la Stack** : Affiche le temps d'exposition cumulé des images empilées.
     - **État du Serveur Web** : Affiche l'état opérationnel du serveur web intégré.
     - **Temps de Traitement Total des Images** : Fournit le temps de traitement de la dernière image.
 
