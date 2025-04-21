@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T12:41:56Z
+lastmod: 2025-04-21T17:27:55Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -301,4 +301,4 @@ The active profile is displayed in the **status bar**, so you can always see whi
 
 You now have a clear understanding of the architecture and basic concepts of ALS.
 
-Next step: the ALS graphical interface.
+Next step: the progress of an ALS session

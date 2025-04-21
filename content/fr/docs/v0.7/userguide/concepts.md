@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T12:41:56Z
+lastmod: 2025-04-21T17:27:55Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -310,4 +310,4 @@ Le profil actif est affiché dans la **barre d'état**, vous permettant de toujo
 
 Vous avez maintenant une vision claire de l'architecture et des concepts de base d'ALS.
 
-Prochaine étape : l'interface graphique d'ALS.
+Prochaine étape : le déroulement d'une session ALS
