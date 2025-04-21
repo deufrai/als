@@ -3,7 +3,7 @@ title: "Phases d'une session"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T19:49:29Z
+lastmod: 2025-04-21T19:57:38Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -91,16 +91,6 @@ Permettez à d'autres de suivre votre session en direct en activant le serveur d
 
 Les spectateurs peuvent explorer votre image en cours d'évolution avec les mêmes fonctionnalités de navigation d'image 
 que l'application principale ALS, optimisées pour les appareils de bureau et mobiles.
-
-### 🌐 Partagez
-
-Envie de montrer ce que vous réalisez ? ALS facilite le partage en direct de votre session :
-
-- **Événements publics** : Partagez les mises à jour en temps réel de votre image lors d'événements astronomiques.
-- **Collaboration** : Partagez votre session avec les membres de votre équipe ou de votre club pour animer des discussions 
-  et projets collectifs.
-
-Utilisez le serveur d'images et affichez son QR code pour un accès facile.
 
 ---
 
