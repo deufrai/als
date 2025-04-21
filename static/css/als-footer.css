@@ -8,7 +8,7 @@ footer p {
 }
 
 footer .row {
-    margin: 0 auto;
+    margin: 15px auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
