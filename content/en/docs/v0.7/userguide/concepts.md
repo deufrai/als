@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T17:27:55Z
+lastmod: 2025-04-21T21:20:55Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -285,7 +285,7 @@ ALS Profiles optimize system performance and task priorities to suit different i
 
 Two default profiles are available:
 
-- **EEA Profile**: Focuses on real-time imaging workflows.
+- **EAA Profile**: Focuses on real-time imaging workflows.
 
   - Prioritizes calibration and stacking processes
   - Optimizing scanner responsiveness and alignment speed. 
