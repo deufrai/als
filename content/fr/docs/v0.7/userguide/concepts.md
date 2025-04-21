@@ -3,12 +3,12 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-07T15:25:00Z
+lastmod: 2025-04-21T12:41:56Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
 categories: [ "bien débuter" ]
-tags: [ "module", "stack", "traitement", "session","output", "dossier scanné", "dossier de travail", "dossier web", "serveur", "scanner", "save", "calibration" ]
+tags: [ "module", "stack", "traitement", "session","output", "dossier scanné", "dossier de travail", "dossier web", "serveur", "scanner", "save", "calibration", "profil" ]
 weight: 315
 ---
 
@@ -285,6 +285,26 @@ Une **session** peut être vue comme le cycle de vie du couple formé par la **s
 {{% alert color="info" %}}
 ℹ️ ALS ne traite pas les images déjà présentes dans le **dossier scanné** quand une session démarre
 {{% /alert %}}
+
+---
+
+# Profils
+
+Les profils ALS optimisent les performances du système et les priorités des tâches pour répondre à différents besoins d'imagerie.
+
+Deux profils par défaut sont disponibles :
+
+- **Profil Visuel Assisté** : Conçu pour les flux de travail d'imagerie en temps réel.
+
+  - Priorise les processus de calibration et d'empilement
+  - Optimise la réactivité du scanner et la vitesse d'alignement.
+
+- **Profil Astrophoto** : Conçu pour produire des résultats de haute qualité.
+
+  - Priorise le traitement des images
+  - Optimise la gestion des fichiers volumineux et la qualité de l'alignement.
+
+Le profil actif est affiché dans la **barre d'état**, vous permettant de toujours savoir quelle configuration est utilisée.
 
 # Conclusion
 

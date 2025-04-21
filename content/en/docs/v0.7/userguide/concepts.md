@@ -3,12 +3,12 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-01-07T15:25:00Z
+lastmod: 2025-04-21T12:41:56Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
 categories: [ "beginner's guide" ]
-tags: [ "module", "stack", "process", "session","output", "scan folder", "work folder", "web folder", "server", "scanner", "save", "calibration" ]
+tags: [ "module", "stack", "process", "session","output", "scan folder", "work folder", "web folder", "server", "scanner", "save", "calibration", "profile" ]
 weight: 315
 ---
 
@@ -276,6 +276,26 @@ A **session** can be seen as the lifecycle of the pair formed by the **stack** a
 {{% alert color="info" %}}
 ℹ️ ALS does not process images already present in the **scan folder** when a session starts.
 {{% /alert %}}
+
+---
+
+# Profiles
+
+ALS Profiles optimize system performance and task priorities to suit different imaging needs.
+
+Two default profiles are available:
+
+- **EEA Profile**: Focuses on real-time imaging workflows.
+
+  - Prioritizes calibration and stacking processes
+  - Optimizing scanner responsiveness and alignment speed. 
+
+- **Astrophoto Profile**: Designed for producing high-quality outputs.
+
+  - Prioritizes image processing
+  - Optimizes large files handling and alignment quality
+
+The active profile is displayed in the **status bar**, so you can always see which configuration is in use.
 
 # Conclusion
 
