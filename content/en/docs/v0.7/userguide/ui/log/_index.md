@@ -2,11 +2,11 @@
 title: "Session Log"
 description: "Documentation for the ALS Session Log Panel"
 author: "ALS Team"
-lastmod: 2025-04-21T01:02:32Z
+lastmod: 2025-04-21T22:02:00Z
 keywords: [ "session log", "follow", "errors", "log", "panels" ]
 type: "docs"
 tags: [ "log", "issues", "errors", "panels" ]
-categories: [ "usage" ]
+categories: [ "usage", "troubleshooting" ]
 weight: 323
 ---
 
