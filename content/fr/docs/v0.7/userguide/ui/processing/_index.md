@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-04-21T00:24:24Z
+lastmod: 2025-04-22T19:55:52Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -271,4 +271,4 @@ Le mélange des couleurs de l'histogramme rend bien compte de la dominante rouge
 
 Chaque curseur ajuste la position horizontale de la courbe correspondante.
 
-*Déplacer le curseur vers la droite décale la courbe*
+*Déplacer le curseur vers la droite décale la courbe vers la droite*
