@@ -1,6 +1,6 @@
 ---
 title: "Politique de Confidentialité"
-lastmod: 2024-11-30T09:04:40Z
+lastmod: 2025-06-16T21:05:40Z
 ---
 
 <div class="content-wrapper">
@@ -18,10 +18,7 @@ Nous ne partageons et ne partagerons **jamais** vos informations avec quiconque.
 priorité absolue.
 
 ### Utilisation des Cookies
-Pour améliorer continuellement nos services, nous utilisons des cookies pour suivre les téléchargements de nos 
-logiciels. Ces cookies nous permettent de voir quelles versions de notre logiciel sont téléchargées et utilisées, 
-nous aidant ainsi à concentrer nos efforts de développement là où ils sont le plus nécessaires. De plus, nous 
-hébergeons nous-mêmes notre service de suivi et nos serveurs web, garantissant ainsi une sécurité optimale pour vos données. Nous anonymisons les adresses IP de tous les visiteurs et ne demandons aucune authentification.
+Pour améliorer continuellement nos services, nous utilisons des cookies Matomo pour suivre les téléchargements de nos logiciels ainsi que les pages consultées. Ces cookies nous permettent de voir quelles versions de notre logiciel sont téléchargées et quelles pages sont visitées, nous aidant ainsi à concentrer nos efforts de développement là où ils sont le plus nécessaires. De plus, nous hébergeons nous-mêmes notre service de suivi et nos serveurs web, garantissant ainsi une sécurité optimale pour vos données. Nous anonymisons les adresses IP de tous les visiteurs et ne demandons aucune authentification.
 
 ### Vos Droits
 Vous avez le droit de refuser les cookies. Cela n'affectera en rien votre accès à nos logiciels.
