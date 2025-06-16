@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy"
-lastmod: 2024-11-30T09:04:40Z
+lastmod: 2025-06-16T21:05:40Z
 ---
 
 <div class="content-wrapper">
@@ -15,7 +15,7 @@ We are a non-profit organization dedicated to creating open-source software, whi
 We don't and will **never** share your information with anyone. Your privacy is our top priority.
 
 #### Use of Cookies
-To help us continuously improve our services, we use cookies to track software downloads. These cookies allow us to see which versions of our software are downloaded and used, helping us focus our development efforts where they are most needed. Additionally, we self-host our tracking service and web servers, ensuring optimal security for your data. We anonymize all visitor IP addresses and do not require any authentication.
+To help us continuously improve our services, we use Matomo cookies to track software downloads and page views. These cookies allow us to see which versions of our software are downloaded and which pages are visited, helping us focus our development efforts where they are most needed. Additionally, we self-host our tracking service and web servers, ensuring optimal security for your data. We anonymize all visitor IP addresses and do not require any authentication.
 
 #### Your Rights
 You have the right to refuse cookies. This will not affect your access to our software in any way.
