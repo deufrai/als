@@ -105,13 +105,29 @@ Then you need to install git on your system. Simply issue the following command 
 
   $ sudo apt-get update && sudo apt-get install -y git
 
-2. clone ALS repo : you'll have to specify the branch you want to check out : ``master`` for latest stable release,
+2. This repository stores large binary files using `Git LFS <https://git-lfs.github.com/>`_.
+   Install ``git-lfs`` and initialize it before cloning the repository.
+
+.. code-block:: shell
+
+  $ sudo apt-get install -y git-lfs
+  $ git lfs install
+
+3. clone ALS repo : you'll have to specify the branch you want to check out : ``master`` for latest stable release,
 ``develop`` for bleeding edge features. Your desired branch name must be used after the ``-b`` option in the command
 below :
 
 .. code-block:: shell
 
   $ git clone https://github.com/deufrai/als.git -b <branch_name_chosen_above>
+
+4. fetch all large files tracked by LFS (this may be done automatically, but
+   running the command ensures everything is available) :
+
+.. code-block:: shell
+
+  $ cd als
+  $ git lfs pull
 
 
 Installation
