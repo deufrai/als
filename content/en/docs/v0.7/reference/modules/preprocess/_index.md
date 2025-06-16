@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Detailed documentation of the ALS Preprocess module"
 author: "ALS Team"
-lastmod: 2025-01-07T00:32:38Z
+lastmod: 2025-06-16T13:45:25Z
 keywords: ["ALS preprocess"]
 draft: false
 type: "docs"
@@ -13,7 +13,7 @@ weight: 352
 
 # Overview
 
-The **Preprocess** pipeline handles  **calibration** processes
+The **Preprocess** pipeline handles **calibration** processes
 
 # Configuration
 
