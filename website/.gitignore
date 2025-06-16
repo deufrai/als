@@ -1,0 +1,5 @@
+/.hugo_build.lock
+/public/
+node_modules/
+_gen/
+auto_*.sh

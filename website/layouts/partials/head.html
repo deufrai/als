@@ -1,0 +1,102 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{{ range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
+
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als-main.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als-doc.css">
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als-footer.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js" defer></script>
+  <!-- Browser lang detection & cookie consent -->
+  <script src="/js/lang_redirect.js" defer></script>
+  <script src="/js/cookieconsent.js" defer></script>
+
+
+
+
+{{ $outputFormat := partial "outputformat.html" . -}}
+{{ if and hugo.IsProduction (ne $outputFormat "print") -}}
+    <meta name="robots" content="index, follow">
+{{ else -}}
+    <meta name="robots" content="noindex, nofollow">
+{{ end -}}
+
+{{ if .Site.Params.favicon }}
+  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon }}">
+{{ end }}
+
+<title>
+    {{- if .IsHome -}}
+        {{ .Site.Title -}}
+    {{ else -}}
+        {{ with .Title }}{{ . }} | {{ end -}}
+        {{ .Site.Title -}}
+    {{ end -}}
+</title>
+<meta name="description" content="{{ template "partials/page-description.html" . }}">
+{{ template "_internal/opengraph.html" . -}}
+{{ template "_internal/schema.html" . -}}
+{{ template "_internal/twitter_cards.html" . -}}
+{{ partialCached "head-css.html" . "head-css-cache-key" -}}
+<script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous"></script>
+{{ if .Site.Params.offlineSearch -}}
+    <script defer
+            src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+            integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+            crossorigin="anonymous"></script>
+{{ end -}}
+
+{{ if .Site.Params.prism_syntax_highlighting -}}
+    <link rel="stylesheet" href="{{ "css/prism.css" | relURL }}"/>
+{{ end -}}
+
+{{ template "algolia/head" . -}}
+
+{{ partial "hooks/head-end.html" . -}}
+
+{{/* To comply with GDPR, cookie consent scripts places in head-end must execute before Google Analytics is enabled */ -}}
+{{ if hugo.IsProduction -}}
+    {{ template "_internal/google_analytics.html" . -}}
+{{ end -}}
+
+{{ define "algolia/head" -}}
+
+    {{ if and .Site.Params.search (isset .Site.Params.search "algolia") -}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3.6.0"
+              integrity="sha512-AyDFDkYyALC5qoao077IqAOV7UC4oKCBTp+mJfjIt306AIRoBxoEZYDo0kAx/R7RbT+3EYEky1po/F1w1eQt7g=="
+              crossorigin="anonymous"/>
+    {{ end -}}
+
+    {{ if ne .Site.Params.algolia_docsearch nil -}}
+        {{ warnf `Config 'params.algolia_docsearch' is deprecated: use 'params.search.algolia'
+      For details, see https://www.docsy.dev/docs/adding-content/search/#algolia-docsearch.` -}}
+    {{ end -}}
+
+{{ end -}}
+
+<script src="/js/tracking.js" defer></script>
+
+<script src="{{ "js/download.js" | relURL }}" defer></script>
+
+<svg width="0" height="0">
+  <defs>
+    <filter id="drop-shadow" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="3" dy="3" result="offsetblur"/>
+      <feFlood flood-color="rgba(0,0,0,0.5)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+
+<meta name="license" content="{{ .Site.Params.license }}">
+<link rel="license" href="{{ .Site.Params.licenseURL }}">
