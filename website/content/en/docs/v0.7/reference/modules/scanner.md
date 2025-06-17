@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2025-04-21T12:41:56Z
+lastmod: 2025-06-17T10:36:33Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
