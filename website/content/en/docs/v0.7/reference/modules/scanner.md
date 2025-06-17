@@ -63,7 +63,7 @@ Even if they are saved in subfolders created after the **Scanner** module is sta
 flowchart LR
     START([Sub detected])
     
-    WAIT_FILE[Wait for file<br><br>According to profile:<br>EAA: 10ms<br>Astrophoto: 500ms]    
+    WAIT_FILE[Wait for file<br><br>According to profile:<br>EAA: 10ms<br>Astrophoto: 1500ms]
     WAIT_RAM[Wait 20ms]
     
     CHECK_RAM{{Check available RAM<br><br>According to preferences:<br>Greedy: 256 MiB<br>Unfair: 512 MiB<br>Fair: 1 GiB<br>Cautious: 2 GiB<br><br>OK?}}

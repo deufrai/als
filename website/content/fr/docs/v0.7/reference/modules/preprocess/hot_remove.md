@@ -42,7 +42,7 @@ graph LR
 
     START([START])
     
-    TEST_ENABLED{{Ttaitement activé ?}}
+    TEST_ENABLED{{Traitement activé ?}}
     TEST_COLOR{{Image couleur ?}}
     
     COMPUTE[Calculer valeurs moyennes des voisins de chaque pixel]

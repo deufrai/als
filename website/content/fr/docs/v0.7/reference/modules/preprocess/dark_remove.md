@@ -44,7 +44,7 @@ graph LR
 
     START([START])
     
-    TEST_ENABLED{{Ttaitement activé ?}}
+    TEST_ENABLED{{Traitement activé ?}}
     TEST_SIZE{{Dimensions identiques ?}}
     TEST_TYPE{{Types de données identiques ?}}
     

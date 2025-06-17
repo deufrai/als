@@ -45,7 +45,7 @@ graph LR
     START([START])
     
     TEST_AUTO{{Préférences = AUTO ?}}
-    TEST_NEEDEED{{Dématriçage nécessaire ?}}
+    TEST_NEEDED{{Dématriçage nécessaire ?}}
     
     READ_META[Matrice = Lecture des métadonnées]
     READ_PREF[Matrice = Lecture des préférences]
@@ -59,14 +59,14 @@ graph LR
     
     START --> TEST_AUTO
     
-    TEST_AUTO -- OUI --> TEST_NEEDEED
-    TEST_NEEDEED -- OUI ---> READ_META
+    TEST_AUTO -- OUI --> TEST_NEEDED
+    TEST_NEEDED -- OUI ---> READ_META
     TEST_AUTO -- NON ---> READ_PREF
     
     READ_META --> DEBAYER
     READ_PREF --> DEBAYER
     
-    TEST_NEEDEED -- NON --> UNCHANGED
+    TEST_NEEDED -- NON --> UNCHANGED
     
     DEBAYER --> RETURN
     
@@ -79,7 +79,7 @@ graph LR
     classDef wait  fill: #444, stroke: #262,stroke-width: 2px, color: #c6c6c6, font-family:'Poppins', sans-serif
     classDef test fill: #444, stroke: #226, stroke-width: 2px, color: #c6c6c6, font-family: 'Poppins', sans-serif
     
-    class TEST_AUTO,TEST_NEEDEED test
+    class TEST_AUTO,TEST_NEEDED test
     class START,END bounds
     class RETURN,UNCHANGED,DEBAYER,READ_META,READ_PREF step
 ```
