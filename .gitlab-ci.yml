@@ -27,6 +27,18 @@ Configure Build:
   artifacts:
     reports:
       dotenv: .dotenv
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ci/**/*
+        - src/**/*
+        - analyzer/**/*
+        - utils/**/*
+        - tests/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+    - when: never
 
 
 Build PC/Linux:
@@ -41,6 +53,18 @@ Build PC/Linux:
     expose_as: 'ALS for Linux amd64'
     paths:
       - als-$ALS_VERSION_STRING.run
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ci/**/*
+        - src/**/*
+        - analyzer/**/*
+        - utils/**/*
+        - tests/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+    - when: never
 
 
 Build RaspBerry/Linux:
@@ -55,6 +79,18 @@ Build RaspBerry/Linux:
     expose_as: 'ALS for Linux arm64'
     paths:
       - als-$ALS_VERSION_STRING.tgz
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ci/**/*
+        - src/**/*
+        - analyzer/**/*
+        - utils/**/*
+        - tests/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+    - when: never
 
 
 Build Mac/Intel:
@@ -69,6 +105,18 @@ Build Mac/Intel:
     expose_as: 'ALS for OSX amd64'
     paths:
       - als-$ALS_VERSION_STRING-amd64.dmg
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ci/**/*
+        - src/**/*
+        - analyzer/**/*
+        - utils/**/*
+        - tests/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+    - when: never
 
 
 Build Mac/ARM:
@@ -83,6 +131,18 @@ Build Mac/ARM:
     expose_as: 'ALS for OSX arm64'
     paths:
       - als-$ALS_VERSION_STRING-arm64.dmg
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ci/**/*
+        - src/**/*
+        - analyzer/**/*
+        - utils/**/*
+        - tests/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+    - when: never
 
 
 Build PC/Windows:
@@ -97,6 +157,18 @@ Build PC/Windows:
     expose_as: 'ALS for Windows amd64'
     paths:
       - als-${ALS_VERSION_STRING}_Setup.exe
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - ci/**/*
+        - src/**/*
+        - analyzer/**/*
+        - utils/**/*
+        - tests/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+    - when: never
 
 
 Deploy nightlies:
@@ -109,3 +181,15 @@ Deploy nightlies:
     url: https://als-app.org/nightlies
   rules:
     - if: $CI_SCHEDULE_ID == "1"
+
+Deploy website staging:
+  tags:
+    - infra
+  stage: deploy
+  script: ci/deploy/deploy_website_staging.sh
+  environment:
+    name: staging
+    url: https://next.als-app.org/
+  rules:
+    - changes:
+        - website/**/*
