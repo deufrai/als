@@ -21,7 +21,7 @@
 
 ```bash
 # fresh checkout ▶
-git clone --recurse-submodules https://github.com/gehelem/als.git
+git clone --recurse-submodules https://github.com/deufrai/als.git
 cd als
 git lfs pull
 
