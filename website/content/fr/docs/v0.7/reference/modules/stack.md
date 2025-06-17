@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-16T07:31:46Z
+lastmod: 2025-06-17T10:36:33Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
