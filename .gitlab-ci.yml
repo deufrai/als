@@ -16,8 +16,9 @@ include:
           - setup.cfg
           - requirements.txt
           - ci/app.yml
-          - ci/builds/**/*      # build helper scripts
-      - when: never             # default (skip)
+          - ci/builds/**/*
+          - ci/deploy/deploy_nightlies.sh
+      - when: never
 
   # -------------------------------------------------------------
   # Website / documentation pipeline
@@ -27,4 +28,5 @@ include:
       - changes:
           - website/**/*
           - ci/website.yml
+          - ci/deploy/deploy_staging_website.sh
       - when: never
