@@ -1,0 +1,96 @@
+default:
+  interruptible: true
+
+stages:
+  - setup
+  - validate
+  - build
+  - deploy
+  - changelog
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "tag"
+    - if: $CI_PIPELINE_SOURCE == "push"
+      when: never
+
+# ────────────────────────── Setup ──────────────────────────
+Configure Build:
+  tags: [infra]
+  stage: setup
+  timeout: 5m
+  script:
+    - ci/builds/setup_build.sh
+  artifacts:
+    reports:
+      dotenv: .dotenv
+
+# ────────────────────────── Build matrix ───────────────────
+Build PC/Linux:
+  tags: [amd64, linux]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_amd64_linux.sh
+  artifacts:
+    expose_as: 'ALS for Linux amd64'
+    paths:
+      - als-$ALS_VERSION_STRING.run
+
+Build RaspBerry/Linux:
+  tags: [arm64, linux]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_arm64_linux.sh
+  artifacts:
+    expose_as: 'ALS for Linux arm64'
+    paths:
+      - als-$ALS_VERSION_STRING.tgz
+
+Build Mac/Intel:
+  tags: [amd64, mac]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_amd64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX amd64'
+    paths:
+      - als-$ALS_VERSION_STRING-amd64.dmg
+
+Build Mac/ARM:
+  tags: [arm64, mac]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_arm64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX arm64'
+    paths:
+      - als-$ALS_VERSION_STRING-arm64.dmg
+
+Build PC/Windows:
+  tags: [amd64, win]
+  stage: build
+  timeout: 1h
+  script:
+    - sh ci/builds/build_dist_amd64_win.sh
+  artifacts:
+    expose_as: 'ALS for Windows amd64'
+    paths:
+      - als-${ALS_VERSION_STRING}_Setup.exe
+
+# ────────────────────────── Deploy ─────────────────────────
+Deploy nightlies:
+  tags: [infra]
+  stage: deploy
+  script: ci/deploy/deploy_nightlies.sh
+  environment:
+    name: Nightlies
+    url: https://als-app.org/nightlies
+  rules:
+    - if: $CI_SCHEDULE_ID == "1"
