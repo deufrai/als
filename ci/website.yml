@@ -13,7 +13,7 @@ deploy_to_staging:
   only:
     - release/0.7
   script:
-    - ./ci/deploy_staging.sh
+    - ./ci/deploy/deploy_staging_website.sh
   environment:
     name: staging
     url: https://next.als-app.org/
