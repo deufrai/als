@@ -1,5 +1,4 @@
 # Root dispatcher — decides which child pipeline(s) to load
-stages: []            # no jobs defined here, prevents "stage missing" warnings
 
 include:
   # -------------------------------------------------------------
