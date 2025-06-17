@@ -45,7 +45,7 @@ flowchart LR
     Start([START])
     FirstSub{{Première brute de la session ?}}
     SetAlignReference[Enregistrer la brute comme référence d'alignement]
-    CheckShape{{Brute de même dimensions que le réusltat précédent ?}}
+    CheckShape{{Brute de même dimensions que le résultat précédent ?}}
     CheckAlign{{Alignement actif ?}}
     AlignImage[Aligner brute]
     StackImage[Ajouter brute à la Stack]
