@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+# Ensure we're always operating from the root of the repo
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
 # Check if required environment variables are set
 if [ -z "${STAGING_DIR:-}" ]; then
   echo "Error: STAGING_DIR environment variable is not set."
@@ -16,16 +20,15 @@ fi
 export PATH="$PATH:$NODE_PATH"
 
 echo "Starting the deployment process..."
-
-REPO_ROOT=$(pwd)
 echo "Repository root: $REPO_ROOT"
 
 echo "Installing project-level Node.js dependencies..."
+cd website
 npm install
 
 echo "Initializing and updating Docsy submodule..."
 git submodule update --init --recursive
-cd website/themes/docsy || { echo "Docsy directory not found"; exit 1; }
+cd themes/docsy || { echo "Docsy directory not found"; exit 1; }
 git checkout v0.11.0 || { echo "Error: Failed to checkout Docsy version v0.11.0."; exit 1; }
 
 echo "Installing Docsy theme Node.js dependencies..."
@@ -38,7 +41,7 @@ sed -i "s/@@COMMIT_ID@@/${CI_COMMIT_SHORT_SHA:-UNDEFINED}/g" website/layouts/par
 
 echo "Building the Hugo site to a temporary directory..."
 BUILD_DIR=$(mktemp -d)
-hugo --cleanDestinationDir --destination "$BUILD_DIR"
+hugo --cleanDestinationDir --source website --destination "$BUILD_DIR"
 
 echo "Emptying the target folder: ${STAGING_DIR:?}"
 rm -rf "${STAGING_DIR:?}"/*
