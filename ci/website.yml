@@ -5,13 +5,13 @@ stages:
   - deploy
 
 variables:
-  GIT_STRATEGY: clone     # keep existing behaviour
+  GIT_STRATEGY: clone
 
 deploy_to_staging:
   stage: deploy
   tags: [infra]
   only:
-    - master              # branch restriction unchanged
+    - release/0.7
   script:
     - ./ci/deploy_staging.sh
   environment:
