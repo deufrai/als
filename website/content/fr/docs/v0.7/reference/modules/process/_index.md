@@ -1,49 +1,49 @@
 ---
 title: "Process"
-description: "Detailed documentation of the ALS Process module"
+description: "Documentation détaillée du module Process d'ALS"
 author: "ALS Team"
-lastmod: 2025-06-16T13:45:25Z
-keywords: ["ALS process"]
+lastmod: 2025-10-21T16:10:05Z
+keywords: [ "ALS process" ]
 draft: false
 type: "docs"
-categories: ["detailed documentations"]
+categories: ["documentations détaillées"]
 tags: ["module"]
 weight: 357
 ---
 
-# Overview
+# Présentation
 
-The **Process** pipeline handles **visual processing** tasks applied to the stacking results.
+Le pipeline **Process** prend en charge les traitements **visuels** appliqués aux résultats d’empilement.
 
 # Configuration
 
-The **Process** pipeline itself requires no configuration.
+Le pipeline **Process** lui-même n'a besoin d'aucune configuration.
 
-The configuration of the **visual processing** tasks is managed by the **processes** themselves.
-See the [Behavior](#behavior) section below.
+La configuration des traitements **visuels** est gérée par les **traitements** eux-mêmes.  
+Voir section [Comportement](#behavior) ci-dessous.
 
-# Control
+# Contrôle
 
-The **Process** module is launched in the background at ALS startup.
+Le module **Process** est lancé en tâche de fond au démarrage d'ALS
 
-| Source                | Type      | Response              |
-|-----------------------|-----------|-----------------------|
-| stacking result       | Event     | trigger visual processing |
+| Source                     | Type        | Réponse                |
+|-----------------------------|-------------|------------------------|
+| brute(s) en file d’attente  | Événement   | lance le traitement visuel |
 
-# Input
+# Entrée
 
-| Data                 | Type  |
-|----------------------|-------|
-| stacking result      | Image |
+| Donnée                            | Type  |
+|-----------------------------------|-------|
+| brute en tête de la file d’attente | Image |
 
-# Behavior {#behavior}
+# Comportement {#behavior}
 
-Performs **visual processing** tasks on the stacking result:
+Applique les traitements **visuels** au résultat d’empilement :
 
-1. [Auto-stretch](autostretch/)
-2. [Levels](levels/)
-3. [Color Balance](color_balance/)
+1. [Auto-étirement](autostretch/)
+2. [Niveaux](levels/)
+3. [Balance RVB](rgb_balance/)
 
-# Output
+# Sortie
 
-Visually processed image is broadcast.
+L’image traitée visuellement est diffusée.
