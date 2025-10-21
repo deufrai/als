@@ -2,7 +2,7 @@
 title: "Auto-Stretch"
 description: "Detailed documentation of the Auto-Stretch process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-06-16T13:45:25Z
+lastmod: 2025-10-21T18:18:46Z
 keywords: [ "ALS auto stretch", "visual processing" ]
 draft: false
 type: "docs"
@@ -16,31 +16,24 @@ weight: 358
 The **Auto-Stretch** process optimizes the intensity levels of stacked images, making them visually usable without
 manual adjustments.
 
-This process is part of the **Process Module** pipeline and operates automatically in the background.
+This process is handled by the **Process** pipeline module.
 
 # Configuration
 
-The **Auto-Stretch** process requires no configuration from the user.
-
-Adjustments to its behavior can be made through the **Processing Panel**, located on the right-hand side of the ALS
+Adjustments can be made through the **Processing Panel**, located on the right-hand side of the ALS
 interface.
 
-Refer to the [Processing Panel documentation](../ui/processing/) for detailed instructions on managing the stretch
-intensity slider.
+
+| Control    | Type     | Action                        |
+|------------|----------|-------------------------------|
+| `Active`   | checkbox | Enable or disable the process |
+| `Strength` | slider   | Adjust stretch intensity      |
+
+Refer to the [Processing Panel documentation](../../../../userguide/ui/processing/#stretch-section) for detailed instructions
 
 # Control
 
-The **Auto-Stretch** process is managed through the `Processing Panel` interface.
-
-| Setting           | Action                         |
-|-------------------|--------------------------------|
-| `Strength` slider | Adjust the stretch level.      |
-| `Active` toggle   | Enable or disable the process. |
-
-## Default Actions
-
-- **Double-click** the slider handle to reset it to its default position.
-- Changes to the **Active** toggle generate a new image immediately.
+The **Auto-Stretch** process is managed by the **Process** pipeline
 
 # Input
 
@@ -53,17 +46,9 @@ The **Auto-Stretch** process is managed through the `Processing Panel` interface
 Adjusts intensity levels for optimal viewing.
 
 1. Evaluates pixel distribution based on the stacking result.
-2. Applies default stretch parameters configured by ALS.
+2. Applies stretch parameters configured by the user.
 3. Generates a visually optimized image.
 
 # Output
 
-A stretched image is sent to the next process in the **Process Module pipeline** or directly displayed in the central
-area of ALS.
-
-# Notes
-
-- Auto-Stretch is typically used to improve the visibility of faint details in stacked images.
-- Default parameters aim to balance intensity across various imaging scenarios.
-
----
+Stretched image is sent to the next process in the **Process** pipeline
