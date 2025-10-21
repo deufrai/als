@@ -2,7 +2,7 @@
 title: "Auto-Stretch"
 description: "Documentation détaillée du processus Auto-Stretch dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-10-21T18:18:46Z
+lastmod: 2025-10-21T18:32:40Z
 keywords: [ "ALS auto stretch", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -20,7 +20,7 @@ Ce processus est géré par le module **Process** de la chaîne de traitement.
 
 # Configuration
 
-Les réglages peuvent être effectués depuis le Panneau **traitement**, situé sur le côté droit de
+Les réglages peuvent être effectués depuis le Panneau **Traitements**, situé sur le côté droit de
 l’interface d’ALS.
 
 | Contrôle | Type           | Action                              |
