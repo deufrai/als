@@ -2,7 +2,7 @@
 title: "Niveaux"
 description: "Documentation détaillée du processus Niveaux dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-10-22T15:28:23Z
+lastmod: 2025-10-22T15:32:52Z
 keywords: [ "ALS niveaux", "écrêtage noir", "écrêtage blanc", "tons moyens", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -23,7 +23,7 @@ Ce processus est géré par le module **Process** de la chaîne de traitement.
 
 Les paramètres du processus **Niveaux** sont accessibles depuis le **Panneau de traitement**, situé sur le côté droit de l’interface d’ALS.
 
-Consultez la [documentation du Panneau de traitement](../../../../userguide/ui/processing/#levels-section)
+Consultez la [documentation du Panneau de traitement](../../../../userguide/ui/processing/#niveaux-section)
 pour des instructions détaillées.
 
 # Commandes
