@@ -2,7 +2,7 @@
 title: "Serveur"
 description: "Documentation détaillée du module Serveur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2025-10-22T18:33:34Z
+lastmod: 2025-10-22T18:40:42Z
 keywords: ["serveur d'images ALS", "module web ALS", "partage distant ALS"]
 draft: false
 type: "docs"
@@ -91,5 +91,5 @@ Lorsque la commande `STOP` est déclenchée :
 
 {{% alert title="Dépannage" color="warning" %}}
 - Changez le port dans les préférences si ALS signale que le port est déjà utilisé.
-- Si les appareils externes n'atteignent pas l'URL, vérifiez qu'ALS n'est pas retombé sur `127.0.0.1` et que votre pare-feu autorise les connexions entrantes sur le port configuré.
+- Si les appareils externes n'atteignent pas l'URL, vérifiez que le serveur d'images n'est pas à l'écoute sur `127.0.0.1` et que votre pare-feu autorise les connexions entrantes sur le port configuré.
 {{% /alert %}}

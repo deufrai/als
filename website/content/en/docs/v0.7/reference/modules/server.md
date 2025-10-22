@@ -2,7 +2,7 @@
 title: "Server"
 description: "Detailed documentation of the ALS Image Server module"
 author: "ALS Team"
-lastmod: 2025-10-22T18:33:34Z
+lastmod: 2025-10-22T18:40:42Z
 keywords: ["ALS image server", "ALS web module", "ALS remote view"]
 draft: false
 type: "docs"
@@ -93,5 +93,5 @@ When the `STOP` command is triggered:
 
 {{% alert title="Troubleshooting" color="warning" %}}
 - Change the port number in preferences if ALS reports that the port is already in use.
-- If external devices cannot reach the URL, verify that ALS did not fall back to `127.0.0.1` and that your firewall allows inbound connections on the configured port.
+- If external devices cannot reach the URL, verify that the image server is not listening on `127.0.0.1` and that your firewall allows inbound connections on the configured port.
 {{% /alert %}}
