@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2024-12-31T21:39:29Z
+lastmod: 2025-10-22T19:25:50Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 550
@@ -27,6 +27,7 @@ weight: 550
 
 ### Améliorations
 
+- Amélioration du serveur web : mode plein écran, pan & zoom, actualisation uniquement lors de changements
 - Windows : ALS est maintenant livré sous la forme d'un installeur
 - Amélioration de l'autostretch
 - Amélioration du zoom avec réinitialisation aux paramètres par défaut et raccourcis clavier
