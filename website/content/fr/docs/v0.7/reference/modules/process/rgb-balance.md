@@ -2,7 +2,7 @@
 title: "Balance RVB"
 description: "Documentation détaillée du processus d’équilibrage des couleurs (Color Balance) dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-10-22T15:45:01Z
+lastmod: 2025-10-22T15:51:16Z
 keywords: [ "ALS balance des couleurs", "ajustement rvb", "correction colorimétrique", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -25,20 +25,21 @@ Les paramètres de la **Balance RVB** sont accessibles depuis le **Panneau de tr
 Consultez la [documentation du Panneau de traitement](../../../../userguide/ui/processing/#balance-section)
 pour des instructions détaillées.
 
-# Commandes
+# Contrôle
 
 Le processus **Balance RVB** est contrôlé via l’interface du `Panneau de traitement`.
 
-| Commande | Type     | Action                                      |
-|-----------|----------|---------------------------------------------|
-| `R`       | curseur  | Ajuste l’intensité du canal rouge           |
-| `V`       | curseur  | Ajuste l’intensité du canal vert            |
-| `B`       | curseur  | Ajuste l’intensité du canal bleu            |
+| Contrôle   | Type          | Action                               |
+|------------|---------------|--------------------------------------|
+| `Actif`    | case à cocher | Active ou désactiver le processus    |
+| `R`        | curseur       | Ajuste l’intensité du canal rouge    |
+| `V`        | curseur       | Ajuste l’intensité du canal vert     |
+| `B`        | curseur       | Ajuste l’intensité du canal bleu     |
 
 # Entrée
 
-| Donnée            | Type  |
-|-------------------|-------|
+| Donnée                | Type  |
+|-----------------------|-------|
 | résultat d’empilement | Image |
 
 # Comportement {#behavior}

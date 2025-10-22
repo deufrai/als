@@ -2,7 +2,7 @@
 title: "Levels"
 description: "Detailed documentation of the Levels process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-10-22T15:28:23Z
+lastmod: 2025-10-22T15:51:16Z
 keywords: [ "ALS levels", "black clipping", "white clipping", "midtones", "visual processing" ]
 draft: false
 type: "docs"
@@ -31,6 +31,7 @@ The **Levels** process is managed through the `Processing Panel` interface.
 
 | Control    | Type     | Action                                        |
 |------------|----------|-----------------------------------------------|
+| `Active`   | checkbox | Enable or disable the process                 |
 | `Black`    | slider   | Defines the clipping threshold for shadows    |
 | `Midtones` | slider   | Adjusts the image’s midtone brightness        |
 | `White`    | slider   | Defines the clipping threshold for highlights |

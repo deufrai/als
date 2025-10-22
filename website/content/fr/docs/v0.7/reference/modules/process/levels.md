@@ -2,7 +2,7 @@
 title: "Niveaux"
 description: "Documentation détaillée du processus Niveaux dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-10-22T15:32:52Z
+lastmod: 2025-10-22T15:51:16Z
 keywords: [ "ALS niveaux", "écrêtage noir", "écrêtage blanc", "tons moyens", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -26,15 +26,16 @@ Les paramètres du processus **Niveaux** sont accessibles depuis le **Panneau de
 Consultez la [documentation du Panneau de traitement](../../../../userguide/ui/processing/#niveaux-section)
 pour des instructions détaillées.
 
-# Commandes
+# Contrôle
 
 Le processus **Niveaux** est contrôlé via l’interface du `Panneau de traitement`.
 
-| Commande      | Type       | Action                                               |
-|---------------|------------|------------------------------------------------------|
-| `Noir`        | curseur    | Définit le seuil d’écrêtage pour les zones sombres   |
-| `Exposition`  | curseur    | Ajuste la luminosité des tons moyens                 |
-| `Blanc`       | curseur    | Définit le seuil d’écrêtage pour les hautes lumières |
+| Commande     | Type          | Action                                               |
+|--------------|---------------|------------------------------------------------------|
+| `Actif`      | case à cocher | Active ou désactiver le processus                    |
+| `Noir`       | curseur       | Définit le seuil d’écrêtage pour les zones sombres   |
+| `Exposition` | curseur       | Ajuste la luminosité des tons moyens                 |
+| `Blanc`      | curseur       | Définit le seuil d’écrêtage pour les hautes lumières |
 
 # Entrée
 

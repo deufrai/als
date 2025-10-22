@@ -2,7 +2,7 @@
 title: "RGB Balance"
 description: "Detailed documentation of the Color Balance process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-10-22T15:45:01Z
+lastmod: 2025-10-22T15:51:16Z
 keywords: [ "ALS color balance", "rgb adjustment", "color correction", "visual processing" ]
 draft: false
 type: "docs"
@@ -30,11 +30,12 @@ instructions.
 
 The **RGB Balance** process is managed through the `Processing Panel` interface.
 
-| Control | Type     | Action                                   |
-|---------|----------|------------------------------------------|
-| `R`     | slider   | Adjusts the red channel intensity        |
-| `G`     | slider   | Adjusts the green channel intensity      |
-| `B`     | slider   | Adjusts the blue channel intensity       |
+| Control  | Type     | Action                              |
+|----------|----------|-------------------------------------|
+| `Active` | checkbox | Enable or disable the process       |
+| `R`      | slider   | Adjusts the red channel intensity   |
+| `G`      | slider   | Adjusts the green channel intensity |
+| `B`      | slider   | Adjusts the blue channel intensity  |
 
 # Input
 
