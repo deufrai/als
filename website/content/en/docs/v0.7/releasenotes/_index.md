@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-10-22T19:27:00Z
+lastmod: 2025-10-22T19:41:40Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 550
@@ -28,7 +28,7 @@ weight: 550
 ### Improvements
 
 - Imrpoved web server : fullscreen mode, pan & zoom, refresh without polling
-- Windows : ALS is not delivered as an installer
+- Windows : ALS is now delivered as an installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts
 - Saving logs in the user's home folder
