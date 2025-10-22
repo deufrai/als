@@ -2,7 +2,7 @@
 title: "Balance RVB"
 description: "Documentation détaillée du processus d’équilibrage des couleurs (Color Balance) dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-10-22T15:51:16Z
+lastmod: 2025-10-22T19:07:25Z
 keywords: [ "ALS balance des couleurs", "ajustement rvb", "correction colorimétrique", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -14,7 +14,7 @@ weight: 360
 # Vue d’ensemble
 
 Le processus **Balance RVB** ajuste l’intensité relative des trois couleurs primaires — rouge, vert et bleu — afin de corriger ou d’affiner la tonalité globale d’une image empilée.  
-Il offre un contrôle précis de l’balance chromatique, en complément des processus **Niveaux** et **Auto-Stretch**.
+Il offre un contrôle précis de la balance chromatique, en complément des processus **Niveaux** et **Auto-Stretch**.
 
 Ce processus est géré par le module **Process** de la chaîne de traitement.
 
@@ -27,7 +27,7 @@ pour des instructions détaillées.
 
 # Contrôle
 
-Le processus **Balance RVB** est contrôlé via l’interface du `Panneau de traitement`.
+Le processus **Balance RVB** est contrôlé via l’interface du panneau `traitements`.
 
 | Contrôle   | Type          | Action                               |
 |------------|---------------|--------------------------------------|
@@ -45,10 +45,6 @@ Le processus **Balance RVB** est contrôlé via l’interface du `Panneau de tra
 # Comportement {#behavior}
 
 Balance les composantes colorimétriques de l’image pour obtenir la tonalité souhaitée.
-
-1. Applique un facteur d’échelle défini par l’utilisateur à chaque canal RVB.  
-2. Recalcule les rapports de couleur pour assurer un balance des blancs cohérent.  
-3. Produit une image équilibrée en couleur avec des tons chromatiques corrigés.
 
 # Sortie
 

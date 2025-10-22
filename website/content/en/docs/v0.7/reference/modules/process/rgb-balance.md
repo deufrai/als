@@ -2,7 +2,7 @@
 title: "RGB Balance"
 description: "Detailed documentation of the Color Balance process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-10-22T15:51:16Z
+lastmod: 2025-10-22T19:07:25Z
 keywords: [ "ALS color balance", "rgb adjustment", "color correction", "visual processing" ]
 draft: false
 type: "docs"
@@ -46,10 +46,6 @@ The **RGB Balance** process is managed through the `Processing Panel` interface.
 # Behavior {#behavior}
 
 Balances the image’s color components to achieve the desired tonal balance.
-
-1. Applies user-defined scaling to each RGB channel.  
-2. Recalculates color ratios for consistent white balance.  
-3. Outputs a color-balanced image with corrected chromatic tones.
 
 # Output
 
