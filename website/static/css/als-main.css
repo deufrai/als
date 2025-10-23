@@ -228,6 +228,14 @@ section {
     text-align: center;
 }
 
+.faq h2 {
+    margin: 2em 0 1em 0;
+}
+
+.faq h3 {
+    margin-top: 1.5em;
+}
+
 @media (max-width: 899px) {
     .features-list {
         grid-template-columns: 1fr;

@@ -76,6 +76,12 @@ enableGitInfo = true
       weight = 10
 
     [[languages.fr.menu.main]]
+      identifier = "FAQ"
+      name = "FAQ"
+      url = "/fr/faq/"
+      weight = 12
+
+    [[languages.fr.menu.main]]
       identifier = "contributors"
       name = "Contributeurs"
       url = "/fr/contributors/"
@@ -104,6 +110,12 @@ enableGitInfo = true
       name = "About"
       url = "/about/"
       weight = 10
+
+    [[languages.en.menu.main]]
+      identifier = "FAQ"
+      name = "FAQ"
+      url = "/faq/"
+      weight = 12
 
     [[languages.en.menu.main]]
       identifier = "contributors"

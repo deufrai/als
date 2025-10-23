@@ -1,0 +1,200 @@
+---
+title: "Frequently Asked Questions"
+description: "Answers to the most common questions about installing, configuring, and using Astro Live Stacker (ALS)."
+author: "ALS Team"
+lastmod: 2025-10-23T07:43:14Z
+keywords: [ "FAQ", "help", "support", "astro live stacker", "troubleshooting", "camera connection", "live stacking" ]
+---
+
+<div class="content-wrapper page-wrapper">
+    <div class="container">
+        <div class="als-page faq">
+
+            <h1>Frequently Asked Questions</h1>
+
+            <p class="lead">
+                Below you'll find answers to the most common questions about <strong>Astro Live Stacker (ALS)</strong>.
+                If you don't find what you're looking for, open an issue on
+                <a href="https://github.com/deufrai/als/issues" target="_blank" rel="noopener">GitHub</a>
+                or reach out via the community channels.
+            </p>
+
+
+            <!-- General -->
+            <section id="general">
+
+                <h2>🧩 General</h2>
+
+                <h3 id="what-is-als">What is Astro Live Stacker (ALS)?</h3>
+                <p><strong>ALS</strong> is a real-time astrophotography tool that captures, aligns, and stacks images on
+                    the fly to improve signal-to-noise ratio and reveal faint details during live sessions.</p>
+
+                <h3 id="supported-os">Which operating systems are supported?</h3>
+                <p>ALS runs on <strong>Windows</strong>, <strong>Linux</strong>, <strong>macOS</strong>, and <strong>Raspberry
+                    Pi</strong> (64-bit). Each platform provides a native build for best performance.</p>
+
+                <h3 id="open-source">Is ALS open source?</h3>
+                <p>Yes. ALS is fully open source under the <strong>GPL v3 license</strong>. You can find the source code
+                    on
+                    <a href="https://github.com/deufrai/als" target="_blank" rel="noopener">GitHub</a>.
+                </p>
+
+                <h3 id="offline">Can I use ALS without an internet connection?</h3>
+                <p>Yes — all image acquisition and stacking functions work <strong>offline</strong>. Only optional
+                    features like
+                    <strong>remote viewing via the integrated web server</strong> need local-network access.</p>
+
+                <h3 id="capture">Does ALS handle image capture?</h3>
+                <p>NO. ALS only pools a user defined folder for new subs</p>
+
+            </section>
+
+
+
+            <!-- Installation & Setup -->
+            <section id="installation">
+                <h2>🔭 Installation &amp; Setup</h2>
+
+                <h3 id="install">How do I install ALS on my system?</h3>
+                <p>Each release includes platform-specific installers or archives. Refer to the
+                    <a href="../docs/v0.7/installation//">Installation Guide</a> for detailed steps and dependencies.</p>
+
+                <h3 id="update">How do I update ALS to the latest version?</h3>
+                <p>Download the latest release from the <a href="../">official homepage</a> and replace
+                    the previous installation. Your previous settings are preserved.</p>
+
+                <h3 id="admin">Do I need administrator privileges?</h3>
+                <p>Only for installation on Windows systems. Normal use doesn’t require elevated privileges.</p>
+
+            </section>
+
+
+
+            <!-- Interface & Usage -->
+            <section id="interface">
+                <h2>🖥️ Interface &amp; Usage</h2>
+
+                <h3 id="output-path">Where are my stacked images saved?</h3>
+                <p>By default, results are written to the <code>Work Folder</code>.
+                    You can change this path in <strong>Preferences → Output</strong>.</p>
+
+                <h3 id="live-adjust">Can I adjust color balance or stretch while stacking?</h3>
+                <p>Yes — the Processing panel provides live controls for <strong>RGB Balance</strong>,
+                    <strong>Levels</strong>, and <strong>Auto-Stretch</strong>.</p>
+
+                <h3 id="why-dark">Why is the image dark or noisy at the beginning?</h3>
+                <p>Early frames have little data. As stacking proceeds, noise averages out and faint
+                    details emerge progressively.</p>
+
+                <h3 id="auto-alignment">What does “Align” do?</h3>
+                <p>ALS automatically detects stars in each frame and aligns them before stacking, compensating for
+                    tracking errors and field rotations.</p>
+
+            </section>
+
+
+
+            <!-- Technical & Performance -->
+            <section id="performance">
+                <h2>⚙️ Technical &amp; Performance</h2>
+
+                <h3 id="cpu-gpu">Why does ALS use a lot of CPU</h3>
+                <p>Real-time stacking and preview rendering are computationally intensive.
+                    Use longer exposures to reduce overall load.</p>
+
+                <h3 id="gpu-accel">Does ALS use my GPU?</h3>
+                <p>No. But future versions will surely leverage GPU power</p>
+
+                <h3 id="memory">How can I reduce memory usage?</h3>
+                <p>The only factor for memory use is frame size. Capturing smaller subs reduces memory load</p>
+
+            </section>
+
+
+
+            <!-- Remote Access & Sharing -->
+            <section id="remote">
+                <h2>🌐 Remote Access &amp; Sharing</h2>
+
+                <h3 id="web-server">What is the integrated web server?</h3>
+                <p>It’s a lightweight HTTP server that lets you <strong>view the live-stacking session from any
+                    device</strong> on your local network.</p>
+
+                <h3 id="connect-remote">How do I connect from another device?</h3>
+                <p>From a browser, enter the address shown in the ALS status bar (e.g.
+                    <code>http://192.168.1.42:8000</code>) or flash the QR code available while the server is running.</p>
+
+            </section>
+
+
+
+            <!-- Troubleshooting -->
+            <section id="troubleshooting">
+                <h2>🪲 Troubleshooting</h2>
+
+                <h3 id="misaligned">The stack looks misaligned or blurred.</h3>
+                Here are common causes:
+                <ul>
+                    <li>Drift during sub exposure</li>
+                    <li>Poor focus.</li>
+                    <li>Low star count in frames.</li>
+                </ul>
+
+                <h3 id="frame-rejection">Why are some frames rejected?</h3>
+                <p>ALS filters out frames with <strong>low star detection confidence</strong></p>
+                You can lower the alignment threshold in the <strong>Main controls</strong> panel to reduce
+                subs rejection, at the risk of including misaligned frames.
+
+                <h3 id="calibration">My dark aren’t applied.</h3>
+                <p>Check the session log to get the root cause of missed or skipped dark subtraction</p>
+
+            </section>
+
+
+
+            <!-- File Formats & Compatibility -->
+            <section id="formats">
+                <h2>💾 File Formats &amp; Compatibility</h2>
+
+                <h3 id="supported-formats">Which formats are supported?</h3>
+                ALS reads :
+                <ul>
+                <li>FITS (file extensions : .fits, .fit, .fts)</li>
+                <li> Raw files from all common DSLRs</li>
+                <li> TIFF</li>
+                <li> PNG</li>
+                <li> JPEG</li>
+                </ul>
+
+                ALS writes :
+                <ul>
+                    <li>JPEG</li>
+                    <li>TIFF</li>
+                    <li>PNG</li>
+                </ul>
+
+            </section>
+
+
+
+            <!-- Community & Support -->
+            <section id="community">
+                <h2>💬 Community &amp; Support</h2>
+
+                <h3 id="bugs-features">Where can I report a bug or request a feature?</h3>
+                <p>Use the <a href="https://github.com/deufrai/als/issues" target="_blank" rel="noopener">GitHub Issues
+                    page</a>.</p>
+
+                <h3 id="manual">Is there a user manual?</h3>
+                <p>Yes — full documentation is available at <a href="https://als-app.org/docs/v0.7/" target="_blank"
+                                                               rel="noopener">https://als-app.org/docs/v0.7/</a></p>
+
+                <h3 id="contribute">How can I contribute?</h3>
+                <p>You’re welcome to submit pull requests or translations!
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
