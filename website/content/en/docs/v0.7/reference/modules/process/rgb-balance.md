@@ -2,7 +2,7 @@
 title: "RGB Balance"
 description: "Detailed documentation of the Color Balance process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-10-22T19:07:25Z
+lastmod: 2025-10-23T16:03:39Z
 keywords: [ "ALS color balance", "rgb adjustment", "color correction", "visual processing" ]
 draft: false
 type: "docs"
@@ -17,6 +17,10 @@ The **RGB Balance** process adjusts the relative intensity of the three primary 
 It allows fine control of image chromatic balance, complementing the **Levels** and **Auto-Stretch** processes.
 
 This process is handled by the **Process** pipeline module.
+
+{{% alert color="info" %}}
+ℹ️ The **RGB Balance** process is only available when working with color images.
+{{% /alert %}}
 
 # Configuration
 
