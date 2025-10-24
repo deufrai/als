@@ -71,7 +71,7 @@ ALS continues to live on thanks to everyone who reports bugs, tests builds, and 
 
 ## ⚖️ License
 
-Licensed under [**GPL-3.0**](LICENSE).  
+Licensed under [**GPL-3.0**](LICENSE.txt).  
 Free as in freedom — and photons.
 
 ---
