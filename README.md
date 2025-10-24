@@ -53,8 +53,9 @@ Each release includes binaries and changelogs.
 
 ## 🤝 Contributing
 
-Found a bug, have a bright idea, or want to help stack some photons?  
-Open an issue on [**GitHub**](https://github.com/deufrai/als/issues).
+Found a bug, have an issue or a bright idea, or want to help stack some photons?  
+- Open an issue on [**GitHub**](https://github.com/deufrai/als/issues)
+- Come talk with us (in french) on [**Discord**](https://discord.com/channels/489463570552324097/1026765528108376074)
 
 Pull requests are very welcome — especially if they come with coffee ☕.
 
