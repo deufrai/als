@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-10-24T18:39:23Z
+lastmod: 2025-10-24T19:24:36Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 550
@@ -16,7 +16,7 @@ weight: 550
 
 - Linux : Utilitaire pour la création d'un lanceur système
 - Envoi de statistiques d'utilisation avec le consentement de l'utilisateur
-- Lecture des fichiers .CR3 Canon Raw
+- Lecture des fichiers .CR3 Canon
 - Introduction des profils (paramètres par défaut pour visuel assisté ou photo)
 - Ajout d'un affichage de code QR menant au serveur web intégré
 - Ajout de la lecture des fichiers jpeg, png et tiff
