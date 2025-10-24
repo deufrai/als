@@ -51,11 +51,12 @@ Each release includes binaries and changelogs.
 
 ---
 
-## 🤝 Contributing
+## 🤝 Community / Contributing
 
-Found a bug, have an issue or a bright idea, or want to help stack some photons?  
+Found a bug, have an issue or a bright idea, or want to help stack some photons?
+
 - Open an issue on [**GitHub**](https://github.com/deufrai/als/issues)
-- Come talk with us (in french) on [**Discord**](https://discord.com/channels/489463570552324097/1026765528108376074)
+- Come talk with us on [**Discord**](https://als-app.org/discord)
 
 Pull requests are very welcome — especially if they come with coffee ☕.
 
@@ -79,12 +80,13 @@ Free as in freedom — and photons.
 
 ## 🧭 Project Links
 
-| Purpose          | Link                                                                               |
-|------------------|------------------------------------------------------------------------------------|
-| 🌐 Documentation | [https://als-app.org/docs/v0.7](https://als-app.org/docs/v0.7)                     |
+| Purpose          | Link                                                  |
+|------------------|-------------------------------------------------------|
+| 🌐 Documentation | [https://als-app.org/docs/v0.7](https://als-app.org/docs/v0.7) |
 | 💾 Releases      | [https://github.com/deufrai/als/releases](https://github.com/deufrai/als/releases) |
-| 🐞 Issue Tracker | [https://github.com/deufrai/als/issues](https://github.com/deufrai/als/issues)     |
-| 🪐 Website       | [https://als-app.org](https://als-app.org)                                         |
+| 🐞 Issue Tracker | [https://github.com/deufrai/als/issues](https://github.com/deufrai/als/issues) |
+| 🪐 Website       | [https://als-app.org](https://als-app.org)            |
+| 🗣️ Discord       | [https://als-app.org/discord](https://als-app.org/discord) |
 
 ---
 
