@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-10-22T19:41:40Z
+lastmod: 2025-10-24T18:39:23Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 550
@@ -10,7 +10,7 @@ weight: 550
 
 ## Version 0.7
 
-**Date:** TBD
+**Date:** October 25, 2025
 
 ### New Features
 
