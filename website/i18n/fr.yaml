@@ -4,8 +4,8 @@
   translation: "Support"
 - id: githubIdeaProblem
   translation: "Une idée, un problème"
-- id: discordASTROfr
-  translation: "Notre salon sur ASTRO-fr"
+- id: discord
+  translation: "Notre serveur Discord"
 - id: year
   translation: "2025"
 - id: siteName
