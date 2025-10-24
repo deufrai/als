@@ -2,7 +2,7 @@
 title: Installation on Raspberry Pi
 description: Installing ALS on Raspberry Pi
 author: ALZ Team
-lastmod: 2025-01-07T16:31:56Z
+lastmod: 2025-10-24T09:46:04Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 220
 tags: ['install', 'Linux', 'Raspberry Pi']
@@ -36,11 +36,11 @@ if you need assistance._
     - Access your Downloads folder. You can usually find it by clicking on the icon of your file manager (for example, PCManFM) and selecting "Downloads" in the navigation menu on the left.
 
 2. **Identify the ALS archive**
-    - Look for the archive whose name starts with `als` and ends with `.tgz`. For example, it might be `als-v0.7-beta10.tgz`.
+    - Look for the archive whose name starts with `als` and ends with `.tgz`. For example, it might be `als-v0.7.tgz`.
 
 3. **Extract the archive**
     - To extract the archive, you can use a file manager:
-        - Right-click on the `als-v0.7-beta10.tgz` archive.
+        - Right-click on the `als-v0.7.tgz` archive.
         - Select "Extract Here" or a similar option.
 
 4. **Move ALS to a permanent location**
@@ -56,11 +56,11 @@ if you need assistance._
     - Double-click the `Applications` folder to open it.
     - Create another folder inside it called `ALS` and press "Enter".
     - Navigate to the Downloads folder (`Downloads`) in another window of your file manager. It's important to have two distinct and visible windows to easily drag and drop files.
-    - Find the `als-v0.7-beta10` folder in the Downloads folder, then drag this folder into the `ALS` folder (`/home/username/Applications/ALS`).
+    - Find the `als-v0.7` folder in the Downloads folder, then drag this folder into the `ALS` folder (`/home/username/Applications/ALS`).
 
 5. **Run the executable**
-    - Navigate to the `als-v0.7-beta10` folder in the file manager.
-    - Double-click on the `als-v0.7-beta10` file.
+    - Navigate to the `als-v0.7` folder in the file manager.
+    - Double-click on the `als-v0.7` file.
     - If a dialog box appears asking you to confirm the execution, choose the option to run or open the file.
 
 Next step : Our [Quickstart](../quickstart/) guide 

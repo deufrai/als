@@ -2,7 +2,7 @@
 title: Installation on a Mac Apple Silicon
 description: Installing ALS on Mac Apple Silicon
 author: ALZ Team
-lastmod: 2025-01-07T16:31:56Z
+lastmod: 2025-10-24T09:46:04Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 weight: 240
 tags: ['install', 'Mac', 'Apple Silicon']
@@ -29,10 +29,10 @@ macOS 10.13 (High Sierra) or later
    - Access your Downloads folder by selecting "Downloads" in the navigation menu on the left.
 
 2. **Identify the ALS disk image**
-   - Look for the disk image whose name starts with `als` and ends with `-arm64.dmg`. For example, it might be `als-v0.7-beta10-arm64.dmg`.
+   - Look for the disk image whose name starts with `als` and ends with `-arm64.dmg`. For example, it might be `als-v0.7-arm64.dmg`.
 
 3. **Mount the disk image**
-   - Double-click on the `als-v0.7-beta10-arm64.dmg` disk image. This will mount the disk image.
+   - Double-click on the `als-v0.7-arm64.dmg` disk image. This will mount the disk image.
    - A new Finder window will display the contents of the disk image. You will see the `ALS` application icon on the left and a shortcut to the system `Applications` folder on the right.
 
 4. **Copy the application to the Applications folder**
