@@ -2,15 +2,15 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-10-24T19:24:36Z
+lastmod: 2025-10-27T10:13:07Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 550
 ---
 
-## Version 0.7
+## Version 0.7 #{#0.7}
 
-**Date:** 25 octobre 2025
+**Date:** 27 octobre 2025
 
 ### Nouveautés
 
@@ -20,7 +20,7 @@ weight: 550
 - Introduction des profils (paramètres par défaut pour visuel assisté ou photo)
 - Ajout d'un affichage de code QR menant au serveur web intégré
 - Ajout de la lecture des fichiers jpeg, png et tiff
-- Traduction française
+- Traductions française et russe
 - Soustraction de darks
 - Suppression des pixels chauds
 - Mode nuit

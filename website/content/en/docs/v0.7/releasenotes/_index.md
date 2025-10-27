@@ -2,15 +2,15 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-10-24T18:39:23Z
+lastmod: 2025-10-27T10:13:07Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 550
 ---
 
-## Version 0.7
+## Version 0.7 {#0.7}
 
-**Date:** October 25, 2025
+**Date:** October 27, 2025
 
 ### New Features
 
@@ -20,7 +20,7 @@ weight: 550
 - Introduction of profiles (default settings for assisted visual or photo)
 - Addition of a QR code display leading to the integrated web server
 - Addition of jpeg, png, and tiff file reading
-- French translation
+- French and russian translations
 - Dark frame subtraction
 - Hot pixel removal
 - Night mode
