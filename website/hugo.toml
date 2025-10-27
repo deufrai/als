@@ -1,5 +1,5 @@
 # Basic Site Configuration
-baseURL = "https://next.als-app.org/"
+baseURL = "https://als-app.org/"
 languageCode = "en"
 title = "Astro Live Stacker"
 theme = "docsy"
