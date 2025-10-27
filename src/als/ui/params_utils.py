@@ -189,9 +189,9 @@ def update_controls_from_params(params: List[ProcessingParameter], controls: Lis
 
 
 @log
-def reset_params(params: List[ProcessingParameter], controls: List[QWidget]):
+def init_params(params: List[ProcessingParameter], controls: List[QWidget]):
     """
-    Reset a list of ProcessingParameter and update associated controls
+    Init  a list of ProcessingParameter and update associated controls
 
     :param params: the param list
     :type params: List[ProcessingParameter]
@@ -201,7 +201,7 @@ def reset_params(params: List[ProcessingParameter], controls: List[QWidget]):
     """
 
     for param in params:
-        param.reset()
+        param.init()
 
     update_controls_from_params(params, controls)
 

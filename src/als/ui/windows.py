@@ -6,11 +6,12 @@ import platform
 from logging import getLogger
 from os import linesep, chmod, makedirs
 from pathlib import Path
+from typing import List
 
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFont
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox
+    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
 
 import als.model.data
 from als import config
@@ -22,13 +23,14 @@ from als.messaging import MESSAGE_HUB
 from als.model.data import DYNAMIC_DATA, I18n
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
     message_box, SessionStopDialog, QRDisplay
-from als.ui.params_utils import update_controls_from_params, update_params_from_controls, reset_params, \
+from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
+from als.ui.widgets import Slider
 from generated.als_ui import Ui_stack_window
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
-ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7/"
+ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7/?mtm_campaign=docFromApp"
 
 # pylint: disable=R0904, R0902
 class MainWindow(QMainWindow):
@@ -90,7 +92,7 @@ class MainWindow(QMainWindow):
             [self._ui.sld_rgb_r, self._ui.sld_rgb_g, self._ui.sld_rgb_b]
         )
 
-        self._reset_rgb()
+        init_params(self._rgb_parameters, self._rgb_controls)
 
         # setup autostretch controls and params
         self._autostretch_controls = [
@@ -106,7 +108,7 @@ class MainWindow(QMainWindow):
             [self._ui.sld_stretch_strength]
         )
 
-        self._reset_autostretch()
+        init_params(self._autostretch_parameters, self._autostretch_controls)
 
         # setup levels controls and parameters
         self._levels_controls = [
@@ -123,7 +125,7 @@ class MainWindow(QMainWindow):
             [self._ui.sld_black, self._ui.sld_midtones, self._ui.sld_white]
         )
 
-        self._reset_levels()
+        init_params(self._levels_parameters, self._levels_controls)
 
         # setup exchanges with dynamic data
         self._controller.add_model_observer(self)
@@ -300,12 +302,24 @@ class MainWindow(QMainWindow):
         self._controller.apply_processing()
 
     @log
+    def _reset_sliders(self, controls: List[QWidget]):
+        """
+        Resets sliders in a list to their default values
+
+        :param controls: the list of sliders to reset
+        :type controls: List[QWidget]
+        """
+        for control in controls:
+            if isinstance(control, Slider):
+                control.setValue(control.default_value())
+
+    @log
     @pyqtSlot(name="on_btn_stretch_reset_clicked")
     def _reset_autostretch(self):
         """
         Resets autostretch controls to their defaults
         """
-        reset_params(self._autostretch_parameters, self._autostretch_controls)
+        self._reset_sliders(self._autostretch_controls)
 
     @log
     @pyqtSlot(name="on_btn_rgb_reset_clicked")
@@ -313,7 +327,7 @@ class MainWindow(QMainWindow):
         """
         Resets rgb controls to their defaults
         """
-        reset_params(self._rgb_parameters, self._rgb_controls)
+        self._reset_sliders(self._rgb_controls)
 
     @log
     @pyqtSlot(name="on_btn_levels_reset_clicked")
@@ -321,7 +335,7 @@ class MainWindow(QMainWindow):
         """
         Resets levels processing controls to their defaults
         """
-        reset_params(self._levels_parameters, self._levels_controls)
+        self._reset_sliders(self._levels_controls)
 
     @log
     @pyqtSlot(name="on_btn_rgb_reload_clicked")

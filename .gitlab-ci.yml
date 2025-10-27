@@ -1,111 +1,32 @@
-default:
-    interruptible: true
+# Root dispatcher — decides which child pipeline(s) to load
 
-stages:
-  - setup
-  - validate
-  - build
-  - deploy
-  - changelog
+include:
+  # -------------------------------------------------------------
+  # Desktop application pipeline (heavy multi-platform builds)
+  # -------------------------------------------------------------
+  - local: 'ci/app.yml'
+    rules:
+      # always run on scheduled/nightly or tag pipelines
+      - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      - if: '$CI_PIPELINE_SOURCE == "tag"'
+      # run when any application-relevant file changed
+      - changes:
+          - src/**/*
+          - setup.py
+          - setup.cfg
+          - requirements.txt
+          - ci/app.yml
+          - ci/builds/**/*
+          - ci/deploy/deploy_nightlies.sh
+      - when: never
 
-workflow:
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_PIPELINE_SOURCE == "schedule"
-    - if: $CI_PIPELINE_SOURCE == "web"
-    - if: $CI_PIPELINE_SOURCE == "tag"
-    - if: $CI_PIPELINE_SOURCE == "push"
-      when: never
-
-Configure Build:
-  tags:
-  - infra
-  stage: setup
-  timeout: 5m
-  script:
-    - ci/builds/setup_build.sh
-  artifacts:
-    reports:
-      dotenv: .dotenv
-
-
-Build PC/Linux:
-  tags:
-  - amd64
-  - linux
-  stage: build
-  timeout: 30m
-  script:
-    - ci/builds/build_dist_amd64_linux.sh
-  artifacts:
-    expose_as: 'ALS for Linux amd64'
-    paths:
-      - als-$ALS_VERSION_STRING.run
-
-
-Build RaspBerry/Linux:
-  tags:
-  - arm64
-  - linux
-  stage: build
-  timeout: 30m
-  script:
-    - ci/builds/build_dist_arm64_linux.sh
-  artifacts:
-    expose_as: 'ALS for Linux arm64'
-    paths:
-      - als-$ALS_VERSION_STRING.tgz
-
-
-Build Mac/Intel:
-  tags:
-  - amd64
-  - mac
-  stage: build
-  timeout: 30m
-  script:
-    - ci/builds/build_dist_amd64_osx.sh
-  artifacts:
-    expose_as: 'ALS for OSX amd64'
-    paths:
-      - als-$ALS_VERSION_STRING-amd64.dmg
-
-
-Build Mac/ARM:
-  tags:
-  - arm64
-  - mac
-  stage: build
-  timeout: 30m
-  script:
-    - ci/builds/build_dist_arm64_osx.sh
-  artifacts:
-    expose_as: 'ALS for OSX arm64'
-    paths:
-      - als-$ALS_VERSION_STRING-arm64.dmg
-
-
-Build PC/Windows:
-  tags:
-  - amd64
-  - win
-  stage: build
-  timeout: 30m
-  script:
-    - sh ci/builds/build_dist_amd64_win.sh
-  artifacts:
-    expose_as: 'ALS for Windows amd64'
-    paths:
-      - als-${ALS_VERSION_STRING}_Setup.exe
-
-
-Deploy nightlies:
-  tags:
-    - infra
-  stage: deploy
-  script: ci/deploy/deploy_nightlies.sh
-  environment:
-    name: Nightlies
-    url: https://als-app.org/nightlies
-  rules:
-    - if: $CI_SCHEDULE_ID == "1"
+  # -------------------------------------------------------------
+  # Website / documentation pipeline
+  # -------------------------------------------------------------
+  - local: 'ci/website.yml'
+    rules:
+      - changes:
+          - website/**/*
+          - ci/website.yml
+          - ci/deploy/deploy_staging_website.sh
+      - when: never

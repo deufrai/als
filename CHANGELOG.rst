@@ -10,6 +10,7 @@ Version 0.7
 New Features
 ------------
 
+- Russian translation
 - Linux: Utility for creating a system launcher
 - Sending usage statistics with user consent
 - Reading .CR3 Canon Raw files
@@ -24,6 +25,7 @@ New Features
 Improvements
 ------------
 
+- Web server: better image navigation and refresh only when needed
 - Windows: ALS version is provided as a proper installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts

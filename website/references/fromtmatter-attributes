@@ -1,0 +1,25 @@
+# Hugo Frontmatter Attributes
+
+1. **title**: The title of the page or post.
+2. **date**: The date associated with the content, typically the publication date.
+3. **draft**: A boolean value indicating whether the content is a draft (`true`) or published (`false`).
+4. **slug**: A URL-friendly version of the title, used to create the page's URL.
+5. **aliases**: An array of alternative URLs that redirect to the current page.
+6. **params**: A map of custom parameters that can be used in templates.
+7. **description**: A brief description of the content, often used in meta tags.
+8. **expiryDate**: The expiration date of the content, after which it won't be rendered unless specified.
+9. **headless**: A boolean indicating whether the content is headless (i.e., not rendered as a standalone page).
+10. **isCJKLanguage**: A boolean indicating if the content language is in the CJK (Chinese, Japanese, Korean) family.
+11. **cascade**: A map of front matter keys whose values are passed down to the page’s descendants unless overwritten.
+12. **url**: Overrides the entire URL path of the content.
+13. **layout**: Specifies the layout template to use for rendering the page.
+14. **author**: Specifies the author of the content.
+15. **series**: Specifies a series the content is part of, useful for serialized content.
+16. **tags**: An array of tags associated with the content, useful for categorizing.
+17. **categories**: An array of categories the content belongs to.
+18. **resources**: Resources related to the content, such as images or files.
+19. **outputs**: Specifies the output formats for the content (e.g., HTML, JSON).
+20. **type**: Overrides the type of content (e.g., post, page).
+21. **weight**: An integer used to control the order of pages.
+22. **summary**: An optional summary of the content that can be used in list views.
+23. **build**: A map of build options.

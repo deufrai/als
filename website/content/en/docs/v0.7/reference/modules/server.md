@@ -1,0 +1,97 @@
+---
+title: "Server"
+description: "Detailed documentation of the ALS Image Server module"
+author: "ALS Team"
+lastmod: 2025-10-22T18:40:42Z
+keywords: ["ALS image server", "ALS web module", "ALS remote view"]
+draft: false
+type: "docs"
+categories: ["detailed documentations"]
+tags: ["module", "server", "utility", "web", "stream"]
+weight: 362
+---
+
+# Overview
+
+The **Server** utility module exposes ALS processing results through a lightweight HTTP and WebSocket service.
+
+It is responsible for:
+
+- Publishing the **latest stacked image** and session metrics in the configured **web folder**
+- Serving the **viewer web application** (`index.html`, JavaScript and icons)
+- Streaming live **new-image notifications** to connected browsers over WebSockets
+- Providing a **QR-code friendly URL** so that tablets or phones can join the session quickly
+
+The module runs in its own asyncio event loop and accepts concurrent browser clients. It never alters the processing 
+pipeline; it only serves the web image written by the **Save** module.
+
+{{% alert color="info" %}}
+ℹ️ The server delivers the content stored in the **web folder**. By default, this folder is an alias of the 
+**work folder**; you can dedicate a separate folder from the [Output preferences](../../userguide/preferences/output/#web-dedicated).
+{{% /alert %}}
+
+# Configuration
+
+| Setting                   | Source                                                                          | Data Type            | Required  | Default Value     |
+|---------------------------|---------------------------------------------------------------------------------|----------------------|-----------|-------------------|
+| **Web Folder**            | Preferences: [Output Tab](../../userguide/preferences/output/#web-folder)       | Path to a folder     | Yes       | Work folder alias |
+| **Dedicated Web Folder**  | Preferences: [Output Tab](../../userguide/preferences/output/#web-dedicated)    | Boolean              | No        | Disabled          |
+| **Port Number**           | Preferences: [Output Tab](../../userguide/preferences/output/#server-port)      | Integer (1024–65535) | Yes       | 8000              |
+
+# Control
+
+| Source                                                             | Type              | Response                                                                                            |
+|--------------------------------------------------------------------|-------------------|-----------------------------------------------------------------------------------------------------|
+| [`Main controls`](../../userguide/ui/controls/#server-section) | Command: `START`  | Prepare web assets and launch the server thread                                                     |
+| [`Main controls`](../../userguide/ui/controls/#server-section) | Command: `STOP`   | Gracefully notify clients and shut the server down. Keep web assets available; QR code hidden by UI |
+
+# Outputs
+
+Once started, the module maintains the following artefacts inside the web folder:
+
+| Artefact                      | Description                                                              |
+|-------------------------------|--------------------------------------------------------------------------|
+| `index.html`                  | The embedded viewer that displays the live stacked image                 |
+| `favicon.ico` & `icons/*.png` | Viewer assets copied from the ALS resources bundle                       |
+| `data.json`                   | Session metrics (`STACK_SIZE`, `EXPO`) refreshed after each stack update |
+| `web_image.jpg`               | Latest processed frame saved in JPEG for browser consumption             |
+| `openseadragon.min.js`        | Deep-zoom viewer script used by the web interface                        |
+
+# Behavior
+
+## Startup sequence
+
+1. **Validate availability** — the module resolves the current host IP and ensures the configured port is free. A `PortInUseError` is raised if another process already listens on the port.
+2. **Publish static assets** — `index.html`, icons, and the waiting image are written (or refreshed) in the web folder so that first-time clients load instantly.
+3. **Expose session metrics** — `data.json` is generated with the current stack size and cumulative exposure time.
+4. **Run the server loop** — an asyncio loop starts in a dedicated thread, serving HTTP on `http://<host>:<port>` and accepting WebSocket connections on `/ws`.
+5. **Advertise availability** — the UI updates its status and QR code, broadcasting the final URL to the session log.
+
+If ALS can only bind to `127.0.0.1`, the module keeps running but reports **Web server access is limited** so that you can adjust your network settings.
+
+## Live updates
+
+- After each processed image, the latest JPEG and `data.json` are overwritten in the web folder.
+- `notify_browsers_about_new_image()` pushes `{ "type": "new_image" }` to all WebSocket clients so that browsers reload the image without polling.
+- The same infrastructure is used to deliver `{ "type": "disconnect" }` right before shutdown, allowing clients to display an appropriate message.
+
+## Shutdown
+
+When the `STOP` command is triggered:
+
+1. All connected clients receive a `disconnect` message.
+2. The module waits briefly (2 seconds) for browsers to close the socket.
+3. The asyncio runner is cleaned up and the dedicated thread stops.
+4. UI status and QR code are reset; the static files remain on disk for the next session.
+
+# WebSocket reference
+
+| Message      | Payload                    | Trigger                                     |
+|--------------|----------------------------|---------------------------------------------|
+| `new_image`  | `{ "type": "new_image" }`  | A freshly processed frame becomes available |
+| `disconnect` | `{ "type": "disconnect" }` | Server is shutting down                     |
+
+{{% alert title="Troubleshooting" color="warning" %}}
+- Change the port number in preferences if ALS reports that the port is already in use.
+- If external devices cannot reach the URL, verify that the image server is not listening on `127.0.0.1` and that your firewall allows inbound connections on the configured port.
+{{% /alert %}}

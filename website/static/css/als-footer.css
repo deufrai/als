@@ -1,0 +1,73 @@
+/* everything footer, duh  */
+footer {
+    position: relative;
+}
+
+footer p {
+    font-size: .8em;
+}
+
+footer .row {
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .row > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0;
+}
+
+footer .row > div a {
+    text-decoration: none;
+    color: var(--dimmed);
+}
+
+footer .row > div a i {
+    font-size: 1.4em;
+    padding: 5px;
+    display: block; /* Ensure the icon is on its own line */
+}
+
+.footer-icon-text span {
+    display: block; /* Ensure the text is on its own line */
+}
+
+.footer-info {
+    width: 100%;
+    /*border-top: 1px solid var(--dimmed);*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure content wraps if needed */
+}
+
+.footer-license p, .build-commit-id p {
+    color: var(--dimmed);
+    margin: 0;
+    font-size: 0.8em;
+    flex: 1 1 auto; /* Allow flexible width */
+}
+
+.footer-license a {
+    color: var(--dimmed);
+}
+
+
+.footer-license, .build-commit-id {
+    flex: 1; /* Ensure both sections are flexible */
+    min-width: 45%; /* Allow enough space to prevent overlap */
+    box-sizing: border-box;
+}
+
+.build-commit-id {
+    text-align: right; /* Right-align text */
+}
+
+.contact-text span {
+    display: block;
+}

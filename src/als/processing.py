@@ -528,7 +528,7 @@ class RemoveDark(ImageProcessor):
                     __name__,
                     QT_TRANSLATE_NOOP(
                         "",
-                        "Dark & Light data types mismatch. Light: {} vs Dark: {}. Dark needs to be conformed."
+                        "Dark & Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark..."
                     ),
                     [image.data.dtype.name, dark.data.dtype.name])
 

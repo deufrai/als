@@ -22,7 +22,7 @@ pyinstaller -i src/resources/als_logo.icns \
             --hidden-import='charset_normalizer.md__mypyc' \
             src/als/main.py
 
-cp -vf /usr/local/Cellar/libpng/1.6.44/lib/libpng16.16.dylib dist/als.app/Contents/MacOS
+cp -vf /Users/orionforge/work/dev/brew/Cellar/libpng/1.6.47/lib/libpng16.16.dylib dist/als.app/Contents/MacOS
 
 sed -e "s/##VERSION##/${ALS_VERSION_STRING}/"  ci/builds/Info.plist > dist/als.app/Contents/Info.plist
 

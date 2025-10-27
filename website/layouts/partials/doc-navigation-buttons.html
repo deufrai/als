@@ -1,0 +1,24 @@
+{{ $pages := where .Site.Pages "Section" "docs" }}
+{{ $sortedPages := sort $pages "Weight" "asc" }}
+
+{{ $currentPage := . }}
+{{ $currentPageIndex := 0 }}
+{{ $totalPages := len $sortedPages }}
+
+{{ range $index, $element := $sortedPages }}
+  {{ if eq $element.Permalink $currentPage.Permalink }}
+    {{ $currentPageIndex = $index }}
+  {{ end }}
+{{ end }}
+
+<div class="d-flex justify-content-between mt-4 flex-column flex-sm-row doc-navigation-buttons">
+  {{ if gt $currentPageIndex 0 }}
+    {{ $prevPage := index $sortedPages (sub $currentPageIndex 1) }}
+    <a class="btn btn-primary mb-2 mb-sm-0" href="{{ $prevPage.Permalink }}">←&nbsp;{{ i18n "docNavButtonPrev" }}</a>
+  {{ end }}
+
+  {{ if lt $currentPageIndex (sub $totalPages 1) }}
+    {{ $nextPage := index $sortedPages (add $currentPageIndex 1) }}
+    <a class="btn btn-primary mb-2 mb-sm-0" href="{{ $nextPage.Permalink }}">{{ i18n "docNavButtonNext" }}&nbsp;→</a>
+  {{ end }}
+</div>

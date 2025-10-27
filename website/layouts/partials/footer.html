@@ -1,0 +1,57 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
+                <a href="https://als-app.org/discord" target="_blank">
+                    <i class="fab fa-discord"></i>
+                    <span>{{ i18n "discord" }}</span>
+                </a>
+            </div>
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
+                <a href="https://github.com/deufrai/als/issues" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>{{ i18n "githubIdeaProblem" }}</span>
+                </a>
+            </div>
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
+                <a href="mailto:contact@als-app.org">
+                    <i class="fas fa-envelope"></i>
+                    <span>{{ i18n "contact" }}</span>
+                </a>
+            </div>
+            <div class="col-12 col-md-3 mb-3 text-center footer-icon-text">
+                <a href="mailto:support@als-app.org">
+                    <i class="fas fa-envelope"></i>
+                    <span>{{ i18n "support" }}</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="footer-license">
+                <p>&copy; {{ i18n "year" }} {{ i18n "siteName" }}. {{ i18n "allRightsReserved" }}
+                    <a href="{{ i18n "licenseUrl" }}"
+                       target="_blank">{{ i18n "licenseText" }}</a>
+                </p>
+            </div>
+
+            <div class="build-commit-id">
+                <p>Website build: @@COMMIT_ID@@</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div class="cookieconsent">
+    <div class="cookieconsent__message">
+        {{ i18n "cookieconsentMessage" }}
+        <a href="{{ i18n "cookieconsentPrivacyPolicyUrl" }}">{{ i18n "cookieconsentPrivacyPolicy" }}</a>
+    </div>
+    <div class="cookieconsent__actions">
+        <button class="button button--small button--cookieconsent button--decline" type="button"
+                data-consent="false">{{ i18n "cookieconsentDecline" }}</button>
+        <button class="button button--small button--cookieconsent button--accept" type="button"
+                data-consent="true">{{ i18n "cookieconsentAccept" }}</button>
+    </div>
+</div>
