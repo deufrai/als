@@ -1,0 +1,136 @@
+# Basic Site Configuration
+baseURL = "https://als-app.org/"
+languageCode = "en"
+title = "Astro Live Stacker"
+theme = "docsy"
+publishDir = "public"
+enableRobotsTXT = true
+enableGitInfo = true
+
+# Site Parameters
+[params]
+  docs = true
+  disableBreadcrumb = false
+  disableFeedback = true
+  offlineSearch = true
+  searchIndexInMemory = true
+  favicon = "/images/favicon.ico"
+  logo = "/images/als_logo_256.png"
+  license = "CC BY-SA 4.0"
+  licenseURL = "https://creativecommons.org/licenses/by-sa/4.0/"
+
+  [params.mermaid]
+    theme = "dark"
+    align = "center"
+
+  [params.mermaid.flowchart]
+    diagramPadding = 16
+
+  # UI Customization
+  [params.ui]
+    navbarVariant = "dark"
+    sidebarVariant = "dark"
+    sidebar_menu_compact = false
+    ul_show = 2
+    sidebar_menu_foldable = true
+    sidebar_cache_limit = 1000
+
+  # Language Switcher
+  [params.languageswitcher]
+    enable = true
+    style = "dropdown"
+
+  # Version Configuration
+  version_menu = "Version"
+  version_menu_pagelinks = true
+  [[params.versions]]
+    url = "/docs/v0.7/"
+    version = "v0.7"
+
+
+# Markup Configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 6
+  [markup.highlight]
+    lineNos = true
+    style = 'onedark'
+
+
+# Language Configuration
+[languages]
+  # French Configuration
+  [languages.fr]
+    weight = 1
+    languageName = "🇫🇷 FR"
+    contentDir = "content/fr"
+
+    [[languages.fr.menu.main]]
+      identifier = "about"
+      name = "Projet"
+      url = "/fr/about/"
+      weight = 10
+
+    [[languages.fr.menu.main]]
+      identifier = "FAQ"
+      name = "FAQ"
+      url = "/fr/faq/"
+      weight = 12
+
+    [[languages.fr.menu.main]]
+      identifier = "contributors"
+      name = "Contributeurs"
+      url = "/fr/contributors/"
+      weight = 15
+
+    [[languages.fr.menu.main]]
+      identifier = "blog"
+      name = "News"
+      url = "/fr/blog/"
+      weight = 18
+
+    [[languages.fr.menu.main]]
+      identifier = "docs"
+      name = "Documentation"
+      url = "/fr/docs/v0.7/"
+      weight = 20
+
+  # English Configuration
+  [languages.en]
+    weight = 2
+    languageName = "🇬🇧 EN"
+    contentDir = "content/en"
+
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "/about/"
+      weight = 10
+
+    [[languages.en.menu.main]]
+      identifier = "FAQ"
+      name = "FAQ"
+      url = "/faq/"
+      weight = 12
+
+    [[languages.en.menu.main]]
+      identifier = "contributors"
+      name = "Contributors"
+      url = "/contributors/"
+      weight = 15
+
+    [[languages.en.menu.main]]
+      identifier = "blog"
+      name = "News"
+      url = "/blog/"
+      weight = 18
+
+    [[languages.en.menu.main]]
+      identifier = "docs"
+      name = "Docs"
+      url = "/docs/v0.7/"
+      weight = 20

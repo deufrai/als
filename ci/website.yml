@@ -1,0 +1,19 @@
+default:
+  interruptible: true
+
+stages:
+  - deploy
+
+variables:
+  GIT_STRATEGY: clone
+
+deploy_to_staging:
+  stage: deploy
+  tags: [infra]
+  only:
+    - release/0.7
+  script:
+    - ./ci/deploy/deploy_staging_website.sh
+  environment:
+    name: staging
+    url: https://next.als-app.org/

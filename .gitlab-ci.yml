@@ -1,0 +1,32 @@
+# Root dispatcher — decides which child pipeline(s) to load
+
+include:
+  # -------------------------------------------------------------
+  # Desktop application pipeline (heavy multi-platform builds)
+  # -------------------------------------------------------------
+  - local: 'ci/app.yml'
+    rules:
+      # always run on scheduled/nightly or tag pipelines
+      - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      - if: '$CI_PIPELINE_SOURCE == "tag"'
+      # run when any application-relevant file changed
+      - changes:
+          - src/**/*
+          - setup.py
+          - setup.cfg
+          - requirements.txt
+          - ci/app.yml
+          - ci/builds/**/*
+          - ci/deploy/deploy_nightlies.sh
+      - when: never
+
+  # -------------------------------------------------------------
+  # Website / documentation pipeline
+  # -------------------------------------------------------------
+  - local: 'ci/website.yml'
+    rules:
+      - changes:
+          - website/**/*
+          - ci/website.yml
+          - ci/deploy/deploy_staging_website.sh
+      - when: never

@@ -16,22 +16,22 @@ Provides image stacking features
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-import logging
+from logging import getLogger
 from multiprocessing import Process, Manager
 
 import astroalign as al
 import numpy as np
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QT_TRANSLATE_NOOP
 from skimage.transform import SimilarityTransform
 
-from als.code_utilities import log, Timer
-from als.model.base import Image
-from als.model.data import STACKING_MODE_SUM, STACKING_MODE_MEAN
+from als import config
+from als.code_utilities import log, Timer, AlsLogAdapter
+from als.messaging import MESSAGE_HUB
+from als.model.base import Image, RunningProfile
+from als.model.data import I18n
 from als.processing import QueueConsumer
 
-_LOGGER = logging.getLogger(__name__)
-
-_MINIMUM_MATCHES_FOR_VALID_TRANSFORM = 25
+_LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 
 class StackingError(Exception):
@@ -43,20 +43,21 @@ class StackingError(Exception):
 # pylint: disable=R0902
 class Stacker(QueueConsumer):
     """
-    Responsible of image stacking : alignment and registration
+    Responsible for image stacking : alignment and registration
     """
 
     stack_size_changed_signal = pyqtSignal(int)
     """Qt signal emitted when stack size changed"""
 
     @log
-    def __init__(self, stack_queue):
+    def __init__(self, stack_queue, profile: RunningProfile):
         QueueConsumer.__init__(self, "stack", stack_queue)
         self._size: int = 0
         self._last_stacking_result: Image = None
         self._align_reference: Image = None
-        self._stacking_mode = STACKING_MODE_MEAN
+        self._stacking_mode = I18n.STACKING_MODE_MEAN
         self._align_before_stack = True
+        self._profile = profile
 
     @property
     @log
@@ -112,7 +113,6 @@ class Stacker(QueueConsumer):
         self._align_reference = None
         self.stack_size_changed_signal.emit(self.size)
 
-
     @log
     def _publish_stacking_result(self, image: Image):
         """
@@ -149,7 +149,7 @@ class Stacker(QueueConsumer):
         self.stack_size_changed_signal.emit(self.size)
 
     @log
-    def _handle_image(self, image: Image):
+    def _handle_item(self, image: Image):
 
         if self.size == 0:
             _LOGGER.debug("This is the first image for this stack. Publishing right away")
@@ -182,7 +182,8 @@ class Stacker(QueueConsumer):
                 self._publish_stacking_result(image)
 
             except StackingError as stacking_error:
-                _LOGGER.warning(f"Could not stack image {image.origin} : {stacking_error}. Image is DISCARDED")
+                message = QT_TRANSLATE_NOOP("", "Could not stack image {} : {}. Image is DISCARDED")
+                MESSAGE_HUB.dispatch_warning(__name__, message, [image.origin, stacking_error])
 
     @log
     def _align_image(self, image):
@@ -224,27 +225,55 @@ class Stacker(QueueConsumer):
         if image.is_color():
             _LOGGER.debug(f"Aligning color image...")
 
-            manager = Manager()
-            results_dict = manager.dict()
-            channel_processors = []
+            # do_mp = platform.system() not in ["Darwin", "Windows"]
+            # TODO check if MP 'spawn' start method is stable, faster 
+            # and suppports frozen apps when we switch to python >= 3.8
+            do_mp = False
 
-            for channel in range(3):
-                processor = Process(target=Stacker._apply_single_channel_transformation,
-                                    args=[image,
-                                          self._last_stacking_result,
-                                          transformation,
-                                          results_dict,
-                                          channel])
-                processor.start()
-                channel_processors.append(processor)
+            if do_mp:
 
-            for processor in channel_processors:
-                processor.join()
+                _LOGGER.debug("Using multiprocessing to align color image...")
+                manager = Manager()
+                results_dict = manager.dict()
+                channel_processors = []
 
-            _LOGGER.debug("Color channel processes are done. Fetching results and storing results...")
+                for channel in range(3):
+                    processor = Process(target=Stacker._apply_single_channel_transformation,
+                                        args=(image,
+                                              self._last_stacking_result,
+                                              transformation,
+                                              results_dict,
+                                              channel))
+                    processor.start()
+                    channel_processors.append(processor)
 
-            for channel, data in results_dict.items():
-                image.data[channel] = data
+                for processor in channel_processors:
+                    processor.join()
+
+                _LOGGER.debug("Color channel processes are done. Fetching results and storing results...")
+
+                for channel, data in results_dict.items():
+                    image.data[channel] = data
+
+                _LOGGER.debug("Using multiprocessing to align color image: DONE")
+
+            else:
+
+                _LOGGER.debug("Aligning color image in single process...")
+
+                results_dict = dict()
+
+                for channel in range(3):
+                    Stacker._apply_single_channel_transformation(image,
+                                                                 self._last_stacking_result,
+                                                                 transformation,
+                                                                 results_dict,
+                                                                 channel)
+
+                for channel, data in results_dict.items():
+                    image.data[channel] = data
+
+                _LOGGER.debug("Aligning color image in single process: SONE")
 
             _LOGGER.debug(f"Aligning color image DONE")
 
@@ -278,8 +307,8 @@ class Stacker(QueueConsumer):
         :param transformation: the transformation to apply
         :type transformation: skimage.transform._geometric.SimilarityTransform
 
-        :param results_dict: the dict into which transformation result is to be stored. dict key is the channel number for a
-               color image, or 0 for a b&w image
+        :param results_dict: the dict into which transformation result is to be stored. dict key is the channel number
+               for a color image, or 0 for a b&w image
         :type results_dict: dict
 
         :param channel: the 0 indexed number of the color channel to process (0=red, 1=green, 2=blue)
@@ -311,7 +340,10 @@ class Stacker(QueueConsumer):
         :raises: StackingError when no transformation is found using the whole image
         """
 
-        for ratio in [.1, .33, 1.]:
+        minimum_matches_for_valid_transform = config.get_minimum_match_count()
+        _LOGGER.debug(f"*SD-REQ* configured minimum match count: {minimum_matches_for_valid_transform}")
+
+        for ratio in self._profile.ratios:
 
             top, bottom, left, right = self._get_image_subset_boundaries(ratio)
 
@@ -328,20 +360,18 @@ class Stacker(QueueConsumer):
                               f"with ratio:{ratio} and shape: {new_subset.shape}")
 
                 transformation, matches = al.find_transform(new_subset, ref_subset)
-
-                _LOGGER.debug(f"Found transformation with subset ratio = {ratio}")
-                _LOGGER.debug(f"rotation : {transformation.rotation}")
-                _LOGGER.debug(f"translation : {transformation.translation}")
-                _LOGGER.debug(f"scale : {transformation.scale}")
                 matches_count = len(matches[0])
-                _LOGGER.debug(f"image matched features count : {matches_count}")
 
-                if matches_count < _MINIMUM_MATCHES_FOR_VALID_TRANSFORM:
-                    _LOGGER.debug(f"Found transformation but matches count is too low : "
-                                  f"{matches_count} < {_MINIMUM_MATCHES_FOR_VALID_TRANSFORM}. "
-                                  "Discarding transformation")
-                    raise StackingError("Too few matches")
+                if matches_count < minimum_matches_for_valid_transform:
+                    raise StackingError(f"Alignment matches count is lower than configured threshold : "
+                                        f"{matches_count} < {minimum_matches_for_valid_transform}.")
 
+                _LOGGER.debug("*SD-ALIGNOK* Image matching vs ref: Accepted")
+                _LOGGER.debug(f"*SD-RATIO* Accepted transformation with subset ratio: {ratio}")
+                _LOGGER.debug(f"*SD-ROT* Accepted rotation: {transformation.rotation}")
+                _LOGGER.debug(f"*SD-TRANS* Accepted translation: {transformation.translation}")
+                _LOGGER.debug(f"*SD-SCALE* Accepted scale: {transformation.scale}")
+                _LOGGER.debug(f"*SD-MATCHES* Accepted image matched features count : {matches_count}")
                 return transformation
 
             # pylint: disable=W0703
@@ -349,6 +379,7 @@ class Stacker(QueueConsumer):
                 # we have no choice but catching Exception, here. That's what AstroAlign raises in some cases
                 # this will catch MaxIterError as well...
                 if ratio == 1.:
+                    _LOGGER.debug("*SD-ALIGNOK* Image matching vs ref: Rejected")
                     raise StackingError(alignment_error)
 
                 _LOGGER.debug(f"Could not find valid transformation on subset with ratio = {ratio}.")
@@ -392,9 +423,9 @@ class Stacker(QueueConsumer):
         """
 
         _LOGGER.debug(f"Stacking in {self._stacking_mode} mode...")
-        if self._stacking_mode == STACKING_MODE_SUM:
+        if self._stacking_mode == I18n.STACKING_MODE_SUM:
             image.data = image.data + self._last_stacking_result.data
-        elif self._stacking_mode == STACKING_MODE_MEAN:
+        elif self._stacking_mode == I18n.STACKING_MODE_MEAN:
             image.data = (self.size * self._last_stacking_result.data + image.data) / (self.size + 1)
         else:
             raise StackingError(f"Unsupported stacking mode : {self._stacking_mode}")

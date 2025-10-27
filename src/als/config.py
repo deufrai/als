@@ -20,23 +20,35 @@ import logging
 import os
 import sys
 from configparser import ConfigParser, DuplicateOptionError, ParsingError
+from pathlib import Path
 
-from PyQt5.QtCore import pyqtSignal, QObject
-
-from als.code_utilities import AlsException
-from als.model.data import IMAGE_SAVE_TYPE_JPEG
+from als.code_utilities import AlsException, AlsLogAdapter
+from als.model.data import DYNAMIC_DATA, IMAGE_SAVE_TYPE_JPEG
 
 _CONFIG_FILE_PATH = os.path.expanduser("~/.als.cfg")
 
 # keys used to retrieve config values
 _SCAN_FOLDER_PATH = "scan_folder_path"
 _WORK_FOLDER_PATH = "work_folder_path"
+_WWW_FOLDER_PATH = "web_folder_path"
+_WWW_DEDICATED_FOLDER = "www_dedicated_folder"
 _LOG_LEVEL = "log_level"
 _WWW_SERVER_PORT = "www_server_port"
 _WINDOW_GEOMETRY = "window_geometry"
+_WINDOW_MAXIMIZED = "window_maximized"
 _IMAGE_SAVE_FORMAT = "image_save_format"
 _FULL_SCREEN = "full_screen"
-_WWW_REFRESH_PERIOD = "web_refresh_period"
+_MINIMUM_MATCH_COUNT = "alignment_minimum_match_count"
+_USE_MASTER_DARK = "use_master_dark"
+_MASTER_DARK_FILE_PATH = "master_dark_file_path"
+_USE_HOT_PIXEL_REMOVER = "use_hot_pixel_remover"
+_LANG = "lang"
+_BAYER_PATTERN = "bayer_pattern"
+_NIGHT_MODE = "night_mode"
+_SAVE_ON_STOP = "save_on_stop"
+_PROFILE = "profile"
+_PRESERVED_MEM = "preserved_mem"
+_SEND_STATS = "send_stats"
 
 # keys used to describe logging level
 _LOG_LEVEL_DEBUG = "DEBUG"
@@ -45,7 +57,7 @@ _LOG_LEVEL_WARNING = "WARNING"
 _LOG_LEVEL_ERROR = "ERROR"
 _LOG_LEVEL_CRITICAL = "CRITICAL"
 
-# store of matches between human readable log levels and logging module constants
+# store of matches between human-readable log levels and logging module constants
 _LOG_LEVELS = {
     _LOG_LEVEL_DEBUG:       logging.DEBUG,
     _LOG_LEVEL_INFO:        logging.INFO,
@@ -56,14 +68,27 @@ _LOG_LEVELS = {
 
 # application default values
 _DEFAULTS = {
-    _SCAN_FOLDER_PATH:    os.path.expanduser("~/als/scan"),
-    _WORK_FOLDER_PATH:    os.path.expanduser("~/als/work"),
-    _LOG_LEVEL:           _LOG_LEVEL_INFO,
-    _WWW_SERVER_PORT:     "8000",
-    _WINDOW_GEOMETRY:     "50,100,1024,800",
-    _IMAGE_SAVE_FORMAT:   IMAGE_SAVE_TYPE_JPEG,
-    _FULL_SCREEN:         0,
-    _WWW_REFRESH_PERIOD: "5",
+    _SCAN_FOLDER_PATH:      "",
+    _WORK_FOLDER_PATH:      "",
+    _WWW_FOLDER_PATH:       "",
+    _WWW_DEDICATED_FOLDER:  0,
+    _LOG_LEVEL:             _LOG_LEVEL_INFO,
+    _WWW_SERVER_PORT:       "8000",
+    _WINDOW_GEOMETRY:       "50,100,1400,900",
+    _WINDOW_MAXIMIZED:      0,
+    _IMAGE_SAVE_FORMAT:     IMAGE_SAVE_TYPE_JPEG,
+    _FULL_SCREEN:           0,
+    _MINIMUM_MATCH_COUNT:   25,
+    _USE_MASTER_DARK:       0,
+    _MASTER_DARK_FILE_PATH: "",
+    _USE_HOT_PIXEL_REMOVER: 0,
+    _LANG:                  "sys",
+    _BAYER_PATTERN:         "AUTO",
+    _NIGHT_MODE:            0,
+    _SAVE_ON_STOP:          1,
+    _PROFILE:               0,
+    _PRESERVED_MEM:         1,
+    _SEND_STATS:            None
 }
 _MAIN_SECTION_NAME = "main"
 
@@ -71,7 +96,6 @@ _MAIN_SECTION_NAME = "main"
 
 # module global data
 _CONFIG_PARSER = ConfigParser()
-_SIGNAL_LOG_HANDLER = None
 
 
 class CouldNotSaveConfig(AlsException):
@@ -101,6 +125,158 @@ def get_full_screen_active():
         return int(_get(_FULL_SCREEN)) == 1
     except ValueError:
         return _DEFAULTS[_FULL_SCREEN]
+
+
+def set_window_maximized(maximized: bool):
+    """
+    Set maximized window indicator
+
+    :param maximized: should app be launched in maximized state ?
+    :type maximized: bool
+    """
+
+    _set(_WINDOW_MAXIMIZED, "1" if maximized else "0")
+
+
+def get_window_maximized():
+    """
+    Get maximized window indicator
+
+    :return: True if app should be launched in maximized state, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_WINDOW_MAXIMIZED)) == 1
+    except ValueError:
+        return _DEFAULTS[_WINDOW_MAXIMIZED]
+
+
+def set_send_stats_active(stats: bool):
+    """
+    Set send stats indicator
+
+    :param stats: should app send usage stats ?
+    :type stats: bool
+    """
+
+    _set(_SEND_STATS, "1" if stats else "0")
+
+
+def get_send_stats_active():
+    """
+    Get send stats indicator
+
+    :return: True if app should send usage stats
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_SEND_STATS)) == 1
+    except ValueError:
+        return _DEFAULTS[_SEND_STATS]
+    except TypeError:
+        return _DEFAULTS[_SEND_STATS]
+
+
+def set_night_mode_active(night: bool):
+    """
+    Set night mode indicator
+
+    :param night: should app be launched in night mode ?
+    :type night: bool
+    """
+
+    _set(_NIGHT_MODE, "1" if night else "0")
+
+
+def get_night_mode_active():
+    """
+    Get night mode indicator
+
+    :return: True if app should be launched in night mode, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_NIGHT_MODE)) == 1
+    except ValueError:
+        return _DEFAULTS[_NIGHT_MODE]
+
+
+def set_www_use_dedicated_folder(dedicated: bool):
+    """
+    Set www dedicated folder flag
+
+    :param dedicated: must webserver use its own web folder
+    :type dedicated: bool
+    """
+
+    _set(_WWW_DEDICATED_FOLDER, "1" if dedicated else "0")
+
+
+def get_www_use_dedicated_folder():
+    """
+    Get www dedicated folder flag
+
+    :return: True if webserver must use its own web folder
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_WWW_DEDICATED_FOLDER)) == 1
+    except ValueError:
+        return _DEFAULTS[_WWW_DEDICATED_FOLDER]
+
+
+def set_hot_pixel_remover(hpr_on: bool):
+    """
+    Set 'use hot pixel remover' flag
+
+    :param hpr_on: should we use hot pixel remover ?
+    :type hpr_on: bool
+    """
+
+    _set(_USE_HOT_PIXEL_REMOVER, "1" if hpr_on else "0")
+
+
+def get_hot_pixel_remover():
+    """
+    Get 'use hot pixel remover' flag
+
+    :return: True if app should use hot pixel remover, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_USE_HOT_PIXEL_REMOVER)) == 1
+    except ValueError:
+        return int(_DEFAULTS[_USE_HOT_PIXEL_REMOVER]) == 1
+
+
+def set_save_on_stop(save_on_stop: bool):
+    """
+    Set 'save on stop' flag
+
+    :param save_on_stop: should we save on stop
+    :type save_on_stop: bool
+    """
+
+    _set(_SAVE_ON_STOP, "1" if save_on_stop else "0")
+
+
+def get_save_on_stop():
+    """
+    Get 'save on stop' flag
+
+    :return: True if app should save on stop, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_SAVE_ON_STOP)) == 1
+    except ValueError:
+        return int(_DEFAULTS[_SAVE_ON_STOP]) == 1
 
 
 def get_image_save_format():
@@ -155,6 +331,29 @@ def set_debug_log(debug_active):
         _set(_LOG_LEVEL, _LOG_LEVEL_INFO)
 
 
+def get_profile():
+    """
+    Retrieves the configured profile.
+
+    :return: The configured profile, or its default value if config entry
+             is not parsable as an int.
+    """
+    try:
+        return int(_get(_PROFILE))
+    except ValueError:
+        return _DEFAULTS[_PROFILE]
+
+
+def set_profile(profile):
+    """
+    Sets profile.
+
+    :param profile: the profile
+    :type profile: int
+    """
+    _set(_PROFILE, profile)
+
+
 def get_www_server_port_number():
     """
     Retrieves the configured web server port number.
@@ -178,27 +377,26 @@ def set_www_server_port_number(port_number):
     _set(_WWW_SERVER_PORT, port_number)
 
 
-def get_www_server_refresh_period():
+def get_preserved_mem():
     """
-    Retrieves the configured web server page refresh period.
+    Retrieves the configured preserved memory amount
 
-    :return: The web server page refresh period, or its default value if config entry
-             is not parsable as an int.
+    :return: The configured preserved memory amount
     """
     try:
-        return int(_get(_WWW_REFRESH_PERIOD))
+        return int(_get(_PRESERVED_MEM))
     except ValueError:
-        return _DEFAULTS[_WWW_REFRESH_PERIOD]
+        return _DEFAULTS[_PRESERVED_MEM]
 
 
-def set_www_server_refresh_period(period):
+def set_preserved_mem(code):
     """
-    Sets web server page refresh period.
+    Sets preserved memory amount
 
-    :param period: the period
-    :type period: int
+    :param code: see values mapping in config._MEMORY_CODES_MAPPING dict
+    :type code: int
     """
-    _set(_WWW_REFRESH_PERIOD, str(period))
+    _set(_PRESERVED_MEM, code)
 
 
 def get_work_folder_path():
@@ -221,6 +419,66 @@ def set_work_folder_path(path):
     _set(_WORK_FOLDER_PATH, path)
 
 
+def get_bayer_pattern():
+    """
+    Retrieves preferred bayer pattern
+
+    :return: the preferred bayer pattern
+    :rtype: str
+    """
+    return _get(_BAYER_PATTERN)
+
+
+def set_bayer_pattern(pattern):
+    """
+    Sets the preferred bayer pattern
+
+    :param pattern: the work folder path
+    :type pattern: str
+    """
+    _set(_BAYER_PATTERN, pattern)
+
+
+def get_lang():
+    """
+    Retrieves preferred language
+
+    :return: the preferred language
+    :rtype: str
+    """
+    return _get(_LANG)
+
+
+def set_lang(lang):
+    """
+    Sets the preferred language
+
+    :param lang: the preferred language
+    :type lang: str
+    """
+    _set(_LANG, lang)
+
+
+def get_web_folder_path():
+    """
+    Retrieves web folder path.
+
+    :return: the web folder path
+    :rtype: str
+    """
+    return _get(_WWW_FOLDER_PATH)
+
+
+def set_web_folder_path(path):
+    """
+    Sets the web folder path.
+
+    :param path: the web folder path
+    :type path: str
+    """
+    _set(_WWW_FOLDER_PATH, path)
+
+
 def get_scan_folder_path():
     """
     Retrieves scan folder path.
@@ -239,6 +497,74 @@ def set_scan_folder_path(path):
     :type path: str
     """
     _set(_SCAN_FOLDER_PATH, path)
+
+
+def get_minimum_match_count():
+    """
+    Retrieves alignment minimum stars value.
+
+    :return: the minimum stars number for alignment
+    :rtype: int
+    """
+    try:
+        return int(_get(_MINIMUM_MATCH_COUNT))
+    except ValueError:
+        return _DEFAULTS[_MINIMUM_MATCH_COUNT]
+
+
+def set_minimum_match_count(minimum_match_count):
+    """
+    Sets the alignment minimum stars value.
+
+    :param minimum_match_count: the minimum stars number for alignment
+    :type minimum_match_count: int
+    """
+    _set(_MINIMUM_MATCH_COUNT, str(minimum_match_count))
+
+
+def set_use_master_dark(use_dark: bool):
+    """
+    Set use dark flag
+
+    :param use_dark: Remove master dark from images ?
+    :type use_dark: bool
+    """
+
+    _set(_USE_MASTER_DARK, "1" if use_dark else "0")
+
+
+def get_use_master_dark():
+    """
+    Get use dark flag
+
+    :return: True if dark should be used, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return _get(_USE_MASTER_DARK) == "1"
+    except ValueError:
+        return _DEFAULTS[_USE_MASTER_DARK]
+
+
+def get_master_dark_file_path():
+    """
+    Retrieves the master dark file path.
+
+    :return: the master dark file path
+    :rtype: str
+    """
+    return _get(_MASTER_DARK_FILE_PATH)
+
+
+def set_master_dark_file_path(path):
+    """
+    Sets the master dark file path.
+
+    :param path: the master dark file path
+    :type path: str
+    """
+    _set(_MASTER_DARK_FILE_PATH, path)
 
 
 def get_window_geometry():
@@ -315,7 +641,7 @@ def _set(key, value):
     :type value: any
     """
     if value != _get(key):
-        _CONFIG_PARSER.set(_MAIN_SECTION_NAME, key, value)
+        _CONFIG_PARSER.set(_MAIN_SECTION_NAME, key, str(value))
 
 
 def setup():
@@ -327,13 +653,15 @@ def setup():
     # get an "empty" config
     #
     # if config file is invalid, we raise a ValueError with details
+
+    DYNAMIC_DATA.is_first_run = not Path(_CONFIG_FILE_PATH).is_file()
+
     try:
         _CONFIG_PARSER.read(_CONFIG_FILE_PATH)
     except DuplicateOptionError as duplicate_error:
         raise ValueError(duplicate_error)
     except ParsingError as parsing_error:
         raise ValueError(parsing_error)
-
     _setup_logging()
 
     # add our main config section if not already present (i.e. previous read failed)
@@ -348,71 +676,43 @@ def setup():
             _CONFIG_PARSER.remove_option(_MAIN_SECTION_NAME, option)
 
     # dump user config
+    _get_logger().debug("***************************************************************************")
     _get_logger().debug("User config file dump - START")
     for option in _CONFIG_PARSER.options(_MAIN_SECTION_NAME):
-        _get_logger().debug("%s = %s", option, _get(option))
+        _get_logger().debug("%-30s : %s", option, _get(option))
     _get_logger().debug("User config file dump - END")
-
-
-class SignalLogHandler(logging.Handler, QObject):
-    """
-    Logging handler responsible of sending log messages as a QT signal.
-
-    Any object can register, as soon as it has a on_log_message(str) function
-    """
-    message_signal = pyqtSignal(str)
-
-    def __init__(self):
-        logging.Handler.__init__(self)
-        QObject.__init__(self)
-        self.setFormatter(logging.Formatter('%(asctime)-15s %(levelname)-8s%(message)s'))
-
-    def emit(self, record):
-        self.message_signal.emit(self.format(record))
-
-    def add_receiver(self, receiver):
-        """
-        Connects this handler's message signal to a receiver
-
-        :param receiver: the receiver
-        :type receiver: any. It must have a on_log_message(str) function.
-        """
-        self.message_signal[str].connect(receiver.on_log_message)
-
-
-def register_log_receiver(receiver):
-    """
-    Registers any object as a log message receiver.
-
-    :param receiver: the receiver
-    :type receiver: any. It must have a on_log_message(str) function.
-    """
-
-    # pylint: disable=W0603
-    global _SIGNAL_LOG_HANDLER
-    _SIGNAL_LOG_HANDLER.add_receiver(receiver)
+    _get_logger().debug("***************************************************************************")
 
 
 def _setup_logging():
     """
     Sets up logging system.
     """
-    logging.basicConfig(level=_LOG_LEVELS[_get(_LOG_LEVEL)],
-                        format='%(asctime)-15s %(threadName)-12s %(name)-20s %(levelname)-8s %(message)s',
-                        stream=sys.stdout)
-    # pylint: disable=W0603
-    global _SIGNAL_LOG_HANDLER
-    _SIGNAL_LOG_HANDLER = SignalLogHandler()
-    _SIGNAL_LOG_HANDLER.setLevel(_LOG_LEVELS[_LOG_LEVEL_INFO])
-    logging.getLogger("").addHandler(_SIGNAL_LOG_HANDLER)
+
+    global_log_format_string = '=%(threadName)-12s %(name)-20s %(levelname)-8s %(message)s'
+    log_level = _LOG_LEVELS[_get(_LOG_LEVEL)]
+
+    logging.basicConfig(level=log_level,
+                        format=global_log_format_string,
+                        filename=str(Path.home() / "als.log"),
+                        filemode='w')
+
+    # setup console log handler
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(log_level)
+    console_handler.setFormatter(logging.Formatter(global_log_format_string))
+    logging.getLogger('').addHandler(console_handler)
 
     # in here, we maintain a list of third party loggers for which we don't want to see anything but WARNING & up
     third_party_polluters = [
         'watchdog.observers.inotify_buffer',
+        'exifread',
+        'astropy',
+        'aiohttp.access'
     ]
     for third_party_log_polluter in third_party_polluters:
-        logging.getLogger(third_party_log_polluter).setLevel(logging.WARNING)
+        logging.getLogger(third_party_log_polluter).setLevel(logging.CRITICAL)
 
 
 def _get_logger():
-    return logging.getLogger(__name__)
+    return AlsLogAdapter(logging.getLogger(__name__), {})

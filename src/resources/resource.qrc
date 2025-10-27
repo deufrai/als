@@ -1,7 +1,42 @@
 <RCC>
-  <qresource prefix="icons">
-    <file>dslr-camera.svg</file>
-    <file>tick.png</file>
-    <file>tick-disabled.png</file>
-  </qresource>
+    <qresource prefix="icons">
+        <file>tick.png</file>
+        <file>tick-disabled.png</file>
+        <file>warning_sign.svg</file>
+        <file>als_logo.png</file>
+        <file>window_background.png</file>
+        <file>als_logo.ico</file>
+    </qresource>
+    <qresource prefix="web">
+        <file>index.html</file>
+        <file>waiting.jpg</file>
+        <file>openseadragon.min.js</file>
+    </qresource>
+    <qresource prefix="main">
+        <file>main.css</file>
+    </qresource>
+    <qresource prefix="i18n">
+        <file>als_fr.qm</file>
+        <file>qtbase_fr.qm</file>
+        <file>als_ru.qm</file>
+        <file>qtbase_ru.qm</file>
+    </qresource>
+    <qresource prefix="webicons">
+        <file>fullpage_grouphover.png</file>
+        <file>fullpage_hover.png</file>
+        <file>fullpage_pressed.png</file>
+        <file>fullpage_rest.png</file>
+        <file>home_grouphover.png</file>
+        <file>home_hover.png</file>
+        <file>home_pressed.png</file>
+        <file>home_rest.png</file>
+        <file>zoomin_rest.png</file>
+        <file>zoomin_grouphover.png</file>
+        <file>zoomin_hover.png</file>
+        <file>zoomin_pressed.png</file>
+        <file>zoomout_grouphover.png</file>
+        <file>zoomout_hover.png</file>
+        <file>zoomout_pressed.png</file>
+        <file>zoomout_rest.png</file>
+    </qresource>
 </RCC>

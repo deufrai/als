@@ -1,0 +1,106 @@
+.als-doc-content {
+    line-height: 1.5em !important;
+}
+
+.td-content {
+    text-align: justify;
+}
+
+.td-content p {
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+#td-section-nav {
+
+    font-size: 0.85em;
+}
+
+#TableOfContents {
+
+    font-size: 0.9em;
+}
+
+.td-content code, .td-content pre, dd code {
+    background-color: var(--dimmed) !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    color: inherit;
+    padding: 0.25rem;
+    border-radius: 6px;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.3);
+}
+
+.als-doc-content > table > thead > tr > th {
+    font-weight: normal;
+}
+
+.als-ks {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    margin: 0.1rem;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: #b1b1b1;
+    color: #353535;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: nowrap;
+}
+
+dt {
+    margin-top: 1rem;
+}
+
+div.als-doc-content h1 {
+    margin: 1.6rem 0 1rem 0;
+}
+
+div.als-doc-content h2, div.als-doc-content h3 {
+    margin-top: .7em;
+}
+
+.td-content li {
+    margin-top: 0.5rem;
+}
+
+div.lead {
+    display: none;
+}
+
+div.doc-navigation-buttons {
+
+    border-top: 1px solid var(--dimmed);
+    padding-top: 1rem;
+}
+
+figure {
+    padding-top: 0.75rem;
+}
+
+figure img {
+    height: auto;
+    max-width: 100%;
+    filter: url(#drop-shadow);
+}
+
+figure figcaption, .figcaption {
+    font-style: italic;
+    font-size: 0.85em;
+    padding: 0;
+    margin: 0;
+    /*color: var(--dimmed);*/
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .5);
+    text-align: center;
+}
+
+pre.mermaid {
+
+    margin-top: 1rem;
+    margin-bottom: 0;
+    text-align: center;
+}

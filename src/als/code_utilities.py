@@ -2,11 +2,19 @@
 Provides a set of utilities aimed at app developpers
 """
 import logging
+from datetime import datetime
 from functools import wraps
+from logging import LoggerAdapter
 from queue import Queue
 from time import time
 
-from PyQt5.QtCore import QObject, pyqtSignal
+import psutil
+from PyQt5.QtCore import QObject, pyqtSignal, QFile, QIODevice, QTextStream
+
+
+# WARNING !!!!! Don't ever remove this USED import !!!!!
+# most IDEs report this as unused. They lie to you. We use it in get_text_content_of_resource()
+# pylint:disable=unused-import
 
 
 def log(func):
@@ -23,11 +31,11 @@ def log(func):
     :param func: The function to decorate
     :return: The decorated function
     """
-
     @wraps(func)
     def wrapped(*args, **kwargs):
         function_name = func.__qualname__
-        logger = logging.getLogger(func.__module__)
+        original_logger = logging.getLogger(func.__module__)
+        logger = AlsLogAdapter(original_logger, {})
         logger.debug(f"{function_name}() called with : {str(args)} - {str(kwargs)}")
         start_time = time()
         result = func(*args, **kwargs)
@@ -126,3 +134,64 @@ class SignalingQueue(Queue, QObject):
     def put_nowait(self, item):
         super().put_nowait(item)
         self.size_changed_signal.emit(self.qsize())
+
+
+class AlsLogAdapter(LoggerAdapter):
+
+    def process(self, msg, kwargs):
+        msg = f"{get_timestamp()} {msg}"
+        return super().process(msg, kwargs)
+
+
+def get_timestamp():
+    """
+    Return a timestamp built from current date and time
+
+    :return: the timestamp
+    :rtype: str
+    """
+    timestamp = str(datetime.fromtimestamp(datetime.timestamp(datetime.now())))
+    return timestamp
+
+
+def human_readable_byte_size(num):
+    """
+    returns a human readable representation of a raw number of bytes
+
+    :param num: how nay bytes ?
+    :return: a human readable representation of given bytes
+    :rtype: str
+    """
+    for unit in ['', 'Ki', 'Mi', 'Gi', 'Ti', 'Pi', 'Ei', 'Zi']:
+        if abs(num) < 1024.0:
+            return "%3.3f %sB" % (num, unit)
+        num /= 1024.0
+    return "%.3f %sB" % (num, 'Yi')
+
+
+@log
+def get_text_content_of_resource(resource_uri: str):
+    """
+    Get text content of a file stored inside Qt resources
+
+    :param resource_uri: URI if said resource
+    :type resource_uri: str
+
+    :return: textual content or empty-string if an OS error occurred
+    :rtype: str
+    """
+    try:
+        fake_file = QFile(resource_uri)
+        fake_file.open(QIODevice.ReadOnly | QFile.Text)
+        return QTextStream(fake_file).readAll()
+    except OSError:
+        return ""
+
+
+def available_memory():
+    """
+    Get system available memory in bytes
+    :return: available memory (bytes)
+    :rtype: int
+    """
+    return psutil.virtual_memory().available

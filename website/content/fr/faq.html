@@ -1,0 +1,194 @@
+---
+title: "Foire aux questions"
+description: "Réponses aux questions les plus fréquentes concernant l'installation, la configuration et l'utilisation d'Astro Live Stacker (ALS)."
+author: "Équipe ALS"
+lastmod: 2025-10-23T07:43:14Z
+keywords: [ "FAQ", "aide", "support", "astro live stacker", "dépannage", "connexion caméra", "empilement en direct" ]
+---
+
+<div class="content-wrapper page-wrapper">
+    <div class="container">
+        <div class="als-page faq">
+
+            <h1>Foire aux questions</h1>
+
+            <p class="lead">
+                Vous trouverez ci-dessous les réponses aux questions les plus courantes à propos d'<strong>Astro Live Stacker (ALS)</strong>.
+                Si vous ne trouvez pas ce que vous cherchez, ouvrez un ticket sur
+                <a href="https://github.com/deufrai/als/issues" target="_blank" rel="noopener">GitHub</a>
+                ou contactez la communauté.
+            </p>
+
+
+            <!-- General -->
+            <section id="general">
+
+                <h2>🧩 Général</h2>
+
+                <h3 id="what-is-als">Qu’est-ce qu’Astro Live Stacker (ALS) ?</h3>
+                <p><strong>ALS</strong> est un outil d’astrophotographie en temps réel qui aligne et empile les images à la volée afin d’améliorer le rapport signal/bruit et de révéler les détails faibles pendant la session d’observation.</p>
+
+                <h3 id="supported-os">Quels systèmes d’exploitation sont pris en charge ?</h3>
+                <p>ALS fonctionne sur <strong>Windows</strong>, <strong>Linux</strong>, <strong>macOS</strong> et <strong>Raspberry Pi</strong> (64 bits). Chaque plateforme dispose d’une version native optimisée pour de meilleures performances.</p>
+
+                <h3 id="open-source">ALS est-il open source ?</h3>
+                <p>Oui. ALS est entièrement open source sous licence <strong>GPL v3</strong>. Vous pouvez consulter le code source sur
+                    <a href="https://github.com/deufrai/als" target="_blank" rel="noopener">GitHub</a>.
+                </p>
+
+                <h3 id="offline">Puis-je utiliser ALS sans connexion Internet ?</h3>
+                <p>Oui — toutes les fonctions d’acquisition et d’empilement d’images fonctionnent <strong>hors ligne</strong>. Seules certaines fonctions optionnelles, comme
+                    <strong>la visualisation à distance via le serveur web intégré</strong>, nécessitent un accès au réseau local.</p>
+
+                <h3 id="capture">ALS gère-t-il la capture des images ?</h3>
+                <p>Non. ALS surveille simplement un dossier défini par l’utilisateur pour détecter l’arrivée de nouvelles images (« subs »).</p>
+
+            </section>
+
+
+
+            <!-- Installation & Setup -->
+            <section id="installation">
+                <h2>🔭 Installation et configuration</h2>
+
+                <h3 id="install">Comment installer ALS sur mon système ?</h3>
+                <p>Chaque version publiée comprend des installeurs ou archives spécifiques à chaque plateforme. Consultez le
+                    <a href="../docs/v0.7/installation/">Guide d’installation</a> pour les étapes détaillées et les dépendances requises.</p>
+
+                <h3 id="update">Comment mettre à jour ALS vers la dernière version ?</h3>
+                <p>Téléchargez la dernière version depuis la <a href="../">page d’accueil officielle</a> et remplacez votre installation précédente.
+                    Vos paramètres existants sont conservés.</p>
+
+                <h3 id="admin">Ai-je besoin des droits administrateur ?</h3>
+                <p>Uniquement pour l’installation sous Windows. L’utilisation normale ne nécessite pas de privilèges élevés.</p>
+
+            </section>
+
+
+
+            <!-- Interface & Usage -->
+            <section id="interface">
+                <h2>🖥️ Interface et utilisation</h2>
+
+                <h3 id="output-path">Où sont enregistrées mes images empilées ?</h3>
+                <p>Par défaut, les résultats sont enregistrés dans le <code>dossier de travail</code>.
+                    Vous pouvez modifier ce chemin dans <strong>Préférences → Sortie</strong>.</p>
+
+                <h3 id="live-adjust">Puis-je ajuster la balance des couleurs ou l’étirement pendant l’empilement ?</h3>
+                <p>Oui — le panneau de traitement offre des réglages en temps réel pour la <strong>balance RVB</strong>,
+                    les <strong>niveaux</strong> et l’<strong>auto-étirement</strong>.</p>
+
+                <h3 id="why-dark">Pourquoi l’image est-elle sombre ou bruitée au début ?</h3>
+                <p>Les premières images contiennent peu de signal. Au fur et à mesure de l’empilement, le <strong>bruit se réduit</strong> et les détails faibles apparaissent progressivement.</p>
+
+                <h3 id="auto-alignment">Que fait la fonction « Aligner » ?</h3>
+                <p>ALS détecte automatiquement les étoiles dans chaque image et les aligne avant l’empilement, compensant ainsi les erreurs de suivi et les rotations de champ.</p>
+
+            </section>
+
+
+
+            <!-- Technical & Performance -->
+            <section id="performance">
+                <h2>⚙️ Technique et performances</h2>
+
+                <h3 id="cpu-gpu">Pourquoi ALS utilise-t-il beaucoup de processeur ?</h3>
+                <p>L’empilement en temps réel et l’affichage du rendu sont des opérations intensives.
+                    Utilisez des poses plus longues pour réduire la charge globale.</p>
+
+                <h3 id="gpu-accel">ALS utilise-t-il ma carte graphique ?</h3>
+                <p>Non, pas encore. Mais les versions futures tireront probablement parti de la puissance du GPU.</p>
+
+                <h3 id="memory">Comment réduire l’utilisation de la mémoire ?</h3>
+                <p>Le seul facteur influant sur la mémoire est la taille des images. Des sous-expositions plus petites réduisent la consommation mémoire.</p>
+
+            </section>
+
+
+
+            <!-- Remote Access & Sharing -->
+            <section id="remote">
+                <h2>🌐 Accès distant et partage</h2>
+
+                <h3 id="web-server">Qu’est-ce que le serveur web intégré ?</h3>
+                <p>C’est un serveur HTTP léger qui permet de <strong>visualiser la session d’empilement en direct depuis n’importe quel appareil</strong> connecté à votre réseau local.</p>
+
+                <h3 id="connect-remote">Comment se connecter depuis un autre appareil ?</h3>
+                <p>Depuis un navigateur, entrez l’adresse affichée dans la barre d’état d’ALS (par ex.
+                    <code>http://192.168.1.42:8000</code>) ou scannez le code QR disponible lorsque le serveur est actif.</p>
+
+            </section>
+
+
+
+            <!-- Troubleshooting -->
+            <section id="troubleshooting">
+                <h2>🪲 Dépannage</h2>
+
+                <h3 id="misaligned">L’empilement semble décalé ou flou.</h3>
+                Causes fréquentes :
+                <ul>
+                    <li>Dérive pendant la pose</li>
+                    <li>Mise au point insuffisante</li>
+                    <li>Nombre d’étoiles trop faible dans les images</li>
+                </ul>
+
+                <h3 id="frame-rejection">Pourquoi certaines images sont-elles rejetées ?</h3>
+                <p>ALS écarte les images présentant une <strong>faible confiance de détection des étoiles</strong>.</p>
+                Vous pouvez diminuer le seuil d’alignement dans le panneau <strong>Contrôles principaux</strong> afin de réduire le rejet d’images,
+                au risque d’inclure des poses mal alignées.
+
+                <h3 id="calibration">Mes darks ne sont pas appliqués.</h3>
+                <p>Consultez le journal de session pour identifier la cause des darks ignorés ou non soustraits.</p>
+
+            </section>
+
+
+
+            <!-- File Formats & Compatibility -->
+            <section id="formats">
+                <h2>💾 Formats de fichiers et compatibilité</h2>
+
+                <h3 id="supported-formats">Quels formats sont pris en charge ?</h3>
+                ALS lit :
+                <ul>
+                    <li>FITS (extensions : .fits, .fit, .fts)</li>
+                    <li>Fichiers RAW de la plupart des reflex numériques</li>
+                    <li>TIFF</li>
+                    <li>PNG</li>
+                    <li>JPEG</li>
+                </ul>
+
+                ALS écrit :
+                <ul>
+                    <li>JPEG</li>
+                    <li>TIFF</li>
+                    <li>PNG</li>
+                </ul>
+
+            </section>
+
+
+
+            <!-- Community & Support -->
+            <section id="community">
+                <h2>💬 Communauté et support</h2>
+
+                <h3 id="bugs-features">Où signaler un bug, demander de l'aide ou une amélioration ?</h3>
+                <ul>
+                    <li>Venez discuter sur notre <a href="https://als-app.org/discord">serveur Discord</a></li>
+                    <li>Utilisez la <a href="https://github.com/deufrai/als/issues" target="_blank" rel="noopener">page des tickets GitHub</a></li>
+                </ul>
+
+                <h3 id="manual">Existe-t-il un manuel utilisateur ?</h3>
+                <p>Oui — la documentation complète est disponible sur <a href="https://als-app.org/docs/v0.7/" target="_blank" rel="noopener">https://als-app.org/docs/v0.7/</a></p>
+
+                <h3 id="contribute">Comment puis-je contribuer ?</h3>
+                <p>Vous pouvez proposer des pull requests ou des traductions !</p>
+            </section>
+
+        </div>
+
+    </div>
+
+</div>

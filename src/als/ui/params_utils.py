@@ -1,16 +1,16 @@
 """
 Provide logic for mapping processing params < = > GUI controls
 """
-import logging
+from logging import getLogger
 from typing import List, Any
 
 from PyQt5.QtWidgets import QWidget, QSlider, QCheckBox, QComboBox
 
-from als.code_utilities import AlsException, log
+from als.code_utilities import AlsException, log, AlsLogAdapter
 from als.model.params import ProcessingParameter, RangeParameter, SwitchParameter, ListParameter
 from als.ui.widgets import Slider
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 
 class UnsupportedParamMapping(AlsException):
@@ -189,9 +189,9 @@ def update_controls_from_params(params: List[ProcessingParameter], controls: Lis
 
 
 @log
-def reset_params(params: List[ProcessingParameter], controls: List[QWidget]):
+def init_params(params: List[ProcessingParameter], controls: List[QWidget]):
     """
-    Reset a list of ProcessingParameter and update associated controls
+    Init  a list of ProcessingParameter and update associated controls
 
     :param params: the param list
     :type params: List[ProcessingParameter]
@@ -201,7 +201,7 @@ def reset_params(params: List[ProcessingParameter], controls: List[QWidget]):
     """
 
     for param in params:
-        param.reset()
+        param.init()
 
     update_controls_from_params(params, controls)
 
@@ -237,7 +237,7 @@ def _compute_slider_value_from_param_value(value: Any, amplitude: Any):
     :rtype: muneric
     """
 
-    return value / amplitude * Slider.MAX_VALUE
+    return int(value / amplitude * Slider.MAX_VALUE)
 
 
 @log

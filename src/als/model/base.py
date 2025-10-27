@@ -1,14 +1,14 @@
 """
 Provide base application data types
 """
-import logging
+from logging import getLogger
 
-from PyQt5.QtCore import pyqtSignal, QObject
 import numpy as np
+from PyQt5.QtCore import pyqtSignal, QObject, QThread
 
-from als.code_utilities import log
+from als.code_utilities import log, AlsLogAdapter
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 
 class Session(QObject):
@@ -74,7 +74,10 @@ class Session(QObject):
             self.status_changed_signal.emit()
 
 
+# pylint: disable=too-many-instance-attributes
 class Image:
+
+    UNDEF_EXP_TIME = -1
     """
     Represents an image, our basic processing object.
 
@@ -95,23 +98,39 @@ class Image:
         :type data: numpy.ndarray
         """
         self._data = data
-        self._bayer_pattern: str = None
+        self._bayer_pattern: str = ""
         self._origin: str = "UNDEFINED"
         self._destination: str = "UNDEFINED"
+        self._ticket = ""
+        self._exposure_time: float = Image.UNDEF_EXP_TIME
 
     @log
-    def clone(self):
+    def clone(self, keep_ref_to_data=False):
         """
         Clone an image
+
+        :param keep_ref_to_data: don't copy numpy data. This allows light image clone
+        :type keep_ref_to_data: bool
 
         :return: an image with global copied data
         :rtype: Image
         """
-        new = Image(self.data.copy())
-        new.bayer_pattern = self.bayer_pattern
-        new.origin = self.origin
-        new.destination = self.destination
-        return new
+        new_image_data = self.data if keep_ref_to_data else self.data.copy()
+        new_image = Image(new_image_data)
+        new_image.bayer_pattern = self.bayer_pattern
+        new_image.origin = self.origin
+        new_image.destination = self.destination
+        new_image.ticket = self.ticket
+        new_image.exposure_time = self.exposure_time
+        return new_image
+
+    @property
+    def exposure_time(self):
+        return self._exposure_time
+
+    @exposure_time.setter
+    def exposure_time(self, value):
+        self._exposure_time = value
 
     @property
     def destination(self):
@@ -132,6 +151,26 @@ class Image:
         :type destination: str
         """
         self._destination = destination
+
+    @property
+    def ticket(self):
+        """
+        Retrieves image ticket
+
+        :return: the ticket
+        :rtype: str
+        """
+        return self._ticket
+
+    @ticket.setter
+    def ticket(self, ticket):
+        """
+        Sets image ticket
+
+        :param ticket: the image ticket
+        :type ticket: str
+        """
+        self._ticket = ticket
 
     @property
     def data(self):
@@ -220,7 +259,7 @@ class Image:
 
         :return: True if a bayer pattern is known and data does not have 3 dimensions
         """
-        return self._bayer_pattern is not None and self.data.ndim < 3
+        return self._bayer_pattern != "" and self.data.ndim < 3
 
     def is_color(self):
         """
@@ -241,7 +280,7 @@ class Image:
         :return: True if no color info is stored in data array, False otherwise
         :rtype: bool
         """
-        return self._data.ndim == 2 and self._bayer_pattern is None
+        return self._data.ndim == 2 and self._bayer_pattern == ""
 
     @log
     def is_same_shape_as(self, other):
@@ -278,7 +317,9 @@ class Image:
 
     def __repr__(self):
         representation = (f'{self.__class__.__name__}('
+                          f'ID={self.__hash__()}, '
                           f'Color={self.is_color()}, '
+                          f'Exp. t={self.exposure_time}, '
                           f'Needs Debayer={self.needs_debayering()}, '
                           f'Bayer Pattern={self.bayer_pattern}, '
                           f'Width={self.width}, '
@@ -289,3 +330,58 @@ class Image:
                           f'Destination={self.destination}')
 
         return representation
+
+
+class RunningProfile:
+
+    @log
+    def __init__(self):
+        self._align_detection_surface_ratios: list = []
+        self._pre_process_priority: int = -1
+        self._stacking_priority: int = -1
+        self._post_process_priority: int = -1
+        self._file_read_size_polling_period: float = -1
+
+    @property
+    def ratios(self):
+        return self._align_detection_surface_ratios
+
+    @property
+    def get_pre_process_priority(self):
+        return self._pre_process_priority
+
+    @property
+    def get_stacking_priority(self):
+        return self._stacking_priority
+
+    @property
+    def get_post_process_priority(self):
+        return self._post_process_priority
+
+    @property
+    def get_file_read_size_polling_period(self):
+        return self._file_read_size_polling_period
+
+
+class VisualProfile(RunningProfile):
+
+    @log
+    def __init__(self):
+        super().__init__()
+        self._align_detection_surface_ratios = [.1, .33, 1.]
+        self._pre_process_priority = QThread.HighestPriority
+        self._stacking_priority = QThread.HighestPriority
+        self._post_process_priority = QThread.LowPriority
+        self._file_read_size_polling_period = .01
+
+
+class PhotoProfile(RunningProfile):
+
+    @log
+    def __init__(self):
+        super().__init__()
+        self._align_detection_surface_ratios = [1.]
+        self._pre_process_priority = QThread.LowPriority
+        self._stacking_priority = QThread.LowPriority
+        self._post_process_priority = QThread.HighestPriority
+        self._file_read_size_polling_period = 1.5

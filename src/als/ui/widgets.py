@@ -1,18 +1,18 @@
 """
 Our custom widgets
 """
-import logging
 import typing
+from logging import getLogger
 
 from PyQt5 import QtGui
 from PyQt5.QtCore import QPoint, Qt
-from PyQt5.QtGui import QPainter, QPen
+from PyQt5.QtGui import QPainter, QPen, QColor, QBrush
 from PyQt5.QtWidgets import QSlider, QGraphicsView, QWidget
 
-from als.code_utilities import log
+from als.code_utilities import log, AlsLogAdapter
 from als.model.data import DYNAMIC_DATA
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 
 class Slider(QSlider):
@@ -38,6 +38,17 @@ class Slider(QSlider):
         """
 
         self._default_value = default_value
+
+    @log
+    def default_value(self):
+        """
+        Accessor method to get the slider's default value.
+
+        :return: the default value
+        :rtype: int
+        """
+        return self._default_value
+
 
     # pylint: disable=C0103
     @log
@@ -65,6 +76,7 @@ class ImageView(QGraphicsView):
         super().__init__(parent)
         self.setDragMode(QGraphicsView.ScrollHandDrag)
         self.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
+        self.setBackgroundBrush(QBrush(QColor("#222222"), Qt.SolidPattern))
 
     # pylint: disable=C0103
     @log
@@ -76,9 +88,9 @@ class ImageView(QGraphicsView):
         :type event: QtGui.QWheelEvent
         """
         if event.angleDelta().y() > 0:
-            self.scale(ImageView._ZOOM_FACTOR, ImageView._ZOOM_FACTOR)
-        elif event.angleDelta().y() < 0:
-            self.scale(1 / ImageView._ZOOM_FACTOR, 1 / ImageView._ZOOM_FACTOR)
+            self.zoom_in()
+        else:
+            self.zoom_out()
 
     # pylint: disable=C0103
     @log
@@ -88,8 +100,40 @@ class ImageView(QGraphicsView):
 
         :param _: ignored Qt event
         """
+        self.adjustZoom()
 
+    @log
+    def mousePressEvent(self, event):
+        """
+        trigger image zoom reset on mouse right click and keep default behaviour otherwise
+
+        :param event: The QMouseEvent instance containing details about the mouse event.
+        :return: None
+        """
+        if event.button() == Qt.RightButton:
+            self.reset_zoom()
+        else:
+            super().mousePressEvent(event)
+
+    @log
+    def adjustZoom(self):
+        """ Fir image into view """
         self.fitInView(self.scene().items()[0], Qt.KeepAspectRatio)
+
+    @log
+    def zoom_in(self):
+        """ zoom in """
+        self.scale(ImageView._ZOOM_FACTOR, ImageView._ZOOM_FACTOR)
+
+    @log
+    def zoom_out(self):
+        """ zoom out """
+        self.scale(1 / ImageView._ZOOM_FACTOR, 1 / ImageView._ZOOM_FACTOR)
+
+    @log
+    def reset_zoom(self):
+        """Reset zoom to default"""
+        self.setTransform(QtGui.QTransform())
 
 
 class HistogramView(QWidget):
@@ -111,6 +155,8 @@ class HistogramView(QWidget):
         self._white_pen = QPen(Qt.white)
         self._white_pen.setWidth(2)
 
+        self._background_color = QColor("#222222")
+
     # pylint: disable=C0103, R0914
     @log
     def paintEvent(self, _):
@@ -124,6 +170,7 @@ class HistogramView(QWidget):
 
             self._painter.begin(self)
             self._painter.translate(QPoint(0, 0))
+            self._painter.fillRect(0, 0, self.width() - 1, self.height() - 1, self._background_color)
 
             if DYNAMIC_DATA.histogram_container is not None:
 
@@ -157,12 +204,6 @@ class HistogramView(QWidget):
                                 self.height() - (bar_height - HistogramView._TOP_MARGIN_IN_PX))
 
                         self._painter.restore()
-
-                else:
-                    self._display_text("Invalid data")
-
-            else:
-                self._display_text("No data")
 
             self._painter.end()
 
