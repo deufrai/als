@@ -582,6 +582,53 @@ class RemoveDark(ImageProcessor):
         return allowed_min, allowed_max
 
 
+class RemoveFlat(ImageProcessor):
+    """
+    Provides image flat removal.
+    """
+
+    @log
+    def process_image(self, image: Image):
+
+        if not image:
+            return None
+
+        do_divide = config.get_use_master_flat()
+
+        _LOGGER.debug(f"Flat division enabled : {do_divide}")
+
+        if do_divide:
+
+            flat = als_input.read_disk_image(Path(config.get_master_flat_file_path()))
+
+            if flat is None:
+                read_error_message = QT_TRANSLATE_NOOP(
+                    "",
+                    "Could not read flat {}. Flat division is SKIPPED"
+                )
+                read_error_values = [config.get_master_flat_file_path(), ]
+                MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
+                return image
+
+            if not image.is_same_shape_as(flat):
+                mismatch_message = QT_TRANSLATE_NOOP(
+                    "",
+                    "Data structure inconsistency. Light: {} vs Flat: {}. Flat division is SKIPPED"
+                )
+                mismatch_values = [image.data.shape, flat.data.shape]
+                MESSAGE_HUB.dispatch_warning(__name__, mismatch_message, mismatch_values)
+                return image
+
+            _LOGGER.debug("Dividing by flat frame...")
+
+            with Timer() as division_timer:
+                # avoid division by zero
+                safe_flat_data = np.where(flat.data == 0, 1, flat.data)
+                image.data = np.clip(image.data / safe_flat_data * np.mean(safe_flat_data), 0, _16_BITS_MAX_VALUE)
+            _LOGGER.debug(f"Flat frame divided in {division_timer.elapsed_in_milli_as_str} ms")
+
+        return image
+
 class ConvertForOutput(ImageProcessor):
     """
     Moves colors data to 3rd array axis for color images and reduce data range to unsigned 16 bits
