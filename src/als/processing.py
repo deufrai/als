@@ -507,7 +507,7 @@ class RemoveDark(ImageProcessor):
             if dark is None:
                 read_error_message = QT_TRANSLATE_NOOP(
                     "",
-                    "Could not read dark {}. Dark subtraction is SKIPPED"
+                    "Could not read master dark {}. Dark subtraction is SKIPPED"
                 )
                 read_error_values = [config.get_master_dark_file_path(), ]
                 MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
@@ -516,7 +516,7 @@ class RemoveDark(ImageProcessor):
             if not image.is_same_shape_as(dark):
                 mismatch_message = QT_TRANSLATE_NOOP(
                     "",
-                    "Data structure inconsistency. Light: {} vs Dark: {}. Dark subtraction is SKIPPED"
+                    "Data structure inconsistency. Light: {} vs Master dark: {}. Dark subtraction is SKIPPED"
                 )
                 mismatch_values = [image.data.shape, dark.data.shape]
                 MESSAGE_HUB.dispatch_warning(__name__, mismatch_message, mismatch_values)
@@ -528,7 +528,7 @@ class RemoveDark(ImageProcessor):
                     __name__,
                     QT_TRANSLATE_NOOP(
                         "",
-                        "Dark & Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark..."
+                        "Dark & Light data types mismatch detected. Light: {} vs Master dark: {}. Converting Dark..."
                     ),
                     [image.data.dtype.name, dark.data.dtype.name])
 
@@ -604,7 +604,7 @@ class RemoveFlat(ImageProcessor):
             if flat is None:
                 read_error_message = QT_TRANSLATE_NOOP(
                     "",
-                    "Could not read flat {}. Flat division is SKIPPED"
+                    "Could not read master flat {}. Flat division is SKIPPED"
                 )
                 read_error_values = [config.get_master_flat_file_path(), ]
                 MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
@@ -613,7 +613,7 @@ class RemoveFlat(ImageProcessor):
             if not image.is_same_shape_as(flat):
                 mismatch_message = QT_TRANSLATE_NOOP(
                     "",
-                    "Data structure inconsistency. Light: {} vs Flat: {}. Flat division is SKIPPED"
+                    "Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED"
                 )
                 mismatch_values = [image.data.shape, flat.data.shape]
                 MESSAGE_HUB.dispatch_warning(__name__, mismatch_message, mismatch_values)
