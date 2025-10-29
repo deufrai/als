@@ -625,7 +625,7 @@ class RemoveFlat(ImageProcessor):
 
                 normalized_flat_data = flat.data / np.max(flat.data)
                 normalized_flat_data = np.where(normalized_flat_data == 0, 1, normalized_flat_data)
-                image.data = np.uint16(image.data / normalized_flat_data)
+                image.data = np.uint16(np.clip(image.data / normalized_flat_data), 0, _16_BITS_MAX_VALUE)
 
             _LOGGER.debug(f"Flat frame divided in {division_timer.elapsed_in_milli_as_str} ms")
 
