@@ -623,10 +623,8 @@ class RemoveFlat(ImageProcessor):
 
             with Timer() as division_timer:
 
-                # avoid division by zero
-                safe_flat_data = np.where(flat.data == 0, 1, flat.data)
-
-                normalized_flat_data = safe_flat_data / np.max(safe_flat_data)
+                normalized_flat_data = flat.data / np.max(flat.data)
+                normalized_flat_data = np.where(normalized_flat_data == 0, 1, normalized_flat_data)
                 image.data = image.data / normalized_flat_data
 
             _LOGGER.debug(f"Flat frame divided in {division_timer.elapsed_in_milli_as_str} ms")
