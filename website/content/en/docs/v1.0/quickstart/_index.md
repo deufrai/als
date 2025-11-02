@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-02T21:04:03Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -182,7 +182,7 @@ Please note that:
 
 ALS and our tracking tools are **opensource** software, their source code is publicly available.
 
-- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code for sending
+- <a href="https://github.com/deufrai/als/blob/master/src/als/main.py#L46" target="_blank">code for sending
   statistics by ALS</a> <i class="fa-brands fa-square-github"></i>
 - <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code for recording
   received statistics by our servers</a> <i class="fa-brands fa-square-github"></i>
