@@ -30,3 +30,5 @@
   translation: "Previous"
 - id: docNavButtonNext
   translation: "Next"
+- id: donateViaKofi
+  translation: "Donate via Ko-fi"
