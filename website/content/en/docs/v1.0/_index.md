@@ -1,8 +1,8 @@
 ---
-title: ALS Documentation v1.0
-description: ALS Documentation
+title: ALS v1.0 Documentation
+description: ALS v1.0 Documentation
 author: ALS Team
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-02T20:24:25Z
 weight: 10
 ---
 
