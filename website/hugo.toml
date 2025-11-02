@@ -88,6 +88,12 @@ enableGitInfo = true
       weight = 15
 
     [[languages.fr.menu.main]]
+      identifier = "donate"
+      name = "Dons"
+      url = "/fr/donate/"
+      weight = 16
+
+    [[languages.fr.menu.main]]
       identifier = "blog"
       name = "News"
       url = "/fr/blog/"
@@ -122,6 +128,12 @@ enableGitInfo = true
       name = "Contributors"
       url = "/contributors/"
       weight = 15
+
+    [[languages.en.menu.main]]
+      identifier = "donate"
+      name = "Donations"
+      url = "/donate/"
+      weight = 16
 
     [[languages.en.menu.main]]
       identifier = "blog"
