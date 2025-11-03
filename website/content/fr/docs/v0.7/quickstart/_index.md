@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "bien débuter" ]
 tags: [ "linux", "dossier scanné", "session", "dossier de travail"  ]
-weight: 280
+weight: 70280
 ---
 
 # Introduction

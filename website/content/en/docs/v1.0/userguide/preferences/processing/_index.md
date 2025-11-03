@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["process", "debayer", "dark", "hot pixels", "calibration"]
-weight: 332
+weight: 100332
 ---
 
 The ALS processing settings are presented in the Preferences page `Process` tab

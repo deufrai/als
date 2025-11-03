@@ -7,7 +7,7 @@ keywords: ["préférences ALS"]
 type: "docs"
 categories: ["configuration"]
 tags: [ ]
-weight: 330
+weight: 100330
 ---
 
 La grande majorité de la configuration de l'application est faite via la fenêtre des **Préférences**

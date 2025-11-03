@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "documentations détaillées" ]
 tags: [ "processus", "étirement", "ajustement d’image" ]
-weight: 358
+weight: 70358
 ---
 
 # Présentation

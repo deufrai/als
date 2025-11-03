@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["documentations détaillées"]
 tags: ["traitement", "pixels chauds", "calibration"]
-weight: 353
+weight: 70353
 ---
 
 # Présentation

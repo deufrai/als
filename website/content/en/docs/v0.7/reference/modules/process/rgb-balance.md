@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "detailed documentations" ]
 tags: [ "process", "color balance", "image adjustment" ]
-weight: 360
+weight: 70360
 ---
 
 # Overview

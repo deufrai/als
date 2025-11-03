@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration", "dépannage"]
 tags: [ "dossier scanné", "memoire", "profil", "langue" ]
-weight: 331
+weight: 70331
 ---
 
 Les réglages les plus critiques d'ALS sont présentés dans l'onglet `Général`

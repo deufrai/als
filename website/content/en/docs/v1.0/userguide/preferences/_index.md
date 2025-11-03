@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration"]
 tags: [ ]
-weight: 330
+weight: 100330
 ---
 
 The vast majority of the application configuration is done through the **Preferences** window.

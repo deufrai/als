@@ -9,7 +9,7 @@ draft: false
 type: "docs"
 categories: [ "beginner's guide" ]
 tags: [ "module", "stack", "process", "session","output", "scan folder", "work folder", "web folder", "server", "scanner", "save", "calibration", "profile" ]
-weight: 315
+weight: 70315
 ---
 
 # Introduction

@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["output", "serveur", "dossier web", "dossier de travail", "save"]
-weight: 333
+weight: 100333
 ---
 
 Les réglages régissant les sorties d'ALS présentés dans l'onglet `Sortie`.

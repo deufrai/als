@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["traitement", "dématriçage", "dark", "pixels chauds", "calibration"]
-weight: 332
+weight: 70332
 ---
 
 Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement`

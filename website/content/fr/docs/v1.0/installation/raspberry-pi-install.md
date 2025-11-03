@@ -5,7 +5,7 @@ author: ALZ Team
 
 lastmod: 2025-11-02T19:02:52Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
-weight: 220
+weight: 100220
 Categories: ['procédures']
 tags: ['install', 'Linux', 'Raspberry Pi']
 ---

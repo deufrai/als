@@ -5,7 +5,7 @@ author: ALS Team
 lastmod: 2025-10-27T10:13:07Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
-weight: 550
+weight: 70550
 ---
 
 ## Version 0.7 {#0.7}

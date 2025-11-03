@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration", "troubleshooting"]
 tags: [ "scan folder", "memory", "profile", "language" ]
-weight: 331
+weight: 70331
 ---
 
 The most critical ALS settings are presented in the `General` tab.

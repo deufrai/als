@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["detailed documentations"]
 tags: ["process", "hot pixels", "calibration"]
-weight: 353
+weight: 70353
 ---
 
 # Overview

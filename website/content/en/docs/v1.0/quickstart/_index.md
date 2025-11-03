@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "beginner's guide" ]
 tags: [ "linux", "scan folder", "session", "work folder"  ]
-weight: 280
+weight: 100280
 ---
 
 # Introduction

@@ -3,7 +3,7 @@ title: Documentation ALS v1.0
 description: Documentation ALS v1.0
 author: ALZ Team
 lastmod: 2025-11-02T20:24:25Z
-weight: 10
+weight: 100010
 ---
 
 ALS est une application de livestacking.

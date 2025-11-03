@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "detailed documentations" ]
 tags: [ "process", "stretch", "image adjustment" ]
-weight: 358
+weight: 70358
 ---
 
 # Overview

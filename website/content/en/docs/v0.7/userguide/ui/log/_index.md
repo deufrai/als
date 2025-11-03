@@ -7,7 +7,7 @@ keywords: [ "session log", "follow", "errors", "log", "panels" ]
 type: "docs"
 tags: [ "log", "issues", "errors", "panels" ]
 categories: [ "usage", "troubleshooting" ]
-weight: 323
+weight: 70323
 ---
 
 # Introduction

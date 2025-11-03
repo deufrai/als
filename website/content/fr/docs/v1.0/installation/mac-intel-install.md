@@ -5,7 +5,7 @@ author: ALZ Team
 
 lastmod: 2025-11-02T19:02:52Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
-weight: 240
+weight: 100240
 Categories: ['procédures']
 tags: ['install', 'Mac', 'Apple Intel']
 ---

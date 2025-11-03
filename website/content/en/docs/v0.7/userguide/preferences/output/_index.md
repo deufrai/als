@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["output", "server", "web folder", "work folder", "save"]
-weight: 333
+weight: 70333
 ---
 
 The settings governing ALS outputs are presented in the `Output` tab.

@@ -3,7 +3,7 @@ title: ALS v0.7 Documentation
 description: ALS v0.7 Documentation
 author: ALS Team
 lastmod: 2025-11-02T20:24:25Z
-weight: 10
+weight: 70010
 ---
 
 ALS is a livestacking application.

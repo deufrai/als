@@ -7,7 +7,7 @@ keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balanc
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
 categories: [ "usage", "configuration" ]
-weight: 322
+weight: 70322
 ---
 
 # Introduction

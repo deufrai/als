@@ -7,7 +7,7 @@ keywords: [ "journal de session", "suivi", "erreurs", "log", "panneaux" ]
 type: "docs"
 tags: [ "journal", "problèmes", "erreurs", "panneaux" ]
 categories: [ "utilisation", "dépannage" ]
-weight: 323
+weight: 70323
 ---
 
 # Introduction

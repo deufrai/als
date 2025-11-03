@@ -4,7 +4,7 @@ description: Installation d'ALS sur PC Windows
 author: ALZ Team
 lastmod: 2025-11-02T19:02:52Z
 keywords: [ "installation ALS", "windows", "astro live stacker", "guide" ]
-weight: 230
+weight: 100230
 Categories: ['procédures']
 tags: [ 'install', 'Windows', 'PC' ]
 ---

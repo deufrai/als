@@ -3,7 +3,7 @@ title: Installation
 description: installation of ALS
 author: ALS Team
 lastmod: 2025-11-02T19:02:51Z
-weight: 200
+weight: 100200
 tags: ['install']
 categories : ['procedures']
 ---
