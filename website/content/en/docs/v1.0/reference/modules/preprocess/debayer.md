@@ -8,7 +8,7 @@ draft: false
 type: "docs"
 categories: [ "detailed documentations" ]
 tags: [ "process", "debayer", "calibration" ]
-weight: 100355
+weight: 100356
 ---
 
 # Overview
