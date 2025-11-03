@@ -1,8 +1,8 @@
 ---
 title: "Flat Calibration"
-description: "Detailed documentation of the ALS FlatCalibrate process"
+description: "Detailed documentation of the ALS RemoveFlat process"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-03T10:35:36Z
 keywords: ["ALS flat calibration", "ALS master flat"]
 draft: false
 type: "docs"
@@ -13,7 +13,7 @@ weight: 100355
 
 # Overview
 
-The **FlatCalibrate** process divides each science frame by a user-provided **master flat** to remove
+The **RemoveFlat** process divides each sub by a user-provided **master flat** to remove
 optical vignetting, dust motes, and pixel-to-pixel response variations.
 
 Its configuration is managed via the ALS preferences page.
@@ -24,7 +24,6 @@ Its configuration is managed via the ALS preferences page.
 |---------------------|---------------------------------------------------------------------------------------|-----------|----------|----------------|
 | ON/OFF              | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-calibrate) | ON/OFF    | ∅        | OFF            |
 | Master flat path    | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-calibrate) | File path | Yes      | ∅              |
-| Master flat scaling | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-calibrate) | choice: <br>- MEDIAN<br>- MEAN | No | MEDIAN |
 
 # Control
 

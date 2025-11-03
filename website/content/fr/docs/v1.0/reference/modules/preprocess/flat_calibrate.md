@@ -1,8 +1,8 @@
 ---
 title: "Calibration par flats"
-description: "Documentation détaillée du processus ALS FlatCalibrate"
+description: "Documentation détaillée du processus ALS RemoveFlat"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-03T10:35:36Z
 keywords: ["ALS calibration flat", "ALS master flat"]
 draft: false
 type: "docs"
@@ -13,7 +13,7 @@ weight: 100355
 
 # Présentation
 
-Le processus **FlatCalibrate** divise chaque brute scientifique par un **master flat** fourni par
+Le processus **RemoveFlat** divise chaque brute scientifique par un **master flat** fourni par
 l'utilisateur afin de supprimer le vignettage optique, les poussières et les variations de réponse
 inter-pixels.
 
@@ -23,9 +23,8 @@ Sa configuration est gérée via la page de préférences d'ALS.
 
 |                        | Source                                                                                  | Type de donnée | Obligatoire | Valeur par défaut |
 |------------------------|-----------------------------------------------------------------------------------------|----------------|-------------|-------------------|
-| ON/OFF                 | Préférences : [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | ON/OFF         | ∅           | OFF               |
-| Chemin du master flat  | Préférences : [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | Chemin de fichier | Oui      | ∅                 |
-| Normalisation du flat  | Préférences : [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | choix : <br>- MEDIAN<br>- MEAN | Non | MEDIAN |
+| ON/OFF                 | Préférences: [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | ON/OFF         | ∅           | OFF               |
+| Chemin du master flat  | Préférences: [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | Chemin de fichier | Oui      | ∅                 |
 
 # Contrôle
 
