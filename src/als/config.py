@@ -40,7 +40,9 @@ _IMAGE_SAVE_FORMAT = "image_save_format"
 _FULL_SCREEN = "full_screen"
 _MINIMUM_MATCH_COUNT = "alignment_minimum_match_count"
 _USE_MASTER_DARK = "use_master_dark"
+_USE_MASTER_FLAT = "use_master_flat"
 _MASTER_DARK_FILE_PATH = "master_dark_file_path"
+_MASTER_FLAT_FILE_PATH = "master_flat_file_path"
 _USE_HOT_PIXEL_REMOVER = "use_hot_pixel_remover"
 _LANG = "lang"
 _BAYER_PATTERN = "bayer_pattern"
@@ -80,7 +82,9 @@ _DEFAULTS = {
     _FULL_SCREEN:           0,
     _MINIMUM_MATCH_COUNT:   25,
     _USE_MASTER_DARK:       0,
+    _USE_MASTER_FLAT:       0,
     _MASTER_DARK_FILE_PATH: "",
+    _MASTER_FLAT_FILE_PATH: "",
     _USE_HOT_PIXEL_REMOVER: 0,
     _LANG:                  "sys",
     _BAYER_PATTERN:         "AUTO",
@@ -533,6 +537,17 @@ def set_use_master_dark(use_dark: bool):
     _set(_USE_MASTER_DARK, "1" if use_dark else "0")
 
 
+def set_use_master_flat(use_flat: bool):
+    """
+    Set use flat flag
+
+    :param use_flat: Remove master flat from images ?
+    :type use_flat: bool
+    """
+
+    _set(_USE_MASTER_FLAT, "1" if use_flat else "0")
+
+
 def get_use_master_dark():
     """
     Get use dark flag
@@ -547,6 +562,20 @@ def get_use_master_dark():
         return _DEFAULTS[_USE_MASTER_DARK]
 
 
+def get_use_master_flat():
+    """
+    Get use flat flag
+
+    :return: True if flat should be used, False otherwise
+    :rtype: bool
+    """
+
+    try:
+        return _get(_USE_MASTER_FLAT) == "1"
+    except ValueError:
+        return _DEFAULTS[_USE_MASTER_FLAT]
+
+
 def get_master_dark_file_path():
     """
     Retrieves the master dark file path.
@@ -555,6 +584,16 @@ def get_master_dark_file_path():
     :rtype: str
     """
     return _get(_MASTER_DARK_FILE_PATH)
+
+
+def get_master_flat_file_path():
+    """
+    Retrieves the master flat file path.
+
+    :return: the master flat file path
+    :rtype: str
+    """
+    return _get(_MASTER_FLAT_FILE_PATH)
 
 
 def set_master_dark_file_path(path):
@@ -566,6 +605,15 @@ def set_master_dark_file_path(path):
     """
     _set(_MASTER_DARK_FILE_PATH, path)
 
+
+def set_master_flat_file_path(path):
+    """
+    Sets the master flat file path.
+
+    :param path: the master flat file path
+    :type path: str
+    """
+    _set(_MASTER_FLAT_FILE_PATH, path)
 
 def get_window_geometry():
     """

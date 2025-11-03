@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>618</width>
-    <height>635</height>
+    <height>520</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -311,13 +311,13 @@
       <attribute name="title">
        <string>Process</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_14">
+      <layout class="QVBoxLayout" name="verticalLayout_17">
        <item>
         <widget class="QGroupBox" name="preprocessBox">
          <property name="title">
           <string>Preprocess</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_17">
+         <layout class="QVBoxLayout" name="verticalLayout_14">
           <item>
            <widget class="QGroupBox" name="groupBox_9">
             <property name="title">
@@ -355,7 +355,7 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
-                <widget class="QPushButton" name="btn_dark_scan">
+                <widget class="QPushButton" name="btn_browse_dark">
                  <property name="text">
                   <string>Master &amp;dark...</string>
                  </property>
@@ -380,10 +380,46 @@
                  </property>
                 </widget>
                </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_6">
+            <property name="title">
+             <string>Flat calibration</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <item>
+              <widget class="QCheckBox" name="chk_use_flat">
+               <property name="text">
+                <string>A&amp;ctive</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_12">
                <item>
-                <widget class="QPushButton" name="btn_dark_clear">
+                <widget class="QPushButton" name="btn_browse_flat">
                  <property name="text">
-                  <string>Clear</string>
+                  <string>Master &amp;flat...</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="ln_master_flat_path">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string notr="true"/>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -592,6 +628,9 @@
                    <height>0</height>
                   </size>
                  </property>
+                 <property name="toolTip">
+                  <string notr="true"/>
+                 </property>
                  <property name="readOnly">
                   <bool>true</bool>
                  </property>
@@ -759,9 +798,8 @@
   <tabstop>chk_stats</tabstop>
   <tabstop>chk_use_hpr</tabstop>
   <tabstop>chk_use_dark</tabstop>
-  <tabstop>btn_dark_scan</tabstop>
+  <tabstop>btn_browse_dark</tabstop>
   <tabstop>ln_master_dark_path</tabstop>
-  <tabstop>btn_dark_clear</tabstop>
   <tabstop>cmb_bayer_pattern</tabstop>
   <tabstop>radioSaveTiff</tabstop>
   <tabstop>radioSavePng</tabstop>

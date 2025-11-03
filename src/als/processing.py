@@ -507,7 +507,7 @@ class RemoveDark(ImageProcessor):
             if dark is None:
                 read_error_message = QT_TRANSLATE_NOOP(
                     "",
-                    "Could not read dark {}. Dark subtraction is SKIPPED"
+                    "Could not read master dark {}. Dark subtraction is SKIPPED"
                 )
                 read_error_values = [config.get_master_dark_file_path(), ]
                 MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
@@ -516,7 +516,7 @@ class RemoveDark(ImageProcessor):
             if not image.is_same_shape_as(dark):
                 mismatch_message = QT_TRANSLATE_NOOP(
                     "",
-                    "Data structure inconsistency. Light: {} vs Dark: {}. Dark subtraction is SKIPPED"
+                    "Data structure inconsistency. Light: {} vs Master dark: {}. Dark subtraction is SKIPPED"
                 )
                 mismatch_values = [image.data.shape, dark.data.shape]
                 MESSAGE_HUB.dispatch_warning(__name__, mismatch_message, mismatch_values)
@@ -528,7 +528,7 @@ class RemoveDark(ImageProcessor):
                     __name__,
                     QT_TRANSLATE_NOOP(
                         "",
-                        "Dark & Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark..."
+                        "Dark & Light data types mismatch detected. Light: {} vs Master dark: {}. Converting Dark..."
                     ),
                     [image.data.dtype.name, dark.data.dtype.name])
 
@@ -581,6 +581,55 @@ class RemoveDark(ImageProcessor):
 
         return allowed_min, allowed_max
 
+
+class RemoveFlat(ImageProcessor):
+    """
+    Provides image flat removal.
+    """
+
+    @log
+    def process_image(self, image: Image):
+
+        if not image:
+            return None
+
+        do_divide = config.get_use_master_flat()
+
+        _LOGGER.debug(f"Flat division enabled : {do_divide}")
+
+        if do_divide:
+
+            flat = als_input.read_disk_image(Path(config.get_master_flat_file_path()))
+
+            if flat is None:
+                read_error_message = QT_TRANSLATE_NOOP(
+                    "",
+                    "Could not read master flat {}. Flat division is SKIPPED"
+                )
+                read_error_values = [config.get_master_flat_file_path(), ]
+                MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
+                return image
+
+            if not image.is_same_shape_as(flat):
+                mismatch_message = QT_TRANSLATE_NOOP(
+                    "",
+                    "Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED"
+                )
+                mismatch_values = [image.data.shape, flat.data.shape]
+                MESSAGE_HUB.dispatch_warning(__name__, mismatch_message, mismatch_values)
+                return image
+
+            _LOGGER.debug("Dividing by flat frame...")
+
+            with Timer() as division_timer:
+
+                normalized_flat_data = flat.data / np.max(flat.data)
+                normalized_flat_data = np.where(normalized_flat_data == 0, 1, normalized_flat_data)
+                image.data = np.uint16(np.clip(image.data / normalized_flat_data, 0, _16_BITS_MAX_VALUE))
+
+            _LOGGER.debug(f"Flat frame divided in {division_timer.elapsed_in_milli_as_str} ms")
+
+        return image
 
 class ConvertForOutput(ImageProcessor):
     """

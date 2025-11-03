@@ -57,16 +57,23 @@ class PreferencesDialog(QDialog):
 
         self._ui.ln_scan_folder_path.setText(config.get_scan_folder_path())
         self._ui.ln_scan_folder_path.setToolTip(config.get_scan_folder_path())
+
         self._ui.ln_work_folder_path.setText(config.get_work_folder_path())
         self._ui.ln_work_folder_path.setToolTip(config.get_work_folder_path())
+
         self._ui.ln_web_folder_path.setText(config.get_web_folder_path())
         self._ui.ln_web_folder_path.setToolTip(config.get_web_folder_path())
+
         self._ui.ln_master_dark_path.setText(config.get_master_dark_file_path())
         self._ui.ln_master_dark_path.setToolTip(config.get_master_dark_file_path())
+
+        self._ui.ln_master_flat_path.setText(config.get_master_flat_file_path())
+        self._ui.ln_master_flat_path.setToolTip(config.get_master_flat_file_path())
 
         self._ui.ln_web_server_port.setText(str(config.get_www_server_port_number()))
         self._ui.chk_debug_logs.setChecked(config.is_debug_log_on())
         self._ui.chk_use_dark.setChecked(config.get_use_master_dark())
+        self._ui.chk_use_flat.setChecked(config.get_use_master_flat())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
         self._ui.chk_save_on_stop.setChecked(config.get_save_on_stop())
 
@@ -129,6 +136,13 @@ class PreferencesDialog(QDialog):
         else:
             self._ui.ln_master_dark_path.setStyleSheet(_WARNING_STYLE_SHEET)
 
+        master_flat_path = self._ui.ln_master_flat_path.text()
+        if (Path(master_flat_path).is_file() or
+                (not master_flat_path and not self._ui.chk_use_flat.isChecked())):
+            self._ui.ln_master_flat_path.setStyleSheet(_NORMAL_STYLE_SHEET)
+        else:
+            self._ui.ln_master_flat_path.setStyleSheet(_WARNING_STYLE_SHEET)
+
     @log
     def on_chk_use_dark_toggled(self, _):
         """
@@ -149,15 +163,6 @@ class PreferencesDialog(QDialog):
         """
         for control in self._web_folder_controls:
             control.setVisible(checked)
-
-    @log
-    @pyqtSlot()
-    def on_btn_dark_clear_clicked(self):
-        """
-        Clears dark path input field and validate settings
-        """
-        self._ui.ln_master_dark_path.clear()
-        self._validate_all_paths()
 
     @log
     def on_ln_scan_folder_path_textChanged(self, text):
@@ -196,6 +201,15 @@ class PreferencesDialog(QDialog):
         self._ui.ln_master_dark_path.setToolTip(text)
 
     @log
+    def on_ln_master_flat_path_textChanged(self, text):
+        """
+        Qt signal for master flat path widget text changed
+        :param text: new master flat path
+        :type text: str
+        """
+        self._ui.ln_master_flat_path.setToolTip(text)
+
+    @log
     @pyqtSlot()
     def accept(self):
 
@@ -225,9 +239,15 @@ class PreferencesDialog(QDialog):
         config.set_web_folder_path(web_folder_path)
 
         web_server_port_number_str = self._ui.ln_web_server_port.text()
+
         config.set_use_master_dark(self._ui.chk_use_dark.isChecked())
         config.set_master_dark_file_path(self._ui.ln_master_dark_path.text())
+
+        config.set_use_master_flat(self._ui.chk_use_flat.isChecked())
+        config.set_master_flat_file_path(self._ui.ln_master_flat_path.text())
+
         config.set_hot_pixel_remover(self._ui.chk_use_hpr.isChecked())
+
         config.set_save_on_stop(self._ui.chk_save_on_stop.isChecked())
 
         if web_server_port_number_str.isdigit() and 1024 <= int(web_server_port_number_str) <= 65535:
@@ -348,16 +368,29 @@ class PreferencesDialog(QDialog):
 
         self._validate_all_paths()
 
-    @pyqtSlot(name="on_btn_dark_scan_clicked")
+    @pyqtSlot(name="on_btn_browse_dark_clicked")
     @log
     def browse_dark(self):
         """Opens a folder dialog to choose dark file"""
         dark_file_path = QFileDialog.getOpenFileName(self,
-                                                     self.tr("Select dark file"),
+                                                     self.tr("Select master dark file"),
                                                      self._ui.ln_master_dark_path.text(),
                                                      options=QFileDialog.DontUseNativeDialog)
         if dark_file_path[0]:
             self._ui.ln_master_dark_path.setText(dark_file_path[0])
+
+        self._validate_all_paths()
+
+    @pyqtSlot(name="on_btn_browse_flat_clicked")
+    @log
+    def browse_flat(self):
+        """Opens a folder dialog to choose flat file"""
+        flat_file_path = QFileDialog.getOpenFileName(self,
+                                                     self.tr("Select master flat file"),
+                                                     self._ui.ln_master_flat_path.text(),
+                                                     options=QFileDialog.DontUseNativeDialog)
+        if flat_file_path[0]:
+            self._ui.ln_master_flat_path.setText(flat_file_path[0])
 
         self._validate_all_paths()
 

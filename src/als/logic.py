@@ -41,7 +41,7 @@ from als.model.data import (
 )
 from als.model.params import ProcessingParameter
 from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
-    HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator
+    HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator, RemoveFlat
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
 from als.streams.network import get_host_ip, Server, is_port_in_use
@@ -107,7 +107,7 @@ class Controller:
         self._pre_process_pipeline: Pipeline = Pipeline(
             'pre-process',
             self._pre_process_queue,
-            [FileReader(self._profile), HotPixelRemover(), RemoveDark(), Debayer(), Standardize()])
+            [FileReader(self._profile), HotPixelRemover(), RemoveDark(), RemoveFlat(), Debayer(), Standardize()])
         self._pre_process_pipeline.start(self._profile.get_pre_process_priority)
 
         self._stacker_queue: SignalingQueue = DYNAMIC_DATA.stacker_queue
