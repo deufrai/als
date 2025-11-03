@@ -42,7 +42,8 @@ Performs **calibration** processes on the sub:
 
 1. [Hot pixel removal](hot_remove/)
 2. [Dark subtraction](dark_remove/)
-3. [Debayering](debayer/)
+3. [Flat calibration](flat_calibrate/)
+4. [Debayering](debayer/)
 
 # Output
 

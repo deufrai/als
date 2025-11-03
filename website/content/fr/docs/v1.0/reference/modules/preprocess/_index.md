@@ -42,7 +42,8 @@ Applique les traitements de **calibration** à la brute :
 
 1. [Suppression des pixels chauds](hot_remove/)
 2. [Soustraction de dark](dark_remove/)
-3. [Dématriçage](debayer/)
+3. [Calibration par flats](flat_calibrate/)
+4. [Dématriçage](debayer/)
 
 # Sortie
 
