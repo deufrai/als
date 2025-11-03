@@ -2,7 +2,7 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-03T11:51:03Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
@@ -42,7 +42,8 @@ Applique les traitements de **calibration** à la brute :
 
 1. [Suppression des pixels chauds](hot_remove/)
 2. [Soustraction de dark](dark_remove/)
-3. [Dématriçage](debayer/)
+3. [Calibration par flat](flat_calibrate/)
+4. [Dématriçage](debayer/)
 
 # Sortie
 
