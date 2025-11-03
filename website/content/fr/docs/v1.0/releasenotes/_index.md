@@ -2,10 +2,20 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-03T18:26:35Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 100550
+---
+
+## Version 1.0 {#1.0}
+
+**Date:** bientôt :)
+
+### Nouveautés
+
+- Calibration par flat
+
 ---
 
 ## Version 0.7 #{#0.7}

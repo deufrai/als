@@ -2,10 +2,20 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-03T18:26:34Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 100550
+---
+
+## Version 1.0 {#1.0}
+
+**Date:** soon :)
+
+### New Features
+
+- Flat frame calibration
+
 ---
 
 ## Version 0.7 {#0.7}
