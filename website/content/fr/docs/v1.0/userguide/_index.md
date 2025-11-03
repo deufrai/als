@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-03T21:52:01Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -26,14 +26,18 @@ Image capturée par votre système d'acquisition
 
 ### calibration {#calibration}
 
-Ensemble de traitements appliqués aux [brutes](#sub) dans le but d'éliminer les défauts du capteur. Cela inclut
-généralement la suppression des pixels chauds et la soustraction d'un [master dark](#master-dark) pour réduire le bruit
-thermique.
+Ensemble de traitements appliqués aux brutes dans le but d'éliminer les défauts du capteur du système optique
 
 ### master dark {#master-dark}
 
-Image contenant le bruit thermique du capteur. Elle est soustraite des [brutes](#sub) pendant la [calibration](#calibration) 
+Image contenant le bruit thermique du capteur. Elle est soustraite des brutes pendant la calibration
 
+### master flat {#master-flat}
+
+Image représentant le motif d'illumination du système optique et les non-uniformités de réponse du capteur. Elle est
+utilisée pour corriger les brutes du vignettage et des ombres de poussières pendant la calibration.
+
+Les brutes sont divisées par le master flat après la soustraction du master dark pendant la calibration
 
 ## Typographie
 
