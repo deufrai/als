@@ -11,7 +11,7 @@ deploy_to_staging:
   stage: deploy
   tags: [infra]
   only:
-    - release/0.7
+    - develop
   script:
     - ./ci/deploy/deploy_staging_website.sh
   environment:
