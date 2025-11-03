@@ -23,6 +23,7 @@ Cet onglet ne contient qu'une seule section : [Preprocess](#preprocess)
 Elle regroupe les réglages des tâches de **calibration** :
 - [Suppression des pixels chauds](#hot-remove)
 - [Soustraction de dark](#dark-remove)
+- [Calibration par flat](#flat)
 - [Dématriçage](#debayer)
 
 </div>
@@ -92,6 +93,24 @@ Si les dimensions sont différentes :
   En cas de différence (_ex. master dark en flottants 32bits et brute en entiers 16bits_) : 
   - le master dark est converti avant son utilisation
   - la différence de format est signalée discrètement dans le journal de session
+{{% /alert %}}
+
+ℹ️ Par défaut : OFF
+
+## Calibration par flat {#flat}
+
+- 🖱️ Cochez `Active` pour activer la calibration par flat
+- 🖱️ Cliquez sur `Master flat...` pour sélectionner le master flat utilisé pour la normalisation
+- 🖱️ Cliquez sur `Vider` pour réinitialiser le chemin du master flat
+- 🖱️ Activez ou désactivez `Normalisation auto` pour laisser ALS mettre à l'échelle le master flat
+- 🖱️ Ajustez les champs de ROI optionnels pour limiter la normalisation à une zone précise
+
+{{% alert color="warning" %}}
+⚠️ Le master flat **doit avoir les mêmes dimensions** (_largeur x hauteur_) que l'image à traiter
+{{% /alert %}}
+
+{{% alert color="info" %}}
+ℹ️ Quand la normalisation automatique est active, ALS calcule le signal moyen dans la ROI sélectionnée (ou l'image entière si aucune ROI n'est définie) et met le master flat à l'échelle pour que cette moyenne vaille 1,0.
 {{% /alert %}}
 
 ℹ️ Par défaut : OFF
