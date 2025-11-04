@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-04T13:54:46Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -23,6 +23,7 @@ Cet onglet ne contient qu'une seule section : [Preprocess](#preprocess)
 Elle regroupe les réglages des tâches de **calibration** :
 - [Suppression des pixels chauds](#hot-remove)
 - [Soustraction de dark](#dark-remove)
+- [Calibration flat](#flat-remove)
 - [Dématriçage](#debayer)
 
 </div>
@@ -30,8 +31,8 @@ Elle regroupe les réglages des tâches de **calibration** :
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="L'onglet Traitement des préférences"
-width="622px"
-height="604px"
+width="628px"
+height="548px"
 alt="Fenêtre de préférences ALS avec l'onglet Traitement sélectionné, affichant les paramètres de prétraitement des images, y compris les options de suppression des pixels chauds, de soustraction dark et de motif de dématriçage, avec chemins spécifiés et boutons Modifier et Effacer." >}}
 {{< /center >}}
 
@@ -56,23 +57,25 @@ alt="" >}}
 
 - 🖱️ Cochez `Supprimer` pour activer la suppression des pixels chauds
 
-ℹ️ Par défaut : OFF
+  ℹ️ Par défaut : OFF
 
 ## Soustraction de dark {#dark-remove}
 
 {{< center >}}
 {{< figure src="dark_remove.png"
 caption="Réglages de soustraction de dark"
-width="622px"
-height="196px"
-alt="Interface logicielle affichant les options pour utiliser la soustraction de dark, changer le chemin du master dark spécifié et effacer le chemin." >}}
+width="628px"
+height="177px"
+alt="Interface logicielle affichant les options pour utiliser la soustraction de dark et changer le chemin du master dark." >}}
 {{< /center >}}
 
 - 🖱️ Cochez `Active` pour activer la soustraction de dark
+
+  ℹ️ Par défaut : OFF
+
 - 🖱️ Cliquez `Master dark...` pour choisir le fichier master dark à utiliser pour la soustraction
 
   le chemin du master dark configuré est affiché à droite du bouton
-- 🖱️ Cliquez `Vider` pour vider le chemin du fichier master dark
 
 {{% alert color="warning" %}}
 ⚠️ Le master dark **doit avoir les mêmes dimensions** (_largeur x hauteur_) que l'image à traiter
@@ -80,7 +83,7 @@ alt="Interface logicielle affichant les options pour utiliser la soustraction de
 Si les dimensions sont différentes :
 - chaque tentative de soustraction provoque l'ajout au journal de session d'un **WARNING** portant le message :
 
-  _incohérence de la structure des données - la soustraction de dark est IGNOREE_
+  _incohérence de la structure des données - la soustraction du dark est IGNOREE_
 - Le bouton `Acquitter` du `Journal de session` est activé
 - Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
   panneau.
@@ -94,16 +97,45 @@ Si les dimensions sont différentes :
   - la différence de format est signalée discrètement dans le journal de session
 {{% /alert %}}
 
-ℹ️ Par défaut : OFF
+## Calibration flat {#flat-remove}
+
+{{< center >}}
+{{< figure src="flat_remove.png"
+caption="Réglages de calibration flat"
+width="628px"
+height="177px"
+alt="Interface logicielle affichant les options pour utiliser la calibration flat et changer le chemin du master flat." >}}
+{{< /center >}}
+
+- 🖱️ Cochez `Active` pour activer la calibration flat
+
+  ℹ️ Par défaut : OFF
+
+- 🖱️ Cliquez `Master flat...` pour choisir le fichier master flat à utiliser pour la calibration
+
+  le chemin du master flat configuré est affiché à droite du bouton
+
+{{% alert color="warning" %}}
+⚠️ Le master flat **doit avoir les mêmes dimensions** (_largeur x hauteur_) que l'image à traiter
+
+Si les dimensions sont différentes :
+- chaque tentative de division provoque l'ajout au journal de session d'un **WARNING** portant le message :
+
+  _incohérence de la structure des données - La division du flat est IGNORÉE_
+- Le bouton `Acquitter` du `Journal de session` est activé
+- Si le `journal de session` est caché, l'indicateur de nouveaux problèmes apparaît dans la section `Problèmes` du
+  panneau.
+{{% /alert %}}
 
 ## Dématriçage {#debayer}
 
+ℹ️ Par défaut : AUTO
 
 {{< center >}}
 {{< figure src="debayer.png"
 caption="Réglage du dématriçage"
-width="622px"
-height="286px"
+width="628px"
+height="212px"
 alt="Interface logicielle affichant les préférences de traitement d'image avec des options pour définir le chemin de signal noir et sélectionner le motif de dématriçage, y compris AUTO et divers motifs de filtres de couleur." >}}
 {{< /center >}}
 
@@ -129,5 +161,3 @@ Si les métadonnées ne contiennent aucune matrice
 - Les métadonnées de l'image ne contiennent pas la matrice de Bayer
 - Le mode AUTO ne donne pas le résultat attendu (_ex. grille ou damiers sur l'image dématricée_)
 {{% /alert %}}
-
-ℹ️ Par défaut : AUTO
