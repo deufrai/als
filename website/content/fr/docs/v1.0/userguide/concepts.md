@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-04T09:09:27Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -153,7 +153,11 @@ Le module **preprocess** regroupe les traitements de **calibration** des brutes 
 
    Utilise un master dark fourni par vous pour soustraire le bruit thermique.
 
-3. **Dématriçage**
+3. **Division par flat**
+
+   Utilise un master flat fourni par vous pour corriger le vignettage et les ombres de poussières.
+
+4. **Dématriçage**
 
    Les brutes **couleur** au format **FITS** ou **Raw** sont converties en couleur RVB en utilisant la matrice de Bayer
    décrite dans les entêtes du fichier.

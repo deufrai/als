@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-04T09:09:27Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -151,7 +151,11 @@ The **preprocess** module groups the following **calibration** processes:
 
    Uses a master dark provided by you to subtract thermal noise from the image.
 
-3. **Debayering**
+3. **Flat correction**
+
+   Uses a master flat provided by you to correct vignetting and dust shadows in the image.
+
+4. **Debayering**
 
    **Color** images in **FITS** or **Raw** format are converted to RGB color using the Bayer pattern described in the file headers.
 
