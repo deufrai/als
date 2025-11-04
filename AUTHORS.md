@@ -1,14 +1,10 @@
-============
-Core team
-============
+# Core team
 
-* Gilles Le MARECHAL <gilles@joag.fr>
-* Sébastien DURAND <dragonlost1@hotmail.fr>
-* Thibault NOTARGIACOMO <gnthibault@gmail.com>
-* Frédéric CORNU <fcornu@wardsback.org>
+- Gilles Le MARECHAL <gilles@joag.fr>
+- Sébastien DURAND <dragonlost1@hotmail.fr>
+- Thibault NOTARGIACOMO <gnthibault@gmail.com>
+- Frédéric CORNU <fcornu@wardsback.org>
 
-============
-Contributors
-============
+# Contributors
 
-* Davy HUBERT <boula@piouland.net>
+- Davy HUBERT <boula@piouland.net>
