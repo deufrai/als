@@ -3,7 +3,7 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-04T09:37:15Z
+lastmod: 2025-11-04T10:00:41Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -47,11 +47,13 @@ Que vous réalisiez des prises de vue en direct, prépariez des données pour un
 
 ## ✔️ Préparer votre calibration
 
-Disposez-vous d’un master dark adapté à votre capteur et à sa température ?  
-Si oui, utilisez la **soustraction de dark** pour éliminer le bruit thermique.
+- Disposez-vous d’un master dark adapté à votre capteur et à sa température ?  
 
-Disposez-vous d’un master flat adapté à votre configuration optique ?
-Si oui, utilisez la **calibration par flat** pour corriger le vignettage et les poussières.
+  Si oui, utilisez la **soustraction de dark** pour éliminer le bruit thermique.
+
+- Disposez-vous d’un master flat adapté à votre configuration optique ?
+
+  Si oui, utilisez la **calibration par flat** pour corriger le vignettage et les poussières.
 
 ## ✔️ Ajuster le stacking
 
