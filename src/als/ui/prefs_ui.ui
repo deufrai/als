@@ -800,6 +800,9 @@
   <tabstop>chk_use_dark</tabstop>
   <tabstop>btn_browse_dark</tabstop>
   <tabstop>ln_master_dark_path</tabstop>
+  <tabstop>chk_use_flat</tabstop>
+  <tabstop>btn_browse_flat</tabstop>
+  <tabstop>ln_master_flat_path</tabstop>
   <tabstop>cmb_bayer_pattern</tabstop>
   <tabstop>radioSaveTiff</tabstop>
   <tabstop>radioSavePng</tabstop>
@@ -811,8 +814,8 @@
   <tabstop>ln_web_folder_path</tabstop>
   <tabstop>chk_save_on_stop</tabstop>
   <tabstop>ln_web_server_port</tabstop>
-  <tabstop>btn_Cancel</tabstop>
   <tabstop>btn_OK</tabstop>
+  <tabstop>btn_Cancel</tabstop>
   <tabstop>tabWidget</tabstop>
  </tabstops>
  <resources/>
