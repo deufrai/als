@@ -2,7 +2,7 @@
 title: "Modules and Processes"
 description: "ALS Modules and Processes"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-04T14:08:22Z
 keywords: [ "ALS modules and processes" ]
 type: "docs"
 categories: [ "detailed documentations" ]
@@ -180,6 +180,7 @@ flowchart LR
         PREPROCESS_ENGINE[Engine]
         HOT_PIXEL[Hot Pixel Removal]
         DARK_SUB[Dark Subtraction]
+        FLAT_CAL[Flat Calibration]
         DEBAYER[DeBayer]
     end  
 
@@ -203,6 +204,7 @@ flowchart LR
     class STACK_ENGINE main_module
     class HOT_PIXEL process
     class DARK_SUB process
+    class FLAT_CAL process
     class DEBAYER process
     class SCAN_FOLDER folder
 ```

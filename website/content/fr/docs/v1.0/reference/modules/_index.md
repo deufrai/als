@@ -2,7 +2,7 @@
 title: "Modules et Traitements"
 description: "Modules et Traitements ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-04T14:08:22Z
 keywords: [ "modules et traitements ALS" ]
 type: "docs"
 categories: [ "documentations détaillées" ]
@@ -182,6 +182,7 @@ flowchart LR
         PREPROCESS_ENGINE[Moteur]
         HOT_PIXEL[Suppression Pixels Chauds]
         DARK_SUB[Soustraction de Dark]
+        FLAT_CAL[Calibration Flat]
         DEBAYER[Dématriçage]
     end  
 
@@ -205,6 +206,7 @@ flowchart LR
     class STACK_ENGINE main_module
     class HOT_PIXEL process
     class DARK_SUB process
+    class FLAT_CAL process
     class DEBAYER process
     class SCAN_FOLDER folder
 ```
