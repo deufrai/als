@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-04T09:37:15Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -49,6 +49,9 @@ these steps will help you get the best out of ALS every time.
 
 Do you have a master dark that matches your sensor and temperature?  
 If yes, use **Dark Subtraction** to clean up thermal noise.
+
+Do you have a master flat that matches your optical setup?  
+If yes, use **Flat Calibration** to correct for vignetting and dust motes.
 
 ### ✔️ Adjust Stacking Settings
 
