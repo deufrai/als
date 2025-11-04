@@ -49,17 +49,17 @@
         <translation>Session démarrée en mode {} avec alignement {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="669"/>
+        <location filename="../src/als/processing.py" line="718"/>
         <source>Start {} on {}</source>
         <translation>Démarrage {} sur {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="676"/>
+        <location filename="../src/als/processing.py" line="725"/>
         <source>End {} on {} in {} ms</source>
         <translation>Fin de {} sur {} en {} ms</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="690"/>
+        <location filename="../src/als/processing.py" line="739"/>
         <source>{} stopped</source>
         <translation>{} stoppé</translation>
     </message>
@@ -74,7 +74,7 @@
         <translation>Impossible de stacker l&apos;image {} : {}. L&apos;image est ABANDONNEE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="715"/>
+        <location filename="../src/als/processing.py" line="764"/>
         <source>Error applying process &apos;{}&apos; to image {} : {} *** Image will be ignored</source>
         <translation>Erreur en exécutant process {} à l&apos;image {} : {} *** L&apos;image sera ignorée</translation>
     </message>
@@ -84,19 +84,9 @@
         <translation>Echec de sauvegarde image {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="238"/>
+        <location filename="../src/als/ui/dialogs.py" line="258"/>
         <source>Port number validation failed : {}</source>
         <translation>Numéro de port non valide : {}</translation>
-    </message>
-    <message>
-        <location filename="../src/als/processing.py" line="508"/>
-        <source>Could not read dark {}. Dark subtraction is SKIPPED</source>
-        <translation>Erreur de lecture du dark {}. La soustraction de dark est IGNOREE</translation>
-    </message>
-    <message>
-        <location filename="../src/als/processing.py" line="517"/>
-        <source>Data structure inconsistency. Light: {} vs Dark: {}. Dark subtraction is SKIPPED</source>
-        <translation>Incohérence de la structure des données. Light: {} vs Dark: {}. La soustraction de dark est IGNOREE</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="462"/>
@@ -159,9 +149,29 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 {}</translation>
     </message>
     <message>
+        <location filename="../src/als/processing.py" line="508"/>
+        <source>Could not read master dark {}. Dark subtraction is SKIPPED</source>
+        <translation>Impossible de lire master dark {}. Soustraction de dark IGNOREE</translation>
+    </message>
+    <message>
+        <location filename="../src/als/processing.py" line="517"/>
+        <source>Data structure inconsistency. Light: {} vs Master dark: {}. Dark subtraction is SKIPPED</source>
+        <translation>Incohérence de structure de données. Brute : {} vs Master dark : {}. La soustraction du dark est IGNORÉE</translation>
+    </message>
+    <message>
         <location filename="../src/als/processing.py" line="527"/>
-        <source>Dark &amp; Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark...</source>
-        <translation>Incohérence détectée entre les types de données : Light : {} vs Dark : {}. Conversion Dark...</translation>
+        <source>Dark &amp; Light data types mismatch detected. Light: {} vs Master dark: {}. Converting Dark...</source>
+        <translation>Incompatibilité de types de données entre le dark et la brute détectée. Brute : {} vs Master dark : {}. Conversion du dark...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/processing.py" line="605"/>
+        <source>Could not read master flat {}. Flat division is SKIPPED</source>
+        <translation>Impossible de lire le master flat {}. La division du flat est IGNORÉE</translation>
+    </message>
+    <message>
+        <location filename="../src/als/processing.py" line="614"/>
+        <source>Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED</source>
+        <translation>Incohérence de structure de données. Brute : {} vs Master flat : {}. La division du flat est IGNORÉE</translation>
     </message>
 </context>
 <context>
@@ -187,11 +197,6 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Licence : &lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="224"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Site Web : &lt;a href=&quot;https://als-app.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/als/ui/about_ui.ui" line="188"/>
         <source>About</source>
         <translation>À propos</translation>
@@ -202,89 +207,99 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Outil de livestacking astrophoto</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="285"/>
+        <location filename="../src/als/ui/about_ui.ui" line="295"/>
         <source>Authors</source>
         <translation>Auteurs</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="299"/>
+        <location filename="../src/als/ui/about_ui.ui" line="309"/>
         <source>Authors:</source>
         <translation>Auteurs:</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="360"/>
+        <location filename="../src/als/ui/about_ui.ui" line="370"/>
         <source>Contributors:</source>
         <translation>Contributeurs:</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="388"/>
+        <location filename="../src/als/ui/about_ui.ui" line="398"/>
         <source>Project logo</source>
         <translation>Logo du projet</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="429"/>
+        <location filename="../src/als/ui/about_ui.ui" line="439"/>
         <source>Dark subtraction and alignment threshold</source>
         <translation>Soustraction de dark et seuil d&apos;alignement</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="470"/>
+        <location filename="../src/als/ui/about_ui.ui" line="480"/>
         <source>Awesome shots for our website</source>
         <translation>Super prises de vues pour notre site web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="511"/>
+        <location filename="../src/als/ui/about_ui.ui" line="521"/>
         <source>Countless tests &amp; love</source>
         <translation>Tests et amour sans limite</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="598"/>
+        <location filename="../src/als/ui/about_ui.ui" line="608"/>
         <source>Thanks</source>
         <translation>Remerciements</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="610"/>
+        <location filename="../src/als/ui/about_ui.ui" line="620"/>
         <source>Tools and libraries:</source>
         <translation>Outils et librairies:</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="637"/>
+        <location filename="../src/als/ui/about_ui.ui" line="647"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Web Image viewer : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Visionneuse d&apos;images serveur : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="712"/>
+        <location filename="../src/als/ui/about_ui.ui" line="722"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="617"/>
+        <location filename="../src/als/ui/about_ui.ui" line="627"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Image alignment library : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Librairie d&apos;alignement d&apos;images : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="627"/>
+        <location filename="../src/als/ui/about_ui.ui" line="637"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Autostretch code : Las Cumbres Observatory - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Code de l&apos;autostretch : Observatoire Las Cumbres - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="234"/>
+        <location filename="../src/als/ui/about_ui.ui" line="254"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Source code : &lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Code source : &lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="654"/>
+        <location filename="../src/als/ui/about_ui.ui" line="664"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;All other more common libraries used in ALS are listed in the requirements.txt file at the top of our &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/0.7/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;source code repository&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Toutes les librairies plus courantes utilisées par ALS sont listées dans le fichier requirements.txt à la racine de notre &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/0.7/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;dépôt de code source&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="557"/>
+        <location filename="../src/als/ui/about_ui.ui" line="567"/>
         <source>Translators:</source>
         <translation>Traducteurs:</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="573"/>
+        <location filename="../src/als/ui/about_ui.ui" line="583"/>
         <source>Russian</source>
         <translation>Russe</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="224"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Site web : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="234"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -582,47 +597,42 @@ Détails : {}</translation>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="236"/>
+        <location filename="../src/als/ui/dialogs.py" line="256"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Le numéro de port du serveur web doit être un nombre entre 1024 &amp; 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="237"/>
+        <location filename="../src/als/ui/dialogs.py" line="257"/>
         <source>Wrong value</source>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="321"/>
+        <location filename="../src/als/ui/dialogs.py" line="341"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="333"/>
+        <location filename="../src/als/ui/dialogs.py" line="353"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="344"/>
+        <location filename="../src/als/ui/dialogs.py" line="364"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="355"/>
-        <source>Select dark file</source>
-        <translation>Sélectionner le fichier de dark</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/dialogs.py" line="203"/>
+        <location filename="../src/als/ui/dialogs.py" line="217"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="205"/>
+        <location filename="../src/als/ui/dialogs.py" line="219"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="284"/>
+        <location filename="../src/als/ui/dialogs.py" line="304"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -631,14 +641,24 @@ Détails : {}</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="287"/>
+        <location filename="../src/als/ui/dialogs.py" line="307"/>
         <source>Restart needed</source>
         <translation>Redémarrage nécessaire</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="204"/>
+        <location filename="../src/als/ui/dialogs.py" line="218"/>
         <source>Debug logs</source>
         <translation>Journaux détaillés</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/dialogs.py" line="375"/>
+        <source>Select master dark file</source>
+        <translation>Sélectionnez master dark</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/dialogs.py" line="388"/>
+        <source>Select master flat file</source>
+        <translation>Sélectionnez master flat</translation>
     </message>
 </context>
 <context>
@@ -649,29 +669,24 @@ Détails : {}</translation>
         <translation>Préférences ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="507"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="543"/>
         <source>PN&amp;G</source>
         <translation>PN&amp;G</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="514"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="550"/>
         <source>&amp;JPEG</source>
         <translation>&amp;JPEG</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="733"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="772"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="740"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="779"/>
         <source>OK</source>
         <translation>OK</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="386"/>
-        <source>Clear</source>
-        <translation>Vider</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="232"/>
@@ -679,7 +694,7 @@ Détails : {}</translation>
         <translation>Système</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="614"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="653"/>
         <source>Save processed image to disk when stopping a running session. Can be overriden at runtime</source>
         <translation>Enregistre l&apos;image traîtée sur disque à chaque arrêt de session</translation>
     </message>
@@ -694,7 +709,7 @@ Détails : {}</translation>
         <translation>Traitement</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="472"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="508"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
@@ -779,57 +794,57 @@ Détails : {}</translation>
         <translation>Soustraction de dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="398"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="434"/>
         <source>Debayering</source>
         <translation>Dématriçage</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="484"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="520"/>
         <source>Save</source>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="490"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="526"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="541"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="577"/>
         <source>Output folders</source>
         <translation>Dossiers de sortie</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="549"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="585"/>
         <source>&amp;Work folder...</source>
         <translation>Dossier de tra&amp;vail...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="574"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="610"/>
         <source>&amp;Dedicacted web folder</source>
         <translation>Dossier web &amp;dédié</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="608"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="647"/>
         <source>Autosave</source>
         <translation>Enreistrement auto</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="620"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="659"/>
         <source>Timestamped result on session &amp;stop</source>
         <translation>Résultat horodaté à l&apos;arrêt de &amp;session</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="633"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="672"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="641"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="680"/>
         <source>&amp;Port number</source>
         <translation>Numéro de &amp;port</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="673"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="712"/>
         <source>1024 to 65535</source>
         <translation>1024 à 65535</translation>
     </message>
@@ -859,14 +874,29 @@ Détails : {}</translation>
         <translation>Master &amp;dark...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="500"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="536"/>
         <source>T&amp;IFF</source>
         <translation>T&amp;IFF</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="583"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="619"/>
         <source>We&amp;b folder...</source>
         <translation>Dossier &amp;web...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/prefs_ui.ui" line="391"/>
+        <source>Flat calibration</source>
+        <translation>Calibration flat</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/prefs_ui.ui" line="397"/>
+        <source>A&amp;ctive</source>
+        <translation>A&amp;ctive</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/prefs_ui.ui" line="406"/>
+        <source>Master &amp;flat...</source>
+        <translation>Master &amp;flat...</translation>
     </message>
 </context>
 <context>
