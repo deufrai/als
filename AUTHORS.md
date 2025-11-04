@@ -8,3 +8,5 @@
 # Contributors
 
 - Davy HUBERT <boula@piouland.net>
+- Benjamin FOUSSE
+- Christophe HEULIN
