@@ -153,6 +153,15 @@ class PreferencesDialog(QDialog):
         self._validate_all_paths()
 
     @log
+    def on_chk_use_flat_toggled(self, _):
+        """
+        Triggers config values validation when chk_use_flat is toggled
+
+        :param _: well, you know, we really don't care. This the method we call that will check this
+        """
+        self._validate_all_paths()
+
+    @log
     @pyqtSlot(bool)
     def on_chk_www_own_folder_clicked(self, checked):
         """
