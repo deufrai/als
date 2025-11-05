@@ -1,0 +1,52 @@
+{{ define "main" }}
+  <div class="container pt-4 pb-5">
+    <h1 class="mb-4 mt-5">{{ .Title }}</h1>
+
+    {{/* All pages for this taxonomy term */}}
+    {{ $pages := .Pages }}
+    {{ $matched := 0 }}
+
+    {{/* Loop the versions declared in hugo.toml */}}
+    {{ range site.Params.versions }}
+      {{ $ver := .version }}
+      {{ $pattern := printf "/docs/%s/" $ver }}
+
+      {{/* Collect pages for this version by substring check on RelPermalink */}}
+      {{ $group := slice }}
+      {{ range $pages }}
+        {{ if in .RelPermalink $pattern }}
+          {{ $group = $group | append . }}
+        {{ end }}
+      {{ end }}
+
+      {{ if gt (len $group) 0 }}
+        {{ $matched = add $matched (len $group) }}
+        <h2 class="h4 mt-4 mb-3">{{ $ver }}</h2>
+        <ul class="list-unstyled">
+          {{ range sort $group "Title" }}
+            <li class="mb-2">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ with .Params.description }}
+                <div class="small text-muted">{{ . }}</div>
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+
+    {{/* Fallback: if none matched configured versions (e.g., blog-only tags) */}}
+    {{ if eq $matched 0 }}
+      <ul class="list-unstyled">
+        {{ range $pages.ByTitle }}
+          <li class="mb-2">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ with .Params.description }}
+              <div class="small text-muted">{{ . }}</div>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+{{ end }}
