@@ -12,7 +12,6 @@ deploy_to_staging:
   tags: [infra]
   only:
     - release/1.0
-    - develop
     - master
   script:
     - ./ci/deploy/deploy_staging_website.sh
