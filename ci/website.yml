@@ -11,6 +11,7 @@ deploy_to_staging:
   stage: deploy
   tags: [infra]
   only:
+    - release/1.0
     - develop
     - master
   script:
