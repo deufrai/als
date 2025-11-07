@@ -95,7 +95,7 @@ _DEFAULTS = {
     _SAVE_ON_STOP:          1,
     _PROFILE:               0,
     _PRESERVED_MEM:         1,
-    _SEND_STATS:            None
+    _SEND_STATS:            0
 }
 _MAIN_SECTION_NAME = "main"
 
