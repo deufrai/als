@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-11-04T10:00:41Z
+lastmod: 2025-11-07T12:34:15Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -20,12 +20,12 @@ It wraps up the presentation of ALS main concepts before you dive into the user 
 
 ---
 
-## ⚙️ Setup
+# ⚙️ Setup
 
 Whether you’re shooting DSO live, preparing data for detailed post-processing, or diving into something more artistic, 
 these steps will help you get the best out of ALS every time.
 
-### ✔️ Choose Your Profile
+## ✔️ Choose Your Profile
 
 <div class="row">
 <div class="col-md-6">
@@ -45,7 +45,7 @@ these steps will help you get the best out of ALS every time.
 </div>
 </div>
 
-### ✔️ Prep Your Calibration
+## ✔️ Prep Your Calibration
 
 - Do you have a master dark that matches your sensor and temperature?  
 
@@ -55,7 +55,7 @@ these steps will help you get the best out of ALS every time.
 
   If yes, use **Flat Calibration** to correct for vignetting and dust motes.
 
-### ✔️ Adjust Stacking Settings
+## ✔️ Adjust Stacking Settings
 
 - Enable **Alignment** for Deep Sky Objects imaging, or disable it for artistic shots such as star trails or time-lapses.
 
@@ -65,29 +65,29 @@ these steps will help you get the best out of ALS every time.
 
 ---
 
-## 🚀 Progress
+# 🚀 Progress
 
 Start the session and let ALS do its thing... 
 
 Here’s how to keep everything running smoothly and eventually enjoy the results:
 
-### 📊 Stay on Top of Things
+## 📊 Stay on Top of Things
 
 Keep track of your session by reviewing ALS feedback on performance and potential issues during subs processing.
 
-### 🌦️ Adapt to Conditions
+## 🌦️ Adapt to Conditions
 
 Adapt the alignment threshold to match changing weather conditions or specific acquisition setups.
 
-### 🎨 Tweak Your Image
+## 🎨 Tweak Your Image
 
 Tweak ALS image processing settings to adjust the image as it develops with each new sub.
 
-### 🔍 Dive Into Your Image
+## 🔍 Dive Into Your Image
 
 Zoom in/out and pan across the image to find areas that deserve attention or just to enjoy the view.
 
-### 🌐 Share Your Progress
+## 🌐 Share Your Progress
 
 Perfect for public outreach or collaborative discussions :
 
@@ -98,12 +98,12 @@ desktop and mobile devices.
 
 ---
 
-## 📦 Wrap Up
+# 📦 Wrap Up
 
 Stop your session and find the final result image in your **work folder**.
 
 ---
 
-## 🎯 Conclusion
+# 🎯 Conclusion
 
 It is now time for **you** to take control of ALS by diving into the next chapter: ALS user interface.
