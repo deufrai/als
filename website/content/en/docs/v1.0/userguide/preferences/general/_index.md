@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-11-07T19:18:23Z
+lastmod: 2025-11-07T19:57:21Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -128,7 +128,7 @@ The subs stack up forming nested squares of decreasing sizes.
 
 Defines the language of the ALS user interface.
 
-- 🖱️ 3 choices are possible:
+- 🖱️ The following choices are available:
 
   - **System**: ALS follows the system language
   - **French**
@@ -211,4 +211,4 @@ The collected data is anonymous and used to improve the application.
 
 You will find details on data collection in the [quick start guide](../../../quickstart#usage-stats).
 
-ℹ️ Default: **ON, after consent**
+ℹ️ Default: **OFF**
