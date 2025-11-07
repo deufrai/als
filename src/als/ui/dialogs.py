@@ -107,7 +107,7 @@ class PreferencesDialog(QDialog):
 
         self._ui.sld_mem_preserve.setValue(config.get_preserved_mem())
 
-        self._ui.chk_stats.setChecked(config.get_send_stats_active() or config.get_send_stats_active() is None )
+        self._ui.chk_stats.setChecked(config.get_send_stats_active())
 
     @log
     def _validate_all_paths(self):
