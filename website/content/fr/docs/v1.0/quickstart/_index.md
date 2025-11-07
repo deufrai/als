@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-07T16:29:34Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -145,8 +145,8 @@ height="443px"
 alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionner le dossier de travail' affichant le contenu du répertoire /home/astrogeek, y compris plusieurs dossiers et un fichier journal. Le nouveau dossier nommé als_output est surligné, et le bouton Choisir est surligné, indiquant que l'utilisateur est sur le point de confirmer la sélection." >}}
 {{< /center >}}
 
-1. ⌨️ Nommez-le **sorties_als**. 
-2. 🖱️ Cliquez sur `Choisir`.
+1. ⌨️ Nommez-le {{< als-code >}}sorties_als{{< /als-code >}}
+2. 🖱️ Cliquez sur `Choisir`
 
 🖱️ Revenez à l'onglet **Général**.
 
@@ -369,11 +369,11 @@ alt="L'image montre une capture d'écran d'une interface logicielle avec un thè
 {{< /center >}}
 
 1. 🖱️ Naviguer vers le dossier où se trouve ALS
-    - **PC**: Naviguer vers `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Naviguer vers `/home/astrogeek/Applications/ALS/als-v0.7`
+    - **PC**: Naviguer vers {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
+    - **Raspberry PI**: Naviguer vers {{< als-code >}}/home/astrogeek/Applications/ALS/als-v0.7{{< /als-code >}}
 2. 🖱️ Sélectionner l'exécutable
-    - **PC**: Sélectionner le fichier `als-v0.7.run`
-    - **Raspberry PI**: Sélectionner le fichier `als-v0.7`
+    - **PC**: Sélectionner le fichier {{< als-code >}}als-v0.7.run{{< /als-code >}}
+    - **Raspberry PI**: Sélectionner le fichier {{< als-code >}}als-v0.7{{< /als-code >}}
 3. 🖱️ Cliquez sur `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur
