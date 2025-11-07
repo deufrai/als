@@ -3,7 +3,7 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-04T10:00:41Z
+lastmod: 2025-11-07T13:09:31Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -17,6 +17,24 @@ weight: 100317
 Ce chapitre est votre guide pour organiser une session ALS réussie et en suivre le déroulement. 
 
 Il clôture la présentation des concepts principaux d'ALS avant de passer au guide de l'interface utilisateur.
+
+---
+
+# ⚡ Démarrage
+ALS peut être lancé soit depuis son interface graphique, soit directement depuis la ligne de commande, selon votre flux de travail ou vos besoins d'automatisation.
+
+- **Lancement graphique** :  
+  Démarrez simplement ALS comme toute autre application. Vous arriverez dans la fenêtre principale, prêt à configurer votre session.
+
+- **Lancement en ligne de commande** :  
+  ALS prend en charge deux paramètres de démarrage optionnels qui peuvent automatiser l'initialisation de la session ou le partage en direct. 
+  
+  | Paramètre | Description                                                                                                                                                      |
+  |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | `-s`      | Démarrer une session de stacking immédiatement après le lancement d'ALS. La session commence avec **l'alignement activé** et le **mode de stacking en moyenne**. |
+  | `-w`      | Démarrer automatiquement le serveur web intégré, permettant une visualisation à distance et en direct juste après le démarrage.                                  |
+
+  Ces paramètres peuvent être combinés si vous souhaitez qu'ALS commence à traiter et diffuser l'image empilée immédiatement.
 
 ---
 
@@ -100,6 +118,12 @@ Les spectateurs peuvent explorer votre image en cours d'évolution avec les mêm
 # 📦 Clôture
 
 Stoppez votre session et récupérez l'image finale dans le **dossier de travail**.
+
+{{< alert title="Remarque" color="info" >}}
+Pour terminer une session démarrée **depuis la ligne de commande**, utilisez `Ctrl+C` dans le terminal où ALS s'exécute.
+Cela quittera également **l'application entière**.
+{{< /alert >}}
+
 
 ---
 

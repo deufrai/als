@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-11-07T12:34:15Z
+lastmod: 2025-11-07T13:09:31Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -17,6 +17,26 @@ weight: 100317
 This chapter is your roadmap for running a successful ALS session and monitoring its progress.
 
 It wraps up the presentation of ALS main concepts before you dive into the user interface guide.
+
+---
+
+# ⚡ Startup
+
+ALS can be launched either from its graphical interface or directly from the command line, depending on your workflow or
+automation needs.
+
+- **Graphical launch**:  
+  Simply start ALS as any other application. You’ll land in the main window, ready to configure your session.
+
+- **Command-line launch**:  
+  ALS supports two optional startup parameters that can automate session initialization or live sharing.
+
+  | Parameter | Description                                                                                                                        |
+  |-----------|------------------------------------------------------------------------------------------------------------------------------------|
+  | `-s`      | Start a stacking session immediately after ALS launches. The session begins with **alignment enabled** and **mean stacking mode**. |
+  | `-w`      | Start the integrated web server automatically, allowing remote and live viewing right after startup.                               |
+
+  These parameters can be combined if you want ALS to begin processing and broadcasting the stacked image right away.
 
 ---
 
@@ -101,6 +121,11 @@ desktop and mobile devices.
 # 📦 Wrap Up
 
 Stop your session and find the final result image in your **work folder**.
+
+{{< alert title="Note" color="info" >}}
+To end a session started **via the command line**, use `Ctrl+C` in the terminal where ALS is running.
+This will also **quit the whole application**.
+{{< /alert >}}
 
 ---
 
