@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:14:02Z
+lastmod: 2025-11-07T14:26:25Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -31,10 +31,10 @@ automation needs.
 - **Command-line launch**:  
   ALS supports two optional startup parameters that can automate session initialization or live sharing.
 
-  | Parameter | Description                                                                                                                        |
-  |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-  | `-s`      | Start a stacking session immediately after ALS launches. The session begins with **alignment enabled** and **mean stacking mode**. |
-  | `-w`      | Start the integrated web server automatically, allowing remote and live viewing right after startup.                               |
+  | Parameter                           | Description                                                                                                                        |
+  |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+  | {{< als-code >}}-s{{< /als-code >}} | Start a stacking session immediately after ALS launches. The session begins with **alignment enabled** and **mean stacking mode**. |
+  | {{< als-code >}}-w{{< /als-code >}} | Start the integrated web server automatically, allowing remote and live viewing right after startup.                               |
 
   These parameters can be combined if you want ALS to begin processing and broadcasting the stacked image right away.
 
