@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-07T14:54:31Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues", "panels" ]
@@ -71,11 +71,11 @@ The **session** section of the panel includes 2 areas:
 
 ## Session Controls {#session-controls}
 
-- <span class="als-ks">R</span> or 🖱️ click `START` to:
+- {{< als-ks >}}R{{< /als-ks >}} or 🖱️ click `START` to:
   - **start** a new session
   - **resume** a **paused** session.
-- <span class="als-ks">R</span> or 🖱️ click `PAUSE` to **pause** a **running** session.
-- <span class="als-ks">X</span> or 🖱️ click `STOP` to **stop** a **running** session.
+- {{< als-ks >}}R{{< /als-ks >}} or 🖱️ click `PAUSE` to **pause** a **running** session.
+- {{< als-ks >}}X{{< /als-ks >}} or 🖱️ click `STOP` to **stop** a **running** session.
 
 {{% alert color="info" %}}
 ℹ️ Stopping a session with at least one sub in the **stack** displays a confirmation prompt.
@@ -116,7 +116,7 @@ The **stack** section of the panel controls the **Stacker** module.
 {{% alert color="info" %}}
 ℹ️ These controls are accessible only when the session is stopped.
 {{% /alert %}}
-- <span class="als-ks">A</span> or 🖱️ check `Align` to enable subs **alignment**
+- {{< als-ks >}}A{{< /als-ks >}} or 🖱️ check `Align` to enable subs **alignment**
 
 - Use the dropdown list to set the **stacking mode** to use:
     - `mean`
@@ -193,8 +193,8 @@ The **Image Server** section of the panel controls the **Server** module.
 
 ## Server Controls
 
-- <span class="als-ks">W</span> or 🖱️ click `START` to start the server.
-- <span class="als-ks">W</span> or 🖱️ click `STOP` to stop the server.
+- {{< als-ks >}}W{{< /als-ks >}} or 🖱️ click `START` to start the server.
+- {{< als-ks >}}W{{< /als-ks >}} or 🖱️ click `STOP` to stop the server.
 
 ## Server Information
 
@@ -202,7 +202,7 @@ Below the server controls, you will find its status display.
 
 When the server is **started**:
 - its URL is added to the status.
-- <span class="als-ks">Q</span> toggles the display of the QR code for the server URL.
+- {{< als-ks >}}Q{{< /als-ks >}} toggles the display of the QR code for the server URL.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -232,8 +232,8 @@ The **Image Saver** section of the panel allows triggering additional saves beyo
 
 ## Save Controls {#save-controls}
 
-- <span class="als-ks">S</span> or 🖱️ click `Save current` to save the **last** processing result with a timestamp.
-- <span class="als-ks">F</span> or 🖱️ check `Save every frame` to enable saving **each next** processing result with a timestamp.
+- {{< als-ks >}}S{{< /als-ks >}} or 🖱️ click `Save current` to save the **last** processing result with a timestamp.
+- {{< als-ks >}}F{{< /als-ks >}} or 🖱️ check `Save every frame` to enable saving **each next** processing result with a timestamp.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -283,7 +283,7 @@ height="44px"
 alt="The issues section with the issues button and its red panel" >}}
 {{< /center >}}
 
-<span class="als-ks">L</span> or 🖱️ click `Issues` to display the `Session Log` and review the new issues.
+{{< als-ks >}}L{{< /als-ks >}} or 🖱️ click `Issues` to display the `Session Log` and review the new issues.
 
 ---
 

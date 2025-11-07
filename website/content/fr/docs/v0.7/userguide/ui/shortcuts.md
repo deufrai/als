@@ -3,7 +3,7 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-04-21T01:14:15Z
+lastmod: 2025-11-07T14:54:32Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
@@ -17,9 +17,9 @@ weight: 70324
 
 ## ALS <i class="fa-brands fa-linux"></i> <i class="fa-brands fa-windows"></i> {#linux-windows-app}
 
-<span class='als-ks'>Ctrl</span> + <span class='als-ks'>P</span>   Préférences 
+{{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}P{{< /als-ks >}}   Préférences 
  
-<span class='als-ks'>Ctrl</span> + <span class='als-ks'>Q</span>   Quitter
+{{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}}   Quitter
 
 
 </div>
@@ -28,9 +28,9 @@ weight: 70324
 
 ## ALS <i class="fa-brands fa-apple"></i> {#mac-app}
 
-  <span class='als-ks'>⌘</span> + <span class='als-ks'>,</span>  Préférences 
+  {{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}},{{< /als-ks >}}  Préférences 
  
-<span class='als-ks'>⌘</span> + <span class='als-ks'>Q</span>  Quitter
+{{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}}  Quitter
 
 
 </div>
@@ -39,9 +39,9 @@ weight: 70324
 
 ## Fenêtre
 
-<span class='als-ks'>D</span> bascule le mode **plein écran**
+{{< als-ks >}}D{{< /als-ks >}} bascule le mode **plein écran**
 
-<span class='als-ks'>N</span> bascule le **mode nuit**
+{{< als-ks >}}N{{< /als-ks >}} bascule le **mode nuit**
 
 </div>
 </div>
@@ -51,26 +51,26 @@ weight: 70324
 
 ## Livestacking
 
-<span class='als-ks'>R</span> **démarre** / **met en pause** / **reprend** la session
+{{< als-ks >}}R{{< /als-ks >}} **démarre** / **met en pause** / **reprend** la session
 
-<span class='als-ks'>X</span> **stoppe** la session
+{{< als-ks >}}X{{< /als-ks >}} **stoppe** la session
 
-<span class='als-ks'>A</span> ON/OFF **alignement** des brutes
+{{< als-ks >}}A{{< /als-ks >}} ON/OFF **alignement** des brutes
 
-<span class='als-ks'>K</span> **acquitte** les problèmes
+{{< als-ks >}}K{{< /als-ks >}} **acquitte** les problèmes
 
 </div>
 <div class="col-md-6">
 
 ## Panneaux
 
-<span class='als-ks'>C</span> ON/OFF masquage `Contrôles principaux`
+{{< als-ks >}}C{{< /als-ks >}} ON/OFF masquage `Contrôles principaux`
 
-<span class='als-ks'>L</span> ON/OFF masquage `Journal de session`
+{{< als-ks >}}L{{< /als-ks >}} ON/OFF masquage `Journal de session`
 
-<span class='als-ks'>P</span> ON/OFF masquage `Traitements`
+{{< als-ks >}}P{{< /als-ks >}} ON/OFF masquage `Traitements`
 
-<span class='als-ks'>I</span> ON/OFF mode **image seule**
+{{< als-ks >}}I{{< /als-ks >}} ON/OFF mode **image seule**
 
 </div>
 </div>
@@ -80,25 +80,25 @@ weight: 70324
 
 ## Image
 
-<span class='als-ks'>Y</span> zoom **avant**
+{{< als-ks >}}Y{{< /als-ks >}} zoom **avant**
 
-<span class='als-ks'>H</span> zoom **arrière**
+{{< als-ks >}}H{{< /als-ks >}} zoom **arrière**
 
-<span class='als-ks'>G</span> **réinitialise** le zoom
+{{< als-ks >}}G{{< /als-ks >}} **réinitialise** le zoom
 
-<span class='als-ks'>B</span> **ajuste l'image** à la zone centrale
+{{< als-ks >}}B{{< /als-ks >}} **ajuste l'image** à la zone centrale
 </div>
 <div class="col-md-6">
 
 ## Sorties
 
-<span class='als-ks'>W</span> ON/OFF **serveur** d'images
+{{< als-ks >}}W{{< /als-ks >}} ON/OFF **serveur** d'images
 
-<span class='als-ks'>Q</span> ON/OFF affichage **QR code**
+{{< als-ks >}}Q{{< /als-ks >}} ON/OFF affichage **QR code**
 
-<span class='als-ks'>S</span> sauvegarde l'**image courante**
+{{< als-ks >}}S{{< /als-ks >}} sauvegarde l'**image courante**
 
-<span class='als-ks'>F</span> ON/OFF sauvegarde **chaque image**
+{{< als-ks >}}F{{< /als-ks >}} ON/OFF sauvegarde **chaque image**
 </div>
 </div>
 
