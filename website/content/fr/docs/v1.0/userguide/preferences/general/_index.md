@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-07T19:18:23Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -143,6 +143,7 @@ Définit la langue de l'interface utilisateur d'ALS
   - **Système** : ALS suit la langue du système
   - **Français**
   - **Anglais**
+  - **Russe**
 
 Si votre système est configuré dans une autre langue que le français ou l'anglais, ALS sera affiché en anglais.
 
