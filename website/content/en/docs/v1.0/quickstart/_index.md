@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-11-02T21:04:03Z
+lastmod: 2025-11-07T16:29:34Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -145,8 +145,8 @@ height="443px"
 alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek, including several folders and a log file. The newly created folder named als_output is highlighted, and the Choose button is highlighted, indicating the user is about to confirm the selection." >}}
 {{< /center >}}
 
-1. ⌨️ Name it **als_output**.
-2. 🖱️ Click `Choose`.
+1. ⌨️ Name it {{< als-code>}}als_output{{< /als-code >}}
+2. 🖱️ Click `Choose`
 
 🖱️ Switch back to the `General` tab.
 
@@ -364,11 +364,11 @@ alt="File selection dialog box titled 'Select your ALS executable.' The dialog b
 {{< /center >}}
 
 1. 🖱️ Browse to the folder where ALS is located
-    - **PC**: Browse to `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Browse to `/home/astrogeek/Applications/ALS/als-v0.7`
+    - **PC**: Browse to {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
+    - **Raspberry PI**: Browse to {{< als-code >}}/home/astrogeek/Applications/ALS/als-v0.7{{< /als-code >}}
 2. 🖱️ Select the executable
-    - **PC**: Select the file `als-v0.7.run`
-    - **Raspberry PI**: Select the file `als-v0.7`
+    - **PC**: Select the file {{< als-code >}}als-v0.7.run{{< /als-code >}}
+    - **Raspberry PI**: Select the file {{< als-code >}}als-v0.7{{< /als-code >}}
 3. 🖱️ Click `Open`
 
 ALS confirms the successful creation of the launcher
