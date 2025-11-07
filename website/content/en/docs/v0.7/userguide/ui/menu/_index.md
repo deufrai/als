@@ -3,7 +3,7 @@ title: "main menu"
 description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2025-01-05T11:42:35Z
+lastmod: 2025-11-07T14:54:31Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["usage"]
@@ -23,8 +23,8 @@ weight: 70325
 
 **Quit**
 
-  - <span class="als-ks">Ctrl</span> + <span class="als-ks">Q</span> on Windows and Linux
-  - <span class="als-ks">⌘</span> + <span class="als-ks">Q</span> on macOS
+  - {{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}} on Windows and Linux
+  - {{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}} on macOS
 
 Quits ALS
 
@@ -42,7 +42,7 @@ Quits ALS
 
 ### Ack. issues
 
-  <span class="als-ks">K</span> is used to indicate that you have acknowledged the latest reported issues
+  {{< als-ks >}}K{{< /als-ks >}} is used to indicate that you have acknowledged the latest reported issues
 
   The issue indicator turns off until a new issue is reported
 
@@ -62,8 +62,8 @@ Quits ALS
 
 **Preferences...**
 
-  - <span class="als-ks">Ctrl</span> + <span class="als-ks">P</span> on Windows and Linux
-  - <span class="als-ks">⌘</span> + <span class="als-ks">,</span> on macOS
+  - {{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}P{{< /als-ks >}} on Windows and Linux
+  - {{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}},{{< /als-ks >}} on macOS
 
 Opens preferences
 
@@ -84,22 +84,22 @@ Opens preferences
 
 ### Reset zoom
 
-  <span class="als-ks">G</span> resets the zoom: 1 pixel of the image occupies 1 pixel on the screen
+  {{< als-ks >}}G{{< /als-ks >}} resets the zoom: 1 pixel of the image occupies 1 pixel on the screen
 
 ### Zoom in
 
-  <span class="als-ks">Y</span> enlarges the displayed image by 10%
+  {{< als-ks >}}Y{{< /als-ks >}} enlarges the displayed image by 10%
 
 </div>
 <div class="col-md-6">
 
 ### Zoom out
 
-  <span class="als-ks">H</span> reduces the displayed image by 10%
+  {{< als-ks >}}H{{< /als-ks >}} reduces the displayed image by 10%
 
 ### Adjust
 
-  <span class="als-ks">B</span> fits the image to the central area
+  {{< als-ks >}}B{{< /als-ks >}} fits the image to the central area
 
 </div>
 </div>
@@ -122,15 +122,15 @@ Opens preferences
 
 ### Main Controls
 
-  <span class="als-ks">C</span> ON/OFF toggle `Main Controls`
+  {{< als-ks >}}C{{< /als-ks >}} ON/OFF toggle `Main Controls`
 
 ### Processing panel
 
-  <span class="als-ks">P</span> ON/OFF toggle `Treatments`
+  {{< als-ks >}}P{{< /als-ks >}} ON/OFF toggle `Treatments`
 
 ### Session log
 
-  <span class="als-ks">L</span> ON/OFF toggle `Session Log`
+  {{< als-ks >}}L{{< /als-ks >}} ON/OFF toggle `Session Log`
 
 </div>
 
@@ -138,17 +138,17 @@ Opens preferences
 
 ### Image only
 
-  <span class="als-ks">I</span> ON/OFF Image only mode : all panels are hidden
+  {{< als-ks >}}I{{< /als-ks >}} ON/OFF Image only mode : all panels are hidden
 
   ON = all panels are hidden
 
 ### Full screen
 
-  <span class="als-ks">D</span> toggles full screen mode
+  {{< als-ks >}}D{{< /als-ks >}} toggles full screen mode
 
 ### Night mode
 
-  <span class="als-ks">N</span> toggles night mode
+  {{< als-ks >}}N{{< /als-ks >}} toggles night mode
 
 </div>
 </div>
@@ -167,7 +167,7 @@ Opens preferences
 
 ### QR Code
 
-  <span class="als-ks">Q</span> ON/OFF toggle image server QR Code display
+  {{< als-ks >}}Q{{< /als-ks >}} ON/OFF toggle image server QR Code display
 
   _This option is only available if the image server is started_
 

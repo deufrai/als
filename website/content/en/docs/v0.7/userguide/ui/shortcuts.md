@@ -3,7 +3,7 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2025-04-21T01:14:15Z
+lastmod: 2025-11-07T14:54:31Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
@@ -17,9 +17,9 @@ weight: 70324
 
 ## ALS <i class="fa-brands fa-linux"></i> <i class="fa-brands fa-windows"></i> {#linux-windows-app}
 
-<span class='als-ks'>Ctrl</span> + <span class='als-ks'>P</span>   Preferences
+{{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}P{{< /als-ks >}}   Preferences
  
-<span class='als-ks'>Ctrl</span> + <span class='als-ks'>Q</span>   Quit
+{{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}}   Quit
 
 
 </div>
@@ -28,9 +28,9 @@ weight: 70324
 
 ## ALS <i class="fa-brands fa-apple"></i> {#mac-app}
 
-  <span class='als-ks'>⌘</span> + <span class='als-ks'>,</span>  Preferences
+{{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}},{{< /als-ks >}}  Preferences
  
-<span class='als-ks'>⌘</span> + <span class='als-ks'>Q</span>  Quit
+{{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}}  Quit
 
 
 </div>
@@ -39,9 +39,9 @@ weight: 70324
 
 ## Window
 
-<span class='als-ks'>D</span> toggles **full screen** mode
+{{< als-ks >}}D{{< /als-ks >}} toggles **full screen** mode
 
-<span class='als-ks'>N</span> toggles **night mode**
+{{< als-ks >}}N{{< /als-ks >}} toggles **night mode**
 
 </div>
 </div>
@@ -51,25 +51,25 @@ weight: 70324
 
 ## Livestacking
 
-<span class='als-ks'>R</span> **starts** / **pauses** / **resumes** the session
+{{< als-ks >}}R{{< /als-ks >}} **starts** / **pauses** / **resumes** the session
 
-<span class='als-ks'>X</span> **stops** the session
+{{< als-ks >}}X{{< /als-ks >}} **stops** the session
 
-<span class='als-ks'>A</span> ON/OFF subs **alignment**
+{{< als-ks >}}A{{< /als-ks >}} ON/OFF subs **alignment**
 
-<span class='als-ks'>K</span> **acknowledges** issues
+{{< als-ks >}}K{{< /als-ks >}} **acknowledges** issues
 </div>
 <div class="col-md-6">
 
 ## Panels
 
-<span class='als-ks'>C</span> ON/OFF toggle `Main Controls`
+{{< als-ks >}}C{{< /als-ks >}} ON/OFF toggle `Main Controls`
 
-<span class='als-ks'>L</span> ON/OFF toggle `Session Log`
+{{< als-ks >}}L{{< /als-ks >}} ON/OFF toggle `Session Log`
 
-<span class='als-ks'>P</span> ON/OFF toggle `Processing`
+{{< als-ks >}}P{{< /als-ks >}} ON/OFF toggle `Processing`
 
-<span class='als-ks'>I</span> ON/OFF **image-only** mode
+{{< als-ks >}}I{{< /als-ks >}} ON/OFF **image-only** mode
 
 </div>
 </div>
@@ -79,24 +79,24 @@ weight: 70324
 
 ## Image
 
-<span class='als-ks'>Y</span> zoom **in**
+{{< als-ks >}}Y{{< /als-ks >}} zoom **in**
 
-<span class='als-ks'>H</span> zoom **out**
+{{< als-ks >}}H{{< /als-ks >}} zoom **out**
 
-<span class='als-ks'>G</span> **reset** zoom
+{{< als-ks >}}G{{< /als-ks >}} **reset** zoom
 
-<span class='als-ks'>B</span> **fit image** to central area
+{{< als-ks >}}B{{< /als-ks >}} **fit image** to central area
 </div>
 <div class="col-md-6">
 
 ## Outputs
 
-<span class='als-ks'>W</span> ON/OFF image **server**
+{{< als-ks >}}W{{< /als-ks >}} ON/OFF image **server**
 
-<span class='als-ks'>Q</span> ON/OFF **QR code** display
+{{< als-ks >}}Q{{< /als-ks >}} ON/OFF **QR code** display
 
-<span class='als-ks'>S</span> save **current image**
+{{< als-ks >}}S{{< /als-ks >}} save **current image**
 
-<span class='als-ks'>F</span> ON/OFF save **every next image**
+{{< als-ks >}}F{{< /als-ks >}} ON/OFF save **every next image**
 </div>
 </div>

@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:26:25Z
+lastmod: 2025-11-07T14:54:32Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -43,7 +43,7 @@ Les brutes sont divisées par le master flat après la soustraction du master da
 
 ### Texte
 - un `élémént d'interface graphique`
-- un <span class="als-ks">raccourci clavier</span>
+- un {{< als-ks >}}raccourci clavier{{< /als-ks >}}
 - une {{< als-code >}}commande{{< /als-code >}} ou un {{< als-code >}}extrait de code{{< /als-code >}}
 - une **information importante**
 - ⚙️ Détail technique

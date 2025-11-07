@@ -3,7 +3,7 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2025-01-05T11:42:35Z
+lastmod: 2025-11-07T14:54:32Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
@@ -23,8 +23,8 @@ weight: 70325
 
 **Quitter**
 
-  - <span class="als-ks">Ctrl</span> + <span class="als-ks">Q</span> sur Windows et Linux
-  - <span class="als-ks">⌘</span> + <span class="als-ks">Q</span> sur macOS
+  - {{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}} sur Windows et Linux
+  - {{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}}Q{{< /als-ks >}} sur macOS
 
 Quitte ALS
 
@@ -42,7 +42,7 @@ Quitte ALS
 
 ### Acquitter problèmes
 
-  <span class="als-ks">K</span> sert à indiquer que vous avez pris connaissance des derniers problèmes signalés
+  {{< als-ks >}}K{{< /als-ks >}} sert à indiquer que vous avez pris connaissance des derniers problèmes signalés
 
   L'indicateur de problèmes s'éteint jusqu'à ce qu'un nouveau problème soit signalé
 
@@ -64,8 +64,8 @@ Quitte ALS
 
 **Préférences...**
 
-  - <span class="als-ks">Ctrl</span> + <span class="als-ks">P</span> sur Windows et Linux
-  - <span class="als-ks">⌘</span> + <span class="als-ks">,</span> sur macOS
+  - {{< als-ks >}}Ctrl{{< /als-ks >}} + {{< als-ks >}}P{{< /als-ks >}} sur Windows et Linux
+  - {{< als-ks >}}⌘{{< /als-ks >}} + {{< als-ks >}},{{< /als-ks >}} sur macOS
 
 Ouvre les préférences
 
@@ -86,23 +86,23 @@ Ouvre les préférences
 
 ### RAZ zoom
 
-  <span class="als-ks">G</span> réinitialise le zoom : 1 pixel de l'image occupe 1 pixel à l'écran
+  {{< als-ks >}}G{{< /als-ks >}} réinitialise le zoom : 1 pixel de l'image occupe 1 pixel à l'écran
 
 ### Zoomer
 
-  <span class="als-ks">Y</span> agrandit l'image affichée de 10%
+  {{< als-ks >}}Y{{< /als-ks >}} agrandit l'image affichée de 10%
 
 </div>
 <div class="col-md-6">
 
 ### Dézoomer
 
-  <span class="als-ks">H</span> réduit l'image affichée de 10%
+  {{< als-ks >}}H{{< /als-ks >}} réduit l'image affichée de 10%
 
 
 ### Ajuster
 
-  <span class="als-ks">B</span> ajuste l'image dans la zone centrale
+  {{< als-ks >}}B{{< /als-ks >}} ajuste l'image dans la zone centrale
 
 </div>
 </div>
@@ -126,15 +126,15 @@ Ouvre les préférences
 
 ### Contrôles principaux
 
-  <span class="als-ks">C</span> ON/OFF masquage `Contrôles principaux`
+  {{< als-ks >}}C{{< /als-ks >}} ON/OFF masquage `Contrôles principaux`
 
 ### Panneau des traitements
 
-  <span class="als-ks">P</span> ON/OFF masquage `Traitements`
+  {{< als-ks >}}P{{< /als-ks >}} ON/OFF masquage `Traitements`
 
 ### Journal de session
 
-  <span class="als-ks">L</span> ON/OFF masquage `Journal de session`
+  {{< als-ks >}}L{{< /als-ks >}} ON/OFF masquage `Journal de session`
 
 </div>
 
@@ -142,15 +142,15 @@ Ouvre les préférences
 
 ### Image seule
 
-  <span class="als-ks">I</span> ON/OFF mode Image seule : tous les panneaux sont masqués
+  {{< als-ks >}}I{{< /als-ks >}} ON/OFF mode Image seule : tous les panneaux sont masqués
 
 ### Plein écran
 
-  <span class="als-ks">D</span> ON/OFF mode Plein écran
+  {{< als-ks >}}D{{< /als-ks >}} ON/OFF mode Plein écran
 
 ### Mode nuit
 
-  <span class="als-ks">N</span> ON/OFF mode nuit
+  {{< als-ks >}}N{{< /als-ks >}} ON/OFF mode nuit
 
 </div>
 </div>
@@ -170,7 +170,7 @@ Ouvre les préférences
 
 ### QR Code
 
-  <span class="als-ks">Q</span> ON/OFF affichage du QR Code du serveur d'images
+  {{< als-ks >}}Q{{< /als-ks >}} ON/OFF affichage du QR Code du serveur d'images
 
   _Cette option n'est disponible que si le serveur d'images est démarré_
 

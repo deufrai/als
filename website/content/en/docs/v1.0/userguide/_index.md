@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:26:25Z
+lastmod: 2025-11-07T14:54:31Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -43,7 +43,7 @@ Subs are divided by the master flat after dark subtraction during calibration
 
 ### Text
 - a `graphical user interface element`
-- a <span class="als-ks">keyboard shortcut</span>
+- a {{< als-ks >}}keyboard shortcut{{< /als-ks >}}
 - a {{< als-code >}}command{{< /als-code >}} or {{< als-code >}}code extract{{< /als-code >}}
 - an **important information**
 - ⚙️ Technical detail

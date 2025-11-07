@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-04-20T02:29:19Z
+lastmod: 2025-11-07T14:54:31Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -72,11 +72,11 @@ La section **session** du panneau comprend 2 zones :
 
 ## Contrôles de session {#session-controls}
 
-- <span class="als-ks">R</span> ou 🖱️ cliquez `START` pour :
+- {{< als-ks >}}R{{< /als-ks >}} ou 🖱️ cliquez `START` pour :
   - **démarrer** une nouvelle session
   - **reprendre** une session mise en **pause**
-- <span class="als-ks">R</span> ou 🖱️ cliquez `PAUSE` pour mettre en **pause** une session **démarrée**.
-- <span class="als-ks">X</span> ou 🖱️ cliquez `STOP` pour **arrêter** une session **démarrée**.
+- {{< als-ks >}}R{{< /als-ks >}} ou 🖱️ cliquez `PAUSE` pour mettre en **pause** une session **démarrée**.
+- {{< als-ks >}}X{{< /als-ks >}} ou 🖱️ cliquez `STOP` pour **arrêter** une session **démarrée**.
 
 {{% alert color="info" %}}
 ℹ️ Arrêter une session avec au moins une brute dans la **stack** affiche une demande de confirmation
@@ -116,7 +116,7 @@ La section **stack** du panneau contrôle le module **Stacker**.
 {{% alert color="info" %}}
 ℹ️ Ces contrôles sont accessibles uniquement quand la session est stoppée.
 {{% /alert %}}
-- <span class="als-ks">A</span> ou 🖱️ cochez `Aligner` pour activer l'**alignement** des brutes
+- {{< als-ks >}}A{{< /als-ks >}} ou 🖱️ cochez `Aligner` pour activer l'**alignement** des brutes
 
 - Utilisez la liste déroulante pour définir le **mode d'empilement** à utiliser :
     - `moyenne`
@@ -199,8 +199,8 @@ La section **Serveur d'images** du panneau contrôle le module **Server**
 
 ## Contrôles du serveur
 
-- <span class="als-ks">W</span> ou 🖱️ cliquez `START` pour démarrer le serveur
-- <span class="als-ks">W</span> ou 🖱️ cliquez `STOP` pour arrêter le serveur
+- {{< als-ks >}}W{{< /als-ks >}} ou 🖱️ cliquez `START` pour démarrer le serveur
+- {{< als-ks >}}W{{< /als-ks >}} ou 🖱️ cliquez `STOP` pour arrêter le serveur
 
 ## Informations sur le serveur
 
@@ -208,7 +208,7 @@ Sous les contrôles du serveur, vous trouverez l'affichage de son statut
 
 Quand le serveur est **démarré** :
 - son URL est ajoutée au statut
-- <span class="als-ks">Q</span> bascule l'affichaque du QR code pour l'URL du serveur 
+- {{< als-ks >}}Q{{< /als-ks >}} bascule l'affichaque du QR code pour l'URL du serveur 
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -239,9 +239,9 @@ fonctionnement par défaut du module **Save**
 
 ## Contrôles d'enregristrement {#save-controls}
 
-- <span class="als-ks">S</span> ou 🖱️ cliquez `Enr. image courante` pour enregistrer le **dernier** 
+- {{< als-ks >}}S{{< /als-ks >}} ou 🖱️ cliquez `Enr. image courante` pour enregistrer le **dernier** 
   résultat de traitement avec horodatage
-- <span class="als-ks">F</span> ou 🖱️ cochez `Enr. chaque image` pour activer l'enregistrement de **chaque prochain** 
+- {{< als-ks >}}F{{< /als-ks >}} ou 🖱️ cochez `Enr. chaque image` pour activer l'enregistrement de **chaque prochain** 
   résultat de traitement avec horodatage
 
 </div>
@@ -293,7 +293,7 @@ height="44px"
 alt="La section problèmes avec le bouton problèmes et son panneau rouge" >}}
 {{< /center >}}
 
-<span class="als-ks">L</span> ou 🖱️ cliquez `Problèmes` pour afficher le `Journal de session` et consulter 
+{{< als-ks >}}L{{< /als-ks >}} ou 🖱️ cliquez `Problèmes` pour afficher le `Journal de session` et consulter 
 les nouveaux problèmes détectés.
 
 ---
