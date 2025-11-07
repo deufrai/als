@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-07T19:22:47Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -177,9 +177,9 @@ alt="Histogram showing the curves after precise adjustments to black levels." >}
 
 *Moving the slider to the left shifts the curves to the right.*
 
-### Exposure
+### Midtones
 
-🖱️ Adjust the `Exposure` slider to control overall brightness.
+🖱️ Adjust the `midtones` slider to control overall brightness.
 
 ℹ️ Default: Center position.
 
