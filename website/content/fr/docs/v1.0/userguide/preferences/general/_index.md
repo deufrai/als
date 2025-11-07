@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-07T19:18:23Z
+lastmod: 2025-11-07T19:57:21Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -138,7 +138,7 @@ alt="Interface logicielle affichant les paramètres du dossier de travail avec l
 
 Définit la langue de l'interface utilisateur d'ALS
 
-- 🖱️ 3 choix sont possibles :
+- 🖱️ Les choix suivants sont disponibles :
 
   - **Système** : ALS suit la langue du système
   - **Français**
@@ -215,4 +215,4 @@ Les données collectées sont anonymes et servent à améliorer l'application
 
 Vous trouverez les détails de la collecte de données dans le [guide de démarrage rapide](../../../quickstart#usage-stats)
 
-ℹ️ Par défaut : **ON, après consentement**
+ℹ️ Par défaut : **OFF**
