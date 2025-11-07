@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2025-11-07T19:18:23Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -133,6 +133,7 @@ Defines the language of the ALS user interface.
   - **System**: ALS follows the system language
   - **French**
   - **English**
+  - **Russian**
 
 If your system is set to a language other than French or English, ALS will be displayed in English.
 
