@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-11-07T13:37:23Z
+lastmod: 2025-11-07T14:14:02Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -123,7 +123,7 @@ desktop and mobile devices.
 Stop your session and find the final result image in your **work folder**.
 
 {{< alert color="info" >}}
-To end a session started **via the command line**, use `Ctrl+C` in the terminal where ALS is running.
+To end a session started **via the command line**, use <span class='als-ks'>Ctrl+C</span> in the terminal where ALS is running.
 This will also **quit the whole application**.
 {{< /alert >}}
 
