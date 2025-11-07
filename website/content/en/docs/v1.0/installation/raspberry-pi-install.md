@@ -2,7 +2,7 @@
 title: Installation on Raspberry Pi
 description: Installing ALS on Raspberry Pi
 author: ALZ Team
-lastmod: 2025-11-02T20:58:20Z
+lastmod: 2025-11-07T15:39:58Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 100220
 tags: ['install', 'Linux', 'Raspberry Pi']
@@ -36,11 +36,11 @@ if you need assistance._
     - Access your Downloads folder. You can usually find it by clicking on the icon of your file manager (for example, PCManFM) and selecting "Downloads" in the navigation menu on the left.
 
 2. **Identify the ALS archive**
-    - Look for the archive whose name starts with `als` and ends with `.tgz`. For example, it might be `als-v1.0.tgz`.
+    - Look for the archive whose name starts with {{< als-code >}}als{{< /als-code >}} and ends with {{< als-code >}}.tgz{{< /als-code >}}. For example, it might be {{< als-code >}}als-v1.0.tgz{{< /als-code >}}.
 
 3. **Extract the archive**
     - To extract the archive, you can use a file manager:
-        - Right-click on the `als-v1.0.tgz` archive.
+        - Right-click on the {{< als-code >}}als-v1.0.tgz{{< /als-code >}} archive.
         - Select "Extract Here" or a similar option.
 
 4. **Move ALS to a permanent location**
@@ -50,17 +50,17 @@ if you need assistance._
    Moving ALS to a dedicated directory helps organize your files better and ensures the application is installed in a stable and permanent location. The Downloads folder is often used for temporary files and can be cleaned up regularly, leading to the accidental deletion of important files. By creating a specific folder for ALS, you ensure the application remains accessible and safe.
 
     - Open your file manager (for example, PCManFM).
-    - Go to your home directory (`/home/username`).
+    - Go to your home directory ({{< als-code >}}/home/username{{< /als-code >}}).
     - Right-click in the directory and select "Create New Folder".
-    - Name the folder `Applications` and press "Enter".
-    - Double-click the `Applications` folder to open it.
-    - Create another folder inside it called `ALS` and press "Enter".
-    - Navigate to the Downloads folder (`Downloads`) in another window of your file manager. It's important to have two distinct and visible windows to easily drag and drop files.
-    - Find the `als-v1.0` folder in the Downloads folder, then drag this folder into the `ALS` folder (`/home/username/Applications/ALS`).
+    - Name the folder {{< als-code >}}Applications{{< /als-code >}} and press "Enter".
+    - Double-click the {{< als-code >}}Applications{{< /als-code >}} folder to open it.
+    - Create another folder inside it called {{< als-code >}}ALS{{< /als-code >}} and press "Enter".
+    - Navigate to the Downloads folder ({{< als-code >}}Downloads{{< /als-code >}}) in another window of your file manager. It's important to have two distinct and visible windows to easily drag and drop files.
+    - Find the {{< als-code >}}als-v1.0{{< /als-code >}} folder in the Downloads folder, then drag this folder into the {{< als-code >}}ALS{{< /als-code >}} folder ({{< als-code >}}/home/username/Applications/ALS{{< /als-code >}}).
 
 5. **Run the executable**
-    - Navigate to the `als-v1.0` folder in the file manager.
-    - Double-click on the `als-v1.0` file.
+    - Navigate to the {{< als-code >}}als-v1.0{{< /als-code >}} folder in the file manager.
+    - Double-click on the {{< als-code >}}als-v1.0{{< /als-code >}} file.
     - If a dialog box appears asking you to confirm the execution, choose the option to run or open the file.
 
 Next step : Our [Quickstart](../quickstart/) guide 

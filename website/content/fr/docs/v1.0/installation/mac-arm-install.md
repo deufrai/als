@@ -3,7 +3,7 @@ title: Installation sur un Mac Apple Silicon
 description: Installation d'ALS sur Mac Apple Silicon
 author: ALZ Team
 
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-07T15:39:58Z
 keywords: ["installation", "mac", "m1", "m2", "astro live stacker", "guide"]
 weight: 100240
 Categories: ['procédures']
@@ -29,36 +29,35 @@ macOS 10.13 (High Sierra) ou version ultérieure
    - Accédez à votre dossier de téléchargements en sélectionnant "Téléchargements" dans le menu de navigation à gauche.
 
 2. **Identifier l'image disque als**
-   - Recherchez l'image disque dont le nom commence par `als` et se termine par `-arm64.dmg`. Par exemple, cela pourrait être `als-v0.7-arm64.dmg`.
+   - Recherchez l'image disque dont le nom commence par {{< als-code >}}als{{< /als-code >}} et se termine par {{< als-code >}}-arm64.dmg{{< /als-code >}}. Par exemple, cela pourrait être {{< als-code >}}als-v0.7-arm64.dmg{{< /als-code >}}.
 
 3. **Monter l'image disque**
-   - Double-cliquez sur l'image disque `als-v0.7-arm64.dmg`. Cela montera l'image disque.
-   - Une nouvelle fenêtre Finder affichera le contenu de l'image disque. Vous verrez l'icône de l'application `ALS` à gauche et un raccourci vers le dossier `Applications` du système à droite.
+   - Double-cliquez sur l'image disque {{< als-code >}}als-v0.7-arm64.dmg{{< /als-code >}}. Cela montera l'image disque.
+   - Une nouvelle fenêtre Finder affichera le contenu de l'image disque. Vous verrez l'icône de l'application {{< als-code >}}ALS{{< /als-code >}} à gauche et un raccourci vers le dossier {{< als-code >}}Applications{{< /als-code >}} du système à droite.
 
 4. **Copier l'application dans le dossier Applications**
-   - Faites glisser l'icône de l'application `ALS` de la fenêtre du Finder vers le raccourci `Applications` dans la même fenêtre.
+   - Faites glisser l'icône de l'application {{< als-code >}}ALS{{< /als-code >}} de la fenêtre du Finder vers le raccourci {{< als-code >}}Applications{{< /als-code >}} dans la même fenêtre.
    - Si vous y êtes invité, entrez votre mot de passe administrateur pour autoriser cette opération.
 
 5. **Gérer les permissions de l'app**
    - macOS versions antérieures à Catalina (10.15)
      - Une boîte de dialogue s'affichera, indiquant que l'application provient d'un développeur inconnu. Cliquez sur "Ouvrir" pour confirmer.
-     - Une fois que l'application est autorisée, double-cliquez à nouveau sur l'application `ALS` dans le dossier `Applications` pour la lancer.
+     - Une fois que l'application est autorisée, double-cliquez à nouveau sur l'application {{< als-code >}}ALS{{< /als-code >}} dans le dossier {{< als-code >}}Applications{{< /als-code >}} pour la lancer.
    - macOS Catalina (10.15) jusqu'à Sonoma (14.x.x)
      - Une boîte de dialogue s'affichera, indiquant que l'application ne peut pas être ouverte car elle provient d'un développeur inconnu. Cliquez sur "Annuler".
-     - Allez dans "Préférences Système" > "Sécurité et confidentialité" > "Général", puis cliquez sur "Ouvrir quand même" à côté du message concernant `ALS`.
+     - Allez dans "Préférences Système" > "Sécurité et confidentialité" > "Général", puis cliquez sur "Ouvrir quand même" à côté du message concernant {{< als-code >}}ALS{{< /als-code >}}.
      - Confirmez en cliquant à nouveau sur "Ouvrir" dans la nouvelle boîte de dialogue qui s'affiche.
-     - Une fois que l'application est autorisée, double-cliquez à nouveau sur l'application `ALS` dans le dossier `Applications` pour la lancer.
+     - Une fois que l'application est autorisée, double-cliquez à nouveau sur l'application {{< als-code >}}ALS{{< /als-code >}} dans le dossier {{< als-code >}}Applications{{< /als-code >}} pour la lancer.
    - macOS Sequoia (15.x.x)
-     - Ouvrez le Finder et allez dans le dossier `Applications`
-     - Ensuite, allez dans le sous-dossier `Utilitaires`.
-     - Dans ce sous-dossier, double-cliquez sur l'application `Terminal` pour l'ouvrir.
+     - Ouvrez le Finder et allez dans le dossier {{< als-code >}}Applications{{< /als-code >}}
+     - Ensuite, allez dans le sous-dossier {{< als-code >}}Utilitaires{{< /als-code >}}.
+     - Dans ce sous-dossier, double-cliquez sur l'application {{< als-code >}}Terminal{{< /als-code >}} pour l'ouvrir.
      - Dans la fenêtre du Terminal, tapez la commande suivante
-       ```bash
-       sudo xattr -r -d com.apple.quarantine /Applications/als.app
-       ```
-     - Appuyez sur `Entrée`. Entrez votre mot de passe administrateur si vous y êtes invité et appuyez à nouveau sur `Entrée`.
+     
+       {{< als-code >}}sudo xattr -r -d com.apple.quarantine /Applications/als.app{{< /als-code >}}
+     - Appuyez sur {{< als-ks >}}Entrée{{< /als-ks >}}. Entrez votre mot de passe si vous y êtes invité et appuyez à nouveau sur {{< als-ks >}}Entrée{{< /als-ks >}}.
 
 6. **Lancement d'ALS**
-     - Accédez au dossier `Applications`, puis double-cliquez sur l'application `ALS` pour l'exécuter.
+     - Accédez au dossier {{< als-code >}}Applications{{< /als-code >}}, puis double-cliquez sur l'application {{< als-code >}}ALS{{< /als-code >}} pour l'exécuter.
 
 Prochaine étape : Le guide de [premier démarrage](../quickstart/). 
