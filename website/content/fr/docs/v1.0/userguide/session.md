@@ -3,7 +3,7 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-07T13:09:31Z
+lastmod: 2025-11-07T13:37:23Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -119,7 +119,7 @@ Les spectateurs peuvent explorer votre image en cours d'évolution avec les mêm
 
 Stoppez votre session et récupérez l'image finale dans le **dossier de travail**.
 
-{{< alert title="Remarque" color="info" >}}
+{{< alert color="info" >}}
 Pour terminer une session démarrée **depuis la ligne de commande**, utilisez `Ctrl+C` dans le terminal où ALS s'exécute.
 Cela quittera également **l'application entière**.
 {{< /alert >}}
