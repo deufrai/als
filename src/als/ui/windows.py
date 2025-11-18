@@ -83,13 +83,14 @@ class MainWindow(QMainWindow):
             self._ui.sld_rgb_r,
             self._ui.sld_rgb_g,
             self._ui.sld_rgb_b,
+            self._ui.sld_rgb_saturation,
         ]
 
         self._rgb_parameters = self._controller.get_rgb_parameters()
 
         set_sliders_defaults(
-            [self._rgb_parameters[1], self._rgb_parameters[2], self._rgb_parameters[3]],
-            [self._ui.sld_rgb_r, self._ui.sld_rgb_g, self._ui.sld_rgb_b]
+            [self._rgb_parameters[1], self._rgb_parameters[2], self._rgb_parameters[3], self._rgb_parameters[4]],
+            [self._ui.sld_rgb_r, self._ui.sld_rgb_g, self._ui.sld_rgb_b, self._ui.sld_rgb_saturation]
         )
 
         init_params(self._rgb_parameters, self._rgb_controls)
@@ -258,6 +259,7 @@ class MainWindow(QMainWindow):
         self._ui.sld_rgb_r.setEnabled(checked)
         self._ui.sld_rgb_g.setEnabled(checked)
         self._ui.sld_rgb_b.setEnabled(checked)
+        self._ui.sld_rgb_saturation.setEnabled(checked)
 
         self._apply_rgb()
 

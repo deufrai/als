@@ -122,6 +122,16 @@ class ColorBalance(ImageProcessor):
             )
         )
 
+        self._parameters.append(
+            RangeParameter(
+                "saturation",
+                I18n.TOOLTIP_SATURATION_LEVEL,
+                default=1,
+                minimum=0,
+                maximum=2
+            )
+        )
+
     @log
     def process_image(self, image: Image):
         """
@@ -138,6 +148,7 @@ class ColorBalance(ImageProcessor):
         red = self._parameters[1]
         green = self._parameters[2]
         blue = self._parameters[3]
+        saturation = self._parameters[4]
 
         if active.value:
             red_value = red.value if red.value > 0 else 0.1
@@ -156,6 +167,11 @@ class ColorBalance(ImageProcessor):
 
             if not blue.is_default():
                 image.data[2] = image.data[2] * blue_value
+                processed = True
+
+            if not saturation.is_default():
+                mean_channel = np.mean(image.data, axis=0)
+                image.data = mean_channel + (image.data - mean_channel) * saturation.value
                 processed = True
 
             if processed:
