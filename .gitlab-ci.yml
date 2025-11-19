@@ -9,6 +9,7 @@ include:
       # always run on scheduled/nightly or tag pipelines
       - if: '$CI_PIPELINE_SOURCE == "schedule"'
       - if: '$CI_PIPELINE_SOURCE == "tag"'
+      - if: '$CI_COMMIT_BRANCH == "merge_request_event"'
       # run when any application-relevant file changed
       - changes:
           - src/**/*
