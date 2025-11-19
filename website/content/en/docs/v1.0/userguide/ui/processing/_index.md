@@ -254,6 +254,9 @@ The blended colors of the histogram effectively reflect the image's red dominanc
 
 ### Slider Actions
 
-Each slider adjusts the horizontal position of its respective curve.
-
-*Moving the slider to the right shifts the curve to the right.*
+- The **R**, **G**, and **B** sliders adjust the horizontal position of their respective curves.
+  *Moving the slider to the right shifts the curve to the right.*
+- The **Saturation** slider controls how far each channel can move away from neutral gray:
+  - Left = desaturate toward monochrome.
+  - Center = neutral (no change).
+  - Right = boost color intensity without altering exposure.

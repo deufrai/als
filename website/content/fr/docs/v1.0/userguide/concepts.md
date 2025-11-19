@@ -195,9 +195,9 @@ Le module **Process** regroupe les traitements visuels appliqués sur les résul
 
    Permet de régler l'écrêtage des noirs et des blancs, et le niveau des tons moyens de l'image
 
-3. **Balance RVB**
+3. **Balance RVB et saturation**
 
-   Permet de régler la balance des couleurs de l'image
+   Permet de régler la balance des couleurs et la saturation de l'image
 
 {{% alert color="info" %}}
 ℹ️ L'image affichée dans la **zone centrale** d'ALS est remplacée par chaque image se présentant en sortie du module

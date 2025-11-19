@@ -269,6 +269,9 @@ Le mélange des couleurs de l'histogramme rend bien compte de la dominante rouge
 
 ### Actions des Curseurs
 
-Chaque curseur ajuste la position horizontale de la courbe correspondante.
-
-*Déplacer le curseur vers la droite décale la courbe vers la droite*
+- Les curseurs **R**, **V** et **B** ajustent la position horizontale de leurs courbes respectives.
+  *Déplacer le curseur vers la droite décale la courbe vers la droite.*
+- Le curseur de **saturation** contrôle l'éloignement des canaux par rapport au gris neutre :
+  - À gauche = désaturer jusqu'au monochrome.
+  - Au centre = neutre (pas de changement).
+  - À droite = renforcer l'intensité des couleurs sans modifier l'exposition.
