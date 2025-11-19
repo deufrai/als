@@ -173,10 +173,14 @@ class ColorBalance(ImageProcessor):
 
             if not saturation.is_default():
                 mean_channel = np.mean(image.data, axis=0)
-                saturation_mask = self._build_saturation_mask(mean_channel)
-                if np.any(saturation_mask):
-                    saturated_data = mean_channel + (image.data - mean_channel) * saturation.value
-                    image.data = np.where(saturation_mask, saturated_data, image.data)
+                if saturation.value > saturation.default:
+                    saturation_mask = self._build_saturation_mask(mean_channel)
+                    if np.any(saturation_mask):
+                        saturated_data = mean_channel + (image.data - mean_channel) * saturation.value
+                        image.data = np.where(saturation_mask, saturated_data, image.data)
+                        processed = True
+                else:
+                    image.data = mean_channel + (image.data - mean_channel) * saturation.value
                     processed = True
 
             if processed:

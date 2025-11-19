@@ -51,6 +51,7 @@ Le processus **Balance RVB** est contrôlé via l’interface du panneau `traite
 # Comportement {#behavior}
 
 Balance les composantes colorimétriques et la saturation globale de l’image pour obtenir la tonalité souhaitée.
+L’augmentation de la saturation au-delà de sa valeur par défaut ne touche que les pixels situés sur la pente descendante après le pic de l’histogramme de luminance, tandis que les diminutions s’appliquent uniformément à l’ensemble de l’image.
 
 # Sortie
 

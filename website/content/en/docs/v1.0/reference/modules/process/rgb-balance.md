@@ -52,6 +52,7 @@ The **RGB Balance** process is managed through the `Processing Panel` interface.
 # Behavior {#behavior}
 
 Balances the image’s color components and global saturation to achieve the desired tonal balance.
+Boosting saturation above its default only affects pixels in the histogram’s post-peak descending slope, while reductions apply uniformly across the image.
 
 # Output
 
