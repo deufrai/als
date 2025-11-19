@@ -79,6 +79,8 @@ class ColorBalance(ImageProcessor):
     Implements color balance processing
     """
 
+    _HISTOGRAM_BIN_COUNT = 512
+
     @log
     def __init__(self):
 
@@ -171,13 +173,33 @@ class ColorBalance(ImageProcessor):
 
             if not saturation.is_default():
                 mean_channel = np.mean(image.data, axis=0)
-                image.data = mean_channel + (image.data - mean_channel) * saturation.value
-                processed = True
+                saturation_mask = self._build_saturation_mask(mean_channel)
+                if np.any(saturation_mask):
+                    saturated_data = mean_channel + (image.data - mean_channel) * saturation.value
+                    image.data = np.where(saturation_mask, saturated_data, image.data)
+                    processed = True
 
             if processed:
                 image.data = np.clip(image.data, 0, _16_BITS_MAX_VALUE)
 
         return image
+
+    @staticmethod
+    def _build_saturation_mask(luminance: np.ndarray) -> np.ndarray:
+        histogram, bin_edges = np.histogram(
+            luminance, ColorBalance._HISTOGRAM_BIN_COUNT, range=(0, _16_BITS_MAX_VALUE)
+        )
+
+        peak_index = int(np.argmax(histogram))
+        descending_end_index = len(histogram)
+
+        for index in range(peak_index + 1, len(histogram)):
+            if histogram[index] >= histogram[index - 1]:
+                descending_end_index = index
+                break
+
+        threshold_value = bin_edges[descending_end_index]
+        return luminance >= threshold_value
 
 
 class AutoStretch(ImageProcessor):
