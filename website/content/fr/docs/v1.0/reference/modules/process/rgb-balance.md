@@ -2,7 +2,7 @@
 title: "Balance RVB"
 description: "Documentation détaillée du processus d’équilibrage des couleurs (Color Balance) dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-19T16:04:56Z
 keywords: [ "ALS balance des couleurs", "ajustement rvb", "correction colorimétrique", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -13,8 +13,9 @@ weight: 100360
 
 # Vue d’ensemble
 
-Le processus **Balance RVB** ajuste l’intensité relative des trois couleurs primaires — rouge, vert et bleu — afin de corriger ou d’affiner la tonalité globale d’une image empilée.  
-Il offre un contrôle précis de la balance chromatique, en complément des processus **Niveaux** et **Auto-Stretch**.
+Le processus **Balance RVB** ajuste l’intensité relative des trois couleurs primaires — rouge, vert et bleu — afin de corriger ou d’affiner la tonalité globale d’une image empilée.
+Il contrôle aussi la **saturation** globale, pour renforcer ou atténuer la chroma sans modifier l’exposition.
+Ces paramètres offrent un contrôle précis de la balance chromatique, en complément des processus **Niveaux** et **Auto-Stretch**.
 
 Ce processus est géré par le module **Process** de la chaîne de traitement.
 
@@ -33,12 +34,13 @@ pour des instructions détaillées.
 
 Le processus **Balance RVB** est contrôlé via l’interface du panneau `traitements`.
 
-| Contrôle   | Type          | Action                               |
-|------------|---------------|--------------------------------------|
-| `Actif`    | case à cocher | Active ou désactiver le processus    |
-| `R`        | curseur       | Ajuste l’intensité du canal rouge    |
-| `V`        | curseur       | Ajuste l’intensité du canal vert     |
-| `B`        | curseur       | Ajuste l’intensité du canal bleu     |
+| Contrôle      | Type          | Action                                              |
+|---------------|---------------|-----------------------------------------------------|
+| `Actif`       | case à cocher | Active ou désactiver le processus                   |
+| `R`           | curseur       | Ajuste l’intensité du canal rouge                   |
+| `V`           | curseur       | Ajuste l’intensité du canal vert                    |
+| `B`           | curseur       | Ajuste l’intensité du canal bleu                    |
+| `Saturation`  | curseur       | Renforce ou réduit la saturation sans changer l’exposition |
 
 # Entrée
 
@@ -48,7 +50,8 @@ Le processus **Balance RVB** est contrôlé via l’interface du panneau `traite
 
 # Comportement {#behavior}
 
-Balance les composantes colorimétriques de l’image pour obtenir la tonalité souhaitée.
+Balance les composantes colorimétriques et la saturation globale de l’image pour obtenir la tonalité souhaitée.
+L’augmentation de la saturation au-delà de sa valeur par défaut ne touche que les pixels situés sur la pente descendante après le pic de l’histogramme de luminance, tandis que les diminutions s’appliquent uniformément à l’ensemble de l’image.
 
 # Sortie
 

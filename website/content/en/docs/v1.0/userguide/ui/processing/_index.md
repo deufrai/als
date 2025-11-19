@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-11-07T19:22:47Z
+lastmod: 2025-11-19T16:04:56Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -254,6 +254,9 @@ The blended colors of the histogram effectively reflect the image's red dominanc
 
 ### Slider Actions
 
-Each slider adjusts the horizontal position of its respective curve.
-
-*Moving the slider to the right shifts the curve to the right.*
+- The **R**, **G**, and **B** sliders adjust the horizontal position of their respective curves.
+  *Moving the slider to the right shifts the curve to the right.*
+- The **Saturation** slider controls how far each channel can move away from neutral gray:
+  - Left = desaturate toward monochrome.
+  - Center = neutral (no change).
+  - Right = boost color intensity without altering exposure.
