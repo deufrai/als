@@ -13,8 +13,9 @@ weight: 100360
 
 # Overview
 
-The **RGB Balance** process adjusts the relative intensity of the three primary colors — red, green, and blue — to correct or refine the overall color tone of a stacked image.  
-It allows fine control of image chromatic balance, complementing the **Levels** and **Auto-Stretch** processes.
+The **RGB Balance** process adjusts the relative intensity of the three primary colors — red, green, and blue — to correct or refine the overall color tone of a stacked image.
+It also controls global color **saturation**, letting you reinforce or tame chroma while keeping exposure unchanged.
+These parameters allow fine control of image chromatic balance, complementing the **Levels** and **Auto-Stretch** processes.
 
 This process is handled by the **Process** pipeline module.
 
@@ -34,12 +35,13 @@ instructions.
 
 The **RGB Balance** process is managed through the `Processing Panel` interface.
 
-| Control  | Type     | Action                              |
-|----------|----------|-------------------------------------|
-| `Active` | checkbox | Enable or disable the process       |
-| `R`      | slider   | Adjusts the red channel intensity   |
-| `G`      | slider   | Adjusts the green channel intensity |
-| `B`      | slider   | Adjusts the blue channel intensity  |
+| Control       | Type     | Action                                                       |
+|---------------|----------|--------------------------------------------------------------|
+| `Active`      | checkbox | Enable or disable the process                                |
+| `R`           | slider   | Adjusts the red channel intensity                            |
+| `G`           | slider   | Adjusts the green channel intensity                          |
+| `B`           | slider   | Adjusts the blue channel intensity                           |
+| `Saturation`  | slider   | Boosts or reduces color saturation without changing exposure |
 
 # Input
 
@@ -49,7 +51,7 @@ The **RGB Balance** process is managed through the `Processing Panel` interface.
 
 # Behavior {#behavior}
 
-Balances the image’s color components to achieve the desired tonal balance.
+Balances the image’s color components and global saturation to achieve the desired tonal balance.
 
 # Output
 
