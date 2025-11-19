@@ -66,6 +66,7 @@ class I18n(QObject):
     TOOLTIP_RED_LEVEL = "TEMP"
     TOOLTIP_GREEN_LEVEL = "TEMP"
     TOOLTIP_BLUE_LEVEL = "TEMP"
+    TOOLTIP_SATURATION_LEVEL = "TEMP"
     TOOLTIP_STRETCH_STRENGTH = "TEMP"
     TOOLTIP_RGB_ACTIVE = "TEMP"
     TOOLTIP_STRETCH_ACTIVE = "TEMP"
@@ -100,6 +101,7 @@ class I18n(QObject):
         I18n.TOOLTIP_RED_LEVEL = self.tr("Red level")
         I18n.TOOLTIP_GREEN_LEVEL = self.tr("Green level")
         I18n.TOOLTIP_BLUE_LEVEL = self.tr("Blue level")
+        I18n.TOOLTIP_SATURATION_LEVEL = self.tr("Color saturation")
         I18n.TOOLTIP_BLACK_LEVEL = self.tr("Black clipping")
         I18n.TOOLTIP_MIDTONES_LEVEL = self.tr("Midtones level")
         I18n.TOOLTIP_WHITE_LEVEL = self.tr("White clipping")

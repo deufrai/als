@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-04T09:09:27Z
+lastmod: 2025-11-19T16:04:56Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -191,9 +191,9 @@ The **Process** module groups the visual processing applied to the stacking resu
 
    Allows adjusting the black and white clipping, and the mid-tone level.
 
-3. **RGB balance**
+3. **RGB balance & saturation**
 
-   Allows adjusting the color balance.
+   Allows adjusting the color balance and saturation.
 
 {{% alert color="info" %}}
 ℹ️ The image displayed in ALS's **central area** is replaced by each image output from the **Process** module.

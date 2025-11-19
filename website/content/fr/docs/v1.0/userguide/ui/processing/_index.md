@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-11-02T19:02:53Z
+lastmod: 2025-11-19T16:04:56Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -269,6 +269,9 @@ Le mélange des couleurs de l'histogramme rend bien compte de la dominante rouge
 
 ### Actions des Curseurs
 
-Chaque curseur ajuste la position horizontale de la courbe correspondante.
-
-*Déplacer le curseur vers la droite décale la courbe vers la droite*
+- Les curseurs **R**, **V** et **B** ajustent la position horizontale de leurs courbes respectives.
+  *Déplacer le curseur vers la droite décale la courbe vers la droite.*
+- Le curseur de **saturation** contrôle l'éloignement des canaux par rapport au gris neutre :
+  - À gauche = désaturer jusqu'au monochrome.
+  - Au centre = neutre (pas de changement).
+  - À droite = renforcer l'intensité des couleurs sans modifier l'exposition.
