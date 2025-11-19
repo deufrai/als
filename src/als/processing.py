@@ -172,16 +172,22 @@ class ColorBalance(ImageProcessor):
                 processed = True
 
             if not saturation.is_default():
+
                 mean_channel = np.mean(image.data, axis=0)
+
                 if saturation.value > saturation.default:
+
                     saturation_mask = self._build_saturation_mask(mean_channel)
+
                     if np.any(saturation_mask):
                         saturated_data = mean_channel + (image.data - mean_channel) * saturation.value
                         image.data = np.where(saturation_mask, saturated_data, image.data)
-                        processed = True
+
                 else:
                     image.data = mean_channel + (image.data - mean_channel) * saturation.value
-                    processed = True
+
+
+                processed = True
 
             if processed:
                 image.data = np.clip(image.data, 0, _16_BITS_MAX_VALUE)
@@ -190,6 +196,12 @@ class ColorBalance(ImageProcessor):
 
     @staticmethod
     def _build_saturation_mask(luminance: np.ndarray) -> np.ndarray:
+        """
+        Build a mask of pixels considered as above background luminance
+
+        :param luminance: the image luminance data
+        :return: a boolean array where True means the pixel is above background luminance
+        """
         histogram, bin_edges = np.histogram(
             luminance, ColorBalance._HISTOGRAM_BIN_COUNT, range=(0, _16_BITS_MAX_VALUE)
         )
