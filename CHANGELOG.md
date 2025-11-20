@@ -14,6 +14,7 @@ weight: 100550
 
 ### New Features
 
+- Color saturation adjustment
 - Flat frame calibration
 
 ## Version 0.7.1 {#0.7.1}
