@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-11-19T16:04:56Z
+lastmod: 2025-11-20T00:00:30Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -275,3 +275,6 @@ Le mélange des couleurs de l'histogramme rend bien compte de la dominante rouge
   - À gauche = désaturer jusqu'au monochrome.
   - Au centre = neutre (pas de changement).
   - À droite = renforcer l'intensité des couleurs sans modifier l'exposition.
+  {{% alert color="info" %}}
+  ⚙️ L'augmentation de la saturation n'affecte que les zones dont la luminosité dépasse le niveau du fond de ciel, en préservant les zones sombres.
+  {{% /alert %}}

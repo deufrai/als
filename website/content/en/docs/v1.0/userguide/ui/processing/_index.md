@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-11-19T16:04:56Z
+lastmod: 2025-11-20T00:00:30Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -260,3 +260,6 @@ The blended colors of the histogram effectively reflect the image's red dominanc
   - Left = desaturate toward monochrome.
   - Center = neutral (no change).
   - Right = boost color intensity without altering exposure.
+  {{% alert color="info" %}}
+  ⚙️ Increasing saturation only affects areas with brighness above sky background level, preserving dark areas.
+  {{% /alert %}}
