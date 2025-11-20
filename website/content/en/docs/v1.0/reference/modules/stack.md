@@ -100,8 +100,11 @@ class CheckShape,CheckAlign,FirstSub test
 1. Add the aligned (if requested) sub to the stack.
 2. Generate a new image containing the stacking result according to the configured mode.
 
-When working in **mean** mode, ALS automatically removes transient bright artefacts such as satellite trails by
-detecting and clipping per-pixel outliers using a running mean with variance estimated via Welford’s online algorithm.
+When working in **mean/AVERAGE** mode (sigma-clipped averaging), ALS automatically removes transient bright artefacts
+such as satellite trails by detecting and clipping per-pixel outliers. The stacker keeps a Welford-based running mean
+and variance for every pixel, and once at least **3** frames have been accumulated it clips any new pixel sample that
+lies above the previous mean plus **2.5σ**. Clipped values are replaced by that threshold before the running
+statistics are updated, providing single-pass, per-frame rejection without extra iterations.
 
 # Output
 
