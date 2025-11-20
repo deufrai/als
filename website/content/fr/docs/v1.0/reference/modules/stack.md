@@ -100,8 +100,7 @@ flowchart LR
 1. Ajout de la brute alignée (si demandé) à la pile
 2. Génération d'une nouvelle image contenant le résultat de l'empilement selon le mode configuré
 
-En mode **moyenne**, ALS supprime automatiquement les artefacts lumineux transitoires (par ex. traînées de satellites) en détectant et en tronquant les valeurs aberrantes par pixel
-en utilisant une moyenne glissante avec la variance estimée par l'algorithme en ligne de Welford.
+En mode **moyenne** (**AVERAGE**), ALS effectue une moyenne avec rejet sigma-clippé pour supprimer les artefacts lumineux transitoires comme les traînées de satellites. Chaque pixel conserve une moyenne et une variance glissantes basées sur l'algorithme en ligne de Welford, et dès qu'au moins **3** brutes sont accumulées, toute nouvelle valeur de pixel dépassant la moyenne précédente de plus de **2,5σ** est tronquée à ce seuil avant la mise à jour des statistiques. Ce rejet par pixel se fait en un seul passage, sans itérations supplémentaires.
 
 # Sortie
 
