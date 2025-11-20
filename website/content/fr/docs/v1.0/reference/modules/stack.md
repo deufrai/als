@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2025-11-20T02:30:57Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -99,6 +99,9 @@ flowchart LR
 
 1. Ajout de la brute alignée (si demandé) à la pile
 2. Génération d'une nouvelle image contenant le résultat de l'empilement selon le mode configuré
+
+En mode **moyenne**, ALS supprime automatiquement les artefacts lumineux transitoires (par ex. traînées de satellites) en détectant et en tronquant les valeurs aberrantes par pixel
+en utilisant une moyenne glissante avec la variance estimée par l'algorithme en ligne de Welford.
 
 # Sortie
 
