@@ -448,7 +448,8 @@ class Stacker(QueueConsumer):
                 sigma = np.sqrt(variance)
                 upper_threshold = previous_mean + self._sigma_clip_k * sigma
                 mask_high = new_values > upper_threshold
-                new_values = np.where(mask_high, upper_threshold, new_values)
+                _LOGGER.debug(f"Sigma clipping removed {np.count_nonzero(mask_high)} pixels out of sub {image.origin}")
+                new_values = np.where(mask_high, previous_mean, new_values)
 
             n1 = float(n + 1)
             delta = new_values - previous_mean
