@@ -2,7 +2,7 @@
 title: "Balance RVB"
 description: "Documentation détaillée du processus d’équilibrage des couleurs (Color Balance) dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-11-19T16:04:56Z
+lastmod: 2025-11-20T00:16:49Z
 keywords: [ "ALS balance des couleurs", "ajustement rvb", "correction colorimétrique", "traitement visuel" ]
 draft: false
 type: "docs"
@@ -51,7 +51,8 @@ Le processus **Balance RVB** est contrôlé via l’interface du panneau `traite
 # Comportement {#behavior}
 
 Balance les composantes colorimétriques et la saturation globale de l’image pour obtenir la tonalité souhaitée.
-L’augmentation de la saturation au-delà de sa valeur par défaut ne touche que les pixels situés sur la pente descendante après le pic de l’histogramme de luminance, tandis que les diminutions s’appliquent uniformément à l’ensemble de l’image.
+
+L’augmentation de la saturation ne touche que les pixels situés après le pic de l’histogramme de luminance, tandis que les diminutions s’appliquent uniformément à l’ensemble de l’image.
 
 # Sortie
 
