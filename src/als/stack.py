@@ -58,6 +58,9 @@ class Stacker(QueueConsumer):
         self._stacking_mode = I18n.STACKING_MODE_MEAN
         self._align_before_stack = True
         self._profile = profile
+        self._variance_accumulator = None
+        self._sigma_clip_k = 3.0
+        self._sigma_clip_min_size = 3
 
     @property
     @log
@@ -111,6 +114,7 @@ class Stacker(QueueConsumer):
         self._size = 0
         self._last_stacking_result = None
         self._align_reference = None
+        self._variance_accumulator = None
         self.stack_size_changed_signal.emit(self.size)
 
     @log
@@ -226,7 +230,7 @@ class Stacker(QueueConsumer):
             _LOGGER.debug(f"Aligning color image...")
 
             # do_mp = platform.system() not in ["Darwin", "Windows"]
-            # TODO check if MP 'spawn' start method is stable, faster 
+            # TODO check if MP 'spawn' start method is stable, faster
             # and suppports frozen apps when we switch to python >= 3.8
             do_mp = False
 
@@ -426,7 +430,30 @@ class Stacker(QueueConsumer):
         if self._stacking_mode == I18n.STACKING_MODE_SUM:
             image.data = image.data + self._last_stacking_result.data
         elif self._stacking_mode == I18n.STACKING_MODE_MEAN:
-            image.data = (self.size * self._last_stacking_result.data + image.data) / (self.size + 1)
+            previous_mean = self._last_stacking_result.data
+
+            if self._variance_accumulator is None:
+                self._variance_accumulator = np.zeros_like(previous_mean, dtype=np.float32)
+
+            n = self.size
+
+            new_values = image.data.astype(np.float32)
+            previous_mean = previous_mean.astype(np.float32)
+
+            if n >= self._sigma_clip_min_size:
+                variance = self._variance_accumulator / float(n)
+                sigma = np.sqrt(variance)
+                upper_threshold = previous_mean + self._sigma_clip_k * sigma
+                mask_high = new_values > upper_threshold
+                new_values = np.where(mask_high, upper_threshold, new_values)
+
+            n1 = float(n + 1)
+            delta = new_values - previous_mean
+            mean_new = previous_mean + delta / n1
+            delta2 = new_values - mean_new
+            self._variance_accumulator = self._variance_accumulator + delta * delta2
+
+            image.data = mean_new
         else:
             raise StackingError(f"Unsupported stacking mode : {self._stacking_mode}")
         _LOGGER.debug(f"Stacking in {self._stacking_mode} done.")
