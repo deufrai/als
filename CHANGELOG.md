@@ -16,6 +16,9 @@ weight: 100550
 
 - Color saturation adjustment
 - Flat frame calibration
+- Outlier rejection when stacking in mean mode
+
+---
 
 ## Version 0.7.1 {#0.7.1}
 
