@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-19T16:04:56Z
+lastmod: 2025-11-20T17:59:35Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -172,14 +172,19 @@ Le module **Stacker** maintient la **stack** et prend en charge les traitements 
 
    Aligne la brute sur la référence de la session
 
-2. **Empilement**
-    - Ajoute la brute à la **stack**
-    - Génère le résultat de l'empilement en fonction du mode choisi par vous (_moyenne ou somme_)
+   {{% alert color="info" %}}
+   ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les brutes comparées. ALS ne peut donc aligner que
+   des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
+   {{% /alert %}}
 
-{{% alert color="info" %}}
-ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les brutes comparées. ALS ne peut donc aligner que
-des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.
-{{% /alert %}}
+2. **Empilement**
+
+   - Ajoute la brute à la **stack** 
+   - Génère le résultat de l'empilement en fonction du mode choisi par vous (_moyenne ou somme_)
+
+   {{% alert color="info" %}}
+   ℹ️ En mode d'empilement **moyenne**, les traînées de satellites et autres artefacts lumineux transitoires sont automatiquement supprimés
+   {{% /alert %}}
 
 Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../reference/modules/stack/) 
 
