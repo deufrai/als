@@ -15,6 +15,7 @@ weight: 100550
 ### Nouveautés
 
 - Calibration par flat
+- Rejet sigma-clippé des valeurs aberrantes lors de l'empilement en mode **moyenne/AVERAGE** pour supprimer automatiquement les traînées de satellites et autres artefacts transitoires
 
 ---
 

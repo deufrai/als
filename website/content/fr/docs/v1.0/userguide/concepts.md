@@ -176,6 +176,8 @@ Le module **Stacker** maintient la **stack** et prend en charge les traitements 
     - Ajoute la brute à la **stack**
     - Génère le résultat de l'empilement en fonction du mode choisi par vous (_moyenne ou somme_)
 
+    ⚙️ _En mode **moyenne/AVERAGE**, ALS applique une moyenne avec rejet sigma-clippé : dès qu'au moins **3** brutes sont disponibles, tout nouveau pixel dépassant la moyenne précédente de plus de **2,5σ** est ramené à ce seuil, ce qui supprime les traînées transitoires (ex. satellites) avant la mise à jour des statistiques glissantes._
+
 {{% alert color="info" %}}
 ℹ️ L'alignement est basé sur la recherche de groupes d'étoiles dans les brutes comparées. ALS ne peut donc aligner que
 des images du ciel profond. **Les images de planètes ou de la Lune ne peuvent pas être alignées**.

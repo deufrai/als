@@ -125,6 +125,8 @@ The **stack** section of the panel controls the **Stacker** module.
 
       ⚙️ _The value of each pixel in the generated stack is the **average value** of that pixel across all subs in the **stack**._
 
+      ℹ️ _Outliers are rejected automatically: once at least **3** subs are present, any new pixel above the running mean by more than **2.5σ** is clipped before contributing, which removes satellite trails and other transient artefacts in **AVERAGE** mode._
+
     - `sum`
 
       Used for creating star trails or circumpolar images.

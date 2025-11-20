@@ -15,6 +15,7 @@ weight: 100550
 ### New Features
 
 - Flat frame calibration
+- Sigma-clipped outlier rejection when stacking in **mean/AVERAGE** mode to automatically remove satellite trails and other transient artefacts
 
 ---
 

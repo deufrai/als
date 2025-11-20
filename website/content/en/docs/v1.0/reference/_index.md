@@ -19,3 +19,6 @@ This section contains detailed documentation about ALS bits and bolts
 🧠 It elaborates on the [concepts](../userguide/concepts) introduced at the beginning of the user guide
 {{% /alert %}}
 
+The [Stacker module](modules/stack) reference documents the sigma-clipped outlier rejection applied when stacking in
+**mean/AVERAGE** mode so you can quickly spot how transient artefacts are removed.
+

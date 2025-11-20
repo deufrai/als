@@ -173,6 +173,8 @@ The **Stacker** module maintains the **stack** and processes each calibrated sub
     - Adds the sub to the current stack.
     - Generates the stacking result based on the mode chosen by the user (_mean or sum_)
 
+    ⚙️ _In **mean/AVERAGE** mode, ALS performs sigma-clipped averaging: after at least **3** subs, any new pixel that rises above the previous mean by more than **2.5σ** is clipped to that threshold, which removes transient trails (e.g., satellites) before updating the running statistics._
+
 {{% alert color="info" %}}
 ℹ️ Alignment is based on the search for star groups in the compared images. ALS can only align deep sky images. **Planet or Moon images cannot be aligned**.
 {{% /alert %}}

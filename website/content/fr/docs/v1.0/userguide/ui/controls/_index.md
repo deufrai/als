@@ -121,10 +121,12 @@ La section **stack** du panneau contrôle le module **Stacker**.
 - Utilisez la liste déroulante pour définir le **mode d'empilement** à utiliser :
     - `moyenne`
 
-      Utilisé pour le visuel assisté ou la surveillance d'une série d'acquisitions 
+      Utilisé pour le visuel assisté ou la surveillance d'une série d'acquisitions
 
       ⚙️ _La valeur de chaque pixel de l'empilement généré est la **valeur moyenne** de ce pixel sur toutes
       les brutes de la **stack**_.
+
+      ℹ️ _Les valeurs aberrantes sont rejetées automatiquement : dès qu'au moins **3** brutes sont présentes, tout nouveau pixel dépassant la moyenne courante de plus de **2,5σ** est tronqué avant de contribuer, ce qui supprime les traînées de satellites et autres artefacts transitoires en mode **AVERAGE**._
 
     - `somme`
 
