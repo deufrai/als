@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-11-03T18:26:35Z
+lastmod: 2025-11-20T18:04:55Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 100550
@@ -16,7 +16,7 @@ weight: 100550
 
 - Ajustement de la saturation des couleurs
 - Calibration par flat
-- Rejet des valeurs aberrantes lors de l'empilement en mode **moyenne**
+- Rejet des valeurs aberrantes lors de l'empilement en mode moyenne
 
 ---
 
