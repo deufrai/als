@@ -2,7 +2,7 @@
 title: "RGB Balance"
 description: "Detailed documentation of the Color Balance process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-11-19T16:04:56Z
+lastmod: 2025-11-20T00:16:49Z
 keywords: [ "ALS color balance", "rgb adjustment", "color correction", "visual processing" ]
 draft: false
 type: "docs"
@@ -52,7 +52,8 @@ The **RGB Balance** process is managed through the `Processing Panel` interface.
 # Behavior {#behavior}
 
 Balances the image’s color components and global saturation to achieve the desired tonal balance.
-Boosting saturation above its default only affects pixels in the histogram’s post-peak descending slope, while reductions apply uniformly across the image.
+
+Boosting saturation only affects pixels in the histogram’s post-peak area, while reductions apply uniformly across the image.
 
 # Output
 
