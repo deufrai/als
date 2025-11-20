@@ -59,7 +59,7 @@ class Stacker(QueueConsumer):
         self._align_before_stack = True
         self._profile = profile
         self._variance_accumulator = None
-        self._sigma_clip_k = 3.0
+        self._sigma_clip_k = 2.5
         self._sigma_clip_min_size = 3
 
     @property
@@ -430,6 +430,9 @@ class Stacker(QueueConsumer):
         if self._stacking_mode == I18n.STACKING_MODE_SUM:
             image.data = image.data + self._last_stacking_result.data
         elif self._stacking_mode == I18n.STACKING_MODE_MEAN:
+
+            # we do outlier rejection only for mean stacking, using sigma clipping with Welford's method
+            # for variance calculation
             previous_mean = self._last_stacking_result.data
 
             if self._variance_accumulator is None:
