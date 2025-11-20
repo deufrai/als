@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-11-07T14:54:31Z
+lastmod: 2025-11-20T17:59:35Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "save", "issues", "panels" ]
@@ -124,6 +124,8 @@ The **stack** section of the panel controls the **Stacker** module.
       Used for electronically assisted astronomy or for monitoring a series of acquisitions.
 
       ⚙️ _The value of each pixel in the generated stack is the **average value** of that pixel across all subs in the **stack**._
+
+      ℹ️ _Outliers are rejected automatically once at least **3** subs are present in the stack._
 
     - `sum`
 

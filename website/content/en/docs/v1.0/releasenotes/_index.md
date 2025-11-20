@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-20T22:28:33Z
+lastmod: 2025-11-03T18:26:34Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 100550
@@ -16,6 +16,7 @@ weight: 100550
 
 - Color saturation adjustment
 - Flat frame calibration
+- Outlier rejection when stacking in **mean** mode
 
 ---
 

@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-19T16:04:56Z
+lastmod: 2025-11-20T17:59:35Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -169,13 +169,17 @@ The **Stacker** module maintains the **stack** and processes each calibrated sub
 
    Aligns the sub to the session reference.
 
+   {{% alert color="info" %}}
+   ℹ️ Alignment is based on the search for star groups in the compared images. ALS can only align deep sky images. **Planet or Moon images cannot be aligned**.
+   {{% /alert %}}
+
 2. **Stacking**:
     - Adds the sub to the current stack.
     - Generates the stacking result based on the mode chosen by the user (_mean or sum_)
 
-{{% alert color="info" %}}
-ℹ️ Alignment is based on the search for star groups in the compared images. ALS can only align deep sky images. **Planet or Moon images cannot be aligned**.
-{{% /alert %}}
+   {{% alert color="info" %}}
+   ℹ️ When stacking in **mean** mode, satellite trails and other transient bright artefacts are automatically removed
+   {{% /alert %}}
 
 You can find more information about the **Stacker** module in its [detailed documentation](../../reference/modules/stack/).
 

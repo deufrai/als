@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-07T14:54:32Z
+lastmod: 2025-11-20T17:59:35Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -121,10 +121,12 @@ La section **stack** du panneau contrôle le module **Stacker**.
 - Utilisez la liste déroulante pour définir le **mode d'empilement** à utiliser :
     - `moyenne`
 
-      Utilisé pour le visuel assisté ou la surveillance d'une série d'acquisitions 
+      Utilisé pour le visuel assisté ou la surveillance d'une série d'acquisitions
 
       ⚙️ _La valeur de chaque pixel de l'empilement généré est la **valeur moyenne** de ce pixel sur toutes
       les brutes de la **stack**_.
+
+      ℹ️ _Les valeurs aberrantes sont rejetées automatiquement dès que au moins **3** brutes sont présentes dans la stack._
 
     - `somme`
 
