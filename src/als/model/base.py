@@ -341,6 +341,7 @@ class RunningProfile:
         self._stacking_priority: int = -1
         self._post_process_priority: int = -1
         self._file_read_size_polling_period: float = -1
+        self._sigma_clipping_enabled: bool = None
 
     @property
     def ratios(self):
@@ -362,6 +363,10 @@ class RunningProfile:
     def get_file_read_size_polling_period(self):
         return self._file_read_size_polling_period
 
+    @property
+    def is_sigma_clipping_enabled(self):
+        return self._sigma_clipping_enabled
+
 
 class VisualProfile(RunningProfile):
 
@@ -373,6 +378,7 @@ class VisualProfile(RunningProfile):
         self._stacking_priority = QThread.HighestPriority
         self._post_process_priority = QThread.LowPriority
         self._file_read_size_polling_period = .01
+        self._sigma_clipping_enabled = False
 
 
 class PhotoProfile(RunningProfile):
@@ -385,3 +391,4 @@ class PhotoProfile(RunningProfile):
         self._stacking_priority = QThread.LowPriority
         self._post_process_priority = QThread.HighestPriority
         self._file_read_size_polling_period = 1.5
+        self._sigma_clipping_enabled = True
