@@ -427,37 +427,42 @@ class Stacker(QueueConsumer):
         """
 
         _LOGGER.debug(f"Stacking in {self._stacking_mode} mode...")
+
         if self._stacking_mode == I18n.STACKING_MODE_SUM:
             image.data = image.data + self._last_stacking_result.data
+
         elif self._stacking_mode == I18n.STACKING_MODE_MEAN:
 
-            # we do outlier rejection only for mean stacking, using sigma clipping with Welford's method
-            # for variance calculation
-            previous_mean = self._last_stacking_result.data
+            if self._profile.is_sigma_clipping_enabled:
+                # we do outlier rejection only for mean stacking, using sigma clipping with Welford's method
+                # for variance calculation
+                previous_mean = self._last_stacking_result.data
 
-            if self._variance_accumulator is None:
-                self._variance_accumulator = np.zeros_like(previous_mean, dtype=np.float32)
+                if self._variance_accumulator is None:
+                    self._variance_accumulator = np.zeros_like(previous_mean, dtype=np.float32)
 
-            n = self.size
+                n = self.size
 
-            new_values = image.data.astype(np.float32)
-            previous_mean = previous_mean.astype(np.float32)
+                new_values = image.data.astype(np.float32)
+                previous_mean = previous_mean.astype(np.float32)
 
-            if n >= self._sigma_clip_min_size:
-                variance = self._variance_accumulator / float(n)
-                sigma = np.sqrt(variance)
-                upper_threshold = previous_mean + self._sigma_clip_k * sigma
-                mask_high = new_values > upper_threshold
-                _LOGGER.debug(f"Sigma clipping removed {np.count_nonzero(mask_high)} pixels out of sub {image.origin}")
-                new_values = np.where(mask_high, previous_mean, new_values)
+                if n >= self._sigma_clip_min_size:
+                    variance = self._variance_accumulator / float(n)
+                    sigma = np.sqrt(variance)
+                    upper_threshold = previous_mean + self._sigma_clip_k * sigma
+                    mask_high = new_values > upper_threshold
+                    _LOGGER.debug(f"Sigma clipping removed {np.count_nonzero(mask_high)} pixels out of sub {image.origin}")
+                    new_values = np.where(mask_high, previous_mean, new_values)
 
-            n1 = float(n + 1)
-            delta = new_values - previous_mean
-            mean_new = previous_mean + delta / n1
-            delta2 = new_values - mean_new
-            self._variance_accumulator = self._variance_accumulator + delta * delta2
+                n1 = float(n + 1)
+                delta = new_values - previous_mean
+                mean_new = previous_mean + delta / n1
+                delta2 = new_values - mean_new
+                self._variance_accumulator = self._variance_accumulator + delta * delta2
 
-            image.data = mean_new
+                image.data = mean_new
+            else:
+                image.data = (self.size * self._last_stacking_result.data + image.data) / (self.size + 1)
         else:
             raise StackingError(f"Unsupported stacking mode : {self._stacking_mode}")
         _LOGGER.debug(f"Stacking in {self._stacking_mode} done.")
