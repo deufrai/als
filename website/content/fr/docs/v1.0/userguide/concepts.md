@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-20T17:59:35Z
+lastmod: 2025-11-22T02:43:34Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -183,7 +183,8 @@ Le module **Stacker** maintient la **stack** et prend en charge les traitements 
    - Génère le résultat de l'empilement en fonction du mode choisi par vous (_moyenne ou somme_)
 
    {{% alert color="info" %}}
-   ℹ️ En mode d'empilement **moyenne**, les traînées de satellites et autres artefacts lumineux transitoires sont automatiquement supprimés
+   ℹ️ En mode d'empilement **moyenne**, les traînées de satellites et autres artefacts lumineux transitoires sont 
+   automatiquement supprimés, quand le profil **Astrophoto** est utilisé. Voir [Profils](#profils) ci-dessous.
    {{% /alert %}}
 
 Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../reference/modules/stack/) 
