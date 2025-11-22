@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-20T17:59:35Z
+lastmod: 2025-11-22T02:43:34Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -126,7 +126,8 @@ La section **stack** du panneau contrôle le module **Stacker**.
       ⚙️ _La valeur de chaque pixel de l'empilement généré est la **valeur moyenne** de ce pixel sur toutes
       les brutes de la **stack**_.
 
-      ℹ️ _Les valeurs aberrantes sont rejetées automatiquement dès que au moins **3** brutes sont présentes dans la stack._
+      ℹ️ _Les valeurs aberrantes sont rejetées automatiquement dès que au moins **3** brutes sont présentes dans la stack
+      et le profil **Astrophoto** est utiisé._
 
     - `somme`
 

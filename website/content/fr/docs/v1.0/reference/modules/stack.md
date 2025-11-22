@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-20T02:30:57Z
+lastmod: 2025-11-22T02:43:34Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -100,7 +100,14 @@ flowchart LR
 1. Ajout de la brute alignée (si demandé) à la pile
 2. Génération d'une nouvelle image contenant le résultat de l'empilement selon le mode configuré
 
-En mode **moyenne** (**AVERAGE**), ALS effectue une moyenne avec rejet sigma-clippé pour supprimer les artefacts lumineux transitoires comme les traînées de satellites. Chaque pixel conserve une moyenne et une variance glissantes basées sur l'algorithme en ligne de Welford, et dès qu'au moins **3** brutes sont accumulées, toute nouvelle valeur de pixel dépassant la moyenne précédente de plus de **2,5σ** est tronquée à ce seuil avant la mise à jour des statistiques. Ce rejet par pixel se fait en un seul passage, sans itérations supplémentaires.
+En mode **moyenne** et lorsque le profil actif est **Astrophoto**, ALS effectue une moyenne avec rejet sigma-clippé pour
+supprimer les artefacts lumineux transitoires comme les traînées de satellites. 
+
+Le Stacker conserve une moyenne et une variance glissantes basées sur l'algorithme en ligne de Welford pour chaque pixel, 
+et dès qu'au moins **3** brutes sont accumulées, toute nouvelle valeur de pixel dépassant la moyenne précédente de plus 
+de **2,5σ** est remplacée par la moyenne précédente. 
+
+Ce rejet par pixel se fait en un seul passage, sans itérations supplémentaires.
 
 # Sortie
 

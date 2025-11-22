@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-20T17:59:35Z
+lastmod: 2025-11-22T02:43:34Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -178,7 +178,8 @@ The **Stacker** module maintains the **stack** and processes each calibrated sub
     - Generates the stacking result based on the mode chosen by the user (_mean or sum_)
 
    {{% alert color="info" %}}
-   ℹ️ When stacking in **mean** mode, satellite trails and other transient bright artefacts are automatically removed
+   ℹ️ When stacking in **mean** mode, satellite trails and other transient bright artefacts are automatically removed,
+   when using the **Astrophoto** profile (see [Profiles](#profiles) below).
    {{% /alert %}}
 
 You can find more information about the **Stacker** module in its [detailed documentation](../../reference/modules/stack/).
@@ -302,6 +303,7 @@ Two default profiles are available:
 
   - Prioritizes image processing
   - Optimizes large files handling and alignment quality
+  - Use sigma clipping when stacking in mean mode
 
 The active profile is displayed in the **status bar**, so you can always see which configuration is in use.
 
