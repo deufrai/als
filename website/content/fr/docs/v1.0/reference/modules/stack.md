@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-22T02:43:34Z
+lastmod: 2025-11-23T17:09:28Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -105,7 +105,7 @@ supprimer les artefacts lumineux transitoires comme les traînées de satellites
 
 Le Stacker conserve une moyenne et une variance glissantes basées sur l'algorithme en ligne de Welford pour chaque pixel, 
 et dès qu'au moins **3** brutes sont accumulées, toute nouvelle valeur de pixel dépassant la moyenne précédente de plus 
-de **2,5σ** est remplacée par la moyenne précédente. 
+de **4σ** est remplacée par la moyenne précédente. 
 
 Ce rejet par pixel se fait en un seul passage, sans itérations supplémentaires.
 
