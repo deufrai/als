@@ -6,3 +6,8 @@
 ## Python tooling
 - Never rely on pyenv shims; call tools via their full paths (e.g., `venv/bin/python`, `venv/bin/pip`, or other repo-local binaries) since we cannot modify the shared shim directory.
 - If a tool expects `python` on PATH, explicitly pass the interpreter path instead of assuming the shim.
+
+## Coding conventions
+- Document every function; follow the existing documentation style in the codebase.
+- Add type hints wherever practical to improve clarity and tooling support.
+- Optimize for execution time and memory usage without sacrificing readability.
