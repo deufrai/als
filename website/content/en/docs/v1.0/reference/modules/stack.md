@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2025-11-22T02:43:34Z
+lastmod: 2025-11-23T17:09:28Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -104,7 +104,7 @@ When working in **mean** mode and the current profile is **Astrophoto**, ALS aut
 such as satellite trails by detecting and clipping per-pixel outliers. 
 
 The stacker keeps a Welford-based running mean and variance for every pixel, and once at least **3** frames have been 
-accumulated it clips any new pixel sample that lies above the previous mean plus **2.5σ**.
+accumulated it clips any new pixel sample that lies above the previous mean plus **4σ**.
 
 Clipped values are replaced by the previous mean, providing single-pass, per-frame rejection without extra iterations.
 
