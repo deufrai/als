@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-11-24T18:20:31Z
+lastmod: 2025-11-24T18:21:56Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -33,7 +33,7 @@ Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles 
   Ajustement de l’exposition globale ainsi que des écrêtages des noirs et des blancs.
 
 - [**Balance RVB**](#balance-section)  
-  Ajustement des niveaux de rouge, vert et bleu pour corriger les couleurs.
+  Ajustement des niveaux de rouge, vert et bleu et de la saturation pour corriger les couleurs.
 
 </div>
 <div class="col-md-4 d-flex align-items-center justify-content-center">
