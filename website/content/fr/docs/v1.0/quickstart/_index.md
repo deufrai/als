@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-11-07T16:29:34Z
+lastmod: 2025-11-24T18:13:40Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -204,7 +204,7 @@ ALS et nos outils de suivi sont des logiciels **opensource**, leur code source e
 {{< figure src="ready.png"
 caption="ALS prêt à démarrer sa toute première session"
 width="1388px"
-height="666px"
+height="761px"
 alt="Fenêtre principale d'ALS montrant une interface logicielle pour empiler des images astronomiques en temps réel. L'interface comprend des sections pour les contrôles principaux (démarrer, pause, arrêter), les paramètres d'empilement (aligner, seuil), le serveur d'images (démarrer, arrêter), la sauvegarde d'images (sauvegarder l'image actuelle, sauvegarder chaque image), les modules (taille de la file d'attente, statut), le traitement (histogramme, étirement automatique, niveaux, balance RGB) et le journal de session." >}}
 {{< /center >}}
 
@@ -251,7 +251,7 @@ alt="Journal de session affichant des messages d'information avec horodatages. L
 {{< figure src="stacked_01.png"
 caption="ALS après traitement de la 1<sup>ère</sup> image"
 width="1388px"
-height="666px"
+height="761px"
 alt="Fenêtre principale d'ALS après le traitement de la première brute, affichant une image initiale et légèrement bruitée de la nébuleuse Messier 27 avec des étoiles éparpillées. Le journal de session montre des messages de traitement réussi. Le panneau de traitement sur la droite offre des ajustements de l'histogramme et des niveaux, l'équilibre RGB et les réglages d'étirement automatique." >}}
 {{< /center >}}
 
@@ -268,7 +268,7 @@ les brutes déjà traitées.
 {{< figure src="stacked_15.png"
 caption="ALS après traitement de la 15<sup>ème</sup> image. Le contraste et le bruit s'améliorent"
 width="1388px"
-height="666px"
+height="761px"
 alt="Fenêtre principale d'ALS après le traitement de la 15e brute, affichant une image moins bruitée et plus détaillée de la nébuleuse Messier 27 avec des étoiles éparpillées. Le journal de session montre des messages de traitement réussi. Le panneau de traitement sur la droite offre des ajustements de l'histogramme et des niveaux, l'équilibre RGB et les réglages d'étirement automatique." >}}
 {{< /center >}}
 
@@ -297,7 +297,7 @@ interrompre la navigation.
 {{< figure src="stacked_200.png"
 caption="ALS après traitement de la 200<sup>ème</sup> image. Une belle image, détaillée et lissée"
 width="1388px"
-height="666px"
+height="761px"
 alt="Fenêtre principale d'Astro Live Stacker (ALS) après le traitement de la 200e brute, affichant une image lisse, détaillée et à fort contraste de la nébuleuse Messier 27 avec de nombreuses étoiles. Le journal de session en bas montre des messages de traitement réussi et le panneau de sauvegarde d'images à gauche indique que les images ont été sauvegardées avec succès. Le panneau de droite comprend des options de traitement telles que les ajustements d'histogramme, l'étirement automatique, les niveaux et l'équilibre RGB." >}}
 {{< /center >}}
 
