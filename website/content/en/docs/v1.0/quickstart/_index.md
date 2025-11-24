@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-11-07T16:29:34Z
+lastmod: 2025-11-24T17:58:57Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -201,7 +201,7 @@ ALS and our tracking tools are **opensource** software, their source code is pub
 {{< figure src="ready.png"
 caption="ALS ready to start its very first session"
 width="1388px"
-height="666px"
+height="761px"
 alt="ALS main window showing a software interface for stacking astronomical images in real-time. The interface includes sections for main controls (start, pause, stop), stack settings (align, threshold), image server (start, stop), image saver (save current, save every frame), workers (queue size, status), processing (histogram, auto stretch, levels, RGB balance), and session log." >}}
 {{< /center >}}
 
@@ -248,7 +248,7 @@ subs
 {{< figure src="stacked_01.png"
 caption="ALS after processing the 1<sup>st</sup> sub"
 width="1388px"
-height="666px"
+height="761px"
 alt="ALS main window after processing the first sub, displaying an initial, slightly noisy image of Messier 27 nebula with scattered stars. The session log shows successful processing messages. The processing panel on the right provides histogram and level adjustments, RGB balance, and auto stretch settings." >}}
 {{< /center >}}
 
@@ -265,7 +265,7 @@ subs.
 {{< figure src="stacked_15.png"
 caption="ALS after processing the 15<sup>th</sup> image. Contrast and noise improve"
 width="1388px"
-height="666px"
+height="761px"
 alt="ALS main window after processing the 15th sub, displaying a less noisy and more detailed image of Messier 27 nebula with scattered stars. The session log shows successful processing messages. The processing panel on the right provides histogram and level adjustments, RGB balance, and auto stretch settings." >}}
 {{< /center >}}
 
@@ -293,7 +293,7 @@ The image in the **central area** is instantly updated after each sub is process
 {{< figure src="stacked_200.png"
 caption="ALS after processing the 200<sup>th</sup> image. A beautiful, detailed, and smoothed image"
 width="1388px"
-height="666px"
+height="761px"
 alt="The Astro Live Stacker (ALS) main window after processing the 200th sub, displaying a smooth, detailed, and high-contrast image of the Messier 27 nebula with numerous stars. The session log at the bottom shows successful processing messages and the image saver panel on the left indicates that the images have been saved successfully. The right panel includes processing options such as histogram adjustments, auto stretch, levels, and RGB balance." >}}
 {{< /center >}}
 
