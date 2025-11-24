@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-11-20T00:00:30Z
+lastmod: 2025-11-24T18:20:31Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -39,8 +39,8 @@ Located on the right side of the interface, this panel organizes image processin
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="The Processing Panel" 
-width="345px"
-height="670px"
+width="297px"
+height="677px"
 alt="The ALS Processing Panel, including the Histogram, Auto Stretch, Levels, and RGB Balance sections with their respective sliders and controls." >}}
 </div>
 </div>
