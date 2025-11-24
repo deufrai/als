@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2025-11-20T00:00:30Z
+lastmod: 2025-11-24T18:20:31Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -39,8 +39,8 @@ Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles 
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="Le panneau Traitements" 
-width="345px"
-height="670px"
+width="297px"
+height="675px"
 alt="Le panneau Traitements de ALS, incluant les sections Histogramme, Auto Stretch, Niveaux, et Balance RVB avec leurs curseurs et contrôles associés." >}}
 </div>
 </div>
