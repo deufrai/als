@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-25T03:16:44Z
+lastmod: 2025-11-25T21:30:34Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -17,6 +17,10 @@ weight: 100550
 - Color saturation adjustment
 - Flat frame calibration
 - Outlier rejection when stacking in mean mode
+
+### Bug Fixes
+
+- Webview image and exposition data could display stale values because browsers cached the resources between subs.
 
 ---
 

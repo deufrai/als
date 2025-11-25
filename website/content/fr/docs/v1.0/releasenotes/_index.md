@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-11-25T03:16:44Z
+lastmod: 2025-11-25T21:30:34Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ 'notes de version', 'journal des modifications' ]
 weight: 100550
@@ -17,6 +17,11 @@ weight: 100550
 - Ajustement de la saturation des couleurs
 - Calibration par flat
 - Rejet des valeurs aberrantes lors de l'empilement en mode moyenne
+
+### Corrections
+
+- L'image et les données d'exposition du webview pouvaient rester périmées à cause de la mise en cache navigateur entre 
+  deux brutes.
 
 ---
 
