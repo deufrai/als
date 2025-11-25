@@ -2,12 +2,12 @@
 title: "RGB Balance"
 description: "Detailed documentation of the Color Balance process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-11-20T00:16:49Z
+lastmod: 2025-11-25T01:11:33Z
 keywords: [ "ALS color balance", "rgb adjustment", "color correction", "visual processing" ]
 draft: false
 type: "docs"
 categories: [ "detailed documentations" ]
-tags: [ "process", "color balance", "image adjustment" ]
+tags: [ "process", "color balance", "saturation", "image adjustment" ]
 weight: 100360
 ---
 
