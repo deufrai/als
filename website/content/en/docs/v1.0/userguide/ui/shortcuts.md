@@ -8,7 +8,7 @@ keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
 categories: [ "usage" ]
-tags: [ "" ]
+tags: [ "keyboard shortcuts", "hotkeys" ]
 weight: 100324
 ---
 

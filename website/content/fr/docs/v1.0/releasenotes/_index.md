@@ -4,7 +4,7 @@ description: Notes de version d'ALS
 author: ALS Team
 lastmod: 2025-11-20T18:04:55Z
 keywords: [ 'Notes de version ALS' ]
-tags: [ ]
+tags: [ 'notes de version', 'journal des modifications' ]
 weight: 100550
 ---
 

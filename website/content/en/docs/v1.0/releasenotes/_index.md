@@ -4,7 +4,7 @@ description: ALS Release Notes
 author: ALS Team
 lastmod: 2025-11-20T18:04:55Z
 keywords: [ 'ALS Release Notes' ]
-tags: [ ]
+tags: [ 'release notes', 'changelog' ]
 weight: 100550
 ---
 

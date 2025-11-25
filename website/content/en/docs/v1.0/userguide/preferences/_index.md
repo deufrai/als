@@ -7,7 +7,7 @@ keywords: ["ALS settings", "ALS preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
-tags: [ ]
+tags: [ "preferences", "settings" ]
 weight: 100330
 ---
 

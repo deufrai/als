@@ -7,7 +7,7 @@ lastmod: 2025-11-07T14:54:32Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
-tags: [ ]
+tags: [ "menu", "navigation" ]
 weight: 100325
 ---
 

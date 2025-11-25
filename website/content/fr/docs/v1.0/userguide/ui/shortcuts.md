@@ -8,7 +8,7 @@ keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
 categories: [ "utilisation" ]
-tags: [ "" ]
+tags: [ "raccourcis clavier", "touches de raccourci" ]
 weight: 100324
 ---
 
