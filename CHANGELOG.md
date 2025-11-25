@@ -2,9 +2,9 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-05-31T12:11:38Z
+lastmod: 2025-11-25T21:33:28Z
 keywords: [ 'ALS Release Notes' ]
-tags: [ ]
+tags: [ 'release notes', 'changelog' ]
 weight: 100550
 ---
 
@@ -17,6 +17,10 @@ weight: 100550
 - Color saturation adjustment
 - Flat frame calibration
 - Outlier rejection when stacking in mean mode
+
+### Bug Fixes
+
+- Webview image and exposition data could display stale values because browsers cached the resources between subs.
 
 ---
 
@@ -41,14 +45,14 @@ weight: 100550
 - Introduction of profiles (default settings for assisted visual or photo)
 - Addition of a QR code display leading to the integrated web server
 - Addition of jpeg, png, and tiff file reading
-- French and russian translations
+- French and Russian translations
 - Dark frame subtraction
 - Hot pixel removal
 - Night mode
 
 ### Improvements
 
-- Imrpoved web server : fullscreen mode, pan & zoom, refresh without polling
+- Improved web server : fullscreen mode, pan & zoom, refresh without polling
 - Windows : ALS is now delivered as an installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts
