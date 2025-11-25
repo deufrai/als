@@ -2,10 +2,10 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-11-22T02:43:34Z
+lastmod: 2025-11-25T01:25:34Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
-tags: [ "stack", "session", "server", "output", "threshold", "save", "issues", "panels" ]
+tags: [ "stack", "session", "server", "output", "threshold", "outlier rejection", "save", "issues", "panels" ]
 categories: ["usage", "configuration"]
 weight: 100321
 ---
