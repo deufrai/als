@@ -222,7 +222,7 @@ class MainWindow(QMainWindow):
         self._ui.btn_stretch_apply.setEnabled(checked)
         self._ui.sld_stretch_strength.setEnabled(checked)
 
-        self._apply_autostretch()
+        self.on_btn_stretch_apply_clicked()
 
     @log
     @pyqtSlot(bool)
@@ -241,7 +241,7 @@ class MainWindow(QMainWindow):
         self._ui.sld_midtones.setEnabled(checked)
         self._ui.sld_white.setEnabled(checked)
 
-        self._apply_levels()
+        self.on_btn_levels_apply_clicked()
 
     @log
     @pyqtSlot(bool)
@@ -261,11 +261,11 @@ class MainWindow(QMainWindow):
         self._ui.sld_rgb_b.setEnabled(checked)
         self._ui.sld_rgb_saturation.setEnabled(checked)
 
-        self._apply_rgb()
+        self.on_btn_rgb_apply_clicked()
 
     @log
-    @pyqtSlot(name="on_btn_stretch_apply_clicked")
-    def _apply_autostretch(self):
+    @pyqtSlot(bool)
+    def on_btn_stretch_apply_clicked(self, checked: bool = False):
         """
         Apply autostretch processing
         """
@@ -274,8 +274,8 @@ class MainWindow(QMainWindow):
         self._controller.apply_processing()
 
     @log
-    @pyqtSlot(name="on_btn_rgb_apply_clicked")
-    def _apply_rgb(self):
+    @pyqtSlot(bool)
+    def on_btn_rgb_apply_clicked(self, checked: bool = False):
         """
         Apply rgb processing
         """
@@ -284,8 +284,8 @@ class MainWindow(QMainWindow):
         self._controller.apply_processing()
 
     @log
-    @pyqtSlot(name="on_btn_levels_apply_clicked")
-    def _apply_levels(self):
+    @pyqtSlot(bool)
+    def on_btn_levels_apply_clicked(self, checked: bool = False):
         """
         Apply levels processing
         """
@@ -306,48 +306,48 @@ class MainWindow(QMainWindow):
                 control.setValue(control.default_value())
 
     @log
-    @pyqtSlot(name="on_btn_stretch_reset_clicked")
-    def _reset_autostretch(self):
+    @pyqtSlot(bool)
+    def on_btn_stretch_reset_clicked(self, checked: bool = False):
         """
         Resets autostretch controls to their defaults
         """
         self._reset_sliders(self._autostretch_controls)
 
     @log
-    @pyqtSlot(name="on_btn_rgb_reset_clicked")
-    def _reset_rgb(self):
+    @pyqtSlot(bool)
+    def on_btn_rgb_reset_clicked(self, checked: bool = False):
         """
         Resets rgb controls to their defaults
         """
         self._reset_sliders(self._rgb_controls)
 
     @log
-    @pyqtSlot(name="on_btn_levels_reset_clicked")
-    def _reset_levels(self):
+    @pyqtSlot(bool)
+    def on_btn_levels_reset_clicked(self, checked: bool = False):
         """
         Resets levels processing controls to their defaults
         """
         self._reset_sliders(self._levels_controls)
 
     @log
-    @pyqtSlot(name="on_btn_rgb_reload_clicked")
-    def _reload_rgb(self):
+    @pyqtSlot(bool)
+    def on_btn_rgb_reload_clicked(self, checked: bool = False):
         """
         Sets rgb controls to their previously recorded values (last apply)
         """
         update_controls_from_params(self._rgb_parameters, self._rgb_controls)
 
     @log
-    @pyqtSlot(name="on_btn_stretch_reload_clicked")
-    def _reload_autostretch(self):
+    @pyqtSlot(bool)
+    def on_btn_stretch_reload_clicked(self, checked: bool = False):
         """
         Sets autostretch controls to their previously recorded values (last apply)
         """
         update_controls_from_params(self._autostretch_parameters, self._autostretch_controls)
 
     @log
-    @pyqtSlot(name="on_btn_levels_reload_clicked")
-    def _reload_levels(self):
+    @pyqtSlot(bool)
+    def on_btn_levels_reload_clicked(self, checked: bool = False):
         """
         Sets levels processing controls to their previously recorded values (last apply)
         """
@@ -424,9 +424,9 @@ class MainWindow(QMainWindow):
         if self._ui.btn_follow_logs.isChecked():
             self._ui.log.scrollToBottom()
 
-    @pyqtSlot(name="on_pbSave_clicked")
+    @pyqtSlot(bool)
     @log
-    def cb_save(self):
+    def on_btn_save_clicked(self, checked: bool = False):
         """
         Qt slot for mouse clicks on the 'save' button.
 
@@ -441,21 +441,21 @@ class MainWindow(QMainWindow):
                                         als.model.data.STACKED_IMAGE_FILE_NAME_BASE,
                                         add_timestamp=True)
 
-    @pyqtSlot(name="on_action_quit_triggered")
+    @pyqtSlot(bool)
     @log
-    def cb_quit(self):
+    def on_action_quit_triggered(self, checked: bool = False):
         """ Qt slot for activation of the 'quit' action"""
         super().close()
 
-    @pyqtSlot(name="on_action_prefs_triggered")
+    @pyqtSlot(bool)
     @log
-    def cb_prefs(self):
+    def on_action_prefs_triggered(self, checked: bool = False):
         """ Qt slot for activation of the 'preferences' action"""
         self._open_preferences()
 
-    @pyqtSlot(name="on_action_about_als_triggered")
+    @pyqtSlot(bool)
     @log
-    def cb_about(self):
+    def on_action_about_als_triggered(self, checked: bool = False):
         """ Qt slot for activation of the 'about' action"""
         dialog = AboutDialog(self)
         dialog.resize(dialog.minimumSize())

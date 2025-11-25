@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1184</width>
-    <height>866</height>
+    <height>889</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -110,8 +110,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>0</width>
-     <height>0</height>
+     <width>313</width>
+     <height>591</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -547,7 +547,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
           <item>
-           <widget class="QPushButton" name="pbSave">
+           <widget class="QPushButton" name="btn_save">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
@@ -905,8 +905,8 @@
   <widget class="QDockWidget" name="processing_dock">
    <property name="minimumSize">
     <size>
-     <width>0</width>
-     <height>0</height>
+     <width>313</width>
+     <height>677</height>
     </size>
    </property>
    <property name="allowedAreas">

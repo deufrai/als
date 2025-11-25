@@ -351,9 +351,9 @@ class PreferencesDialog(QDialog):
                                                 start_folder,
                                                 options=QFileDialog.DontUseNativeDialog)
 
-    @pyqtSlot(name="on_btn_browse_scan_clicked")
+    @pyqtSlot(bool)
     @log
-    def browse_scan(self):
+    def on_btn_browse_scan_clicked(self, checked: bool = False):
         """ Asks user to pick scan folder """
         scan_folder_path = self.ask_for_directory_path(self.tr("Select scan folder"),
                                                        self._ui.ln_scan_folder_path.text())
@@ -363,9 +363,9 @@ class PreferencesDialog(QDialog):
 
         self._validate_all_paths()
 
-    @pyqtSlot(name="on_btn_browse_work_clicked")
+    @pyqtSlot(bool)
     @log
-    def browse_work(self):
+    def on_btn_browse_work_clicked(self, checked: bool = False):
         """Opens a folder dialog to choose work folder"""
         work_folder_path = self.ask_for_directory_path(self.tr("Select work folder"),
                                                        self._ui.ln_work_folder_path.text())
@@ -374,9 +374,9 @@ class PreferencesDialog(QDialog):
 
         self._validate_all_paths()
 
-    @pyqtSlot(name="on_btn_browse_web_clicked")
+    @pyqtSlot(bool)
     @log
-    def browse_web(self):
+    def on_btn_browse_web_clicked(self, checked: bool = False):
         """Opens a folder dialog to choose web folder"""
         web_folder_path = self.ask_for_directory_path(self.tr("Select web folder"),
                                                       self._ui.ln_web_folder_path.text())
@@ -385,9 +385,9 @@ class PreferencesDialog(QDialog):
 
         self._validate_all_paths()
 
-    @pyqtSlot(name="on_btn_browse_dark_clicked")
+    @pyqtSlot(bool)
     @log
-    def browse_dark(self):
+    def on_btn_browse_dark_clicked(self, checked: bool = False):
         """Opens a folder dialog to choose dark file"""
         dark_file_path = QFileDialog.getOpenFileName(self,
                                                      self.tr("Select master dark file"),
@@ -398,9 +398,9 @@ class PreferencesDialog(QDialog):
 
         self._validate_all_paths()
 
-    @pyqtSlot(name="on_btn_browse_flat_clicked")
+    @pyqtSlot(bool)
     @log
-    def browse_flat(self):
+    def on_btn_browse_flat_clicked(self, checked: bool = False):
         """Opens a folder dialog to choose flat file"""
         flat_file_path = QFileDialog.getOpenFileName(self,
                                                      self.tr("Select master flat file"),
