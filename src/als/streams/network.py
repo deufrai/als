@@ -312,6 +312,8 @@ class Server:
         self._app = web.Application()
         self._app.add_routes([web.get('/ws', self._websocket_handler)])
         self._app.add_routes([web.get('/', self._index_handler)])
+        self._app.add_routes([web.get('/data.json', self._data_handler)])
+        self._app.add_routes([web.get('/web_image.jpg', self._image_handler)])
 
         # Catch-all route for static files
         self._app.router.add_static('/', self._static_path)
@@ -335,8 +337,25 @@ class Server:
         return ws
 
     @log
-    async def _index_handler(self, _):
+    async def _index_handler(self, _: web.Request) -> web.StreamResponse:
+        """Serve the main webview page."""
         return web.FileResponse(os.path.join(self._static_path, 'index.html'))
+
+    @log
+    async def _data_handler(self, _: web.Request) -> web.StreamResponse:
+        """Serve exposition data without caching."""
+        return web.FileResponse(
+            os.path.join(self._static_path, 'data.json'),
+            headers={'Cache-Control': 'no-store, must-revalidate'}
+        )
+
+    @log
+    async def _image_handler(self, _: web.Request) -> web.StreamResponse:
+        """Serve the latest web image without caching."""
+        return web.FileResponse(
+            os.path.join(self._static_path, 'web_image.jpg'),
+            headers={'Cache-Control': 'no-store, must-revalidate'}
+        )
 
     @log
     async def _send_message_to_clients(self, message):
