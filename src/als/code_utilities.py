@@ -7,17 +7,27 @@ from functools import wraps
 from logging import LoggerAdapter
 from queue import Queue
 from time import time
+from typing import Any, Callable, TypeVar
 
 import psutil
 from PyQt5.QtCore import QObject, pyqtSignal, QFile, QIODevice, QTextStream
+
+
+class AlsLogAdapter(LoggerAdapter):
+
+    def process(self, msg, kwargs):
+        msg = f"{get_timestamp()} {msg}"
+        return super().process(msg, kwargs)
 
 
 # WARNING !!!!! Don't ever remove this USED import !!!!!
 # most IDEs report this as unused. They lie to you. We use it in get_text_content_of_resource()
 # pylint:disable=unused-import
 
+_T = TypeVar("_T")
 
-def log(func):
+
+def log(func: Callable[..., _T]) -> Callable[..., _T]:
     """
     Decorates a function to add logging.
 
@@ -26,22 +36,26 @@ def log(func):
     If the decorated function returns anything, a log entry (DEBUG level) is printed with decorated
     function's qualified name and return value(s).
 
-    Logs are issued using is the logger named after the decorated function's enclosing module.
+    Logs are issued using the logger named after the decorated function's enclosing module. Logging
+    only runs when DEBUG is enabled for that logger to keep overhead minimal otherwise.
 
     :param func: The function to decorate
     :return: The decorated function
     """
+    function_name = func.__qualname__
+    logger = AlsLogAdapter(logging.getLogger(func.__module__), {})
+
     @wraps(func)
-    def wrapped(*args, **kwargs):
-        function_name = func.__qualname__
-        original_logger = logging.getLogger(func.__module__)
-        logger = AlsLogAdapter(original_logger, {})
-        logger.debug(f"{function_name}() called with : {str(args)} - {str(kwargs)}")
-        start_time = time()
-        result = func(*args, **kwargs)
-        end_time = time()
-        logger.debug(f"{function_name}() returned {str(result)} in {(end_time - start_time) * 1000:0.3f} ms")
-        return result
+    def wrapped(*args: Any, **kwargs: Any) -> _T:
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug("%s() called with : %s - %s", function_name, args, kwargs)
+            start_time = time()
+            result = func(*args, **kwargs)
+            elapsed_ms = (time() - start_time) * 1000
+            logger.debug("%s() returned %s in %.3f ms", function_name, result, elapsed_ms)
+            return result
+        return func(*args, **kwargs)
+
     return wrapped
 
 
@@ -134,13 +148,6 @@ class SignalingQueue(Queue, QObject):
     def put_nowait(self, item):
         super().put_nowait(item)
         self.size_changed_signal.emit(self.qsize())
-
-
-class AlsLogAdapter(LoggerAdapter):
-
-    def process(self, msg, kwargs):
-        msg = f"{get_timestamp()} {msg}"
-        return super().process(msg, kwargs)
 
 
 def get_timestamp():
