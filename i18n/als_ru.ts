@@ -710,7 +710,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="207"/>
         <source>Astro&amp;photo Session Monitoring</source>
-        <translation type="unfinished">Мониторинг астрофото-сессии</translation>
+        <translation>Мониторинг астрофото-сессии</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="219"/>
@@ -840,7 +840,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="659"/>
         <source>Timestamped result on session &amp;stop</source>
-        <translation type="unfinished">Результат с отметкой времени при остановке сессии</translation>
+        <translation>Результат с отметкой времени при остановке сессии</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="672"/>
@@ -926,7 +926,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/stop_ui.ui" line="93"/>
         <source>Timestamped result on session &amp;stop</source>
-        <translation type="unfinished">Результат с отметкой времени при остановке сессии</translation>
+        <translation>Результат с отметкой времени при остановке сессии</translation>
     </message>
 </context>
 <context>
