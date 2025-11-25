@@ -5,9 +5,10 @@ import json
 import os
 import socket
 from logging import getLogger
+from types import MappingProxyType
 from typing import Any, Iterable, List, Mapping, Optional, Sequence
 
-from aiohttp import web
+from aiohttp import hdrs, web
 import psutil
 
 from als import config
@@ -306,6 +307,26 @@ def select_advertised_address(
 
 class Server:
 
+    _NO_CACHE_HEADERS: Mapping[str, str] = MappingProxyType({
+        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    })
+
+    @staticmethod
+    def _no_cache_file_response(path: str) -> web.FileResponse:
+        """
+        Builds a file response with aggressive no-cache directives.
+
+        :param path: filesystem path to serve
+        :return: prepared HTTP response
+        """
+        response = web.FileResponse(path)
+        response.headers.update(Server._NO_CACHE_HEADERS)
+        response.headers.pop(hdrs.ETAG, None)
+        response.headers.pop(hdrs.LAST_MODIFIED, None)
+        return response
+
     @log
     def __init__(self, static_path):
         self._static_path = static_path
@@ -344,18 +365,12 @@ class Server:
     @log
     async def _data_handler(self, _: web.Request) -> web.StreamResponse:
         """Serve exposition data without caching."""
-        return web.FileResponse(
-            os.path.join(self._static_path, 'data.json'),
-            headers={'Cache-Control': 'no-store, must-revalidate'}
-        )
+        return self._no_cache_file_response(os.path.join(self._static_path, 'data.json'))
 
     @log
     async def _image_handler(self, _: web.Request) -> web.StreamResponse:
         """Serve the latest web image without caching."""
-        return web.FileResponse(
-            os.path.join(self._static_path, 'web_image.jpg'),
-            headers={'Cache-Control': 'no-store, must-revalidate'}
-        )
+        return self._no_cache_file_response(os.path.join(self._static_path, 'web_image.jpg'))
 
     @log
     async def _send_message_to_clients(self, message):
