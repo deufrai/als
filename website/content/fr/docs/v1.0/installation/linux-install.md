@@ -2,7 +2,7 @@
 title: Installation sur PC/Linux
 description: Installation d'ALS sur PC Linux
 author: ALZ Team
-lastmod: 2025-11-07T15:39:58Z
+lastmod: 2025-11-25T18:46:32Z
 keywords: [ "installation", "linux", "astro live stacker", "guide" ]
 weight: 100210
 Categories: ['procédures']
@@ -34,12 +34,12 @@ tags: ['install', 'Linux', 'PC']
 
 2. **Identifier le fichier ALS**
     - Recherchez le fichier dont le nom commence par {{< als-code >}}als{{< /als-code >}} et se termine par {{< als-code >}}.run{{< /als-code >}}. Par exemple, cela pourrait être
-      {{< als-code >}}als-v0.7.run{{< /als-code >}}.
+      {{< als-code >}}als-v1.0.run{{< /als-code >}}.
 
 3. **Rendre le fichier exécutable**
     - Pour rendre le fichier exécutable, vous devez modifier ses permissions. Cela peut être fait directement depuis le
       gestionnaire de fichiers :
-        - Faites un clic droit sur le fichier {{< als-code >}}als-v0.7.run{{< /als-code >}}.
+        - Faites un clic droit sur le fichier {{< als-code >}}als-v1.0.run{{< /als-code >}}.
         - Sélectionnez "Propriétés".
         - Accédez à l'onglet "Permissions".
         - Cochez l'option "Autoriser l'exécution du fichier comme un programme".
@@ -63,11 +63,11 @@ tags: ['install', 'Linux', 'PC']
     - Accédez au dossier de téléchargements ({{< als-code >}}Téléchargements{{< /als-code >}}) dans une autre fenêtre de votre gestionnaire de
       fichiers. Il est important d'avoir deux fenêtres distinctes et visibles pour pouvoir glisser facilement les
       fichiers.
-    - Trouvez le fichier {{< als-code >}}als-v0.7.run{{< /als-code >}} dans le dossier de téléchargements, puis faites glisser ce fichier dans le
+    - Trouvez le fichier {{< als-code >}}als-v1.0.run{{< /als-code >}} dans le dossier de téléchargements, puis faites glisser ce fichier dans le
       dossier {{< als-code >}}ALS{{< /als-code >}} ({{< als-code >}}/home/nom_utilisateur/Applications/ALS{{< /als-code >}}).
 
 5. **Lancer le fichier exécutable**
-    - Faites un double clic sur le fichier {{< als-code >}}als-v0.7.run{{< /als-code >}}.
+    - Faites un double clic sur le fichier {{< als-code >}}als-v1.0.run{{< /als-code >}}.
     - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution du fichier, choisissez l'option pour
       exécuter ou ouvrir le fichier.
 

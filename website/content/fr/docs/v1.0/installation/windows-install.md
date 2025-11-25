@@ -2,7 +2,7 @@
 title: Installation sur Windows
 description: Installation d'ALS sur PC Windows
 author: ALZ Team
-lastmod: 2025-11-07T15:39:58Z
+lastmod: 2025-11-25T18:46:33Z
 keywords: [ "installation ALS", "windows", "astro live stacker", "guide" ]
 weight: 100230
 Categories: ['procédures']
@@ -30,10 +30,10 @@ Windows 10 ou supérieur
       tâches (une icône en forme de dossier).
     - Accédez à votre dossier de téléchargements en sélectionnant "Téléchargements" dans le menu de navigation à gauche.
     - Vous devriez y voir l'installeur d'ALS dont le nom commence par {{< als-code >}}als{{< /als-code >}} et se termine par {{< als-code >}}_Setup.exe{{< /als-code >}}.
-      Par exemple, cela pourrait être {{< als-code >}}als-v0.7_Setup.exe{{< /als-code >}}.
+      Par exemple, cela pourrait être {{< als-code >}}als-v1.0_Setup.exe{{< /als-code >}}.
 
 2. **Exécuter l'installeur**
-    - Double-cliquez sur le fichier {{< als-code >}}als-v0.7_Setup.exe{{< /als-code >}} dans le dossier où vous l'avez téléchargé pour lancer 
+    - Double-cliquez sur le fichier {{< als-code >}}als-v1.0_Setup.exe{{< /als-code >}} dans le dossier où vous l'avez téléchargé pour lancer 
       l'installation. Si ALS a déjà été installé sur votre système, cet installeur procèdera à une mise à jour.
     - Une fenêtre d'alerte de sécurité de Windows s'ouvrira probablement, indiquant que l'éditeur de l'application est
       inconnu.

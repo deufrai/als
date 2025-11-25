@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-11-24T18:13:40Z
+lastmod: 2025-11-25T18:46:33Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -185,7 +185,7 @@ Sachez que :
 
 ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement.
 
-- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de l'envoi
+- <a href="https://github.com/deufrai/als/blob/release/1.0/src/als/main.py#L46" target="_blank">code de l'envoi
   des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
 - <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code de
   l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>
@@ -359,21 +359,21 @@ alt="L'image montre une capture d'écran d'une interface logicielle avec un thè
     caption="Sélecteur de fichier pour **PC**" 
     width="661px" 
     height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v0.7-beta7.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
+    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v1.0.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
 {{< figure src="exe_picker_rpi.png" 
     caption="Sélecteur de fichier pour **Raspberry PI**" 
     width="661px" 
     height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v0.7-beta7. Le fichier als-v0.7-beta7 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v0.7-beta7' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
+    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v1.0. Le fichier als-v1.0 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v1.0' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
 </div>
 {{< /center >}}
 
 1. 🖱️ Naviguer vers le dossier où se trouve ALS
     - **PC**: Naviguer vers {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
-    - **Raspberry PI**: Naviguer vers {{< als-code >}}/home/astrogeek/Applications/ALS/als-v0.7{{< /als-code >}}
+    - **Raspberry PI**: Naviguer vers {{< als-code >}}/home/astrogeek/Applications/ALS/als-v1.0{{< /als-code >}}
 2. 🖱️ Sélectionner l'exécutable
-    - **PC**: Sélectionner le fichier {{< als-code >}}als-v0.7.run{{< /als-code >}}
-    - **Raspberry PI**: Sélectionner le fichier {{< als-code >}}als-v0.7{{< /als-code >}}
+    - **PC**: Sélectionner le fichier {{< als-code >}}als-v1.0.run{{< /als-code >}}
+    - **Raspberry PI**: Sélectionner le fichier {{< als-code >}}als-v1.0{{< /als-code >}}
 3. 🖱️ Cliquez sur `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur

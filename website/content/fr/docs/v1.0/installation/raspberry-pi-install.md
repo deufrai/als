@@ -3,7 +3,7 @@ title: Installation sur Raspberry Pi
 description: Installation d'ALS sur Raspberry Pi
 author: ALZ Team
 
-lastmod: 2025-11-25T03:16:44Z
+lastmod: 2025-11-25T18:46:33Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 100220
 Categories: ['procédures']
@@ -25,7 +25,7 @@ tags: ['install', 'Linux', 'Raspberry Pi']
 | **Stockage libre** | 650 Mo       | 
 
 *_Les versions d'ALS proposées au téléchargement pour Raspberry Pi sont destinées aux systèmes en 64 bits.
-Mais vous pouvez facilement adapter ce [script de build](https://github.com/deufrai/als/blob/release/0.7/ci/builds/build_dist_arm64_linux.sh)
+Mais vous pouvez facilement adapter ce [script de build](https://github.com/deufrai/als/blob/release/1.0/ci/builds/build_dist_arm64_linux.sh)
 pour packager une version d'ALS en 32 bits depuis les sources. L'unique contrainte forte est d'utiliser Python en version
 3.6.x. N'hésitez pas à [nous contacter](mailto:support@als-app.org) 
 si vous avez besoin d'aide._
@@ -39,11 +39,11 @@ si vous avez besoin d'aide._
 
 2. **Identifier l'archive ALS**
     - Recherchez l'archive dont le nom commence par {{< als-code >}}als{{< /als-code >}} et se termine par {{< als-code >}}.tgz{{< /als-code >}}. Par exemple, cela pourrait être
-      {{< als-code >}}als-v0.7.tgz{{< /als-code >}}.
+      {{< als-code >}}als-v1.0.tgz{{< /als-code >}}.
 
 3. **Extraire l'archive**
     - Pour extraire l'archive, vous pouvez utiliser un gestionnaire de fichiers :
-        - Faites un clic droit sur l'archive {{< als-code >}}als-v0.7.tgz{{< /als-code >}}.
+        - Faites un clic droit sur l'archive {{< als-code >}}als-v1.0.tgz{{< /als-code >}}.
         - Sélectionnez "Extraire ici" ou une option similaire.
 
 4. **Déplacer ALS vers un emplacement permanent**
@@ -65,12 +65,12 @@ si vous avez besoin d'aide._
     - Accédez au dossier de téléchargements ({{< als-code >}}Téléchargements{{< /als-code >}}) dans une autre fenêtre de votre gestionnaire de
       fichiers. Il est important d'avoir deux fenêtres distinctes et visibles pour pouvoir glisser facilement les
       fichiers.
-    - Trouvez le dossier {{< als-code >}}als-v0.7{{< /als-code >}} dans le dossier de téléchargements, puis faites glisser ce dossier dans le
+    - Trouvez le dossier {{< als-code >}}als-v1.0{{< /als-code >}} dans le dossier de téléchargements, puis faites glisser ce dossier dans le
       dossier {{< als-code >}}ALS{{< /als-code >}} ({{< als-code >}}/home/nom_utilisateur/Applications/ALS{{< /als-code >}}).
 
 5. **Lancer l'exécutable**
-    - Accédez au dossier {{< als-code >}}als-v0.7{{< /als-code >}} dans le gestionnaire de fichiers.
-    - Faites un double clic sur le fichier {{< als-code >}}als-v0.7{{< /als-code >}}.
+    - Accédez au dossier {{< als-code >}}als-v1.0{{< /als-code >}} dans le gestionnaire de fichiers.
+    - Faites un double clic sur le fichier {{< als-code >}}als-v1.0{{< /als-code >}}.
     - Si une boîte de dialogue apparaît vous demandant de confirmer l'exécution, choisissez l'option pour exécuter ou
       ouvrir le fichier.
 

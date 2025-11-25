@@ -3,7 +3,7 @@ title: Installation sur un Mac Intel
 description: Installation d'ALS sur Mac Intel
 author: ALZ Team
 
-lastmod: 2025-11-07T15:39:58Z
+lastmod: 2025-11-25T18:46:33Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 100240
 Categories: ['procédures']
@@ -29,10 +29,10 @@ macOS 10.13 (High Sierra) ou version ultérieure
    - Accédez à votre dossier de téléchargements en sélectionnant "Téléchargements" dans le menu de navigation à gauche.
 
 2. **Identifier l'image disque als**
-   - Recherchez l'image disque dont le nom commence par {{< als-code >}}als{{< /als-code >}} et se termine par {{< als-code >}}-amd64.dmg{{< /als-code >}}. Par exemple, cela pourrait être {{< als-code >}}als-v0.7-amd64.dmg{{< /als-code >}}.
+   - Recherchez l'image disque dont le nom commence par {{< als-code >}}als{{< /als-code >}} et se termine par {{< als-code >}}-amd64.dmg{{< /als-code >}}. Par exemple, cela pourrait être {{< als-code >}}als-v1.0-amd64.dmg{{< /als-code >}}.
 
 3. **Monter l'image disque**
-   - Double-cliquez sur l'image disque {{< als-code >}}als-v0.7-amd64.dmg{{< /als-code >}}. Cela montera l'image disque.
+   - Double-cliquez sur l'image disque {{< als-code >}}als-v1.0-amd64.dmg{{< /als-code >}}. Cela montera l'image disque.
    - Une nouvelle fenêtre Finder affichera le contenu de l'image disque. Vous verrez l'icône de l'application {{< als-code >}}ALS{{< /als-code >}} à gauche et un raccourci vers le dossier {{< als-code >}}Applications{{< /als-code >}} du système à droite.
 
 4. **Copier l'application dans le dossier Applications**
@@ -61,4 +61,3 @@ macOS 10.13 (High Sierra) ou version ultérieure
      - Accédez au dossier {{< als-code >}}Applications{{< /als-code >}}, puis double-cliquez sur l'application {{< als-code >}}ALS{{< /als-code >}} pour l'exécuter.
 
 Prochaine étape : Le guide de [premier démarrage](../quickstart/). 
-
