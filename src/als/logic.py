@@ -499,6 +499,7 @@ class Controller:
                 self._image_timings.clear()
                 DYNAMIC_DATA.last_timing = 0
                 DYNAMIC_DATA.total_exposure_time = 0
+                DYNAMIC_DATA.clear_master_calibration_cache()
 
                 scan_folder_path = config.get_scan_folder_path()
                 work_folder_path = config.get_work_folder_path()

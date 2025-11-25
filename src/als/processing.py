@@ -5,7 +5,7 @@ import time
 from abc import abstractmethod
 from logging import getLogger
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 import cv2
 import numpy as np
@@ -539,13 +539,71 @@ class Debayer(ImageProcessor):
         return image
 
 
+@log
+def _get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
+    """
+    Retrieves the master dark frame from in-session cache or disk if missing.
+
+    :param master_dark_path: filesystem path to the master dark file
+    :type master_dark_path: str
+
+    :return: the cached or freshly read master dark, None if unavailable
+    :rtype: Optional[Image]
+    """
+    if not master_dark_path:
+        return None
+
+    if DYNAMIC_DATA.master_dark is not None:
+        return DYNAMIC_DATA.master_dark
+
+    dark = als_input.read_disk_image(Path(master_dark_path))
+    if dark is not None:
+        DYNAMIC_DATA.master_dark = dark
+
+    return dark
+
+
+@log
+def _get_cached_master_flat(master_flat_path: str) -> Optional[Image]:
+    """
+    Retrieves the master flat frame from in-session cache or disk if missing.
+
+    :param master_flat_path: filesystem path to the master flat file
+    :type master_flat_path: str
+
+    :return: the cached or freshly read master flat, None if unavailable
+    :rtype: Optional[Image]
+    """
+    if not master_flat_path:
+        return None
+
+    if DYNAMIC_DATA.master_flat is not None:
+        return DYNAMIC_DATA.master_flat
+
+    flat = als_input.read_disk_image(Path(master_flat_path))
+    if flat is not None:
+        DYNAMIC_DATA.master_flat = flat
+
+    return flat
+
+
 class RemoveDark(ImageProcessor):
     """
     Provides image dark removal.
     """
 
     @log
-    def process_image(self, image: Image):
+    def process_image(self, image: Image) -> Optional[Image]:
+        """
+        Subtracts the configured master dark from the image, using an in-session cache
+        to avoid repeated disk reads.
+
+        :param image: the image to process
+        :type image: Image
+
+        :return: the processed image or None if processing cannot proceed
+        :rtype: Optional[Image]
+        """
 
         if not image:
             return None
@@ -556,14 +614,15 @@ class RemoveDark(ImageProcessor):
 
         if do_subtract:
 
-            dark = als_input.read_disk_image(Path(config.get_master_dark_file_path()))
+            master_dark_path = config.get_master_dark_file_path()
+            dark = _get_cached_master_dark(master_dark_path)
 
             if dark is None:
                 read_error_message = QT_TRANSLATE_NOOP(
                     "",
                     "Could not read master dark {}. Dark subtraction is SKIPPED"
                 )
-                read_error_values = [config.get_master_dark_file_path(), ]
+                read_error_values = [master_dark_path, ]
                 MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
                 return image
 
@@ -598,17 +657,23 @@ class RemoveDark(ImageProcessor):
                     except TypeError:
                         raise ProcessingError(f"unhandled masterdark data type : {dark.data.dtype.type}")
 
-                    dark.data = np.interp(
+                    dark_data = np.interp(
                         dark.data,
                         (dark_min_allowed, dark_max_allowed),
                         (image_min_allowed, image_max_allowed)).astype(image.data.dtype)
 
+                dark.data = dark_data
+                DYNAMIC_DATA.master_dark = dark
+
                 _LOGGER.debug(f"Dark frame conforming done in {conforming_timer.elapsed_in_milli_as_str} ms")
+
+            else:
+                dark_data = dark.data
 
             _LOGGER.debug("Subtracting dark frame...")
 
             with Timer() as subtraction_timer:
-                image.data = np.where(image.data > dark.data, image.data - dark.data, 0)
+                image.data = np.where(image.data > dark_data, image.data - dark_data, 0)
             _LOGGER.debug(f"Dark frame subtracted in {subtraction_timer.elapsed_in_milli_as_str} ms")
 
         return image
@@ -642,7 +707,17 @@ class RemoveFlat(ImageProcessor):
     """
 
     @log
-    def process_image(self, image: Image):
+    def process_image(self, image: Image) -> Optional[Image]:
+        """
+        Divides by the configured master flat, using an in-session cache to
+        avoid repeated disk reads.
+
+        :param image: the image to process
+        :type image: Image
+
+        :return: the processed image or None if processing cannot proceed
+        :rtype: Optional[Image]
+        """
 
         if not image:
             return None
@@ -653,14 +728,15 @@ class RemoveFlat(ImageProcessor):
 
         if do_divide:
 
-            flat = als_input.read_disk_image(Path(config.get_master_flat_file_path()))
+            master_flat_path = config.get_master_flat_file_path()
+            flat = _get_cached_master_flat(master_flat_path)
 
             if flat is None:
                 read_error_message = QT_TRANSLATE_NOOP(
                     "",
                     "Could not read master flat {}. Flat division is SKIPPED"
                 )
-                read_error_values = [config.get_master_flat_file_path(), ]
+                read_error_values = [master_flat_path, ]
                 MESSAGE_HUB.dispatch_warning(__name__, read_error_message, read_error_values)
                 return image
 

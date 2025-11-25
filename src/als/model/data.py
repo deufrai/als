@@ -2,14 +2,14 @@
 Provides base application data
 """
 from logging import getLogger
-from typing import List
+from typing import List, Optional
 
 import numpy as np
 from PyQt5.QtCore import QObject
 
 import als
 from als.code_utilities import SignalingQueue, log, AlsLogAdapter
-from als.model.base import Session
+from als.model.base import Image, Session
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -143,6 +143,16 @@ class DynamicData:
         self.post_processor_result_qimage = None
         self.last_timing = 0
         self.total_exposure_time: int = 0
+        self.master_dark: Optional[Image] = None
+        self.master_flat: Optional[Image] = None
+
+    @log
+    def clear_master_calibration_cache(self) -> None:
+        """
+        Clears cached master calibration frames for the running session.
+        """
+        self.master_dark = None
+        self.master_flat = None
 
 
 class HistogramContainer:
