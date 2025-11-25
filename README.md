@@ -36,7 +36,7 @@ All you need is your camera, a clear sky, and a sense of wonder.
 ## 📚 Documentation
 
 Full installation, configuration, and usage guides live on the official site:  
-👉 [**ALS Documentation**](https://als-app.org/docs/v0.7.1)
+👉 [**ALS Documentation**](https://als-app.org/docs/)
 
 It’s got screenshots, walkthroughs, and far fewer acronyms than you’d expect.
 
@@ -80,13 +80,13 @@ Free as in freedom — and photons.
 
 ## 🧭 Project Links
 
-| Purpose          | Link                                                                               |
-|------------------|------------------------------------------------------------------------------------|
-| 🌐 Documentation | [https://als-app.org/docs/v0.7.1](https://als-app.org/docs/v0.7.1)                 |
+| Purpose          | Link                                                                   |
+|------------------|------------------------------------------------------------------------|
+| 🌐 Documentation | [https://als-app.org/docs/](https://als-app.org/docs/)                 |
 | 💾 Releases      | [https://github.com/deufrai/als/releases](https://github.com/deufrai/als/releases) |
-| 🐞 Issue Tracker | [https://github.com/deufrai/als/issues](https://github.com/deufrai/als/issues)     |
-| 🪐 Website       | [https://als-app.org](https://als-app.org)                                         |
-| 🗣️ Discord       | [https://als-app.org/discord](https://als-app.org/discord)                         |
+| 🐞 Issue Tracker | [https://github.com/deufrai/als/issues](https://github.com/deufrai/als/issues) |
+| 🪐 Website       | [https://als-app.org](https://als-app.org)                             |
+| 🗣️ Discord       | [https://als-app.org/discord](https://als-app.org/discord)             |
 
 ---
 
