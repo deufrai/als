@@ -5,10 +5,9 @@ import json
 import os
 import socket
 from logging import getLogger
-from types import MappingProxyType
 from typing import Any, Iterable, List, Mapping, Optional, Sequence
 
-from aiohttp import hdrs, web
+from aiohttp import web
 import psutil
 
 from als import config
@@ -307,34 +306,12 @@ def select_advertised_address(
 
 class Server:
 
-    _NO_CACHE_HEADERS: Mapping[str, str] = MappingProxyType({
-        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
-        'Pragma': 'no-cache',
-        'Expires': '0'
-    })
-
-    @staticmethod
-    def _no_cache_file_response(path: str) -> web.FileResponse:
-        """
-        Builds a file response with aggressive no-cache directives.
-
-        :param path: filesystem path to serve
-        :return: prepared HTTP response
-        """
-        response = web.FileResponse(path)
-        response.headers.update(Server._NO_CACHE_HEADERS)
-        response.headers.pop(hdrs.ETAG, None)
-        response.headers.pop(hdrs.LAST_MODIFIED, None)
-        return response
-
     @log
     def __init__(self, static_path):
         self._static_path = static_path
         self._app = web.Application()
         self._app.add_routes([web.get('/ws', self._websocket_handler)])
         self._app.add_routes([web.get('/', self._index_handler)])
-        self._app.add_routes([web.get('/data.json', self._data_handler)])
-        self._app.add_routes([web.get('/web_image.jpg', self._image_handler)])
 
         # Catch-all route for static files
         self._app.router.add_static('/', self._static_path)
@@ -358,19 +335,8 @@ class Server:
         return ws
 
     @log
-    async def _index_handler(self, _: web.Request) -> web.StreamResponse:
-        """Serve the main webview page."""
+    async def _index_handler(self, _):
         return web.FileResponse(os.path.join(self._static_path, 'index.html'))
-
-    @log
-    async def _data_handler(self, _: web.Request) -> web.StreamResponse:
-        """Serve exposition data without caching."""
-        return self._no_cache_file_response(os.path.join(self._static_path, 'data.json'))
-
-    @log
-    async def _image_handler(self, _: web.Request) -> web.StreamResponse:
-        """Serve the latest web image without caching."""
-        return self._no_cache_file_response(os.path.join(self._static_path, 'web_image.jpg'))
 
     @log
     async def _send_message_to_clients(self, message):

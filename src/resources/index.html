@@ -40,14 +40,12 @@
     <div id="stack-size">Stack:</div>
 </div>
 <script>
-    var imageUrlBase = '/web_image.jpg';
-
     var viewer = OpenSeadragon({
         id: "openseadragon",
         prefixUrl: "/icons/",
         tileSources: {
             type: 'image',
-            url: imageUrlBase + '?t=' + Date.now()
+            url: '/web_image.jpg'
         },
         minZoomLevel: 0.25,
         maxZoomLevel: 20
@@ -61,7 +59,7 @@
         viewer.addTiledImage({
             tileSource: {
                 type: 'image',
-                url: imageUrlBase + '?t=' + Date.now()
+                url: '/web_image.jpg?timestamp=' + new Date().getTime()
             },
             replace: true,
             index: viewer.world.getIndexOfItem(tiledImage), // Specify the index
@@ -78,7 +76,7 @@
     }
 
     function fetchData() {
-        fetch('/data.json?t=' + Date.now(), { cache: 'no-store' })
+        fetch('/data.json?timestamp=' + new Date().getTime())
             .then(response => response.json())
             .then(data => updateOverlay(data))
             .catch(error => console.error('Error fetching data:', error));
