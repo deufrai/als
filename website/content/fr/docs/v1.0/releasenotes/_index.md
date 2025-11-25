@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-11-20T18:04:55Z
+lastmod: 2025-11-25T03:16:44Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ 'notes de version', 'journal des modifications' ]
 weight: 100550
@@ -20,7 +20,7 @@ weight: 100550
 
 ---
 
-## Version 0.7 #{#0.7}
+## Version 0.7 {#0.7}
 
 **Date:** 27 octobre 2025
 

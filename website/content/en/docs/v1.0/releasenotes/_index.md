@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-20T18:04:55Z
+lastmod: 2025-11-25T03:16:44Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -32,14 +32,14 @@ weight: 100550
 - Introduction of profiles (default settings for assisted visual or photo)
 - Addition of a QR code display leading to the integrated web server
 - Addition of jpeg, png, and tiff file reading
-- French and russian translations
+- French and Russian translations
 - Dark frame subtraction
 - Hot pixel removal
 - Night mode
 
 ### Improvements
 
-- Imrpoved web server : fullscreen mode, pan & zoom, refresh without polling
+- Improved web server : fullscreen mode, pan & zoom, refresh without polling
 - Windows : ALS is now delivered as an installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts

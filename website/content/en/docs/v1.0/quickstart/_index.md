@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-11-24T17:58:57Z
+lastmod: 2025-11-25T03:16:44Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -396,7 +396,7 @@ alt="The image shows a section of a computer screen displaying the 'Applications
 
 # Conclusion
 
-ALS is now properly configured and ready to process your subs with its defaults settings.
+ALS is now properly configured and ready to process your subs with its default settings.
 
 You have just completed your first stacking session and obtained your first result.
 
