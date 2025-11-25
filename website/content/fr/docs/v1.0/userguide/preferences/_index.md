@@ -6,7 +6,7 @@ lastmod: 2025-11-02T19:02:52Z
 keywords: ["préférences ALS"]
 type: "docs"
 categories: ["configuration"]
-tags: [ ]
+tags: [ "préférences", "configuration" ]
 weight: 100330
 ---
 
