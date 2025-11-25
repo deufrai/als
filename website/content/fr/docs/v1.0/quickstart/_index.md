@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2025-11-25T18:46:33Z
+lastmod: 2025-11-25T18:50:31Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -352,21 +352,6 @@ alt="L'image montre une capture d'écran d'une interface logicielle avec un thè
 {{< /center >}}
 
 🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez l'item **Créer lanceur**. Un sélecteur de fichier apparaît...
-
-{{< center >}}
-<div style="display: flex; justify-content: center; gap: 1rem;">
-{{< figure src="exe_picker.png" 
-    caption="Sélecteur de fichier pour **PC**" 
-    width="661px" 
-    height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v1.0.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
-{{< figure src="exe_picker_rpi.png" 
-    caption="Sélecteur de fichier pour **Raspberry PI**" 
-    width="661px" 
-    height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v1.0. Le fichier als-v1.0 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v1.0' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
-</div>
-{{< /center >}}
 
 1. 🖱️ Naviguer vers le dossier où se trouve ALS
     - **PC**: Naviguer vers {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
