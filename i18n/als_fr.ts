@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr_FR">
 <context>
     <name></name>
     <message>
@@ -465,7 +466,7 @@ ne doit pas être identique ou un sous-dossier de votre {} :
     <message>
         <location filename="../src/als/model/data.py" line="100"/>
         <source>Color saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>Saturation des couleurs</translation>
     </message>
 </context>
 <context>
@@ -1464,7 +1465,7 @@ Détails : {}</translation>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1234"/>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation>Saturation</translation>
     </message>
 </context>
 </TS>
