@@ -249,6 +249,10 @@ def _read_standard_image(path: Path):
 
     data = cv2.imread(str(path.resolve()), cv2.IMREAD_UNCHANGED)
 
+    if data is None:
+        _LOGGER.warning("Could not read image at %s; file is ignored", path)
+        return None
+
     # convert color layers order for color images
     if data.ndim > 2:
         data = cv2.cvtColor(data, cv2.COLOR_BGR2RGB)
