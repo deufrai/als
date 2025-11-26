@@ -55,19 +55,33 @@
         var currentZoom = viewer.viewport.getZoom();
         var currentCenter = viewer.viewport.getCenter();
         var tiledImage = viewer.world.getItemAt(0); // Get the first image
+        var timestamp = new Date().getTime();
 
-        viewer.addTiledImage({
-            tileSource: {
-                type: 'image',
-                url: '/web_image.jpg?timestamp=' + new Date().getTime()
-            },
-            replace: true,
-            index: viewer.world.getIndexOfItem(tiledImage), // Specify the index
-            success: function () {
+        var tileSource = {
+            type: 'image',
+            // Changing hash forces OpenSeadragon to bypass cached tiles.
+            hash: timestamp,
+            url: '/web_image.jpg?timestamp=' + timestamp
+        };
+
+        if (tiledImage && typeof tiledImage.setTileSource === 'function') {
+            // Refresh the existing tiled image to avoid flicker and keep viewport.
+            viewer.tileCache.clearTilesFor(tiledImage);
+            tiledImage.setTileSource(tileSource, function () {
                 viewer.viewport.zoomTo(currentZoom, null, true); // Disable easing
                 viewer.viewport.panTo(currentCenter, true); // Disable easing
-            }
-        });
+            });
+        } else {
+            viewer.addTiledImage({
+                tileSource: tileSource,
+                replace: true,
+                index: viewer.world.getIndexOfItem(tiledImage), // Specify the index
+                success: function () {
+                    viewer.viewport.zoomTo(currentZoom, null, true); // Disable easing
+                    viewer.viewport.panTo(currentCenter, true); // Disable easing
+                }
+            });
+        }
     }
 
     function updateOverlay(data) {
