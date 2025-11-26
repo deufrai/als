@@ -17,6 +17,7 @@ from als.code_utilities import log, SignalingQueue, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image
 from als.processing import QueueConsumer
+from als.model.data import WEB_SERVED_IMAGE_FILE_NAME_BASE
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -37,8 +38,9 @@ class ImageSaver(QueueConsumer):
         # image conversions involved in saving to various formats forces us to clone the received image
         ImageSaver._save_image(image.clone())
 
-        # if we just saved an image for the server output, have the controller notify the browsers
-        if image.destination.strip().startswith(config.get_web_folder_path()):
+        # Notify browsers only for the dedicated web copy, not for other saves in the same folder
+        destination_path = Path(image.destination).resolve()
+        if destination_path.stem == WEB_SERVED_IMAGE_FILE_NAME_BASE:
             self._controller.notify_browsers_about_new_image()
 
     @staticmethod
