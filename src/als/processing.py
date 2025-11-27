@@ -753,7 +753,17 @@ class RemoveFlat(ImageProcessor):
 
             with Timer() as division_timer:
 
-                normalized_flat_data = flat.data / np.max(flat.data)
+                flat_max = np.nanmax(flat.data)
+
+                if not np.isfinite(flat_max) or flat_max <= 0:
+                    warning_message = QT_TRANSLATE_NOOP(
+                        "",
+                        "Master flat {} contains no valid signal. Flat division is SKIPPED"
+                    )
+                    MESSAGE_HUB.dispatch_warning(__name__, warning_message, [master_flat_path])
+                    return image
+
+                normalized_flat_data = flat.data / flat_max
                 normalized_flat_data = np.where(normalized_flat_data == 0, 1, normalized_flat_data)
                 image.data = np.uint16(np.clip(image.data / normalized_flat_data, 0, _16_BITS_MAX_VALUE))
 
