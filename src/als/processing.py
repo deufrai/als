@@ -554,11 +554,15 @@ def _get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
         return None
 
     if DYNAMIC_DATA.master_dark is not None:
+        _LOGGER.debug("Using cached master dark: %s", master_dark_path)
         return DYNAMIC_DATA.master_dark
 
     dark = als_input.read_disk_image(Path(master_dark_path))
     if dark is not None:
+        _LOGGER.debug("Loaded master dark from disk: %s", master_dark_path)
         DYNAMIC_DATA.master_dark = dark
+    else:
+        _LOGGER.debug("Failed to load master dark from disk: %s", master_dark_path)
 
     return dark
 
@@ -578,11 +582,15 @@ def _get_cached_master_flat(master_flat_path: str) -> Optional[Image]:
         return None
 
     if DYNAMIC_DATA.master_flat is not None:
+        _LOGGER.debug("Using cached master flat: %s", master_flat_path)
         return DYNAMIC_DATA.master_flat
 
     flat = als_input.read_disk_image(Path(master_flat_path))
     if flat is not None:
+        _LOGGER.debug("Loaded master flat from disk: %s", master_flat_path)
         DYNAMIC_DATA.master_flat = flat
+    else:
+        _LOGGER.debug("Failed to load master flat from disk: %s", master_flat_path)
 
     return flat
 
