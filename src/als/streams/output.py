@@ -9,7 +9,7 @@ from logging import getLogger
 from pathlib import Path
 
 import cv2
-from PyQt5.QtCore import QT_TRANSLATE_NOOP
+from PyQt5.QtCore import QT_TRANSLATE_NOOP, pyqtSignal
 
 import als.model.data
 from als import config
@@ -27,6 +27,10 @@ class ImageSaver(QueueConsumer):
     Saves images according to commands posted to IMAGE_SAVE_QUEUE in its own thread
 
     """
+
+    save_completed_signal = pyqtSignal(str)
+    """Qt signal emitted when an image has been successfully saved. Carries destination path."""
+
     @log
     def __init__(self, save_queue: SignalingQueue, controller):
         QueueConsumer.__init__(self, "save", save_queue)
@@ -36,21 +40,21 @@ class ImageSaver(QueueConsumer):
     def _handle_item(self, image: Image):
 
         # image conversions involved in saving to various formats forces us to clone the received image
-        ImageSaver._save_image(image.clone())
+        save_succeeded = ImageSaver._save_image(image.clone())
 
-        # Notify browsers only for the dedicated web copy, not for other saves in the same folder
-        destination_path = Path(image.destination).resolve()
-        if destination_path.stem == WEB_SERVED_IMAGE_FILE_NAME_BASE:
-            self._controller.notify_browsers_about_new_image()
+        if save_succeeded:
+            self.save_completed_signal.emit(image.destination)
 
     @staticmethod
     @log
-    def _save_image(image):
+    def _save_image(image: Image) -> bool:
         """
         Saves image to disk
 
         :param image: the image to save
         :type image: Image
+        :return: True if save succeeded, False otherwise
+        :rtype: bool
         """
         target_path = str(Path(image.destination).parent / f"ALZ{Path(image.destination).name}")
         cwd = os.getcwd()
@@ -111,6 +115,8 @@ class ImageSaver(QueueConsumer):
 
         if sys.platform == 'win32':
             os.chdir(cwd)
+
+        return post_save_is_successful
 
     @staticmethod
     @log

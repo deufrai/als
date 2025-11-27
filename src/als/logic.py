@@ -164,6 +164,7 @@ class Controller:
         self._post_process_pipeline.waiting_signal.connect(self.on_post_processor_waiting)
         self._saver.busy_signal.connect(self.on_saver_busy)
         self._saver.waiting_signal.connect(self.on_saver_waiting)
+        self._saver.save_completed_signal[str].connect(self.on_image_saved)
 
         DYNAMIC_DATA.session.status_changed_signal.connect(self._notify_model_observers)
 
@@ -483,6 +484,20 @@ class Controller:
         """
         DYNAMIC_DATA.saver_busy = False
         self._notify_model_observers()
+
+    @log
+    def on_image_saved(self, destination: str):
+        """
+        Reacts to a successful image save.
+
+        Notifies browsers only when the dedicated web image has been written.
+
+        :param destination: absolute destination path of the saved image
+        :type destination: str
+        """
+        destination_path = Path(destination).resolve()
+        if destination_path.stem == WEB_SERVED_IMAGE_FILE_NAME_BASE:
+            self.notify_browsers_about_new_image()
 
     @log
     def start_session(self):
