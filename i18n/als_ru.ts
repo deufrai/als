@@ -8,34 +8,34 @@
         <translation>Astro Live Stacker версии {} запущен за {} мс.</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="327"/>
+        <location filename="../src/als/logic.py" line="328"/>
         <source>* Full processing time for &apos;{}&apos; : {} s</source>
         <translation>* Полное время обработки для &apos;{}&apos; : {} с</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="491"/>
+        <location filename="../src/als/logic.py" line="506"/>
         <source>Starting new session...</source>
         <translation>Запуск новой сессии...</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="512"/>
+        <location filename="../src/als/logic.py" line="528"/>
         <source>Missing {}</source>
         <translation>Отсутствует {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="513"/>
+        <location filename="../src/als/logic.py" line="529"/>
         <source>Your {} does not exist :
 {}</source>
         <translation>Ваш {} не существует :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="520"/>
+        <location filename="../src/als/logic.py" line="536"/>
         <source>Misplaced {}</source>
         <translation>Неправильное расположение {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="521"/>
+        <location filename="../src/als/logic.py" line="537"/>
         <source>Your {} :
 {}
 
@@ -48,47 +48,47 @@ must not be the same as or a subfolder of your {} :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="538"/>
+        <location filename="../src/als/logic.py" line="554"/>
         <source>Restarting input scanner ...</source>
         <translation>Перезапуск сканера ввода ...</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="543"/>
+        <location filename="../src/als/logic.py" line="559"/>
         <source>Input scanner started</source>
         <translation>Сканер ввода запущен</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="547"/>
+        <location filename="../src/als/logic.py" line="563"/>
         <source>Session running in mode {} with alignment {}</source>
         <translation>Сессия запущена в режиме {} с выравниванием {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="554"/>
+        <location filename="../src/als/logic.py" line="570"/>
         <source>Session start error: {}</source>
         <translation>Ошибка запуска сессии: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="571"/>
+        <location filename="../src/als/logic.py" line="587"/>
         <source>Session stopped</source>
         <translation>Сессия остановлена</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="580"/>
+        <location filename="../src/als/logic.py" line="596"/>
         <source>Session paused</source>
         <translation>Сессия приостановлена</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="605"/>
+        <location filename="../src/als/logic.py" line="621"/>
         <source>Web server started. Reachable at {}</source>
         <translation>Веб-сервер запущен. Доступен по адресу {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="644"/>
+        <location filename="../src/als/logic.py" line="660"/>
         <source>Web server stopped</source>
         <translation>Веб-сервер остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="813"/>
+        <location filename="../src/als/logic.py" line="827"/>
         <source>Input scanner stopped</source>
         <translation>Сканер ввода остановлен</translation>
     </message>
@@ -103,22 +103,22 @@ must not be the same as or a subfolder of your {} :
         <translation>Шаблон Байера, определенный в ваших настройках, отличается от того, который присутствует в текущем изображении. Предпочтительный: {} против изображения: {}. Результат дебайеринга может быть неверным.</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="772"/>
+        <location filename="../src/als/processing.py" line="868"/>
         <source>Start {} on {}</source>
         <translation>Начало {} на {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="779"/>
+        <location filename="../src/als/processing.py" line="877"/>
         <source>End {} on {} in {} ms</source>
         <translation>Конец {} на {} за {} мс</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="793"/>
+        <location filename="../src/als/processing.py" line="864"/>
         <source>{} stopped</source>
         <translation>{} остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="818"/>
+        <location filename="../src/als/processing.py" line="907"/>
         <source>Error applying process &apos;{}&apos; to image {} : {} *** Image will be ignored</source>
         <translation>Ошибка применения процесса &apos;{}&apos; к изображению {} : {} *** Изображение будет проигнорировано</translation>
     </message>
@@ -128,17 +128,17 @@ must not be the same as or a subfolder of your {} :
         <translation>Успешное чтение изображения из {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/input.py" line="371"/>
+        <location filename="../src/als/streams/input.py" line="375"/>
         <source>Error reading from file {} : {}</source>
         <translation>Ошибка чтения из файла {} : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="96"/>
+        <location filename="../src/als/streams/output.py" line="102"/>
         <source>Image saved : {}</source>
         <translation>Изображение сохранено : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="108"/>
+        <location filename="../src/als/streams/output.py" line="114"/>
         <source>Failed to save image : {}</source>
         <translation>Не удалось сохранить изображение : {}</translation>
     </message>
@@ -148,28 +148,33 @@ must not be the same as or a subfolder of your {} :
         <translation>Ошибка проверки номера порта : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="562"/>
+        <location filename="../src/als/processing.py" line="629"/>
         <source>Could not read master dark {}. Dark subtraction is SKIPPED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="571"/>
+        <location filename="../src/als/processing.py" line="638"/>
         <source>Data structure inconsistency. Light: {} vs Master dark: {}. Dark subtraction is SKIPPED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="581"/>
+        <location filename="../src/als/processing.py" line="648"/>
         <source>Dark &amp; Light data types mismatch detected. Light: {} vs Master dark: {}. Converting Dark...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="659"/>
+        <location filename="../src/als/processing.py" line="743"/>
         <source>Could not read master flat {}. Flat division is SKIPPED</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="668"/>
+        <location filename="../src/als/processing.py" line="752"/>
         <source>Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/processing.py" line="767"/>
+        <source>Master flat {} contains no valid signal. Flat division is SKIPPED</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

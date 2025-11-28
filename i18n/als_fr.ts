@@ -9,62 +9,62 @@
         <translation>Astro Live Stacker version {} démarré en {} ms.</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="538"/>
+        <location filename="../src/als/logic.py" line="554"/>
         <source>Restarting input scanner ...</source>
         <translation>Redémarrage scanneur d&apos;entrée...</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="543"/>
+        <location filename="../src/als/logic.py" line="559"/>
         <source>Input scanner started</source>
         <translation>Scanneur d&apos;entrée démarré</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="571"/>
+        <location filename="../src/als/logic.py" line="587"/>
         <source>Session stopped</source>
         <translation>Session stoppée</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="580"/>
+        <location filename="../src/als/logic.py" line="596"/>
         <source>Session paused</source>
         <translation>Session en pause</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="605"/>
+        <location filename="../src/als/logic.py" line="621"/>
         <source>Web server started. Reachable at {}</source>
         <translation>Serveur d&apos;image démarré. Joignable à {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="644"/>
+        <location filename="../src/als/logic.py" line="660"/>
         <source>Web server stopped</source>
         <translation>Serveur d&apos;image stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="813"/>
+        <location filename="../src/als/logic.py" line="827"/>
         <source>Input scanner stopped</source>
         <translation>Scanneur d&apos;entrée stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="547"/>
+        <location filename="../src/als/logic.py" line="563"/>
         <source>Session running in mode {} with alignment {}</source>
         <translation>Session démarrée en mode {} avec alignement {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="772"/>
+        <location filename="../src/als/processing.py" line="868"/>
         <source>Start {} on {}</source>
         <translation>Démarrage {} sur {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="779"/>
+        <location filename="../src/als/processing.py" line="877"/>
         <source>End {} on {} in {} ms</source>
         <translation>Fin de {} sur {} en {} ms</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="793"/>
+        <location filename="../src/als/processing.py" line="864"/>
         <source>{} stopped</source>
         <translation>{} stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="96"/>
+        <location filename="../src/als/streams/output.py" line="102"/>
         <source>Image saved : {}</source>
         <translation>Image sauvée : {}</translation>
     </message>
@@ -74,12 +74,12 @@
         <translation>Impossible de stacker l&apos;image {} : {}. L&apos;image est ABANDONNEE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="818"/>
+        <location filename="../src/als/processing.py" line="907"/>
         <source>Error applying process &apos;{}&apos; to image {} : {} *** Image will be ignored</source>
         <translation>Erreur en exécutant process {} à l&apos;image {} : {} *** L&apos;image sera ignorée</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="108"/>
+        <location filename="../src/als/streams/output.py" line="114"/>
         <source>Failed to save image : {}</source>
         <translation>Echec de sauvegarde image {}</translation>
     </message>
@@ -94,7 +94,7 @@
         <translation>La matrice de Bayer définie dans vos préférence diffère de celle présente dans l&apos;image courante. Préférences: {} vs image: {}. Le dématriçage peut produire un résultat érroné.</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="491"/>
+        <location filename="../src/als/logic.py" line="506"/>
         <source>Starting new session...</source>
         <translation>Démarrage de nouvelle session...</translation>
     </message>
@@ -104,39 +104,39 @@
         <translation>Image lue avec succès depuis {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/input.py" line="371"/>
+        <location filename="../src/als/streams/input.py" line="375"/>
         <source>Error reading from file {} : {}</source>
         <translation>Erreur de lecture fichier {} : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="327"/>
+        <location filename="../src/als/logic.py" line="328"/>
         <source>* Full processing time for &apos;{}&apos; : {} s</source>
         <translation>temps total de traitement pour &apos;{}&apos; : {} s</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="512"/>
+        <location filename="../src/als/logic.py" line="528"/>
         <source>Missing {}</source>
         <translation>{} manquant</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="513"/>
+        <location filename="../src/als/logic.py" line="529"/>
         <source>Your {} does not exist :
 {}</source>
         <translation>Votre {} n&apos;existe pas :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="520"/>
+        <location filename="../src/als/logic.py" line="536"/>
         <source>Misplaced {}</source>
         <translation>{} mal placé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="554"/>
+        <location filename="../src/als/logic.py" line="570"/>
         <source>Session start error: {}</source>
         <translation>Erreur de démarrage de session</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="521"/>
+        <location filename="../src/als/logic.py" line="537"/>
         <source>Your {} :
 {}
 
@@ -149,29 +149,34 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="562"/>
+        <location filename="../src/als/processing.py" line="629"/>
         <source>Could not read master dark {}. Dark subtraction is SKIPPED</source>
         <translation>Impossible de lire master dark {}. Soustraction de dark IGNOREE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="571"/>
+        <location filename="../src/als/processing.py" line="638"/>
         <source>Data structure inconsistency. Light: {} vs Master dark: {}. Dark subtraction is SKIPPED</source>
         <translation>Incohérence de structure de données. Brute : {} vs Master dark : {}. La soustraction du dark est IGNORÉE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="581"/>
+        <location filename="../src/als/processing.py" line="648"/>
         <source>Dark &amp; Light data types mismatch detected. Light: {} vs Master dark: {}. Converting Dark...</source>
         <translation>Incompatibilité de types de données entre le dark et la brute détectée. Brute : {} vs Master dark : {}. Conversion du dark...</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="659"/>
+        <location filename="../src/als/processing.py" line="743"/>
         <source>Could not read master flat {}. Flat division is SKIPPED</source>
         <translation>Impossible de lire le master flat {}. La division du flat est IGNORÉE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="668"/>
+        <location filename="../src/als/processing.py" line="752"/>
         <source>Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED</source>
         <translation>Incohérence de structure de données. Brute : {} vs Master flat : {}. La division du flat est IGNORÉE</translation>
+    </message>
+    <message>
+        <location filename="../src/als/processing.py" line="767"/>
+        <source>Master flat {} contains no valid signal. Flat division is SKIPPED</source>
+        <translation>Le master flat {} ne contient aucun signal valide. La division du flat est IGNOREE</translation>
     </message>
 </context>
 <context>
