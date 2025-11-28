@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="ru" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="ru" sourcelanguage="en">
 <context>
     <name></name>
     <message>
@@ -150,32 +151,32 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/processing.py" line="629"/>
         <source>Could not read master dark {}. Dark subtraction is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не удалось прочитать мастер-дарк {}. Вычитание дарка ПРОПУЩЕНО</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="638"/>
         <source>Data structure inconsistency. Light: {} vs Master dark: {}. Dark subtraction is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Несоответствие структуры данных. Лайт: {} против мастер-дарка: {}. Вычитание дарка ПРОПУЩЕНО</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="648"/>
         <source>Dark &amp; Light data types mismatch detected. Light: {} vs Master dark: {}. Converting Dark...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Обнаружено несовпадение типов данных дарка и лайта. Лайт: {} против мастер-дарка: {}. Конвертация дарка...</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="743"/>
         <source>Could not read master flat {}. Flat division is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Не удалось прочитать мастер-флэт {}. Деление на флэт ПРОПУЩЕНО</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="752"/>
         <source>Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Несоответствие структуры данных. Лайт: {} против мастер-флэта: {}. Деление на флэт ПРОПУЩЕНО</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="767"/>
         <source>Master flat {} contains no valid signal. Flat division is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Мастер-флэт {} не содержит корректного сигнала. Деление на флэт ПРОПУЩЕНО</translation>
     </message>
 </context>
 <context>
@@ -298,12 +299,12 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="224"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Сайт : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="234"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -470,7 +471,7 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/model/data.py" line="100"/>
         <source>Color saturation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Насыщенность цвета</translation>
     </message>
 </context>
 <context>
@@ -647,12 +648,12 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="384"/>
         <source>Select master dark file</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выберите файл мастер-дарка</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="397"/>
         <source>Select master flat file</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Выберите файл мастер-флэта</translation>
     </message>
 </context>
 <context>
@@ -880,17 +881,17 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="391"/>
         <source>Flat calibration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Калибровка флэта</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="397"/>
         <source>A&amp;ctive</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Активно</translation>
     </message>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="406"/>
         <source>Master &amp;flat...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Мастер-&amp;флэт...</translation>
     </message>
 </context>
 <context>
@@ -1469,7 +1470,7 @@ Details : {}</source>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="1234"/>
         <source>Saturation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Насыщенность</translation>
     </message>
 </context>
 </TS>
