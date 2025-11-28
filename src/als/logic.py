@@ -42,7 +42,7 @@ from als.model.data import (
 )
 from als.model.params import ProcessingParameter
 from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
-    HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator, RemoveFlat
+    HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator, RemoveFlat, QueueConsumer
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
 from als.streams.network import (
@@ -844,14 +844,26 @@ class Controller:
         if DYNAMIC_DATA.web_server_is_running:
             self.stop_www()
 
-        self._pre_process_pipeline.stop()
-        self._stacker.stop()
-        self._post_process_pipeline.stop()
-
-        self._saver.stop()
-        self._saver.wait()
+        self._stop_queue_consumer(self._pre_process_queue, self._pre_process_pipeline)
+        self._stop_queue_consumer(self._stacker_queue, self._stacker)
+        self._stop_queue_consumer(self._post_process_queue, self._post_process_pipeline)
+        self._stop_queue_consumer(self._saver_queue, self._saver)
 
     @log
     def _stop_input_scanner(self):
         self._input_scanner.stop()
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Input scanner stopped"))
+
+    @staticmethod
+    @log
+    def _stop_queue_consumer(queue: SignalingQueue, consumer: QueueConsumer) -> None:
+        """
+        Stops a queue consumer by enqueuing the stop sentinel and waiting for completion.
+
+        :param queue: queue associated with the consumer
+        :type queue: SignalingQueue
+        :param consumer: consumer thread to stop
+        :type consumer: QueueConsumer
+        """
+        queue.put(None)
+        consumer.wait()

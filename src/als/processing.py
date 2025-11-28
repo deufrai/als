@@ -836,7 +836,6 @@ class QueueConsumer(QThread):
     @log
     def __init__(self, name: str, queue: SignalingQueue):
         QThread.__init__(self)
-        self._stop_asked = False
         self._name = name
         self._queue = queue
 
@@ -853,38 +852,34 @@ class QueueConsumer(QThread):
     @log
     def run(self):
         """
-        Starts polling the queue and perform processing units to each image
+        Starts polling the queue and perform processing units to each image.
+        Receiving a None sentinel stops the consumer.
 
         If any processing error occurs, the current image is dropped
         """
-        while not self._stop_asked:
+        while True:
+            item = self._queue.get()
 
-            if self._queue.qsize() > 0:
+            if item is None:
+                MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "{} stopped"), [self._name, ])
+                break
 
-                self.busy_signal.emit()
-                item = self._queue.get()
-                MESSAGE_HUB.dispatch_info(__name__,
-                                          QT_TRANSLATE_NOOP("", "Start {} on {}"),
-                                          [self._name, item.origin if type(item) == Image else item])
+            self.busy_signal.emit()
+            MESSAGE_HUB.dispatch_info(
+                __name__,
+                QT_TRANSLATE_NOOP("", "Start {} on {}"),
+                [self._name, item.origin if type(item) == Image else item]
+            )
 
-                with Timer() as timer:
-                    self._handle_item(item)
+            with Timer() as timer:
+                self._handle_item(item)
 
-                MESSAGE_HUB.dispatch_info(
-                    __name__,
-                    QT_TRANSLATE_NOOP("", "End {} on {} in {} ms"),
-                    [self._name, item.origin if type(item) == Image else item, timer.elapsed_in_milli_as_str])
-                self.waiting_signal.emit()
-
-            self.msleep(20)
-
-    @log
-    def stop(self):
-        """
-        Sets flag that will interrupt the main loop in run()
-        """
-        self._stop_asked = True
-        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "{} stopped"), [self._name, ])
+            MESSAGE_HUB.dispatch_info(
+                __name__,
+                QT_TRANSLATE_NOOP("", "End {} on {} in {} ms"),
+                [self._name, item.origin if type(item) == Image else item, timer.elapsed_in_milli_as_str]
+            )
+            self.waiting_signal.emit()
 
 
 class Pipeline(QueueConsumer):
