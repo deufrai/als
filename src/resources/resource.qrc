@@ -13,7 +13,7 @@
         <file>openseadragon.min.js</file>
     </qresource>
     <qresource prefix="main">
-        <file>main.css</file>
+        <file>night.css</file>
         <file>dark.css</file>
     </qresource>
     <qresource prefix="i18n">

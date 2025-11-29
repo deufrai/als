@@ -224,7 +224,7 @@ class MainWindow(QMainWindow):
         self._ui.action_night_mode.blockSignals(False)
 
         if resolved_night:
-            qApp.setStyleSheet(get_text_content_of_resource(":/main/main.css"))
+            qApp.setStyleSheet(get_text_content_of_resource(":/main/night.css"))
         elif resolved_dark:
             qApp.setStyleSheet(get_text_content_of_resource(":/main/dark.css"))
         else:
