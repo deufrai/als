@@ -31,6 +31,11 @@ QMenu::item:selected {
     border: 2px solid #444444;
 }
 
+QMenu {
+
+    background-color: #2c2c2c;
+}
+
 QMenuBar::item:selected {
     background: #444444;
 }
