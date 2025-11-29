@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-25T21:33:28Z
+lastmod: 2025-11-29T07:00:55Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -14,6 +14,7 @@ weight: 100550
 
 ### New Features
 
+- Dark theme
 - Color saturation adjustment
 - Flat frame calibration
 - Outlier rejection when stacking in mean mode
