@@ -30,7 +30,7 @@ from generated.als_ui import Ui_stack_window
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
-ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7.1/?mtm_campaign=docFromApp"
+ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v1.0/?mtm_campaign=docFromApp"
 
 # pylint: disable=R0904, R0902
 class MainWindow(QMainWindow):
