@@ -3,7 +3,7 @@ title: "main menu"
 description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:54:31Z
+lastmod: 2025-11-29T04:13:58Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["usage"]
@@ -111,8 +111,8 @@ Opens preferences
 {{< center >}}
 {{< figure src="menu_view.png" 
     caption="The View menu" 
-    width="485px" 
-    height="173px" 
+    width="605px" 
+    height="220px" 
     alt="View menu" >}}
 {{< /center >}}
 
@@ -132,9 +132,6 @@ Opens preferences
 
   {{< als-ks >}}L{{< /als-ks >}} ON/OFF toggle `Session Log`
 
-</div>
-
-<div class="col-md-6">
 
 ### Image only
 
@@ -142,9 +139,18 @@ Opens preferences
 
   ON = all panels are hidden
 
+</div>
+
+<div class="col-md-6">
+
+
 ### Full screen
 
   {{< als-ks >}}D{{< /als-ks >}} toggles full screen mode
+
+### Dark theme
+
+  {{< als-ks >}}T{{< /als-ks >}} toggles dark theme
 
 ### Night mode
 
