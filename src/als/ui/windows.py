@@ -185,6 +185,9 @@ class MainWindow(QMainWindow):
         self._ui.lbl_stack_exposure.setFont(QFont("Courier New, Menlo, DejaVu Sans Mono, monospace"))
 
     def _setup_statusbar(self):
+        """
+        Initialize status bar widgets and layout.
+        """
         self._lbl_statusbar_current_profile = QLabel(self._ui.statusBar)
         self._lbl_statusbar_current_profile.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_frame_total_proc = QLabel(self._ui.statusBar)
@@ -201,6 +204,15 @@ class MainWindow(QMainWindow):
         self._lbl_statusbar_stack_size.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_web_server_status = QLabel(self._ui.statusBar)
         self._lbl_statusbar_web_server_status.setOpenExternalLinks(True)
+        self._lbl_statusbar_web_server_status.setFrameStyle(QFrame.Panel | QFrame.Sunken)
+
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_session_status)
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_current_profile)
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_scanner_status)
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_size)
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_exposure)
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_web_server_status)
+        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_frame_total_proc)
 
     def _apply_theme(self, dark_active: bool, night_active: bool) -> None:
         """
@@ -232,14 +244,6 @@ class MainWindow(QMainWindow):
 
         config.set_dark_mode_active(resolved_dark)
         config.set_night_mode_active(resolved_night)
-        self._lbl_statusbar_web_server_status.setFrameStyle(QFrame.Panel | QFrame.Sunken)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_session_status)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_current_profile)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_scanner_status)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_size)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_exposure)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_web_server_status)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_frame_total_proc)
 
     @log
     @pyqtSlot(bool)
