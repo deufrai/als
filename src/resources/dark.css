@@ -72,7 +72,7 @@ QCheckBox::indicator {
 }
 
 QCheckBox::indicator:checked {
-    image: url(:icons/tick.png);
+    image: url(:icons/tick-dark.png);
 }
 
 QCheckBox::indicator:checked:disabled {

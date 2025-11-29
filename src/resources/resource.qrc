@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="icons">
-        <file>tick.png</file>
+        <file>tick-night.png</file>
+        <file>tick-dark.png</file>
         <file>tick-disabled.png</file>
         <file>warning_sign.svg</file>
         <file>als_logo.png</file>
