@@ -2,7 +2,7 @@
 title: "Modules et Traitements"
 description: "Modules et Traitements ALS"
 author: "ALS Team"
-lastmod: 2025-11-04T14:08:22Z
+lastmod: 2025-11-30T12:17:39Z
 keywords: [ "modules et traitements ALS" ]
 type: "docs"
 categories: [ "documentations détaillées" ]
@@ -41,28 +41,25 @@ ALS utilise 2 modules utilitaires :
 
 Un module principal est un module spécialisé qui est chargé de **traitements d'images**.
 
-- Il a sa propre file d'attente d'images en entrée
-- Il traite chaque image qu'il prend de la file d'attente, puis diffuse le résultat à l'application.
-
-Un module principal est démarré avec ALS et continue de sonder sa file d'attente pour de nouvelles images à traiter,
-jusqu'à ce que l'application soit fermée.
+- Il a sa propre file d'attente d'images en entrée.
+- Il bloque sur cette file, traite chaque élément, et diffuse le résultat à l'application. Un élément sentinelle 
+  est utilisé pour demander un arrêt propre.
 
 ```mermaid
 flowchart LR
 DÉMARRER((Start))
-TEST{{Images dans la file d'attente ?}}
-PRENDRE[Prend l'image en tête de file]
-TRAITER[Traite l'image]
+ATTENDRE[Bloque sur la file]
+TEST{{Élément sentinelle ?}}
+PRENDRE[Traite l'image]
 DIFFUSER[Diffuse le résultat]
-ATTENDRE[Attend 20ms]
+ARRÊT((Arrêt))
 
-DÉMARRER --> TEST
-TEST -- Oui --> PRENDRE
-TEST -- Non --> ATTENDRE
-PRENDRE --> TRAITER
-TRAITER --> DIFFUSER
-DIFFUSER --> ATTENDRE
+DÉMARRER --> ATTENDRE
 ATTENDRE --> TEST
+TEST -- Non --> PRENDRE
+PRENDRE --> DIFFUSER
+DIFFUSER --> ATTENDRE
+TEST -- Oui --> ARRÊT
 
 classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
 classDef step fill: #444, stroke: #622, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
@@ -75,6 +72,7 @@ class PRENDRE step
 class TRAITER step
 class DIFFUSER step
 class ATTENDRE wait
+class ARRÊT bounds
 ```
 
 <p class="figcaption">Flux de travail du module principal</p>
@@ -100,23 +98,23 @@ Une fois le dernier traitement terminé, le pipeline diffuse le résultat à l'a
 ```mermaid
 flowchart LR
 DÉMARRER((Start))
-TEST{{Images dans la file d'attente ?}}
-PRENDRE[Prend l'image en tête de file]
-subgraph Traitement
+ATTENDRE[Bloque sur la file]
+TEST{{Élément sentinelle ?}}
+
+subgraph Traite l'image
     A[Traitement A]
     B[Traitement B]
 end
 DIFFUSER[Diffuse le résultat]
-ATTENDRE[Attend 20ms]
+ARRÊT((Arrêt))
 
-DÉMARRER --> TEST
-TEST -- Oui --> PRENDRE
-TEST -- Non --> ATTENDRE
-PRENDRE --> A
+DÉMARRER --> ATTENDRE
+ATTENDRE --> TEST
+TEST -- Non --> A
 A -.-> B
 B --> DIFFUSER
 DIFFUSER --> ATTENDRE
-ATTENDRE --> TEST
+TEST -- Oui --> ARRÊT
 
 classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
 classDef step fill: #444, stroke: #622, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
@@ -125,12 +123,13 @@ classDef wait  fill: #444, stroke: #262,stroke-width: 2px, color: #c6c6c6, font-
 classDef test fill: #444, stroke: #226, stroke-width: 2px, color: #c6c6c6, font-family: 'Poppins', sans-serif
 
 class DÉMARRER bounds
+class ATTENDRE wait
 class TEST test
 class PRENDRE step
 class A process
 class B process
 class DIFFUSER step
-class ATTENDRE wait
+class ARRÊT bounds
 ```
 <p class="figcaption">Flux de travail du pipeline</p>
 

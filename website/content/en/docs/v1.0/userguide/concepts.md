@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-22T02:43:34Z
+lastmod: 2025-11-30T12:17:39Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -123,11 +123,8 @@ graph LR
 
 These modules group and order image processing tasks.
 
-Each module has its own queue and continuously performs the following actions:
-
-1. Waits for a new image to appear in the queue.
-2. Processes the image.
-3. Provides the processing result to the application.
+Each module has its own queue and processes subs in the order they arrive, handing each result back to the app while it
+keeps listening for the next one.
 
 In case of an error during image processing:
 

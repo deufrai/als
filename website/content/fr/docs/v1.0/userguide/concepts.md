@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-22T02:43:34Z
+lastmod: 2025-11-30T12:17:39Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -125,11 +125,8 @@ graph LR
 
 Ces modules regroupent et ordonnent les traitements à appliquer aux images
 
-Chaque module possède sa file d'attente et exécute en boucle les actions suivantes :
-
-1. Attend qu'une nouvelle image se présente en file d'attente
-2. Traite l'image
-3. Met à disposition le résultat de traitement à l'application
+Chaque module possède sa file d'attente et traite les brutes dans l'ordre d'arrivée, renvoyant chaque résultat à 
+l'application tout en restant à l'écoute de la suivante.
 
 En cas d'erreur pendant le traitement d'une image :
 

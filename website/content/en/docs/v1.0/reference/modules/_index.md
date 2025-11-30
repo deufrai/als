@@ -2,7 +2,7 @@
 title: "Modules and Processes"
 description: "ALS Modules and Processes"
 author: "ALS Team"
-lastmod: 2025-11-04T14:08:22Z
+lastmod: 2025-11-30T12:17:39Z
 keywords: [ "ALS modules and processes" ]
 type: "docs"
 categories: [ "detailed documentations" ]
@@ -40,27 +40,25 @@ ALS uses 2 utility modules:
 
 A main module is a specialized module that is in charge of **image processing**.
 
-- It has its own image input queue 
-- It processes every image it takes from the queue, then broadcast the result to the application.
-
-A main module is started with ALS and keeps polling its queue for new images to process, until the application is closed.
+- It has its own image input queue. 
+- It blocks on that queue, processes each item, and broadcasts the result to the application. A sentinel item is used to
+  request a clean shutdown.
 
 ```mermaid
 flowchart LR
     START((Start))
-    TEST{{Image in Queue ?}}
-    TAKE[Take Image from Queue]
+    WAIT[Block on queue]
+    TEST{{Item is sentinel ?}}
     PROCESS[Process Image]
     BROADCAST[Broadcast Result]
-    WAIT[Wait 20ms]
+    STOP((Stop))
     
-    START --> TEST
-    TEST -- Yes --> TAKE
-    TEST -- No --> WAIT
-    TAKE --> PROCESS
+    START --> WAIT
+    WAIT --> TEST
+    TEST -- No --> PROCESS
     PROCESS --> BROADCAST
     BROADCAST --> WAIT
-    WAIT --> TEST
+    TEST -- Yes --> STOP
     
     classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
     classDef step fill: #444, stroke: #622, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
@@ -74,6 +72,7 @@ flowchart LR
     class PROCESS step
     class BROADCAST step
     class WAIT wait
+    class STOP bounds
 ```
 
 <p class="figcaption">Main module workflow</p>
@@ -99,23 +98,22 @@ Once the last process is done, the pipeline broadcasts the result to the applica
 ```mermaid
 flowchart LR
     START((Start))
-    TEST{{Image in Queue ?}}
-    TAKE[Take Image from Queue]
-    subgraph Process
+    WAIT[Block on queue]
+    TEST{{Item is sentinel ?}}
+    subgraph Process Image
         A[Process A]
         B[Process B]
     end
     BROADCAST[Broadcast Result]
-    WAIT[Wait 20ms]
+    STOP((Stop))
     
-    START --> TEST
-    TEST -- Yes --> TAKE
-    TEST -- No --> WAIT
-    TAKE --> A
+    START --> WAIT
+    WAIT --> TEST
+    TEST -- No --> A
     A -.-> B
     B --> BROADCAST
     BROADCAST --> WAIT
-    WAIT --> TEST
+    TEST -- Yes --> STOP
     
     classDef bounds fill: #333, stroke: #666, stroke-width: 2px, color: #BBB, font-family: 'Poppins', sans-serif
     classDef step fill: #444, stroke: #622, stroke-width:2px, color: #c6c6c6, font-family: 'Poppins',sans-serif
@@ -124,12 +122,13 @@ flowchart LR
     classDef test fill: #444, stroke: #226, stroke-width: 2px, color: #c6c6c6, font-family: 'Poppins', sans-serif
 
     class START bounds
+    class WAIT wait
     class TEST test
     class TAKE step
     class A process
     class B process
     class BROADCAST step
-    class WAIT wait
+    class STOP bounds
 ```
 <p class="figcaption">Pipeline workflow</p>
 
