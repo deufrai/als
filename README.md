@@ -80,9 +80,9 @@ Free as in freedom — and photons.
 
 ## 🧭 Project Links
 
-| Purpose          | Link                                                                   |
-|------------------|------------------------------------------------------------------------|
-| 🌐 Documentation | [https://als-app.org/docs/](https://als-app.org/docs/)                 |
+| Purpose          | Link                                                  |
+|------------------|-------------------------------------------------------|
+| 🌐 Documentation | [https://als-app.org/docs/v1.0](https://als-app.org/docs/v1.0) |
 | 💾 Releases      | [https://github.com/deufrai/als/releases](https://github.com/deufrai/als/releases) |
 | 🐞 Issue Tracker | [https://github.com/deufrai/als/issues](https://github.com/deufrai/als/issues) |
 | 🪐 Website       | [https://als-app.org](https://als-app.org)                             |
