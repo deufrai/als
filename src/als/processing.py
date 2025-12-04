@@ -29,6 +29,9 @@ _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 _16_BITS_MAX_VALUE = 2**16 - 1
 _HOT_PIXEL_RATIO = 2
+_NORMALIZATION_EPSILON_FACTOR = 1e-6
+_NORMALIZATION_EPSILON_MIN = 1e-8
+_CHANNEL_SCALE_PERCENTILE_CLIP = 99.9
 
 
 class ProcessingError(Exception):
@@ -568,29 +571,166 @@ def _get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
 
 
 @log
-def _get_cached_master_flat(master_flat_path: str) -> Optional[Image]:
+def _sanitize_flat_data(flat_data: np.ndarray, master_flat_path: str) -> np.ndarray:
     """
-    Retrieves the master flat frame from in-session cache or disk if missing.
+    Converts flat data to float32 and replaces non-finite values with zero, warning the user.
+
+    :param flat_data: raw flat data array
+    :type flat_data: numpy.ndarray
+    :param master_flat_path: path to the master flat file (for logging)
+    :type master_flat_path: str
+    :return: sanitized float32 flat data
+    :rtype: numpy.ndarray
+    """
+    sanitized_data = flat_data.astype(np.float32, copy=False)
+
+    if not np.isfinite(sanitized_data).all():
+        MESSAGE_HUB.dispatch_warning(
+            __name__,
+            QT_TRANSLATE_NOOP("", "Master flat {} contains invalid values. Replacing NaN/Inf with 0 before normalization"),
+            [master_flat_path]
+        )
+        sanitized_data = np.where(np.isfinite(sanitized_data), sanitized_data, 0.0)
+
+    return sanitized_data
+
+
+def _compute_robust_scale(values: np.ndarray) -> float:
+    """
+    Computes a robust scale using median with an upper percentile clamp to limit hot pixel influence.
+
+    :param values: data values for which scale is computed
+    :type values: numpy.ndarray
+    :return: the computed scale
+    :rtype: float
+    """
+    finite_values = values[np.isfinite(values)]
+
+    if finite_values.size == 0:
+        return 0.0
+
+    percentile_cap = np.percentile(finite_values, _CHANNEL_SCALE_PERCENTILE_CLIP)
+    clipped_values = np.clip(finite_values, None, percentile_cap)
+
+    return float(np.median(clipped_values))
+
+
+def _normalize_bayer_flat(flat: Image, master_flat_path: str, bayer_pattern: str) -> Optional[Image]:
+    """
+    Normalizes a Bayer flat per CFA position using per-channel robust scales.
+
+    :param flat: the flat image to normalize
+    :type flat: Image
+    :param master_flat_path: path to the master flat file (for logging)
+    :type master_flat_path: str
+    :param bayer_pattern: the Bayer pattern string (length 4)
+    :type bayer_pattern: str
+    :return: the flat with normalized data or None if normalization cannot proceed
+    :rtype: Optional[Image]
+    """
+    normalized_flat_data = _sanitize_flat_data(flat.data, master_flat_path)
+    pattern = bayer_pattern.upper()
+
+    if len(pattern) != 4:
+        MESSAGE_HUB.dispatch_warning(
+            __name__,
+            QT_TRANSLATE_NOOP("", "Unsupported Bayer pattern {}. Flat division is SKIPPED"),
+            [bayer_pattern]
+        )
+        return None
+
+    row_slices = [slice(0, None, 2), slice(1, None, 2)]
+    col_slices = [slice(0, None, 2), slice(1, None, 2)]
+    cfa_positions = [
+        (pattern[0], row_slices[0], col_slices[0]),
+        (pattern[1], row_slices[0], col_slices[1]),
+        (pattern[2], row_slices[1], col_slices[0]),
+        (pattern[3], row_slices[1], col_slices[1]),
+    ]
+
+    for position_index, (channel_name, row_slice, col_slice) in enumerate(cfa_positions):
+        channel_view = normalized_flat_data[row_slice, col_slice]
+        scale = _compute_robust_scale(channel_view)
+
+        if scale <= 0 or not np.isfinite(scale):
+            MESSAGE_HUB.dispatch_warning(
+                __name__,
+                QT_TRANSLATE_NOOP("", "Master flat {} has insufficient signal for channel {}. Flat division is SKIPPED"),
+                [master_flat_path, f"{channel_name}-{position_index}"]
+            )
+            return None
+
+        epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
+        np.maximum(channel_view, epsilon, out=channel_view)
+        channel_view /= scale
+
+    flat.data = normalized_flat_data
+    return flat
+
+
+def _normalize_global_flat(flat: Image, master_flat_path: str) -> Optional[Image]:
+    """
+    Normalizes a mono flat using a global robust scale.
+
+    :param flat: the flat image to normalize
+    :type flat: Image
+    :param master_flat_path: path to the master flat file (for logging)
+    :type master_flat_path: str
+    :return: the flat with normalized data or None if normalization cannot proceed
+    :rtype: Optional[Image]
+    """
+    normalized_flat_data = _sanitize_flat_data(flat.data, master_flat_path)
+    scale = _compute_robust_scale(normalized_flat_data)
+
+    if scale <= 0 or not np.isfinite(scale):
+        MESSAGE_HUB.dispatch_warning(
+            __name__,
+            QT_TRANSLATE_NOOP("", "Master flat {} contains no valid signal. Flat division is SKIPPED"),
+            [master_flat_path]
+        )
+        return None
+
+    epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
+    np.maximum(normalized_flat_data, epsilon, out=normalized_flat_data)
+    normalized_flat_data /= scale
+
+    flat.data = normalized_flat_data
+    return flat
+
+
+@log
+def _get_cached_master_flat(master_flat_path: str, bayer_pattern: Optional[str]) -> Optional[Image]:
+    """
+    Retrieves the master flat from cache or disk and stores a normalized float32 version in cache.
 
     :param master_flat_path: filesystem path to the master flat file
     :type master_flat_path: str
-
-    :return: the cached or freshly read master flat, None if unavailable
+    :param bayer_pattern: Bayer pattern extracted from the first sub, if applicable
+    :type bayer_pattern: Optional[str]
+    :return: the cached or freshly read normalized master flat, None if unavailable
     :rtype: Optional[Image]
     """
     if not master_flat_path:
         return None
 
     if DYNAMIC_DATA.master_flat is not None:
-        _LOGGER.debug("Using cached master flat: %s", master_flat_path)
+        _LOGGER.debug("Using cached normalized master flat: %s", master_flat_path)
         return DYNAMIC_DATA.master_flat
 
     flat = als_input.read_disk_image(Path(master_flat_path))
-    if flat is not None:
-        _LOGGER.debug("Loaded master flat from disk: %s", master_flat_path)
-        DYNAMIC_DATA.master_flat = flat
-    else:
+    if flat is None:
         _LOGGER.debug("Failed to load master flat from disk: %s", master_flat_path)
+        return None
+
+    _LOGGER.debug("Loaded master flat from disk: %s", master_flat_path)
+
+    if bayer_pattern:
+        flat = _normalize_bayer_flat(flat, master_flat_path, bayer_pattern)
+    else:
+        flat = _normalize_global_flat(flat, master_flat_path)
+
+    if flat is not None:
+        DYNAMIC_DATA.master_flat = flat
 
     return flat
 
@@ -717,8 +857,8 @@ class RemoveFlat(ImageProcessor):
     @log
     def process_image(self, image: Image) -> Optional[Image]:
         """
-        Divides by the configured master flat, using an in-session cache to
-        avoid repeated disk reads.
+        Divides by the configured master flat, using an in-session cache of a
+        normalized flat (per-channel when a Bayer pattern is known).
 
         :param image: the image to process
         :type image: Image
@@ -737,7 +877,16 @@ class RemoveFlat(ImageProcessor):
         if do_divide:
 
             master_flat_path = config.get_master_flat_file_path()
-            flat = _get_cached_master_flat(master_flat_path)
+            bayer_pattern = image.bayer_pattern
+
+            if not bayer_pattern and image.is_color():
+                MESSAGE_HUB.dispatch_warning(
+                    __name__,
+                    QT_TRANSLATE_NOOP("", "Unknown Bayer pattern. Falling back to global flat normalization."),
+                    []
+                )
+
+            flat = _get_cached_master_flat(master_flat_path, bayer_pattern)
 
             if flat is None:
                 read_error_message = QT_TRANSLATE_NOOP(
@@ -761,19 +910,9 @@ class RemoveFlat(ImageProcessor):
 
             with Timer() as division_timer:
 
-                flat_max = np.nanmax(flat.data)
-
-                if not np.isfinite(flat_max) or flat_max <= 0:
-                    warning_message = QT_TRANSLATE_NOOP(
-                        "",
-                        "Master flat {} contains no valid signal. Flat division is SKIPPED"
-                    )
-                    MESSAGE_HUB.dispatch_warning(__name__, warning_message, [master_flat_path])
-                    return image
-
-                normalized_flat_data = flat.data / flat_max
-                normalized_flat_data = np.where(normalized_flat_data == 0, 1, normalized_flat_data)
-                image.data = np.uint16(np.clip(image.data / normalized_flat_data, 0, _16_BITS_MAX_VALUE))
+                light_data = image.data.astype(np.float32, copy=False)
+                normalized_flat_data = flat.data.astype(np.float32, copy=False)
+                image.data = np.uint16(np.clip(light_data / normalized_flat_data, 0, _16_BITS_MAX_VALUE))
 
             _LOGGER.debug(f"Flat frame divided in {division_timer.elapsed_in_milli_as_str} ms")
 
