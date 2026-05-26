@@ -119,6 +119,12 @@ class DynamicData:
         self.session = Session()
         self.web_server_is_running = False
         self.web_server_ip = ""
+        self.web_server_bind_host = ""
+        self.web_server_advertised_ip = ""
+        self.web_server_advertised_url = ""
+        self.web_server_qr_ip = ""
+        self.web_server_qr_url = ""
+        self.web_server_address_candidates: List[object] = list()
         self.stack_size = 0
         self.post_processor_result = None
         self.histogram_container: HistogramContainer = None
