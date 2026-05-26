@@ -108,7 +108,6 @@ def test_start_www_stores_advertised_runtime_state(monkeypatch: Any) -> None:
     assert DYNAMIC_DATA.web_server_ip == "192.168.1.42"
     assert DYNAMIC_DATA.web_server_advertised_ip == "192.168.1.42"
     assert DYNAMIC_DATA.web_server_advertised_url == "http://192.168.1.42:8000"
-    assert DYNAMIC_DATA.web_server_qr_ip == "192.168.1.42"
     assert DYNAMIC_DATA.web_server_qr_url == "http://192.168.1.42:8000"
     assert DYNAMIC_DATA.web_server_is_running is True
 
@@ -151,6 +150,5 @@ def _reset_web_server_runtime_state() -> None:
     DYNAMIC_DATA.web_server_bind_host = ""
     DYNAMIC_DATA.web_server_advertised_ip = ""
     DYNAMIC_DATA.web_server_advertised_url = ""
-    DYNAMIC_DATA.web_server_qr_ip = ""
     DYNAMIC_DATA.web_server_qr_url = ""
     DYNAMIC_DATA.web_server_address_candidates = []

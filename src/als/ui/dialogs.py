@@ -16,6 +16,10 @@ from als.code_utilities import log, AlsLogAdapter
 from als.logic import Controller
 from als.messaging import MESSAGE_HUB
 from als.model.data import VERSION, DYNAMIC_DATA
+from als.streams.network import (
+    ADVERTISED_ADDRESS_AUTO, advertised_address_preference,
+    get_network_address_candidates
+)
 from generated.about_ui import Ui_AboutDialog
 from generated.prefs_ui import Ui_PrefsDialog
 from generated.qr_ui import Ui_QrDialog
@@ -25,6 +29,7 @@ from generated.stop_ui import Ui_SessionStopDialog
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
 _NORMAL_STYLE_SHEET = "border: 1px"
+_ADDRESS_AUTO_LABEL = "Auto - recommended"
 
 
 class PreferencesDialog(QDialog):
@@ -65,6 +70,7 @@ class PreferencesDialog(QDialog):
         self._ui.ln_master_dark_path.setToolTip(config.get_master_dark_file_path())
 
         self._ui.ln_web_server_port.setText(str(config.get_www_server_port_number()))
+        self._populate_web_server_address_dropdown()
         self._ui.chk_debug_logs.setChecked(config.is_debug_log_on())
         self._ui.chk_use_dark.setChecked(config.get_use_master_dark())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
@@ -239,6 +245,8 @@ class PreferencesDialog(QDialog):
             self._ui.ln_web_server_port.setFocus()
             self._ui.ln_web_server_port.selectAll()
             return
+        config.set_www_server_advertised_address(
+            self._ui.cmb_web_server_address.currentData())
 
         # debug log choice
         debug_old_value = config.is_debug_log_on()
@@ -370,6 +378,23 @@ class PreferencesDialog(QDialog):
         except config.CouldNotSaveConfig as save_error:
             error_box(save_error.message, f"Your settings could not be saved\n\nDetails : {save_error.details}")
 
+    @log
+    def _populate_web_server_address_dropdown(self) -> None:
+        """
+        Populates the persistent advertised-address dropdown.
+        """
+        current_preference = config.get_www_server_advertised_address()
+        address_items = _address_preference_items(
+            get_network_address_candidates(config.get_www_server_port_number()))
+
+        self._ui.cmb_web_server_address.clear()
+        for label, preference in address_items:
+            self._ui.cmb_web_server_address.addItem(label, preference)
+
+        selected_index = _address_preference_index(
+            current_preference, address_items)
+        self._ui.cmb_web_server_address.setCurrentIndex(selected_index)
+
 
 class AboutDialog(QDialog):
     """
@@ -497,6 +522,7 @@ class QRDisplay(QDialog):
 
         self._ui = Ui_QrDialog()
         self._ui.setupUi(self)
+        self._populate_address_dropdown()
 
         self.move(QApplication.desktop().screen().rect().center())
 
@@ -527,6 +553,53 @@ class QRDisplay(QDialog):
             self.adjustSize()
 
     @log
+    def _populate_address_dropdown(self) -> None:
+        """
+        Populates the runtime QR address dropdown.
+        """
+        address_items = _qr_address_items(
+            DYNAMIC_DATA.web_server_address_candidates,
+            DYNAMIC_DATA.web_server_advertised_ip,
+            DYNAMIC_DATA.web_server_advertised_url)
+        selected_url = (
+            DYNAMIC_DATA.web_server_qr_url
+            or DYNAMIC_DATA.web_server_advertised_url)
+
+        self._ui.cmb_qr_address.blockSignals(True)
+        try:
+            self._ui.cmb_qr_address.clear()
+            for label, ip, url in address_items:
+                self._ui.cmb_qr_address.addItem(label, (ip, url))
+
+            selected_index = _qr_address_index(selected_url, address_items)
+            self._ui.cmb_qr_address.setCurrentIndex(selected_index)
+        finally:
+            self._ui.cmb_qr_address.blockSignals(False)
+
+        self._store_selected_qr_address()
+
+    @log
+    @pyqtSlot(int)
+    def on_cmb_qr_address_currentIndexChanged(self, _) -> None:
+        """
+        Updates the runtime QR target when the selected address changes.
+        """
+        self._store_selected_qr_address()
+        self.update_code()
+
+    @log
+    def _store_selected_qr_address(self) -> None:
+        """
+        Stores the selected runtime QR target in dynamic data.
+        """
+        selected_address = self._ui.cmb_qr_address.currentData()
+        if selected_address is None:
+            return
+
+        _, url = selected_address
+        DYNAMIC_DATA.web_server_qr_url = url
+
+    @log
     def setVisible(self, visible: bool):
         """
         Set our visibility.
@@ -537,6 +610,7 @@ class QRDisplay(QDialog):
         old_state = self.isVisible()
         if visible:
             self.setGeometry(self._geometry)
+            self._populate_address_dropdown()
             self.update_code()
         else:
             self._geometry = self.geometry()
@@ -545,6 +619,68 @@ class QRDisplay(QDialog):
             self.visibility_changed_signal.emit(visible)
 
         super().setVisible(visible)
+
+
+def _address_preference_items(candidates):
+    """
+    Builds persistent advertised-address dropdown items.
+
+    :param candidates: network address candidates
+    :return: list of label/preference tuples
+    """
+    address_items = [(_ADDRESS_AUTO_LABEL, ADVERTISED_ADDRESS_AUTO)]
+    for candidate in candidates:
+        address_items.append(
+            (candidate.label, advertised_address_preference(candidate.ip)))
+    return address_items
+
+
+def _address_preference_index(preference, address_items) -> int:
+    """
+    Finds the dropdown index matching a persisted preference.
+
+    :param preference: persisted advertised-address preference
+    :param address_items: dropdown items
+    :return: matching index or Auto index
+    """
+    for index, (_, item_preference) in enumerate(address_items):
+        if item_preference == preference:
+            return index
+    return 0
+
+
+def _qr_address_items(candidates, advertised_ip: str, advertised_url: str):
+    """
+    Builds runtime QR address dropdown items.
+
+    :param candidates: network address candidates
+    :param advertised_ip: selected advertised IP
+    :param advertised_url: selected advertised URL
+    :return: list of label/IP/URL tuples
+    """
+    if candidates:
+        return [
+            (candidate.label, candidate.ip, candidate.url)
+            for candidate in candidates
+        ]
+    if advertised_ip and advertised_url:
+        return [("Current address - {}".format(advertised_ip),
+                 advertised_ip, advertised_url)]
+    return []
+
+
+def _qr_address_index(selected_url: str, address_items) -> int:
+    """
+    Finds the QR dropdown index matching a runtime URL.
+
+    :param selected_url: selected QR URL
+    :param address_items: dropdown items
+    :return: matching index or first item index
+    """
+    for index, (_, _, url) in enumerate(address_items):
+        if url == selected_url:
+            return index
+    return 0
 
 
 @log

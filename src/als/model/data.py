@@ -122,7 +122,6 @@ class DynamicData:
         self.web_server_bind_host = ""
         self.web_server_advertised_ip = ""
         self.web_server_advertised_url = ""
-        self.web_server_qr_ip = ""
         self.web_server_qr_url = ""
         self.web_server_address_candidates: List[object] = list()
         self.stack_size = 0

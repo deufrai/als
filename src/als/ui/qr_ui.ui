@@ -15,6 +15,30 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="lbl_qr_address">
+       <property name="text">
+        <string>&amp;Address</string>
+       </property>
+       <property name="buddy">
+        <cstring>cmb_qr_address</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmb_qr_address">
+       <property name="minimumSize">
+        <size>
+         <width>260</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
     <widget class="QLabel" name="lblQR">
      <property name="text">
       <string>TextLabel</string>

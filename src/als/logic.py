@@ -622,7 +622,6 @@ class Controller:
         DYNAMIC_DATA.web_server_ip = advertised_address.ip
         DYNAMIC_DATA.web_server_advertised_ip = advertised_address.ip
         DYNAMIC_DATA.web_server_advertised_url = advertised_address.url
-        DYNAMIC_DATA.web_server_qr_ip = advertised_address.ip
         DYNAMIC_DATA.web_server_qr_url = advertised_address.url
         DYNAMIC_DATA.web_server_is_running = True
 

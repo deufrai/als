@@ -12,7 +12,6 @@ def test_dynamic_data_initializes_web_server_runtime_fields() -> None:
     assert dynamic_data.web_server_bind_host == ""
     assert dynamic_data.web_server_advertised_ip == ""
     assert dynamic_data.web_server_advertised_url == ""
-    assert dynamic_data.web_server_qr_ip == ""
     assert dynamic_data.web_server_qr_url == ""
     assert dynamic_data.web_server_address_candidates == []
 
