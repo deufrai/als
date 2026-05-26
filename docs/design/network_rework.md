@@ -360,21 +360,29 @@ work, verify that the server can still restart cleanly after being stopped.
 
 ## Implementation Sequence
 
-Suggested order for a future implementation session:
+Implement this as a chain of small, behavior-focused commits. Each commit should
+answer one review question, avoid unrelated cleanup, and keep generated UI churn
+separate from hand-written logic where practical.
 
-1. Add pure network-address discovery/ranking helpers in
+Suggested commit sequence:
+
+1. Add pure IPv4 candidate discovery/ranking helpers in
    `src/als/streams/network.py` or a small adjacent module.
-2. Add config key/default/accessors for preferred advertised address.
-3. Update runtime data to distinguish bind host from advertised URL.
-4. Change aiohttp binding to `0.0.0.0`.
-5. Make server startup report actual bind failure before setting running state.
-6. Update `Controller.start_www()` to resolve advertised candidates and selected
-   URL.
-7. Update main/statusbar web server labels to use the selected advertised URL.
-8. Add the Preferences dropdown in `src/als/ui/prefs_ui.ui`.
-9. Add the QR dropdown in `src/als/ui/qr_ui.ui`.
-10. Regenerate `src/generated/*.py` with `utils/compile_ui_and_rc.py`.
-11. Update docs/user-facing strings once UI behavior is settled.
+2. Add the persisted advertised-address preference default and accessors.
+3. Add runtime fields for bind host, advertised address/URL, candidate list, and
+   QR runtime address/URL.
+4. Change server binding to `0.0.0.0` and make startup report bind failure
+   accurately before the controller marks the server as running.
+5. Resolve the advertised address during `Controller.start_www()` and update
+   main/statusbar labels to use the selected advertised URL.
+6. Add the Preferences address dropdown.
+7. Add the QR address dropdown, including runtime memory for the last QR address
+   selected during the current ALS run.
+8. Regenerate generated UI files with `utils/compile_ui_and_rc.py`.
+9. Add focused tests for address discovery/selection helpers if the current test
+   setup supports them without requiring live network changes.
+10. Update user-facing documentation and translatable strings only where the
+    settled UI behavior requires it.
 
 ## Documentation Impact
 
