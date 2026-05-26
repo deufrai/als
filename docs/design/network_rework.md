@@ -444,17 +444,3 @@ eventual cases include:
 - Use conservative generic labels for ambiguous adapters. Do not try to infer
   hotspot status aggressively from interface names or subnets.
 - Explicitly ignore IPv6 for the first implementation.
-
-## Current Working Recommendation
-
-Implement the first iteration with these constraints:
-
-- Bind aiohttp to `0.0.0.0`.
-- Enumerate IPv4 candidates with `psutil.net_if_addrs()`.
-- Add an `Auto` preferred-address mode in preferences.
-- Store selected address preference as `auto` or `ip:<address>`.
-- Use ranking only to choose the `Auto` default.
-- Show all usable candidates in both preferences and QR dialog.
-- Let the QR dialog switch runtime QR URL while the server is running and keep
-  that runtime choice in memory.
-- Keep bind address and advertised address strictly separate.
