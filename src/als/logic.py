@@ -45,7 +45,10 @@ from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Lev
     HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
-from als.streams.network import get_host_ip, Server, WEB_SERVER_BIND_HOST
+from als.streams.network import (
+    get_host_ip, Server, WEB_SERVER_BIND_HOST, get_network_address_candidates,
+    NetworkAddress, select_advertised_address
+)
 from als.streams.output import ImageSaver
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -589,7 +592,7 @@ class Controller:
         Controller._setup_web_static_content()
         self.write_stack_info_json()
 
-        ip_address = get_host_ip()
+        route_ip_address = get_host_ip()
         port_number = config.get_www_server_port_number()
 
         if self._server_thread is None:
@@ -610,19 +613,44 @@ class Controller:
                 self._server_thread = None
                 raise
 
-        url = f"http://{ip_address}:{port_number}"
+        advertised_address = self._resolve_web_server_advertised_address(
+            port_number, route_ip_address)
+        url = advertised_address.url
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
 
         DYNAMIC_DATA.web_server_bind_host = WEB_SERVER_BIND_HOST
-        DYNAMIC_DATA.web_server_ip = ip_address
+        DYNAMIC_DATA.web_server_ip = advertised_address.ip
+        DYNAMIC_DATA.web_server_advertised_ip = advertised_address.ip
+        DYNAMIC_DATA.web_server_advertised_url = advertised_address.url
+        DYNAMIC_DATA.web_server_qr_ip = advertised_address.ip
+        DYNAMIC_DATA.web_server_qr_url = advertised_address.url
         DYNAMIC_DATA.web_server_is_running = True
 
         # if we can only listen on loopback, keep running but notify the powers that be
-        if ip_address == "127.0.0.1":
+        if advertised_address.ip == "127.0.0.1":
             raise WebServerOnLoopback()
 
         self._notify_model_observers()
 
+    @staticmethod
+    @log
+    def _resolve_web_server_advertised_address(
+            port_number: int, route_ip_address: str) -> NetworkAddress:
+        """
+        Resolves the web server address advertised to browser clients.
+
+        :param port_number: web server port number
+        :param route_ip_address: route-selected local IP address
+        :return: selected advertised address
+        """
+        address_candidates = get_network_address_candidates(port_number)
+        advertised_address = select_advertised_address(
+            config.get_www_server_advertised_address(),
+            address_candidates,
+            route_ip_address)
+
+        DYNAMIC_DATA.web_server_address_candidates = address_candidates
+        return advertised_address
 
     @log
     def _send_message_to_clients(self, message):
