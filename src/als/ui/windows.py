@@ -814,7 +814,7 @@ class MainWindow(QMainWindow):
 
             # update web server status
             if web_server_is_running:
-                url = f"http://{DYNAMIC_DATA.web_server_ip}:{config.get_www_server_port_number()}"
+                url = DYNAMIC_DATA.web_server_advertised_url
                 webserver_status = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #CC0000">{url}</a>'
                 self._ui.action_qrcode.setEnabled(True)
             else:

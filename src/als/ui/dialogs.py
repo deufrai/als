@@ -505,7 +505,7 @@ class QRDisplay(QDialog):
     @log
     def update_code(self):
         """
-        Create a new QR caode from server's  current IP & configured port.
+        Create a new QR code from the current runtime server URL.
         """
         if DYNAMIC_DATA.web_server_is_running:
 
@@ -515,7 +515,9 @@ class QRDisplay(QDialog):
                 box_size=7,
                 border=1,
             )
-            qr.add_data(f"http://{DYNAMIC_DATA.web_server_ip}:{config.get_www_server_port_number()}")
+            qr.add_data(
+                DYNAMIC_DATA.web_server_qr_url
+                or DYNAMIC_DATA.web_server_advertised_url)
             qr.make(fit=True)
             img = qr.make_image()
             qim = ImageQt(img)
@@ -608,4 +610,3 @@ def message_box(title, message, icon=QMessageBox.Information):
     box.setWindowTitle(title)
     box.setText(message)
     box.exec()
-
