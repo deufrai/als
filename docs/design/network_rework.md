@@ -52,6 +52,27 @@ cherry-pick, or manually upfit into `release/1.0`. Prefer small additive helpers
 and narrow call-site updates over a larger redesign, even when a larger redesign
 could be attractive for v1.0.
 
+### release/1.0 Upfit Risk Check
+
+A read-only comparison of `v0.7..release/1.0` against the planned network-rework
+files found no conflicting design work. The v1.0 branch does not currently change
+`src/als/streams/network.py`, `src/als/ui/qr_ui.ui`, or `src/generated/*`.
+
+The likely upfit pressure is textual rather than conceptual:
+
+- `src/als/logic.py` keeps the same `start_www()` / `stop_www()` behavior, with
+  only nearby unrelated processing changes.
+- `src/als/config.py` and `src/als/model/data.py` add unrelated v1.0 settings and
+  runtime fields, so new network settings should be additive and easy to port.
+- `src/als/ui/dialogs.py`, `src/als/ui/windows.py`, and
+  `src/als/ui/prefs_ui.ui` have the highest conflict risk because v1.0 touches
+  preferences, slot naming, theme handling, and UI layout around areas this task
+  will also update.
+
+Keep handwritten UI/controller edits small and keep generated/XML UI changes in
+separate commits where practical. This should make the later `release/1.0`
+upfit mostly mechanical.
+
 ## Issue
 
 ALS includes an integrated HTTP/WebSocket image server. The server publishes the
