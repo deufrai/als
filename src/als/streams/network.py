@@ -156,10 +156,9 @@ def _display_interface_name(interface_name: str) -> str:
     if (
             "wi-fi" in normalized_name
             or "wifi" in normalized_name
-            or "wireless" in normalized_name):
+            or "wireless" in normalized_name
+            or normalized_name.startswith(("wlan", "wl"))):
         return "Wi-Fi"
-    if normalized_name.startswith(("wlan", "wl")):
-        return interface_name
     if (
             "ethernet" in normalized_name
             or normalized_name.startswith(("eth", "enp", "ens", "eno"))):

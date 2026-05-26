@@ -52,6 +52,8 @@ def test_auto_selection_prefers_route_address_when_available() -> None:
     )
 
     assert selected.ip == "10.42.0.1"
+    assert selected.interface_name == "wlan0"
+    assert selected.label == "Wi-Fi - 10.42.0.1"
 
 
 def test_ip_preference_selects_matching_candidate() -> None:
