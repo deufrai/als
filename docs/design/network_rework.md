@@ -259,25 +259,23 @@ Suggested dropdown entries:
 Auto - recommended
 Wi-Fi - 192.168.1.42
 Ethernet - 192.168.0.23
-Hotspot / local network - 192.168.137.1
+Network adapter - 192.168.137.1
 wlan0 - 10.42.0.1
 ```
 
 Each dropdown item should store a stable value in item data. The UI must not
 parse display text.
 
-Initial persistence proposal:
+For v0.7.1, persist only:
 
 ```text
 auto
 ip:<address>
 ```
 
-A future refinement could persist interface identity as well:
-
-```text
-iface:<interface-name>
-```
+Do not add interface-identity persistence such as `iface:<interface-name>` in
+the first implementation. Interface identity can become platform-specific and is
+not required for the reliability fix.
 
 The preference should control the advertised address, not the bind address.
 
@@ -302,8 +300,10 @@ Suggested behavior:
 - Default QR address follows the configured preferred advertised address.
 - Changing the dropdown immediately regenerates the QR code.
 - The dropdown contains all currently available advertised URLs.
-- The selected QR address is a runtime choice unless explicitly saved through
-  preferences.
+- The selected QR address is a runtime choice, not a persisted preference.
+- The runtime QR choice should be kept in memory while ALS is running, so hiding
+  and reopening the QR dialog does not force the user to select the same address
+  again.
 
 This is important in field use: if a phone cannot reach the first URL, the user
 can switch QR codes without stopping the server.
@@ -318,10 +318,12 @@ The rework likely needs runtime state for:
 - the configured port;
 - the selected advertised address;
 - the selected advertised URL;
+- the selected runtime QR address/URL, if the QR dialog has been manually
+  switched during this ALS run;
 - the full list of candidate advertised addresses/URLs.
 
-The main window should display the selected advertised URL. A tooltip or detail
-view can expose all candidates.
+For v0.7.1, the main window should display only the selected advertised URL.
+Avoid adding a separate address-detail view as part of the first implementation.
 
 Possible naming direction:
 
@@ -329,6 +331,8 @@ Possible naming direction:
 DYNAMIC_DATA.web_server_bind_host
 DYNAMIC_DATA.web_server_advertised_ip
 DYNAMIC_DATA.web_server_advertised_url
+DYNAMIC_DATA.web_server_qr_ip
+DYNAMIC_DATA.web_server_qr_url
 DYNAMIC_DATA.web_server_address_candidates
 ```
 
@@ -398,17 +402,19 @@ eventual cases include:
 - loopback is used only as fallback;
 - virtual/VPN-looking addresses are deprioritized but still available.
 
-## Open Questions
+## v0.7.1 Decisions
 
-- Should preferences persist only `ip:<address>`, or should they also support
-  interface identity from the first implementation?
-- Should the main window show a single URL only, or expose an "addresses"
-  detail/tooltip immediately?
-- Should the QR dialog offer a "make this my default" action, or keep all
-  persistence inside Preferences?
-- How much should ALS try to label hotspot interfaces? A generic label may be
-  safer than platform-specific guesses.
-- Should IPv6 be explicitly ignored for the first iteration?
+- Persist advertised-address preference as `auto` or `ip:<address>` only.
+- Do not persist interface identity in the first implementation.
+- Show a single selected advertised URL in the main window.
+- Keep QR address changes runtime-only, with persistence controlled only by
+  Preferences.
+- Store the current runtime QR address in `DYNAMIC_DATA` or equivalent runtime
+  state so closing and reopening the QR dialog keeps the user's last runtime
+  choice.
+- Use conservative generic labels for ambiguous adapters. Do not try to infer
+  hotspot status aggressively from interface names or subnets.
+- Explicitly ignore IPv6 for the first implementation.
 
 ## Current Working Recommendation
 
@@ -420,5 +426,6 @@ Implement the first iteration with these constraints:
 - Store selected address preference as `auto` or `ip:<address>`.
 - Use ranking only to choose the `Auto` default.
 - Show all usable candidates in both preferences and QR dialog.
-- Let the QR dialog switch runtime QR URL while the server is running.
+- Let the QR dialog switch runtime QR URL while the server is running and keep
+  that runtime choice in memory.
 - Keep bind address and advertised address strictly separate.
