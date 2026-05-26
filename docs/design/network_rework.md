@@ -35,6 +35,23 @@ Therefore the first implementation should rely on Python standard library plus
 `psutil`, not platform-specific shell commands such as `ipconfig`, `ifconfig`,
 `ip`, or `networksetup`.
 
+## Release Branch Constraint
+
+This rework is being implemented on a v0.7-based feature branch for the v0.7.1
+release. In parallel, unrelated development continues on the `release/1.0`
+branch for the upcoming v1.0 release.
+
+The v0.7.1 implementation should therefore make the smallest architectural
+change that satisfies the reliability goal. Keep the work tightly scoped to the
+existing server/address-selection flow, preserve the current controller, UI, and
+server structure where practical, and avoid broad cleanups or ownership moves
+that are not required for the network fix.
+
+This constraint is intended to make the finished change easy to review,
+cherry-pick, or manually upfit into `release/1.0`. Prefer small additive helpers
+and narrow call-site updates over a larger redesign, even when a larger redesign
+could be attractive for v1.0.
+
 ## Issue
 
 ALS includes an integrated HTTP/WebSocket image server. The server publishes the
