@@ -22,6 +22,7 @@ Module holding all application logic
 import datetime
 import json
 import time
+from concurrent.futures import Future
 from logging import getLogger
 from pathlib import Path
 from threading import Thread
@@ -44,7 +45,7 @@ from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Lev
     HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
-from als.streams.network import get_host_ip, Server, is_port_in_use
+from als.streams.network import get_host_ip, Server, WEB_SERVER_BIND_HOST
 from als.streams.output import ImageSaver
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -584,12 +585,6 @@ class Controller:
     def start_www(self):
         """Starts web server"""
 
-        ip = get_host_ip()
-        port = config.get_www_server_port_number()
-
-        if is_port_in_use(ip, port):
-            raise PortInUseError()
-
         # only setup web content if needed
         Controller._setup_web_static_content()
         self.write_stack_info_json()
@@ -598,12 +593,27 @@ class Controller:
         port_number = config.get_www_server_port_number()
 
         if self._server_thread is None:
-            self._server_thread = Thread(target=self._web_server.start, name="WebServer")
+            startup_future = Future()
+            self._server_thread = Thread(
+                target=self._web_server.start,
+                args=(WEB_SERVER_BIND_HOST, port_number, startup_future),
+                name="WebServer")
             self._server_thread.start()
+            try:
+                startup_future.result()
+            except OSError as error:
+                self._server_thread.join()
+                self._server_thread = None
+                raise PortInUseError() from error
+            except Exception:
+                self._server_thread.join()
+                self._server_thread = None
+                raise
 
         url = f"http://{ip_address}:{port_number}"
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
 
+        DYNAMIC_DATA.web_server_bind_host = WEB_SERVER_BIND_HOST
         DYNAMIC_DATA.web_server_ip = ip_address
         DYNAMIC_DATA.web_server_is_running = True
 

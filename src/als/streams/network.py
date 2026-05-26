@@ -1,4 +1,5 @@
 import asyncio
+from concurrent.futures import Future
 import ipaddress
 import json
 import os
@@ -368,17 +369,73 @@ class Server:
             await ws.send_str(json.dumps(message))
 
     @log
-    async def _start_server(self, host, port):
-        self._runner = web.AppRunner(self._app)
-        await self._runner.setup()
-        site = web.TCPSite(self._runner, host, port)
-        await site.start()
+    def _set_startup_exception(
+            self, startup_future: Optional[Future], error: Exception) -> None:
+        """
+        Stores server startup failure for the controller thread.
+
+        :param startup_future: future shared with the controller
+        :param error: startup error to report
+        """
+        if startup_future is not None and not startup_future.done():
+            startup_future.set_exception(error)
+
+    @log
+    def _set_startup_success(self, startup_future: Optional[Future]) -> None:
+        """
+        Stores server startup success for the controller thread.
+
+        :param startup_future: future shared with the controller
+        """
+        if startup_future is not None and not startup_future.done():
+            startup_future.set_result(None)
+
+    @log
+    async def _start_server(
+            self, host: str, port: int,
+            startup_future: Optional[Future] = None) -> None:
+        """
+        Starts the aiohttp server and reports bind success or failure.
+
+        :param host: host address to bind
+        :param port: port number to bind
+        :param startup_future: optional future shared with the controller
+        """
+        try:
+            self._runner = web.AppRunner(self._app)
+            await self._runner.setup()
+            site = web.TCPSite(self._runner, host, port)
+            await site.start()
+        except Exception as error:
+            self._set_startup_exception(startup_future, error)
+            if self._runner:
+                await self._runner.cleanup()
+            raise
+
+        self._set_startup_success(startup_future)
 
         try:
             while True:
                 await asyncio.sleep(3600)
         except asyncio.CancelledError:
             pass
+
+    @log
+    def _on_server_task_done(
+            self, task: asyncio.Task, startup_future: Optional[Future]) -> None:
+        """
+        Stops the event loop when startup fails before normal server shutdown.
+
+        :param task: server coroutine task
+        :param startup_future: future shared with the controller
+        """
+        if task.cancelled():
+            return
+
+        error = task.exception()
+        if error is not None:
+            self._set_startup_exception(startup_future, error)
+            self._loop.stop()
 
     @log
     async def _stop_server(self):
@@ -408,7 +465,21 @@ class Server:
         future.result()  # Ensure the coroutine is awaited and completed
 
     @log
-    def start(self):
+    def start(
+            self, host: str = WEB_SERVER_BIND_HOST, port: Optional[int] = None,
+            startup_future: Optional[Future] = None) -> None:
+        """
+        Starts the web server event loop.
+
+        :param host: host address to bind
+        :param port: port number to bind
+        :param startup_future: optional future used to report startup result
+        """
         asyncio.set_event_loop(self._loop)
-        self._server_task = self._loop.create_task(self._start_server(get_host_ip(), config.get_www_server_port_number()))
+        if port is None:
+            port = config.get_www_server_port_number()
+        self._server_task = self._loop.create_task(
+            self._start_server(host, port, startup_future))
+        self._server_task.add_done_callback(
+            lambda task: self._on_server_task_done(task, startup_future))
         self._loop.run_forever()
