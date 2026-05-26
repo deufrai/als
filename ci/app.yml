@@ -28,6 +28,14 @@ Configure Build:
     reports:
       dotenv: .dotenv
 
+# ────────────────────────── Validate ───────────────────────
+Run tests:
+  tags: [arm64, mac]
+  stage: validate
+  timeout: 20m
+  script:
+    - ci/builds/run_tests.sh
+
 # ────────────────────────── Build matrix ───────────────────
 Build PC/Linux:
   tags: [amd64, linux]
