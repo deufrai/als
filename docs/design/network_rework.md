@@ -8,71 +8,6 @@ continue across multiple Codex sessions without losing context.
 It is a working draft. Treat it as the current handoff note and update it when
 decisions change.
 
-## Non-Negotiable Goal
-
-The web server must be reliable on all ALS target platforms, including hotspot
-setups and ordinary LAN setups.
-
-The current CI build matrix defines these target runtime families:
-
-- Windows amd64 installer: `ci/builds/build_dist_amd64_win.sh`
-- Linux amd64 desktop build: `ci/builds/build_dist_amd64_linux.sh`
-- Linux arm64 / Raspberry Pi build: `ci/builds/build_dist_arm64_linux.sh`
-- macOS Intel build: `ci/builds/build_dist_amd64_osx.sh`
-- macOS Apple Silicon build: `ci/builds/build_dist_arm64_osx.sh`
-
-The relevant dependency already present on every build path is `psutil`.
-Versions vary by target requirements file, but `psutil` is part of each build
-environment:
-
-- `requirements.txt`: `psutil==5.6.6`
-- `ci/builds/build_dist_amd64_win_req.txt`: `psutil==5.6.6`
-- `ci/builds/build_dist_arm64_linux_req.txt`: `psutil==5.6.6`
-- `ci/builds/build_dist_amd64_linux_req.txt`: `psutil==6.1.0`
-- `ci/builds/build_dist_arm64_osx_req.txt`: unpinned `psutil`
-
-Therefore the first implementation should rely on Python standard library plus
-`psutil`, not platform-specific shell commands such as `ipconfig`, `ifconfig`,
-`ip`, or `networksetup`.
-
-## Release Branch Constraint
-
-This rework is being implemented on a v0.7-based feature branch for the v0.7.1
-release. In parallel, unrelated development continues on the `release/1.0`
-branch for the upcoming v1.0 release.
-
-The v0.7.1 implementation should therefore make the smallest architectural
-change that satisfies the reliability goal. Keep the work tightly scoped to the
-existing server/address-selection flow, preserve the current controller, UI, and
-server structure where practical, and avoid broad cleanups or ownership moves
-that are not required for the network fix.
-
-This constraint is intended to make the finished change easy to review,
-cherry-pick, or manually upfit into `release/1.0`. Prefer small additive helpers
-and narrow call-site updates over a larger redesign, even when a larger redesign
-could be attractive for v1.0.
-
-### release/1.0 Upfit Risk Check
-
-A read-only comparison of `v0.7..release/1.0` against the planned network-rework
-files found no conflicting design work. The v1.0 branch does not currently change
-`src/als/streams/network.py`, `src/als/ui/qr_ui.ui`, or `src/generated/*`.
-
-The likely upfit pressure is textual rather than conceptual:
-
-- `src/als/logic.py` keeps the same `start_www()` / `stop_www()` behavior, with
-  only nearby unrelated processing changes.
-- `src/als/config.py` and `src/als/model/data.py` add unrelated v1.0 settings and
-  runtime fields, so new network settings should be additive and easy to port.
-- `src/als/ui/dialogs.py`, `src/als/ui/windows.py`, and
-  `src/als/ui/prefs_ui.ui` have the highest conflict risk because v1.0 touches
-  preferences, slot naming, theme handling, and UI layout around areas this task
-  will also update.
-
-Keep handwritten UI/controller edits small and keep generated/XML UI changes in
-separate commits where practical. This should make the later `release/1.0`
-upfit mostly mechanical.
-
 ## Issue
 
 ALS includes an integrated HTTP/WebSocket image server. The server publishes the
@@ -153,6 +88,71 @@ Important files and responsibilities:
 - `src/generated/*.py`
   - Generated UI files. Regenerate from `.ui` files with
     `utils/compile_ui_and_rc.py`.
+
+## Non-Negotiable Goal
+
+The web server must be reliable on all ALS target platforms, including hotspot
+setups and ordinary LAN setups.
+
+The current CI build matrix defines these target runtime families:
+
+- Windows amd64 installer: `ci/builds/build_dist_amd64_win.sh`
+- Linux amd64 desktop build: `ci/builds/build_dist_amd64_linux.sh`
+- Linux arm64 / Raspberry Pi build: `ci/builds/build_dist_arm64_linux.sh`
+- macOS Intel build: `ci/builds/build_dist_amd64_osx.sh`
+- macOS Apple Silicon build: `ci/builds/build_dist_arm64_osx.sh`
+
+The relevant dependency already present on every build path is `psutil`.
+Versions vary by target requirements file, but `psutil` is part of each build
+environment:
+
+- `requirements.txt`: `psutil==5.6.6`
+- `ci/builds/build_dist_amd64_win_req.txt`: `psutil==5.6.6`
+- `ci/builds/build_dist_arm64_linux_req.txt`: `psutil==5.6.6`
+- `ci/builds/build_dist_amd64_linux_req.txt`: `psutil==6.1.0`
+- `ci/builds/build_dist_arm64_osx_req.txt`: unpinned `psutil`
+
+Therefore the first implementation should rely on Python standard library plus
+`psutil`, not platform-specific shell commands such as `ipconfig`, `ifconfig`,
+`ip`, or `networksetup`.
+
+## Release Branch Constraint
+
+This rework is being implemented on a v0.7-based feature branch for the v0.7.1
+release. In parallel, unrelated development continues on the `release/1.0`
+branch for the upcoming v1.0 release.
+
+The v0.7.1 implementation should therefore make the smallest architectural
+change that satisfies the reliability goal. Keep the work tightly scoped to the
+existing server/address-selection flow, preserve the current controller, UI, and
+server structure where practical, and avoid broad cleanups or ownership moves
+that are not required for the network fix.
+
+This constraint is intended to make the finished change easy to review,
+cherry-pick, or manually upfit into `release/1.0`. Prefer small additive helpers
+and narrow call-site updates over a larger redesign, even when a larger redesign
+could be attractive for v1.0.
+
+### release/1.0 Upfit Risk Check
+
+A read-only comparison of `v0.7..release/1.0` against the planned network-rework
+files found no conflicting design work. The v1.0 branch does not currently change
+`src/als/streams/network.py`, `src/als/ui/qr_ui.ui`, or `src/generated/*`.
+
+The likely upfit pressure is textual rather than conceptual:
+
+- `src/als/logic.py` keeps the same `start_www()` / `stop_www()` behavior, with
+  only nearby unrelated processing changes.
+- `src/als/config.py` and `src/als/model/data.py` add unrelated v1.0 settings and
+  runtime fields, so new network settings should be additive and easy to port.
+- `src/als/ui/dialogs.py`, `src/als/ui/windows.py`, and
+  `src/als/ui/prefs_ui.ui` have the highest conflict risk because v1.0 touches
+  preferences, slot naming, theme handling, and UI layout around areas this task
+  will also update.
+
+Keep handwritten UI/controller edits small and keep generated/XML UI changes in
+separate commits where practical. This should make the later `release/1.0`
+upfit mostly mechanical.
 
 ## Design Direction
 
