@@ -315,20 +315,6 @@ def get_host_ip():
         test_socket.close()
     return ip_address
 
-@log
-def is_port_in_use(ip, port):
-    """
-    Checks if a given port on a given IP is in use.
-
-    :param ip: IP address to check
-    :param port: Port number to check
-    :return: True if port is in use, False otherwise
-    :rtype: bool
-    """
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        result = sock.connect_ex((ip, port))
-        return result == 0
-
 class Server:
 
     @log
