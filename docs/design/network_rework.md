@@ -446,6 +446,53 @@ section records observed behavior without rewriting the original roadmap above.
   Selecting another available address updated the QR target as expected, without
   changing the persisted Preferences address selection.
 
+## Implementation Report
+
+The v0.7.1 implementation follows the roadmap's main design direction: server
+binding is separated from user-facing address advertisement.
+
+The web server now binds to all IPv4 interfaces with `0.0.0.0`, while ALS
+separately resolves an advertised local address for the main window, status bar,
+Preferences, and QR dialog. Address discovery uses `psutil.net_if_addrs()` and
+keeps the selection logic independent from Qt and aiohttp so it can be tested
+without live network changes.
+
+Implemented behavior:
+
+- ALS discovers local IPv4 addresses and ranks them for Auto selection.
+- Auto mode keeps the previous route-selected address behavior when that address
+  is present and usable.
+- Private local addresses are preferred over link-local and loopback addresses.
+- Virtual or VPN-looking interfaces are deprioritized, but their addresses remain
+  available to the user.
+- The server bind address is never used as the displayed browser URL.
+- The preferred advertised address is persisted as either `auto` or
+  `ip:<address>`.
+- If a persisted IP address is no longer available, the UI falls back to Auto.
+- Preferences expose the displayed server address without parsing display text.
+- While the server is running, the displayed-address preference remains
+  selectable, but port-number controls are disabled.
+- The QR dialog exposes runtime address choices while the server is running.
+- QR address switching updates the QR target without changing the persisted
+  Preferences address.
+- Web server startup waits for the actual bind result before marking the server
+  as running.
+
+Intentional implementation choices:
+
+- Runtime QR state stores the selected QR URL, not a separate QR IP field. The
+  URL is the value consumed by QR generation, so this avoids keeping duplicate
+  runtime state synchronized.
+- The legacy `web_server_ip` runtime field is still populated with the
+  advertised IP for compatibility with nearby v0.7 code, but new display paths
+  use the explicit advertised address fields.
+- Focused tests were added during implementation rather than deferred. They
+  cover address discovery and selection, preference persistence, runtime state,
+  QR address selection, and Preferences port-control enablement.
+- The first v0.7.1 implementation remains IPv4-only, as planned.
+- User-facing documentation and translation updates are left as follow-up release
+  hardening work.
+
 ## v0.7.1 Decisions
 
 - Persist advertised-address preference as `auto` or `ip:<address>` only.
