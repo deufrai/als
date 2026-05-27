@@ -483,9 +483,8 @@ Intentional implementation choices:
 - Runtime QR state stores the selected QR URL, not a separate QR IP field. The
   URL is the value consumed by QR generation, so this avoids keeping duplicate
   runtime state synchronized.
-- The legacy `web_server_ip` runtime field is still populated with the
-  advertised IP for compatibility with nearby v0.7 code, but new display paths
-  use the explicit advertised address fields.
+- The legacy `web_server_ip` runtime field was removed after the new explicit
+  advertised address fields replaced its remaining live-code usage.
 - Focused tests were added during implementation rather than deferred. They
   cover address discovery and selection, preference persistence, runtime state,
   QR address selection, and Preferences port-control enablement.

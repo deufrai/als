@@ -619,7 +619,6 @@ class Controller:
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
 
         DYNAMIC_DATA.web_server_bind_host = WEB_SERVER_BIND_HOST
-        DYNAMIC_DATA.web_server_ip = advertised_address.ip
         DYNAMIC_DATA.web_server_advertised_ip = advertised_address.ip
         DYNAMIC_DATA.web_server_advertised_url = advertised_address.url
         DYNAMIC_DATA.web_server_qr_url = advertised_address.url

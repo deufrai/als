@@ -118,7 +118,6 @@ class DynamicData:
     def __init__(self):
         self.session = Session()
         self.web_server_is_running = False
-        self.web_server_ip = ""
         self.web_server_bind_host = ""
         self.web_server_advertised_ip = ""
         self.web_server_advertised_url = ""
