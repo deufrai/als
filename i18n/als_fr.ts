@@ -34,12 +34,12 @@
         <translation>Serveur d&apos;image démarré. Joignable à {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="676"/>
+        <location filename="../src/als/logic.py" line="678"/>
         <source>Web server stopped</source>
         <translation>Serveur d&apos;image stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="845"/>
+        <location filename="../src/als/logic.py" line="847"/>
         <source>Input scanner stopped</source>
         <translation>Scanneur d&apos;entrée stoppé</translation>
     </message>
@@ -607,22 +607,22 @@ Détails : {}</translation>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="327"/>
+        <location filename="../src/als/ui/dialogs.py" line="329"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="339"/>
+        <location filename="../src/als/ui/dialogs.py" line="341"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="350"/>
+        <location filename="../src/als/ui/dialogs.py" line="352"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="361"/>
+        <location filename="../src/als/ui/dialogs.py" line="363"/>
         <source>Select dark file</source>
         <translation>Sélectionner le fichier de dark</translation>
     </message>
@@ -637,7 +637,7 @@ Détails : {}</translation>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="290"/>
+        <location filename="../src/als/ui/dialogs.py" line="292"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -646,7 +646,7 @@ Détails : {}</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="293"/>
+        <location filename="../src/als/ui/dialogs.py" line="295"/>
         <source>Restart needed</source>
         <translation>Redémarrage nécessaire</translation>
     </message>

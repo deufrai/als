@@ -84,12 +84,12 @@ must not be the same as or a subfolder of your {} :
         <translation>Веб-сервер запущен. Доступен по адресу {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="676"/>
+        <location filename="../src/als/logic.py" line="678"/>
         <source>Web server stopped</source>
         <translation>Веб-сервер остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="845"/>
+        <location filename="../src/als/logic.py" line="847"/>
         <source>Input scanner stopped</source>
         <translation>Сканер ввода остановлен</translation>
     </message>
@@ -622,7 +622,7 @@ Details : {}</source>
         <translation>Неправильное значение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="290"/>
+        <location filename="../src/als/ui/dialogs.py" line="292"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -631,27 +631,27 @@ Details : {}</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="293"/>
+        <location filename="../src/als/ui/dialogs.py" line="295"/>
         <source>Restart needed</source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="327"/>
+        <location filename="../src/als/ui/dialogs.py" line="329"/>
         <source>Select scan folder</source>
         <translation>Выберите каталог для сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="339"/>
+        <location filename="../src/als/ui/dialogs.py" line="341"/>
         <source>Select work folder</source>
         <translation>Выберите рабочий каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="350"/>
+        <location filename="../src/als/ui/dialogs.py" line="352"/>
         <source>Select web folder</source>
         <translation>Выберите веб-каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="361"/>
+        <location filename="../src/als/ui/dialogs.py" line="363"/>
         <source>Select dark file</source>
         <translation>Выберите файл темнового кадра</translation>
     </message>
