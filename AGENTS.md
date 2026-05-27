@@ -24,15 +24,26 @@ repository. Follow it in addition to any direct user instructions.
   when needed. Generated files may be refreshed by hooks/build scripts and do not
   need to be treated as the authored change.
 
-## UI and Translations
+## UI
 
-- ALS is English-native and has French and Russian translations.
-- New UI strings should be intentional and translation-aware. Do not assume an
-  English-only UI change is complete if user-facing text is added or changed.
 - Check accelerators/mnemonics in the surrounding panel when adding Qt labels or
   controls.
 - Preserve practical keyboard navigation, including tab order, when adding
   controls.
+
+## Translations and i18n
+
+- ALS is English-native and has French and Russian translations.
+- New UI strings should be intentional and translation-aware. Do not assume an
+  English-only UI change is complete if user-facing text is added or changed.
+- All user-facing text must support i18n one way or another. Use Qt Designer
+  translatable strings, `QObject.tr()`, `I18n`, or another extraction-friendly
+  mechanism; do not leave visible labels, messages, tooltips, or dropdown text
+  as plain non-extracted literals.
+- When updating TS files, use `pylupdate5 -noobsolete als.pro`.
+- Do not run translation release/generation commands such as `lrelease` unless
+  the user explicitly asks for them. The user releases translations through Qt
+  Linguist.
 
 ## Website Scope
 
