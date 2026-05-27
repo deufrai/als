@@ -471,6 +471,9 @@ Implemented behavior:
 - Preferences expose the displayed server address without parsing display text.
 - While the server is running, the displayed-address preference remains
   selectable, but port-number controls are disabled.
+- When Preferences are accepted while the server is running, the main
+  window/status advertised URL is refreshed from the selected displayed-address
+  preference.
 - The QR dialog exposes runtime address choices while the server is running.
 - QR address switching updates the QR target without changing the persisted
   Preferences address.
@@ -491,8 +494,12 @@ Intentional implementation choices:
   behavior settled. Binding to `0.0.0.0` is handled directly by the server
   startup path rather than carried in dynamic runtime state.
 - While the server is running, Preferences still allow changing the displayed
-  address selection. Only port-number controls are disabled because changing the
-  port requires restarting the server.
+  address selection. Accepting the dialog updates the advertised URL shown in
+  the main controls/status area. Only port-number controls are disabled because
+  changing the port requires restarting the server.
+- Preferences address changes do not reset the QR runtime URL. This keeps the QR
+  dialog's runtime override independent from the persisted displayed-address
+  preference.
 - QR dialog UI was added to the translation project, the QR image placeholder
   was marked non-translatable, and FR/RU address-related translations were
   updated.
@@ -501,10 +508,12 @@ Intentional implementation choices:
   actionable failure is a port collision, and broader error taxonomy can wait.
 - Focused tests were added during implementation rather than deferred. They
   cover address discovery and selection, preference persistence, runtime state,
-  QR address selection, and Preferences port-control enablement.
+  QR address selection, Preferences port-control enablement, and advertised URL
+  refresh after Preferences changes.
+- Web server stop/start and restart remain covered by executed manual
+  validation rather than an additional automated lifecycle test in this v0.7.1
+  branch.
 - The first v0.7.1 implementation remains IPv4-only, as planned.
-- User-facing documentation and translation updates are left as follow-up release
-  hardening work.
 
 ## v0.7.1 Decisions
 
