@@ -519,3 +519,8 @@ Intentional implementation choices:
 - Use conservative generic labels for ambiguous adapters. Do not try to infer
   hotspot status aggressively from interface names or subnets.
 - Explicitly ignore IPv6 for the first implementation.
+
+## Codex Session Resume Point
+
+- Latest implementation/review work can be resumed from Codex session
+  `019e69b1-01ea-7201-9fc8-bd6f3fdae7f1`.

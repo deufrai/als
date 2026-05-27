@@ -76,7 +76,3 @@ repository. Follow it in addition to any direct user instructions.
 - Commit subjects should be lowercase and describe the operational effect.
 - A good subject should read naturally after: `If applied, this commit will ...`
 - Do not use commit subjects that merely list touched files.
-
-
-
-Codex session to be resumed : 019e69b1-01ea-7201-9fc8-bd6f3fdae7f1
