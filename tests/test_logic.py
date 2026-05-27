@@ -44,13 +44,13 @@ def test_resolve_web_server_advertised_address_uses_configured_ip(
     monkeypatch.setattr(
         "als.logic.get_network_address_candidates",
         lambda port: [
-            _network_address("Wi-Fi", "192.168.1.42", port),
             _network_address("wlan0", "10.42.0.1", port),
+            _network_address("Wi-Fi", "192.168.1.42", port),
         ])
     config.set_www_server_advertised_address("ip:10.42.0.1")
 
     advertised_address = Controller._resolve_web_server_advertised_address(
-        8000, "192.168.1.42")
+        8000)
 
     assert advertised_address.ip == "10.42.0.1"
     assert advertised_address.url == "http://10.42.0.1:8000"
@@ -59,8 +59,8 @@ def test_resolve_web_server_advertised_address_uses_configured_ip(
         for candidate in DYNAMIC_DATA.web_server_address_candidates
     ]
     assert candidate_ips == [
-        "192.168.1.42",
         "10.42.0.1",
+        "192.168.1.42",
     ]
 
 
@@ -72,13 +72,13 @@ def test_resolve_web_server_advertised_address_falls_back_to_auto(
     monkeypatch.setattr(
         "als.logic.get_network_address_candidates",
         lambda port: [
-            _network_address("Wi-Fi", "192.168.1.42", port),
             _network_address("wlan0", "10.42.0.1", port),
+            _network_address("Wi-Fi", "192.168.1.42", port),
         ])
     config.set_www_server_advertised_address("ip:192.168.50.50")
 
     advertised_address = Controller._resolve_web_server_advertised_address(
-        8000, "10.42.0.1")
+        8000)
 
     assert advertised_address.ip == "10.42.0.1"
 
@@ -89,7 +89,6 @@ def test_start_www_stores_advertised_runtime_state(monkeypatch: Any) -> None:
     """
     monkeypatch.setattr(Controller, "_setup_web_static_content", lambda: None)
     monkeypatch.setattr(Controller, "write_stack_info_json", lambda self: None)
-    monkeypatch.setattr("als.logic.get_host_ip", lambda: "192.168.1.42")
     monkeypatch.setattr(
         "als.logic.get_network_address_candidates",
         lambda port: [_network_address("Wi-Fi", "192.168.1.42", port)])

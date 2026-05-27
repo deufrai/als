@@ -460,8 +460,7 @@ without live network changes.
 Implemented behavior:
 
 - ALS discovers local IPv4 addresses and ranks them for Auto selection.
-- Auto mode keeps the previous route-selected address behavior when that address
-  is present and usable.
+- Auto mode selects the highest-ranked discovered address.
 - Private local addresses are preferred over link-local and loopback addresses.
 - Virtual or VPN-looking interfaces are deprioritized, but their addresses remain
   available to the user.

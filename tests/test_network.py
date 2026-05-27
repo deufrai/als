@@ -44,7 +44,7 @@ def test_private_addresses_are_ranked_before_link_local_and_loopback() -> None:
     assert candidates[0].label == "Wi-Fi - 192.168.1.42"
 
 
-def test_auto_selection_prefers_route_address_when_available() -> None:
+def test_auto_selection_uses_highest_ranked_candidate() -> None:
     candidates = get_network_address_candidates(
         8000,
         {
@@ -56,7 +56,6 @@ def test_auto_selection_prefers_route_address_when_available() -> None:
     selected = select_advertised_address(
         ADVERTISED_ADDRESS_AUTO,
         candidates,
-        route_ip="10.42.0.1",
     )
 
     assert selected.ip == "10.42.0.1"
@@ -76,7 +75,6 @@ def test_ip_preference_selects_matching_candidate() -> None:
     selected = select_advertised_address(
         advertised_address_preference("10.42.0.1"),
         candidates,
-        route_ip="192.168.1.42",
     )
 
     assert selected.ip == "10.42.0.1"
@@ -94,7 +92,6 @@ def test_missing_ip_preference_falls_back_to_auto() -> None:
     selected = select_advertised_address(
         advertised_address_preference("192.168.50.50"),
         candidates,
-        route_ip="10.42.0.1",
     )
 
     assert selected.ip == "10.42.0.1"

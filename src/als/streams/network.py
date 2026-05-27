@@ -279,14 +279,13 @@ def advertised_address_preference(ip: str) -> str:
 
 @log
 def select_advertised_address(
-        preference: Optional[str], candidates: Iterable[NetworkAddress],
-        route_ip: Optional[str] = None) -> NetworkAddress:
+        preference: Optional[str],
+        candidates: Iterable[NetworkAddress]) -> NetworkAddress:
     """
     Selects the advertised address from a persisted preference and candidates.
 
     :param preference: persisted preference value, either auto or ip:<address>
     :param candidates: ranked NetworkAddress candidates
-    :param route_ip: optional route-based IP to prefer in Auto mode
     :return: selected candidate
     :rtype: NetworkAddress
     """
@@ -302,34 +301,8 @@ def select_advertised_address(
         if preferred_candidate:
             return preferred_candidate
 
-    if route_ip:
-        route_candidate = by_ip.get(route_ip)
-        if (
-                route_candidate
-                and not route_candidate.is_loopback
-                and not route_candidate.is_link_local):
-            return route_candidate
-
     return candidates[0]
 
-
-@log
-def get_host_ip():
-    """
-    Retrieves machine's IP address.
-
-    :return: IP address
-    :rtype: str
-    """
-    test_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        test_socket.connect(('10.255.255.255', 1))
-        ip_address = test_socket.getsockname()[0]
-    except OSError:
-        ip_address = '127.0.0.1'
-    finally:
-        test_socket.close()
-    return ip_address
 
 class Server:
 

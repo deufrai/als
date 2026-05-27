@@ -46,8 +46,8 @@ from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Lev
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
 from als.streams.network import (
-    get_host_ip, Server, WEB_SERVER_BIND_HOST, get_network_address_candidates,
-    NetworkAddress, select_advertised_address
+    Server, WEB_SERVER_BIND_HOST, get_network_address_candidates, NetworkAddress,
+    select_advertised_address
 )
 from als.streams.output import ImageSaver
 
@@ -592,7 +592,6 @@ class Controller:
         Controller._setup_web_static_content()
         self.write_stack_info_json()
 
-        route_ip_address = get_host_ip()
         port_number = config.get_www_server_port_number()
 
         if self._server_thread is None:
@@ -614,7 +613,7 @@ class Controller:
                 raise
 
         advertised_address = self._resolve_web_server_advertised_address(
-            port_number, route_ip_address)
+            port_number)
         url = advertised_address.url
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
 
@@ -632,19 +631,17 @@ class Controller:
     @staticmethod
     @log
     def _resolve_web_server_advertised_address(
-            port_number: int, route_ip_address: str) -> NetworkAddress:
+            port_number: int) -> NetworkAddress:
         """
         Resolves the web server address advertised to browser clients.
 
         :param port_number: web server port number
-        :param route_ip_address: route-selected local IP address
         :return: selected advertised address
         """
         address_candidates = get_network_address_candidates(port_number)
         advertised_address = select_advertised_address(
             config.get_www_server_advertised_address(),
-            address_candidates,
-            route_ip_address)
+            address_candidates)
 
         DYNAMIC_DATA.web_server_address_candidates = address_candidates
         return advertised_address
