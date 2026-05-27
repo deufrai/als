@@ -871,7 +871,7 @@ Détails : {}</translation>
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="639"/>
         <source>Displayed &amp;address</source>
-        <translation>&amp;Adressee affichée</translation>
+        <translation type="unfinished">&amp;Adresse affichée</translation>
     </message>
 </context>
 <context>
