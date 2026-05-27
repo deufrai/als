@@ -621,6 +621,7 @@ class QRDisplay(QDialog):
         super().setVisible(visible)
 
 
+@log
 def _address_preference_items(candidates):
     """
     Builds persistent advertised-address dropdown items.
@@ -635,6 +636,7 @@ def _address_preference_items(candidates):
     return address_items
 
 
+@log
 def _address_preference_index(preference, address_items) -> int:
     """
     Finds the dropdown index matching a persisted preference.
@@ -649,6 +651,7 @@ def _address_preference_index(preference, address_items) -> int:
     return 0
 
 
+@log
 def _qr_address_items(candidates, advertised_ip: str, advertised_url: str):
     """
     Builds runtime QR address dropdown items.
@@ -669,6 +672,7 @@ def _qr_address_items(candidates, advertised_ip: str, advertised_url: str):
     return []
 
 
+@log
 def _qr_address_index(selected_url: str, address_items) -> int:
     """
     Finds the QR dropdown index matching a runtime URL.

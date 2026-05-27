@@ -23,6 +23,7 @@ ADVERTISED_ADDRESS_IP_PREFIX = "ip:"
 class NetworkAddress:
     """Candidate IPv4 address that can be advertised to browser clients."""
 
+    @log
     def __init__(
             self, interface_name: str, ip: str, url: str, is_loopback: bool,
             is_link_local: bool, is_private: bool, score: int,
@@ -49,6 +50,7 @@ class NetworkAddress:
         self._label = label
 
     @property
+    @log
     def interface_name(self) -> str:
         """
         Returns the OS-provided network interface name.
@@ -58,6 +60,7 @@ class NetworkAddress:
         return self._interface_name
 
     @property
+    @log
     def ip(self) -> str:
         """
         Returns the candidate IPv4 address.
@@ -67,6 +70,7 @@ class NetworkAddress:
         return self._ip
 
     @property
+    @log
     def url(self) -> str:
         """
         Returns the browser URL for this address candidate.
@@ -76,6 +80,7 @@ class NetworkAddress:
         return self._url
 
     @property
+    @log
     def is_loopback(self) -> bool:
         """
         Returns whether the candidate is loopback-only.
@@ -85,6 +90,7 @@ class NetworkAddress:
         return self._is_loopback
 
     @property
+    @log
     def is_link_local(self) -> bool:
         """
         Returns whether the candidate is link-local.
@@ -94,6 +100,7 @@ class NetworkAddress:
         return self._is_link_local
 
     @property
+    @log
     def is_private(self) -> bool:
         """
         Returns whether the candidate is in a private address range.
@@ -103,6 +110,7 @@ class NetworkAddress:
         return self._is_private
 
     @property
+    @log
     def score(self) -> int:
         """
         Returns the Auto-selection ranking score.
@@ -112,6 +120,7 @@ class NetworkAddress:
         return self._score
 
     @property
+    @log
     def label(self) -> str:
         """
         Returns the UI label for this address candidate.
@@ -121,6 +130,7 @@ class NetworkAddress:
         return self._label
 
 
+@log
 def _interface_name_score(interface_name: str) -> int:
     """
     Scores weak interface-name hints without filtering any candidates.
@@ -146,6 +156,7 @@ def _interface_name_score(interface_name: str) -> int:
     return 0
 
 
+@log
 def _display_interface_name(interface_name: str) -> str:
     """
     Builds a conservative display name for an interface.
@@ -169,6 +180,7 @@ def _display_interface_name(interface_name: str) -> str:
     return interface_name
 
 
+@log
 def _score_ip_address(
         ip_address: ipaddress.IPv4Address, interface_name: str) -> int:
     """
@@ -189,6 +201,7 @@ def _score_ip_address(
     return score
 
 
+@log
 def _network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
     """
     Converts an interface/IP pair into a normalized address candidate.
@@ -213,6 +226,7 @@ def _network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
     )
 
 
+@log
 def get_network_address_candidates(
         port: int,
         interface_addresses: Optional[
@@ -251,6 +265,7 @@ def get_network_address_candidates(
         candidates, key=lambda candidate: (-candidate.score, candidate.ip))
 
 
+@log
 def advertised_address_preference(ip: str) -> str:
     """
     Builds the persisted preference value for an advertised IP address.
@@ -262,6 +277,7 @@ def advertised_address_preference(ip: str) -> str:
     return f"{ADVERTISED_ADDRESS_IP_PREFIX}{ip}"
 
 
+@log
 def select_advertised_address(
         preference: Optional[str], candidates: Iterable[NetworkAddress],
         route_ip: Optional[str] = None) -> NetworkAddress:
