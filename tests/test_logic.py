@@ -7,9 +7,7 @@ import pytest
 from als import config
 from als.logic import Controller
 from als.model.data import DYNAMIC_DATA
-from als.streams.network import (
-    WEB_SERVER_BIND_HOST, NetworkAddress, get_network_address_candidates
-)
+from als.streams.network import NetworkAddress, get_network_address_candidates
 
 
 Address = namedtuple("Address", ["family", "address"])
@@ -104,7 +102,6 @@ def test_start_www_stores_advertised_runtime_state(monkeypatch: Any) -> None:
     controller.start_www()
     controller._server_thread.join()
 
-    assert DYNAMIC_DATA.web_server_bind_host == WEB_SERVER_BIND_HOST
     assert DYNAMIC_DATA.web_server_advertised_ip == "192.168.1.42"
     assert DYNAMIC_DATA.web_server_advertised_url == "http://192.168.1.42:8000"
     assert DYNAMIC_DATA.web_server_qr_url == "http://192.168.1.42:8000"
@@ -145,7 +142,6 @@ def _reset_web_server_runtime_state() -> None:
     Resets web server runtime fields touched by these tests.
     """
     DYNAMIC_DATA.web_server_is_running = False
-    DYNAMIC_DATA.web_server_bind_host = ""
     DYNAMIC_DATA.web_server_advertised_ip = ""
     DYNAMIC_DATA.web_server_advertised_url = ""
     DYNAMIC_DATA.web_server_qr_url = ""
