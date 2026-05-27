@@ -479,11 +479,26 @@ Implemented behavior:
 
 Intentional implementation choices:
 
+- Auto address selection intentionally uses only candidate scoring. The earlier
+  default-route preference was removed to keep behavior simpler and easier to
+  reason about across hotspot and multi-interface setups.
 - Runtime QR state stores the selected QR URL, not a separate QR IP field. The
   URL is the value consumed by QR generation, so this avoids keeping duplicate
   runtime state synchronized.
 - The legacy `web_server_ip` runtime field was removed after the new explicit
   advertised address fields replaced its remaining live-code usage.
+- The temporary `web_server_bind_host` runtime field was also removed after bind
+  behavior settled. Binding to `0.0.0.0` is handled directly by the server
+  startup path rather than carried in dynamic runtime state.
+- While the server is running, Preferences still allow changing the displayed
+  address selection. Only port-number controls are disabled because changing the
+  port requires restarting the server.
+- QR dialog UI was added to the translation project, the QR image placeholder
+  was marked non-translatable, and FR/RU address-related translations were
+  updated.
+- Server startup error naming and user-facing messages still follow the existing
+  port-oriented path. This is accepted for v0.7.1 because the expected
+  actionable failure is a port collision, and broader error taxonomy can wait.
 - Focused tests were added during implementation rather than deferred. They
   cover address discovery and selection, preference persistence, runtime state,
   QR address selection, and Preferences port-control enablement.
