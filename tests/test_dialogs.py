@@ -11,7 +11,8 @@ from als.streams.network import (
 )
 from als.ui.dialogs import (
     QRDisplay, _address_preference_index, _address_preference_items,
-    _qr_address_index, _qr_address_items
+    _qr_address_index, _qr_address_items,
+    _set_web_server_port_controls_enabled
 )
 
 
@@ -142,6 +143,49 @@ def test_qr_display_stores_selected_runtime_address() -> None:
     QRDisplay._store_selected_qr_address(display)
 
     assert DYNAMIC_DATA.web_server_qr_url == "http://10.42.0.1:8000"
+
+
+def test_set_web_server_port_controls_enabled_only_toggles_port_controls() -> None:
+    """
+    Checks that address selection can remain available while the server runs.
+    """
+    ui = _FakePrefsUi()
+
+    _set_web_server_port_controls_enabled(ui, False)
+
+    assert ui.lbl_server_port.enabled is False
+    assert ui.ln_web_server_port.enabled is False
+    assert ui.label_4.enabled is False
+    assert ui.serverBox.enabled is True
+    assert ui.cmb_web_server_address.enabled is True
+
+
+class _FakePrefsUi:
+    """
+    Minimal Preferences UI double for server control enablement tests.
+    """
+
+    def __init__(self) -> None:
+        self.serverBox = _FakeWidget()
+        self.cmb_web_server_address = _FakeWidget()
+        self.lbl_server_port = _FakeWidget()
+        self.ln_web_server_port = _FakeWidget()
+        self.label_4 = _FakeWidget()
+
+
+class _FakeWidget:
+    """
+    Minimal widget double exposing enabled state.
+    """
+
+    def __init__(self) -> None:
+        self.enabled = True
+
+    def setEnabled(self, enabled: bool) -> None:
+        """
+        Stores the requested enabled state.
+        """
+        self.enabled = enabled
 
 
 class _FakeQrUi:

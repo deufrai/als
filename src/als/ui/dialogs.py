@@ -47,7 +47,8 @@ class PreferencesDialog(QDialog):
         self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.pathsBox.setEnabled(not DYNAMIC_DATA.web_server_is_running and DYNAMIC_DATA.session.is_stopped)
-        self._ui.serverBox.setEnabled(not DYNAMIC_DATA.web_server_is_running)
+        _set_web_server_port_controls_enabled(
+            self._ui, not DYNAMIC_DATA.web_server_is_running)
 
 
         self._ui.cmb_lang.setItemData(0, 'sys')
@@ -685,6 +686,19 @@ def _qr_address_index(selected_url: str, address_items) -> int:
         if url == selected_url:
             return index
     return 0
+
+
+@log
+def _set_web_server_port_controls_enabled(ui, enabled: bool) -> None:
+    """
+    Enables or disables only the persistent web server port controls.
+
+    :param ui: preferences dialog UI
+    :param enabled: True when the port controls can be changed
+    """
+    ui.lbl_server_port.setEnabled(enabled)
+    ui.ln_web_server_port.setEnabled(enabled)
+    ui.label_4.setEnabled(enabled)
 
 
 @log
