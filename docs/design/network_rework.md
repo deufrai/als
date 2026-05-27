@@ -431,6 +431,21 @@ eventual cases include:
 - loopback is used only as fallback;
 - virtual/VPN-looking addresses are deprioritized but still available.
 
+## Executed Validations
+
+The following validation was executed after the implementation work began. This
+section records observed behavior without rewriting the original roadmap above.
+
+- LAN-only setups were tested on all target platforms. The application behaved
+  as expected: the web server started, advertised a reachable local address, and
+  the browser view was accessible from another device on the same LAN.
+- Web server stop/start and application restart flows were tested. The server
+  restarted cleanly after being stopped, and the runtime server state updated as
+  expected.
+- QR runtime address switching was tested while the web server was running.
+  Selecting another available address updated the QR target as expected, without
+  changing the persisted Preferences address selection.
+
 ## v0.7.1 Decisions
 
 - Persist advertised-address preference as `auto` or `ip:<address>` only.
