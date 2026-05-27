@@ -4,7 +4,7 @@ from typing import Generator
 
 import pytest
 
-from als.model.data import DYNAMIC_DATA
+from als.model.data import DYNAMIC_DATA, I18n
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, advertised_address_preference,
     get_network_address_candidates
@@ -22,8 +22,9 @@ Address = namedtuple("Address", ["family", "address"])
 @pytest.fixture(autouse=True)
 def reset_qr_runtime_state() -> Generator[None, None, None]:
     """
-    Resets QR runtime state touched by dialog tests.
+    Resets global state touched by dialog tests.
     """
+    I18n().setup()
     DYNAMIC_DATA.web_server_qr_url = ""
     yield
     DYNAMIC_DATA.web_server_qr_url = ""
@@ -95,6 +96,26 @@ def test_qr_address_items_use_runtime_candidates() -> None:
     assert address_items == [
         ("Wi-Fi - 10.42.0.1", "10.42.0.1", "http://10.42.0.1:8000"),
         ("Wi-Fi - 192.168.1.42",
+         "192.168.1.42",
+         "http://192.168.1.42:8000"),
+    ]
+
+
+def test_address_items_translate_generic_network_adapter_label() -> None:
+    """
+    Checks that generic adapter display text goes through I18n.
+    """
+    candidates = get_network_address_candidates(
+        8000,
+        {
+            "": [_addr("192.168.1.42")],
+        },
+    )
+
+    address_items = _qr_address_items(candidates, "", "")
+
+    assert address_items == [
+        ("Network adapter - 192.168.1.42",
          "192.168.1.42",
          "http://192.168.1.42:8000"),
     ]

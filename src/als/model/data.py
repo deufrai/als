@@ -57,6 +57,9 @@ class I18n(QObject):
 
     WEB_SERVER = "TEMP"
     ADDRESS = "TEMP"
+    AUTO_RECOMMENDED = "TEMP"
+    CURRENT_ADDRESS = "TEMP"
+    NETWORK_ADAPTER = "TEMP"
 
     TOOLTIP_BLACK_LEVEL = "TEMP"
     TOOLTIP_MIDTONES_LEVEL = "TEMP"
@@ -93,6 +96,9 @@ class I18n(QObject):
         I18n.PAUSED = self.tr("paused")
         I18n.WEB_SERVER = self.tr("web server")
         I18n.ADDRESS = self.tr("address")
+        I18n.AUTO_RECOMMENDED = self.tr("Auto - recommended")
+        I18n.CURRENT_ADDRESS = self.tr("Current address - {}")
+        I18n.NETWORK_ADAPTER = self.tr("Network adapter")
         I18n.TOOLTIP_RED_LEVEL = self.tr("Red level")
         I18n.TOOLTIP_GREEN_LEVEL = self.tr("Green level")
         I18n.TOOLTIP_BLUE_LEVEL = self.tr("Blue level")

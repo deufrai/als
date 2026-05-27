@@ -176,7 +176,7 @@ def _display_interface_name(interface_name: str) -> str:
             or normalized_name.startswith(("eth", "enp", "ens", "eno"))):
         return "Ethernet"
     if not interface_name:
-        return "Network adapter"
+        return ""
     return interface_name
 
 
@@ -222,7 +222,7 @@ def _network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
         is_link_local=ip_address.is_link_local,
         is_private=ip_address.is_private,
         score=_score_ip_address(ip_address, interface_name),
-        label=f"{display_name} - {ip}",
+        label=f"{display_name} - {ip}" if display_name else ip,
     )
 
 

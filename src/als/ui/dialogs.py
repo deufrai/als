@@ -15,7 +15,7 @@ from als import config
 from als.code_utilities import log, AlsLogAdapter
 from als.logic import Controller
 from als.messaging import MESSAGE_HUB
-from als.model.data import VERSION, DYNAMIC_DATA
+from als.model.data import VERSION, DYNAMIC_DATA, I18n
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, advertised_address_preference,
     get_network_address_candidates
@@ -29,9 +29,6 @@ from generated.stop_ui import Ui_SessionStopDialog
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
 _NORMAL_STYLE_SHEET = "border: 1px"
-_ADDRESS_AUTO_LABEL = "Auto - recommended"
-
-
 class PreferencesDialog(QDialog):
     """
     Our main preferences dialog box
@@ -630,10 +627,11 @@ def _address_preference_items(candidates):
     :param candidates: network address candidates
     :return: list of label/preference tuples
     """
-    address_items = [(_ADDRESS_AUTO_LABEL, ADVERTISED_ADDRESS_AUTO)]
+    address_items = [(I18n.AUTO_RECOMMENDED, ADVERTISED_ADDRESS_AUTO)]
     for candidate in candidates:
         address_items.append(
-            (candidate.label, advertised_address_preference(candidate.ip)))
+            (_address_candidate_label(candidate),
+             advertised_address_preference(candidate.ip)))
     return address_items
 
 
@@ -664,13 +662,26 @@ def _qr_address_items(candidates, advertised_ip: str, advertised_url: str):
     """
     if candidates:
         return [
-            (candidate.label, candidate.ip, candidate.url)
+            (_address_candidate_label(candidate), candidate.ip, candidate.url)
             for candidate in candidates
         ]
     if advertised_ip and advertised_url:
-        return [("Current address - {}".format(advertised_ip),
+        return [(I18n.CURRENT_ADDRESS.format(advertised_ip),
                  advertised_ip, advertised_url)]
     return []
+
+
+@log
+def _address_candidate_label(candidate) -> str:
+    """
+    Builds the translated UI label for a network address candidate.
+
+    :param candidate: network address candidate
+    :return: translated display label
+    """
+    if not candidate.interface_name:
+        return "{} - {}".format(I18n.NETWORK_ADAPTER, candidate.ip)
+    return candidate.label
 
 
 @log
