@@ -612,14 +612,11 @@ class Controller:
                 self._server_thread = None
                 raise
 
-        advertised_address = self._resolve_web_server_advertised_address(
-            port_number)
+        advertised_address = self.update_web_server_advertised_address(
+            reset_qr_address=True)
         url = advertised_address.url
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
 
-        DYNAMIC_DATA.web_server_advertised_ip = advertised_address.ip
-        DYNAMIC_DATA.web_server_advertised_url = advertised_address.url
-        DYNAMIC_DATA.web_server_qr_url = advertised_address.url
         DYNAMIC_DATA.web_server_is_running = True
 
         # if we can only listen on loopback, keep running but notify the powers that be
@@ -630,20 +627,25 @@ class Controller:
 
     @staticmethod
     @log
-    def _resolve_web_server_advertised_address(
-            port_number: int) -> NetworkAddress:
+    def update_web_server_advertised_address(
+            reset_qr_address: bool = False) -> NetworkAddress:
         """
-        Resolves the web server address advertised to browser clients.
+        Updates the web server address advertised to browser clients.
 
-        :param port_number: web server port number
+        :param reset_qr_address: True to also point QR code to advertised URL
         :return: selected advertised address
         """
+        port_number = config.get_www_server_port_number()
         address_candidates = get_network_address_candidates(port_number)
         advertised_address = select_advertised_address(
             config.get_www_server_advertised_address(),
             address_candidates)
 
         DYNAMIC_DATA.web_server_address_candidates = address_candidates
+        DYNAMIC_DATA.web_server_advertised_ip = advertised_address.ip
+        DYNAMIC_DATA.web_server_advertised_url = advertised_address.url
+        if reset_qr_address:
+            DYNAMIC_DATA.web_server_qr_url = advertised_address.url
         return advertised_address
 
     @log

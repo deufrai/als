@@ -245,6 +245,8 @@ class PreferencesDialog(QDialog):
             return
         config.set_www_server_advertised_address(
             self._ui.cmb_web_server_address.currentData())
+        if DYNAMIC_DATA.web_server_is_running:
+            Controller.update_web_server_advertised_address()
 
         # debug log choice
         debug_old_value = config.is_debug_log_on()
