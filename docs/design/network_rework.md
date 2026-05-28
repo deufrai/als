@@ -442,9 +442,9 @@ section records observed behavior without rewriting the original roadmap above.
 - Web server stop/start and application restart flows were tested. The server
   restarted cleanly after being stopped, and the runtime server state updated as
   expected.
-- QR runtime address switching was tested while the web server was running.
-  Selecting another available address updated the QR target as expected, without
-  changing the persisted Preferences address selection.
+- QR runtime address switching was tested during implementation, then removed
+  after review because having two address selectors was judged more confusing
+  than helpful. The advertised address is now selected only in Preferences.
 
 ## Implementation Report
 
@@ -474,9 +474,7 @@ Implemented behavior:
 - When Preferences are accepted while the server is running, the main
   window/status advertised URL is refreshed from the selected displayed-address
   preference.
-- The QR dialog exposes runtime address choices while the server is running.
-- QR address switching updates the QR target without changing the persisted
-  Preferences address.
+- The QR dialog uses the same advertised URL as the main window/status display.
 - Web server startup waits for the actual bind result before marking the server
   as running.
 
@@ -485,31 +483,28 @@ Intentional implementation choices:
 - Auto address selection intentionally uses only candidate scoring. The earlier
   default-route preference was removed to keep behavior simpler and easier to
   reason about across hotspot and multi-interface setups.
-- Runtime QR state stores the selected QR URL, not a separate QR IP field. The
-  URL is the value consumed by QR generation, so this avoids keeping duplicate
-  runtime state synchronized.
 - The legacy `web_server_ip` runtime field was removed after the new explicit
   advertised address fields replaced its remaining live-code usage.
 - The temporary `web_server_bind_host` runtime field was also removed after bind
   behavior settled. Binding to `0.0.0.0` is handled directly by the server
   startup path rather than carried in dynamic runtime state.
+- Runtime QR-specific address state was removed when the QR address dropdown was
+  removed. QR generation now consumes the selected advertised URL directly.
 - While the server is running, Preferences still allow changing the displayed
   address selection. Accepting the dialog updates the advertised URL shown in
   the main controls/status area. Only port-number controls are disabled because
   changing the port requires restarting the server.
-- Preferences address changes do not reset the QR runtime URL. This keeps the QR
-  dialog's runtime override independent from the persisted displayed-address
-  preference.
 - QR dialog UI was added to the translation project, the QR image placeholder
   was marked non-translatable, and FR/RU address-related translations were
-  updated.
+  updated. The later QR dropdown removal also removed the QR dialog's address
+  label from translation sources.
 - Server startup error naming and user-facing messages still follow the existing
   port-oriented path. This is accepted for v0.7.1 because the expected
   actionable failure is a port collision, and broader error taxonomy can wait.
 - Focused tests were added during implementation rather than deferred. They
   cover address discovery and selection, preference persistence, runtime state,
-  QR address selection, Preferences port-control enablement, and advertised URL
-  refresh after Preferences changes.
+  Preferences port-control enablement, and advertised URL refresh after
+  Preferences changes.
 - Web server stop/start and restart remain covered by executed manual
   validation rather than an additional automated lifecycle test in this v0.7.1
   branch.
@@ -519,12 +514,10 @@ Intentional implementation choices:
 
 - Persist advertised-address preference as `auto` or `ip:<address>` only.
 - Do not persist interface identity in the first implementation.
-- Show a single selected advertised URL in the main window.
-- Keep QR address changes runtime-only, with persistence controlled only by
-  Preferences.
-- Store the current runtime QR address in `DYNAMIC_DATA` or equivalent runtime
-  state so closing and reopening the QR dialog keeps the user's last runtime
-  choice.
+- Use one selected advertised URL for the main window/status display and QR
+  code.
+- Keep advertised-address selection in Preferences only. Do not expose a second
+  QR-specific address selector.
 - Use conservative generic labels for ambiguous adapters. Do not try to infer
   hotspot status aggressively from interface names or subnets.
 - Explicitly ignore IPv6 for the first implementation.

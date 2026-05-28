@@ -4,15 +4,14 @@ from typing import Generator
 
 import pytest
 
-from als.model.data import DYNAMIC_DATA, I18n
+from als.model.data import I18n
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, advertised_address_preference,
     get_network_address_candidates
 )
 from als.ui.dialogs import (
-    QRDisplay, _address_preference_index, _address_preference_items,
-    _qr_address_index, _qr_address_items,
-    _set_web_server_port_controls_enabled
+    _address_candidate_label, _address_preference_index,
+    _address_preference_items, _set_web_server_port_controls_enabled
 )
 
 
@@ -20,14 +19,12 @@ Address = namedtuple("Address", ["family", "address"])
 
 
 @pytest.fixture(autouse=True)
-def reset_qr_runtime_state() -> Generator[None, None, None]:
+def reset_i18n() -> Generator[None, None, None]:
     """
     Resets global state touched by dialog tests.
     """
     I18n().setup()
-    DYNAMIC_DATA.web_server_qr_url = ""
     yield
-    DYNAMIC_DATA.web_server_qr_url = ""
 
 
 def _addr(ip: str) -> Address:
@@ -79,29 +76,7 @@ def test_address_preference_index_falls_back_to_auto_when_missing() -> None:
     assert selected_index == 0
 
 
-def test_qr_address_items_use_runtime_candidates() -> None:
-    """
-    Checks that QR address choices expose all current runtime candidates.
-    """
-    candidates = get_network_address_candidates(
-        8000,
-        {
-            "Wi-Fi": [_addr("192.168.1.42")],
-            "wlan0": [_addr("10.42.0.1")],
-        },
-    )
-
-    address_items = _qr_address_items(candidates, "", "")
-
-    assert address_items == [
-        ("Wi-Fi - 10.42.0.1", "10.42.0.1", "http://10.42.0.1:8000"),
-        ("Wi-Fi - 192.168.1.42",
-         "192.168.1.42",
-         "http://192.168.1.42:8000"),
-    ]
-
-
-def test_address_items_translate_generic_network_adapter_label() -> None:
+def test_address_candidate_label_translates_generic_network_adapter() -> None:
     """
     Checks that generic adapter display text goes through I18n.
     """
@@ -112,58 +87,8 @@ def test_address_items_translate_generic_network_adapter_label() -> None:
         },
     )
 
-    address_items = _qr_address_items(candidates, "", "")
-
-    assert address_items == [
-        ("Network adapter - 192.168.1.42",
-         "192.168.1.42",
-         "http://192.168.1.42:8000"),
-    ]
-
-
-def test_qr_address_items_fall_back_to_advertised_url() -> None:
-    """
-    Checks that the QR dropdown can still display the advertised URL.
-    """
-    address_items = _qr_address_items(
-        [],
-        "192.168.1.42",
-        "http://192.168.1.42:8000")
-
-    assert address_items == [
-        ("Current address - 192.168.1.42",
-         "192.168.1.42",
-         "http://192.168.1.42:8000"),
-    ]
-
-
-def test_qr_address_index_keeps_runtime_choice() -> None:
-    """
-    Checks that reopening the QR dialog can keep the last runtime URL.
-    """
-    address_items = [
-        ("Wi-Fi - 192.168.1.42",
-         "192.168.1.42",
-         "http://192.168.1.42:8000"),
-        ("Wi-Fi - 10.42.0.1", "10.42.0.1", "http://10.42.0.1:8000"),
-    ]
-
-    selected_index = _qr_address_index(
-        "http://10.42.0.1:8000", address_items)
-
-    assert selected_index == 1
-
-
-def test_qr_display_stores_selected_runtime_address() -> None:
-    """
-    Checks that QR dropdown selection is stored in runtime data.
-    """
-    display = QRDisplay.__new__(QRDisplay)
-    display._ui = _FakeQrUi("10.42.0.1", "http://10.42.0.1:8000")
-
-    QRDisplay._store_selected_qr_address(display)
-
-    assert DYNAMIC_DATA.web_server_qr_url == "http://10.42.0.1:8000"
+    assert _address_candidate_label(candidates[0]) == (
+        "Network adapter - 192.168.1.42")
 
 
 def test_set_web_server_port_controls_enabled_only_toggles_port_controls() -> None:
@@ -207,27 +132,3 @@ class _FakeWidget:
         Stores the requested enabled state.
         """
         self.enabled = enabled
-
-
-class _FakeQrUi:
-    """
-    Minimal QR UI double for runtime selection tests.
-    """
-
-    def __init__(self, ip: str, url: str) -> None:
-        self.cmb_qr_address = _FakeCombo(ip, url)
-
-
-class _FakeCombo:
-    """
-    Minimal combo-box double exposing selected item data.
-    """
-
-    def __init__(self, ip: str, url: str) -> None:
-        self._data = (ip, url)
-
-    def currentData(self):
-        """
-        Returns current combo item data.
-        """
-        return self._data

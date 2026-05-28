@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr_FR">
+<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="">
 <context>
     <name></name>
     <message>
@@ -29,17 +28,17 @@
         <translation>Session en pause</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="618"/>
+        <location filename="../src/als/logic.py" line="617"/>
         <source>Web server started. Reachable at {}</source>
         <translation>Serveur d&apos;image démarré. Joignable à {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="678"/>
+        <location filename="../src/als/logic.py" line="673"/>
         <source>Web server stopped</source>
         <translation>Serveur d&apos;image stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="847"/>
+        <location filename="../src/als/logic.py" line="842"/>
         <source>Input scanner stopped</source>
         <translation>Scanneur d&apos;entrée stoppé</translation>
     </message>
@@ -290,176 +289,171 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 <context>
     <name>I18n</name>
     <message>
-        <location filename="../src/als/model/data.py" line="83"/>
+        <location filename="../src/als/model/data.py" line="82"/>
         <source>sum</source>
         <translation>somme</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="84"/>
+        <location filename="../src/als/model/data.py" line="83"/>
         <source>mean</source>
         <translation>moyenne</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="85"/>
+        <location filename="../src/als/model/data.py" line="84"/>
         <source>busy</source>
         <translation>occupé</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="86"/>
+        <location filename="../src/als/model/data.py" line="85"/>
         <source>scanner</source>
         <translation>scanneur</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="87"/>
+        <location filename="../src/als/model/data.py" line="86"/>
         <source>of</source>
         <translation>de</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="92"/>
+        <location filename="../src/als/model/data.py" line="91"/>
         <source>running</source>
         <comment>gender m</comment>
         <translation>démarré</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="93"/>
+        <location filename="../src/als/model/data.py" line="92"/>
         <source>running</source>
         <comment>gender f</comment>
         <translation>démarrée</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="94"/>
+        <location filename="../src/als/model/data.py" line="93"/>
         <source>stopped</source>
         <comment>gender m</comment>
         <translation>stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="95"/>
+        <location filename="../src/als/model/data.py" line="94"/>
         <source>stopped</source>
         <comment>gender f</comment>
         <translation>stoppée</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="96"/>
+        <location filename="../src/als/model/data.py" line="95"/>
         <source>paused</source>
         <translation>en pause</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="97"/>
+        <location filename="../src/als/model/data.py" line="96"/>
         <source>web server</source>
         <translation>serveur web</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="98"/>
+        <location filename="../src/als/model/data.py" line="97"/>
         <source>address</source>
         <translation>adresse</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="102"/>
+        <location filename="../src/als/model/data.py" line="100"/>
         <source>Red level</source>
         <translation>Niveau de rouge</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="103"/>
+        <location filename="../src/als/model/data.py" line="101"/>
         <source>Green level</source>
         <translation>Niveau de vert</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="104"/>
+        <location filename="../src/als/model/data.py" line="102"/>
         <source>Blue level</source>
         <translation>Niveau de bleu</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="106"/>
+        <location filename="../src/als/model/data.py" line="104"/>
         <source>Midtones level</source>
         <translation>Niveau tons moyens</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="108"/>
+        <location filename="../src/als/model/data.py" line="106"/>
         <source>Autostretch strength</source>
         <translation>Force de l&apos;autostretch</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="109"/>
+        <location filename="../src/als/model/data.py" line="107"/>
         <source>RGB balance active</source>
         <translation>Balance RGB active</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="110"/>
+        <location filename="../src/als/model/data.py" line="108"/>
         <source>Autostretch active</source>
         <translation>Autostretch actif</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="111"/>
+        <location filename="../src/als/model/data.py" line="109"/>
         <source>Levels active</source>
         <translation>Niveaux actifs</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="112"/>
+        <location filename="../src/als/model/data.py" line="110"/>
         <source>stack size</source>
         <translation>Taille de la stack</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="113"/>
+        <location filename="../src/als/model/data.py" line="111"/>
         <source>Session</source>
         <translation>Session</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="88"/>
+        <location filename="../src/als/model/data.py" line="87"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="89"/>
+        <location filename="../src/als/model/data.py" line="88"/>
         <source>Visual</source>
         <translation>Visuel</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="105"/>
+        <location filename="../src/als/model/data.py" line="103"/>
         <source>Black clipping</source>
         <translation>Ecrêtage du noir</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="107"/>
+        <location filename="../src/als/model/data.py" line="105"/>
         <source>White clipping</source>
         <translation>Ecrêtage du blanc</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="114"/>
+        <location filename="../src/als/model/data.py" line="112"/>
         <source>scan folder</source>
         <translation>dossier scanné</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="115"/>
+        <location filename="../src/als/model/data.py" line="113"/>
         <source>work folder</source>
         <translation>dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="116"/>
+        <location filename="../src/als/model/data.py" line="114"/>
         <source>web folder</source>
         <translation>dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="90"/>
+        <location filename="../src/als/model/data.py" line="89"/>
         <source>starting...</source>
         <translation>démarrage...</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="91"/>
+        <location filename="../src/als/model/data.py" line="90"/>
         <source>stopping...</source>
         <translation>arrêt...</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="99"/>
+        <location filename="../src/als/model/data.py" line="98"/>
         <source>Auto - recommended</source>
         <translation>Auto - recommandé</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="100"/>
-        <source>Current address - {}</source>
-        <translation>Adresse actuelle - {}</translation>
-    </message>
-    <message>
-        <location filename="../src/als/model/data.py" line="101"/>
+        <location filename="../src/als/model/data.py" line="99"/>
         <source>Network adapter</source>
         <translation>Adaptateur réseau</translation>
     </message>
@@ -887,14 +881,6 @@ Détails : {}</translation>
         <location filename="../src/als/ui/prefs_ui.ui" line="639"/>
         <source>Displayed &amp;address</source>
         <translation>&amp;Adresse affichée</translation>
-    </message>
-</context>
-<context>
-    <name>QrDialog</name>
-    <message>
-        <location filename="../src/als/ui/qr_ui.ui" line="22"/>
-        <source>&amp;Address</source>
-        <translation>&amp;Adresse</translation>
     </message>
 </context>
 <context>

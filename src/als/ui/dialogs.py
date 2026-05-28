@@ -522,7 +522,6 @@ class QRDisplay(QDialog):
 
         self._ui = Ui_QrDialog()
         self._ui.setupUi(self)
-        self._populate_address_dropdown()
 
         self.move(QApplication.desktop().screen().rect().center())
 
@@ -541,9 +540,7 @@ class QRDisplay(QDialog):
                 box_size=7,
                 border=1,
             )
-            qr.add_data(
-                DYNAMIC_DATA.web_server_qr_url
-                or DYNAMIC_DATA.web_server_advertised_url)
+            qr.add_data(DYNAMIC_DATA.web_server_advertised_url)
             qr.make(fit=True)
             img = qr.make_image()
             qim = ImageQt(img)
@@ -551,53 +548,6 @@ class QRDisplay(QDialog):
             self._ui.lblQR.setPixmap(pix)
             self._ui.lblQR.adjustSize()
             self.adjustSize()
-
-    @log
-    def _populate_address_dropdown(self) -> None:
-        """
-        Populates the runtime QR address dropdown.
-        """
-        address_items = _qr_address_items(
-            DYNAMIC_DATA.web_server_address_candidates,
-            DYNAMIC_DATA.web_server_advertised_ip,
-            DYNAMIC_DATA.web_server_advertised_url)
-        selected_url = (
-            DYNAMIC_DATA.web_server_qr_url
-            or DYNAMIC_DATA.web_server_advertised_url)
-
-        self._ui.cmb_qr_address.blockSignals(True)
-        try:
-            self._ui.cmb_qr_address.clear()
-            for label, ip, url in address_items:
-                self._ui.cmb_qr_address.addItem(label, (ip, url))
-
-            selected_index = _qr_address_index(selected_url, address_items)
-            self._ui.cmb_qr_address.setCurrentIndex(selected_index)
-        finally:
-            self._ui.cmb_qr_address.blockSignals(False)
-
-        self._store_selected_qr_address()
-
-    @log
-    @pyqtSlot(int)
-    def on_cmb_qr_address_currentIndexChanged(self, _) -> None:
-        """
-        Updates the runtime QR target when the selected address changes.
-        """
-        self._store_selected_qr_address()
-        self.update_code()
-
-    @log
-    def _store_selected_qr_address(self) -> None:
-        """
-        Stores the selected runtime QR target in dynamic data.
-        """
-        selected_address = self._ui.cmb_qr_address.currentData()
-        if selected_address is None:
-            return
-
-        _, url = selected_address
-        DYNAMIC_DATA.web_server_qr_url = url
 
     @log
     def setVisible(self, visible: bool):
@@ -610,7 +560,6 @@ class QRDisplay(QDialog):
         old_state = self.isVisible()
         if visible:
             self.setGeometry(self._geometry)
-            self._populate_address_dropdown()
             self.update_code()
         else:
             self._geometry = self.geometry()
@@ -653,27 +602,6 @@ def _address_preference_index(preference, address_items) -> int:
 
 
 @log
-def _qr_address_items(candidates, advertised_ip: str, advertised_url: str):
-    """
-    Builds runtime QR address dropdown items.
-
-    :param candidates: network address candidates
-    :param advertised_ip: selected advertised IP
-    :param advertised_url: selected advertised URL
-    :return: list of label/IP/URL tuples
-    """
-    if candidates:
-        return [
-            (_address_candidate_label(candidate), candidate.ip, candidate.url)
-            for candidate in candidates
-        ]
-    if advertised_ip and advertised_url:
-        return [(I18n.CURRENT_ADDRESS.format(advertised_ip),
-                 advertised_ip, advertised_url)]
-    return []
-
-
-@log
 def _address_candidate_label(candidate) -> str:
     """
     Builds the translated UI label for a network address candidate.
@@ -684,21 +612,6 @@ def _address_candidate_label(candidate) -> str:
     if not candidate.interface_name:
         return "{} - {}".format(I18n.NETWORK_ADAPTER, candidate.ip)
     return candidate.label
-
-
-@log
-def _qr_address_index(selected_url: str, address_items) -> int:
-    """
-    Finds the QR dropdown index matching a runtime URL.
-
-    :param selected_url: selected QR URL
-    :param address_items: dropdown items
-    :return: matching index or first item index
-    """
-    for index, (_, _, url) in enumerate(address_items):
-        if url == selected_url:
-            return index
-    return 0
 
 
 @log

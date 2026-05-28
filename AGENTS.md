@@ -40,7 +40,7 @@ repository. Follow it in addition to any direct user instructions.
   translatable strings, `QObject.tr()`, `I18n`, or another extraction-friendly
   mechanism; do not leave visible labels, messages, tooltips, or dropdown text
   as plain non-extracted literals.
-- When updating TS files, use `pylupdate5 -noobsolete als.pro`.
+- When updating TS files, use `pylupdate5 -noobsolete -verbose als.pro`.
 - Do not run translation release/generation commands such as `lrelease` unless
   the user explicitly asks for them. The user releases translations through Qt
   Linguist.

@@ -612,8 +612,7 @@ class Controller:
                 self._server_thread = None
                 raise
 
-        advertised_address = self.update_web_server_advertised_address(
-            reset_qr_address=True)
+        advertised_address = self.update_web_server_advertised_address()
         url = advertised_address.url
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
 
@@ -627,12 +626,10 @@ class Controller:
 
     @staticmethod
     @log
-    def update_web_server_advertised_address(
-            reset_qr_address: bool = False) -> NetworkAddress:
+    def update_web_server_advertised_address() -> NetworkAddress:
         """
         Updates the web server address advertised to browser clients.
 
-        :param reset_qr_address: True to also point QR code to advertised URL
         :return: selected advertised address
         """
         port_number = config.get_www_server_port_number()
@@ -644,8 +641,6 @@ class Controller:
         DYNAMIC_DATA.web_server_address_candidates = address_candidates
         DYNAMIC_DATA.web_server_advertised_ip = advertised_address.ip
         DYNAMIC_DATA.web_server_advertised_url = advertised_address.url
-        if reset_qr_address:
-            DYNAMIC_DATA.web_server_qr_url = advertised_address.url
         return advertised_address
 
     @log

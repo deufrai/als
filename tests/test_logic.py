@@ -81,27 +81,6 @@ def test_update_web_server_advertised_address_falls_back_to_auto(
     assert advertised_address.ip == "10.42.0.1"
 
 
-def test_update_web_server_advertised_address_preserves_qr_runtime_choice(
-        monkeypatch: Any) -> None:
-    """
-    Checks that Preferences refreshes the main URL without resetting QR choice.
-    """
-    monkeypatch.setattr(
-        "als.logic.get_network_address_candidates",
-        lambda port: [
-            _network_address("wlan0", "10.42.0.1", port),
-            _network_address("Wi-Fi", "192.168.1.42", port),
-        ])
-    config.set_www_server_advertised_address("ip:10.42.0.1")
-    DYNAMIC_DATA.web_server_qr_url = "http://192.168.1.42:8000"
-
-    advertised_address = Controller.update_web_server_advertised_address()
-
-    assert advertised_address.ip == "10.42.0.1"
-    assert DYNAMIC_DATA.web_server_advertised_url == "http://10.42.0.1:8000"
-    assert DYNAMIC_DATA.web_server_qr_url == "http://192.168.1.42:8000"
-
-
 def test_start_www_stores_advertised_runtime_state(monkeypatch: Any) -> None:
     """
     Checks that web startup stores the selected advertised address.
@@ -122,7 +101,6 @@ def test_start_www_stores_advertised_runtime_state(monkeypatch: Any) -> None:
 
     assert DYNAMIC_DATA.web_server_advertised_ip == "192.168.1.42"
     assert DYNAMIC_DATA.web_server_advertised_url == "http://192.168.1.42:8000"
-    assert DYNAMIC_DATA.web_server_qr_url == "http://192.168.1.42:8000"
     assert DYNAMIC_DATA.web_server_is_running is True
 
 
@@ -162,5 +140,4 @@ def _reset_web_server_runtime_state() -> None:
     DYNAMIC_DATA.web_server_is_running = False
     DYNAMIC_DATA.web_server_advertised_ip = ""
     DYNAMIC_DATA.web_server_advertised_url = ""
-    DYNAMIC_DATA.web_server_qr_url = ""
     DYNAMIC_DATA.web_server_address_candidates = []
