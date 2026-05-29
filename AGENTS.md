@@ -51,6 +51,27 @@ repository. Follow it in addition to any direct user instructions.
   documentation changes.
 - Codebase changes should not be bundled with website updates by default.
 
+## Website Work
+
+- Treat `website/` as a Hugo site built with the Docsy theme.
+- The theme lives in `website/themes/docsy` as a pinned Git submodule; treat
+  that tree as vendored and do not edit it unless the user explicitly asks for
+  a Docsy-level change.
+- Prefer overrides in `website/layouts/`, `website/assets/`, `website/static/`,
+  and `website/i18n/` over changes inside the theme tree.
+- Use the site's own CSS files under `website/static/css/` for styling work.
+- Use Hugo i18n wherever visible text can be localized.
+- Reuse Docsy and Bootstrap patterns that are already available in the site
+  rather than inventing parallel UI conventions.
+- When a Docsy behavior must be changed, copy or override the relevant partials
+  and layouts into the local `website/layouts/` tree.
+- When a task touches website code, inspect the relevant project structure and
+  the Hugo config before changing files for the first time.
+- If the user points to a specific part of the site, answer directly and avoid
+  proposing extra changes up front.
+- Keep website edits narrowly scoped and avoid bundling unrelated changes.
+
+
 ## Tests
 
 - Add focused tests for behavior changes when the current test setup can cover
