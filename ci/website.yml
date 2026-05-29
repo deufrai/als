@@ -16,4 +16,4 @@ deploy_to_staging:
     - ./ci/deploy/deploy_staging_website.sh
   environment:
     name: staging
-    url: https://next.als-app.org/
+    url: https://preprod.als-app.org/
