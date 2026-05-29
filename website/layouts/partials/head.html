@@ -81,7 +81,10 @@
 
 <script src="/js/tracking.js" defer></script>
 
-<script src="{{ "js/download.js" | relURL }}" defer></script>
+{{ with resources.Get "js/download.js" -}}
+    {{ $downloadJS := . | fingerprint -}}
+    <script src="{{ $downloadJS.RelPermalink }}" integrity="{{ $downloadJS.Data.Integrity }}" defer></script>
+{{ end -}}
 
 <svg width="0" height="0">
   <defs>
