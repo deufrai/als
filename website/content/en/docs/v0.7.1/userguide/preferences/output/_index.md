@@ -2,13 +2,13 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:04Z
+lastmod: 2026-05-29T14:26:28Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["output", "server", "web folder", "work folder", "save"]
-weight: 333
+weight: 71333
 ---
 
 The settings governing ALS outputs are presented in the `Output` tab.

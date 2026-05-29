@@ -2,13 +2,13 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:04Z
+lastmod: 2026-05-29T14:26:28Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
 categories: ["configuration", "troubleshooting"]
 tags: [ "scan folder", "memory", "profile", "language" ]
-weight: 331
+weight: 71331
 ---
 
 The most critical ALS settings are presented in the `General` tab.

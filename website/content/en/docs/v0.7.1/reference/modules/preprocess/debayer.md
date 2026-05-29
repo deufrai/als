@@ -2,13 +2,13 @@
 title: "Debayering"
 description: "Detailed documentation of the ALS Debayer process"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:04Z
+lastmod: 2026-05-29T14:26:28Z
 keywords: [ "ALS debayer", "ALS debayering" ]
 draft: false
 type: "docs"
 categories: [ "detailed documentations" ]
 tags: [ "process", "debayer", "calibration" ]
-weight: 355
+weight: 71355
 ---
 
 # Overview

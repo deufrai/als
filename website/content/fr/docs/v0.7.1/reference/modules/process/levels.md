@@ -2,13 +2,13 @@
 title: "Niveaux"
 description: "Documentation détaillée du processus Niveaux dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2026-05-29T14:16:05Z
+lastmod: 2026-05-29T14:26:29Z
 keywords: [ "ALS niveaux", "écrêtage noir", "écrêtage blanc", "tons moyens", "traitement visuel" ]
 draft: false
 type: "docs"
 categories: [ "documentations détaillées" ]
 tags: [ "processus", "niveaux", "ajustement d’image" ]
-weight: 359
+weight: 71359
 ---
 
 # Vue d’ensemble

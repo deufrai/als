@@ -2,9 +2,9 @@
 title: Installation on Raspberry Pi
 description: Installing ALS on Raspberry Pi
 author: ALZ Team
-lastmod: 2026-05-29T14:16:04Z
+lastmod: 2026-05-29T14:26:28Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
-weight: 220
+weight: 71220
 tags: ['install', 'Linux', 'Raspberry Pi']
 categories : ['procedures']
 ---

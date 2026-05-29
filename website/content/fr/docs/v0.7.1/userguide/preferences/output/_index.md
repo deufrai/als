@@ -2,13 +2,13 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:05Z
+lastmod: 2026-05-29T14:26:30Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["output", "serveur", "dossier web", "dossier de travail", "save"]
-weight: 333
+weight: 71333
 ---
 
 Les réglages régissant les sorties d'ALS présentés dans l'onglet `Sortie`.

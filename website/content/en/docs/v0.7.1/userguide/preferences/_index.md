@@ -2,13 +2,13 @@
 title: "Preferences"
 description: "Detailed tour of ALS peferences"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:04Z
+lastmod: 2026-05-29T14:26:28Z
 keywords: ["ALS settings", "ALS preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
 tags: [ ]
-weight: 330
+weight: 71330
 ---
 
 The vast majority of the application configuration is done through the **Preferences** window.

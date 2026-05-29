@@ -2,13 +2,13 @@
 title: "Dématriçage"
 description: "Documentation détaillée du traitement de dématriçage d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:05Z
+lastmod: 2026-05-29T14:26:29Z
 keywords: ["ALS debayer", "ALS dépatriçage"]
 draft: false
 type: "docs"
 categories: [ "documentations détaillées" ]
 tags: [ "traitement", "dématriçage", "calibration" ]
-weight: 355
+weight: 71355
 ---
 
 # Présentation

@@ -2,12 +2,12 @@
 title: "Préférences"
 description: "Visite détaillée des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:05Z
+lastmod: 2026-05-29T14:26:30Z
 keywords: ["préférences ALS"]
 type: "docs"
 categories: ["configuration"]
 tags: [ ]
-weight: 330
+weight: 71330
 ---
 
 La grande majorité de la configuration de l'application est faite via la fenêtre des **Préférences**

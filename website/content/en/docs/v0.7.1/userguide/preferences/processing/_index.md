@@ -2,13 +2,13 @@
 title: "Process Tab"
 description: "ALS Preferences Process Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-29T14:16:04Z
+lastmod: 2026-05-29T14:26:28Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
 tags: ["process", "debayer", "dark", "hot pixels", "calibration"]
-weight: 332
+weight: 71332
 ---
 
 The ALS processing settings are presented in the Preferences page `Process` tab

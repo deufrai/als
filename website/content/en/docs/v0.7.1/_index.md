@@ -2,8 +2,8 @@
 title: ALS Documentation
 description: ALS Documentation
 author: ALS Team
-lastmod: 2026-05-29T14:16:04Z
-weight: 10
+lastmod: 2026-05-29T14:26:26Z
+weight: 71010
 ---
 
 ALS is a livestacking application.
