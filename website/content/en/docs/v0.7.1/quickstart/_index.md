@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-05-29T14:26:28Z
+lastmod: 2026-05-29T14:59:54Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -354,21 +354,21 @@ alt="The image shows a screenshot of a software interface with a dark theme. The
 caption="File selector for **PC**"
 width="635px"
 height="443px"
-alt="File selection dialog box titled 'Select your ALS executable.' The directory path is set to /home/astrogeek/Applications/ALS. The file als-v0.7-beta7.run is selected, with a size of 255.47 MiB, indicating it is a run File. The Open button is highlighted, suggesting the user is about to open the selected file. Three numbered arrows point to the directory path, the selected file, and the Open button." >}}
+alt="File selection dialog box titled 'Select your ALS executable.' The directory path is set to /home/astrogeek/Applications/ALS. The file als-v0.7.1-beta7.run is selected, with a size of 255.47 MiB, indicating it is a run File. The Open button is highlighted, suggesting the user is about to open the selected file. Three numbered arrows point to the directory path, the selected file, and the Open button." >}}
 {{< figure src="exe_picker_rpi.png"
 caption="File selector for **Raspberry PI**"
 width="661px"
 height="463px"
-alt="File selection dialog box titled 'Select your ALS executable.' The dialog box is used to navigate through directories and select a specific file. The directory path shown is /home/astrogeek/Applications/ALS/als-v0.7-beta7. The file als-v0.7-beta7 is highlighted and selected. The dialog box has three main labeled elements: 1. The 'Look in:' field showing the current directory path. 2. The file list area where the 'als-v0.7-beta7' file is selected. 3. The 'Open' button to confirm the selection and the 'Cancel' button to cancel the operation." >}}
+alt="File selection dialog box titled 'Select your ALS executable.' The dialog box is used to navigate through directories and select a specific file. The directory path shown is /home/astrogeek/Applications/ALS/als-v0.7.1-beta7. The file als-v0.7.1-beta7 is highlighted and selected. The dialog box has three main labeled elements: 1. The 'Look in:' field showing the current directory path. 2. The file list area where the 'als-v0.7.1-beta7' file is selected. 3. The 'Open' button to confirm the selection and the 'Cancel' button to cancel the operation." >}}
 </div>
 {{< /center >}}
 
 1. 🖱️ Browse to the folder where ALS is located
     - **PC**: Browse to `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Browse to `/home/astrogeek/Applications/ALS/als-v0.7`
+    - **Raspberry PI**: Browse to `/home/astrogeek/Applications/ALS/als-v0.7.1`
 2. 🖱️ Select the executable
-    - **PC**: Select the file `als-v0.7.run`
-    - **Raspberry PI**: Select the file `als-v0.7`
+    - **PC**: Select the file `als-v0.7.1.run`
+    - **Raspberry PI**: Select the file `als-v0.7.1`
 3. 🖱️ Click `Open`
 
 ALS confirms the successful creation of the launcher

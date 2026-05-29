@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-05-29T14:26:28Z
+lastmod: 2026-05-29T14:59:54Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -359,21 +359,21 @@ alt="L'image montre une capture d'écran d'une interface logicielle avec un thè
     caption="Sélecteur de fichier pour **PC**" 
     width="661px" 
     height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v0.7-beta7.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
+    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v0.7.1-beta7.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
 {{< figure src="exe_picker_rpi.png" 
     caption="Sélecteur de fichier pour **Raspberry PI**" 
     width="661px" 
     height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v0.7-beta7. Le fichier als-v0.7-beta7 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v0.7-beta7' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
+    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v0.7.1-beta7. Le fichier als-v0.7.1-beta7 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v0.7.1-beta7' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
 </div>
 {{< /center >}}
 
 1. 🖱️ Naviguer vers le dossier où se trouve ALS
     - **PC**: Naviguer vers `/home/astrogeek/Applications/ALS`
-    - **Raspberry PI**: Naviguer vers `/home/astrogeek/Applications/ALS/als-v0.7`
+    - **Raspberry PI**: Naviguer vers `/home/astrogeek/Applications/ALS/als-v0.7.1`
 2. 🖱️ Sélectionner l'exécutable
-    - **PC**: Sélectionner le fichier `als-v0.7.run`
-    - **Raspberry PI**: Sélectionner le fichier `als-v0.7`
+    - **PC**: Sélectionner le fichier `als-v0.7.1.run`
+    - **Raspberry PI**: Sélectionner le fichier `als-v0.7.1`
 3. 🖱️ Cliquez sur `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur
