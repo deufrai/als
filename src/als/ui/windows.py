@@ -979,14 +979,18 @@ class MainWindow(QMainWindow):
         accepted = PreferencesDialog(self).exec() == QDialog.Accepted
 
         if accepted:
+
             self.update_display()
-            advertised_address = self._find_web_server_advertised_address()
-            if (
-                    DYNAMIC_DATA.web_server_is_running
-                    and previous_advertised_ip != DYNAMIC_DATA.web_server_advertised_ip
-                    and advertised_address is not None
-                    and advertised_address.is_loopback):
-                self._warn_web_server_access_is_limited(advertised_address.ip)
+
+            if DYNAMIC_DATA.web_server_is_running and previous_advertised_ip != DYNAMIC_DATA.web_server_advertised_ip:
+
+                if self._qrDisplay.isVisible():
+                    self._qrDisplay.update_code()
+
+                advertised_address = self._find_web_server_advertised_address()
+
+                if advertised_address is not None and advertised_address.is_loopback:
+                    self._warn_web_server_access_is_limited(advertised_address.ip)
 
         return accepted
 
