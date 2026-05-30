@@ -3,7 +3,7 @@ title: Installation sur Raspberry Pi
 description: Installation d'ALS sur Raspberry Pi
 author: ALZ Team
 
-lastmod: 2026-05-29T15:12:31Z
+lastmod: 2026-05-30T19:41:26Z
 keywords: [ "installation", "raspberry pi", "linux", "astro live stacker", "guide" ]
 weight: 71220
 Categories: ['procédures']
@@ -25,7 +25,7 @@ tags: ['install', 'Linux', 'Raspberry Pi']
 | **Stockage libre** | 650 Mo       | 
 
 *_Les versions d'ALS proposées au téléchargement pour Raspberry Pi sont destinés aux systèmes en 64bits.
-Mais vous pouvez facilement adapter ce [script de build](https://github.com/deufrai/als/blob/release/0.7/ci/builds/build_dist_arm64_linux.sh)
+Mais vous pouvez facilement adapter ce [script de build](https://github.com/deufrai/als/blob/v0.7.1/ci/builds/build_dist_arm64_linux.sh)
 pour packager une version d'ALS en 32bits depuis les sources. L'unique contrainte forte est d'utiliser Python en verion
 3.6.x. N'hésitez pas à [nous contacter](mailto://support@als-app.org) 
 si vous avez besoin d'aide._
@@ -75,4 +75,3 @@ si vous avez besoin d'aide._
       ouvrir le fichier.
 
 Prochaine étape : Le guide de [premier démarrage](../quickstart/). 
-

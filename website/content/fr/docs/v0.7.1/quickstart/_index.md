@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-05-30T18:50:53Z
+lastmod: 2026-05-30T19:41:26Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -185,7 +185,7 @@ Sachez que :
 
 ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement.
 
-- <a href="https://github.com/deufrai/als/blob/release/0.7/src/als/main.py#L46" target="_blank">code de l'envoi
+- <a href="https://github.com/deufrai/als/blob/v0.7.1/src/als/main.py#L46" target="_blank">code de l'envoi
   des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
 - <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code de
   l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>
