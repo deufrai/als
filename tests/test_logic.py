@@ -5,7 +5,7 @@ from typing import Any, Generator
 import pytest
 
 from als import config
-from als.logic import Controller
+from als.logic import Controller, WebServerOnLoopback
 from als.model.data import DYNAMIC_DATA
 from als.streams.network import NetworkAddress, get_network_address_candidates
 
@@ -101,6 +101,32 @@ def test_start_www_stores_advertised_runtime_state(monkeypatch: Any) -> None:
 
     assert DYNAMIC_DATA.web_server_advertised_ip == "192.168.1.42"
     assert DYNAMIC_DATA.web_server_advertised_url == "http://192.168.1.42:8000"
+    assert DYNAMIC_DATA.web_server_is_running is True
+
+
+def test_start_www_warns_when_advertised_address_is_loopback(
+        monkeypatch: Any) -> None:
+    """
+    Checks that web startup reports loopback-only advertised addresses.
+    """
+    monkeypatch.setattr(Controller, "_setup_web_static_content", lambda: None)
+    monkeypatch.setattr(Controller, "write_stack_info_json", lambda self: None)
+    monkeypatch.setattr(
+        "als.logic.get_network_address_candidates",
+        lambda port: [_network_address("Loopback", "127.1.2.3", port)])
+
+    controller = Controller.__new__(Controller)
+    controller._server_thread = None
+    controller._web_server = _StartedServer()
+    controller._notify_model_observers = lambda: None
+
+    with pytest.raises(WebServerOnLoopback):
+        controller.start_www()
+
+    controller._server_thread.join()
+
+    assert DYNAMIC_DATA.web_server_advertised_ip == "127.1.2.3"
+    assert DYNAMIC_DATA.web_server_advertised_url == "http://127.1.2.3:8000"
     assert DYNAMIC_DATA.web_server_is_running is True
 
 

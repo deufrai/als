@@ -69,7 +69,7 @@ class PortInUseError(RuntimeError):
 
 
 class WebServerOnLoopback(Exception):
-    """Raised when we can listen on loopback only"""
+    """Raised when the selected web server displayed address is loopback-only"""
 
 
 # pylint: disable=R0902, R0904
@@ -617,8 +617,8 @@ class Controller:
 
         DYNAMIC_DATA.web_server_is_running = True
 
-        # if we can only listen on loopback, keep running but notify the powers that be
-        if advertised_address.ip == "127.0.0.1":
+        # if we can only advertise loopback, keep running but notify the powers that be
+        if advertised_address.is_loopback:
             raise WebServerOnLoopback()
 
         self._notify_model_observers()

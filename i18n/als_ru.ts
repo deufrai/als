@@ -512,41 +512,32 @@ must not be the same as or a subfolder of your {} :
         <translation>Не удалось запустить веб-сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="538"/>
+        <location filename="../src/als/ui/windows.py" line="1012"/>
         <source>Web server access is limited</source>
         <translation>Доступ к веб-серверу ограничен</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="539"/>
-        <source>Web server IP address is 127.0.0.1.
-
-Server won&apos;t be reachable by other machines. Please check your network connection</source>
-        <translation>IP-адрес веб-сервера 127.0.0.1.
-
-Сервер не будет доступен для других машин. Пожалуйста, проверьте ваше сетевое соединение</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/windows.py" line="864"/>
+        <location filename="../src/als/ui/windows.py" line="861"/>
         <source>Total stack exp. time: {}</source>
         <translation>Общее время экспозиции стека: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="866"/>
+        <location filename="../src/als/ui/windows.py" line="863"/>
         <source>Total frame proc. time: {} s</source>
         <translation>Общее время обработки кадра: {} с</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="936"/>
+        <location filename="../src/als/ui/windows.py" line="933"/>
         <source>Session started</source>
         <translation>Сессия началась</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="936"/>
+        <location filename="../src/als/ui/windows.py" line="933"/>
         <source>Session successfully started after retry</source>
         <translation>Сессия успешно началась после повторной попытки</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="940"/>
+        <location filename="../src/als/ui/windows.py" line="937"/>
         <source>Session cannot start
 
 </source>
@@ -555,17 +546,17 @@ Server won&apos;t be reachable by other machines. Please check your network conn
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="941"/>
+        <location filename="../src/als/ui/windows.py" line="938"/>
         <source>Do you want to fix the issue in ALS preferences ?</source>
         <translation>Хотите исправить проблему в настройках ALS?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="947"/>
+        <location filename="../src/als/ui/windows.py" line="944"/>
         <source>Session start aborted</source>
         <translation>Запуск сессии прерван</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="994"/>
+        <location filename="../src/als/ui/windows.py" line="1026"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -574,19 +565,32 @@ Details : {}</source>
 Детали: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1046"/>
+        <location filename="../src/als/ui/windows.py" line="1078"/>
         <source>Select your ALS executable</source>
         <translation>Выберите исполняемый файл ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1065"/>
+        <location filename="../src/als/ui/windows.py" line="1097"/>
         <source>ALS launcher created / updated.</source>
         <translation>Стартовый файл ALS создан / обновлен.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1065"/>
+        <location filename="../src/als/ui/windows.py" line="1097"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Вы найдете ALS среди графических приложений</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/windows.py" line="1013"/>
+        <source>Displayed web server address is {}.
+
+Other devices cannot browse to a loopback address.
+
+Select another displayed address in Output preferences if one is available.</source>
+        <translation>Отображаемый адрес веб-сервера: {}.
+
+Другие устройства не могут перейти к loopback-адресу.
+
+Выберите другой отображаемый адрес в настройках вывода, если он доступен.</translation>
     </message>
 </context>
 <context>
