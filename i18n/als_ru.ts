@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="ru" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="ru" sourcelanguage="en">
 <context>
     <name></name>
     <message>
@@ -78,17 +79,12 @@ must not be the same as or a subfolder of your {} :
         <translation>Сессия приостановлена</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="617"/>
-        <source>Web server started. Reachable at {}</source>
-        <translation>Веб-сервер запущен. Доступен по адресу {}</translation>
-    </message>
-    <message>
-        <location filename="../src/als/logic.py" line="673"/>
+        <location filename="../src/als/logic.py" line="672"/>
         <source>Web server stopped</source>
         <translation>Веб-сервер остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="842"/>
+        <location filename="../src/als/logic.py" line="841"/>
         <source>Input scanner stopped</source>
         <translation>Сканер ввода остановлен</translation>
     </message>
@@ -161,6 +157,11 @@ must not be the same as or a subfolder of your {} :
         <location filename="../src/als/processing.py" line="527"/>
         <source>Dark &amp; Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark...</source>
         <translation>Обнаружено несоответствие типов данных светового и темнового кадров. Световой: {} vs темновой: {}. Преобразование темнового кадра...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/logic.py" line="616"/>
+        <source>Web server started</source>
+        <translation>Веб-сервер запущен</translation>
     </message>
 </context>
 <context>

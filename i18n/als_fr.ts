@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr_FR">
 <context>
     <name></name>
     <message>
@@ -28,17 +29,12 @@
         <translation>Session en pause</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="617"/>
-        <source>Web server started. Reachable at {}</source>
-        <translation>Serveur d&apos;image démarré. Joignable à {}</translation>
-    </message>
-    <message>
-        <location filename="../src/als/logic.py" line="673"/>
+        <location filename="../src/als/logic.py" line="672"/>
         <source>Web server stopped</source>
         <translation>Serveur d&apos;image stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="842"/>
+        <location filename="../src/als/logic.py" line="841"/>
         <source>Input scanner stopped</source>
         <translation>Scanneur d&apos;entrée stoppé</translation>
     </message>
@@ -161,6 +157,11 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <location filename="../src/als/processing.py" line="527"/>
         <source>Dark &amp; Light data types mismatch detected. Light: {} vs Dark: {}. Converting Dark...</source>
         <translation>Incohérence détectée entre les types de données : Light : {} vs Dark : {}. Conversion Dark...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/logic.py" line="616"/>
+        <source>Web server started</source>
+        <translation>Serveur d&apos;image démarré</translation>
     </message>
 </context>
 <context>

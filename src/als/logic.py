@@ -613,8 +613,7 @@ class Controller:
                 raise
 
         advertised_address = self.update_web_server_advertised_address()
-        url = advertised_address.url
-        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started. Reachable at {}"), [url, ])
+        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started"))
 
         DYNAMIC_DATA.web_server_is_running = True
 
