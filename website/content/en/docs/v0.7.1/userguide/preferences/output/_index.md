@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-30T02:31:32Z
+lastmod: 2026-05-30T07:35:16Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -145,21 +145,22 @@ alt="Web server settings showing the displayed address dropdown set to Auto - re
 Defines the network address shown in the `Main controls` panel, the status bar, and the QR code window
 when the image server is running.
 
-- 🖱️ Choose `Auto - recommended` to let ALS select the best available local address
+The list contains `Auto - recommended`, followed by the network addresses discovered on the system running ALS. Each
+listed address belongs to one detected network adapter.
+
+Listed addresses are ordered by likely usefulness:
+
+1. Addresses likely to be reachable from another device on a local network.
+2. Addresses from common Wi-Fi or Ethernet adapters.
+3. Addresses from other adapters, including hotspot, sharing, bridge, virtual, Docker, VPN, and tunnel adapters.
+4. Link-local addresses, when no better local address is available.
+5. Loopback addresses, as a last fallback for local-only access.
+
+- 🖱️ Choose `Auto - recommended` to use the first address in the ordered list
 - 🖱️ Choose a specific address when another device must connect through a particular network, such as a Wi-Fi hotspot
   or a dedicated local network
 
 ℹ️ Default: Auto - recommended
-
-{{% alert color="info" %}}
-In Auto mode, ALS uses the highest-ranked discovered address, using these priorities:
-
-1. Addresses likely to be reachable from another device on a local network.
-2. Common Wi-Fi or Ethernet adapters when several local addresses are otherwise similar.
-3. Other adapters, including hotspot, sharing, bridge, virtual, Docker, VPN, and tunnel adapters.
-4. Link-local addresses, when no better local address is available.
-5. Loopback, as a last fallback for local-only access.
-{{% /alert %}}
 
 {{% alert title="Troubleshooting" color="warning" %}}
 If another device cannot reach the displayed URL while the image server is running, open the Output preferences and
