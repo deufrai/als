@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-30T01:45:30Z
+lastmod: 2026-05-30T02:31:32Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -11,12 +11,12 @@ tags: ["output", "serveur", "dossier web", "dossier de travail", "save"]
 weight: 71333
 ---
 
-Les réglages régissant les sorties d'ALS présentés dans l'onglet `Sortie`.
+Les réglages régissant les sorties d'ALS sont présentés dans l'onglet `Sortie`.
 
 <div class="row">
 <div class="col-md-4">
 
-# Vue d'ensemble
+# Vue d'ensemble {#overview}
 
 Cet onglet est divisé en 2 sections :
 
@@ -28,9 +28,9 @@ Cet onglet est divisé en 2 sections :
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="L'onglet Sortie des préférences"
-width="622px"
-height="660px"
-alt="Fenêtre de préférences ALS avec l'onglet Sortie sélectionné, affichant les paramètres pour les options de format de sauvegarde de fichier, l'enregistrement automatique à l'arrêt, la configuration du numéro de port du serveur, la période de rafraîchissement de la page web et une case à cocher pour le dossier dédié." >}}
+width="628px"
+height="663px"
+alt="Fenêtre des préférences ALS avec l'onglet Sortie sélectionné, affichant les options de format, les dossiers de sortie, l'enregistrement auto, l'adresse affichée et le numéro de port du serveur." >}}
 {{< /center >}}
 
 </div>
@@ -38,7 +38,7 @@ alt="Fenêtre de préférences ALS avec l'onglet Sortie sélectionné, affichant
 
 # Save {#save}
 
-Ici sont configurés le format des images sauvegardées, les dossiers de sortie et la fonction d'autosave
+Ici sont configurés le format des images sauvegardées, les dossiers de sortie et la fonction d'autosave.
 
 
 ## Format {#format}
@@ -56,24 +56,24 @@ height="213px"
 alt="" >}}
 {{< /center >}}
 
-- 🖱️ utilisez Les boutons `Format` pour définir le format de fichier de la sortie principale
+- 🖱️ utilisez les boutons `Format` pour définir le format de fichier de la sortie principale
 
 ℹ️ Par défaut : JPEG
 
 ## Dossiers de sortie {#output-folders}
 
 ALS utilise deux dossiers de sortie :
-- **dossier de travail** 
+- **dossier de travail**
 
   Destination de la **sortie principale**
 
 - **dossier web**
 
-  Destination de la **sortie serveur** 
+  Destination de la **sortie serveur**
 
 ### Dossier de travail {#work-folder}
 
-- 🖱️ cliquez `Dossier de travail...` pour configurer le dossier de travail
+- 🖱️ cliquez sur `Dossier de travail...` pour configurer le dossier de travail
 
 ℹ️ Par défaut : ∅
 
@@ -85,7 +85,7 @@ height="213px"
 alt="" >}}
 {{< /center >}}
 
-### Dossier web{#web-folder}
+### Dossier web {#web-folder}
 
 {{% alert color="info" %}}
 ℹ️ Par défaut, le **dossier web** est un alias menant au **dossier de travail**
@@ -93,16 +93,16 @@ alt="" >}}
 Vous avez la possibilité de réellement séparer les deux sorties d'ALS en utilisant un **dossier web** dédié
 {{% /alert %}}
 
-### Dossier web dédié{#web-dedicated}
+### Dossier web dédié {#web-dedicated}
 
 - 🖱️ cochez `Dossier web dédié` pour afficher les réglages du **dossier web** dédié
-- 🖱️ cliquez `Dossier web...` pour configurer le **dossier web** dédié
+- 🖱️ cliquez sur `Dossier web...` pour configurer le **dossier web** dédié
 
 ℹ️ Par défaut : OFF
 
 ## Autosave {#autosave}
 
-### Résutlat horodaté à l'arrêt de session {#autosave-stop}
+### Résultat horodaté à l'arrêt de session {#autosave-stop}
 
 Active la sauvegarde, à **chaque arrêt de session**, du **dernier** résultat de traitement :
 
@@ -113,7 +113,7 @@ Active la sauvegarde, à **chaque arrêt de session**, du **dernier** résultat 
 {{% alert title="💡" color="light" %}}
 Cette fonction est utile quand vous enchaînez les sessions sur des cibles différentes
 
-A chaque arrêt de session, la meilleure version de l'image pour cette cible est sauvegardée dans un fichier qui
+À chaque arrêt de session, la meilleure version de l'image pour cette cible est sauvegardée dans un fichier qui
 ne risque pas d'être écrasé
 {{% /alert %}}
 
@@ -125,13 +125,21 @@ height="178px"
 alt="" >}}
 {{< /center >}}
 
-- 🖱️ cochez `Résutlat horodaté à l'arrêt de session` pour activer la fonction d'autosave
+- 🖱️ cochez `Résultat horodaté à l'arrêt de session` pour activer la fonction d'autosave
 
 ℹ️ Par défaut : ON
 
 # Server {#server}
 
 Ici sont configurés l'adresse affichée et le port d'écoute du serveur d'images.
+
+{{< center >}}
+{{< figure src="web_config.png"
+caption="Réglages du serveur web"
+width="628px"
+height="176px"
+alt="Réglages du serveur web affichant la liste Adresse affichée réglée sur Auto - recommandé et le numéro de port réglé sur 8000." >}}
+{{< /center >}}
 
 ## Adresse affichée {#server-address}
 
@@ -175,11 +183,3 @@ Valeurs autorisées : 1024 à 65535
 {{% alert color="info" %}}
 Changer le numéro de port nécessite d'abord d'arrêter le serveur d'images.
 {{% /alert %}}
-
-{{< center >}}
-{{< figure src="web_config.png"
-caption="Réglages du serveur web"
-width="622px"
-height="175px"
-alt="" >}}
-{{< /center >}}

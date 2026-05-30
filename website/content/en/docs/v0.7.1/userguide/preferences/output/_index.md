@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-30T01:45:30Z
+lastmod: 2026-05-30T02:31:32Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -16,7 +16,7 @@ The settings governing ALS outputs are presented in the `Output` tab.
 <div class="row">
 <div class="col-md-4">
 
-# Overview
+# Overview {#overview}
 
 This tab is divided into 2 sections:
 
@@ -28,9 +28,9 @@ This tab is divided into 2 sections:
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="The Output tab in preferences"
-width="622px"
-height="660px"
-alt="" >}}
+width="628px"
+height="663px"
+alt="ALS preferences window with the Output tab selected, showing save format options, output folder settings, autosave, displayed address, and port number settings." >}}
 {{< /center >}}
 
 </div>
@@ -38,7 +38,7 @@ alt="" >}}
 
 # Save {#save}
 
-Here are the output file format, output folders, and autosave function settings 
+Here are the output file format, output folders, and autosave function settings.
 
 ## Format {#format}
 
@@ -132,6 +132,14 @@ alt="" >}}
 
 Here are the settings for the ALS image server
 
+{{< center >}}
+{{< figure src="web_config.png"
+caption="Web server settings"
+width="628px"
+height="187px"
+alt="Web server settings showing the displayed address dropdown set to Auto - recommended and the port number set to 8000." >}}
+{{< /center >}}
+
 ## Displayed Address {#server-address}
 
 Defines the network address shown in the `Main controls` panel, the status bar, and the QR code window
@@ -174,11 +182,3 @@ Allowed values: 1024 to 65535
 {{% alert color="info" %}}
 Changing the port number requires stopping the image server first.
 {{% /alert %}}
-
-{{< center >}}
-{{< figure src="web_config.png"
-caption="Web server settings"
-width="622px"
-height="175px"
-alt="" >}}
-{{< /center >}}
