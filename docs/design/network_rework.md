@@ -446,7 +446,7 @@ section records observed behavior without rewriting the original roadmap above.
   after review because having two address selectors was judged more confusing
   than helpful. The advertised address is now selected only in Preferences.
 
-## Implementation Report
+## Mid-Task Implementation Report
 
 The v0.7.1 implementation follows the roadmap's main design direction: server
 binding is separated from user-facing address advertisement.
@@ -522,7 +522,50 @@ Intentional implementation choices:
   hotspot status aggressively from interface names or subnets.
 - Explicitly ignore IPv6 for the first implementation.
 
-## Codex Session Resume Point
+## v0.7.1 Closure
 
-- Latest implementation/review work can be resumed from Codex session
-  `019e69b1-01ea-7201-9fc8-bd6f3fdae7f1`.
+The network rework is complete for v0.7.1.
+
+The final implementation keeps the original goal intact: ALS no longer treats
+the server bind address and the user-facing displayed address as the same
+thing. The image server binds on all local IPv4 interfaces, while ALS separately
+resolves a Displayed address used in the main controls, status bar, QR dialog,
+and documentation.
+
+The shipped behavior is intentionally centered on one user-facing address
+selection point:
+
+- the Displayed address is configured from Preferences > Output > Server;
+- `Auto - recommended` uses the first address in the ranked list;
+- the ranked list remains visible so users can choose another address when their
+  network setup requires it;
+- the QR dialog follows the same Displayed address instead of exposing a second
+  address selector;
+- changing the Displayed address while the image server is running refreshes the
+  main UI, status bar, and visible QR code;
+- if the selected Displayed address is loopback, ALS keeps the image server
+  running but warns that other devices will not be able to browse it from that
+  address.
+
+Documentation and translations were updated to match the final model. The
+v0.7.1 Output preferences page, Server module reference, Concepts page, and
+runtime warning now use the same vocabulary:
+
+- `Server` for the module or preferences section;
+- `image server` / `serveur d'images` for the browsed feature;
+- `Displayed address` / `Adresse affichée` for the user-facing setting.
+
+The implementation was validated manually on the target runtime platforms used
+for v0.7.1 checks, including LAN access, stop/start behavior, application
+restart, Displayed address changes while the image server is running, and QR
+refresh while the QR dialog is visible. CI was also adjusted so the branch can
+run the expected application and website jobs cleanly.
+
+The following items remain intentionally out of scope for v0.7.1:
+
+- IPv6 address discovery and advertisement;
+- persisting network interface identity instead of only `auto` or
+  `ip:<address>`;
+- exposing a separate QR-specific address selector;
+- broader server startup error taxonomy beyond the current actionable cases;
+- automated end-to-end lifecycle tests involving live network interfaces.
