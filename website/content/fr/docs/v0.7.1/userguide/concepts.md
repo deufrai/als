@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-05-29T14:26:30Z
+lastmod: 2026-05-30T03:24:37Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -225,12 +225,12 @@ Chaque résultat de traitement est enregistré dans 2 fichiers :
 {{% /alert %}}
 
 {{% alert color="info" %}}
-ℹ️ Par défaut, le chemin du **dosser web** est identique à celui du **dossier de travail**.
+ℹ️ Par défaut, le chemin du **dossier web** est identique à celui du **dossier de travail**.
 
 Vous pouvez définir un **dossier web** dédié dans les [Préférences](../preferences/output/#web-dedicated)
 {{% /alert %}}
 
-Vous trouverez plus d'information sur le module **Save** dans sa [documentation détaillée](../../reference/modules/save/)
+Vous trouverez plus d'informations sur le module **Save** dans sa [documentation détaillée](../../reference/modules/save/).
 
 ## Modules utilitaires
 
@@ -242,21 +242,21 @@ bon fonctionnement de l'application :
 Ce module est en charge de détecter les nouvelles brutes dans le **dossier scanné** et de les transmettre au
 module **Preprocess**.
 
-Vous trouverez plus d'information sur le module **Scanner** dans sa [documentation détaillée](../../reference/modules/scanner/)
+Vous trouverez plus d'informations sur le module **Scanner** dans sa [documentation détaillée](../../reference/modules/scanner/).
 
 ### Server
 
 Ce module prend en charge le partage sur le réseau de la **sortie web** du module **Save**.
 
-Il est accessible depuis le réseau auquel la machine qui exécute ALS est connectée.
+Les autres appareils peuvent naviguer vers l'adresse affichée par ALS.
 
-La page web servie permet de visualiser le dernier résultat de traitement et d'y naviguer comme dans l'interface graphique
+La page web servie permet de visualiser le dernier résultat de traitement et d'y naviguer comme dans l'interface graphique.
 
-A chaque nouveau résultat de traitement, l'image présentée dans la page web est mise à jour automatiquement.
+À chaque nouveau résultat de traitement, l'image présentée dans la page web est mise à jour automatiquement.
 
 {{% alert color="info" %}}
-ℹ️ Quand le serveur est démarré, son adresse est affichée dans l'application et un QR code peut être affiché à la
-demande.
+ℹ️ Quand le serveur est démarré, ALS affiche l'adresse vers laquelle naviguer. La même adresse peut être affichée sous forme de QR
+code à la demande.
 {{% /alert %}}
 
 ---
