@@ -2,7 +2,7 @@
 title: "Server"
 description: "Detailed documentation of the ALS Image Server module"
 author: "ALS Team"
-lastmod: 2026-05-29T14:26:28Z
+lastmod: 2026-05-30T03:04:03Z
 keywords: ["ALS image server", "ALS web module", "ALS remote view"]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: ["module", "server", "utility", "web", "stream"]
 weight: 71362
 ---
 
-# Overview
+# Overview {#overview}
 
 The **Server** utility module exposes ALS processing results through a lightweight HTTP and WebSocket service.
 
@@ -20,7 +20,6 @@ It is responsible for:
 - Publishing the **latest stacked image** and session metrics in the configured **web folder**
 - Serving the **viewer web application** (`index.html`, JavaScript and icons)
 - Streaming live **new-image notifications** to connected browsers over WebSockets
-- Providing a **QR-code friendly URL** so that tablets or phones can join the session quickly
 
 The module runs in its own asyncio event loop and accepts concurrent browser clients. It never alters the processing 
 pipeline; it only serves the web image written by the **Save** module.
@@ -30,22 +29,23 @@ pipeline; it only serves the web image written by the **Save** module.
 **work folder**; you can dedicate a separate folder from the [Output preferences](../../userguide/preferences/output/#web-dedicated).
 {{% /alert %}}
 
-# Configuration
+# Configuration {#configuration}
 
-| Setting                   | Source                                                                          | Data Type            | Required  | Default Value     |
-|---------------------------|---------------------------------------------------------------------------------|----------------------|-----------|-------------------|
-| **Web Folder**            | Preferences: [Output Tab](../../userguide/preferences/output/#web-folder)       | Path to a folder     | Yes       | Work folder alias |
-| **Dedicated Web Folder**  | Preferences: [Output Tab](../../userguide/preferences/output/#web-dedicated)    | Boolean              | No        | Disabled          |
-| **Port Number**           | Preferences: [Output Tab](../../userguide/preferences/output/#server-port)      | Integer (1024–65535) | Yes       | 8000              |
+| Setting                   | Source                                                                           | Data Type            | Required  | Default Value        |
+|---------------------------|----------------------------------------------------------------------------------|----------------------|-----------|----------------------|
+| **Web Folder**            | Preferences: [Output Tab](../../userguide/preferences/output/#web-folder)        | Path to a folder     | Yes       | Work folder alias    |
+| **Dedicated Web Folder**  | Preferences: [Output Tab](../../userguide/preferences/output/#web-dedicated)     | Boolean              | No        | Disabled             |
+| **Displayed Address**     | Preferences: [Output Tab](../../userguide/preferences/output/#server-address)    | String (`auto` or `ip:<address>`) | Yes       | Auto - recommended   |
+| **Port Number**           | Preferences: [Output Tab](../../userguide/preferences/output/#server-port)       | Integer (1024–65535) | Yes       | 8000                 |
 
-# Control
+# Control {#control}
 
 | Source                                                             | Type              | Response                                                                                            |
 |--------------------------------------------------------------------|-------------------|-----------------------------------------------------------------------------------------------------|
 | [`Main controls`](../../userguide/ui/controls/#server-section) | Command: `START`  | Prepare web assets and launch the server thread                                                     |
-| [`Main controls`](../../userguide/ui/controls/#server-section) | Command: `STOP`   | Gracefully notify clients and shut the server down. Keep web assets available; QR code hidden by UI |
+| [`Main controls`](../../userguide/ui/controls/#server-section) | Command: `STOP`   | Notify clients and shut the server down. Keep web assets available on disk                          |
 
-# Outputs
+# Outputs {#outputs}
 
 Once started, the module maintains the following artefacts inside the web folder:
 
@@ -57,25 +57,32 @@ Once started, the module maintains the following artefacts inside the web folder
 | `web_image.jpg`               | Latest processed frame saved in JPEG for browser consumption             |
 | `openseadragon.min.js`        | Deep-zoom viewer script used by the web interface                        |
 
-# Behavior
+# Behavior {#behavior}
 
-## Startup sequence
+## Startup sequence {#startup-sequence}
 
-1. **Validate availability** — the module resolves the current host IP and ensures the configured port is free. A `PortInUseError` is raised if another process already listens on the port.
-2. **Publish static assets** — `index.html`, icons, and the waiting image are written (or refreshed) in the web folder so that first-time clients load instantly.
-3. **Expose session metrics** — `data.json` is generated with the current stack size and cumulative exposure time.
-4. **Run the server loop** — an asyncio loop starts in a dedicated thread, serving HTTP on `http://<host>:<port>` and accepting WebSocket connections on `/ws`.
-5. **Advertise availability** — the UI updates its status and QR code, broadcasting the final URL to the session log.
+1. **Publish static assets** — `index.html`, icons, and the waiting image are written (or refreshed) in the web folder so that first-time clients load instantly.
+2. **Expose session metrics** — `data.json` is generated with the current stack size and cumulative exposure time.
+3. **Validate availability** — the module attempts the actual server bind on `0.0.0.0:<port>`. A `PortInUseError` is raised if the configured port cannot be used.
+4. **Run the server loop** — an asyncio loop starts in a dedicated thread, serves HTTP on all local IPv4 interfaces, and accepts WebSocket connections on `/ws`.
+5. **Advertise availability** — ALS resolves the configured **Displayed Address** preference and updates its UI with the selected address.
 
-If ALS can only bind to `127.0.0.1`, the module keeps running but reports **Web server access is limited** so that you can adjust your network settings.
+## Binding and displayed address {#binding-and-displayed-address}
 
-## Live updates
+The bind address and the displayed address are intentionally separate:
+
+- The server binds to `0.0.0.0` so it can accept connections through any available local IPv4 interface.
+- The displayed URL uses a concrete local address that another device can open in a browser.
+
+If the selected displayed address is `127.0.0.1`, the module keeps running but reports **Web server access is limited** so that you can adjust your network settings.
+
+## Live updates {#live-updates}
 
 - After each processed image, the latest JPEG and `data.json` are overwritten in the web folder.
 - `notify_browsers_about_new_image()` pushes `{ "type": "new_image" }` to all WebSocket clients so that browsers reload the image without polling.
 - The same infrastructure is used to deliver `{ "type": "disconnect" }` right before shutdown, allowing clients to display an appropriate message.
 
-## Shutdown
+## Shutdown {#shutdown}
 
 When the `STOP` command is triggered:
 
@@ -84,7 +91,7 @@ When the `STOP` command is triggered:
 3. The asyncio runner is cleaned up and the dedicated thread stops.
 4. UI status and QR code are reset; the static files remain on disk for the next session.
 
-# WebSocket reference
+# WebSocket reference {#websocket-reference}
 
 | Message      | Payload                    | Trigger                                     |
 |--------------|----------------------------|---------------------------------------------|
@@ -93,5 +100,6 @@ When the `STOP` command is triggered:
 
 {{% alert title="Troubleshooting" color="warning" %}}
 - Change the port number in preferences if ALS reports that the port is already in use.
-- If external devices cannot reach the URL, verify that the image server is not listening on `127.0.0.1` and that your firewall allows inbound connections on the configured port.
+- If another device cannot reach the displayed URL, select a displayed address that belongs to the same network as the browser device, then retry the URL or QR code.
+- Check that your firewall allows inbound connections on the configured port.
 {{% /alert %}}
