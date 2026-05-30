@@ -16,3 +16,20 @@ Deploy website to preprod:
   environment:
     name: preprod
     url: https://preprod.als-app.org/
+
+Deploy website to prod:
+  stage: deploy
+  tags: [infra]
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+(\.[0-9]+)*$/'
+      when: manual
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release/0.7"'
+      when: manual
+    - if: '$CI_COMMIT_BRANCH == "feature/0.7.1_polish"'
+      when: manual
+    - when: never
+  script:
+    - ./ci/deploy/deploy_website_to_prod.sh
+  environment:
+    name: production
+    url: https://als-app.org/
