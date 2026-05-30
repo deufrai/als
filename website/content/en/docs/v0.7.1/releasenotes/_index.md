@@ -2,10 +2,20 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-05-29T14:26:28Z
+lastmod: 2026-05-30T19:57:39Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 71550
+---
+
+## Version 0.7.1 {#0.7.1}
+
+**Date:** TBD
+
+### Improvements
+
+- Image server is now reachable when the system running ALS also acts as a hotspot or has several network connections.
+
 ---
 
 ## Version 0.7 {#0.7}
@@ -27,7 +37,7 @@ weight: 71550
 
 ### Improvements
 
-- Imrpoved web server : fullscreen mode, pan & zoom, refresh without polling
+- Improved web server: fullscreen mode, pan and zoom, refresh without polling
 - Windows : ALS is now delivered as an installer
 - Improved autostretch
 - Improved zoom with default settings reset and keyboard shortcuts

@@ -2,13 +2,23 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-05-29T14:26:30Z
+lastmod: 2026-05-30T19:57:40Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 71550
 ---
 
-## Version 0.7 #{#0.7}
+## Version 0.7.1 {#0.7.1}
+
+**Date :** TBD
+
+### Améliorations
+
+- Le serveur d'images est maintenant accessible lorsque le système exécutant ALS fait aussi office de hotspot ou dispose de plusieurs connexions réseau.
+
+---
+
+## Version 0.7 {#0.7}
 
 **Date:** 27 octobre 2025
 
