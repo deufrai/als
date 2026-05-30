@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-29T14:26:28Z
+lastmod: 2026-05-30T01:45:30Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -132,6 +132,35 @@ alt="" >}}
 
 Here are the settings for the ALS image server
 
+## Displayed Address {#server-address}
+
+Defines the network address shown in the `Main controls` panel, the status bar, and the QR code window
+when the image server is running.
+
+- 🖱️ Choose `Auto - recommended` to let ALS select the best available local address
+- 🖱️ Choose a specific address when another device must connect through a particular network, such as a Wi-Fi hotspot
+  or a dedicated local network
+
+ℹ️ Default: Auto - recommended
+
+{{% alert color="info" %}}
+In Auto mode, ALS uses the highest-ranked discovered address, using these priorities:
+
+1. Addresses likely to be reachable from another device on a local network.
+2. Common Wi-Fi or Ethernet adapters when several local addresses are otherwise similar.
+3. Other adapters, including hotspot, sharing, bridge, virtual, Docker, VPN, and tunnel adapters.
+4. Link-local addresses, when no better local address is available.
+5. Loopback, as a last fallback for local-only access.
+{{% /alert %}}
+
+{{% alert title="Troubleshooting" color="warning" %}}
+If another device cannot reach the displayed URL while the image server is running, open the Output preferences and
+select another displayed address. Choose an address that belongs to the same network as the browser device, click
+`OK`, then retry the URL or QR code.
+
+The displayed address can be changed without stopping the image server.
+{{% /alert %}}
+
 ## Port Number {#server-port}
 
 The image server listening port is configured here
@@ -142,6 +171,10 @@ Allowed values: 1024 to 65535
 
 ℹ️ Default: 8000
 
+{{% alert color="info" %}}
+Changing the port number requires stopping the image server first.
+{{% /alert %}}
+
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Web server settings"
@@ -149,4 +182,3 @@ width="622px"
 height="175px"
 alt="" >}}
 {{< /center >}}
-

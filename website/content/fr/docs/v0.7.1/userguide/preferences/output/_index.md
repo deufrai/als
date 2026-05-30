@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-29T14:26:30Z
+lastmod: 2026-05-30T01:45:30Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -131,7 +131,36 @@ alt="" >}}
 
 # Server {#server}
 
-Ici est configurés le port d'écoute du serveur d'images
+Ici sont configurés l'adresse affichée et le port d'écoute du serveur d'images.
+
+## Adresse affichée {#server-address}
+
+Définit l'adresse réseau affichée dans le panneau `Contrôles principaux`, la barre de statut et la fenêtre QR code
+lorsque le serveur d'images fonctionne.
+
+- 🖱️ choisissez `Auto - recommandé` pour laisser ALS sélectionner la meilleure adresse locale disponible
+- 🖱️ choisissez une adresse spécifique lorsqu'un autre appareil doit se connecter par un réseau particulier, par exemple
+  un point d'accès Wi-Fi ou un réseau local dédié
+
+ℹ️ Par défaut : Auto - recommandé
+
+{{% alert color="info" %}}
+En mode Auto, ALS utilise l'adresse découverte la mieux classée, selon ces priorités :
+
+1. Adresses probablement accessibles depuis un autre appareil du réseau local.
+2. Adaptateurs Wi-Fi ou Ethernet courants lorsque plusieurs adresses locales sont autrement similaires.
+3. Autres adaptateurs, y compris point d'accès, partage de connexion, bridge, virtuels, Docker, VPN et tunnel.
+4. Adresses link-local, lorsqu'aucune meilleure adresse locale n'est disponible.
+5. Loopback, en dernier recours pour un accès local uniquement.
+{{% /alert %}}
+
+{{% alert title="Dépannage" color="warning" %}}
+Si un autre appareil n'atteint pas l'URL affichée pendant que le serveur d'images fonctionne, ouvrez les préférences
+Sortie et sélectionnez une autre adresse affichée. Choisissez une adresse appartenant au même réseau que l'appareil qui
+utilise le navigateur, cliquez `OK`, puis réessayez l'URL ou le QR code.
+
+L'adresse affichée peut être modifiée sans arrêter le serveur d'images.
+{{% /alert %}}
 
 ## Numéro de port {#server-port}
 
@@ -143,6 +172,10 @@ Valeurs autorisées : 1024 à 65535
 
 ℹ️ Par défaut : 8000
 
+{{% alert color="info" %}}
+Changer le numéro de port nécessite d'abord d'arrêter le serveur d'images.
+{{% /alert %}}
+
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Réglages du serveur web"
@@ -150,6 +183,3 @@ width="622px"
 height="175px"
 alt="" >}}
 {{< /center >}}
-
-
-
