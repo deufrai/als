@@ -7,8 +7,10 @@ variables:
 Deploy website to preprod:
   stage: deploy
   tags: [infra]
-  only:
-    - release/0.7
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release/0.7"'
+    - if: '$CI_COMMIT_BRANCH == "release/0.7"'
+    - when: never
   script:
     - ./ci/deploy/deploy_website_to_preprod.sh
   environment:
