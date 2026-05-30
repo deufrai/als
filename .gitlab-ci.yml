@@ -1,4 +1,4 @@
-# Root dispatcher — decides which child pipeline(s) to load
+# ────────────────────────── Global ──────────────────────────
 
 stages:
   - setup
@@ -7,35 +7,181 @@ stages:
   - deploy
   - changelog
 
-include:
-  # -------------------------------------------------------------
-  # Desktop application pipeline (heavy multi-platform builds)
-  # -------------------------------------------------------------
-  - local: 'ci/app.yml'
-    rules:
-      # always run on scheduled/nightly or tag pipelines
-      - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      - if: '$CI_PIPELINE_SOURCE == "tag"'
-      # run when any application-relevant file changed
-      - changes:
-          - src/**/*
-          - setup.py
-          - setup.cfg
-          - requirements.txt
-          - ci/app.yml
-          - ci/builds/**/*
-          - ci/deploy/deploy_nightlies.sh
-      - when: never
+default:
+  interruptible: true
 
-  # -------------------------------------------------------------
-  # Website / documentation pipeline
-  # -------------------------------------------------------------
-  - local: 'ci/website.yml'
-    rules:
-      - changes:
-          - website/**/*
-          - ci/website.yml
-          - ci/deploy/deploy_website_to_preprod.sh
-          - ci/deploy/deploy_website_to_prod.sh
-      - if: '$CI_COMMIT_TAG =~ /^prod-deploy-test-[0-9A-Za-z._-]+$/'
-      - when: never
+variables:
+  GIT_STRATEGY: clone
+
+# ────────────────────────── Rule Inputs ─────────────────────
+
+.app_rules:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_COMMIT_TAG'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - src/**/*
+        - setup.py
+        - setup.cfg
+        - requirements.txt
+        - ci/builds/**/*
+        - ci/deploy/deploy_nightlies.sh
+        - .gitlab-ci.yml
+    - when: never
+
+.website_preprod_rules:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release/0.7"'
+      changes:
+        - website/**/*
+        - ci/deploy/deploy_website_to_preprod.sh
+        - ci/deploy/deploy_website_to_prod.sh
+        - .gitlab-ci.yml
+    - if: '$CI_COMMIT_BRANCH == "release/0.7"'
+      changes:
+        - website/**/*
+        - ci/deploy/deploy_website_to_preprod.sh
+        - ci/deploy/deploy_website_to_prod.sh
+        - .gitlab-ci.yml
+    - when: never
+
+.prod_deploy_test_rules:
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^prod-deploy-test-[0-9A-Za-z._-]+$/'
+    - when: never
+
+.prod_deploy_manual_test_rules:
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^prod-deploy-test-[0-9A-Za-z._-]+$/'
+      when: manual
+    - when: never
+
+# ────────────────────────── Setup ───────────────────────────
+
+Configure Build:
+  extends: .app_rules
+  tags: [infra]
+  stage: setup
+  timeout: 5m
+  script:
+    - ci/builds/setup_build.sh
+  artifacts:
+    reports:
+      dotenv: .dotenv
+
+# ────────────────────────── Validate ────────────────────────
+
+Run tests:
+  extends: .app_rules
+  tags: [arm64, mac]
+  stage: validate
+  timeout: 20m
+  script:
+    - ci/builds/run_tests.sh
+
+# ────────────────────────── Application Builds ──────────────
+
+Build PC/Linux:
+  extends: .app_rules
+  tags: [amd64, linux]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_amd64_linux.sh
+  artifacts:
+    expose_as: 'ALS for Linux amd64'
+    paths:
+      - als-$ALS_VERSION_STRING.run
+
+Build RaspBerry/Linux:
+  extends: .app_rules
+  tags: [arm64, linux]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_arm64_linux.sh
+  artifacts:
+    expose_as: 'ALS for Linux arm64'
+    paths:
+      - als-$ALS_VERSION_STRING.tgz
+
+Build Mac/Intel:
+  extends: .app_rules
+  tags: [amd64, mac]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_amd64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX amd64'
+    paths:
+      - als-$ALS_VERSION_STRING-amd64.dmg
+
+Build Mac/ARM:
+  extends: .app_rules
+  tags: [arm64, mac]
+  stage: build
+  timeout: 1h
+  script:
+    - ci/builds/build_dist_arm64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX arm64'
+    paths:
+      - als-$ALS_VERSION_STRING-arm64.dmg
+
+Build PC/Windows:
+  extends: .app_rules
+  tags: [amd64, win]
+  stage: build
+  timeout: 1h
+  script:
+    - sh ci/builds/build_dist_amd64_win.sh
+  artifacts:
+    expose_as: 'ALS for Windows amd64'
+    paths:
+      - als-${ALS_VERSION_STRING}_Setup.exe
+
+# ────────────────────────── Nightly Deployment ──────────────
+
+Deploy nightlies:
+  tags: [infra]
+  stage: deploy
+  script: ci/deploy/deploy_nightlies.sh
+  environment:
+    name: Nightlies
+    url: https://als-app.org/nightlies
+  rules:
+    - if: '$CI_SCHEDULE_ID == "1"'
+    - when: never
+
+# ────────────────────────── Website Preprod Deployment ──────
+
+Deploy website to preprod:
+  extends: .website_preprod_rules
+  stage: deploy
+  tags: [infra]
+  script:
+    - ./ci/deploy/deploy_website_to_preprod.sh
+  environment:
+    name: preprod
+    url: https://preprod.als-app.org/
+
+# ────────────────────────── Website Prod Deployment ─────────
+
+Validate prod deploy test tag:
+  extends: .prod_deploy_test_rules
+  stage: deploy
+  tags: [infra]
+  script:
+    - echo "Production deploy test tag pipeline is wired."
+
+Deploy website to prod:
+  extends: .prod_deploy_manual_test_rules
+  stage: deploy
+  tags: [infra]
+  script:
+    - ./ci/deploy/deploy_website_to_prod.sh
+  environment:
+    name: production
+    url: https://als-app.org/
