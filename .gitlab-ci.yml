@@ -1,5 +1,12 @@
 # Root dispatcher — decides which child pipeline(s) to load
 
+stages:
+  - setup
+  - validate
+  - build
+  - deploy
+  - changelog
+
 include:
   # -------------------------------------------------------------
   # Desktop application pipeline (heavy multi-platform builds)

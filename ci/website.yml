@@ -1,9 +1,6 @@
 default:
   interruptible: true
 
-stages:
-  - deploy
-
 variables:
   GIT_STRATEGY: clone
 
