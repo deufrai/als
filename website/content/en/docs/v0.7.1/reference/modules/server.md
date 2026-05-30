@@ -2,7 +2,7 @@
 title: "Server"
 description: "Detailed documentation of the ALS Image Server module"
 author: "ALS Team"
-lastmod: 2026-05-30T03:04:03Z
+lastmod: 2026-05-30T04:07:54Z
 keywords: ["ALS image server", "ALS web module", "ALS remote view"]
 draft: false
 type: "docs"
@@ -74,7 +74,7 @@ The bind address and the displayed address are intentionally separate:
 - The server binds to `0.0.0.0` so it can accept connections through any available local IPv4 interface.
 - The displayed URL uses a concrete local address that another device can open in a browser.
 
-If the selected displayed address is `127.0.0.1`, the module keeps running but reports **Web server access is limited** so that you can adjust your network settings.
+If the selected displayed address is a loopback address, the module keeps running but reports **Web server access is limited** so that you can choose another displayed address when one is available.
 
 ## Live updates {#live-updates}
 

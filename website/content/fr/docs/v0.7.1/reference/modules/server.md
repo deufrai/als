@@ -2,7 +2,7 @@
 title: "Serveur"
 description: "Documentation détaillée du module Serveur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-30T03:04:03Z
+lastmod: 2026-05-30T04:07:54Z
 keywords: ["serveur d'images ALS", "module web ALS", "partage distant ALS"]
 draft: false
 type: "docs"
@@ -72,7 +72,7 @@ L'adresse de liaison et l'adresse affichée sont volontairement séparées :
 - Le serveur se lie à `0.0.0.0` pour accepter les connexions depuis toute interface IPv4 locale disponible.
 - L'URL affichée utilise une adresse locale concrète qu'un autre appareil peut ouvrir dans un navigateur.
 
-Si l'adresse affichée sélectionnée est `127.0.0.1`, le module reste actif mais signale **Accès limité au serveur web** afin que vous puissiez corriger la connectivité réseau.
+Si l'adresse affichée sélectionnée est une adresse loopback, le module reste actif mais signale **Accès limité au serveur web** afin que vous puissiez choisir une autre adresse affichée lorsqu'une autre adresse est disponible.
 
 ## Mises à jour en direct {#live-updates}
 
