@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2026-05-30T03:24:37Z
+lastmod: 2026-05-30T15:59:16Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -241,14 +241,14 @@ You can find more information about the **Scanner** module in its [detailed docu
 
 This module handles sharing the **server output** of the **Save** module over the network.
 
-Other devices can browse to the address displayed by ALS.
+Other devices can browse the image server at the address displayed by ALS.
 
-The served web page allows you to view the latest processing result and navigate it as in the graphical interface.
+The image server allows you to view the latest processing result and navigate it as in the graphical interface.
 
-Every time a new processing result is done, the image displayed on the web page is automatically updated.
+Every time a new processing result is done, the image displayed by the image server is automatically updated.
 
 {{% alert color="info" %}}
-ℹ️ When the server is started, ALS displays the address to browse to. The same address can be shown as a QR code on demand.
+ℹ️ When the Server is started, ALS displays the address used to browse the image server. The same address can be shown as a QR code on demand.
 {{% /alert %}}
 
 ---

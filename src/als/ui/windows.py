@@ -1013,11 +1013,12 @@ class MainWindow(QMainWindow):
 
         :param displayed_address: selected displayed address
         """
-        title = self.tr("Web server access is limited")
+        title = self.tr("Image server access is limited")
         message = self.tr(
-            "Displayed web server address is {}.\n\n"
-            "Other devices cannot browse to a loopback address.\n\n"
-            "Select another displayed address in Output preferences if one is available."
+            "Displayed address is {}.\n\n"
+            "Other devices on your network will not be able to browse the image server from that address.\n\n"
+            "If another device needs to browse the image server, change the Displayed address in "
+            "Preferences > Output > Server, then retry from that device."
         ).format(displayed_address or DYNAMIC_DATA.web_server_advertised_ip)
         warning_box(title, message)
 

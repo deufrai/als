@@ -512,11 +512,6 @@ must not be the same as or a subfolder of your {} :
         <translation>Не удалось запустить веб-сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1012"/>
-        <source>Web server access is limited</source>
-        <translation>Доступ к веб-серверу ограничен</translation>
-    </message>
-    <message>
         <location filename="../src/als/ui/windows.py" line="861"/>
         <source>Total stack exp. time: {}</source>
         <translation>Общее время экспозиции стека: {}</translation>
@@ -556,7 +551,7 @@ must not be the same as or a subfolder of your {} :
         <translation>Запуск сессии прерван</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1026"/>
+        <location filename="../src/als/ui/windows.py" line="1031"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -565,32 +560,37 @@ Details : {}</source>
 Детали: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1078"/>
+        <location filename="../src/als/ui/windows.py" line="1083"/>
         <source>Select your ALS executable</source>
         <translation>Выберите исполняемый файл ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1097"/>
+        <location filename="../src/als/ui/windows.py" line="1102"/>
         <source>ALS launcher created / updated.</source>
         <translation>Стартовый файл ALS создан / обновлен.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1097"/>
+        <location filename="../src/als/ui/windows.py" line="1102"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Вы найдете ALS среди графических приложений</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1013"/>
-        <source>Displayed web server address is {}.
+        <location filename="../src/als/ui/windows.py" line="1016"/>
+        <source>Image server access is limited</source>
+        <translation>Доступ к серверу изображений ограничен</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/windows.py" line="1017"/>
+        <source>Displayed address is {}.
 
-Other devices cannot browse to a loopback address.
+Other devices on your network will not be able to browse the image server from that address.
 
-Select another displayed address in Output preferences if one is available.</source>
-        <translation>Отображаемый адрес веб-сервера: {}.
+If another device needs to browse the image server, change the Displayed address in Preferences &gt; Output &gt; Server, then retry from that device.</source>
+        <translation>Отображаемый адрес: {}.
 
-Другие устройства не могут перейти к loopback-адресу.
+Другие устройства в вашей сети не смогут открыть сервер изображений по этому адресу.
 
-Выберите другой отображаемый адрес в настройках вывода, если он доступен.</translation>
+Если сервер изображений должен быть доступен с другого устройства, измените отображаемый адрес в Настройки &gt; Вывод &gt; Сервер, затем повторите попытку с этого устройства.</translation>
     </message>
 </context>
 <context>

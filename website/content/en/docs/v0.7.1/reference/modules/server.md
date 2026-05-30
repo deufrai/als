@@ -1,8 +1,8 @@
 ---
 title: "Server"
-description: "Detailed documentation of the ALS Image Server module"
+description: "Detailed documentation of the ALS image server module"
 author: "ALS Team"
-lastmod: 2026-05-30T04:07:54Z
+lastmod: 2026-05-30T15:59:16Z
 keywords: ["ALS image server", "ALS web module", "ALS remote view"]
 draft: false
 type: "docs"
@@ -72,9 +72,9 @@ Once started, the module maintains the following artefacts inside the web folder
 The bind address and the displayed address are intentionally separate:
 
 - The server binds to `0.0.0.0` so it can accept connections through any available local IPv4 interface.
-- The displayed URL uses a concrete local address that another device can open in a browser.
+- The **Displayed Address** is a concrete local address that another device can use to browse the image server.
 
-If the selected displayed address is a loopback address, the module keeps running but reports **Web server access is limited** so that you can choose another displayed address when one is available.
+If the selected **Displayed Address** is a loopback address, the module keeps running but reports that image server access is limited so that you can choose another **Displayed Address** when one is available.
 
 ## Live updates {#live-updates}
 
@@ -100,6 +100,6 @@ When the `STOP` command is triggered:
 
 {{% alert title="Troubleshooting" color="warning" %}}
 - Change the port number in preferences if ALS reports that the port is already in use.
-- If another device cannot reach the displayed URL, select a displayed address that belongs to the same network as the browser device, then retry the URL or QR code.
+- If another device cannot browse the image server, select a **Displayed Address** that belongs to the same network as the browser device, then retry the URL or QR code.
 - Check that your firewall allows inbound connections on the configured port.
 {{% /alert %}}

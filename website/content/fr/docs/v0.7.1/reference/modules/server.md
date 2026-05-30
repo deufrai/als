@@ -2,7 +2,7 @@
 title: "Serveur"
 description: "Documentation détaillée du module Serveur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-30T04:07:54Z
+lastmod: 2026-05-30T15:59:16Z
 keywords: ["serveur d'images ALS", "module web ALS", "partage distant ALS"]
 draft: false
 type: "docs"
@@ -70,9 +70,9 @@ Une fois démarré, le module maintient les artefacts suivants dans le dossier w
 L'adresse de liaison et l'adresse affichée sont volontairement séparées :
 
 - Le serveur se lie à `0.0.0.0` pour accepter les connexions depuis toute interface IPv4 locale disponible.
-- L'URL affichée utilise une adresse locale concrète qu'un autre appareil peut ouvrir dans un navigateur.
+- L'**Adresse affichée** est une adresse locale concrète qu'un autre appareil peut utiliser pour naviguer vers le serveur d'images.
 
-Si l'adresse affichée sélectionnée est une adresse loopback, le module reste actif mais signale **Accès limité au serveur web** afin que vous puissiez choisir une autre adresse affichée lorsqu'une autre adresse est disponible.
+Si l'**Adresse affichée** sélectionnée est une adresse loopback, le module reste actif mais signale que l'accès au serveur d'images est limité afin que vous puissiez choisir une autre **Adresse affichée** lorsqu'une autre adresse est disponible.
 
 ## Mises à jour en direct {#live-updates}
 
@@ -98,6 +98,6 @@ Lorsque la commande `STOP` est déclenchée :
 
 {{% alert title="Dépannage" color="warning" %}}
 - Changez le port dans les préférences si ALS signale que le port est déjà utilisé.
-- Si un autre appareil n'atteint pas l'URL affichée, sélectionnez une adresse affichée appartenant au même réseau que l'appareil qui utilise le navigateur, puis réessayez l'URL ou le QR code.
+- Si un autre appareil ne peut pas naviguer vers le serveur d'images, sélectionnez une **Adresse affichée** appartenant au même réseau que l'appareil qui utilise le navigateur, puis réessayez l'URL ou le QR code.
 - Vérifiez que votre pare-feu autorise les connexions entrantes sur le port configuré.
 {{% /alert %}}

@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-05-30T03:24:37Z
+lastmod: 2026-05-30T15:59:16Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -248,14 +248,14 @@ Vous trouverez plus d'informations sur le module **Scanner** dans sa [documentat
 
 Ce module prend en charge le partage sur le réseau de la **sortie web** du module **Save**.
 
-Les autres appareils peuvent naviguer vers l'adresse affichée par ALS.
+Les autres appareils peuvent naviguer vers le serveur d'images à l'adresse affichée par ALS.
 
-La page web servie permet de visualiser le dernier résultat de traitement et d'y naviguer comme dans l'interface graphique.
+Le serveur d'images permet de visualiser le dernier résultat de traitement et d'y naviguer comme dans l'interface graphique.
 
-À chaque nouveau résultat de traitement, l'image présentée dans la page web est mise à jour automatiquement.
+À chaque nouveau résultat de traitement, l'image présentée par le serveur d'images est mise à jour automatiquement.
 
 {{% alert color="info" %}}
-ℹ️ Quand le serveur est démarré, ALS affiche l'adresse vers laquelle naviguer. La même adresse peut être affichée sous forme de QR
+ℹ️ Quand le module **Server** est démarré, ALS affiche l'adresse utilisée pour naviguer vers le serveur d'images. La même adresse peut être affichée sous forme de QR
 code à la demande.
 {{% /alert %}}
 

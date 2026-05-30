@@ -477,11 +477,6 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>Les préférences seront affichées après un click sur OK.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1012"/>
-        <source>Web server access is limited</source>
-        <translation>L&apos;accès au serveur web est limité</translation>
-    </message>
-    <message>
         <location filename="../src/als/ui/windows.py" line="933"/>
         <source>Session started</source>
         <translation>Session démarrée</translation>
@@ -497,7 +492,7 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>Démarrage de session abandonné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1026"/>
+        <location filename="../src/als/ui/windows.py" line="1031"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -531,17 +526,17 @@ Détails : {}</translation>
         <translation>ALS - Confirmation de statistiques d&apos;utilisation</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1097"/>
+        <location filename="../src/als/ui/windows.py" line="1102"/>
         <source>ALS launcher created / updated.</source>
         <translation>Lanceur ALS créé / mis à jour avec sucès.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1097"/>
+        <location filename="../src/als/ui/windows.py" line="1102"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Vouls trouverez ALS avec les applications graphiques</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1078"/>
+        <location filename="../src/als/ui/windows.py" line="1083"/>
         <source>Select your ALS executable</source>
         <translation>Selectionner votre executable ALS</translation>
     </message>
@@ -580,17 +575,22 @@ Détails : {}</translation>
         <translation>Le port {} est déjà utilisé.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1013"/>
-        <source>Displayed web server address is {}.
+        <location filename="../src/als/ui/windows.py" line="1016"/>
+        <source>Image server access is limited</source>
+        <translation>L&apos;accès au serveur d&apos;images est limité</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/windows.py" line="1017"/>
+        <source>Displayed address is {}.
 
-Other devices cannot browse to a loopback address.
+Other devices on your network will not be able to browse the image server from that address.
 
-Select another displayed address in Output preferences if one is available.</source>
-        <translation>L&apos;adresse affichée du serveur web est {}.
+If another device needs to browse the image server, change the Displayed address in Preferences &gt; Output &gt; Server, then retry from that device.</source>
+        <translation>L&apos;adresse affichée est {}.
 
-Les autres appareils ne peuvent pas naviguer vers une adresse loopback.
+Les autres appareils de votre réseau ne pourront pas naviguer vers le serveur d&apos;images à partir de cette adresse.
 
-Sélectionnez une autre adresse affichée dans les préférences Sortie si une autre adresse est disponible.</translation>
+Si un autre appareil doit naviguer vers le serveur d&apos;images, modifiez l&apos;adresse affichée dans Préférences &gt; Sortie &gt; Server, puis réessayez depuis cet appareil.</translation>
     </message>
 </context>
 <context>

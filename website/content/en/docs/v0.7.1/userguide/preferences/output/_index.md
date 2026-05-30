@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-30T07:35:16Z
+lastmod: 2026-05-30T15:59:16Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -21,7 +21,7 @@ The settings governing ALS outputs are presented in the `Output` tab.
 This tab is divided into 2 sections:
 
 - [File Saver](#save)
-- [Image Server](#server)
+- [image server](#server)
 
 </div>
 <div class="col-md-8 d-flex align-items-center justify-content-center">
@@ -130,14 +130,14 @@ alt="" >}}
 
 # Server {#server}
 
-Here are the settings for the ALS image server
+Here are the settings for the ALS image server.
 
 {{< center >}}
 {{< figure src="web_config.png"
-caption="Web server settings"
+caption="Image server settings"
 width="628px"
 height="187px"
-alt="Web server settings showing the displayed address dropdown set to Auto - recommended and the port number set to 8000." >}}
+alt="Image server settings showing the Displayed address dropdown set to Auto - recommended and the port number set to 8000." >}}
 {{< /center >}}
 
 ## Displayed Address {#server-address}
@@ -163,8 +163,8 @@ Listed addresses are ordered by likely usefulness:
 ℹ️ Default: Auto - recommended
 
 {{% alert title="Troubleshooting" color="warning" %}}
-If another device cannot reach the displayed URL while the image server is running, open the Output preferences and
-select another displayed address. Choose an address that belongs to the same network as the browser device, click
+If another device cannot browse the image server while it is running, open the Output preferences and
+select another **Displayed address**. Choose an address that belongs to the same network as the browser device, click
 `OK`, then retry the URL or QR code.
 
 The displayed address can be changed without stopping the image server.

@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-30T07:35:16Z
+lastmod: 2026-05-30T15:59:16Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -135,10 +135,10 @@ Ici sont configurés l'adresse affichée et le port d'écoute du serveur d'image
 
 {{< center >}}
 {{< figure src="web_config.png"
-caption="Réglages du serveur web"
+caption="Réglages du serveur d'images"
 width="628px"
 height="176px"
-alt="Réglages du serveur web affichant la liste Adresse affichée réglée sur Auto - recommandé et le numéro de port réglé sur 8000." >}}
+alt="Réglages du serveur d'images affichant la liste Adresse affichée réglée sur Auto - recommandé et le numéro de port réglé sur 8000." >}}
 {{< /center >}}
 
 ## Adresse affichée {#server-address}
@@ -164,8 +164,8 @@ Les adresses listées sont ordonnées selon leur utilité probable :
 ℹ️ Par défaut : Auto - recommandé
 
 {{% alert title="Dépannage" color="warning" %}}
-Si un autre appareil n'atteint pas l'URL affichée pendant que le serveur d'images fonctionne, ouvrez les préférences
-Sortie et sélectionnez une autre adresse affichée. Choisissez une adresse appartenant au même réseau que l'appareil qui
+Si un autre appareil ne peut pas naviguer vers le serveur d'images pendant qu'il fonctionne, ouvrez les préférences
+Sortie et sélectionnez une autre **Adresse affichée**. Choisissez une adresse appartenant au même réseau que l'appareil qui
 utilise le navigateur, cliquez `OK`, puis réessayez l'URL ou le QR code.
 
 L'adresse affichée peut être modifiée sans arrêter le serveur d'images.
@@ -177,7 +177,7 @@ Le port d'écoute du serveur d'images est configuré ici
 
 Valeurs autorisées : 1024 à 65535
 
-- ⌨️ Saisissez le `numéro de port` sur lequel le serveur d'images d'ALS sera accessible
+- ⌨️ Saisissez le `numéro de port` sur lequel le serveur d'images sera accessible
 
 ℹ️ Par défaut : 8000
 
