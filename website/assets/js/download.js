@@ -1,23 +1,23 @@
 function downloadAndOpenInstructions(platform) {
     var urls = {
         'windows': {
-            'download': 'https://github.com/deufrai/als/releases/download/v0.7/als-v0.7_Setup.exe',
+            'download': 'https://github.com/deufrai/als/releases/download/v0.7.1/als-v0.7.1_Setup.exe',
             'instructions': window.location.pathname.includes('/fr/') ? '/fr/docs/v0.7.1/installation/windows-install/' : '/docs/v0.7.1/installation/windows-install/'
         },
         'mac-intel': {
-            'download': 'https://github.com/deufrai/als/releases/download/v0.7/ALS-v0.7-amd64.dmg',
+            'download': 'https://github.com/deufrai/als/releases/download/v0.7.1/als-v0.7.1-amd64.dmg',
             'instructions': window.location.pathname.includes('/fr/') ? '/fr/docs/v0.7.1/installation/mac-intel-install/' : '/docs/v0.7.1/installation/mac-intel-install/'
         },
         'mac-arm': {
-            'download': 'https://github.com/deufrai/als/releases/download/v0.7/ALS-v0.7-arm64.dmg',
+            'download': 'https://github.com/deufrai/als/releases/download/v0.7.1/als-v0.7.1-arm64.dmg',
             'instructions': window.location.pathname.includes('/fr/') ? '/fr/docs/v0.7.1/installation/mac-arm-install/' : '/docs/v0.7.1/installation/mac-arm-install/'
         },
         'linux': {
-            'download': 'https://github.com/deufrai/als/releases/download/v0.7/als-v0.7.run',
+            'download': 'https://github.com/deufrai/als/releases/download/v0.7.1/als-v0.7.1.run',
             'instructions': window.location.pathname.includes('/fr/') ? '/fr/docs/v0.7.1/installation/linux-install/' : '/docs/v0.7.1/installation/linux-install/'
         },
         'raspberry-pi': {
-            'download': 'https://github.com/deufrai/als/releases/download/v0.7/als-v0.7.tgz',
+            'download': 'https://github.com/deufrai/als/releases/download/v0.7.1/als-v0.7.1.tgz',
             'instructions': window.location.pathname.includes('/fr/') ? '/fr/docs/v0.7.1/installation/raspberry-pi-install/' : '/docs/v0.7.1/installation/raspberry-pi-install/'
         }
     };
