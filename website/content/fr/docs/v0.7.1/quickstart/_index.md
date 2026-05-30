@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-05-29T14:59:54Z
+lastmod: 2026-05-30T18:50:53Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -343,30 +343,10 @@ Cette section s'adresse exclusivement aux utilisateurs d'ALS sous Linux, que ce 
 <details>
 <summary>Création d'un lanceur système pour ALS</summary>
 
-{{< center >}}
-{{< figure src="launcher_menu.png"
-caption="Menu de création du lanceur"
-width="537px"
-height="194px"
-alt="L'image montre une capture d'écran d'une interface logicielle avec un thème sombre. La barre de menu supérieure comprend des options telles que Fichier, Session, Édition, Image, Vue, Utilitaires et Aide. Le menu Utilitaires est développé, révélant deux options : QR Code et Créer lanceur, avec ce dernier surligné en bleu et un curseur pointant vers lui." >}}
-{{< /center >}}
+Cette étape optionnelle crée un lanceur dans le menu d'applications de votre système, afin de démarrer ALS sans revenir
+dans le dossier d'installation à chaque fois.
 
-🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez l'item **Créer lanceur**. Un sélecteur de fichier apparaît...
-
-{{< center >}}
-<div style="display: flex; justify-content: center; gap: 1rem;">
-{{< figure src="exe_picker.png" 
-    caption="Sélecteur de fichier pour **PC**" 
-    width="661px" 
-    height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' Le chemin du répertoire est défini sur /home/astrogeek/Applications/ALS. Le fichier als-v0.7.1-beta7.run est sélectionné, avec une taille de 255,47 Mio, indiquant qu'il s'agit d'un fichier exécutable. Le bouton Ouvrir est surligné, suggérant que l'utilisateur est sur le point d'ouvrir le fichier sélectionné. Trois flèches numérotées pointent vers le chemin du répertoire, le fichier sélectionné et le bouton Ouvrir." >}}
-{{< figure src="exe_picker_rpi.png" 
-    caption="Sélecteur de fichier pour **Raspberry PI**" 
-    width="661px" 
-    height="463px" 
-    alt="Boîte de dialogue de sélection de fichier intitulée 'Sélectionnez votre exécutable ALS.' La boîte de dialogue est utilisée pour naviguer dans les répertoires et sélectionner un fichier spécifique. Le chemin du répertoire affiché est /home/astrogeek/Applications/ALS/als-v0.7.1-beta7. Le fichier als-v0.7.1-beta7 est surligné et sélectionné. La boîte de dialogue a trois éléments principaux étiquetés : 1. Le champ 'Voir dans :' montrant le chemin du répertoire actuel. 2. La zone de liste de fichiers où le fichier 'als-v0.7.1-beta7' est sélectionné. 3. Le bouton 'Ouvrir' pour confirmer la sélection et le bouton 'Annuler' pour annuler l'opération." >}}
-</div>
-{{< /center >}}
+🖱️ Ouvrez le menu **Utilitaires** d'ALS et sélectionnez **Créer lanceur**. Un sélecteur de fichier apparaît.
 
 1. 🖱️ Naviguer vers le dossier où se trouve ALS
     - **PC**: Naviguer vers `/home/astrogeek/Applications/ALS`
@@ -376,23 +356,9 @@ alt="L'image montre une capture d'écran d'une interface logicielle avec un thè
     - **Raspberry PI**: Sélectionner le fichier `als-v0.7.1`
 3. 🖱️ Cliquez sur `Ouvrir`
 
-ALS vous confirme la bonne création du lanceur
-{{< center >}}
-{{< figure src="launcher_created.png"
-caption="Fenêtre de confirmation de création du lanceur"
-width="391px"
-height="129px"
-alt="Fenêtre de notification avec le titre 'Lanceur ALS créé / mis à jour avec succès.' La notification contient une icône d'ampoule et le texte 'Vous trouverez ALS avec les applications graphiques.' Il y a un bouton 'OK' en bas à droite de la fenêtre." >}}
-{{< /center >}}
+ALS confirme que le lanceur a été créé ou mis à jour.
 
-Vous pourrez maintenant facilement démarrer ALS en utilisant votre menu système
-{{< center >}}
-{{< figure src="launcher_ok.png"
-caption="ALS dans la section **Graphisme** du menu système "
-width="542px"
-height="412px"
-alt="L'image montre une section d'un écran d'ordinateur affichant le menu 'Applications', mettant en évidence la catégorie 'Graphisme'. Le menu répertorie diverses applications liées aux graphismes disponibles sur le système, y compris Astro Live Stacker - Live Stacking Made in France. Le curseur pointe vers la catégorie 'Graphismes', indiquant qu'elle est actuellement sélectionnée." >}}
-{{< /center >}}
+Vous pouvez maintenant démarrer ALS depuis le menu d'applications de votre système.
 
 </details>
 {{% /alert %}}

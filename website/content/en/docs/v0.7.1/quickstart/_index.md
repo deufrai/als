@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-05-29T14:59:54Z
+lastmod: 2026-05-30T18:50:53Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -338,30 +338,10 @@ This section is exclusively for ALS users on Linux, whether on PC or Raspberry P
 <details>
 <summary>Creating a system launcher for ALS</summary>
 
-{{< center >}}
-{{< figure src="launcher_menu.png"
-caption="Launcher creation menu"
-width="491px"
-height="197px"
-alt="The image shows a screenshot of a software interface with a dark theme. The top menu bar includes options such as File, Session, Edit, Image, View, Utilities, and Help. The Utilities menu is expanded, revealing two options: QR Code and Create launcher, with the latter highlighted in blue and a cursor pointing to it" >}}
-{{< /center >}}
+This optional step creates a launcher in your system application menu, so you can start ALS without browsing to the
+installation folder each time.
 
-🖱️ Open the **Utilities** menu and select the **Create launcher** item. A file selector appears...
-
-{{< center >}}
-<div style="display: flex; justify-content: center; gap: 1rem;">
-{{< figure src="exe_picker.png"
-caption="File selector for **PC**"
-width="635px"
-height="443px"
-alt="File selection dialog box titled 'Select your ALS executable.' The directory path is set to /home/astrogeek/Applications/ALS. The file als-v0.7.1-beta7.run is selected, with a size of 255.47 MiB, indicating it is a run File. The Open button is highlighted, suggesting the user is about to open the selected file. Three numbered arrows point to the directory path, the selected file, and the Open button." >}}
-{{< figure src="exe_picker_rpi.png"
-caption="File selector for **Raspberry PI**"
-width="661px"
-height="463px"
-alt="File selection dialog box titled 'Select your ALS executable.' The dialog box is used to navigate through directories and select a specific file. The directory path shown is /home/astrogeek/Applications/ALS/als-v0.7.1-beta7. The file als-v0.7.1-beta7 is highlighted and selected. The dialog box has three main labeled elements: 1. The 'Look in:' field showing the current directory path. 2. The file list area where the 'als-v0.7.1-beta7' file is selected. 3. The 'Open' button to confirm the selection and the 'Cancel' button to cancel the operation." >}}
-</div>
-{{< /center >}}
+🖱️ Open the **Utilities** menu and select **Create launcher**. A file selector appears.
 
 1. 🖱️ Browse to the folder where ALS is located
     - **PC**: Browse to `/home/astrogeek/Applications/ALS`
@@ -371,23 +351,9 @@ alt="File selection dialog box titled 'Select your ALS executable.' The dialog b
     - **Raspberry PI**: Select the file `als-v0.7.1`
 3. 🖱️ Click `Open`
 
-ALS confirms the successful creation of the launcher
-{{< center >}}
-{{< figure src="launcher_created.png"
-caption="Launcher creation confirmation window"
-width="305px"
-height="129px"
-alt="Notification window with the title 'ALS launcher created / updated.' The notification contains an icon of a lightbulb and the text 'You'll find ALS with the graphics apps.' There is an 'OK' button at the bottom right of the window." >}}
-{{< /center >}}
+ALS confirms that the launcher was created or updated.
 
-You can now easily start ALS using your system menu
-{{< center >}}
-{{< figure src="launcher_ok.png"
-caption="ALS in the **Graphics** section of the system menu"
-width="536px"
-height="374px"
-alt="The image shows a section of a computer screen displaying the 'Applications' menu, specifically highlighting the 'Graphics' category. The menu lists various graphics-related applications available on the system, including Astro Live Stacker - Live Stacking Made in France." >}}
-{{< /center >}}
+You can now start ALS from your system application menu.
 
 </details>
 {{% /alert %}}
