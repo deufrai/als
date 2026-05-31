@@ -20,9 +20,6 @@ class AlsLogAdapter(LoggerAdapter):
         return super().process(msg, kwargs)
 
 
-# WARNING !!!!! Don't ever remove this USED import !!!!!
-# most IDEs report this as unused. They lie to you. We use it in get_text_content_of_resource()
-# pylint:disable=unused-import
 
 _T = TypeVar("_T")
 
