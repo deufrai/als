@@ -225,7 +225,7 @@ done < "$search_indexes_file"
 # managed entries have been removed, while the rollback trap is active.
 if [ "${PROD_DEPLOY_FAIL_AFTER_REMOVE:-0}" = "1" ]; then
   echo "Intentional production deployment failure after removal for rollback test."
-  exit 42
+  false
 fi
 
 echo "Copying new Hugo build entries to production..."
