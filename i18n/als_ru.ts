@@ -139,7 +139,7 @@ must not be the same as or a subfolder of your {} :
         <translation>Не удалось сохранить изображение : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="258"/>
+        <location filename="../src/als/ui/dialogs.py" line="271"/>
         <source>Port number validation failed : {}</source>
         <translation>Ошибка проверки номера порта : {}</translation>
     </message>
@@ -166,6 +166,11 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/processing.py" line="614"/>
         <source>Data structure inconsistency. Light: {} vs Master flat: {}. Flat division is SKIPPED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/logic.py" line="616"/>
+        <source>Web server started</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -289,16 +294,6 @@ must not be the same as or a subfolder of your {} :
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="224"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Веб-сайт : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="224"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="234"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -611,32 +606,32 @@ If another device needs to browse the image server, change the Displayed address
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="217"/>
+        <location filename="../src/als/ui/dialogs.py" line="230"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="218"/>
+        <location filename="../src/als/ui/dialogs.py" line="231"/>
         <source>Debug logs</source>
         <translation>Журналы отладки</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="219"/>
+        <location filename="../src/als/ui/dialogs.py" line="232"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="256"/>
+        <location filename="../src/als/ui/dialogs.py" line="269"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Номер порта веб-сервера должен быть числом от 1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="257"/>
+        <location filename="../src/als/ui/dialogs.py" line="270"/>
         <source>Wrong value</source>
         <translation>Неправильное значение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="304"/>
+        <location filename="../src/als/ui/dialogs.py" line="321"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -645,32 +640,32 @@ If another device needs to browse the image server, change the Displayed address
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="307"/>
+        <location filename="../src/als/ui/dialogs.py" line="324"/>
         <source>Restart needed</source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="341"/>
+        <location filename="../src/als/ui/dialogs.py" line="358"/>
         <source>Select scan folder</source>
         <translation>Выберите каталог для сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="353"/>
+        <location filename="../src/als/ui/dialogs.py" line="370"/>
         <source>Select work folder</source>
         <translation>Выберите рабочий каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="364"/>
+        <location filename="../src/als/ui/dialogs.py" line="381"/>
         <source>Select web folder</source>
         <translation>Выберите веб-каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="375"/>
+        <location filename="../src/als/ui/dialogs.py" line="392"/>
         <source>Select master dark file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="388"/>
+        <location filename="../src/als/ui/dialogs.py" line="405"/>
         <source>Select master flat file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -878,22 +873,22 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="680"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="715"/>
         <source>&amp;Port number</source>
         <translation>Номер &amp;порта</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="712"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="749"/>
         <source>1024 to 65535</source>
         <translation>1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="772"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="809"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="779"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="816"/>
         <source>OK</source>
         <translation>ОК</translation>
     </message>
@@ -913,7 +908,7 @@ If another device needs to browse the image server, change the Displayed address
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="639"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="678"/>
         <source>Displayed &amp;address</source>
         <translation>Отображаемый &amp;адрес</translation>
     </message>

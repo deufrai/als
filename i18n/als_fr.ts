@@ -79,7 +79,7 @@
         <translation>Echec de sauvegarde image {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="258"/>
+        <location filename="../src/als/ui/dialogs.py" line="271"/>
         <source>Port number validation failed : {}</source>
         <translation>Numéro de port non valide : {}</translation>
     </message>
@@ -294,17 +294,7 @@ ne doit pas être identique ou un sous-dossier de votre {} :
     <message>
         <location filename="../src/als/ui/about_ui.ui" line="224"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Site Web : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="224"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Site web : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="234"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Discord : &lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -616,47 +606,42 @@ Si un autre appareil doit naviguer vers le serveur d&apos;images, modifiez l&apo
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="256"/>
+        <location filename="../src/als/ui/dialogs.py" line="269"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Le numéro de port du serveur web doit être un nombre entre 1024 &amp; 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="257"/>
+        <location filename="../src/als/ui/dialogs.py" line="270"/>
         <source>Wrong value</source>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="341"/>
+        <location filename="../src/als/ui/dialogs.py" line="358"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="353"/>
+        <location filename="../src/als/ui/dialogs.py" line="370"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="364"/>
+        <location filename="../src/als/ui/dialogs.py" line="381"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="363"/>
-        <source>Select dark file</source>
-        <translation>Sélectionner le fichier de dark</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/dialogs.py" line="207"/>
+        <location filename="../src/als/ui/dialogs.py" line="230"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="219"/>
+        <location filename="../src/als/ui/dialogs.py" line="232"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="304"/>
+        <location filename="../src/als/ui/dialogs.py" line="321"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -665,22 +650,22 @@ Si un autre appareil doit naviguer vers le serveur d&apos;images, modifiez l&apo
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="307"/>
+        <location filename="../src/als/ui/dialogs.py" line="324"/>
         <source>Restart needed</source>
         <translation>Redémarrage nécessaire</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="218"/>
+        <location filename="../src/als/ui/dialogs.py" line="231"/>
         <source>Debug logs</source>
         <translation>Journaux détaillés</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="375"/>
+        <location filename="../src/als/ui/dialogs.py" line="392"/>
         <source>Select master dark file</source>
         <translation>Sélectionnez master dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="388"/>
+        <location filename="../src/als/ui/dialogs.py" line="405"/>
         <source>Select master flat file</source>
         <translation>Sélectionnez master flat</translation>
     </message>
@@ -703,12 +688,12 @@ Si un autre appareil doit naviguer vers le serveur d&apos;images, modifiez l&apo
         <translation>&amp;JPEG</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="772"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="809"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="779"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="816"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -863,12 +848,12 @@ Si un autre appareil doit naviguer vers le serveur d&apos;images, modifiez l&apo
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="680"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="715"/>
         <source>&amp;Port number</source>
         <translation>Numéro de &amp;port</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="712"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="749"/>
         <source>1024 to 65535</source>
         <translation>1024 à 65535</translation>
     </message>
@@ -923,7 +908,7 @@ Si un autre appareil doit naviguer vers le serveur d&apos;images, modifiez l&apo
         <translation>Master &amp;flat...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="639"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="678"/>
         <source>Displayed &amp;address</source>
         <translation>&amp;Adresse affichée</translation>
     </message>
