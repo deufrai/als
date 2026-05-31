@@ -73,8 +73,7 @@ Run tests:
   stage: validate
   timeout: 20m
   script:
-#    - ci/builds/run_tests.sh
-    - echo SKIPPED
+    - ci/builds/run_tests.sh
 
 # ────────────────────────── Application Builds ──────────────
 
@@ -84,12 +83,11 @@ Build PC/Linux:
   stage: build
   timeout: 1h
   script:
-#    - ci/builds/build_dist_amd64_linux.sh
-#  artifacts:
-#    expose_as: 'ALS for Linux amd64'
-#    paths:
-#      - als-$ALS_VERSION_STRING.run
-    - echo SKIPPED
+    - ci/builds/build_dist_amd64_linux.sh
+  artifacts:
+    expose_as: 'ALS for Linux amd64'
+    paths:
+      - als-$ALS_VERSION_STRING.run
 
 Build RaspBerry/Linux:
   extends: .app_rules
@@ -97,12 +95,11 @@ Build RaspBerry/Linux:
   stage: build
   timeout: 1h
   script:
-#    - ci/builds/build_dist_arm64_linux.sh
-#  artifacts:
-#    expose_as: 'ALS for Linux arm64'
-#    paths:
-#      - als-$ALS_VERSION_STRING.tgz
-    - echo SKIPPED
+    - ci/builds/build_dist_arm64_linux.sh
+  artifacts:
+    expose_as: 'ALS for Linux arm64'
+    paths:
+      - als-$ALS_VERSION_STRING.tgz
 
 Build Mac/Intel:
   extends: .app_rules
@@ -110,12 +107,11 @@ Build Mac/Intel:
   stage: build
   timeout: 1h
   script:
-#    - ci/builds/build_dist_amd64_osx.sh
-#  artifacts:
-#    expose_as: 'ALS for OSX amd64'
-#    paths:
-#      - als-$ALS_VERSION_STRING-amd64.dmg
-    - echo SKIPPED
+    - ci/builds/build_dist_amd64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX amd64'
+    paths:
+      - als-$ALS_VERSION_STRING-amd64.dmg
 
 Build Mac/ARM:
   extends: .app_rules
@@ -123,12 +119,11 @@ Build Mac/ARM:
   stage: build
   timeout: 1h
   script:
-#    - ci/builds/build_dist_arm64_osx.sh
-#  artifacts:
-#    expose_as: 'ALS for OSX arm64'
-#    paths:
-#      - als-$ALS_VERSION_STRING-arm64.dmg
-    - echo SKIPPED
+    - ci/builds/build_dist_arm64_osx.sh
+  artifacts:
+    expose_as: 'ALS for OSX arm64'
+    paths:
+      - als-$ALS_VERSION_STRING-arm64.dmg
 
 Build PC/Windows:
   extends: .app_rules
@@ -136,12 +131,11 @@ Build PC/Windows:
   stage: build
   timeout: 1h
   script:
-#    - sh ci/builds/build_dist_amd64_win.sh
-#  artifacts:
-#    expose_as: 'ALS for Windows amd64'
-#    paths:
-#      - als-${ALS_VERSION_STRING}_Setup.exe
-    - echo SKIPPED
+    - sh ci/builds/build_dist_amd64_win.sh
+  artifacts:
+    expose_as: 'ALS for Windows amd64'
+    paths:
+      - als-${ALS_VERSION_STRING}_Setup.exe
 
 # ────────────────────────── Nightly Deployment ──────────────
 
