@@ -12,6 +12,7 @@ _timing_candidates = list()
 processing_functions = [
     'read_disk_image()',
     "RemoveDark.process_image()",
+    "RemoveFlat.process_image()",
     'HotPixelRemover.process_image()',
     "Debayer.process_image()",
     "Standardize.process_image()",
