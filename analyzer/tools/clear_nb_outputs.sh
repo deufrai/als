@@ -1,2 +1,2 @@
-jupyter nbconvert --clear-output notebooks/*
+jupyter nbconvert --clear-output notebooks/*.ipynb
 
