@@ -149,6 +149,6 @@ enableGitInfo = true
 
     [[languages.en.menu.main]]
       identifier = "docs"
-      name = "Docs"
+      name = "Documentation"
       url = "/docs/v1.0/"
       weight = 20
