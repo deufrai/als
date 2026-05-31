@@ -1,6 +1,6 @@
 import numpy as np
 
-from als.code_utilities import log
+from als.code_utilities import compact_log_value, log
 
 """
 This product is based on software from the PixInsight project, developed by
@@ -15,7 +15,7 @@ class Stretch:
         self.shadows_clip = shadows_clip
         self.target_bkg = target_bkg
 
-    @log
+    @log(value_formatter=compact_log_value)
     def _get_avg_dev(self, data):
         """Return the average deviation from the median.
 
@@ -28,7 +28,7 @@ class Stretch:
         avg_dev = np.sum( median_deviation(data) / n )
         return avg_dev
 
-    @log
+    @log(value_formatter=compact_log_value)
     def _mtf(self, m, x):
         """Midtones Transfer Function
 
@@ -64,7 +64,7 @@ class Stretch:
         x[others] = (m - 1) * x[others] / ((((2 * m) - 1) * x[others]) - m)
         return x.reshape(shape)
 
-    @log
+    @log(value_formatter=compact_log_value)
     def _get_stretch_parameters(self, data):
         """ Get the stretch parameters automatically.
         m (float) is the midtones balance
@@ -83,7 +83,7 @@ class Stretch:
             "m": m
         }
 
-    @log
+    @log(value_formatter=compact_log_value)
     def stretch(self, data):
         """ Stretch the image.
 
@@ -113,4 +113,3 @@ class Stretch:
         # For the rest of the pixels: apply the midtones transfer function
         d[above] = self._mtf(m, (d[above] - c0)/(1 - c0))
         return d
-

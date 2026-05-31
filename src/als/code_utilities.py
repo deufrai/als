@@ -24,7 +24,75 @@ class AlsLogAdapter(LoggerAdapter):
 _T = TypeVar("_T")
 
 
-def log(func: Callable[..., _T]) -> Callable[..., _T]:
+class LogValueSummary:
+    """
+    Compact representation for values that are too noisy in detailed logs.
+
+    This intentionally wraps summary text instead of returning a plain string so
+    tuple/list/dict logging uses the unquoted ``repr()`` form. That keeps values
+    looking like compact object summaries instead of string literals.
+    """
+    def __init__(self, text: str):
+        self._text = text
+
+    def __repr__(self) -> str:
+        return self._text
+
+    def __str__(self) -> str:
+        return self._text
+
+
+def compact_log_value(value: Any) -> Any:
+    """
+    Replaces numpy arrays with compact summaries for logging.
+
+    Full image arrays are summarized by shape and dtype only. Small arrays, such
+    as histogram bins, also include min/max because that is cheap and useful.
+
+    :param value: value to summarize
+    :return: original value or a logging-only summary
+    """
+    if _is_numpy_array(value):
+        return _summarize_numpy_array(value)
+
+    if isinstance(value, tuple):
+        return tuple(compact_log_value(item) for item in value)
+
+    if isinstance(value, list):
+        return [compact_log_value(item) for item in value]
+
+    if isinstance(value, dict):
+        return {
+            key: compact_log_value(item)
+            for key, item in value.items()
+        }
+
+    return value
+
+
+def _is_numpy_array(value: Any) -> bool:
+    return (
+        value.__class__.__module__ == "numpy"
+        and value.__class__.__name__ == "ndarray"
+    )
+
+
+def _summarize_numpy_array(value: Any) -> LogValueSummary:
+    parts = [
+        f"shape={value.shape}",
+        f"dtype={value.dtype}",
+    ]
+
+    if value.size <= 4096:
+        parts.extend([
+            f"min={value.min()}",
+            f"max={value.max()}",
+        ])
+
+    return LogValueSummary(f"ndarray({', '.join(parts)})")
+
+
+def log(func: Callable[..., _T] = None, *, value_formatter: Callable[[Any], Any] = None) -> Callable[..., _T]:
     """
     Decorates a function to add logging.
 
@@ -37,8 +105,12 @@ def log(func: Callable[..., _T]) -> Callable[..., _T]:
     only runs when DEBUG is enabled for that logger to keep overhead minimal otherwise.
 
     :param func: The function to decorate
+    :param value_formatter: Optional callable used to format args, kwargs and return values in log entries.
     :return: The decorated function
     """
+    if func is None:
+        return lambda decorated_func: log(decorated_func, value_formatter=value_formatter)
+
     function_name = func.__qualname__
     logger = AlsLogAdapter(logging.getLogger(func.__module__), {})
 
@@ -54,11 +126,14 @@ def log(func: Callable[..., _T]) -> Callable[..., _T]:
                 prepare_thread_logging()
 
         if logger.isEnabledFor(logging.DEBUG):
-            logger.debug("%s() called with : %s - %s", function_name, args, kwargs)
+            logged_args = value_formatter(args) if value_formatter else args
+            logged_kwargs = value_formatter(kwargs) if value_formatter else kwargs
+            logger.debug("%s() called with : %s - %s", function_name, logged_args, logged_kwargs)
             start_time = time()
             result = func(*args, **kwargs)
             elapsed_ms = (time() - start_time) * 1000
-            logger.debug("%s() returned %s in %.3f ms", function_name, result, elapsed_ms)
+            logged_result = value_formatter(result) if value_formatter else result
+            logger.debug("%s() returned %s in %.3f ms", function_name, logged_result, elapsed_ms)
             return result
         return func(*args, **kwargs)
 

@@ -5,7 +5,7 @@ from logging import getLogger
 
 import numpy as np
 
-from als.code_utilities import log, AlsLogAdapter
+from als.code_utilities import compact_log_value, log, AlsLogAdapter
 from als.model.base import Image
 from als.model.data import HistogramContainer
 
@@ -30,7 +30,7 @@ def compute_histograms_for_display(image, bin_count):
     return container
 
 
-@log
+@log(value_formatter=compact_log_value)
 def _compute_single_channel_histogram_for_display(channel_data, bin_count):
 
     histogram = np.histogram(channel_data, bin_count, range=(0, 2**16 - 1))[0]
