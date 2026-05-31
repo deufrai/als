@@ -44,6 +44,9 @@ enableGitInfo = true
   version_menu = "Version"
   version_menu_pagelinks = true
   [[params.versions]]
+    url = "/docs/v0.7.1/"
+    version = "v0.7.1"
+  [[params.versions]]
     url = "/docs/v0.7/"
     version = "v0.7"
 
@@ -96,7 +99,7 @@ enableGitInfo = true
     [[languages.fr.menu.main]]
       identifier = "docs"
       name = "Documentation"
-      url = "/fr/docs/v0.7/"
+      url = "/fr/docs/v0.7.1/"
       weight = 20
 
   # English Configuration
@@ -131,6 +134,6 @@ enableGitInfo = true
 
     [[languages.en.menu.main]]
       identifier = "docs"
-      name = "Docs"
-      url = "/docs/v0.7/"
+      name = "Documentation"
+      url = "/docs/v0.7.1/"
       weight = 20

@@ -1,14 +1,35 @@
 <div class="dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    {{- .Site.Params.version_menu -}}
+    {{- .title | default "" -}}
   </a>
   <ul class="dropdown-menu">
-    {{ $path := "" -}}
-    {{ if .Site.Params.version_menu_pagelinks -}}
-      {{ $path = .Page.RelPermalink -}}
+    {{ $versionMenuPageLinks := .page.Site.Params.languageswitcher.version_menu_pagelinks -}}
+    {{ $currentPath := replaceRE "^/" "" .page.RelPermalink -}}
+    {{ $currentPath = replaceRE "/$" "" $currentPath -}}
+    {{ $pathParts := split $currentPath "/" -}}
+    {{ $prefixParts := slice -}}
+    {{ $suffixParts := slice -}}
+    {{ if and (ge (len $pathParts) 2) (eq (index $pathParts 0) "docs") -}}
+      {{ $prefixParts = slice "docs" -}}
+      {{ if $versionMenuPageLinks -}}
+        {{ $suffixParts = after 2 $pathParts -}}
+      {{ end -}}
+    {{ else if and (ge (len $pathParts) 3) (eq (index $pathParts 1) "docs") -}}
+      {{ $prefixParts = first 2 $pathParts -}}
+      {{ if $versionMenuPageLinks -}}
+        {{ $suffixParts = after 3 $pathParts -}}
+      {{ end -}}
+    {{ else if eq .page.Site.Language.Lang "fr" -}}
+      {{ $prefixParts = slice "fr" "docs" -}}
+    {{ else -}}
+      {{ $prefixParts = slice "docs" -}}
     {{ end -}}
-    {{ range .Site.Params.versions -}}
-      <li><a class="dropdown-item" href="{{ .url }}{{ $path }}">{{ .version }}</a></li>
+    {{ range .page.Site.Params.versions -}}
+      {{ $versionParts := $prefixParts | append .version -}}
+      {{ range $suffixParts -}}
+        {{ $versionParts = $versionParts | append . -}}
+      {{ end -}}
+      <li><a class="dropdown-item" href="/{{ delimit $versionParts "/" }}/">{{ .version }}</a></li>
     {{ end -}}
   </ul>
 </div>

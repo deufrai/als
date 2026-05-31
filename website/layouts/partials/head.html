@@ -4,9 +4,9 @@
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als-main.css">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als-doc.css">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/als-footer.css">
+<link rel="stylesheet" href="{{ `css/als-main.css` | relURL }}">
+<link rel="stylesheet" href="{{ `css/als-doc.css` | relURL }}">
+<link rel="stylesheet" href="{{ `css/als-footer.css` | relURL }}">
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js" defer></script>
   <!-- Browser lang detection & cookie consent -->
@@ -81,7 +81,10 @@
 
 <script src="/js/tracking.js" defer></script>
 
-<script src="{{ "js/download.js" | relURL }}" defer></script>
+{{ with resources.Get "js/download.js" -}}
+    {{ $downloadJS := . | fingerprint -}}
+    <script src="{{ $downloadJS.RelPermalink }}" integrity="{{ $downloadJS.Data.Integrity }}" defer></script>
+{{ end -}}
 
 <svg width="0" height="0">
   <defs>

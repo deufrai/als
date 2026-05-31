@@ -23,4 +23,5 @@ FORMS += src/als/ui/about_ui.ui \
   src/als/ui/als_ui.ui \
   src/als/ui/save_wait_ui.ui \
   src/als/ui/prefs_ui.ui \
+  src/als/ui/qr_ui.ui \
   src/als/ui/stop_ui.ui

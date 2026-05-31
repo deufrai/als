@@ -30,7 +30,7 @@ from generated.als_ui import Ui_stack_window
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
-ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7/?mtm_campaign=docFromApp"
+ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v0.7.1/?mtm_campaign=docFromApp"
 
 # pylint: disable=R0904, R0902
 class MainWindow(QMainWindow):
@@ -535,10 +535,7 @@ class MainWindow(QMainWindow):
             error_box(error_title, error_message + error_message_part2)
 
         except WebServerOnLoopback:
-            title = self.tr("Web server access is limited")
-            message = self.tr("Web server IP address is 127.0.0.1.\n\nServer won't be reachable by other machines. "
-                              "Please check your network connection")
-            warning_box(title, message)
+            self._warn_web_server_access_is_limited()
 
         finally:
             self.update_display()
@@ -814,7 +811,7 @@ class MainWindow(QMainWindow):
 
             # update web server status
             if web_server_is_running:
-                url = f"http://{DYNAMIC_DATA.web_server_ip}:{config.get_www_server_port_number()}"
+                url = DYNAMIC_DATA.web_server_advertised_url
                 webserver_status = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #CC0000">{url}</a>'
                 self._ui.action_qrcode.setEnabled(True)
             else:
@@ -978,12 +975,52 @@ class MainWindow(QMainWindow):
         :rtype: bool
         """
 
+        previous_advertised_ip = DYNAMIC_DATA.web_server_advertised_ip
         accepted = PreferencesDialog(self).exec() == QDialog.Accepted
 
         if accepted:
+
             self.update_display()
 
+            if DYNAMIC_DATA.web_server_is_running and previous_advertised_ip != DYNAMIC_DATA.web_server_advertised_ip:
+
+                if self._qrDisplay.isVisible():
+                    self._qrDisplay.update_code()
+
+                advertised_address = self._find_web_server_advertised_address()
+
+                if advertised_address is not None and advertised_address.is_loopback:
+                    self._warn_web_server_access_is_limited(advertised_address.ip)
+
         return accepted
+
+    @log
+    def _find_web_server_advertised_address(self):
+        """
+        Finds the selected web server advertised address candidate.
+
+        :return: selected advertised address candidate or None
+        """
+        for candidate in DYNAMIC_DATA.web_server_address_candidates:
+            if candidate.ip == DYNAMIC_DATA.web_server_advertised_ip:
+                return candidate
+        return None
+
+    @log
+    def _warn_web_server_access_is_limited(self, displayed_address: str = None):
+        """
+        Displays the limited web server access warning.
+
+        :param displayed_address: selected displayed address
+        """
+        title = self.tr("Image server access is limited")
+        message = self.tr(
+            "Displayed address is {}.\n\n"
+            "Other devices on your network will not be able to browse the image server from that address.\n\n"
+            "If another device needs to browse the image server, change the Displayed address in "
+            "Preferences > Output > Server, then retry from that device."
+        ).format(displayed_address or DYNAMIC_DATA.web_server_advertised_ip)
+        warning_box(title, message)
 
     @log
     def _save_config(self):

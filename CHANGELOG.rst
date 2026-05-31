@@ -2,10 +2,21 @@
 Changelog
 =========
 
+Version 0.7.1
+=============
+
+**Date:** May 31, 2026
+
+Improvements
+------------
+
+- Image server is now reachable when the system running ALS also acts as a
+  hotspot or has several network connections
+
 Version 0.7
 ===========
 
-**Date:** TBD
+**Date:** October 27, 2025
 
 New Features
 ------------

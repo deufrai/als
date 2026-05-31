@@ -15,7 +15,11 @@ from als import config
 from als.code_utilities import log, AlsLogAdapter
 from als.logic import Controller
 from als.messaging import MESSAGE_HUB
-from als.model.data import VERSION, DYNAMIC_DATA
+from als.model.data import VERSION, DYNAMIC_DATA, I18n
+from als.streams.network import (
+    ADVERTISED_ADDRESS_AUTO, advertised_address_preference,
+    get_network_address_candidates
+)
 from generated.about_ui import Ui_AboutDialog
 from generated.prefs_ui import Ui_PrefsDialog
 from generated.qr_ui import Ui_QrDialog
@@ -25,8 +29,6 @@ from generated.stop_ui import Ui_SessionStopDialog
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
 _NORMAL_STYLE_SHEET = "border: 1px"
-
-
 class PreferencesDialog(QDialog):
     """
     Our main preferences dialog box
@@ -42,7 +44,8 @@ class PreferencesDialog(QDialog):
         self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.pathsBox.setEnabled(not DYNAMIC_DATA.web_server_is_running and DYNAMIC_DATA.session.is_stopped)
-        self._ui.serverBox.setEnabled(not DYNAMIC_DATA.web_server_is_running)
+        _set_web_server_port_controls_enabled(
+            self._ui, not DYNAMIC_DATA.web_server_is_running)
 
 
         self._ui.cmb_lang.setItemData(0, 'sys')
@@ -65,6 +68,7 @@ class PreferencesDialog(QDialog):
         self._ui.ln_master_dark_path.setToolTip(config.get_master_dark_file_path())
 
         self._ui.ln_web_server_port.setText(str(config.get_www_server_port_number()))
+        self._populate_web_server_address_dropdown()
         self._ui.chk_debug_logs.setChecked(config.is_debug_log_on())
         self._ui.chk_use_dark.setChecked(config.get_use_master_dark())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
@@ -239,6 +243,10 @@ class PreferencesDialog(QDialog):
             self._ui.ln_web_server_port.setFocus()
             self._ui.ln_web_server_port.selectAll()
             return
+        config.set_www_server_advertised_address(
+            self._ui.cmb_web_server_address.currentData())
+        if DYNAMIC_DATA.web_server_is_running:
+            Controller.update_web_server_advertised_address()
 
         # debug log choice
         debug_old_value = config.is_debug_log_on()
@@ -369,6 +377,23 @@ class PreferencesDialog(QDialog):
             config.save()
         except config.CouldNotSaveConfig as save_error:
             error_box(save_error.message, f"Your settings could not be saved\n\nDetails : {save_error.details}")
+
+    @log
+    def _populate_web_server_address_dropdown(self) -> None:
+        """
+        Populates the persistent advertised-address dropdown.
+        """
+        current_preference = config.get_www_server_advertised_address()
+        address_items = _address_preference_items(
+            get_network_address_candidates(config.get_www_server_port_number()))
+
+        self._ui.cmb_web_server_address.clear()
+        for label, preference in address_items:
+            self._ui.cmb_web_server_address.addItem(label, preference)
+
+        selected_index = _address_preference_index(
+            current_preference, address_items)
+        self._ui.cmb_web_server_address.setCurrentIndex(selected_index)
 
 
 class AboutDialog(QDialog):
@@ -505,7 +530,7 @@ class QRDisplay(QDialog):
     @log
     def update_code(self):
         """
-        Create a new QR caode from server's  current IP & configured port.
+        Create a new QR code from the current runtime server URL.
         """
         if DYNAMIC_DATA.web_server_is_running:
 
@@ -515,7 +540,7 @@ class QRDisplay(QDialog):
                 box_size=7,
                 border=1,
             )
-            qr.add_data(f"http://{DYNAMIC_DATA.web_server_ip}:{config.get_www_server_port_number()}")
+            qr.add_data(DYNAMIC_DATA.web_server_advertised_url)
             qr.make(fit=True)
             img = qr.make_image()
             qim = ImageQt(img)
@@ -543,6 +568,63 @@ class QRDisplay(QDialog):
             self.visibility_changed_signal.emit(visible)
 
         super().setVisible(visible)
+
+
+@log
+def _address_preference_items(candidates):
+    """
+    Builds persistent advertised-address dropdown items.
+
+    :param candidates: network address candidates
+    :return: list of label/preference tuples
+    """
+    address_items = [(I18n.AUTO_RECOMMENDED, ADVERTISED_ADDRESS_AUTO)]
+    for candidate in candidates:
+        address_items.append(
+            (_address_candidate_label(candidate),
+             advertised_address_preference(candidate.ip)))
+    return address_items
+
+
+@log
+def _address_preference_index(preference, address_items) -> int:
+    """
+    Finds the dropdown index matching a persisted preference.
+
+    :param preference: persisted advertised-address preference
+    :param address_items: dropdown items
+    :return: matching index or Auto index
+    """
+    for index, (_, item_preference) in enumerate(address_items):
+        if item_preference == preference:
+            return index
+    return 0
+
+
+@log
+def _address_candidate_label(candidate) -> str:
+    """
+    Builds the translated UI label for a network address candidate.
+
+    :param candidate: network address candidate
+    :return: translated display label
+    """
+    if not candidate.interface_name:
+        return "{} - {}".format(I18n.NETWORK_ADAPTER, candidate.ip)
+    return candidate.label
+
+
+@log
+def _set_web_server_port_controls_enabled(ui, enabled: bool) -> None:
+    """
+    Enables or disables only the persistent web server port controls.
+
+    :param ui: preferences dialog UI
+    :param enabled: True when the port controls can be changed
+    """
+    ui.lbl_server_port.setEnabled(enabled)
+    ui.ln_web_server_port.setEnabled(enabled)
+    ui.label_4.setEnabled(enabled)
 
 
 @log
@@ -608,4 +690,3 @@ def message_box(title, message, icon=QMessageBox.Information):
     box.setWindowTitle(title)
     box.setText(message)
     box.exec()
-

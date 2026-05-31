@@ -21,6 +21,7 @@ import os
 import sys
 from configparser import ConfigParser, DuplicateOptionError, ParsingError
 from pathlib import Path
+from typing import cast
 
 from als.code_utilities import AlsException, AlsLogAdapter
 from als.model.data import DYNAMIC_DATA, IMAGE_SAVE_TYPE_JPEG
@@ -34,6 +35,7 @@ _WWW_FOLDER_PATH = "web_folder_path"
 _WWW_DEDICATED_FOLDER = "www_dedicated_folder"
 _LOG_LEVEL = "log_level"
 _WWW_SERVER_PORT = "www_server_port"
+_WWW_SERVER_ADVERTISED_ADDRESS = "www_server_advertised_address"
 _WINDOW_GEOMETRY = "window_geometry"
 _WINDOW_MAXIMIZED = "window_maximized"
 _IMAGE_SAVE_FORMAT = "image_save_format"
@@ -74,6 +76,7 @@ _DEFAULTS = {
     _WWW_DEDICATED_FOLDER:  0,
     _LOG_LEVEL:             _LOG_LEVEL_INFO,
     _WWW_SERVER_PORT:       "8000",
+    _WWW_SERVER_ADVERTISED_ADDRESS: "auto",
     _WINDOW_GEOMETRY:       "50,100,1400,900",
     _WINDOW_MAXIMIZED:      0,
     _IMAGE_SAVE_FORMAT:     IMAGE_SAVE_TYPE_JPEG,
@@ -375,6 +378,27 @@ def set_www_server_port_number(port_number):
     :type port_number: int
     """
     _set(_WWW_SERVER_PORT, port_number)
+
+
+def get_www_server_advertised_address() -> str:
+    """
+    Retrieves the preferred web server advertised address.
+
+    :return: the persisted advertised address preference
+    :rtype: str
+    """
+    return cast(str, _get(_WWW_SERVER_ADVERTISED_ADDRESS))
+
+
+def set_www_server_advertised_address(advertised_address: str) -> None:
+    """
+    Sets the preferred web server advertised address.
+
+    :param advertised_address: advertised address preference, usually auto or
+                               ip:<address>
+    :type advertised_address: str
+    """
+    _set(_WWW_SERVER_ADVERTISED_ADDRESS, advertised_address)
 
 
 def get_preserved_mem():

@@ -44,7 +44,7 @@
       {{ end -}}
       {{ if .Site.Params.versions -}}
       <li class="nav-item dropdown d-none d-lg-block">
-        {{ partial "navbar-version-selector.html" . -}}
+        {{ partial "navbar-version-selector.html" (dict "page" $p) -}}
       </li>
       {{ end -}}
       {{ if (gt (len .Site.Home.Translations) 0) -}}
