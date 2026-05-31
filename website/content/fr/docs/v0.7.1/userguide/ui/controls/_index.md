@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-29T14:26:30Z
+lastmod: 2026-05-31T04:43:57Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -237,7 +237,7 @@ fonctionnement par défaut du module **Save**
 <div class="row">
 <div class="col-md-8">
 
-## Contrôles d'enregristrement {#save-controls}
+## Contrôles d'enregistrement {#save-controls}
 
 - <span class="als-ks">S</span> ou 🖱️ cliquez `Enr. image courante` pour enregistrer le **dernier** 
   résultat de traitement avec horodatage
