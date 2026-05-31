@@ -52,6 +52,16 @@ ensure_safe_directory_pair() {
   esac
 }
 
+ensure_stable_release_tag() {
+  local tag_name="$1"
+
+  if [[ ! "$tag_name" =~ ^v[0-9]+(\.[0-9]+)*$ ]]; then
+    echo "Error: production deployment requires a stable release tag such as v0.7.1."
+    echo "Error: got tag: $tag_name"
+    exit 1
+  fi
+}
+
 list_top_level_entries() {
   local directory_path="$1"
 
@@ -110,6 +120,8 @@ require_variable "CI_COMMIT_TAG"
 require_variable "CI_PROJECT_DIR"
 
 repo_root="$CI_PROJECT_DIR"
+ensure_stable_release_tag "$CI_COMMIT_TAG"
+
 prod_dir="$(canonicalize_directory "PROD_DIR")"
 backup_root="$(canonicalize_directory "PROD_BACKUP_DIR")"
 
