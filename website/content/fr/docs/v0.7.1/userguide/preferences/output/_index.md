@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-30T15:59:16Z
+lastmod: 2026-05-31T04:43:20Z
 keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
 draft: false
 type: "docs"
@@ -51,8 +51,8 @@ ALS enregistre les images de la sortie principale dans l'un des formats suivants
 {{< center >}}
 {{< figure src="formats.png"
 caption="Préférences du format de fichier de la sortie principale"
-width="622px"
-height="213px"
+width="628px"
+height="203px"
 alt="" >}}
 {{< /center >}}
 
