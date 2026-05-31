@@ -4,9 +4,16 @@ set -e
 #
 # compute version number for current tag and/or hash
 #
+# Only ALS version tags are used as application versions:
+#   - stable tags: v1, v1.0, v1.0.0
+#   - prerelease tags: v1.0-beta1, v1.0-rc1
+#
+# Other tags, such as deployment test tags, are ignored for app versioning and
+# fall back to the regular development build number.
+#
 ###########################################################################
 
-version_tag_pattern='^v[0-9]+(\.[0-9]+)*$'
+version_tag_pattern='^v[0-9]+(\.[0-9]+)*(-[0-9A-Za-z][0-9A-Za-z._-]*)?$'
 tags=$(git tag --contains HEAD)
 version_tags=$(echo "${tags}" | grep -E "${version_tag_pattern}" || true)
 
