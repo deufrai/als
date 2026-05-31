@@ -2,13 +2,13 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-29T07:00:55Z
+lastmod: 2026-05-31T13:30:05Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
 ---
 
-## Version 1.0 {#1.0}
+## Version 1.0
 
 **Date:** soon :)
 
@@ -25,7 +25,7 @@ weight: 100550
 
 ---
 
-## Version 0.7.1 {#0.7.1}
+## Version 0.7.1
 
 **Date:** May 31, 2026
 
@@ -34,7 +34,7 @@ weight: 100550
 - Image server is now reachable when the system running ALS also acts as a
   hotspot or has several network connections
 
-## Version 0.7 {#0.7}
+## Version 0.7
 
 **Date:** October 27, 2025
 
