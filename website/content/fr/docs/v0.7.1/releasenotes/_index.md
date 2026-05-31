@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-05-30T19:57:40Z
+lastmod: 2026-05-31T04:20:56Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ ]
 weight: 71550
@@ -10,7 +10,7 @@ weight: 71550
 
 ## Version 0.7.1 {#0.7.1}
 
-**Date :** TBD
+**Date :** 31 mai 2026
 
 ### Améliorations
 

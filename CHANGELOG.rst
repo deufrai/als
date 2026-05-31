@@ -5,7 +5,7 @@ Changelog
 Version 0.7.1
 =============
 
-**Date:** TBD
+**Date:** May 31, 2026
 
 Improvements
 ------------
