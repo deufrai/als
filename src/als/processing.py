@@ -1,6 +1,7 @@
 """
 Provides all means of image processing
 """
+import threading
 import time
 from abc import abstractmethod
 from logging import getLogger
@@ -977,6 +978,27 @@ class QueueConsumer(QThread):
         QThread.__init__(self)
         self._name = name
         self._queue = queue
+        self.setObjectName(name)
+
+    def _prepare_thread_logging(self) -> None:
+        """
+        Names the Python logging thread when this consumer runs in its QThread.
+        """
+        try:
+            name = getattr(self, "_name", None)
+        except RuntimeError:
+            return
+
+        if name is None:
+            return
+
+        try:
+            is_current_qthread = QThread.currentThread() == self
+        except RuntimeError:
+            return
+
+        if is_current_qthread:
+            threading.current_thread().name = name
 
     @abstractmethod
     @log

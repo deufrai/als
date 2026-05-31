@@ -26,6 +26,7 @@ _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _IGNORED_FILENAME_START_PATTERNS = ['.', '~', 'tmp']
 EXPOSURE_TIME_EXIF_TAG = 'EXIF ExposureTime'
 SCANNER_TYPE_FILESYSTEM = "FS"
+FOLDER_SCANNER_THREAD_NAME = "folder-scanner"
 
 
 class InputError(Exception):
@@ -123,6 +124,7 @@ class FolderScanner(FileSystemEventHandler, InputScanner, QObject):
         try:
             scan_folder_path = config.get_scan_folder_path()
             self._observer = PollingObserver()
+            self._observer.name = FOLDER_SCANNER_THREAD_NAME
             self._observer.schedule(self, scan_folder_path, recursive=True)
             self._observer.start()
         except OSError as os_error:

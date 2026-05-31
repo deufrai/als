@@ -47,6 +47,15 @@ def log(func: Callable[..., _T]) -> Callable[..., _T]:
 
     @wraps(func)
     def wrapped(*args: Any, **kwargs: Any) -> _T:
+        if args:
+            try:
+                prepare_thread_logging = getattr(args[0], "_prepare_thread_logging", None)
+            except RuntimeError:
+                prepare_thread_logging = None
+
+            if prepare_thread_logging is not None:
+                prepare_thread_logging()
+
         if logger.isEnabledFor(logging.DEBUG):
             logger.debug("%s() called with : %s - %s", function_name, args, kwargs)
             start_time = time()
