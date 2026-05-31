@@ -16,6 +16,11 @@ if [ -z "${NODE_PATH:-}" ]; then
   exit 1
 fi
 
+if [ -z "${PREPROD_BASE_URL:-}" ]; then
+  echo "Error: PREPROD_BASE_URL environment variable is not set."
+  exit 1
+fi
+
 # Add Node.js binaries to PATH
 export PATH="$PATH:$NODE_PATH"
 
@@ -41,7 +46,7 @@ sed -i "s/@@COMMIT_ID@@/${CI_COMMIT_SHORT_SHA:-UNDEFINED}/g" website/layouts/par
 
 echo "Building the Hugo site to a temporary directory..."
 BUILD_DIR=$(mktemp -d)
-hugo --cleanDestinationDir --source website --destination "$BUILD_DIR"
+hugo --cleanDestinationDir --source website --destination "$BUILD_DIR" --baseURL "$PREPROD_BASE_URL"
 
 echo "Emptying the target folder: ${STAGING_DIR:?}"
 rm -rf "${STAGING_DIR:?}"/*

@@ -116,6 +116,7 @@ restore_backup() {
 require_variable "PROD_DIR"
 require_variable "PROD_BACKUP_DIR"
 require_variable "NODE_PATH"
+require_variable "PROD_BASE_URL"
 require_variable "CI_COMMIT_TAG"
 require_variable "CI_PROJECT_DIR"
 
@@ -174,7 +175,7 @@ sed -i "s/@@COMMIT_ID@@/${CI_COMMIT_SHORT_SHA:-UNDEFINED}/g" website/layouts/par
 
 echo "Building the Hugo site to a temporary directory..."
 build_dir=$(mktemp -d)
-hugo --cleanDestinationDir --source website --destination "$build_dir"
+hugo --cleanDestinationDir --source website --destination "$build_dir" --baseURL "$PROD_BASE_URL"
 
 if [ ! -f "$build_dir/index.html" ]; then
   echo "Error: Hugo build output does not contain index.html."
