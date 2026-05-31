@@ -59,11 +59,14 @@ list_top_level_entries() {
 }
 
 restore_backup() {
+  local rollback_failed=0
+
   if [ "${deployment_started:-0}" -ne 1 ]; then
     return
   fi
 
-  echo "Deployment failed. Restoring backed-up production entries..."
+  echo "ROLLBACK STARTED: deployment failed after production changes began."
+  echo "ROLLBACK STARTED: restoring backed-up production entries from: $backup_dir"
   set +e
 
   while IFS= read -r entry_name; do
@@ -71,7 +74,7 @@ restore_backup() {
       continue
     fi
 
-    rm -rf "$prod_dir/$entry_name"
+    rm -rf "$prod_dir/$entry_name" || rollback_failed=1
   done < "$managed_entries_file"
 
   while IFS= read -r search_index_path; do
@@ -79,15 +82,24 @@ restore_backup() {
       continue
     fi
 
-    rm -f "$search_index_path"
+    rm -f "$search_index_path" || rollback_failed=1
   done < "$search_indexes_file"
 
   if [ -d "$backup_dir/prod" ]; then
-    cp -a "$backup_dir/prod"/. "$prod_dir"/
+    cp -a "$backup_dir/prod"/. "$prod_dir"/ || rollback_failed=1
+  else
+    echo "ROLLBACK FAILED: backup payload directory is missing: $backup_dir/prod"
+    rollback_failed=1
   fi
 
   trap - ERR
-  echo "Rollback completed from backup: $backup_dir"
+
+  if [ "$rollback_failed" -ne 0 ]; then
+    echo "ROLLBACK FAILED: manual restore required from backup: $backup_dir"
+    exit 2
+  fi
+
+  echo "ROLLBACK COMPLETED: restored production entries from backup: $backup_dir"
   exit 1
 }
 
