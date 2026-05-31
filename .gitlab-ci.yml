@@ -46,11 +46,6 @@ variables:
         - .gitlab-ci.yml
     - when: never
 
-.prod_deploy_test_rules:
-  rules:
-    - if: '$CI_COMMIT_TAG =~ /^prod-deploy-test-[0-9A-Za-z._-]+$/'
-    - when: never
-
 .prod_deploy_manual_test_rules:
   rules:
     - if: '$CI_COMMIT_TAG =~ /^prod-deploy-test-[0-9A-Za-z._-]+$/'
@@ -174,13 +169,6 @@ Deploy website to preprod:
     url: https://preprod.als-app.org/
 
 # ────────────────────────── Website Prod Deployment ─────────
-
-Validate prod deploy test tag:
-  extends: .prod_deploy_test_rules
-  stage: deploy
-  tags: [infra]
-  script:
-    - echo "Production deploy test tag pipeline is wired."
 
 Deploy website to prod:
   extends: .prod_deploy_manual_test_rules
