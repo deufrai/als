@@ -115,3 +115,4 @@ venv.bak/
 \.idea/
 
 .DS_Store
+/analyzer/*-pycharm-support-libs/
