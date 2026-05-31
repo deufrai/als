@@ -86,7 +86,9 @@ restore_backup() {
     cp -a "$backup_dir/prod"/. "$prod_dir"/
   fi
 
+  trap - ERR
   echo "Rollback completed from backup: $backup_dir"
+  exit 1
 }
 
 require_variable "PROD_DIR"
