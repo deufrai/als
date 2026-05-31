@@ -220,6 +220,14 @@ while IFS= read -r search_index_path; do
   rm -f "$search_index_path"
 done < "$search_indexes_file"
 
+# TODO: REMOVE ME before production release.
+# Temporary rollback test hook. This intentionally fails after production
+# managed entries have been removed, while the rollback trap is active.
+if [ "${PROD_DEPLOY_FAIL_AFTER_REMOVE:-0}" = "1" ]; then
+  echo "Intentional production deployment failure after removal for rollback test."
+  exit 42
+fi
+
 echo "Copying new Hugo build entries to production..."
 while IFS= read -r entry_name; do
   cp -a "$build_dir/$entry_name" "$prod_dir/"
