@@ -671,22 +671,59 @@
          <property name="title">
           <string>Server</string>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_11">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <layout class="QFormLayout" name="formLayout_server">
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbl_server_address">
+            <property name="text">
+             <string>Displayed &amp;address</string>
+            </property>
+            <property name="buddy">
+             <cstring>cmb_web_server_address</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_server_address">
             <item>
-             <widget class="QLabel" name="lbl_server_port">
-              <property name="text">
-               <string>&amp;Port number</string>
-              </property>
-              <property name="textFormat">
-               <enum>Qt::AutoText</enum>
-              </property>
-              <property name="buddy">
-               <cstring>ln_web_server_port</cstring>
+             <widget class="QComboBox" name="cmb_web_server_address">
+              <property name="minimumSize">
+               <size>
+                <width>220</width>
+                <height>0</height>
+               </size>
               </property>
              </widget>
             </item>
+            <item>
+             <spacer name="horizontalSpacer_server_address">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lbl_server_port">
+            <property name="text">
+             <string>&amp;Port number</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::AutoText</enum>
+            </property>
+            <property name="buddy">
+             <cstring>ln_web_server_port</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
             <item>
              <widget class="QLineEdit" name="ln_web_server_port">
               <property name="maximumSize">
@@ -813,6 +850,7 @@
   <tabstop>btn_browse_web</tabstop>
   <tabstop>ln_web_folder_path</tabstop>
   <tabstop>chk_save_on_stop</tabstop>
+  <tabstop>cmb_web_server_address</tabstop>
   <tabstop>ln_web_server_port</tabstop>
   <tabstop>btn_OK</tabstop>
   <tabstop>btn_Cancel</tabstop>

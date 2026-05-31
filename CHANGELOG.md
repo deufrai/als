@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-03T18:22:42Z
+lastmod: 2026-05-31T12:11:38Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ ]
 weight: 100550
@@ -15,6 +15,15 @@ weight: 100550
 ### New Features
 
 - Flat frame calibration
+
+## Version 0.7.1 {#0.7.1}
+
+**Date:** May 31, 2026
+
+### Improvements
+
+- Image server is now reachable when the system running ALS also acts as a
+  hotspot or has several network connections
 
 ## Version 0.7 {#0.7}
 

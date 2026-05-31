@@ -46,7 +46,10 @@ enableGitInfo = true
   [[params.versions]]
     url = "/docs/v1.0/"
     version = "v1.0"
-[[params.versions]]
+  [[params.versions]]
+    url = "/docs/v0.7.1/"
+    version = "v0.7.1"
+  [[params.versions]]
     url = "/docs/v0.7/"
     version = "v0.7"
 

@@ -57,6 +57,8 @@ class I18n(QObject):
 
     WEB_SERVER = "TEMP"
     ADDRESS = "TEMP"
+    AUTO_RECOMMENDED = "TEMP"
+    NETWORK_ADAPTER = "TEMP"
 
     TOOLTIP_BLACK_LEVEL = "TEMP"
     TOOLTIP_MIDTONES_LEVEL = "TEMP"
@@ -93,6 +95,8 @@ class I18n(QObject):
         I18n.PAUSED = self.tr("paused")
         I18n.WEB_SERVER = self.tr("web server")
         I18n.ADDRESS = self.tr("address")
+        I18n.AUTO_RECOMMENDED = self.tr("Auto - recommended")
+        I18n.NETWORK_ADAPTER = self.tr("Network adapter")
         I18n.TOOLTIP_RED_LEVEL = self.tr("Red level")
         I18n.TOOLTIP_GREEN_LEVEL = self.tr("Green level")
         I18n.TOOLTIP_BLUE_LEVEL = self.tr("Blue level")
@@ -118,7 +122,9 @@ class DynamicData:
     def __init__(self):
         self.session = Session()
         self.web_server_is_running = False
-        self.web_server_ip = ""
+        self.web_server_advertised_ip = ""
+        self.web_server_advertised_url = ""
+        self.web_server_address_candidates: List[object] = list()
         self.stack_size = 0
         self.post_processor_result = None
         self.histogram_container: HistogramContainer = None
