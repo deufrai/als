@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2025-11-29T07:00:55Z
+lastmod: 2026-05-31T13:33:54Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -22,6 +22,16 @@ weight: 100550
 ### Bug Fixes
 
 - Webview image and exposition data could display stale values because browsers cached the resources between subs.
+
+---
+
+## Version 0.7.1 {#0.7.1}
+
+**Date:** May 31, 2026
+
+### Improvements
+
+- Image server is now reachable when the system running ALS also acts as a hotspot or has several network connections.
 
 ---
 

@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2025-11-29T07:00:55Z
+lastmod: 2026-05-31T13:33:54Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ 'notes de version', 'journal des modifications' ]
 weight: 100550
@@ -23,6 +23,16 @@ weight: 100550
 
 - L'image et les données d'exposition du webview pouvaient rester périmées à cause de la mise en cache navigateur entre 
   deux brutes.
+
+---
+
+## Version 0.7.1 {#0.7.1}
+
+**Date :** 31 mai 2026
+
+### Améliorations
+
+- Le serveur d'images est maintenant accessible lorsque le système exécutant ALS fait aussi office de hotspot ou dispose de plusieurs connexions réseau.
 
 ---
 
