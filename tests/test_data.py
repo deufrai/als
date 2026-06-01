@@ -1,7 +1,7 @@
 from als.model.data import DynamicData
 
 
-def test_dynamic_data_initializes_web_server_runtime_fields() -> None:
+def test_given_fresh_dynamic_data_when_initialized_then_web_server_runtime_fields_are_defaulted() -> None:
     """
     Checks default web server runtime fields on fresh dynamic data.
     """
@@ -13,7 +13,7 @@ def test_dynamic_data_initializes_web_server_runtime_fields() -> None:
     assert dynamic_data.web_server_address_candidates == []
 
 
-def test_dynamic_data_uses_distinct_candidate_lists() -> None:
+def test_given_multiple_dynamic_data_instances_when_candidate_list_is_changed_then_instances_do_not_share_candidates() -> None:
     """
     Checks that address candidate lists are not shared between instances.
     """
