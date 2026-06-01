@@ -14,6 +14,14 @@ repository. Follow it in addition to any direct user instructions.
   goals/constraints and implementation sequence. Avoid redundant summary
   sections once the decisions are already explicit.
 
+## Code Style
+
+- Function names must clearly describe what the function does. Reading function
+  signatures should give a useful outline of the module behavior without
+  requiring a full implementation read.
+- Function names should start with a verb when practical
+- Event handler names should use `on_xxxxxxx` or `_on_xxxxxxx` when private.
+
 
 ## Generated Files
 
@@ -21,8 +29,7 @@ repository. Follow it in addition to any direct user instructions.
 - Do not hand-edit files under `src/generated/`.
 - For UI changes, edit the source `.ui` files under `src/als/ui/`.
 - Use `utils/compile_ui_and_rc.py` to validate/regenerate generated UI locally
-  when needed. Generated files may be refreshed by hooks/build scripts and do not
-  need to be treated as the authored change.
+  when needed. 
 
 ## UI
 
@@ -99,11 +106,7 @@ repository. Follow it in addition to any direct user instructions.
 
 - CI YAML files are orchestration only. Put executable logic in scripts under
   `ci/`.
-- Tests must run in the `validate` stage before build jobs. The current test job
-  runs on the same Mac Silicon runner/environment family as the `Build Mac/ARM`
-  job.
-- Keep build scripts and test scripts aligned when a job intentionally shares a
-  runner environment with a platform build.
+
 
 ## Commits
 
