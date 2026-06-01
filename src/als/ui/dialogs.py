@@ -15,7 +15,10 @@ from als import config
 from als.code_utilities import log, AlsLogAdapter
 from als.logic import Controller
 from als.messaging import MESSAGE_HUB
-from als.model.data import VERSION, DYNAMIC_DATA, I18n
+from als.model.data import (
+    VERSION, DYNAMIC_DATA, I18n, WEB_SERVER_ACTIVE_STATUSES,
+    WEB_SERVER_STATUS_RUNNING
+)
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, build_advertised_address_preference,
     get_network_address_candidates
@@ -43,9 +46,12 @@ class PreferencesDialog(QDialog):
         self._ui.tabWidget.setCurrentIndex(0)
         self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
-        self._ui.pathsBox.setEnabled(not DYNAMIC_DATA.web_server_is_running and DYNAMIC_DATA.session.is_stopped)
+        web_server_is_active = (
+            DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES)
+        self._ui.pathsBox.setEnabled(
+            not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
         _set_web_server_port_controls_enabled(
-            self._ui, not DYNAMIC_DATA.web_server_is_running)
+            self._ui, not web_server_is_active)
 
 
         self._ui.cmb_lang.setItemData(0, 'sys')
@@ -274,7 +280,7 @@ class PreferencesDialog(QDialog):
             return
         config.set_www_server_advertised_address(
             self._ui.cmb_web_server_address.currentData())
-        if DYNAMIC_DATA.web_server_is_running:
+        if DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_RUNNING:
             Controller.update_web_server_advertised_address()
 
         # debug log choice
@@ -574,7 +580,7 @@ class QRDisplay(QDialog):
         """
         Create a new QR code from the current runtime server URL.
         """
-        if DYNAMIC_DATA.web_server_is_running:
+        if DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_RUNNING:
 
             qr = qrcode.QRCode(
                 version=1,

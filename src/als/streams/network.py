@@ -5,10 +5,12 @@ import os
 import socket
 from concurrent.futures import Future
 from logging import getLogger
+from threading import Event
 from typing import Any, Iterable, List, Mapping, Optional, Sequence
 
 import psutil
 from aiohttp import web
+from PyQt5.QtCore import QObject, pyqtSignal
 
 from als import config
 from als.code_utilities import log, AlsLogAdapter
@@ -314,22 +316,35 @@ def select_advertised_address(
     return candidates[0]
 
 
-class Server:
+class Server(QObject):
+
+    stopped_signal = pyqtSignal()
 
     @log
     def __init__(self, static_path):
+        QObject.__init__(self)
         self._static_path = static_path
-        self._app = web.Application()
-        self._app.add_routes([web.get('/ws', self._handle_websocket_request)])
-        self._app.add_routes([web.get('/', self._handle_index_request)])
-
-        # Catch-all route for static files
-        self._app.router.add_static('/', self._static_path)
-
+        self._app = None
         self._clients = []
         self._runner = None
-        self._loop = asyncio.new_event_loop()
+        self._loop = None
         self._server_task = None
+        self._stop_requested = Event()
+
+    @log
+    def _build_app(self) -> web.Application:
+        """
+        Builds the aiohttp application for the current server event loop.
+
+        :return: configured aiohttp application
+        """
+        app = web.Application()
+        app.add_routes([web.get('/ws', self._handle_websocket_request)])
+        app.add_routes([web.get('/', self._handle_index_request)])
+
+        # Catch-all route for static files
+        app.router.add_static('/', self._static_path)
+        return app
 
     @log
     async def _handle_websocket_request(self, request):
@@ -400,8 +415,15 @@ class Server:
         self._set_startup_success(startup_future)
 
         try:
-            while True:
-                await asyncio.sleep(3600)
+            while not self._stop_requested.is_set():
+                await asyncio.sleep(0.1)
+            await self._send_message_to_clients({'type': 'disconnect'})
+
+            # Wait for a short time to allow clients to disconnect
+            await asyncio.sleep(2)
+
+            if self._runner:
+                await self._runner.cleanup()
         except asyncio.CancelledError:
             pass
 
@@ -415,37 +437,22 @@ class Server:
         :param startup_future: future shared with the controller
         """
         if task.cancelled():
+            self._loop.stop()
             return
 
         error = task.exception()
         if error is not None:
             self._set_startup_exception(startup_future, error)
-            self._loop.stop()
-
-    @log
-    async def _stop_server(self):
-        # Notify clients to disconnect
-        await self._send_message_to_clients({'type': 'disconnect'})
-
-        # Wait for a short time to allow clients to disconnect
-        await asyncio.sleep(2)
-
-        if self._runner:
-            await self._runner.cleanup()
-        self._server_task.cancel()
-        try:
-            await self._server_task
-        except asyncio.CancelledError:
-            pass
+        self._loop.stop()
 
     @log
     def stop(self):
-        future = asyncio.run_coroutine_threadsafe(self._stop_server(), self._loop)
-        future.result()  # Ensure the coroutine is awaited and completed
-        self._loop.call_soon_threadsafe(self._loop.stop)
+        self._stop_requested.set()
 
     @log
     def send_message(self, message):
+        if self._loop is None:
+            return
         future = asyncio.run_coroutine_threadsafe(self._send_message_to_clients(message), self._loop)
         future.result()  # Ensure the coroutine is awaited and completed
 
@@ -459,6 +466,11 @@ class Server:
         :param port: port number to bind
         :param startup_future: optional future used to report startup result
         """
+        self._stop_requested.clear()
+        self._loop = asyncio.new_event_loop()
+        self._app = self._build_app()
+        self._clients = []
+        self._runner = None
         asyncio.set_event_loop(self._loop)
         if port is None:
             port = config.get_www_server_port_number()
@@ -466,4 +478,10 @@ class Server:
             self._start_server(host, port, startup_future))
         self._server_task.add_done_callback(
             lambda task: self._on_server_task_done(task, startup_future))
-        self._loop.run_forever()
+        try:
+            self._loop.run_forever()
+        finally:
+            self._loop.close()
+            self._loop = None
+            self._app = None
+            self.stopped_signal.emit()

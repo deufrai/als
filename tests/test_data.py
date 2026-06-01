@@ -1,4 +1,4 @@
-from als.model.data import DynamicData
+from als.model.data import DynamicData, WEB_SERVER_STATUS_STOPPED
 
 
 def test_given_fresh_dynamic_data_when_initialized_then_web_server_runtime_fields_are_defaulted() -> None:
@@ -7,7 +7,7 @@ def test_given_fresh_dynamic_data_when_initialized_then_web_server_runtime_field
     """
     dynamic_data = DynamicData()
 
-    assert dynamic_data.web_server_is_running is False
+    assert dynamic_data.web_server_status == WEB_SERVER_STATUS_STOPPED
     assert dynamic_data.web_server_advertised_ip == ""
     assert dynamic_data.web_server_advertised_url == ""
     assert dynamic_data.web_server_address_candidates == []

@@ -20,7 +20,11 @@ from als.config import CouldNotSaveConfig
 from als.logic import Controller, SessionError, FolderSetupError, WebServerOnLoopback, \
     PortInUseError
 from als.messaging import MESSAGE_HUB
-from als.model.data import DYNAMIC_DATA, I18n
+from als.model.data import (
+    DYNAMIC_DATA, I18n, WEB_SERVER_STATUS_RUNNING,
+    WEB_SERVER_STATUS_STARTING, WEB_SERVER_STATUS_STOPPED,
+    WEB_SERVER_STATUS_STOPPING
+)
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
     message_box, SessionStopDialog, QRDisplay
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
@@ -59,6 +63,7 @@ class MainWindow(QMainWindow):
         self._qrDisplay = QRDisplay(self)
         self._qrDisplay.hide()
         self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
+        self._web_server_was_running = False
 
         # populate stacking mode combo box=
         self._ui.cb_stacking_mode.blockSignals(True)
@@ -577,13 +582,8 @@ class MainWindow(QMainWindow):
         """
         Qt slot executed when STOP web button is clicked
         """
-
-        self._ui.btn_web_stop.setEnabled(False)
-        self._qrDisplay.setVisible(False)
-        self._ui.lbl_web_server_status_main.setText(I18n.STOPPING)
-        QApplication.processEvents()
         self._controller.stop_www()
-        self.update_display()
+
 
     @log
     def on_action_full_screen_toggled(self, checked):
@@ -843,22 +843,37 @@ class MainWindow(QMainWindow):
             self._ui.histogram_view.update()
 
         else:
-            web_server_is_running = DYNAMIC_DATA.web_server_is_running
+            web_server_status = DYNAMIC_DATA.web_server_status
+            web_server_is_running = web_server_status == WEB_SERVER_STATUS_RUNNING
+            web_server_is_starting = web_server_status == WEB_SERVER_STATUS_STARTING
+            web_server_is_stopped = web_server_status == WEB_SERVER_STATUS_STOPPED
+            web_server_is_stopping = web_server_status == WEB_SERVER_STATUS_STOPPING
             session = DYNAMIC_DATA.session
             session_is_running = session.is_running
             session_is_stopped = session.is_stopped
             session_is_paused = session.is_paused
 
-            # update web server status
+            # update web server status and QR visibility
             if web_server_is_running:
                 url = DYNAMIC_DATA.web_server_advertised_url
-                webserver_status = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #CC0000">{url}</a>'
+                web_server_status_text = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #CC0000">{url}</a>'
                 self._ui.action_qrcode.setEnabled(True)
+            elif web_server_is_starting:
+                web_server_status_text = I18n.STARTING
+                self._ui.action_qrcode.setDisabled(True)
+            elif web_server_is_stopping:
+                web_server_status_text = I18n.STOPPING
+                self._ui.action_qrcode.setDisabled(True)
             else:
-                webserver_status = I18n.STOPPED_M
+                web_server_status_text = I18n.STOPPED_M
                 self._ui.action_qrcode.setDisabled(True)
 
-            self._ui.lbl_web_server_status_main.setText(f"{webserver_status}")
+            if self._web_server_was_running and not web_server_is_running:
+                self._qrDisplay.setVisible(False)
+
+            self._web_server_was_running = web_server_is_running
+
+            self._ui.lbl_web_server_status_main.setText(f"{web_server_status_text}")
 
             if session_is_stopped:
                 session_status = I18n.STOPPED_F
@@ -882,7 +897,7 @@ class MainWindow(QMainWindow):
             self._ui.cb_stacking_mode.setEnabled(session_is_stopped)
 
             # handle web stop start buttons
-            self._ui.btn_web_start.setEnabled(not web_server_is_running)
+            self._ui.btn_web_start.setEnabled(web_server_is_stopped)
             self._ui.btn_web_stop.setEnabled(web_server_is_running)
 
             # update stack size and total exposure time
@@ -895,7 +910,7 @@ class MainWindow(QMainWindow):
             scanner_status_message = f"{I18n.SCANNER} {I18n.OF} {config.get_scan_folder_path()} : "
             scanner_status_message += f"{I18n.RUNNING_M}" if session_is_running else f"{I18n.STOPPED_M}"
             self._lbl_statusbar_scanner_status.setText(scanner_status_message)
-            self._lbl_statusbar_web_server_status.setText(f"{I18n.WEB_SERVER} : {webserver_status}")
+            self._lbl_statusbar_web_server_status.setText(f"{I18n.WEB_SERVER} : {web_server_status_text}")
             self._lbl_statusbar_session_status.setText(f"{I18n.SESSION} {session_status}")
             self._lbl_statusbar_stack_size.setText(f"{I18n.STACK_SIZE} : {stack_size_str}")
             self._lbl_statusbar_stack_exposure.setText(
@@ -1022,7 +1037,9 @@ class MainWindow(QMainWindow):
 
             self.update_display()
 
-            if DYNAMIC_DATA.web_server_is_running and previous_advertised_ip != DYNAMIC_DATA.web_server_advertised_ip:
+            if (
+                    DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_RUNNING
+                    and previous_advertised_ip != DYNAMIC_DATA.web_server_advertised_ip):
 
                 if self._qrDisplay.isVisible():
                     self._qrDisplay.update_code()

@@ -24,6 +24,16 @@ IMAGE_SAVE_TYPE_JPEG = "jpg"
 STACKED_IMAGE_FILE_NAME_BASE = "stack_image"
 WEB_SERVED_IMAGE_FILE_NAME_BASE = "web_image"
 
+WEB_SERVER_STATUS_STOPPED = "stopped"
+WEB_SERVER_STATUS_STARTING = "starting"
+WEB_SERVER_STATUS_RUNNING = "running"
+WEB_SERVER_STATUS_STOPPING = "stopping"
+WEB_SERVER_ACTIVE_STATUSES = (
+    WEB_SERVER_STATUS_STARTING,
+    WEB_SERVER_STATUS_RUNNING,
+    WEB_SERVER_STATUS_STOPPING,
+)
+
 
 # pylint: disable=R0903
 class I18n(QObject):
@@ -123,7 +133,7 @@ class DynamicData:
     """
     def __init__(self):
         self.session = Session()
-        self.web_server_is_running = False
+        self.web_server_status = WEB_SERVER_STATUS_STOPPED
         self.web_server_advertised_ip = ""
         self.web_server_advertised_url = ""
         self.web_server_address_candidates: List[object] = list()

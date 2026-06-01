@@ -38,7 +38,9 @@ from als.model.base import Image, Session, VisualProfile, PhotoProfile
 from als.model.data import (
     DYNAMIC_DATA,
     I18n, STACKED_IMAGE_FILE_NAME_BASE,
-    IMAGE_SAVE_TYPE_JPEG, WEB_SERVED_IMAGE_FILE_NAME_BASE
+    IMAGE_SAVE_TYPE_JPEG, WEB_SERVED_IMAGE_FILE_NAME_BASE,
+    WEB_SERVER_ACTIVE_STATUSES, WEB_SERVER_STATUS_RUNNING, WEB_SERVER_STATUS_STARTING,
+    WEB_SERVER_STATUS_STOPPED, WEB_SERVER_STATUS_STOPPING
 )
 from als.model.params import ProcessingParameter
 from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
@@ -91,7 +93,7 @@ class Controller:
     def __init__(self):
 
         DYNAMIC_DATA.session.set_status(Session.stopped)
-        DYNAMIC_DATA.web_server_is_running = False
+        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
         self._save_every_image = False
 
         DYNAMIC_DATA.pre_processor_busy = False
@@ -167,6 +169,7 @@ class Controller:
         self._saver.save_completed_signal[str].connect(self.on_image_saved)
 
         DYNAMIC_DATA.session.status_changed_signal.connect(self._notify_model_observers)
+        self._web_server.stopped_signal.connect(self.on_web_server_stopped)
 
         self._metrics_timer = QTimer()
         self._metrics_timer.setInterval(2000)
@@ -605,6 +608,9 @@ class Controller:
         """Starts web server"""
 
         # only setup web content if needed
+        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STARTING
+        self._notify_model_observers()
+
         Controller._setup_web_static_content()
         self.write_stack_info_json()
 
@@ -622,16 +628,20 @@ class Controller:
             except OSError as error:
                 self._server_thread.join()
                 self._server_thread = None
+                DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
+                self._notify_model_observers()
                 raise PortInUseError() from error
             except Exception:
                 self._server_thread.join()
                 self._server_thread = None
+                DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
+                self._notify_model_observers()
                 raise
 
         advertised_address = self.update_web_server_advertised_address()
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started"))
 
-        DYNAMIC_DATA.web_server_is_running = True
+        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_RUNNING
 
         # if we can only advertise loopback, keep running but notify the powers that be
         if advertised_address.is_loopback:
@@ -666,7 +676,7 @@ class Controller:
         :param message: the message to send
         :type message: dict
         """
-        if DYNAMIC_DATA.web_server_is_running:
+        if DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_RUNNING:
             self._web_server.send_message(message)
 
     @log
@@ -677,17 +687,34 @@ class Controller:
         self._send_message_to_clients({"type": "new_image"})
 
     @log
-    def stop_www(self):
+    def stop_www(self, wait: bool = False):
         """Stops web server"""
 
-        if self._web_server and DYNAMIC_DATA.web_server_is_running:
+        if self._web_server and DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES:
+            if DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_STOPPING:
+                if wait and self._server_thread is not None:
+                    self._server_thread.join()
+                    self.on_web_server_stopped()
+                return
             if self._server_thread is not None:
+                DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPING
+                self._notify_model_observers()
                 self._web_server.stop()
-                self._server_thread.join()
-                self._server_thread = None
-            MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server stopped"))
-            DYNAMIC_DATA.web_server_is_running = False
-            self._notify_model_observers()
+                if wait:
+                    self._server_thread.join()
+                    self.on_web_server_stopped()
+
+    @log
+    def on_web_server_stopped(self) -> None:
+        """
+        Completes web server stop state changes on the Qt thread.
+        """
+        if DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_STOPPED:
+            return
+        self._server_thread = None
+        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server stopped"))
+        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
+        self._notify_model_observers()
 
     @staticmethod
     @log
@@ -841,8 +868,8 @@ class Controller:
         if not DYNAMIC_DATA.session.is_stopped:
             self.stop_session()
 
-        if DYNAMIC_DATA.web_server_is_running:
-            self.stop_www()
+        if DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES:
+            self.stop_www(wait=True)
 
         self._stop_queue_consumer(self._pre_process_queue, self._pre_process_pipeline)
         self._stop_queue_consumer(self._stacker_queue, self._stacker)
