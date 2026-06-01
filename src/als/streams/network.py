@@ -1,14 +1,14 @@
 import asyncio
-from concurrent.futures import Future
 import ipaddress
 import json
 import os
 import socket
+from concurrent.futures import Future
 from logging import getLogger
 from typing import Any, Iterable, List, Mapping, Optional, Sequence
 
-from aiohttp import web
 import psutil
+from aiohttp import web
 
 from als import config
 from als.code_utilities import log, AlsLogAdapter

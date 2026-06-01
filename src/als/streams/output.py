@@ -12,12 +12,10 @@ import cv2
 from PyQt5.QtCore import QT_TRANSLATE_NOOP, pyqtSignal
 
 import als.model.data
-from als import config
 from als.code_utilities import log, SignalingQueue, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image
 from als.processing import QueueConsumer
-from als.model.data import WEB_SERVED_IMAGE_FILE_NAME_BASE
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 

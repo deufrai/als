@@ -18,12 +18,11 @@ from scipy.signal import convolve2d
 from als import config
 from als.code_utilities import log, Timer, SignalingQueue, human_readable_byte_size, available_memory, AlsLogAdapter
 from als.crunching import compute_histograms_for_display
-from als.streams import input as als_input
-from als.streams.input import read_disk_image
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image, RunningProfile
 from als.model.data import I18n, DYNAMIC_DATA
 from als.model.params import ProcessingParameter, RangeParameter, SwitchParameter
+from als.streams.input import read_disk_image
 from contrib.stretch import Stretch
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -561,7 +560,7 @@ def _get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
         _LOGGER.debug("Using cached master dark: %s", master_dark_path)
         return DYNAMIC_DATA.master_dark
 
-    dark = als_input.read_disk_image(Path(master_dark_path))
+    dark = read_disk_image(Path(master_dark_path))
     if dark is not None:
         _LOGGER.debug("Loaded master dark from disk: %s", master_dark_path)
         DYNAMIC_DATA.master_dark = dark
@@ -718,7 +717,7 @@ def _get_cached_master_flat(master_flat_path: str, bayer_pattern: Optional[str])
         _LOGGER.debug("Using cached normalized master flat: %s", master_flat_path)
         return DYNAMIC_DATA.master_flat
 
-    flat = als_input.read_disk_image(Path(master_flat_path))
+    flat = read_disk_image(Path(master_flat_path))
     if flat is None:
         _LOGGER.debug("Failed to load master flat from disk: %s", master_flat_path)
         return None
