@@ -7,4 +7,4 @@ python3 -m venv "${venv_name}"
 pip install -r ci/builds/build_dist_arm64_osx_req.txt
 
 python setup.py develop
-pytest -vv -ra --tb=short --durations=10
+pytest -vv -ra --tb=short --durations=10 --junit-xml=tests_report.xml

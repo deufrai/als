@@ -74,6 +74,12 @@ Run tests:
   timeout: 20m
   script:
     - ci/builds/run_tests.sh
+  artifacts:
+    when: always
+    paths:
+      - tests_report.xml
+    reports:
+      junit: tests_report.xml
 
 # ────────────────────────── Application Builds ──────────────
 
