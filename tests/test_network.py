@@ -7,21 +7,21 @@ import pytest
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO,
     advertised_address_preference,
-    get_network_address_candidates,
+    build_network_address_candidates,
     select_advertised_address,
 )
 
-Address = namedtuple("Address", ["family", "address"])
+PsutilAddress = namedtuple("PsutilAddress", ["family", "address"])
 pytestmark = pytest.mark.filterwarnings(
     "ignore:Bare functions are deprecated:DeprecationWarning")
 
 
 def _addr(ip: str) -> Any:
-    return Address(socket.AF_INET, ip)
+    return PsutilAddress(socket.AF_INET, ip)
 
 
 def test_given_private_link_local_and_loopback_addresses_when_candidates_are_discovered_then_private_addresses_are_ranked_first() -> None:
-    candidates = get_network_address_candidates(
+    candidates = build_network_address_candidates(
         8000,
         {
             "Loopback": [_addr("127.0.0.1")],
@@ -40,7 +40,7 @@ def test_given_private_link_local_and_loopback_addresses_when_candidates_are_dis
 
 
 def test_given_auto_preference_when_address_is_selected_then_highest_ranked_candidate_is_used() -> None:
-    candidates = get_network_address_candidates(
+    candidates = build_network_address_candidates(
         8000,
         {
             "Wi-Fi": [_addr("192.168.1.42")],
@@ -59,7 +59,7 @@ def test_given_auto_preference_when_address_is_selected_then_highest_ranked_cand
 
 
 def test_given_ip_preference_when_candidate_exists_then_matching_address_is_selected() -> None:
-    candidates = get_network_address_candidates(
+    candidates = build_network_address_candidates(
         8000,
         {
             "Wi-Fi": [_addr("192.168.1.42")],
@@ -76,7 +76,7 @@ def test_given_ip_preference_when_candidate_exists_then_matching_address_is_sele
 
 
 def test_given_ip_preference_when_candidate_is_missing_then_auto_candidate_is_selected() -> None:
-    candidates = get_network_address_candidates(
+    candidates = build_network_address_candidates(
         8000,
         {
             "Wi-Fi": [_addr("192.168.1.42")],
@@ -93,7 +93,7 @@ def test_given_ip_preference_when_candidate_is_missing_then_auto_candidate_is_se
 
 
 def test_given_no_discovered_addresses_when_candidates_are_requested_then_loopback_candidate_is_returned() -> None:
-    candidates = get_network_address_candidates(8000, {})
+    candidates = build_network_address_candidates(8000, {})
 
     assert len(candidates) == 1
     assert candidates[0].ip == "127.0.0.1"

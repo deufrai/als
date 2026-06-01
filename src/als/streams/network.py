@@ -227,20 +227,17 @@ def _network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
 
 
 @log
-def get_network_address_candidates(
+def build_network_address_candidates(
         port: int,
-        interface_addresses: Optional[
-            Mapping[str, Sequence[Any]]] = None) -> List[NetworkAddress]:
+        interface_addresses: Mapping[str, Sequence[Any]]) -> List[NetworkAddress]:
     """
-    Retrieves local IPv4 addresses that can be advertised to web clients.
+    Builds ranked local IPv4 addresses that can be advertised to web clients.
 
     :param port: Web server port number used to build candidate URLs
-    :param interface_addresses: Optional psutil-style address mapping for tests
+    :param interface_addresses: psutil-style address mapping
     :return: ranked list of network address candidates
     :rtype: list[NetworkAddress]
     """
-    if interface_addresses is None:
-        interface_addresses = psutil.net_if_addrs()
     candidates = []
     seen_ips = set()
 
@@ -263,6 +260,18 @@ def get_network_address_candidates(
 
     return sorted(
         candidates, key=lambda candidate: (-candidate.score, candidate.ip))
+
+
+@log
+def get_network_address_candidates(port: int) -> List[NetworkAddress]:
+    """
+    Retrieves local IPv4 addresses that can be advertised to web clients.
+
+    :param port: Web server port number used to build candidate URLs
+    :return: ranked list of network address candidates
+    :rtype: list[NetworkAddress]
+    """
+    return build_network_address_candidates(port, psutil.net_if_addrs())
 
 
 @log
