@@ -131,7 +131,7 @@ class NetworkAddress:
 
 
 @log
-def _interface_name_score(interface_name: str) -> int:
+def _score_interface_name(interface_name: str) -> int:
     """
     Scores weak interface-name hints without filtering any candidates.
 
@@ -157,7 +157,7 @@ def _interface_name_score(interface_name: str) -> int:
 
 
 @log
-def _display_interface_name(interface_name: str) -> str:
+def _build_display_interface_name(interface_name: str) -> str:
     """
     Builds a conservative display name for an interface.
 
@@ -197,12 +197,12 @@ def _score_ip_address(
         score -= 100
     if ip_address.is_loopback:
         score -= 200
-    score += _interface_name_score(interface_name)
+    score += _score_interface_name(interface_name)
     return score
 
 
 @log
-def _network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
+def _build_network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
     """
     Converts an interface/IP pair into a normalized address candidate.
 
@@ -213,7 +213,7 @@ def _network_address(interface_name: str, ip: str, port: int) -> NetworkAddress:
     """
     ip_address = ipaddress.ip_address(ip)
     url = f"http://{ip}:{port}"
-    display_name = _display_interface_name(interface_name)
+    display_name = _build_display_interface_name(interface_name)
     return NetworkAddress(
         interface_name=interface_name,
         ip=ip,
@@ -253,10 +253,11 @@ def build_network_address_candidates(
                 continue
             seen_ips.add(address.address)
             candidates.append(
-                _network_address(interface_name, address.address, port))
+                _build_network_address(interface_name, address.address, port))
 
     if not candidates:
-        candidates.append(_network_address("Loopback", "127.0.0.1", port))
+        candidates.append(
+            _build_network_address("Loopback", "127.0.0.1", port))
 
     return sorted(
         candidates, key=lambda candidate: (-candidate.score, candidate.ip))
@@ -275,7 +276,7 @@ def get_network_address_candidates(port: int) -> List[NetworkAddress]:
 
 
 @log
-def advertised_address_preference(ip: str) -> str:
+def build_advertised_address_preference(ip: str) -> str:
     """
     Builds the persisted preference value for an advertised IP address.
 
@@ -300,7 +301,7 @@ def select_advertised_address(
     """
     candidates = list(candidates)
     if not candidates:
-        candidates = get_network_address_candidates(
+        candidates = build_network_address_candidates(
             config.get_www_server_port_number(), {})
 
     by_ip = {candidate.ip: candidate for candidate in candidates}
@@ -319,8 +320,8 @@ class Server:
     def __init__(self, static_path):
         self._static_path = static_path
         self._app = web.Application()
-        self._app.add_routes([web.get('/ws', self._websocket_handler)])
-        self._app.add_routes([web.get('/', self._index_handler)])
+        self._app.add_routes([web.get('/ws', self._handle_websocket_request)])
+        self._app.add_routes([web.get('/', self._handle_index_request)])
 
         # Catch-all route for static files
         self._app.router.add_static('/', self._static_path)
@@ -331,7 +332,7 @@ class Server:
         self._server_task = None
 
     @log
-    async def _websocket_handler(self, request):
+    async def _handle_websocket_request(self, request):
         ws = web.WebSocketResponse()
         await ws.prepare(request)
         self._clients.append(ws)
@@ -344,7 +345,7 @@ class Server:
         return ws
 
     @log
-    async def _index_handler(self, _):
+    async def _handle_index_request(self, _):
         return web.FileResponse(os.path.join(self._static_path, 'index.html'))
 
     @log

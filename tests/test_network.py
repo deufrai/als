@@ -6,7 +6,7 @@ import pytest
 
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO,
-    advertised_address_preference,
+    build_advertised_address_preference,
     build_network_address_candidates,
     select_advertised_address,
 )
@@ -68,7 +68,7 @@ def test_given_ip_preference_when_candidate_exists_then_matching_address_is_sele
     )
 
     selected = select_advertised_address(
-        advertised_address_preference("10.42.0.1"),
+        build_advertised_address_preference("10.42.0.1"),
         candidates,
     )
 
@@ -85,7 +85,7 @@ def test_given_ip_preference_when_candidate_is_missing_then_auto_candidate_is_se
     )
 
     selected = select_advertised_address(
-        advertised_address_preference("192.168.50.50"),
+        build_advertised_address_preference("192.168.50.50"),
         candidates,
     )
 

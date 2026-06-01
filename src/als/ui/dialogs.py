@@ -17,7 +17,7 @@ from als.logic import Controller
 from als.messaging import MESSAGE_HUB
 from als.model.data import VERSION, DYNAMIC_DATA, I18n
 from als.streams.network import (
-    ADVERTISED_ADDRESS_AUTO, advertised_address_preference,
+    ADVERTISED_ADDRESS_AUTO, build_advertised_address_preference,
     get_network_address_candidates
 )
 from generated.about_ui import Ui_AboutDialog
@@ -624,7 +624,7 @@ def _address_preference_items(candidates):
     for candidate in candidates:
         address_items.append(
             (_address_candidate_label(candidate),
-             advertised_address_preference(candidate.ip)))
+             build_advertised_address_preference(candidate.ip)))
     return address_items
 
 
