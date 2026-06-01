@@ -9,34 +9,16 @@ class _Consumer(QueueConsumer):
         pass
 
 
-def test_queue_consumer_names_python_thread_for_logging(monkeypatch):
+def test_queue_consumer_names_python_thread_for_logging():
     """
-    Checks that QThread workers replace Python's Dummy-* logging name.
+    Checks that worker startup can replace Python's Dummy-* logging name.
     """
     consumer = _Consumer("pre-process", SignalingQueue())
     original_name = threading.current_thread().name
-    monkeypatch.setattr(
-        "als.processing.QThread.currentThread",
-        lambda: consumer)
 
     try:
-        consumer._prepare_thread_logging()
+        consumer._name_current_thread_for_logging()
 
         assert threading.current_thread().name == "pre-process"
     finally:
         threading.current_thread().name = original_name
-
-
-def test_queue_consumer_does_not_rename_other_threads(monkeypatch):
-    """
-    Checks that setup-time calls in the main Qt thread keep their Python name.
-    """
-    consumer = _Consumer("pre-process", SignalingQueue())
-    original_name = threading.current_thread().name
-    monkeypatch.setattr(
-        "als.processing.QThread.currentThread",
-        lambda: object())
-
-    consumer._prepare_thread_logging()
-
-    assert threading.current_thread().name == original_name

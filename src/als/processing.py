@@ -980,25 +980,11 @@ class QueueConsumer(QThread):
         self._queue = queue
         self.setObjectName(name)
 
-    def _prepare_thread_logging(self) -> None:
+    def _name_current_thread_for_logging(self) -> None:
         """
-        Names the Python logging thread when this consumer runs in its QThread.
+        Names the Python thread used by logging for this worker.
         """
-        try:
-            name = getattr(self, "_name", None)
-        except RuntimeError:
-            return
-
-        if name is None:
-            return
-
-        try:
-            is_current_qthread = QThread.currentThread() == self
-        except RuntimeError:
-            return
-
-        if is_current_qthread:
-            threading.current_thread().name = name
+        threading.current_thread().name = self._name
 
     @abstractmethod
     @log
@@ -1010,7 +996,6 @@ class QueueConsumer(QThread):
         :type image: Image
         """
 
-    @log
     def run(self):
         """
         Starts polling the queue and perform processing units to each image.
@@ -1018,6 +1003,8 @@ class QueueConsumer(QThread):
 
         If any processing error occurs, the current image is dropped
         """
+        self._name_current_thread_for_logging()
+
         while True:
             item = self._queue.get()
 

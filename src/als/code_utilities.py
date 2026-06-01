@@ -116,15 +116,6 @@ def log(func: Callable[..., _T] = None, *, value_formatter: Callable[[Any], Any]
 
     @wraps(func)
     def wrapped(*args: Any, **kwargs: Any) -> _T:
-        if args:
-            try:
-                prepare_thread_logging = getattr(args[0], "_prepare_thread_logging", None)
-            except RuntimeError:
-                prepare_thread_logging = None
-
-            if prepare_thread_logging is not None:
-                prepare_thread_logging()
-
         if logger.isEnabledFor(logging.DEBUG):
             logged_args = value_formatter(args) if value_formatter else args
             logged_kwargs = value_formatter(kwargs) if value_formatter else kwargs

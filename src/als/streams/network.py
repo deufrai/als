@@ -439,7 +439,6 @@ class Server:
         future = asyncio.run_coroutine_threadsafe(self._send_message_to_clients(message), self._loop)
         future.result()  # Ensure the coroutine is awaited and completed
 
-    @log
     def start(
             self, host: str = WEB_SERVER_BIND_HOST, port: Optional[int] = None,
             startup_future: Optional[Future] = None) -> None:
