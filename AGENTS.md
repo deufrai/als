@@ -76,9 +76,23 @@ repository. Follow it in addition to any direct user instructions.
 
 - Add focused tests for behavior changes when the current test setup can cover
   them without fragile live hardware/network dependencies.
-- Prefer testing pure helper behavior and runtime state transitions directly
-  over heavy Qt dialog integration unless rendering or signal wiring is the
-  point of the change.
+- Test application behavior, not code statements. A useful test should fail
+  when the behavior is broken from a user's or caller's point of view.
+- Do not access private members from tests. If behavior is only reachable
+  through `_private` state or methods, discuss whether the design needs a public
+  seam, a small extracted helper, or a different testing level.
+- Do not add or change production code only to make a test pass. If testability
+  requires production changes, treat that as an architecture/design discussion
+  first.
+- Use Given/When/Then test names, for example
+  `test_given_auto_preference_when_address_is_selected_then_highest_ranked_candidate_is_used`.
+- Avoid tests that only assert mock plumbing, implementation call order, or
+  incidental framework details unless that interaction is the public contract.
+- Prefer focused tests of pure helper behavior and public runtime state
+  transitions over heavy Qt dialog integration unless rendering or signal wiring
+  is the point of the change.
+- Delete or rewrite tests that would still pass after breaking the feature they
+  claim to protect.
 - Run `pytest -q` locally for code changes when practical.
 
 ## CI
