@@ -91,6 +91,13 @@ def main():
                         help="Start web server on application startup",
                         action="store_true")
 
+    parser.add_argument('-l',
+                        '--lang',
+                        help='Select application language',
+                        choices=['sys', 'en', 'fr', 'ru'],
+                        dest="lang",
+                        default="")
+
     args = parser.parse_args()
 
     if hasattr(Qt, 'AA_EnableHighDpiScaling'):
@@ -108,7 +115,7 @@ def main():
 
         # Translators must stay referenced while the app lives.
         # This assignment looks unused, but removing it breaks .ui translations.
-        translators = setup_i18n(app)
+        translators = setup_i18n(app, args.lang)
 
         _LOGGER.debug("Building and showing main window")
         controller = Controller()
@@ -137,20 +144,36 @@ def main():
     sys.exit(app_return_code)
 
 @log
-def setup_i18n(app: QApplication):
+def setup_i18n(app: QApplication, lang: str = "") -> list:
     """
     Setup i18n for the all application
 
-    - install translators for Qt Base & application text according to user config
+    - install translators for Qt Base & application text according to user config or CLI
     - initialize our I18n tool
+
+    if CLI param is used, user config is ignored
 
     If user config asks for ALS to use system locale and we fail to detect system locale,
     fallback to english
 
     :param app: the to install translators into
     :type app: QApplication
+
+    :parm lang: code of language to use for translations
+    accepted values :
+    - "fr"
+    - "en"
+    - "ru"
+    - "sys" (to use system locale)
+    - empty string to use application prefs
+    :type lang: str
+
+    :return: list of loaded translators
+    list is empty if effective lang (via lang or app prefs) is 'en'
+    :rtype: list
     """
-    lang_choice = config.get_lang()
+
+    lang_choice = lang or config.get_lang()
     effective_lang = lang_choice
     translators = list()
 
