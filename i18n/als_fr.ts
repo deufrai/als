@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="">
+<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="en">
 <context>
     <name></name>
     <message>
-        <location filename="../src/als/main.py" line="126"/>
+        <location filename="../src/als/main.py" line="125"/>
         <source>Astro Live Stacker version {} started in {} ms.</source>
         <translation>Astro Live Stacker version {} démarré en {} ms.</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="558"/>
+        <location filename="../src/als/logic.py" line="561"/>
         <source>Restarting input scanner ...</source>
         <translation>Redémarrage scanneur d&apos;entrée...</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="563"/>
+        <location filename="../src/als/logic.py" line="566"/>
         <source>Input scanner started</source>
         <translation>Scanneur d&apos;entrée démarré</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="591"/>
+        <location filename="../src/als/logic.py" line="594"/>
         <source>Session stopped</source>
         <translation>Session stoppée</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="600"/>
+        <location filename="../src/als/logic.py" line="603"/>
         <source>Session paused</source>
         <translation>Session en pause</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="688"/>
+        <location filename="../src/als/logic.py" line="715"/>
         <source>Web server stopped</source>
         <translation>Serveur d&apos;image stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="855"/>
+        <location filename="../src/als/logic.py" line="882"/>
         <source>Input scanner stopped</source>
         <translation>Scanneur d&apos;entrée stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="567"/>
+        <location filename="../src/als/logic.py" line="570"/>
         <source>Session running in mode {} with alignment {}</source>
         <translation>Session démarrée en mode {} avec alignement {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1007"/>
+        <location filename="../src/als/processing.py" line="1015"/>
         <source>Start {} on {}</source>
         <translation>Démarrage {} sur {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1016"/>
+        <location filename="../src/als/processing.py" line="1024"/>
         <source>End {} on {} in {} ms</source>
         <translation>Fin de {} sur {} en {} ms</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1003"/>
+        <location filename="../src/als/processing.py" line="1011"/>
         <source>{} stopped</source>
         <translation>{} stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="102"/>
+        <location filename="../src/als/streams/output.py" line="100"/>
         <source>Image saved : {}</source>
         <translation>Image sauvée : {}</translation>
     </message>
@@ -68,17 +68,17 @@
         <translation>Impossible de stacker l&apos;image {} : {}. L&apos;image est ABANDONNEE</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1046"/>
+        <location filename="../src/als/processing.py" line="1054"/>
         <source>Error applying process &apos;{}&apos; to image {} : {} *** Image will be ignored</source>
         <translation>Erreur en exécutant process {} à l&apos;image {} : {} *** L&apos;image sera ignorée</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="114"/>
+        <location filename="../src/als/streams/output.py" line="112"/>
         <source>Failed to save image : {}</source>
         <translation>Echec de sauvegarde image {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="271"/>
+        <location filename="../src/als/ui/dialogs.py" line="277"/>
         <source>Port number validation failed : {}</source>
         <translation>Numéro de port non valide : {}</translation>
     </message>
@@ -88,49 +88,49 @@
         <translation>La matrice de Bayer définie dans vos préférence diffère de celle présente dans l&apos;image courante. Préférences: {} vs image: {}. Le dématriçage peut produire un résultat érroné.</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="510"/>
+        <location filename="../src/als/logic.py" line="513"/>
         <source>Starting new session...</source>
         <translation>Démarrage de nouvelle session...</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/input.py" line="196"/>
+        <location filename="../src/als/streams/input.py" line="198"/>
         <source>Successful image read from {}</source>
         <translation>Image lue avec succès depuis {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/input.py" line="375"/>
+        <location filename="../src/als/streams/input.py" line="377"/>
         <source>Error reading from file {} : {}</source>
         <translation>Erreur de lecture fichier {} : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="332"/>
+        <location filename="../src/als/logic.py" line="335"/>
         <source>* Full processing time for &apos;{}&apos; : {} s</source>
         <translation>temps total de traitement pour &apos;{}&apos; : {} s</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="532"/>
+        <location filename="../src/als/logic.py" line="535"/>
         <source>Missing {}</source>
         <translation>{} manquant</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="533"/>
+        <location filename="../src/als/logic.py" line="536"/>
         <source>Your {} does not exist :
 {}</source>
         <translation>Votre {} n&apos;existe pas :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="540"/>
+        <location filename="../src/als/logic.py" line="543"/>
         <source>Misplaced {}</source>
         <translation>{} mal placé</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="574"/>
+        <location filename="../src/als/logic.py" line="577"/>
         <source>Session start error: {}</source>
         <translation>Erreur de démarrage de session</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="541"/>
+        <location filename="../src/als/logic.py" line="544"/>
         <source>Your {} :
 {}
 
@@ -173,7 +173,7 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>Le master flat {} ne contient aucun signal valide. La division du flat est IGNOREE</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="632"/>
+        <location filename="../src/als/logic.py" line="642"/>
         <source>Web server started</source>
         <translation type="unfinished"></translation>
     </message>
@@ -324,176 +324,176 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 <context>
     <name>I18n</name>
     <message>
-        <location filename="../src/als/model/data.py" line="83"/>
+        <location filename="../src/als/model/data.py" line="93"/>
         <source>sum</source>
         <translation>somme</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="84"/>
+        <location filename="../src/als/model/data.py" line="94"/>
         <source>mean</source>
         <translation>moyenne</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="85"/>
+        <location filename="../src/als/model/data.py" line="95"/>
         <source>busy</source>
         <translation>occupé</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="86"/>
+        <location filename="../src/als/model/data.py" line="96"/>
         <source>scanner</source>
         <translation>scanneur</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="87"/>
+        <location filename="../src/als/model/data.py" line="97"/>
         <source>of</source>
         <translation>de</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="92"/>
+        <location filename="../src/als/model/data.py" line="102"/>
         <source>running</source>
         <comment>gender m</comment>
         <translation>démarré</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="93"/>
+        <location filename="../src/als/model/data.py" line="103"/>
         <source>running</source>
         <comment>gender f</comment>
         <translation>démarrée</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="94"/>
+        <location filename="../src/als/model/data.py" line="104"/>
         <source>stopped</source>
         <comment>gender m</comment>
         <translation>stoppé</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="95"/>
+        <location filename="../src/als/model/data.py" line="105"/>
         <source>stopped</source>
         <comment>gender f</comment>
         <translation>stoppée</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="96"/>
+        <location filename="../src/als/model/data.py" line="106"/>
         <source>paused</source>
         <translation>en pause</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="97"/>
+        <location filename="../src/als/model/data.py" line="107"/>
         <source>web server</source>
         <translation>serveur web</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="98"/>
+        <location filename="../src/als/model/data.py" line="108"/>
         <source>address</source>
         <translation>adresse</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="101"/>
+        <location filename="../src/als/model/data.py" line="111"/>
         <source>Red level</source>
         <translation>Niveau de rouge</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="102"/>
+        <location filename="../src/als/model/data.py" line="112"/>
         <source>Green level</source>
         <translation>Niveau de vert</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="103"/>
+        <location filename="../src/als/model/data.py" line="113"/>
         <source>Blue level</source>
         <translation>Niveau de bleu</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="106"/>
+        <location filename="../src/als/model/data.py" line="116"/>
         <source>Midtones level</source>
         <translation>Niveau tons moyens</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="108"/>
+        <location filename="../src/als/model/data.py" line="118"/>
         <source>Autostretch strength</source>
         <translation>Force de l&apos;autostretch</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="109"/>
+        <location filename="../src/als/model/data.py" line="119"/>
         <source>RGB balance active</source>
         <translation>Balance RGB active</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="110"/>
+        <location filename="../src/als/model/data.py" line="120"/>
         <source>Autostretch active</source>
         <translation>Autostretch actif</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="111"/>
+        <location filename="../src/als/model/data.py" line="121"/>
         <source>Levels active</source>
         <translation>Niveaux actifs</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="112"/>
+        <location filename="../src/als/model/data.py" line="122"/>
         <source>stack size</source>
         <translation>Taille de la stack</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="113"/>
+        <location filename="../src/als/model/data.py" line="123"/>
         <source>Session</source>
         <translation>Session</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="88"/>
+        <location filename="../src/als/model/data.py" line="98"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="89"/>
+        <location filename="../src/als/model/data.py" line="99"/>
         <source>Visual</source>
         <translation>Visuel</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="105"/>
+        <location filename="../src/als/model/data.py" line="115"/>
         <source>Black clipping</source>
         <translation>Ecrêtage du noir</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="107"/>
+        <location filename="../src/als/model/data.py" line="117"/>
         <source>White clipping</source>
         <translation>Ecrêtage du blanc</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="114"/>
+        <location filename="../src/als/model/data.py" line="124"/>
         <source>scan folder</source>
         <translation>dossier scanné</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="115"/>
+        <location filename="../src/als/model/data.py" line="125"/>
         <source>work folder</source>
         <translation>dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="116"/>
+        <location filename="../src/als/model/data.py" line="126"/>
         <source>web folder</source>
         <translation>dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="90"/>
+        <location filename="../src/als/model/data.py" line="100"/>
         <source>starting...</source>
         <translation>démarrage...</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="91"/>
+        <location filename="../src/als/model/data.py" line="101"/>
         <source>stopping...</source>
         <translation>arrêt...</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="104"/>
+        <location filename="../src/als/model/data.py" line="114"/>
         <source>Color saturation</source>
         <translation>Saturation des couleurs</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="99"/>
+        <location filename="../src/als/model/data.py" line="109"/>
         <source>Auto - recommended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="100"/>
+        <location filename="../src/als/model/data.py" line="110"/>
         <source>Network adapter</source>
         <translation type="unfinished"></translation>
     </message>
@@ -501,37 +501,37 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>Welcome to ALS</source>
         <translation>Bienvenue dans ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>It appears this is your first use of ALS. Welcome !</source>
         <translation>Il semble que ce soit votre premier lancement d&apos;ALS. Bienvenue !</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>Clicking OK will bring up the settings page.</source>
         <translation>Les préférences seront affichées après un click sur OK.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="973"/>
+        <location filename="../src/als/ui/windows.py" line="988"/>
         <source>Session started</source>
         <translation>Session démarrée</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="973"/>
+        <location filename="../src/als/ui/windows.py" line="988"/>
         <source>Session successfully started after retry</source>
         <translation>Session démarrée avec succès après une nouvelle tentative</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="984"/>
+        <location filename="../src/als/ui/windows.py" line="999"/>
         <source>Session start aborted</source>
         <translation>Démarrage de session abandonné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1071"/>
+        <location filename="../src/als/ui/windows.py" line="1088"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -540,37 +540,37 @@ Details : {}</source>
 Détails : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="901"/>
+        <location filename="../src/als/ui/windows.py" line="916"/>
         <source>Total stack exp. time: {}</source>
         <translation>Temps exp. total stack: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="903"/>
+        <location filename="../src/als/ui/windows.py" line="918"/>
         <source>Total frame proc. time: {} s</source>
         <translation>Durée totale traitement dernière image: {} s</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1142"/>
+        <location filename="../src/als/ui/windows.py" line="1159"/>
         <source>ALS launcher created / updated.</source>
         <translation>Lanceur ALS créé / mis à jour avec sucès.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1142"/>
+        <location filename="../src/als/ui/windows.py" line="1159"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Vouls trouverez ALS avec les applications graphiques</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1123"/>
+        <location filename="../src/als/ui/windows.py" line="1140"/>
         <source>Select your ALS executable</source>
         <translation>Selectionner votre executable ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>Please set the paths for the Scan and Work folders.</source>
         <translation>Définissez les chemins du dossier scanné et du dossier de travail.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="977"/>
+        <location filename="../src/als/ui/windows.py" line="992"/>
         <source>Session cannot start
 
 </source>
@@ -579,32 +579,32 @@ Détails : {}</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="978"/>
+        <location filename="../src/als/ui/windows.py" line="993"/>
         <source>Do you want to fix the issue in ALS preferences ?</source>
         <translation>Voulez-vous corriger cette erreur dans les préférences d&apos;ALS ?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="564"/>
+        <location filename="../src/als/ui/windows.py" line="569"/>
         <source>Could not start web server</source>
         <translation>Impossible de démarrer le serveur web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="563"/>
+        <location filename="../src/als/ui/windows.py" line="568"/>
         <source>Change server port number in preferences and start server again</source>
         <translation>Changez le numéro de port dans les préférences du serveur et démarrez le serveur à nouveau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="562"/>
+        <location filename="../src/als/ui/windows.py" line="567"/>
         <source>Port {} is already in use.</source>
         <translation>Le port {} est déjà utilisé.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1056"/>
+        <location filename="../src/als/ui/windows.py" line="1073"/>
         <source>Image server access is limited</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1057"/>
+        <location filename="../src/als/ui/windows.py" line="1074"/>
         <source>Displayed address is {}.
 
 Other devices on your network will not be able to browse the image server from that address.
@@ -616,42 +616,42 @@ If another device needs to browse the image server, change the Displayed address
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="269"/>
+        <location filename="../src/als/ui/dialogs.py" line="275"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Le numéro de port du serveur web doit être un nombre entre 1024 &amp; 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="270"/>
+        <location filename="../src/als/ui/dialogs.py" line="276"/>
         <source>Wrong value</source>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="358"/>
+        <location filename="../src/als/ui/dialogs.py" line="364"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="370"/>
+        <location filename="../src/als/ui/dialogs.py" line="376"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="381"/>
+        <location filename="../src/als/ui/dialogs.py" line="387"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="230"/>
+        <location filename="../src/als/ui/dialogs.py" line="236"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="232"/>
+        <location filename="../src/als/ui/dialogs.py" line="238"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="321"/>
+        <location filename="../src/als/ui/dialogs.py" line="327"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -660,22 +660,22 @@ If another device needs to browse the image server, change the Displayed address
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="324"/>
+        <location filename="../src/als/ui/dialogs.py" line="330"/>
         <source>Restart needed</source>
         <translation>Redémarrage nécessaire</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="231"/>
+        <location filename="../src/als/ui/dialogs.py" line="237"/>
         <source>Debug logs</source>
         <translation>Journaux détaillés</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="392"/>
+        <location filename="../src/als/ui/dialogs.py" line="398"/>
         <source>Select master dark file</source>
         <translation>Sélectionnez master dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="405"/>
+        <location filename="../src/als/ui/dialogs.py" line="411"/>
         <source>Select master flat file</source>
         <translation>Sélectionnez master flat</translation>
     </message>

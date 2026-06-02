@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="ru" sourcelanguage="en">
+<!DOCTYPE TS><TS version="2.0" language="ru_RU" sourcelanguage="en">
 <context>
     <name></name>
     <message>
-        <location filename="../src/als/main.py" line="126"/>
+        <location filename="../src/als/main.py" line="125"/>
         <source>Astro Live Stacker version {} started in {} ms.</source>
         <translation>Astro Live Stacker версии {} запущен за {} мс.</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="332"/>
+        <location filename="../src/als/logic.py" line="335"/>
         <source>* Full processing time for &apos;{}&apos; : {} s</source>
         <translation>* Полное время обработки для &apos;{}&apos; : {} с</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="510"/>
+        <location filename="../src/als/logic.py" line="513"/>
         <source>Starting new session...</source>
         <translation>Запуск новой сессии...</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="532"/>
+        <location filename="../src/als/logic.py" line="535"/>
         <source>Missing {}</source>
         <translation>Отсутствует {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="533"/>
+        <location filename="../src/als/logic.py" line="536"/>
         <source>Your {} does not exist :
 {}</source>
         <translation>Ваш {} не существует :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="540"/>
+        <location filename="../src/als/logic.py" line="543"/>
         <source>Misplaced {}</source>
         <translation>Неправильное расположение {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="541"/>
+        <location filename="../src/als/logic.py" line="544"/>
         <source>Your {} :
 {}
 
@@ -48,42 +48,42 @@ must not be the same as or a subfolder of your {} :
 {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="558"/>
+        <location filename="../src/als/logic.py" line="561"/>
         <source>Restarting input scanner ...</source>
         <translation>Перезапуск сканера ввода ...</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="563"/>
+        <location filename="../src/als/logic.py" line="566"/>
         <source>Input scanner started</source>
         <translation>Сканер ввода запущен</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="567"/>
+        <location filename="../src/als/logic.py" line="570"/>
         <source>Session running in mode {} with alignment {}</source>
         <translation>Сессия запущена в режиме {} с выравниванием {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="574"/>
+        <location filename="../src/als/logic.py" line="577"/>
         <source>Session start error: {}</source>
         <translation>Ошибка запуска сессии: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="591"/>
+        <location filename="../src/als/logic.py" line="594"/>
         <source>Session stopped</source>
         <translation>Сессия остановлена</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="600"/>
+        <location filename="../src/als/logic.py" line="603"/>
         <source>Session paused</source>
         <translation>Сессия приостановлена</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="688"/>
+        <location filename="../src/als/logic.py" line="715"/>
         <source>Web server stopped</source>
         <translation>Веб-сервер остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="855"/>
+        <location filename="../src/als/logic.py" line="882"/>
         <source>Input scanner stopped</source>
         <translation>Сканер ввода остановлен</translation>
     </message>
@@ -98,47 +98,47 @@ must not be the same as or a subfolder of your {} :
         <translation>Шаблон Байера, определенный в ваших настройках, отличается от того, который присутствует в текущем изображении. Предпочтительный: {} против изображения: {}. Результат дебайеринга может быть неверным.</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1007"/>
+        <location filename="../src/als/processing.py" line="1015"/>
         <source>Start {} on {}</source>
         <translation>Начало {} на {}</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1016"/>
+        <location filename="../src/als/processing.py" line="1024"/>
         <source>End {} on {} in {} ms</source>
         <translation>Конец {} на {} за {} мс</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1003"/>
+        <location filename="../src/als/processing.py" line="1011"/>
         <source>{} stopped</source>
         <translation>{} остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/processing.py" line="1046"/>
+        <location filename="../src/als/processing.py" line="1054"/>
         <source>Error applying process &apos;{}&apos; to image {} : {} *** Image will be ignored</source>
         <translation>Ошибка применения процесса &apos;{}&apos; к изображению {} : {} *** Изображение будет проигнорировано</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/input.py" line="196"/>
+        <location filename="../src/als/streams/input.py" line="198"/>
         <source>Successful image read from {}</source>
         <translation>Успешное чтение изображения из {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/input.py" line="375"/>
+        <location filename="../src/als/streams/input.py" line="377"/>
         <source>Error reading from file {} : {}</source>
         <translation>Ошибка чтения из файла {} : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="102"/>
+        <location filename="../src/als/streams/output.py" line="100"/>
         <source>Image saved : {}</source>
         <translation>Изображение сохранено : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/streams/output.py" line="114"/>
+        <location filename="../src/als/streams/output.py" line="112"/>
         <source>Failed to save image : {}</source>
         <translation>Не удалось сохранить изображение : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="271"/>
+        <location filename="../src/als/ui/dialogs.py" line="277"/>
         <source>Port number validation failed : {}</source>
         <translation>Ошибка проверки номера порта : {}</translation>
     </message>
@@ -173,7 +173,7 @@ must not be the same as or a subfolder of your {} :
         <translation type="unfinished">Мастер-флэт {} не содержит корректного сигнала. Деление на флэт ПРОПУЩЕНО</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="632"/>
+        <location filename="../src/als/logic.py" line="642"/>
         <source>Web server started</source>
         <translation type="unfinished"></translation>
     </message>
@@ -324,176 +324,176 @@ must not be the same as or a subfolder of your {} :
 <context>
     <name>I18n</name>
     <message>
-        <location filename="../src/als/model/data.py" line="83"/>
+        <location filename="../src/als/model/data.py" line="93"/>
         <source>sum</source>
         <translation>сумма</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="84"/>
+        <location filename="../src/als/model/data.py" line="94"/>
         <source>mean</source>
         <translation>среднее</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="85"/>
+        <location filename="../src/als/model/data.py" line="95"/>
         <source>busy</source>
         <translation>занят</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="86"/>
+        <location filename="../src/als/model/data.py" line="96"/>
         <source>scanner</source>
         <translation>сканер</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="87"/>
+        <location filename="../src/als/model/data.py" line="97"/>
         <source>of</source>
         <translation>из</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="88"/>
+        <location filename="../src/als/model/data.py" line="98"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="89"/>
+        <location filename="../src/als/model/data.py" line="99"/>
         <source>Visual</source>
         <translation>Визуальный</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="90"/>
+        <location filename="../src/als/model/data.py" line="100"/>
         <source>starting...</source>
         <translation>запуск...</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="91"/>
+        <location filename="../src/als/model/data.py" line="101"/>
         <source>stopping...</source>
         <translation>остановка...</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="92"/>
+        <location filename="../src/als/model/data.py" line="102"/>
         <source>running</source>
         <comment>gender m</comment>
         <translation>работает</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="93"/>
+        <location filename="../src/als/model/data.py" line="103"/>
         <source>running</source>
         <comment>gender f</comment>
         <translation>работает</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="94"/>
+        <location filename="../src/als/model/data.py" line="104"/>
         <source>stopped</source>
         <comment>gender m</comment>
         <translation>остановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="95"/>
+        <location filename="../src/als/model/data.py" line="105"/>
         <source>stopped</source>
         <comment>gender f</comment>
         <translation>остановлена</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="96"/>
+        <location filename="../src/als/model/data.py" line="106"/>
         <source>paused</source>
         <translation>приостановлен</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="97"/>
+        <location filename="../src/als/model/data.py" line="107"/>
         <source>web server</source>
         <translation>веб-сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="98"/>
+        <location filename="../src/als/model/data.py" line="108"/>
         <source>address</source>
         <translation>адрес</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="101"/>
+        <location filename="../src/als/model/data.py" line="111"/>
         <source>Red level</source>
         <translation>Уровень красного</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="102"/>
+        <location filename="../src/als/model/data.py" line="112"/>
         <source>Green level</source>
         <translation>Уровень зеленого</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="103"/>
+        <location filename="../src/als/model/data.py" line="113"/>
         <source>Blue level</source>
         <translation>Уровень синего</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="105"/>
+        <location filename="../src/als/model/data.py" line="115"/>
         <source>Black clipping</source>
         <translation>Обрезка черного</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="106"/>
+        <location filename="../src/als/model/data.py" line="116"/>
         <source>Midtones level</source>
         <translation>Уровень средних тонов</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="107"/>
+        <location filename="../src/als/model/data.py" line="117"/>
         <source>White clipping</source>
         <translation>Обрезка белого</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="108"/>
+        <location filename="../src/als/model/data.py" line="118"/>
         <source>Autostretch strength</source>
         <translation>Степень авторастяжения</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="109"/>
+        <location filename="../src/als/model/data.py" line="119"/>
         <source>RGB balance active</source>
         <translation>Активный баланс RGB</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="110"/>
+        <location filename="../src/als/model/data.py" line="120"/>
         <source>Autostretch active</source>
         <translation>Активное авторастяжение</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="111"/>
+        <location filename="../src/als/model/data.py" line="121"/>
         <source>Levels active</source>
         <translation>Активные уровни</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="112"/>
+        <location filename="../src/als/model/data.py" line="122"/>
         <source>stack size</source>
         <translation>размер стека</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="113"/>
+        <location filename="../src/als/model/data.py" line="123"/>
         <source>Session</source>
         <translation>Сессия</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="114"/>
+        <location filename="../src/als/model/data.py" line="124"/>
         <source>scan folder</source>
         <translation>каталог сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="115"/>
+        <location filename="../src/als/model/data.py" line="125"/>
         <source>work folder</source>
         <translation>рабочий каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="116"/>
+        <location filename="../src/als/model/data.py" line="126"/>
         <source>web folder</source>
         <translation>веб-каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="104"/>
+        <location filename="../src/als/model/data.py" line="114"/>
         <source>Color saturation</source>
         <translation type="unfinished">Насыщенность цвета</translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="99"/>
+        <location filename="../src/als/model/data.py" line="109"/>
         <source>Auto - recommended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/model/data.py" line="100"/>
+        <location filename="../src/als/model/data.py" line="110"/>
         <source>Network adapter</source>
         <translation type="unfinished"></translation>
     </message>
@@ -501,62 +501,62 @@ must not be the same as or a subfolder of your {} :
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>Welcome to ALS</source>
         <translation>Добро пожаловать в ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>It appears this is your first use of ALS. Welcome !</source>
         <translation>Похоже, это ваш первый запуск ALS. Добро пожаловать!</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>Clicking OK will bring up the settings page.</source>
         <translation>Нажатие OK откроет страницу настроек.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="156"/>
+        <location filename="../src/als/ui/windows.py" line="161"/>
         <source>Please set the paths for the Scan and Work folders.</source>
         <translation>Пожалуйста, установите пути для каталога сканирования и рабочего каталога.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="562"/>
+        <location filename="../src/als/ui/windows.py" line="567"/>
         <source>Port {} is already in use.</source>
         <translation>Порт {} уже используется.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="563"/>
+        <location filename="../src/als/ui/windows.py" line="568"/>
         <source>Change server port number in preferences and start server again</source>
         <translation>Измените номер порта сервера в настройках и перезапустите сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="564"/>
+        <location filename="../src/als/ui/windows.py" line="569"/>
         <source>Could not start web server</source>
         <translation>Не удалось запустить веб-сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="901"/>
+        <location filename="../src/als/ui/windows.py" line="916"/>
         <source>Total stack exp. time: {}</source>
         <translation>Общее время экспозиции стека: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="903"/>
+        <location filename="../src/als/ui/windows.py" line="918"/>
         <source>Total frame proc. time: {} s</source>
         <translation>Общее время обработки кадра: {} с</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="973"/>
+        <location filename="../src/als/ui/windows.py" line="988"/>
         <source>Session started</source>
         <translation>Сессия началась</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="973"/>
+        <location filename="../src/als/ui/windows.py" line="988"/>
         <source>Session successfully started after retry</source>
         <translation>Сессия успешно началась после повторной попытки</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="977"/>
+        <location filename="../src/als/ui/windows.py" line="992"/>
         <source>Session cannot start
 
 </source>
@@ -565,17 +565,17 @@ must not be the same as or a subfolder of your {} :
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="978"/>
+        <location filename="../src/als/ui/windows.py" line="993"/>
         <source>Do you want to fix the issue in ALS preferences ?</source>
         <translation>Хотите исправить проблему в настройках ALS?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="984"/>
+        <location filename="../src/als/ui/windows.py" line="999"/>
         <source>Session start aborted</source>
         <translation>Запуск сессии прерван</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1071"/>
+        <location filename="../src/als/ui/windows.py" line="1088"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -584,27 +584,27 @@ Details : {}</source>
 Детали: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1123"/>
+        <location filename="../src/als/ui/windows.py" line="1140"/>
         <source>Select your ALS executable</source>
         <translation>Выберите исполняемый файл ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1142"/>
+        <location filename="../src/als/ui/windows.py" line="1159"/>
         <source>ALS launcher created / updated.</source>
         <translation>Стартовый файл ALS создан / обновлен.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1142"/>
+        <location filename="../src/als/ui/windows.py" line="1159"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Вы найдете ALS среди графических приложений</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1056"/>
+        <location filename="../src/als/ui/windows.py" line="1073"/>
         <source>Image server access is limited</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1057"/>
+        <location filename="../src/als/ui/windows.py" line="1074"/>
         <source>Displayed address is {}.
 
 Other devices on your network will not be able to browse the image server from that address.
@@ -616,32 +616,32 @@ If another device needs to browse the image server, change the Displayed address
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="230"/>
+        <location filename="../src/als/ui/dialogs.py" line="236"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="231"/>
+        <location filename="../src/als/ui/dialogs.py" line="237"/>
         <source>Debug logs</source>
         <translation>Журналы отладки</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="232"/>
+        <location filename="../src/als/ui/dialogs.py" line="238"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="269"/>
+        <location filename="../src/als/ui/dialogs.py" line="275"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Номер порта веб-сервера должен быть числом от 1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="270"/>
+        <location filename="../src/als/ui/dialogs.py" line="276"/>
         <source>Wrong value</source>
         <translation>Неправильное значение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="321"/>
+        <location filename="../src/als/ui/dialogs.py" line="327"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -650,32 +650,32 @@ If another device needs to browse the image server, change the Displayed address
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="324"/>
+        <location filename="../src/als/ui/dialogs.py" line="330"/>
         <source>Restart needed</source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="358"/>
+        <location filename="../src/als/ui/dialogs.py" line="364"/>
         <source>Select scan folder</source>
         <translation>Выберите каталог для сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="370"/>
+        <location filename="../src/als/ui/dialogs.py" line="376"/>
         <source>Select work folder</source>
         <translation>Выберите рабочий каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="381"/>
+        <location filename="../src/als/ui/dialogs.py" line="387"/>
         <source>Select web folder</source>
         <translation>Выберите веб-каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="392"/>
+        <location filename="../src/als/ui/dialogs.py" line="398"/>
         <source>Select master dark file</source>
         <translation type="unfinished">Выберите файл мастер-дарка</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="405"/>
+        <location filename="../src/als/ui/dialogs.py" line="411"/>
         <source>Select master flat file</source>
         <translation type="unfinished">Выберите файл мастер-флэта</translation>
     </message>
