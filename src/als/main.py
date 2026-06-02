@@ -105,7 +105,10 @@ def main():
         QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
         config.setup()
         log_system_infos()
-        setup_i18n(app)
+
+        # Translators must stay referenced while the app lives.
+        # This assignment looks unused, but removing it breaks .ui translations.
+        translators = setup_i18n(app)
 
         _LOGGER.debug("Building and showing main window")
         controller = Controller()
@@ -149,6 +152,7 @@ def setup_i18n(app: QApplication):
     """
     lang_choice = config.get_lang()
     effective_lang = lang_choice
+    translators = list()
 
     if lang_choice == 'sys':
         try:
@@ -164,8 +168,6 @@ def setup_i18n(app: QApplication):
 
     if effective_lang != "en":
 
-        translators = list()
-
         for app_component in ["als", "qtbase"]:
             i18n_file_name = f'{app_component}_{effective_lang}'
             translator = QTranslator()
@@ -179,6 +181,8 @@ def setup_i18n(app: QApplication):
                 _LOGGER.debug(f"Successfully installed {translator.objectName()} translator")
 
     I18n().setup()
+
+    return translators
 
 
 if __name__ == "__main__":
