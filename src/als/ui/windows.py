@@ -11,7 +11,7 @@ from typing import List
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFont
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
+    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget, QAction
 
 import als.model.data
 from als import config
@@ -27,6 +27,7 @@ from als.model.data import (
 )
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
     message_box, SessionStopDialog, QRDisplay
+from als.ui.metrics import SessionMetricsWindow
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
 from als.ui.widgets import Slider
@@ -63,6 +64,14 @@ class MainWindow(QMainWindow):
         self._qrDisplay = QRDisplay(self)
         self._qrDisplay.hide()
         self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
+        self._metrics_window = SessionMetricsWindow(self._controller.get_session_metrics(), self)
+        self._metrics_window.hide()
+        self._metrics_window.visibility_changed_signal[bool].connect(self.on_metrics_window_visibility_changed)
+        self._action_session_metrics = QAction(self.tr("Session metrics"), self)
+        self._action_session_metrics.setCheckable(True)
+        self._action_session_metrics.setStatusTip(self.tr("Show session metrics window"))
+        self._action_session_metrics.toggled[bool].connect(self.on_action_session_metrics_toggled)
+        self._ui.menu_Utilities.insertAction(self._ui.action_qrcode, self._action_session_metrics)
         self._web_server_was_running = False
 
         # populate stacking mode combo box=
@@ -654,6 +663,27 @@ class MainWindow(QMainWindow):
         :type visible: bool
         """
         self._ui.action_qrcode.setChecked(visible)
+
+    @log
+    @pyqtSlot(bool)
+    def on_action_session_metrics_toggled(self, checked: bool):
+        """
+        Metrics action has changed.
+
+        :param checked: is action now checked ?
+        :type checked: bool
+        """
+        self._metrics_window.setVisible(checked)
+
+    @log
+    def on_metrics_window_visibility_changed(self, visible: bool):
+        """
+        Metrics window visibility just changed.
+
+        :param visible: is metrics window visible now ?
+        :type visible: bool
+        """
+        self._action_session_metrics.setChecked(visible)
 
     @pyqtSlot()
     @log
