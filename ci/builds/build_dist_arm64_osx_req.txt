@@ -20,6 +20,7 @@ PyInstaller<5
 qrcode
 exifread
 aiohttp==3.11.11
+pyqtgraph==0.11.1
 
 # transitive dependencies pinning
 ######################################

@@ -79,3 +79,4 @@ tzdata==2024.2
 urllib3==2.2.3
 watchdog==5.0.3
 aiohttp==3.11.11
+pyqtgraph==0.11.1
