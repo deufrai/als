@@ -22,6 +22,7 @@ class AlsLogAdapter(LoggerAdapter):
 
 
 _T = TypeVar("_T")
+_MAX_LOGGED_SEQUENCE_ITEMS = 12
 
 
 class LogValueSummary:
@@ -52,13 +53,23 @@ def compact_log_value(value: Any) -> Any:
     :param value: value to summarize
     :return: original value or a logging-only summary
     """
+    if hasattr(value, "get_log_summary"):
+        try:
+            return LogValueSummary(value.get_log_summary())
+        except (AttributeError, RuntimeError):
+            return LogValueSummary(f"{value.__class__.__name__}(summary_unavailable)")
+
     if _is_numpy_array(value):
         return _summarize_numpy_array(value)
 
     if isinstance(value, tuple):
+        if _is_long_sequence(value):
+            return _summarize_sequence(value)
         return tuple(compact_log_value(item) for item in value)
 
     if isinstance(value, list):
+        if _is_long_sequence(value):
+            return _summarize_sequence(value)
         return [compact_log_value(item) for item in value]
 
     if isinstance(value, dict):
@@ -74,6 +85,19 @@ def _is_numpy_array(value: Any) -> bool:
     return (
         value.__class__.__module__ == "numpy"
         and value.__class__.__name__ == "ndarray"
+    )
+
+
+def _is_long_sequence(value: Any) -> bool:
+    return len(value) > _MAX_LOGGED_SEQUENCE_ITEMS
+
+
+def _summarize_sequence(value: Any) -> LogValueSummary:
+    return LogValueSummary(
+        f"{value.__class__.__name__}("
+        f"len={len(value)}, "
+        f"first={compact_log_value(value[0])}, "
+        f"last={compact_log_value(value[-1])})"
     )
 
 

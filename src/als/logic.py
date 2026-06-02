@@ -148,6 +148,7 @@ class Controller:
         self._model_observers = list()
         self._image_timings = dict()
         self._live_metrics = LiveMetrics()
+        self._system_metrics_collection_active = False
 
         self._input_scanner.new_image_path_signal[str].connect(self.on_new_image_path)
         self._pre_process_pipeline.new_result_signal[Image].connect(self.on_new_pre_processed_image)
@@ -182,8 +183,13 @@ class Controller:
     def collect_metrics(self):
         available_memory_bytes = available_memory()
         _LOGGER.debug(f"*SM-MEM* Available memory (byte): {available_memory_bytes}")
+        if not self._system_metrics_collection_active:
+            return
+
         system_metrics = self._live_metrics.get_system_metrics()
-        system_metrics.record_available_memory(available_memory_bytes)
+        system_metrics.record_memory_status(
+            available_memory_bytes,
+            FileReader.MEMORY_CODES_MAPPING[config.get_preserved_mem()])
 
     @log
     def get_live_metrics(self) -> LiveMetrics:
@@ -403,8 +409,9 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-PRE* New pre-processor queue size: {new_size}")
-        system_metrics = self._live_metrics.get_system_metrics()
-        system_metrics.record_queue_size(SystemMetrics.QUEUE_PRE_PROCESS, new_size)
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_queue_size(SystemMetrics.QUEUE_PRE_PROCESS, new_size)
         self._notify_model_observers()
 
     @log
@@ -416,8 +423,9 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-STA* New stacker queue size : {new_size}")
-        system_metrics = self._live_metrics.get_system_metrics()
-        system_metrics.record_queue_size(SystemMetrics.QUEUE_STACKER, new_size)
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_queue_size(SystemMetrics.QUEUE_STACKER, new_size)
         self._notify_model_observers()
 
     @log
@@ -429,8 +437,9 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-POST* New post-processor queue size: {new_size}")
-        system_metrics = self._live_metrics.get_system_metrics()
-        system_metrics.record_queue_size(SystemMetrics.QUEUE_POST_PROCESS, new_size)
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_queue_size(SystemMetrics.QUEUE_POST_PROCESS, new_size)
         self._notify_model_observers()
 
     @log
@@ -442,8 +451,9 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-SAV* New saver queue size : {new_size}")
-        system_metrics = self._live_metrics.get_system_metrics()
-        system_metrics.record_queue_size(SystemMetrics.QUEUE_SAVE, new_size)
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_queue_size(SystemMetrics.QUEUE_SAVE, new_size)
         self._notify_model_observers()
 
     @log
@@ -452,6 +462,9 @@ class Controller:
         pre-processor just started working on new image
         """
         DYNAMIC_DATA.pre_processor_busy = True
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_PRE_PROCESS, True)
         self._notify_model_observers()
 
     @log
@@ -460,6 +473,9 @@ class Controller:
         pre-processor just finished working on new image
         """
         DYNAMIC_DATA.pre_processor_busy = False
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_PRE_PROCESS, False)
         self._notify_model_observers()
 
     @log
@@ -468,6 +484,9 @@ class Controller:
         stacker just started working on new image
         """
         DYNAMIC_DATA.stacker_busy = True
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_STACKER, True)
         self._notify_model_observers()
 
     @log
@@ -476,6 +495,9 @@ class Controller:
         stacker just finished working on new image
         """
         DYNAMIC_DATA.stacker_busy = False
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_STACKER, False)
         self._notify_model_observers()
 
     @log
@@ -484,6 +506,9 @@ class Controller:
         post-processor just started working on new image
         """
         DYNAMIC_DATA.post_processor_busy = True
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_POST_PROCESS, True)
         self._notify_model_observers()
 
     @log
@@ -492,6 +517,9 @@ class Controller:
         post-processor just finished working on new image
         """
         DYNAMIC_DATA.post_processor_busy = False
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_POST_PROCESS, False)
         self._notify_model_observers()
 
     @log
@@ -500,6 +528,9 @@ class Controller:
         saver just started working on new image
         """
         DYNAMIC_DATA.saver_busy = True
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_SAVE, True)
         self._notify_model_observers()
 
     @log
@@ -508,6 +539,9 @@ class Controller:
         saver just finished working on new image
         """
         DYNAMIC_DATA.saver_busy = False
+        if self._system_metrics_collection_active:
+            system_metrics = self._live_metrics.get_system_metrics()
+            system_metrics.record_worker_status(SystemMetrics.WORKER_SAVE, False)
         self._notify_model_observers()
 
     @log
@@ -535,6 +569,7 @@ class Controller:
                 MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Starting new session..."))
 
                 self._live_metrics.reset_session_metrics()
+                self._system_metrics_collection_active = True
                 DYNAMIC_DATA.has_new_warnings = False
                 self._stacker.reset()
                 self._image_timings.clear()
