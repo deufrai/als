@@ -228,6 +228,147 @@ Preferred export direction:
 
 Export UI or commands are not required in the first implementation.
 
+
+## Data Collection Code Map
+
+### Session Lifecycle
+
+- `src/als/logic.py`
+  - `Controller.start_session()` is the reset/start hook for session-scoped
+    metrics.
+  - `Controller.stop_session()` stops folder scanning and purges upstream
+    queues, but downstream workers may still drain already-consumed images.
+    System metrics must keep collecting after this point.
+  - `Controller.pause_session()` stops folder scanning only. Metrics must keep
+    collecting while downstream workers continue.
+
+### Ticket and Overall Processing Time
+
+- `src/als/logic.py`
+  - `Controller.on_new_image_path()` starts per-ticket timing by storing
+    `self._image_timings[image_path] = time.time()`.
+  - `Controller.on_new_post_processor_result()` computes total frame processing
+    time from `image.ticket`, logs `*SD-FRMTIME*`, updates
+    `DYNAMIC_DATA.last_timing`, then sends the image to saving.
+- `src/als/processing.py`
+  - `FileReader.process_image()` assigns `image.ticket = image_path`.
+- `src/als/model/base.py`
+  - `Image.ticket` is the existing code concept used to carry the ticket.
+
+Metrics must reuse the existing ticket value. For input subs, that value is the
+image path.
+
+### System Metrics
+
+- `src/als/logic.py`
+  - `Controller.collect_metrics()` is the current periodic memory sampling hook.
+    It should record available memory and the current preserved-memory margin in
+    one aligned sample.
+  - `Controller.on_pre_process_queue_size_changed()`,
+    `Controller.on_stacker_queue_size_changed()`,
+    `Controller.on_post_processor_queue_size_changed()`, and
+    `Controller.on_saver_queue_size_changed()` are the queue-size hooks.
+  - `Controller.on_pre_processor_busy()` /
+    `Controller.on_pre_processor_waiting()`,
+    `Controller.on_stacker_busy()` / `Controller.on_stacker_waiting()`,
+    `Controller.on_post_processor_busy()` /
+    `Controller.on_post_processor_waiting()`, and
+    `Controller.on_saver_busy()` / `Controller.on_saver_waiting()` are the
+    worker idle/busy hooks.
+- `src/als/code_utilities.py`
+  - `SignalingQueue.size_changed_signal` is emitted on `put()`, `put_nowait()`,
+    `get()`, and `get_nowait()`.
+- `src/als/processing.py`
+  - `QueueConsumer.run()` emits `busy_signal` after taking work from the queue
+    and `waiting_signal` after handling the item.
+- `src/als/config.py`
+  - `config.get_preserved_mem()` returns the user-configured memory margin.
+
+### Stack Size
+
+- `src/als/stack.py`
+  - `Stacker.stack_size_changed_signal` is emitted when the stack size changes.
+- `src/als/logic.py`
+  - `Controller.on_stack_size_changed()` receives the value and updates
+    `DYNAMIC_DATA.stack_size`.
+
+### Alignment Metrics
+
+- `src/als/stack.py`
+  - `Stacker._find_transformation()` is the source for:
+    - configured required matches count;
+    - accepted matches count;
+    - search subset ratio;
+    - rotation;
+    - translation;
+    - scale;
+    - accepted/rejected alignment result.
+  - These values are currently debug-log-only through tags such as `*SD-REQ*`,
+    `*SD-RATIO*`, `*SD-ROT*`, `*SD-TRANS*`, `*SD-SCALE*`,
+    `*SD-MATCHES*`, and `*SD-ALIGNOK*`.
+
+Implementation must add structured metric emission in this function before or
+beside those debug logs.
+
+### Per-Process Timings
+
+- `src/als/processing.py`
+  - `QueueConsumer.run()` wraps each queue consumer item with `Timer()` and logs
+    whole-worker time.
+  - `Pipeline._handle_item()` iterates image processors, but does not currently
+    expose structured per-processor timing.
+  - Individual processors sometimes use `Timer()` internally for specific
+    sub-steps, such as dark subtraction, flat division, or data conversion.
+- `src/als/stack.py`
+  - `Stacker._align_image()` times `_find_transformation()` and
+    `_apply_transformation()`.
+  - `Stacker._handle_item()` owns stacking flow around alignment and stack
+    update.
+- `src/als/streams/output.py`
+  - `ImageSaver._handle_item()` calls `_save_image()`.
+  - `ImageSaver._save_image()` owns filesystem write and final rename.
+
+Implementation must add structured timing samples around process/family
+boundaries instead of deriving timings from log messages.
+
+Timing collection must reuse the existing `Timer` context-manager pattern used
+in `src/als/main.py`:
+
+```python
+with Timer() as timer:
+    # work being timed
+
+metrics.record_timing(..., timer.elapsed_in_milli)
+```
+
+Store raw numeric milliseconds for metrics/export. Keep
+`timer.elapsed_in_milli_as_str` for logs and user messages.
+
+### Failure Causes and Filesystem Success
+
+- `src/als/processing.py`
+  - `Pipeline._handle_item()` catches `ProcessingError` and logs that an image
+    will be ignored.
+  - Several processors emit warnings for degraded or skipped behavior, such as
+    missing calibration files, shape mismatch, unsupported Bayer pattern, or
+    invalid flat data.
+- `src/als/stack.py`
+  - `Stacker._handle_item()` catches `StackingError` and logs that the image is
+    discarded.
+  - `Stacker._find_transformation()` distinguishes alignment rejection while
+    searching for a valid transform.
+- `src/als/streams/output.py`
+  - `ImageSaver._save_image()` dispatches `"Image saved : {}"` on success and
+    `"Failed to save image : {}"` on failure.
+  - `ImageSaver.save_completed_signal` is emitted only after successful save and
+    carries the destination path.
+- `src/als/logic.py`
+  - `Controller.on_image_saved()` receives successful save completion.
+
+Failure metrics should be emitted immediately before the existing warning/error
+dispatch where the root cause is known. Filesystem success should be recorded
+from the successful save path, not inferred from absence of errors.
+
 ## Implementation Sequence
 
 1. Replace the POC metrics class with clean split models:
@@ -249,4 +390,3 @@ Export UI or commands are not required in the first implementation.
 5. Add per-process timings by family.
 6. Add structured failure-cause collection and display.
 7. Add export support when the model shape is stable.
-
