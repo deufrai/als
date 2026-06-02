@@ -42,7 +42,7 @@ from als.model.data import (
     WEB_SERVER_ACTIVE_STATUSES, WEB_SERVER_STATUS_RUNNING, WEB_SERVER_STATUS_STARTING,
     WEB_SERVER_STATUS_STOPPED, WEB_SERVER_STATUS_STOPPING
 )
-from als.model.metrics import SessionMetrics
+from als.model.metrics import LiveMetrics, SystemMetrics
 from als.model.params import ProcessingParameter
 from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
     HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator, RemoveFlat, QueueConsumer
@@ -147,7 +147,7 @@ class Controller:
 
         self._model_observers = list()
         self._image_timings = dict()
-        self._session_metrics = SessionMetrics()
+        self._live_metrics = LiveMetrics()
 
         self._input_scanner.new_image_path_signal[str].connect(self.on_new_image_path)
         self._pre_process_pipeline.new_result_signal[Image].connect(self.on_new_pre_processed_image)
@@ -182,16 +182,17 @@ class Controller:
     def collect_metrics(self):
         available_memory_bytes = available_memory()
         _LOGGER.debug(f"*SM-MEM* Available memory (byte): {available_memory_bytes}")
-        self._session_metrics.record_available_memory(available_memory_bytes)
+        system_metrics = self._live_metrics.get_system_metrics()
+        system_metrics.record_available_memory(available_memory_bytes)
 
     @log
-    def get_session_metrics(self) -> SessionMetrics:
+    def get_live_metrics(self) -> LiveMetrics:
         """
-        Gets live session metrics.
+        Gets live metrics.
 
-        :return: live session metrics
+        :return: live metrics
         """
-        return self._session_metrics
+        return self._live_metrics
 
     @log
     def get_autostretch_parameters(self) -> List[ProcessingParameter]:
@@ -402,7 +403,8 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-PRE* New pre-processor queue size: {new_size}")
-        self._session_metrics.record_queue_size(SessionMetrics.QUEUE_PRE_PROCESS, new_size)
+        system_metrics = self._live_metrics.get_system_metrics()
+        system_metrics.record_queue_size(SystemMetrics.QUEUE_PRE_PROCESS, new_size)
         self._notify_model_observers()
 
     @log
@@ -414,7 +416,8 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-STA* New stacker queue size : {new_size}")
-        self._session_metrics.record_queue_size(SessionMetrics.QUEUE_STACKER, new_size)
+        system_metrics = self._live_metrics.get_system_metrics()
+        system_metrics.record_queue_size(SystemMetrics.QUEUE_STACKER, new_size)
         self._notify_model_observers()
 
     @log
@@ -426,7 +429,8 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-POST* New post-processor queue size: {new_size}")
-        self._session_metrics.record_queue_size(SessionMetrics.QUEUE_POST_PROCESS, new_size)
+        system_metrics = self._live_metrics.get_system_metrics()
+        system_metrics.record_queue_size(SystemMetrics.QUEUE_POST_PROCESS, new_size)
         self._notify_model_observers()
 
     @log
@@ -438,7 +442,8 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-SAV* New saver queue size : {new_size}")
-        self._session_metrics.record_queue_size(SessionMetrics.QUEUE_SAVE, new_size)
+        system_metrics = self._live_metrics.get_system_metrics()
+        system_metrics.record_queue_size(SystemMetrics.QUEUE_SAVE, new_size)
         self._notify_model_observers()
 
     @log
@@ -529,6 +534,7 @@ class Controller:
 
                 MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Starting new session..."))
 
+                self._live_metrics.reset_session_metrics()
                 DYNAMIC_DATA.has_new_warnings = False
                 self._stacker.reset()
                 self._image_timings.clear()

@@ -27,7 +27,7 @@ from als.model.data import (
 )
 from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_box, SaveWaitDialog, question, \
     message_box, SessionStopDialog, QRDisplay
-from als.ui.metrics import SessionMetricsWindow
+from als.ui.metrics import LiveMetricsWindow
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
 from als.ui.widgets import Slider
@@ -64,7 +64,7 @@ class MainWindow(QMainWindow):
         self._qrDisplay = QRDisplay(self)
         self._qrDisplay.hide()
         self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
-        self._metrics_window = SessionMetricsWindow(self._controller.get_session_metrics(), self)
+        self._metrics_window = LiveMetricsWindow(self._controller.get_live_metrics(), self)
         self._metrics_window.hide()
         self._metrics_window.visibility_changed_signal[bool].connect(self.on_metrics_window_visibility_changed)
         self._action_session_metrics = QAction(self.tr("Session metrics"), self)
