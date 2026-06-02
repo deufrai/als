@@ -7,10 +7,9 @@ but it is an offline analysis tool. ALS should expose those signals live during
 a session, in a dedicated tool window, so users can monitor processing health,
 alignment quality, and system pressure while observing.
 
-The proof of concept validated `pyqtgraph` as a viable plotting dependency and
-confirmed that a modeless tool window can display live bounded data. The POC is
-not the target architecture; it should be replaced cleanly before the feature is
-expanded.
+The system metrics slice uses lightweight custom-painted Qt widgets. The UI must
+stay responsive with dense live data and should avoid feature-heavy plotting
+widgets unless a future graph genuinely needs that interaction model.
 
 ## Code Context
 
@@ -39,7 +38,6 @@ or cause is known. It must not parse log text.
 - Keep metrics observational: do not move processing decisions into the metrics
   model.
 - Preserve raw data as much as practical for future export.
-- Keep graph image export as an optional follow-up if PyQtGraph makes it easy.
 - Keep display useful in the field: only show information that helps diagnose
   processing backlog, worker activity, memory pressure, alignment quality,
   rejected subs, or slow processing stages.
@@ -68,8 +66,17 @@ System graph X-axis uses absolute timestamps.
 Available memory and preserved-memory margin must be sampled together and shown
 on the same graph. If the user changes the preserved-memory margin during a
 session, later samples use the new value without backfilling earlier samples.
+Both values are stored and displayed in MiB. The preserved-memory preference is
+stored in configuration as a code and must be mapped to bytes before the metrics
+sample is recorded.
 
 Worker status is binary: idle or busy.
+
+Queue sizes and worker status use the same absolute timestamp range as memory.
+Each worker has one combined graph:
+
+- a status lane showing idle/busy duration from each status-change event;
+- queue-size bars showing the queue size held until the next queue-size sample.
 
 ### Astro Session Metrics
 
@@ -162,6 +169,13 @@ collapsible if practical.
 
 Collapsed sections continue collecting data but skip plot redraw until expanded.
 
+Use lightweight Qt widgets for live drawing. Graph widgets should expose only the
+interaction needed for field monitoring; panning, zooming, hover inspection, and
+other heavier plotting features are not required for the first implementation.
+
+All graphs inside the system section share one absolute-timestamp X-axis range
+so memory, queues, and worker activity can be compared by time.
+
 ### System Section
 
 Display:
@@ -224,7 +238,8 @@ Preferred export direction:
 - stable internal codes for process names and failure causes;
 - localized labels where useful;
 - separate raw series for system and astro metrics;
-- optional graph image export if PyQtGraph provides an easy path.
+- optional graph image export if it remains cheap to provide from the custom
+  widgets.
 
 Export UI or commands are not required in the first implementation.
 
@@ -371,22 +386,27 @@ from the successful save path, not inferred from absence of errors.
 
 ## Implementation Sequence
 
-1. Replace the POC metrics class with clean split models:
+Completed foundation:
+
+- split live metrics into clean models:
    - `SystemMetrics`
    - `AstroSessionMetrics`
    - a small container exposed by the controller.
-2. Implement the first real slice: system metrics.
+- implement the first system metrics slice:
    - available memory plus preserved-memory margin;
    - queue-size history;
    - worker idle/busy history;
-   - scrollable sectioned UI for those metrics.
-3. Add astro stack/session basics:
+   - scrollable sectioned UI with custom-painted timelines for those metrics.
+
+Remaining sequence:
+
+1. Add astro stack/session basics:
    - stack size history;
    - overall processing time history.
-4. Add alignment metrics:
+2. Add alignment metrics:
    - matches vs required;
    - ratio;
    - translation, rotation, scale.
-5. Add per-process timings by family.
-6. Add structured failure-cause collection and display.
-7. Add export support when the model shape is stable.
+3. Add per-process timings by family.
+4. Add structured failure-cause collection and display.
+5. Add export support when the model shape is stable.
