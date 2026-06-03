@@ -4,7 +4,7 @@ Holds all windows used in the app
 import datetime
 import platform
 from logging import getLogger
-from os import linesep, chmod, makedirs
+from os import chmod, makedirs
 from pathlib import Path
 from typing import List
 
@@ -12,6 +12,7 @@ from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFont
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
     QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
+from generated.als_ui import Ui_stack_window
 
 import als.model.data
 from als import config
@@ -30,7 +31,6 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
 from als.ui.widgets import Slider
-from generated.als_ui import Ui_stack_window
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
@@ -153,19 +153,6 @@ class MainWindow(QMainWindow):
             dark_active=config.get_dark_mode_active(),
             night_active=config.get_night_mode_active()
         )
-
-        # handle first run
-        if DYNAMIC_DATA.is_first_run:
-            _LOGGER.info("First run detected")
-
-            message_box(
-                self.tr("Welcome to ALS"),
-                self.tr('It appears this is your first use of ALS. Welcome !') + linesep*2 +
-                self.tr('Clicking OK will bring up the settings page.') + linesep*2 +
-                self.tr("Please set the paths for the Scan and Work folders."))
-
-            if self._open_preferences():
-                self.update_display()
 
         self.update_display()
         MESSAGE_HUB.add_receiver(self)

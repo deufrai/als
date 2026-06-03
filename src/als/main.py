@@ -10,13 +10,14 @@ from locale import getlocale
 from logging import getLogger
 
 from PyQt5.QtCore import QTranslator, QT_TRANSLATE_NOOP, QThread, Qt
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QDialog
 
 from als import config
 from als.code_utilities import Timer, human_readable_byte_size, available_memory, AlsLogAdapter, log
 from als.logic import Controller
 from als.messaging import MESSAGE_HUB
-from als.model.data import I18n, VERSION
+from als.model.data import I18n, VERSION, DYNAMIC_DATA
+from als.ui.dialogs import FirstRunDialog
 from als.ui.windows import MainWindow
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -72,7 +73,8 @@ def call_home():
     except socket.error:
         pass
 
-
+CONTINUE_STARTUP = "continue"
+STOP_STARTUP = "stop"
 
 # pylint: disable=R0914
 def main():
@@ -116,6 +118,9 @@ def main():
         # Translators must stay referenced while the app lives.
         # This assignment looks unused, but removing it breaks .ui translations.
         translators = setup_i18n(app, args.lang)
+
+        if do_first_run_setup_is_needed() == STOP_STARTUP:
+            return
 
         _LOGGER.debug("Building and showing main window")
         controller = Controller()
@@ -206,6 +211,20 @@ def setup_i18n(app: QApplication, lang: str = "") -> list:
     I18n().setup()
 
     return translators
+
+
+def do_first_run_setup_is_needed():
+    """
+    Detect first run
+    """
+    if not DYNAMIC_DATA.is_first_run:
+        return CONTINUE_STARTUP
+
+    _LOGGER.info("First run detected")
+    if FirstRunDialog().exec_() == QDialog.Accepted:
+        return CONTINUE_STARTUP
+
+    return STOP_STARTUP
 
 
 if __name__ == "__main__":

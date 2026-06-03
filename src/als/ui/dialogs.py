@@ -2,6 +2,7 @@
 Provides all dialogs used in ALS GUI
 """
 from logging import getLogger
+from os import mkdir
 from pathlib import Path
 
 import qrcode
@@ -9,6 +10,12 @@ from PIL.ImageQt import ImageQt
 from PyQt5.QtCore import pyqtSlot, QT_TRANSLATE_NOOP, pyqtSignal, Qt, QStandardPaths
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QDialog, QFileDialog, QMessageBox, QApplication
+from generated.about_ui import Ui_AboutDialog
+from generated.first_run_ui import Ui_FirstRunDialog
+from generated.prefs_ui import Ui_PrefsDialog
+from generated.qr_ui import Ui_QrDialog
+from generated.save_wait_ui import Ui_SaveWaitDialog
+from generated.stop_ui import Ui_SessionStopDialog
 
 import als.model.data
 from als import config
@@ -23,11 +30,6 @@ from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, build_advertised_address_preference,
     get_network_address_candidates
 )
-from generated.about_ui import Ui_AboutDialog
-from generated.prefs_ui import Ui_PrefsDialog
-from generated.qr_ui import Ui_QrDialog
-from generated.save_wait_ui import Ui_SaveWaitDialog
-from generated.stop_ui import Ui_SessionStopDialog
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
@@ -335,34 +337,15 @@ class PreferencesDialog(QDialog):
 
         super().accept()
 
-    @log
-    def ask_for_directory_path(self, invite, start_folder):
-        """
-        open a dialog box for the user to choose a directory path
 
-        :param invite: title of the dialog box
-        :type invite: str
-
-        :param start_folder: folder in which dialog box is opened
-        :type start_folder: str
-
-        :return: the folder path chose by the user
-        :rtype: str
-        """
-        if not start_folder:
-            start_folder = QStandardPaths.writableLocation(QStandardPaths.HomeLocation)
-
-        return QFileDialog.getExistingDirectory(self,
-                                                invite,
-                                                start_folder,
-                                                options=QFileDialog.DontUseNativeDialog)
 
     @pyqtSlot(bool)
     @log
     def on_btn_browse_scan_clicked(self, checked: bool = False):
         """ Asks user to pick scan folder """
-        scan_folder_path = self.ask_for_directory_path(self.tr("Select scan folder"),
-                                                       self._ui.ln_scan_folder_path.text())
+        scan_folder_path = ask_for_directory_path(self,
+                                                  self.tr("Select scan folder"),
+                                                  self._ui.ln_scan_folder_path.text())
 
         if scan_folder_path:
             self._ui.ln_scan_folder_path.setText(scan_folder_path)
@@ -373,8 +356,9 @@ class PreferencesDialog(QDialog):
     @log
     def on_btn_browse_work_clicked(self, checked: bool = False):
         """Opens a folder dialog to choose work folder"""
-        work_folder_path = self.ask_for_directory_path(self.tr("Select work folder"),
-                                                       self._ui.ln_work_folder_path.text())
+        work_folder_path = ask_for_directory_path(self,
+                                                  self.tr("Select work folder"),
+                                                  self._ui.ln_work_folder_path.text())
         if work_folder_path:
             self._ui.ln_work_folder_path.setText(work_folder_path)
 
@@ -384,8 +368,9 @@ class PreferencesDialog(QDialog):
     @log
     def on_btn_browse_web_clicked(self, checked: bool = False):
         """Opens a folder dialog to choose web folder"""
-        web_folder_path = self.ask_for_directory_path(self.tr("Select web folder"),
-                                                      self._ui.ln_web_folder_path.text())
+        web_folder_path = ask_for_directory_path(self,
+                                                 self.tr("Select web folder"),
+                                                 self._ui.ln_web_folder_path.text())
         if web_folder_path:
             self._ui.ln_web_folder_path.setText(web_folder_path)
 
@@ -618,6 +603,76 @@ class QRDisplay(QDialog):
         super().setVisible(visible)
 
 
+class FirstRunDialog(QDialog):
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._ui = Ui_FirstRunDialog()
+        self._ui.setupUi(self)
+        self._ui.stackedWidget.setCurrentIndex(0)
+        self._scan_folder_path = ""
+        self._work_folder_path = ""
+        self._scan_btn_default_text = self.tr("Select Scan folder...")
+        self._work_btn_default_text = self.tr("Select Work folder...")
+        self._ui.btn_scan.setText(self._scan_btn_default_text)
+        self._ui.btn_work.setText(self._work_btn_default_text)
+
+    @pyqtSlot(bool)
+    def on_btn_no_config_clicked(self):
+
+        user_desktop = Path(QStandardPaths.writableLocation(QStandardPaths.DesktopLocation))
+        default_scan_dir = user_desktop / "als-scan"
+        default_work_dir = user_desktop / "als-work"
+
+        try:
+            mkdir(default_scan_dir, mode=0o755)
+            mkdir(default_work_dir, mode=0o755)
+        except FileExistsError:
+            pass
+
+        config.set_scan_folder_path(str(default_scan_dir))
+        config.set_work_folder_path(str(default_work_dir))
+        config.set_web_folder_path(str(default_work_dir))
+
+        self.accept()
+
+    @pyqtSlot(bool)
+    def on_btn_go_clicked(self):
+        config.set_scan_folder_path(str(self._scan_folder_path))
+        config.set_work_folder_path(str(self._work_folder_path))
+        config.set_web_folder_path(str(self._work_folder_path))
+        self.accept()
+
+    @pyqtSlot(bool)
+    def on_btn_config_clicked(self):
+        self._ui.stackedWidget.setCurrentIndex(1)
+
+    @pyqtSlot(bool)
+    def on_btn_scan_clicked(self):
+        self._scan_folder_path = ask_for_directory_path(self, self.tr("Select scan folder"))
+        if Path(self._scan_folder_path).is_dir() and self._scan_folder_path != "":
+            self._ui.btn_scan.setText(self._scan_folder_path)
+        else:
+            self._ui.btn_scan.setText(self._scan_btn_default_text)
+        self._enable_go_button_if_folders_are_valid()
+
+    @pyqtSlot(bool)
+    def on_btn_work_clicked(self):
+        self._work_folder_path = ask_for_directory_path(self, self.tr("Select work folder"))
+        if Path(self._work_folder_path).is_dir() and self._work_folder_path != "":
+            self._ui.btn_work.setText(self._work_folder_path)
+        else:
+            self._ui.btn_work.setText(self._work_btn_default_text)
+        self._enable_go_button_if_folders_are_valid()
+
+    def _enable_go_button_if_folders_are_valid(self):
+        self._ui.btn_go.setEnabled(
+            self._scan_folder_path != ""
+            and self._work_folder_path != ""
+            and Path(self._scan_folder_path).is_dir()
+            and Path(self._work_folder_path).is_dir()
+        )
+
 @log
 def _address_preference_items(candidates):
     """
@@ -738,3 +793,26 @@ def message_box(title, message, icon=QMessageBox.Information):
     box.setWindowTitle(title)
     box.setText(message)
     box.exec()
+
+
+@log
+def ask_for_directory_path(parent, invite, start_folder= ""):
+    """
+    open a dialog box for the user to choose a directory path
+
+    :param invite: title of the dialog box
+    :type invite: str
+
+    :param start_folder: folder in which dialog box is opened
+    :type start_folder: str
+
+    :return: the folder path chose by the user
+    :rtype: str
+    """
+    if not start_folder:
+        start_folder = QStandardPaths.writableLocation(QStandardPaths.HomeLocation)
+
+    return QFileDialog.getExistingDirectory(parent,
+                                            invite,
+                                            start_folder,
+                                            options=QFileDialog.DontUseNativeDialog | QFileDialog.ShowDirsOnly)
