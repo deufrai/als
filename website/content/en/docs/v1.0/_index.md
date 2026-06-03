@@ -2,30 +2,26 @@
 title: ALS v1.0 Documentation
 description: ALS v1.0 Documentation
 author: ALS Team
-lastmod: 2025-11-02T20:24:25Z
+lastmod: 2026-06-03T18:59:02Z
 weight: 100010
 ---
 
-ALS is a livestacking application.
+# In the shoes of the character... {#character}
 
-It is available for the following systems:
+Throughout this journey, you will embody a new ALS user:
 
-- PC/Linux
-- Raspberry Pi
-- Windows
-- Mac
+- **Username**: Your username is **astrogeek**
+- **System used**: You use ALS on a Linux system
+- **Organization of subs**: Your acquisition system saves the subs in the **astroshots** folder of your home
+  directory, organized by target with subs in **Light** subfolders.
 
-ALS monitors the arrival of new raw images in a folder specified by the user, aligns and stacks
-(by averaging or summing) all the images, and presents the result on the screen.
+  Example: Session on Messier 27, the subs are saved in the **astroshots/M_27/Light** folder.
 
-ALS then offers the following features on the stacking result:
+{{< center >}}
+{{< figure
+src="lights_placement.png"
+width="889px" height="479px"
+caption="Placement of raw images"
+alt="File manager window displaying the Light subfolder within the directory astroshots/M_27/Light, showing eight FITS files" >}}
+{{< /center >}}
 
-- Navigation and zoom in the image
-- Configurable auto-stretch
-- Exposure adjustments:
-    - Black clipping
-    - Midtones level
-    - White clipping
-- RGB balance
-- Save to disk
-- Network publication via an integrated web server, with the possibility to display a QR code for easier navigation
