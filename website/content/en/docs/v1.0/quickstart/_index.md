@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2025-11-25T18:50:31Z
+lastmod: 2026-06-03T18:57:40Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -15,185 +15,50 @@ weight: 100280
 
 By the end of this chapter, you will have:
 
-- Configured the only required settings for a quick start with ALS's default settings.
+- Configured the only required settings for a quick start
 - Started your first stacking session and obtained your first results.
 
-# In the shoes of the character... {#character}
+# Initial configuration {#initial-configuration}
 
-Throughout this journey, you will embody a new ALS user:
+On the first start, ALS introduces the configuration steps required to get started:
 
-- **Username**: Your username is **astrogeek**
-- **System used**: You use ALS on a Linux system
-- **Organization of subs**: Your acquisition system saves the subs in the **astroshots** folder of your home
-  directory, organized by target with subs in **Light** subfolders.
+ALS needs to know the paths of two **critical folders**:
 
-  Example: Session on Messier 27, the subs are saved in the **astroshots/M_27/Light** folder.
-
-{{< center >}}
-{{< figure
-src="lights_placement.png"
-width="889px" height="479px"
-caption="Placement of raw images"
-alt="File manager window displaying the Light subfolder within the directory astroshots/M_27/Light, showing eight FITS files" >}}
-{{< /center >}}
-
-# Initial Configuration
-
-On the first start, ALS welcomes you and asks you to define two essential settings:
-
-- **Scan folder**: The folder where ALS monitors the arrival of new subs.
-- **Work folder**: The folder where ALS saves the produced images.
+- The **Scan folder**: The folder where ALS monitors the arrival of new subs.
+- The **Work folder**: The folder where ALS saves the produced images.
 
 {{< center >}}
 {{< figure src="welcome.png"
-caption="Welcome message"
-width="382px"
-height="172px"
-alt="Welcome dialog box for ALS with text indicating it's the user's first use and instructions to set paths for the Scan and Work folders. An OK button is at the bottom right." >}}
+caption="ALS welcome screen with setup options"
+width="787px"
+height="461px"
+alt="ALS welcome screen with setup options" >}}
 {{< /center >}}
 
-🖱️ Click `OK` to access the preferences.
+You have two options: 
 
----
+## Default configuration
 
-## Configure Critical Folders
+- 🖱️ Click the left button to let ALS create the 2 folders on **your desktop** then start the application
 
-The critical folders for ALS operation are:
+## Custom configuration
 
-- The **Scan folder**: ALS monitors the arrival of new subs in this folder.
-- The **Work folder**: ALS saves the produced images in this folder.
-
-### Scan folder
-
-{{% alert color="info" %}}
-ℹ️ Detection works regardless of the subfolder structure inside the **scan folder**.
-{{% /alert %}}
-
-Configure ALS to monitor the **astroshots** folder:
+- 🖱️ Click the right button to choose custom folders
 
 {{< center >}}
-{{< figure src="prefs_01.png"
-caption="Button to set the **scan folder**"
-width="622px"
-height="226px"
-alt="Screenshot of ALS preferences showing the General tab. A red arrow highlights the Scan folder button." >}}
+{{< figure src="custom_config.png"
+caption="ALS custom folder setup screen"
+width="787px"
+height="461px"
+alt="ALS custom folder setup screen" >}}
 {{< /center >}}
 
-🖱️ Click `Scan folder...`. A folder selector appears...
+- 🖱️ Click both buttons to select the **Scan folder** and the **Work folder** ALS will use
+ 
+You can select or create any folder on your system, but we recommend using folders on a fast drive
 
----
+- 🖱️ Once both folders are set, click `GO !` to start the application
 
-{{< center >}}
-{{< figure src="prefs_02.png"
-caption="The **scan folder** selector"
-width="635px"
-height="443px"
-alt="File selection dialog box titled 'Select scan folder' with the astroshots folder highlighted under the user astrogeek directory. The Choose button is highlighted, indicating the user is about to confirm the selection." >}}
-{{< /center >}}
-
-1. 🖱️ Select the **astroshots** folder.
-2. 🖱️ Click `Choose`.
-
----
-
-### Work Folder
-
-Create a subfolder for ALS named **als_output** in your home directory:
-
-{{< center >}}
-{{< figure src="prefs_03.png"
-caption="The file output settings"
-width="622px"
-height="328px"
-alt="Screenshot of ALS preferences showing the Output tab. The Work folder field is highlighted." >}}
-{{< /center >}}
-
-1. Switch to the **Output** tab
-2. 🖱️ Click `Work folder...`. A folder selector appears...
-
----
-
-{{< center >}}
-{{< figure src="prefs_04.png"
-caption="Button to create a new folder"
-width="730px"
-height="455px"
-alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek, showing various folders and a log file. A red arrow points to the 'Create New Folder' button, indicating the option to create a new folder." >}}
-{{< /center >}}
-
-🖱️ Click `Create new folder`.
-
----
-
-{{< center >}}
-{{< figure src="prefs_05.png"
-caption="New folder ready to be renamed"
-width="635px"
-height="443px"
-alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek. A newly created folder named 'New Folder' is highlighted in blue, ready to be renamed. The bottom part of the dialog box has fields for Directory and Files of type, with buttons labeled Choose and Cancel." >}}
-{{< /center >}}
-
-A new folder appears, ready to be renamed.
-
----
-
-{{< center >}}
-{{< figure src="prefs_06.png"
-caption="New folder renamed and confirmed"
-width="635px"
-height="443px"
-alt="File selection dialog box titled 'Select work folder' displaying the contents of the directory /home/astrogeek, including several folders and a log file. The newly created folder named als_output is highlighted, and the Choose button is highlighted, indicating the user is about to confirm the selection." >}}
-{{< /center >}}
-
-1. ⌨️ Name it {{< als-code>}}als_output{{< /als-code >}}
-2. 🖱️ Click `Choose`
-
-🖱️ Switch back to the `General` tab.
-
-{{% alert color="warning" %}}
-**⚠️ Do not confirm the preferences yet**, there is one important point left:
-{{% /alert %}}
-
-## Usage Statistics {#usage-stats}
-
-It is very useful for us to know which versions of ALS are being used and on which platform.
-
-{{< center >}}
-{{< figure src="prefs_07.png"
-caption="Checkbox indicating the choice to send usage statistics"
-width="622px"
-height="660px"
-alt="Screenshot of ALS preferences showing the General tab. The Data section with Usage statistics is highlighted." >}}
-{{< /center >}}
-
-We would be very grateful if you allow ALS to send us usage statistics, but we also understand that you may be reluctant
-to enable such a feature.
-
-Please note that:
-
-- ALS will **only** send the following information at each startup:
-    - ALS version.
-    - Processor type.
-    - Operating system type.
-- We do not seek to identify or geolocate the source of this information.
-
-<details>
-    <summary>Click here to see how you can verify these claims yourself</summary>
-
-ALS and our tracking tools are **opensource** software, their source code is publicly available.
-
-- <a href="https://github.com/deufrai/als/blob/master/src/als/main.py#L46" target="_blank">code for sending
-  statistics by ALS</a> <i class="fa-brands fa-square-github"></i>
-- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L35" target="_blank">code for recording
-  received statistics by our servers</a> <i class="fa-brands fa-square-github"></i>
-
-</details>
-
----
-
-🖱️ Once you have made your choice, click `OK` to confirm the preferences.
-
----
 
 # Your Very First Session
 
@@ -241,8 +106,7 @@ alt="Session log showing informational messages with timestamps. The entries inc
 
 🎛️ Now start the acquisitions with your usual system. ALS detects and processes each new sub.
 
-As an example, we will illustrate the following sections with a session on Messier 27: ZWO ASI224MC camera, 200 x 4 sec.
-subs
+As an example, we will illustrate the following sections with a session on Messier 27: ZWO ASI224MC camera, 200 x 4 sec. subs
 
 {{< center >}}
 {{< figure src="stacked_01.png"
@@ -338,15 +202,10 @@ This section is exclusively for ALS users on Linux, whether on PC or Raspberry P
 <details>
 <summary>Creating a system launcher for ALS</summary>
 
-{{< center >}}
-{{< figure src="launcher_menu.png"
-caption="Launcher creation menu"
-width="491px"
-height="197px"
-alt="The image shows a screenshot of a software interface with a dark theme. The top menu bar includes options such as File, Session, Edit, Image, View, Utilities, and Help. The Utilities menu is expanded, revealing two options: QR Code and Create launcher, with the latter highlighted in blue and a cursor pointing to it" >}}
-{{< /center >}}
+This optional step creates a launcher in your system application menu, so you can start ALS without browsing to the
+installation folder each time.
 
-🖱️ Open the **Utilities** menu and select the **Create launcher** item. A file selector appears...
+🖱️ Open the **Utilities** menu and select **Create launcher**. A file selector appears.
 
 1. 🖱️ Browse to the folder where ALS is located
     - **PC**: Browse to {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
@@ -357,22 +216,8 @@ alt="The image shows a screenshot of a software interface with a dark theme. The
 3. 🖱️ Click `Open`
 
 ALS confirms the successful creation of the launcher
-{{< center >}}
-{{< figure src="launcher_created.png"
-caption="Launcher creation confirmation window"
-width="305px"
-height="129px"
-alt="Notification window with the title 'ALS launcher created / updated.' The notification contains an icon of a lightbulb and the text 'You'll find ALS with the graphics apps.' There is an 'OK' button at the bottom right of the window." >}}
-{{< /center >}}
 
-You can now easily start ALS using your system menu
-{{< center >}}
-{{< figure src="launcher_ok.png"
-caption="ALS in the **Graphics** section of the system menu"
-width="536px"
-height="374px"
-alt="The image shows a section of a computer screen displaying the 'Applications' menu, specifically highlighting the 'Graphics' category. The menu lists various graphics-related applications available on the system, including Astro Live Stacker - Live Stacking Made in France." >}}
-{{< /center >}}
+ALS is now accessible from your system menu, in the Graphics section
 
 </details>
 {{% /alert %}}
