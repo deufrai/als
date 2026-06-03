@@ -103,7 +103,7 @@
       <enum>QFrame::NoFrame</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -184,8 +184,8 @@
            <property name="text">
             <string>Let ALS create folders on your desktop:
 
-• subs expected in als-scan
-• results saved in als-work</string>
+• als-scan : Monitored for new subs
+• als-work : Stores stacking results</string>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -210,7 +210,7 @@
            <property name="text">
             <string>Custom config:
 
-Define the 2 folders yourself</string>
+Define both folders yourself</string>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
