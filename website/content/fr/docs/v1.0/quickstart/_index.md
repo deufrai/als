@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-06-03T19:43:36Z
+lastmod: 2026-06-03T19:59:26Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -99,12 +99,12 @@ alt="Section des contrôles principaux d'ALS avec la sous-section Session, montr
 caption="Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour"
 width="978px"
 height="166px"
-alt="Journal de session affichant des messages d'information avec horodatages. Les entrées incluent 'Démarrage de nouvelle session...' 'Scanneur d'entrée démarré,' et 'Session démarrée en mode moyenne avec alignement True.' Des boutons étiquetés Acquitter, problèmes seuls, suivre. La barre de status indique 'Session démarrée'." >}}
+alt="Journal de session affichant des messages d'information avec horodatages. Les entrées incluent 'Démarrage de nouvelle session...' 'Scanneur d'entrée démarré,' et 'Session démarrée en mode moyenne avec alignement True.' Des boutons étiquetés Acquitter, problèmes seuls, suivre. La barre de statut indique 'Session démarrée'." >}}
 {{< /center >}}
 
 --- 
 
-🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traîte chaque nouvelle brute détectée.
+🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traite chaque nouvelle brute détectée.
 
 À titre d'exemple, nous allons illustrer les sections suivantes avec une session sur Messier 27 : caméra ZWO ASI224MC,
 200 poses de 4 sec.
@@ -212,10 +212,10 @@ parcourir le dossier d'installation à chaque fois.
 
 1. 🖱️ Naviguez vers le dossier où se trouve ALS
     - **PC**: Naviguez vers {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
-    - **Raspberry PI**: Naviguez vers {{< als-code >}}/home/astrogeek/Applications/ALS/als-v1.0{{< /als-code >}}
+    - **Raspberry Pi**: Naviguez vers {{< als-code >}}/home/astrogeek/Applications/ALS/als-v1.0{{< /als-code >}}
 2. 🖱️ Sélectionnez l'exécutable
     - **PC**: Sélectionnez le fichier {{< als-code >}}als-v1.0.run{{< /als-code >}}
-    - **Raspberry PI**: Sélectionnez le fichier {{< als-code >}}als-v1.0{{< /als-code >}}
+    - **Raspberry Pi**: Sélectionnez le fichier {{< als-code >}}als-v1.0{{< /als-code >}}
 3. 🖱️ Cliquez sur `Ouvrir`
 
 ALS vous confirme la bonne création du lanceur
@@ -233,4 +233,4 @@ ALS est maintenant correctement configuré et prêt à traiter vos brutes avec s
 
 Vous avez aussi terminé votre première session d'empilement et obtenu votre premier résultat.
 
-Prochaine étape : plonger dans le guide utilisateur
+Prochaine étape : plonger dans le [guide utilisateur](../userguide/)

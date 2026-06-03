@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-06-03T19:43:36Z
+lastmod: 2026-06-03T19:59:26Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -209,10 +209,10 @@ installation folder each time.
 
 1. 🖱️ Browse to the folder where ALS is located
     - **PC**: Browse to {{< als-code >}}/home/astrogeek/Applications/ALS{{< /als-code >}}
-    - **Raspberry PI**: Browse to {{< als-code >}}/home/astrogeek/Applications/ALS/als-v1.0{{< /als-code >}}
+    - **Raspberry Pi**: Browse to {{< als-code >}}/home/astrogeek/Applications/ALS/als-v1.0{{< /als-code >}}
 2. 🖱️ Select the executable
     - **PC**: Select the file {{< als-code >}}als-v1.0.run{{< /als-code >}}
-    - **Raspberry PI**: Select the file {{< als-code >}}als-v1.0{{< /als-code >}}
+    - **Raspberry Pi**: Select the file {{< als-code >}}als-v1.0{{< /als-code >}}
 3. 🖱️ Click `Open`
 
 ALS confirms the successful creation of the launcher
@@ -230,4 +230,4 @@ ALS is now properly configured and ready to process your subs with its default s
 
 You have just completed your first stacking session and obtained your first result.
 
-Next step: diving in our user guide
+Next step: diving in our [user guide](../userguide/)
