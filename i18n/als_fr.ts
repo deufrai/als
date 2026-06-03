@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="fr_FR" sourcelanguage="en">
 <context>
     <name></name>
     <message>
-        <location filename="../src/als/main.py" line="125"/>
+        <location filename="../src/als/main.py" line="137"/>
         <source>Astro Live Stacker version {} started in {} ms.</source>
         <translation>Astro Live Stacker version {} démarré en {} ms.</translation>
     </message>
@@ -78,7 +79,7 @@
         <translation>Echec de sauvegarde image {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="277"/>
+        <location filename="../src/als/ui/dialogs.py" line="279"/>
         <source>Port number validation failed : {}</source>
         <translation>Numéro de port non valide : {}</translation>
     </message>
@@ -322,6 +323,101 @@ ne doit pas être identique ou un sous-dossier de votre {} :
     </message>
 </context>
 <context>
+    <name>FirstRunDialog</name>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="14"/>
+        <source>ALS - Welcome !</source>
+        <translation>ALS - Bienvenue !</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="78"/>
+        <source>Welcome to ALS</source>
+        <translation>Bienvenue dans ALS</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="123"/>
+        <source>Before we start, ALS needs to know:</source>
+        <translation>Avant de débuter, ALS doit savoir :</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="144"/>
+        <source>• where to expect subs
+• where to save results</source>
+        <translation>• où attendre les brutes
+• où enregistrer ses résultat</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="185"/>
+        <source>Let ALS create folders on your desktop:
+
+• als-scan : Monitored for new subs
+• als-work : Stores stacking results</source>
+        <translation>Laisser ALS créer des dossier sur votre bureau
+
+• als-scan : Surveillé en attente de brutes
+•  als-work : Stocke les résutats</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="211"/>
+        <source>Custom config:
+
+Define both folders yourself</source>
+        <translation>Configuration personnalisée
+
+Définir vous-même les deux dossiers</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="244"/>
+        <source>Expect subs in...</source>
+        <translation>Attendre les brutes dans...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="265"/>
+        <source>Scan Folder...</source>
+        <translation>Dossier Scanné...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="284"/>
+        <source>Save results into...</source>
+        <translation>Enregistrer les résultats dans...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="305"/>
+        <source>Work Folder...</source>
+        <translation>Dossier de travail...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="350"/>
+        <source>GO !</source>
+        <translation>GO !</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/first_run_ui.ui" line="403"/>
+        <source>Quickstart guide :</source>
+        <translation type="unfinished">Guide de premier démarrage :</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/dialogs.py" line="618"/>
+        <source>Select Scan folder...</source>
+        <translation>Séléctionner le dossier scanné...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/dialogs.py" line="619"/>
+        <source>Select Work folder...</source>
+        <translation>Sélectionner le dossier de travail...</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/dialogs.py" line="670"/>
+        <source>Select scan folder</source>
+        <translation type="unfinished">Sélectionner le dossier scanné</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/dialogs.py" line="682"/>
+        <source>Select work folder</source>
+        <translation type="unfinished">Sélectionner le dossier de travail</translation>
+    </message>
+</context>
+<context>
     <name>I18n</name>
     <message>
         <location filename="../src/als/model/data.py" line="93"/>
@@ -501,37 +597,22 @@ ne doit pas être identique ou un sous-dossier de votre {} :
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/als/ui/windows.py" line="161"/>
-        <source>Welcome to ALS</source>
-        <translation>Bienvenue dans ALS</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/windows.py" line="161"/>
-        <source>It appears this is your first use of ALS. Welcome !</source>
-        <translation>Il semble que ce soit votre premier lancement d&apos;ALS. Bienvenue !</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/windows.py" line="161"/>
-        <source>Clicking OK will bring up the settings page.</source>
-        <translation>Les préférences seront affichées après un click sur OK.</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/windows.py" line="988"/>
+        <location filename="../src/als/ui/windows.py" line="975"/>
         <source>Session started</source>
         <translation>Session démarrée</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="988"/>
+        <location filename="../src/als/ui/windows.py" line="975"/>
         <source>Session successfully started after retry</source>
         <translation>Session démarrée avec succès après une nouvelle tentative</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="999"/>
+        <location filename="../src/als/ui/windows.py" line="986"/>
         <source>Session start aborted</source>
         <translation>Démarrage de session abandonné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1088"/>
+        <location filename="../src/als/ui/windows.py" line="1075"/>
         <source>Your settings could not be saved
 
 Details : {}</source>
@@ -540,37 +621,32 @@ Details : {}</source>
 Détails : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="916"/>
+        <location filename="../src/als/ui/windows.py" line="903"/>
         <source>Total stack exp. time: {}</source>
         <translation>Temps exp. total stack: {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="918"/>
+        <location filename="../src/als/ui/windows.py" line="905"/>
         <source>Total frame proc. time: {} s</source>
         <translation>Durée totale traitement dernière image: {} s</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1159"/>
+        <location filename="../src/als/ui/windows.py" line="1146"/>
         <source>ALS launcher created / updated.</source>
         <translation>Lanceur ALS créé / mis à jour avec sucès.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1159"/>
+        <location filename="../src/als/ui/windows.py" line="1146"/>
         <source>You&apos;ll find ALS with the graphics apps</source>
         <translation>Vouls trouverez ALS avec les applications graphiques</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1140"/>
+        <location filename="../src/als/ui/windows.py" line="1127"/>
         <source>Select your ALS executable</source>
         <translation>Selectionner votre executable ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="161"/>
-        <source>Please set the paths for the Scan and Work folders.</source>
-        <translation>Définissez les chemins du dossier scanné et du dossier de travail.</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/windows.py" line="992"/>
+        <location filename="../src/als/ui/windows.py" line="979"/>
         <source>Session cannot start
 
 </source>
@@ -579,32 +655,32 @@ Détails : {}</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="993"/>
+        <location filename="../src/als/ui/windows.py" line="980"/>
         <source>Do you want to fix the issue in ALS preferences ?</source>
         <translation>Voulez-vous corriger cette erreur dans les préférences d&apos;ALS ?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="569"/>
+        <location filename="../src/als/ui/windows.py" line="556"/>
         <source>Could not start web server</source>
         <translation>Impossible de démarrer le serveur web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="568"/>
+        <location filename="../src/als/ui/windows.py" line="555"/>
         <source>Change server port number in preferences and start server again</source>
         <translation>Changez le numéro de port dans les préférences du serveur et démarrez le serveur à nouveau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="567"/>
+        <location filename="../src/als/ui/windows.py" line="554"/>
         <source>Port {} is already in use.</source>
         <translation>Le port {} est déjà utilisé.</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1073"/>
+        <location filename="../src/als/ui/windows.py" line="1060"/>
         <source>Image server access is limited</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/windows.py" line="1074"/>
+        <location filename="../src/als/ui/windows.py" line="1061"/>
         <source>Displayed address is {}.
 
 Other devices on your network will not be able to browse the image server from that address.
@@ -616,42 +692,42 @@ If another device needs to browse the image server, change the Displayed address
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="275"/>
+        <location filename="../src/als/ui/dialogs.py" line="277"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Le numéro de port du serveur web doit être un nombre entre 1024 &amp; 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="276"/>
+        <location filename="../src/als/ui/dialogs.py" line="278"/>
         <source>Wrong value</source>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="364"/>
+        <location filename="../src/als/ui/dialogs.py" line="346"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="376"/>
+        <location filename="../src/als/ui/dialogs.py" line="359"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="387"/>
+        <location filename="../src/als/ui/dialogs.py" line="371"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="236"/>
+        <location filename="../src/als/ui/dialogs.py" line="238"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="238"/>
+        <location filename="../src/als/ui/dialogs.py" line="240"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="327"/>
+        <location filename="../src/als/ui/dialogs.py" line="329"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -660,22 +736,22 @@ If another device needs to browse the image server, change the Displayed address
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="330"/>
+        <location filename="../src/als/ui/dialogs.py" line="332"/>
         <source>Restart needed</source>
         <translation>Redémarrage nécessaire</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="237"/>
+        <location filename="../src/als/ui/dialogs.py" line="239"/>
         <source>Debug logs</source>
         <translation>Journaux détaillés</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="398"/>
+        <location filename="../src/als/ui/dialogs.py" line="383"/>
         <source>Select master dark file</source>
         <translation>Sélectionnez master dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="411"/>
+        <location filename="../src/als/ui/dialogs.py" line="396"/>
         <source>Select master flat file</source>
         <translation>Sélectionnez master flat</translation>
     </message>
