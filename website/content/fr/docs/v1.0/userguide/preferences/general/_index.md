@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-07T20:28:45Z
+lastmod: 2026-06-03T22:00:50Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -211,10 +211,31 @@ alt="" >}}
 
 ### Statistiques d'utilisation
 
+Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur quelle plateforme.
+
+Nous vous serions très reconnaissants d'autoriser ALS à nous envoyer des statistiques d'utilisation, mais nous comprenons
+également que vous puissiez être réticent à autoriser une telle fonctionnalité.
+
+Sachez que :
+
+- ALS nous enverra **uniquement** les informations suivantes à chaque démarrage :
+  - Version d'ALS.
+  - Architecture de la machine.
+  - Type de système d'exploitation.
+- Nous ne cherchons pas à identifier ni géolocaliser la source de ces informations.
+
+<details>
+    <summary>Cliquez ici pour savoir comment vous pouvez vérifier ces affirmations par vous-même</summary>
+
+ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement.
+
+- <a href="https://github.com/deufrai/als/blob/v1.0/src/als/main.py#L47" target="_blank">code de l'envoi
+  des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L42" target="_blank">code de
+  l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>
+
+</details>
+
 - 🖱️ Cochez `Statistiques d'utilisation` pour activer la collecte de données d'utilisation d'ALS
-
-Les données collectées sont anonymes et servent à améliorer l'application
-
-Vous trouverez les détails de la collecte de données dans le [guide de démarrage rapide](../../../quickstart#usage-stats)
 
 ℹ️ Par défaut : **OFF**

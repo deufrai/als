@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-11-07T20:28:45Z
+lastmod: 2026-06-03T22:00:50Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -207,10 +207,31 @@ alt="" >}}
 
 ### Usage Stats
 
+It is very useful for us to know which versions of ALS are being used and on which platform.
+
+We would be very grateful if you allow ALS to send us usage statistics, but we also understand that you may be reluctant
+to enable such a feature.
+
+Please note that:
+
+- ALS will **only** send the following information at each startup:
+  - ALS version.
+  - Machine architecture.
+  - Operating system type.
+- We do not seek to identify or geolocate the source of this information.
+
+<details>
+    <summary>Click here to see how you can verify these claims yourself</summary>
+
+ALS and our tracking tools are **opensource** software, their source code is publicly available.
+
+- <a href="https://github.com/deufrai/als/blob/v1.0/src/als/main.py#L47" target="_blank">code for sending
+  statistics by ALS</a> <i class="fa-brands fa-square-github"></i>
+- <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L42" target="_blank">code for recording
+  received statistics by our servers</a> <i class="fa-brands fa-square-github"></i>
+
+</details>
+
 - 🖱️ Check `Usage stats` to enable the collection of ALS usage data.
-
-The collected data is anonymous and used to improve the application.
-
-You will find details on data collection in the [quick start guide](../../../quickstart#usage-stats).
 
 ℹ️ Default: **OFF**
