@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-30T12:17:39Z
+lastmod: 2026-06-03T21:33:02Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -132,6 +132,8 @@ In case of an error during image processing:
 2. The disposal of the image is signaled to the application.
 3. The module resumes listening to its queue.
 
+---
+
 ### Preprocess {#preprocess-module}
 
 {{% alert color="info" %}}
@@ -158,6 +160,8 @@ The **preprocess** module groups the following **calibration** processes:
 
 You can find more information about the **Preprocess** module in its [detailed documentation](../../reference/modules/preprocess/).
 
+---
+
 ### Stacker {#stack-module}
 
 The **Stacker** module maintains the **stack** and processes each calibrated sub:
@@ -181,6 +185,8 @@ The **Stacker** module maintains the **stack** and processes each calibrated sub
 
 You can find more information about the **Stacker** module in its [detailed documentation](../../reference/modules/stack/).
 
+---
+
 ### Process {#process-module}
 
 The **Process** module groups the visual processing applied to the stacking results:
@@ -200,6 +206,8 @@ The **Process** module groups the visual processing applied to the stacking resu
 {{% alert color="info" %}}
 ℹ️ The image displayed in ALS's **central area** is replaced by each image output from the **Process** module.
 {{% /alert %}}
+
+---
 
 ### Save {#save-module}
 

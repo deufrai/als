@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-30T12:17:39Z
+lastmod: 2026-06-03T21:33:02Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -134,6 +134,8 @@ En cas d'erreur pendant le traitement d'une image :
 2. L'abandon de l'image est signalé à l'application
 3. Le module se remet à l'écoute de sa file d'attente
 
+---
+
 ### Preprocess {#preprocess-module}
 
 {{% alert color="info" %}}
@@ -161,6 +163,8 @@ Le module **preprocess** regroupe les traitements de **calibration** des brutes 
 
 Vous trouverez plus d'information sur le module **Preprocess** dans sa [documentation détaillée](../../reference/modules/preprocess/) 
 
+---
+
 ### Stacker {#stack-module}
 
 Le module **Stacker** maintient la **stack** et prend en charge les traitements des brutes calibrées :
@@ -186,6 +190,8 @@ Le module **Stacker** maintient la **stack** et prend en charge les traitements 
 
 Vous trouverez plus d'information sur le module **Stacker** dans sa [documentation détaillée](../../reference/modules/stack/) 
 
+---
+
 ### Process {#process-module}
 
 Le module **Process** regroupe les traitements visuels appliqués sur les résultats d'empilement :
@@ -206,6 +212,8 @@ Le module **Process** regroupe les traitements visuels appliqués sur les résul
 ℹ️ L'image affichée dans la **zone centrale** d'ALS est remplacée par chaque image se présentant en sortie du module
 **Process**.
 {{% /alert %}}
+
+---
 
 ### Save {#save-module}
 
