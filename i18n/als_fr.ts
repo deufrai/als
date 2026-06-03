@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr_FR" sourcelanguage="en">
+<!DOCTYPE TS><TS version="2.0" language="fr_FR" sourcelanguage="en">
 <context>
     <name></name>
     <message>
@@ -176,27 +175,27 @@ ne doit pas être identique ou un sous-dossier de votre {} :
     <message>
         <location filename="../src/als/logic.py" line="642"/>
         <source>Web server started</source>
-        <translation type="unfinished"></translation>
+        <translation>Serveur web démarré</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="588"/>
         <source>Master flat {} contains invalid values. Replacing NaN/Inf with 0 before normalization</source>
-        <translation type="unfinished"></translation>
+        <translation>Le master flat {} contient des valeurs invalides. Remplacement des NaN/Inf par 0 avant normalisation</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="635"/>
         <source>Unsupported Bayer pattern {}. Flat division is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation>Matrice de Bayer {} non prise en charge. La division du flat est IGNORÉE</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="656"/>
         <source>Master flat {} has insufficient signal for channel {}. Flat division is SKIPPED</source>
-        <translation type="unfinished"></translation>
+        <translation>Le master flat {} a un signal insuffisant pour le canal {}. La division du flat est IGNORÉE</translation>
     </message>
     <message>
         <location filename="../src/als/processing.py" line="883"/>
         <source>Unknown Bayer pattern. Falling back to global flat normalization.</source>
-        <translation type="unfinished"></translation>
+        <translation>Matrice de Bayer inconnue. Normalisation globale du flat utilisée.</translation>
     </message>
 </context>
 <context>
@@ -207,119 +206,129 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>A propos d&apos;ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="94"/>
-        <source>ASTRO LIVE STACKER</source>
-        <translation>ASTRO LIVE STACKER</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="138"/>
-        <source>Version :</source>
-        <translation>Version :</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="244"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;License : &lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Licence : &lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="188"/>
+        <location filename="../src/als/ui/about_ui.ui" line="30"/>
         <source>About</source>
         <translation>À propos</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="207"/>
-        <source>&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Astrophoto livestacking tool</source>
-        <translation>&lt;b&gt;Astro Live Stacker&lt;/b&gt; - Outil de livestacking astrophoto</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="295"/>
+        <location filename="../src/als/ui/about_ui.ui" line="375"/>
         <source>Authors</source>
         <translation>Auteurs</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="309"/>
-        <source>Authors:</source>
-        <translation>Auteurs:</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="370"/>
-        <source>Contributors:</source>
-        <translation>Contributeurs:</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="398"/>
+        <location filename="../src/als/ui/about_ui.ui" line="447"/>
         <source>Project logo</source>
         <translation>Logo du projet</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="439"/>
+        <location filename="../src/als/ui/about_ui.ui" line="471"/>
         <source>Dark subtraction and alignment threshold</source>
         <translation>Soustraction de dark et seuil d&apos;alignement</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="480"/>
+        <location filename="../src/als/ui/about_ui.ui" line="495"/>
         <source>Awesome shots for our website</source>
         <translation>Super prises de vues pour notre site web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="521"/>
+        <location filename="../src/als/ui/about_ui.ui" line="522"/>
         <source>Countless tests &amp; love</source>
         <translation>Tests et amour sans limite</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="608"/>
-        <source>Thanks</source>
-        <translation>Remerciements</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="620"/>
-        <source>Tools and libraries:</source>
-        <translation>Outils et librairies:</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="647"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Web Image viewer : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Visionneuse d&apos;images serveur : OpenSeaDragon - &lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="722"/>
+        <location filename="../src/als/ui/about_ui.ui" line="812"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="627"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Image alignment library : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Librairie d&apos;alignement d&apos;images : Astroalign - &lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="637"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Autostretch code : Las Cumbres Observatory - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Code de l&apos;autostretch : Observatoire Las Cumbres - &lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="254"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Source code : &lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Code source : &lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="567"/>
-        <source>Translators:</source>
-        <translation>Traducteurs:</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/about_ui.ui" line="583"/>
+        <location filename="../src/als/ui/about_ui.ui" line="557"/>
         <source>Russian</source>
         <translation>Russe</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="224"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Website : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Site web : &lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <location filename="../src/als/ui/about_ui.ui" line="114"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ALS&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ALS&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/about_ui.ui" line="664"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;All other more common libraries used in ALS are listed in the requirements.txt file at the top of our &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/1.0/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;source code repository&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Toutes les librairies plus courantes utilisées par ALS sont listées dans le fichier requirements.txt à la racine de notre &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/1.0/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;dépôt de code source&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; {1.0/?} {0000;?}</translation>
+        <location filename="../src/als/ui/about_ui.ui" line="132"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Astro Live Stacker&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Astro Live Stacker&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="160"/>
+        <source>Version</source>
+        <translation>Version</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="218"/>
+        <source>Website</source>
+        <translation>Site web</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="278"/>
+        <source>Source code</source>
+        <translation>Code source</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="293"/>
+        <source>&lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="308"/>
+        <source>License</source>
+        <translation>Licence</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="323"/>
+        <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;</source>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="369"/>
+        <source>Team</source>
+        <translation>Équipe</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="424"/>
+        <source>Contributors</source>
+        <translation>Contributeurs</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="544"/>
+        <source>Translators</source>
+        <translation>Traducteurs</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="568"/>
+        <source>Credits</source>
+        <translation>Crédits</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="574"/>
+        <source>Special guests</source>
+        <translation>Invités spéciaux</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="590"/>
+        <source>Image alignment</source>
+        <translation>Alignement d'image</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="648"/>
+        <source>Autostretch</source>
+        <translation>Autostretch</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="706"/>
+        <source>Online image viewer</source>
+        <translation>Visionneuse d'images en ligne</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/about_ui.ui" line="757"/>
+        <source>All libraries used in ALS are listed &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/1.0/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;</source>
+        <translation>Toutes les bibliothèques utilisées par ALS sont listées &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/1.0/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;ici&lt;/span&gt;&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -338,24 +347,6 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <location filename="../src/als/ui/first_run_ui.ui" line="123"/>
         <source>Before we start, ALS needs to know:</source>
         <translation>Avant de débuter, ALS doit savoir :</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/first_run_ui.ui" line="144"/>
-        <source>• where to expect subs
-• where to save results</source>
-        <translation>• où attendre les brutes
-• où enregistrer ses résultat</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/first_run_ui.ui" line="185"/>
-        <source>Let ALS create folders on your desktop:
-
-• als-scan : Monitored for new subs
-• als-work : Stores stacking results</source>
-        <translation>Laisser ALS créer des dossier sur votre bureau
-
-• als-scan : Surveillé en attente de brutes
-•  als-work : Stocke les résutats</translation>
     </message>
     <message>
         <location filename="../src/als/ui/first_run_ui.ui" line="211"/>
@@ -394,7 +385,7 @@ Définir vous-même les deux dossiers</translation>
     <message>
         <location filename="../src/als/ui/first_run_ui.ui" line="403"/>
         <source>Quickstart guide :</source>
-        <translation type="unfinished">Guide de premier démarrage :</translation>
+        <translation>Guide de démarrage rapide :</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="618"/>
@@ -409,12 +400,30 @@ Définir vous-même les deux dossiers</translation>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="670"/>
         <source>Select scan folder</source>
-        <translation type="unfinished">Sélectionner le dossier scanné</translation>
+        <translation>Sélectionner le dossier scanné</translation>
     </message>
     <message>
         <location filename="../src/als/ui/dialogs.py" line="682"/>
         <source>Select work folder</source>
-        <translation type="unfinished">Sélectionner le dossier de travail</translation>
+        <translation>Sélectionner le dossier de travail</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../src/als/ui/first_run_ui.ui" line="144"/>
+        <source>• where to expect subs
+• where to save results</source>
+        <translation>• où attendre les brutes
+• où enregistrer les résultats</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="../src/als/ui/first_run_ui.ui" line="185"/>
+        <source>Let ALS create folders on your desktop:
+
+• als-scan : Monitored for new subs
+• als-work : Stores stacking results</source>
+        <translation>Laisser ALS créer des dossiers sur votre bureau :
+
+• als-scan : surveillé pour les nouvelles brutes
+• als-work : stocke les résultats d'empilement</translation>
     </message>
 </context>
 <context>
@@ -586,12 +595,12 @@ Définir vous-même les deux dossiers</translation>
     <message>
         <location filename="../src/als/model/data.py" line="109"/>
         <source>Auto - recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto - recommandé</translation>
     </message>
     <message>
         <location filename="../src/als/model/data.py" line="110"/>
         <source>Network adapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Adaptateur réseau</translation>
     </message>
 </context>
 <context>
@@ -677,7 +686,7 @@ Détails : {}</translation>
     <message>
         <location filename="../src/als/ui/windows.py" line="1060"/>
         <source>Image server access is limited</source>
-        <translation type="unfinished"></translation>
+        <translation>L'accès au serveur d'images est limité</translation>
     </message>
     <message>
         <location filename="../src/als/ui/windows.py" line="1061"/>
@@ -686,7 +695,11 @@ Détails : {}</translation>
 Other devices on your network will not be able to browse the image server from that address.
 
 If another device needs to browse the image server, change the Displayed address in Preferences &gt; Output &gt; Server, then retry from that device.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresse affichée : {}.
+
+Les autres appareils de votre réseau ne pourront pas accéder au serveur d'images depuis cette adresse.
+
+Si un autre appareil doit accéder au serveur d'images, modifiez l'adresse affichée dans Préférences &gt; Sortie &gt; Serveur, puis réessayez depuis cet appareil.</translation>
     </message>
 </context>
 <context>
@@ -996,7 +1009,7 @@ If another device needs to browse the image server, change the Displayed address
     <message>
         <location filename="../src/als/ui/prefs_ui.ui" line="678"/>
         <source>Displayed &amp;address</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Adresse affichée</translation>
     </message>
 </context>
 <context>
