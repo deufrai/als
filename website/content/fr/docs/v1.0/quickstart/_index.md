@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-06-03T19:34:16Z
+lastmod: 2026-06-03T19:43:36Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: [ "linux", "dossier scanné", "session", "dossier de travail"  ]
 weight: 100280
 ---
 
-# Introduction
+# Introduction {#introduction}
 
 À la fin de ce chapitre, vous aurez :
 
@@ -37,11 +37,11 @@ alt="Écran d'accueil ALS avec les options de configuration" >}}
 
 Vous avez deux options :
 
-## Configuration par défaut
+## Configuration par défaut {#default-configuration}
 
 - 🖱️ Cliquez sur le bouton de gauche pour laisser ALS créer les 2 dossiers sur **votre bureau** puis démarrer l'application
 
-## Configuration personnalisée
+## Configuration personnalisée {#custom-configuration}
 
 - 🖱️ Cliquez sur le bouton de droite pour choisir des dossiers personnalisés
 
@@ -60,7 +60,7 @@ dossiers situés sur un disque rapide
 
 - 🖱️ Une fois les deux dossiers définis, cliquez sur `GO !` pour démarrer l'application
 
-# Votre toute première session
+# Votre toute première session {#your-very-first-session}
 
 {{< center >}}
 {{< figure src="ready.png"
@@ -70,7 +70,7 @@ height="761px"
 alt="Fenêtre principale d'ALS montrant une interface logicielle pour empiler des images astronomiques en temps réel. L'interface comprend des sections pour les contrôles principaux (démarrer, pause, arrêter), les paramètres d'empilement (aligner, seuil), le serveur d'images (démarrer, arrêter), la sauvegarde d'images (sauvegarder l'image actuelle, sauvegarder chaque image), les modules (taille de la file d'attente, statut), le traitement (histogramme, étirement automatique, niveaux, balance RGB) et le journal de session." >}}
 {{< /center >}}
 
-## Démarrage de la session
+## Démarrage de la session {#starting-the-session}
 
 {{< center >}}
 {{< figure src="start.png"
@@ -142,7 +142,7 @@ granuleux du fond de ciel s'estompera petit à petit.
 
 ---
 
-## Partez à la découverte{#explore}
+## Partez à la découverte {#explore}
 
 Laissez ALS travailler sur les brutes qui continuent d'arriver et perdez-vous un peu dans la **zone centrale** :
 
@@ -169,7 +169,7 @@ la section **Traitements**.
 
 ---
 
-## Arrêt de la session
+## Arrêt de la session {#stopping-the-session}
 
 Notre visite guidée express touche à sa fin, arrêtez la session en cours.
 
@@ -227,7 +227,7 @@ ALS est maintenant accessible depuis votre menu système, dans la section Graphi
 
 ---
 
-# Conclusion
+# Conclusion {#conclusion}
 
 ALS est maintenant correctement configuré et prêt à traiter vos brutes avec ses paramètres par défaut
 

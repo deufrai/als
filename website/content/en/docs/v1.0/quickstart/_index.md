@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-06-03T18:57:40Z
+lastmod: 2026-06-03T19:43:36Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -11,7 +11,7 @@ tags: [ "linux", "scan folder", "session", "work folder"  ]
 weight: 100280
 ---
 
-# Introduction
+# Introduction {#introduction}
 
 By the end of this chapter, you will have:
 
@@ -37,11 +37,11 @@ alt="ALS welcome screen with setup options" >}}
 
 You have two options: 
 
-## Default configuration
+## Default configuration {#default-configuration}
 
 - 🖱️ Click the left button to let ALS create the 2 folders on **your desktop** then start the application
 
-## Custom configuration
+## Custom configuration {#custom-configuration}
 
 - 🖱️ Click the right button to choose custom folders
 
@@ -60,7 +60,7 @@ You can select or create any folder on your system, but we recommend using folde
 - 🖱️ Once both folders are set, click `GO !` to start the application
 
 
-# Your Very First Session
+# Your Very First Session {#your-very-first-session}
 
 {{< center >}}
 {{< figure src="ready.png"
@@ -70,7 +70,7 @@ height="761px"
 alt="ALS main window showing a software interface for stacking astronomical images in real-time. The interface includes sections for main controls (start, pause, stop), stack settings (align, threshold), image server (start, stop), image saver (save current, save every frame), workers (queue size, status), processing (histogram, auto stretch, levels, RGB balance), and session log." >}}
 {{< /center >}}
 
-## Starting the Session
+## Starting the Session {#starting-the-session}
 
 {{< center >}}
 {{< figure src="start.png"
@@ -141,7 +141,7 @@ will gradually fade away.
 
 ---
 
-## Explore
+## Explore {#explore}
 
 Let ALS work on the subs that keep coming in and lose yourself a bit in the **central area**:
 
@@ -167,7 +167,7 @@ intuitive. Feel free to explore and experiment with the various controls located
 
 ---
 
-## Stopping the Session
+## Stopping the Session {#stopping-the-session}
 
 Our express guided tour is coming to an end, stop the current session.
 
@@ -224,7 +224,7 @@ ALS is now accessible from your system menu, in the Graphics section
 
 ---
 
-# Conclusion
+# Conclusion {#conclusion}
 
 ALS is now properly configured and ready to process your subs with its default settings.
 
