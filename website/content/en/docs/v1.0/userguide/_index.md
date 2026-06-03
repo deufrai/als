@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2026-06-03T20:33:32Z
+lastmod: 2026-06-03T20:47:13Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -13,6 +13,9 @@ weight: 100300
 
 **Let yourself be guided!** We will show you everything you need to know about ALS for smooth and optimal use, tailored
 to **your** needs.
+
+The user guide walks through ALS after first launch: core concepts, session workflow, main interface, preferences, and
+common interactions.
 
 # Conventions
 

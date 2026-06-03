@@ -2,9 +2,12 @@
 title: Documentation ALS v1.0
 description: Documentation ALS v1.0
 author: ALZ Team
-lastmod: 2026-06-03T19:41:01Z
+lastmod: 2026-06-03T20:47:13Z
 weight: 100010
 ---
+
+Cette documentation suit le parcours d'une première session : installer ALS, effectuer la configuration initiale,
+démarrer une session d'empilement, puis explorer l'application plus en détail.
 
 # Dans la peau du personnage... {#character}
 

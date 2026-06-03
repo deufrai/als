@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-03T20:33:32Z
+lastmod: 2026-06-03T20:47:13Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -13,6 +13,9 @@ weight: 100300
 
 **Laissez-vous guider !** Nous allons vous montrer tout ce qu'il y a à savoir sur ALS pour une utilisation fluide et
 optimale, adaptée à **vos** besoins.
+
+Le guide utilisateur vous accompagne dans ALS après le premier lancement : concepts de base, déroulement d'une session,
+interface principale, préférences et interactions courantes.
 
 # Conventions
 

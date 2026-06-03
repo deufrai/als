@@ -2,9 +2,12 @@
 title: ALS v1.0 Documentation
 description: ALS v1.0 Documentation
 author: ALS Team
-lastmod: 2026-06-03T18:59:02Z
+lastmod: 2026-06-03T20:47:13Z
 weight: 100010
 ---
+
+This documentation follows a first-session path: install ALS, complete the first-run setup, start a stacking session,
+then explore the application in more detail.
 
 # In the shoes of the character... {#character}
 
@@ -24,4 +27,3 @@ width="889px" height="479px"
 caption="Placement of raw images"
 alt="File manager window displaying the Light subfolder within the directory astroshots/M_27/Light, showing eight FITS files" >}}
 {{< /center >}}
-
