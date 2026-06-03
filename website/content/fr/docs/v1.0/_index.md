@@ -2,31 +2,25 @@
 title: Documentation ALS v1.0
 description: Documentation ALS v1.0
 author: ALZ Team
-lastmod: 2025-11-02T20:24:25Z
+lastmod: 2026-06-03T19:41:01Z
 weight: 100010
 ---
 
-ALS est une application de livestacking.
+# Dans la peau du personnage... {#character}
 
-Elle est disponible pour les systèmes suivants :
+Tout au long de ce voyage, vous incarnerez un nouvel utilisateur d'ALS :
 
-- PC/Linux
-- Raspberry Pi
-- Windows
-- Mac
+- **Nom d'utilisateur**&nbsp;: Votre nom d'utilisateur est **astrogeek**
+- **Système utilisé**&nbsp;: Vous utilisez ALS sur un système Linux
+- **Organisation des brutes**&nbsp;: votre système d'acquisition enregistre les brutes dans le dossier **astroshots** de
+  votre dossier personnel, organisées par cible avec les brutes dans des sous-dossiers **Light**.
 
-ALS surveille l'arrivée de nouvelles brutes dans un dossier spécifié par l'utilisateur, aligne et empile
-(par moyenne ou somme) toutes les images, et présente le résultat à l'écran.
+  Exemple : Session sur Messier 27, les brutes sont enregistrées dans le dossier **astroshots/M_27/Light**.
 
-ALS propose ensuite, sur le résultat de l'empilement, les fonctionnalités suivantes :
-
-- Navigation et zoom dans l'image
-- Auto-stretch automatique paramétrable
-- Réglages d'exposition :
-    - Écrêtage des noirs
-    - Niveau des tons moyens
-    - Écrêtage des blancs
-- Balance RVB
-- Sauvegarde sur disque
-- Publication sur le réseau via un serveur web intégré, avec possibilité d'afficher un QR code pour
-  faciliter la navigation
+{{< center >}}
+{{< figure
+src="lights_placement.png"
+width="888px" height="484px"
+caption="Emplacement des brutes"
+alt="Fenêtre du gestionnaire de fichiers affichant le sous-dossier Light dans le répertoire astroshots/M_27/Light, montrant huit fichiers FITS." >}}
+{{< /center >}}
