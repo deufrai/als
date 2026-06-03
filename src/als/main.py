@@ -119,7 +119,7 @@ def main():
         # This assignment looks unused, but removing it breaks .ui translations.
         translators = setup_i18n(app, args.lang)
 
-        if do_first_run_setup_is_needed() == STOP_STARTUP:
+        if do_first_run_setup_if_needed() == STOP_STARTUP:
             return
 
         _LOGGER.debug("Building and showing main window")
@@ -213,9 +213,14 @@ def setup_i18n(app: QApplication, lang: str = "") -> list:
     return translators
 
 
-def do_first_run_setup_is_needed():
+def do_first_run_setup_if_needed():
     """
-    Detect first run
+    Detect if this is the first run of ALS and display the FTUE dialog in that case
+
+    :return: whether to continue startup or not :
+             - CONTINUE_STARTUP: setup completed by user, or not a first run
+             - STOP_STARTUP: firt run and user chose to quit during setup
+    :rtype: str
     """
     if not DYNAMIC_DATA.is_first_run:
         return CONTINUE_STARTUP
