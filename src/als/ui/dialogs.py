@@ -604,6 +604,9 @@ class QRDisplay(QDialog):
 
 
 class FirstRunDialog(QDialog):
+    """
+    Displayed on first run, to let user choose between default config or custom config
+    """
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -619,6 +622,12 @@ class FirstRunDialog(QDialog):
 
     @pyqtSlot(bool)
     def on_btn_no_config_clicked(self):
+        """
+        create default config
+
+        Scan folder : als-scan on user desktop
+        Work folder : als-work on user desktop
+        """
 
         user_desktop = Path(QStandardPaths.writableLocation(QStandardPaths.DesktopLocation))
         default_scan_dir = user_desktop / "als-scan"
@@ -638,6 +647,9 @@ class FirstRunDialog(QDialog):
 
     @pyqtSlot(bool)
     def on_btn_go_clicked(self):
+        """
+        store configuration entries and closes dialog
+        """
         config.set_scan_folder_path(str(self._scan_folder_path))
         config.set_work_folder_path(str(self._work_folder_path))
         config.set_web_folder_path(str(self._work_folder_path))
@@ -645,10 +657,16 @@ class FirstRunDialog(QDialog):
 
     @pyqtSlot(bool)
     def on_btn_config_clicked(self):
+        """
+        displays custom config panel
+        """
         self._ui.stackedWidget.setCurrentIndex(1)
 
     @pyqtSlot(bool)
     def on_btn_scan_clicked(self):
+        """
+        handle user choice of scan folder
+        """
         self._scan_folder_path = ask_for_directory_path(self, self.tr("Select scan folder"))
         if Path(self._scan_folder_path).is_dir() and self._scan_folder_path != "":
             self._ui.btn_scan.setText(self._scan_folder_path)
@@ -658,6 +676,9 @@ class FirstRunDialog(QDialog):
 
     @pyqtSlot(bool)
     def on_btn_work_clicked(self):
+        """
+        handle user choice of work folder
+        """
         self._work_folder_path = ask_for_directory_path(self, self.tr("Select work folder"))
         if Path(self._work_folder_path).is_dir() and self._work_folder_path != "":
             self._ui.btn_work.setText(self._work_folder_path)
@@ -666,6 +687,9 @@ class FirstRunDialog(QDialog):
         self._enable_go_button_if_folders_are_valid()
 
     def _enable_go_button_if_folders_are_valid(self):
+        """
+        Enable "Go" button if both scan and work folder paths are set to existing folders
+        """
         self._ui.btn_go.setEnabled(
             self._scan_folder_path != ""
             and self._work_folder_path != ""
@@ -799,6 +823,9 @@ def message_box(title, message, icon=QMessageBox.Information):
 def ask_for_directory_path(parent, invite, start_folder= ""):
     """
     open a dialog box for the user to choose a directory path
+
+    :param parent: parent Qt Widget
+    :type parent: QWidget
 
     :param invite: title of the dialog box
     :type invite: str
