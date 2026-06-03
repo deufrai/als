@@ -3,7 +3,7 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:54:32Z
+lastmod: 2026-06-03T20:33:32Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
@@ -16,7 +16,40 @@ optimale, adaptée à **vos** besoins.
 
 # Conventions
 
-Définissons tout d'abord les termes et mises en forme que nous utiliserons tout au long de ce guide.
+Ce guide utilise les conventions de mise en forme et les termes suivants.
+
+## Typographie {#typography}
+
+<div class="row">
+<div class="col-md-5">
+
+### Texte
+- un `élémént d'interface graphique`
+- un {{< als-ks >}}raccourci clavier{{< /als-ks >}}
+- une {{< als-code >}}commande{{< /als-code >}} ou un {{< als-code >}}extrait de code{{< /als-code >}}
+- une **information importante**
+- ⚙️ Détail technique
+
+</div>
+<div class="col-md-3">
+
+### Paragraphes
+- ⚠️ Avertissement
+- ℹ️ Information
+- 💡 Astuce
+- 🧠 Rappel
+- 🐛 Bug connu
+
+</div>
+<div class="col-md-4">
+
+### Actions utilisateur
+- 🖱️ une action à la souris est requise
+- ⌨️ une action au clavier est requise
+- 🎛️ une action en dehors d'ALS est requise
+
+</div>
+</div>
 
 ## Glossaire {#glossary}
 
@@ -38,25 +71,3 @@ Image représentant le motif d'illumination du système optique et les non-unifo
 utilisée pour corriger les brutes du vignettage et des ombres de poussières pendant la calibration.
 
 Les brutes sont divisées par le master flat après la soustraction du master dark pendant la calibration
-
-## Typographie
-
-### Texte
-- un `élémént d'interface graphique`
-- un {{< als-ks >}}raccourci clavier{{< /als-ks >}}
-- une {{< als-code >}}commande{{< /als-code >}} ou un {{< als-code >}}extrait de code{{< /als-code >}}
-- une **information importante**
-- ⚙️ Détail technique
-
-### Paragraphes
-- ⚠️ Avertissement
-- ℹ️ Information
-- 💡 Astuce
-- 🧠 Rappel
-- 🐛 Bug connu
-
-### Actions utilisateur
-- 🖱️ une action à la souris est requise
-- ⌨️ une action au clavier est requise
-- 🎛️ une action en dehors d'ALS est requise
-

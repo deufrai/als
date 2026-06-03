@@ -3,7 +3,7 @@ title: "User Guide"
 description: "ALS User Guide"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:54:31Z
+lastmod: 2026-06-03T20:33:32Z
 keywords: [ "ALS user guide" ]
 draft: false
 type: "docs"
@@ -16,7 +16,40 @@ to **your** needs.
 
 # Conventions
 
-First, let's define the terms and formatting we will use throughout this guide.
+This guide uses the following formatting conventions and terms.
+
+## Typography {#typography}
+
+<div class="row">
+<div class="col-md-5">
+
+### Text
+- a `graphical user interface element`
+- a {{< als-ks >}}keyboard shortcut{{< /als-ks >}}
+- a {{< als-code >}}command{{< /als-code >}} or {{< als-code >}}code extract{{< /als-code >}}
+- an **important information**
+- ⚙️ Technical detail
+
+</div>
+<div class="col-md-3">
+
+### Paragraphs
+- ⚠️ Warning
+- ℹ️ Information
+- 💡 Tip
+- 🧠 Reminder
+- 🐛 Known bug
+
+</div>
+<div class="col-md-4">
+
+### User Actions
+- 🖱️ mouse action required
+- ⌨️ keyboard action required
+- 🎛️ action outside of ALS required
+
+</div>
+</div>
 
 ## Glossary {#glossary}
 
@@ -38,24 +71,3 @@ Image representing the optical system’s illumination pattern and sensor respon
 the subs for vignetting and dust shadows during calibration.
 
 Subs are divided by the master flat after dark subtraction during calibration
-
-## Typography
-
-### Text
-- a `graphical user interface element`
-- a {{< als-ks >}}keyboard shortcut{{< /als-ks >}}
-- a {{< als-code >}}command{{< /als-code >}} or {{< als-code >}}code extract{{< /als-code >}}
-- an **important information**
-- ⚙️ Technical detail
-
-### Paragraphs
-- ⚠️ Warning
-- ℹ️ Information
-- 💡 Tip
-- 🧠 Reminder
-- 🐛 Known bug
-
-### User Actions
-- 🖱️ mouse action required
-- ⌨️ keyboard action required
-- 🎛️ action outside of ALS required
