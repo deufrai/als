@@ -2,7 +2,7 @@
 title: "Server"
 description: "Detailed documentation of the ALS image server module"
 author: "ALS Team"
-lastmod: 2026-05-31T12:11:39Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: ["ALS image server", "ALS web module", "ALS remote view"]
 draft: false
 type: "docs"
@@ -17,7 +17,7 @@ The **Server** utility module exposes ALS processing results through a lightweig
 
 It is responsible for:
 
-- Publishing the **latest stacked image** and session metrics in the configured **web folder**
+- Publishing the **latest processed stacking result** and session metrics in the configured **web folder**
 - Serving the **viewer web application** (`index.html`, JavaScript and icons)
 - Streaming live **new-image notifications** to connected browsers over WebSockets
 

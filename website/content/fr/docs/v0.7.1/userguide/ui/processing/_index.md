@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2026-05-31T12:11:40Z
+lastmod: 2026-06-04T22:45:32Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "curseurs", "traitements", "panneaux" ]
@@ -23,13 +23,13 @@ Le panneau `Traitements` est la salle de contrôle du module **Process**
 
 Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles des traitements en plusieurs sections :
 
-- [**Histogramme**](#histogramme-section)  
+- [**Histogramme**](#histogram-section)
   Visualisation graphique de la répartition des intensités lumineuses.
 
 - [**Auto Stretch**](#stretch-section)  
   Réglage de la force de l’étirement automatique.
 
-- [**Niveaux**](#niveaux-section)  
+- [**Niveaux**](#levels-section)
   Ajustement de l’exposition globale ainsi que des écrêtages des noirs et des blancs.
 
 - [**Balance RVB**](#balance-section)  
@@ -47,7 +47,7 @@ alt="Le panneau Traitements de ALS, incluant les sections Histogramme, Auto Stre
 
 ---
 
-# Histogramme {#histogramme-section}
+# Histogramme {#histogram-section}
 
 L’**Histogramme** fournit une représentation graphique de la répartition des valeurs d’intensité lumineuse dans l’image
 affichée. 
@@ -151,7 +151,7 @@ images empilées exploitables.
 
 ℹ️ Par défaut : Un équilibre idéal magiquement défini par nous.
 
-## Niveaux {#niveaux-section}
+## Niveaux {#levels-section}
 
 <div class="row">
 <div class="col-md-8">

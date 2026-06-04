@@ -2,8 +2,8 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-31T12:11:40Z
-keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
+lastmod: 2026-06-04T22:35:46Z
+keywords: [ "ALS output settings", "préférences Sortie d'ALS" ]
 draft: false
 type: "docs"
 categories: ["configuration"]

@@ -2,8 +2,8 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-06T18:05:14Z
-keywords: [ "ALS output settings", "préférences Sortie  d'ALS" ]
+lastmod: 2026-06-04T22:35:46Z
+keywords: [ "ALS output settings", "préférences Sortie d'ALS" ]
 draft: false
 type: "docs"
 categories: ["configuration"]
@@ -56,7 +56,7 @@ height="214px"
 alt="" >}}
 {{< /center >}}
 
-- 🖱️ utilisez Les boutons `Format` pour définir le format de fichier de la sortie principale
+- 🖱️ utilisez les boutons `Format` pour définir le format de fichier de la sortie principale
 
 ℹ️ Par défaut : JPEG
 
@@ -102,7 +102,7 @@ Vous avez la possibilité de réellement séparer les deux sorties d'ALS en util
 
 ## Autosave {#autosave}
 
-### Résutlat horodaté à l'arrêt de session {#autosave-stop}
+### Résultat horodaté à l'arrêt de session {#autosave-stop}
 
 Active la sauvegarde, à **chaque arrêt de session**, du **dernier** résultat de traitement :
 
@@ -125,13 +125,13 @@ height="178px"
 alt="" >}}
 {{< /center >}}
 
-- 🖱️ cochez `Résutlat horodaté à l'arrêt de session` pour activer la fonction d'autosave
+- 🖱️ cochez `Résultat horodaté à l'arrêt de session` pour activer la fonction d'autosave
 
 ℹ️ Par défaut : ON
 
 # Server {#server}
 
-Ici est configurés le port d'écoute du serveur d'images
+Ici est configuré le port d'écoute du serveur d'images
 
 ## Numéro de port {#server-port}
 
@@ -150,6 +150,5 @@ width="622px"
 height="175px"
 alt="" >}}
 {{< /center >}}
-
 
 

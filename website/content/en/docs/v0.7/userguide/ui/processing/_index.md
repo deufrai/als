@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2025-04-21T00:24:24Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "sliders", "processing", "panels" ]
@@ -32,7 +32,7 @@ Located on the right side of the interface, this panel organizes image processin
 - [**Levels**](#levels-section)  
   Fine-tune overall exposure and adjust black and white clipping.
 
-- [**RGB Balance**](#rgb-balance-section)  
+- [**RGB Balance**](#balance-section)
   Adjust the red, green, and blue levels for color correction.
 
 </div>

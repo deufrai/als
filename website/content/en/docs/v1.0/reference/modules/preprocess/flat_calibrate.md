@@ -2,7 +2,7 @@
 title: "Flat Calibration"
 description: "Detailed documentation of the ALS RemoveFlat process"
 author: "ALS Team"
-lastmod: 2025-11-03T11:51:03Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: ["ALS flat calibration", "ALS master flat"]
 draft: false
 type: "docs"
@@ -22,8 +22,8 @@ Its configuration is managed via the ALS preferences page.
 
 |                     | Source                                                                                   | Data type | Required | Default value  |
 |---------------------|------------------------------------------------------------------------------------------|-----------|----------|----------------|
-| ON/OFF              | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-calibrate) | ON/OFF    | ∅        | OFF            |
-| Master flat path    | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-calibrate) | File path | Yes      | ∅              |
+| ON/OFF              | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-remove) | ON/OFF    | ∅        | OFF            |
+| Master flat path    | Preferences: [Processing Tab](../../../userguide/preferences/processing/#flat-remove) | File path | Yes      | ∅              |
 
 # Control
 
@@ -46,8 +46,8 @@ START([START])
 TEST_ENABLED{{Processing enabled?}}
 READ_FLAT[Read master flat]
 TEST_SHAPE{{Identical dimensions?}}
-NORMALIZE[Normalize by maximum value]
-SAFEGUARD[Replace zeroes with ones]
+    NORMALIZE[Normalize by robust scale]
+    SAFEGUARD[Apply epsilon floor]
 DIVIDE[Divide image by normalized flat]
 CLIP[Clip to 16-bit range]
 RETURN[Return calibrated image]
@@ -84,11 +84,14 @@ class START,END bounds
 class RETURN,UNCHANGED,READ_FLAT,NORMALIZE,SAFEGUARD,DIVIDE,CLIP step
 ```
 
-The master flat is loaded from disk, normalized by its maximum value, and any zero entries are replaced
-with ones before dividing the sub.
+The master flat is loaded from disk, converted to a normalized `float32` calibration frame, and protected with a small
+epsilon floor before dividing the sub.
 
 - If the master flat cannot be read or its dimensions differ from the sub, the division is
   skipped and the **unmodified** sub is returned to the **Preprocess** pipeline.
+- For Bayer-patterned color subs, normalization is computed per Bayer channel; otherwise a global robust scale is used.
+- If the master flat contains no usable signal, or a Bayer channel has insufficient signal, the division is skipped and
+  the **unmodified** sub is returned to the **Preprocess** pipeline.
 - After division the pixels are clipped to the 16-bit range and converted to unsigned 16-bit integers to
   maintain downstream compatibility.
 

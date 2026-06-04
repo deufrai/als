@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2025-06-17T10:36:33Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -139,6 +139,8 @@ Le temps d'attente entre les interrogations dépend du profil configuré :
 | Astrophoto     | 1500ms                                 |
 
 ## Chargement de l'image {#load}
+
+### Formats compatibles {#input-formats}
 
 Le fichier est chargé en mémoire en utilisant le format correspondant à son extension :
 

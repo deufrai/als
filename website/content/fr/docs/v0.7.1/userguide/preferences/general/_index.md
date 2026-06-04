@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-31T12:11:40Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -22,7 +22,7 @@ Cet onglet est divisé en 3 sections :
 
 - [Scanner](#scanner)
 - [Mémoire](#memory)
-- [Moteur](#engine)
+- [Moteur](#core)
 
 </div>
 <div class="col-md-8 d-flex align-items-center justify-content-center">
@@ -69,7 +69,7 @@ alt="Interface logicielle affichant les paramètres du dossier scanné avec le c
 
 # Utilisation Mémoire {#memory}
 
-Défini le comportement d'ALS concernant la quantité de mémoire à laisser à la disposition des autres applications
+Définit le comportement d'ALS concernant la quantité de mémoire à laisser à la disposition des autres applications
 
 {{< center >}}
 {{< figure src="memory.png"
@@ -81,15 +81,15 @@ alt="" >}}
 
 Les noms associés aux valeurs de ce curseur sont aussi flous que la gestion de la mémoire peut l'être.
 
-Nous vous conseillons d'expérimenter avec un esprit ouvert et joyeux... 
+Nous vous conseillons d'expérimenter avec le réglage le plus adapté à votre système.
 
-⚙️ Ou allez consulter la [documentation détaillée](../../../reference/modules/scanner#memory-management) du module **Scanner**
+⚙️ Ou allez consulter la [documentation détaillée](../../../reference/modules/scanner#ram) du module **Scanner**
 
 ℹ️ Par défaut : **Injuste**
 
 ---
 
-# Moteur {#engine}
+# Moteur {#core}
 
 {{% alert color="info" %}}
 ℹ️ Les modifications faites aux paramètres moteur nécessitent un redémarrage d'ALS pour être prises en compte

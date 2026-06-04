@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-25T01:25:34Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -127,7 +127,7 @@ La section **stack** du panneau contrôle le module **Stacker**.
       les brutes de la **stack**_.
 
       ℹ️ _Les valeurs aberrantes sont rejetées automatiquement dès que au moins **3** brutes sont présentes dans la stack
-      et le profil **Astrophoto** est utiisé._
+      et le profil **Astrophoto** est utilisé._
 
     - `somme`
 

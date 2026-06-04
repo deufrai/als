@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2025-11-25T01:25:34Z
+lastmod: 2026-06-04T22:38:25Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "outlier rejection", "save", "issues", "panels" ]
@@ -41,7 +41,7 @@ Located on the left side of the ALS interface, it organizes the most used contro
 
   Image saving tools
 
-- [**Workers**](#workers-section)
+- [**Workers**](#modules-section)
 
   Information on the usage status of the main modules
 

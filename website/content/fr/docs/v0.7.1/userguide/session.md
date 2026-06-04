@@ -3,7 +3,7 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2026-05-31T12:11:40Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -20,11 +20,11 @@ Il clôture la présentation des concepts principaux d'ALS avant de passer au gu
 
 ---
 
-# ⚙️ Configuration
+## ⚙️ Configuration
 
 Que vous réalisiez des prises de vue en direct, prépariez des données pour un traitement avancé ou exploriez des approches plus artistiques, ces étapes vous garantiront une expérience optimale avec ALS.
 
-## ✔️ Choisir votre profil
+### ✔️ Choisir votre profil
 
 <div class="row">
 <div class="col-md-6">
@@ -45,12 +45,12 @@ Que vous réalisiez des prises de vue en direct, prépariez des données pour un
 </div>
 </div>
 
-## ✔️ Préparer votre calibration
+### ✔️ Préparer votre calibration
 
 Disposez-vous d’un master dark adapté à votre capteur et à sa température ?  
 Si oui, utilisez la **soustraction de dark** pour éliminer le bruit thermique.
 
-## ✔️ Ajuster le stacking
+### ✔️ Ajuster le stacking
 
 - Activez **Aligner** pour l'imagerie des objets du ciel profond ou désactivez-le pour des projets artistiques comme 
   les filés d'étoiles ou les time-lapses.
@@ -60,29 +60,29 @@ Si oui, utilisez la **soustraction de dark** pour éliminer le bruit thermique.
 
 ---
 
-# 🚀 Déroulement
+## 🚀 Déroulement
 
 Lancez la session et laissez ALS prendre les commandes.  
 
 Voici comment tout garder sous contrôle et apprécier les résultats :
 
-## 📊 Suivi
+### 📊 Suivi
 
 Surveillez votre session en consultant les retours d'ALS sur les performances et les éventuels problèmes liés au traitement des brutes.
 
-## 🌦️ Adaptez-vous
+### 🌦️ Adaptez-vous
 
 Ajustez le seuil d'alignement pour gérer les changements de conditions météorologiques et les spécificités de votre setup.
 
-## 🎨 Ajustez votre image
+### 🎨 Ajustez votre image
 
 Affinez les paramètres de traitement d'image d'ALS pour ajuster l'image à mesure que de nouvelles brutes sont ajoutées.
 
-## 🔍 Explorez votre image
+### 🔍 Explorez votre image
 
 Zoomez et parcourez l'image pour identifier les zones qui méritent votre attention ou simplement pour en profiter.
 
-## 🌐 Partagez vos progrès
+### 🌐 Partagez vos progrès
 
 Idéal pour des événements publics ou des discussions collaboratives :  
 
@@ -92,12 +92,12 @@ Les spectateurs peuvent explorer votre image en cours d'évolution avec les mêm
 
 ---
 
-# 📦 Clôture
+## 📦 Clôture
 
 Stoppez votre session et récupérez l'image finale dans le **dossier de travail**.
 
 ---
 
-# 🎯 Conclusion
+## 🎯 Conclusion
 
 Il est temps pour **vous** de prendre en main ALS grâce au prochain chapitre : l'interface utilisateur.

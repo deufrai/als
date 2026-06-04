@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-04T21:32:44Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -240,7 +240,7 @@ Chaque résultat de traitement est enregistré dans 2 fichiers :
 {{% /alert %}}
 
 {{% alert color="info" %}}
-ℹ️ Par défaut, le chemin du **dosser web** est identique à celui du **dossier de travail**.
+ℹ️ Par défaut, le chemin du **dossier web** est identique à celui du **dossier de travail**.
 
 Vous pouvez définir un **dossier web** dédié dans les [Préférences](../preferences/output/#web-dedicated)
 {{% /alert %}}

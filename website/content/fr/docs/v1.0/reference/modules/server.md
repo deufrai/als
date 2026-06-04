@@ -2,7 +2,7 @@
 title: "Serveur"
 description: "Documentation détaillée du module Serveur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: ["serveur d'images ALS", "module web ALS", "partage distant ALS"]
 draft: false
 type: "docs"
@@ -17,7 +17,7 @@ Le module utilitaire **Server** expose les résultats d'ALS via un service HTTP 
 
 Il est chargé de :
 
-- Publier la **dernière image empilée** et les métriques de session dans le **dossier web** configuré
+- Publier le **dernier résultat de stacking traité** et les métriques de session dans le **dossier web** configuré
 - Servir l'**application web de visualisation** (`index.html`, JavaScript et icônes)
 - Diffuser en direct les **notifications de nouvelle image** aux navigateurs connectés par WebSocket
 - Fournir une URL compatible **QR code** pour que tablettes et téléphones rejoignent la session rapidement

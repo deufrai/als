@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-05-31T12:11:39Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -64,7 +64,7 @@ alt="Software interface showing scan folder settings with the path set to /home/
 - 🖱️ click `Scan Folder...` to configure the **scan folder**
 - The configured path is displayed to the right of the button
 
-ℹ️ Defaut : ∅
+ℹ️ Default: ∅
 
 # Memory Usage {#memory}
 
@@ -80,9 +80,9 @@ alt="" >}}
 
 The names associated with these slider steps are as vague as memory management can be.
 
-We advise you to experiment with an open and joyful mind...
+We advise you to experiment with the setting that best fits your system.
 
-⚙️ Or consult the **Scanner** module's [detailed documentation](../../../reference/modules/scanner#memory-management)
+⚙️ Or consult the **Scanner** module's [detailed documentation](../../../reference/modules/scanner#ram)
 
 ℹ️ Default: **Unfair**
 

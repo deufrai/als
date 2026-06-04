@@ -2,7 +2,7 @@
 title: "Calibration par flat"
 description: "Documentation détaillée du processus ALS RemoveFlat"
 author: "ALS Team"
-lastmod: 2025-11-03T11:51:03Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: ["ALS calibration flat", "ALS master flat"]
 draft: false
 type: "docs"
@@ -23,8 +23,8 @@ Sa configuration est gérée via la page de préférences d'ALS.
 
 |                        | Source                                                                                      | Type de donnée    | Obligatoire | Valeur par défaut |
 |------------------------|---------------------------------------------------------------------------------------------|-------------------|-------------|-------------------|
-| ON/OFF                 | Préférences: [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | ON/OFF            | ∅           | OFF               |
-| Chemin du master flat  | Préférences: [onglet Traitement](../../../userguide/preferences/processing/#flat-calibrate) | Chemin de fichier | Oui         | ∅                 |
+| ON/OFF                 | Préférences: [onglet Traitement](../../../userguide/preferences/processing/#flat-remove) | ON/OFF            | ∅           | OFF               |
+| Chemin du master flat  | Préférences: [onglet Traitement](../../../userguide/preferences/processing/#flat-remove) | Chemin de fichier | Oui         | ∅                 |
 
 # Contrôle
 
@@ -47,8 +47,8 @@ START([START])
 TEST_ENABLED{{Traitement activé ?}}
 READ_FLAT[Lire le master flat]
 TEST_SHAPE{{Dimensions identiques ?}}
-NORMALIZE[Normaliser par la valeur maximale]
-SAFEGUARD[Remplacer les zéros par des uns]
+    NORMALIZE[Normaliser par échelle robuste]
+    SAFEGUARD[Appliquer un plancher epsilon]
 DIVIDE[Diviser l'image par le flat normalisé]
 CLIP[Limiter à la plage 16 bits]
 RETURN[Retourner l'image calibrée]
@@ -85,11 +85,15 @@ class START,END bounds
 class RETURN,UNCHANGED,READ_FLAT,NORMALIZE,SAFEGUARD,DIVIDE,CLIP step
 ```
 
-Le master flat est chargé depuis le disque, normalisé par sa valeur maximale, puis les zéros sont remplacés
-par des uns avant la division de l'image scientifique.
+Le master flat est chargé depuis le disque, converti en trame de calibration `float32` normalisée, puis protégé par un
+petit plancher epsilon avant la division de l'image scientifique.
 
 - Si le master flat ne peut pas être lu ou que ses dimensions diffèrent de celles de l'image scientifique,
   la division est ignorée et la brute **non modifiée** est renvoyée au module **Preprocess**.
+- Pour les brutes couleur à matrice de Bayer, la normalisation est calculée par canal Bayer ; sinon, une échelle robuste
+  globale est utilisée.
+- Si le master flat ne contient aucun signal exploitable, ou si un canal Bayer a un signal insuffisant, la division est
+  ignorée et la brute **non modifiée** est renvoyée au module **Preprocess**.
 - Après la division, les pixels sont limités à la plage 16 bits et convertis en entiers non signés 16 bits
   afin de préserver la compatibilité avec le reste de la chaîne de traitement.
 

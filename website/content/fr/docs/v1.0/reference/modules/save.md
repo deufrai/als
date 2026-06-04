@@ -2,7 +2,7 @@
 title: "Save"
 description: "Documentation détaillée du module Save d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2026-06-04T22:35:46Z
 keywords: ["module Save d'ALS"]
 draft: false
 type: "docs"
@@ -42,7 +42,7 @@ Enregistre les deux sorties sur disque :
 | Type de sortie    | Nom de Fichier                        | Emplacement du fichier | Format de fichier |
 |-------------------|---------------------------------------|------------------------|-------------------|
 | Principale        | stack_image (+ horodatage si demandé) | dossier de travail     | Tel que configuré |
-| Serveur           | web_image                             | dosser web             | JPEG              |     
+| Serveur           | web_image                             | dossier web            | JPEG              |
 
 # Sortie
 
