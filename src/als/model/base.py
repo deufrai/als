@@ -386,7 +386,7 @@ class PhotoProfile(RunningProfile):
     @log
     def __init__(self):
         super().__init__()
-        self._align_detection_surface_ratios = [1.]
+        self._align_detection_surface_ratios = [.1, .33, 1.]
         self._pre_process_priority = QThread.LowPriority
         self._stacking_priority = QThread.LowPriority
         self._post_process_priority = QThread.HighestPriority

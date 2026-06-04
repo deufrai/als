@@ -40,6 +40,19 @@ class StackingError(Exception):
     """
 
 
+def _get_alignment_detection_ratios_for_image(profile_ratios: list, image: Image) -> list:
+    """
+    Selects alignment detection ratios for an image.
+
+    Square images keep the historical full-frame-only path to avoid corrupted
+    alignment on cropped square subsets.
+    """
+    if image.width == image.height:
+        return [1.]
+
+    return profile_ratios
+
+
 # pylint: disable=R0902
 class Stacker(QueueConsumer):
     """
@@ -347,7 +360,7 @@ class Stacker(QueueConsumer):
         minimum_matches_for_valid_transform = config.get_minimum_match_count()
         _LOGGER.debug(f"*SD-REQ* configured minimum match count: {minimum_matches_for_valid_transform}")
 
-        for ratio in self._profile.ratios:
+        for ratio in _get_alignment_detection_ratios_for_image(self._profile.ratios, image):
 
             top, bottom, left, right = self._get_image_subset_boundaries(ratio)
 
