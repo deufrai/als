@@ -178,6 +178,9 @@ def setup_i18n(app: QApplication, lang: str = "") -> list:
     :rtype: list
     """
 
+    _LOGGER.debug("command line language choice = %s", lang)
+    _LOGGER.debug("config language choice = %s", config.get_lang())
+
     lang_choice = lang or config.get_lang()
     effective_lang = lang_choice
     translators = list()
