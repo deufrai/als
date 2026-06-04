@@ -31,7 +31,7 @@ sed -e "s/##VERSION##/${VERSION}/g" \
     -e "s/##VERCODE##/${VERCODE}/g" \
     ci/builds/file_version_info_template.txt > file_version_info.txt
 
-pyinstaller -i src/resources/ci/win/als_logo.ico \
+pyinstaller -i src/resources/icons/als_logo.ico \
             -n als \
             --windowed \
             --version-file=file_version_info.txt \
