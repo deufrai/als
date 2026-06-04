@@ -42,7 +42,7 @@ class LogValueSummary:
         return self._text
 
 
-def compact_log_value(value: Any) -> Any:
+def _compact_log_value(value: Any) -> Any:
     """
     Replaces numpy arrays with compact summaries for logging.
 
@@ -56,14 +56,14 @@ def compact_log_value(value: Any) -> Any:
         return _summarize_numpy_array(value)
 
     if isinstance(value, tuple):
-        return tuple(compact_log_value(item) for item in value)
+        return tuple(_compact_log_value(item) for item in value)
 
     if isinstance(value, list):
-        return [compact_log_value(item) for item in value]
+        return [_compact_log_value(item) for item in value]
 
     if isinstance(value, dict):
         return {
-            key: compact_log_value(item)
+            key: _compact_log_value(item)
             for key, item in value.items()
         }
 
@@ -92,7 +92,7 @@ def _summarize_numpy_array(value: Any) -> LogValueSummary:
     return LogValueSummary(f"ndarray({', '.join(parts)})")
 
 
-def log(func: Callable[..., _T] = None, *, value_formatter: Callable[[Any], Any] = None) -> Callable[..., _T]:
+def log(func: Callable[..., _T] = None, *, condense: bool = False) -> Callable[..., _T]:
     """
     Decorates a function to add logging.
 
@@ -105,11 +105,11 @@ def log(func: Callable[..., _T] = None, *, value_formatter: Callable[[Any], Any]
     only runs when DEBUG is enabled for that logger to keep overhead minimal otherwise.
 
     :param func: The function to decorate
-    :param value_formatter: Optional callable used to format args, kwargs and return values in log entries.
+    :param condense: When True, noisy values are compacted in log entries.
     :return: The decorated function
     """
     if func is None:
-        return lambda decorated_func: log(decorated_func, value_formatter=value_formatter)
+        return lambda decorated_func: log(decorated_func, condense=condense)
 
     function_name = func.__qualname__
     logger = AlsLogAdapter(logging.getLogger(func.__module__), {})
@@ -117,13 +117,13 @@ def log(func: Callable[..., _T] = None, *, value_formatter: Callable[[Any], Any]
     @wraps(func)
     def wrapped(*args: Any, **kwargs: Any) -> _T:
         if logger.isEnabledFor(logging.DEBUG):
-            logged_args = value_formatter(args) if value_formatter else args
-            logged_kwargs = value_formatter(kwargs) if value_formatter else kwargs
+            logged_args = _compact_log_value(args) if condense else args
+            logged_kwargs = _compact_log_value(kwargs) if condense else kwargs
             logger.debug("%s() called with : %s - %s", function_name, logged_args, logged_kwargs)
             start_time = time()
             result = func(*args, **kwargs)
             elapsed_ms = (time() - start_time) * 1000
-            logged_result = value_formatter(result) if value_formatter else result
+            logged_result = _compact_log_value(result) if condense else result
             logger.debug("%s() returned %s in %.3f ms", function_name, logged_result, elapsed_ms)
             return result
         return func(*args, **kwargs)

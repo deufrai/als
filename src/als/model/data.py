@@ -8,7 +8,7 @@ import numpy as np
 from PyQt5.QtCore import QObject
 
 import als
-from als.code_utilities import SignalingQueue, compact_log_value, log, AlsLogAdapter
+from als.code_utilities import SignalingQueue, log, AlsLogAdapter
 from als.model.base import Image, Session
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -176,7 +176,7 @@ class HistogramContainer:
         self._histograms: List[np.ndarray] = list()
         self._global_maximum: int = 0
 
-    @log(value_formatter=compact_log_value)
+    @log(condense=True)
     def add_histogram(self, histogram: np.ndarray):
         """
         Add an histogram
@@ -187,7 +187,7 @@ class HistogramContainer:
         """
         self._histograms.append(histogram)
 
-    @log(value_formatter=compact_log_value)
+    @log(condense=True)
     def get_histograms(self) -> List[np.ndarray]:
         """
         Gets the histograms
