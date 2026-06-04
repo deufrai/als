@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-04T23:31:00Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -16,10 +16,10 @@ Au cours de ce chapitre, vous allez :
 - vous familiariser avec les contrôles principaux d'ALS
 - approfondir vos connaissances sur les fonctionnalités clés
 
+# Présentation
+
 <div class="row">
   <div class="col-md-8">
-
-# Présentation
 
 Le poste de commande d'ALS est le panneau d'interface `Contrôles principaux`
 

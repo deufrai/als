@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T22:38:25Z
+lastmod: 2026-06-04T23:31:00Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "outlier rejection", "save", "issues", "panels" ]
@@ -16,10 +16,10 @@ During this chapter, you will:
 - get familiar with ALS main controls
 - Deepen your knowledge on key features
 
+# Overview
+
 <div class="row">
   <div class="col-md-8">
-
-# Overview
 
 The ALS control station is the `Main Controls` interface panel
 
