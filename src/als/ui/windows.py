@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import List
 
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
-from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFont
+from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
     QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
 from generated.als_ui import Ui_stack_window
@@ -172,9 +172,6 @@ class MainWindow(QMainWindow):
             self.show()
 
         self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
-
-        # This is how you would set it programmatically in PyQt
-        self._ui.lbl_stack_exposure.setFont(QFont("Courier New, Menlo, DejaVu Sans Mono, monospace"))
 
     def _setup_statusbar(self):
         """
