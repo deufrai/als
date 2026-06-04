@@ -1101,33 +1101,34 @@ class MainWindow(QMainWindow):
             local_icons_path = Path(local_share_path).joinpath("icons")
             local_apps_path = Path(local_share_path).joinpath("applications")
             target_dirs = [local_icons_path, local_apps_path]
-
-            for target_dir in target_dirs:
-                makedirs(target_dir, exist_ok=True)
-
             launcher_path = Path(local_apps_path).joinpath("als.desktop")
             icon_path = Path(local_icons_path).joinpath("als.png")
             resource_path = ":/icons/als_logo.png"
 
-            try:
-                with open(icon_path, 'wb') as f:
-                    f.write(QResource(resource_path).data())
+            # switch for PCs vs RPI64
+            if platform.machine().lower() == 'aarch64':
+                file_filter = "als*"
+            else:
+                file_filter = "als*.run"
 
-                # switch for PCs vs RPI64
-                if platform.machine().lower() == 'aarch64':
-                    file_filter = "als*"
-                else:
-                    file_filter = "als*.run"
+            als_path = QFileDialog.getOpenFileName(self,
+                                                   caption=self.tr("Select your ALS executable"),
+                                                   directory=home_path,
+                                                   filter=file_filter,
+                                                   options=QFileDialog.DontUseNativeDialog)[0]
 
+            if als_path:
 
-                with open(launcher_path, 'w') as f:
-                    als_path = QFileDialog.getOpenFileName(self,
-                                                     caption=self.tr("Select your ALS executable"),
-                                                     directory=home_path,
-                                                     filter=file_filter,
-                                                     options=QFileDialog.DontUseNativeDialog)[0]
+                try:
 
-                    if als_path:
+                    for target_dir in target_dirs:
+                        makedirs(target_dir, exist_ok=True)
+
+                    with open(icon_path, 'wb') as f:
+                        f.write(QResource(resource_path).data())
+
+                    with open(launcher_path, 'w') as f:
+
                         f.write("#!/usr/bin/env xdg-open\n")
                         f.write("[Desktop Entry]\n")
                         f.write(f"Name=Astro Live Stacker\n")
@@ -1144,13 +1145,13 @@ class MainWindow(QMainWindow):
                                                 self.tr('ALS launcher created / updated.'),
                                                 self.tr("You'll find ALS with the graphics apps"))
 
-            except FileNotFoundError as e:
-                QMessageBox.critical(self, "File Error", f"File not found: {e}")
-            except PermissionError as e:
-                QMessageBox.critical(self, "Permission Error", f"Permission denied: {e}")
-            except OSError as e:
-                QMessageBox.critical(self, "OS Error", f"OS error: {e}")
-            except ValueError as e:
-                QMessageBox.critical(self, "Value Error", f"Value error: {e}")
-            except Exception as e:
-                QMessageBox.critical(self, "Error", f"An unexpected error occurred: {e}")
+                except FileNotFoundError as e:
+                    QMessageBox.critical(self, "File Error", f"File not found: {e}")
+                except PermissionError as e:
+                    QMessageBox.critical(self, "Permission Error", f"Permission denied: {e}")
+                except OSError as e:
+                    QMessageBox.critical(self, "OS Error", f"OS error: {e}")
+                except ValueError as e:
+                    QMessageBox.critical(self, "Value Error", f"Value error: {e}")
+                except Exception as e:
+                    QMessageBox.critical(self, "Error", f"An unexpected error occurred: {e}")
