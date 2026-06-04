@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-04T22:51:00Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -80,7 +80,7 @@ alt="" >}}
 
 The names associated with these slider steps are as vague as memory management can be.
 
-We advise you to experiment with the setting that best fits your system.
+We advise you to experiment with an open and joyful mind...
 
 ⚙️ Or consult the **Scanner** module's [detailed documentation](../../../reference/modules/scanner#ram)
 

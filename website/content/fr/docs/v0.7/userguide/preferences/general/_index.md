@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-04T22:51:00Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -81,7 +81,7 @@ alt="" >}}
 
 Les noms associés aux valeurs de ce curseur sont aussi flous que la gestion de la mémoire peut l'être.
 
-Nous vous conseillons d'expérimenter avec le réglage le plus adapté à votre système.
+Nous vous conseillons d'expérimenter avec un esprit ouvert et joyeux...
 
 ⚙️ Ou allez consulter la [documentation détaillée](../../../reference/modules/scanner#ram) du module **Scanner**
 
