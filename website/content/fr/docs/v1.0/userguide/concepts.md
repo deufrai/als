@@ -3,7 +3,7 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-03T21:33:02Z
+lastmod: 2026-06-04T21:32:44Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
@@ -311,13 +311,14 @@ Deux profils par défaut sont disponibles :
 
 - **Profil Visuel Assisté** : Conçu pour les flux de travail d'imagerie en temps réel.
 
+  - Optimise la réactivité du scanner
   - Priorise les processus de calibration et d'empilement
-  - Optimise la réactivité du scanner et la vitesse d'alignement.
 
 - **Profil Astrophoto** : Conçu pour produire des résultats de haute qualité.
 
+  - Optimise la gestion des fichiers volumineux
   - Priorise le traitement des images
-  - Optimise la gestion des fichiers volumineux et la qualité de l'alignement.
+  - Utilise le rejet sigma en stacking en mode **moyenne**
 
 Le profil actif est affiché dans la **barre d'état**, vous permettant de toujours savoir quelle configuration est utilisée.
 

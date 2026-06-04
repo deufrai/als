@@ -3,7 +3,7 @@ title: "Concepts"
 description: "The basic concepts of ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-03T21:33:02Z
+lastmod: 2026-06-04T21:32:44Z
 keywords: [ "ALS concepts" ]
 draft: false
 type: "docs"
@@ -301,14 +301,14 @@ Two default profiles are available:
 
 - **EAA Profile**: Focuses on real-time imaging workflows.
 
+  - Optimizes scanner responsiveness
   - Prioritizes calibration and stacking processes
-  - Optimizing scanner responsiveness and alignment speed. 
 
 - **Astrophoto Profile**: Designed for producing high-quality outputs.
 
+  - Optimizes large files handling
   - Prioritizes image processing
-  - Optimizes large files handling and alignment quality
-  - Use sigma clipping when stacking in mean mode
+  - Uses sigma clipping when stacking in **mean** mode
 
 The active profile is displayed in the **status bar**, so you can always see which configuration is in use.
 

@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-03T22:00:50Z
+lastmod: 2026-06-04T21:32:44Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -102,27 +102,21 @@ ALS propose deux modes de fonctionnement différents, appelés **profils**
 
 Les profils optimisent le comportement d'ALS pour des usages particuliers :
 
-| Profil                  | Réactivité<br>Scanner | Optimisation<br>recherche de similitudes | 
-|-------------------------|-----------------------|-------------------------------------------|
-| Visuel assisté          | Élevée                | ON                                        |
-| Astrophoto              | Normale               | OFF                                       |
+| Profil                       | Réactivité Scanner | Priorité donnée à       | Rejet sigma |
+|------------------------------|--------------------|-------------------------|-------------|
+| Visuel assisté               | Élevée             | Calibration et stacking | OFF         |
+| Suivi session astrophoto     | Normale            | Traitements d'image     | ON          |
 
+`Visuel assisté` garde la détection, la calibration et le stacking réactifs afin que les nouvelles brutes soient
+intégrées rapidement pendant une session live.
 
-- 🖱️ Le profil `Visuel assisté` met l'accent sur la réactivité. 
+`Suivi session astrophoto` donne plus de priorité aux traitements d'image, couramment utilisés entre les
+brutes arrivant à cadence lente. Il active aussi le rejet sigma en stacking en mode **moyenne** afin d'éliminer les
+artefacts lumineux transitoires comme les traînées de satellites.
 
-   Recommandé pour des brutes de taille moyenne arrivant à cadence élevée : quelques secondes entre chaque brute
-
-- 🖱️ Le profil `Suivi session astrophoto` met l'accent sur la fiabilité.
-
-   Recommandé pour des brutes de grande taille arrivant à cadence lente : plusieurs minutes entre chaque brute 
+- 🖱️ Sélectionnez le profil correspondant à l'activité que vous voulez confier à ALS.
 
 ⚙️ Vous trouverez les détails de l'impact du profil sur le **Scanner** dans la [documentation dédiée](../../../reference/modules/scanner#wait)
-
-{{% alert title="🐛 Bug connu" color="danger" %}}
-Utiliser le profil **visuel assisté** avec des brutes au format carré 1:1 provoque des erreurs d'alignement
-
-Les brutes s'empilent en formant des carrés imbriqués de tailles décroissantes
-{{% /alert %}}
 
 ℹ️ Par défaut : **Visuel assisté**
 

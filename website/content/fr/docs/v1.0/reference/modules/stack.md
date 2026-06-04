@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-25T01:25:34Z
+lastmod: 2026-06-04T21:32:44Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -82,6 +82,13 @@ flowchart LR
 **Si l'alignement est activé**
 
 1. recherche des similitudes entre la brute calibrée et la **référence d'alignement** de la session.
+
+   ALS recherche les similitudes sur des zones centrées progressivement plus grandes de l'image : **10 %**, puis
+   **33 %**, puis l'**image complète**. La première zone qui atteint le seuil de détection configuré est utilisée
+   pour calculer la transformation.
+
+   Les brutes carrées au format 1:1 utilisent une recherche uniquement sur l'image complète afin d'éviter les
+   problèmes d'alignement connus avec les images carrées.
 
    {{% alert color="info" %}}
    Si la brute calibrée présente un nombre de similitudes **inférieur** au seuil de détection configuré, elle est

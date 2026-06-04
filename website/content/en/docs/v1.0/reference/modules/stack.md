@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2025-11-25T01:25:34Z
+lastmod: 2026-06-04T21:32:44Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -82,6 +82,12 @@ class CheckShape,CheckAlign,FirstSub test
 **If alignment is ON**
 
 1. Search for similarities between the calibrated sub and the session **alignment reference**.
+
+   ALS searches for similarities on progressively larger centered areas of the image: **10%**, then **33%**, then the
+   **full frame**. The first area that reaches the configured detection threshold is used to compute the
+   transformation.
+
+   Square 1:1 subs use a full-frame-only alignment search to avoid known alignment issues with square images.
 
    {{% alert color="info" %}}
    If the calibrated sub has similarities count **below** the configured detection threshold, it is **discarded** and

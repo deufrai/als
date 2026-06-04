@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-03T22:00:50Z
+lastmod: 2026-06-04T21:32:44Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -100,27 +100,21 @@ ALS offers two different operating modes, called **profiles**.
 
 Profiles optimize ALS's behavior for specific uses:
 
-| Profile                            | Scanner<br>Responsiveness | Similarity<br>Search Optimization |
-|------------------------------------|---------------------------|-----------------------------------|
-| Electronically Assisted Astronomy  | High                      | ON                                |
-| Astrophoto                         | Normal                    | OFF                               |
+| Profile                            | Scanner Responsiveness | Processing Priority    | Sigma Clipping |
+|------------------------------------|------------------------|------------------------|----------------|
+| Electronically Assisted Astronomy  | High                   | Calibration + stacking | OFF            |
+| Astrophoto Session Monitoring      | Normal                 | Image processing       | ON             |
 
+`Electronically Assisted Astronomy` keeps detection, calibration, and stacking responsive so new subs can be integrated
+quickly during a live observing session.
 
-- 🖱️ The `Electronically Assisted Astronomy` profile enforces application responsiveness.
+`Astrophoto Session Monitoring` gives more priority to image processing, which is commonly used between
+low-paced incoming subs. It also enables sigma clipping in **mean** stacking mode to remove transient bright artifacts
+such as satellite trails.
 
-   Recommended for medium-sized subs arriving at a high rate: a few seconds between each sub.
-
-- 🖱️ The `Astrophoto Session Monitoring` profile enforces processing reliability.
-
-   Recommended for large subs arriving at a slow rate: up to several minutes between each sub.
+- 🖱️ Select the profile matching the activity you want ALS to support.
 
 ⚙️ You will find details on how profiles impact the **Scanner** in the [detailed documentation](../../../reference/modules/scanner#wait).
-
-{{% alert title="🐛 Known Bug" color="danger" %}}
-Using the **Electronically Assisted Astronomy** profile with square 1:1 subs causes alignment errors.
-
-The subs stack up forming nested squares of decreasing sizes.
-{{% /alert %}}
 
 ℹ️ Default: **Electronically Assisted Astronomy**
 
