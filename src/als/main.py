@@ -215,7 +215,7 @@ def setup_i18n(app: QApplication, lang: str = "") -> list:
 
     return translators
 
-
+@log
 def do_first_run_setup_if_needed():
     """
     Detect if this is the first run of ALS and display the FTUE dialog in that case
@@ -226,12 +226,15 @@ def do_first_run_setup_if_needed():
     :rtype: str
     """
     if not DYNAMIC_DATA.is_first_run:
+        _LOGGER.debug("Not a first run. Continuing startup")
         return CONTINUE_STARTUP
 
-    _LOGGER.info("First run detected")
+    _LOGGER.info("First run detected. Launching first run setup dialog")
     if FirstRunDialog().exec_() == QDialog.Accepted:
+        _LOGGER.debug("First run setup completed successfully. Continuing startup")
         return CONTINUE_STARTUP
 
+    _LOGGER.info("First run setup was not completed. Stopping startup")
     return STOP_STARTUP
 
 
