@@ -137,16 +137,33 @@ section {
 
 .screenshot-section {
     text-align: center;
+    margin: 20px auto 32px;
+    padding: 0 20px !important;
 }
 
 .screenshot {
     display: inline-block;
-    max-height: 55vh;
-    max-width: 90vw;
-    height: auto;
+    max-width: 100%;
     box-shadow: 0 10px 10px 8px rgba(0, 0, 0, .5);
     border-radius: 4px;
-    margin: 20px 0 40px 0;
+    margin: 0 auto;
+}
+
+.screenshot img {
+    display: block;
+    width: auto;
+    max-height: min(55vh, 419px);
+    max-width: min(90vw, 886px);
+    height: auto;
+    border-radius: 4px;
+}
+
+.screenshot-section .figure-caption {
+    display: none;
+}
+
+.screenshot-section + .main-title {
+    margin-top: 0;
 }
 
 .download-buttons {
