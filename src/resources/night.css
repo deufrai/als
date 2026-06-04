@@ -1,7 +1,6 @@
 * {
     background-color: #222222;
     color: #CC0000;
-    font-size: 13px;
 }
 
 QWidget:disabled {
@@ -50,16 +49,6 @@ QMenu::item {
 QMenu::indicator {
 
     left: -15px;
-}
-
-#lbl_stack_size {
-
-    font-size: 15pt;
-}
-
-#lbl_stack_exposure {
-
-    font-size: 15pt;
 }
 
 QComboBox {
