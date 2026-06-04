@@ -1,44 +1,44 @@
 <RCC>
     <qresource prefix="icons">
-        <file>tick-night.png</file>
-        <file>tick-dark.png</file>
-        <file>tick-disabled.png</file>
-        <file>warning_sign.svg</file>
-        <file>als_logo.png</file>
-        <file>window_background.png</file>
-        <file>als_logo.ico</file>
+        <file alias="tick-night.png">icons/tick-night.png</file>
+        <file alias="tick-dark.png">icons/tick-dark.png</file>
+        <file alias="tick-disabled.png">icons/tick-disabled.png</file>
+        <file alias="warning_sign.svg">icons/warning_sign.svg</file>
+        <file alias="als_logo.png">icons/als_logo.png</file>
+        <file alias="window_background.png">icons/window_background.png</file>
+        <file alias="als_logo.ico">icons/als_logo.ico</file>
     </qresource>
     <qresource prefix="web">
-        <file>index.html</file>
-        <file>waiting.jpg</file>
-        <file>openseadragon.min.js</file>
+        <file alias="index.html">web/index.html</file>
+        <file alias="waiting.jpg">web/waiting.jpg</file>
+        <file alias="openseadragon.min.js">web/openseadragon.min.js</file>
     </qresource>
     <qresource prefix="main">
-        <file>night.css</file>
-        <file>dark.css</file>
+        <file alias="night.css">main/night.css</file>
+        <file alias="dark.css">main/dark.css</file>
     </qresource>
     <qresource prefix="i18n">
-        <file>als_fr.qm</file>
-        <file>qtbase_fr.qm</file>
-        <file>als_ru.qm</file>
-        <file>qtbase_ru.qm</file>
+        <file alias="als_fr.qm">i18n/als_fr.qm</file>
+        <file alias="qtbase_fr.qm">i18n/qtbase_fr.qm</file>
+        <file alias="als_ru.qm">i18n/als_ru.qm</file>
+        <file alias="qtbase_ru.qm">i18n/qtbase_ru.qm</file>
     </qresource>
     <qresource prefix="webicons">
-        <file>fullpage_grouphover.png</file>
-        <file>fullpage_hover.png</file>
-        <file>fullpage_pressed.png</file>
-        <file>fullpage_rest.png</file>
-        <file>home_grouphover.png</file>
-        <file>home_hover.png</file>
-        <file>home_pressed.png</file>
-        <file>home_rest.png</file>
-        <file>zoomin_rest.png</file>
-        <file>zoomin_grouphover.png</file>
-        <file>zoomin_hover.png</file>
-        <file>zoomin_pressed.png</file>
-        <file>zoomout_grouphover.png</file>
-        <file>zoomout_hover.png</file>
-        <file>zoomout_pressed.png</file>
-        <file>zoomout_rest.png</file>
+        <file alias="fullpage_grouphover.png">webicons/fullpage_grouphover.png</file>
+        <file alias="fullpage_hover.png">webicons/fullpage_hover.png</file>
+        <file alias="fullpage_pressed.png">webicons/fullpage_pressed.png</file>
+        <file alias="fullpage_rest.png">webicons/fullpage_rest.png</file>
+        <file alias="home_grouphover.png">webicons/home_grouphover.png</file>
+        <file alias="home_hover.png">webicons/home_hover.png</file>
+        <file alias="home_pressed.png">webicons/home_pressed.png</file>
+        <file alias="home_rest.png">webicons/home_rest.png</file>
+        <file alias="zoomin_rest.png">webicons/zoomin_rest.png</file>
+        <file alias="zoomin_grouphover.png">webicons/zoomin_grouphover.png</file>
+        <file alias="zoomin_hover.png">webicons/zoomin_hover.png</file>
+        <file alias="zoomin_pressed.png">webicons/zoomin_pressed.png</file>
+        <file alias="zoomout_grouphover.png">webicons/zoomout_grouphover.png</file>
+        <file alias="zoomout_hover.png">webicons/zoomout_hover.png</file>
+        <file alias="zoomout_pressed.png">webicons/zoomout_pressed.png</file>
+        <file alias="zoomout_rest.png">webicons/zoomout_rest.png</file>
     </qresource>
 </RCC>

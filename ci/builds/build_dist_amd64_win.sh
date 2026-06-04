@@ -35,7 +35,7 @@ pyinstaller -i src/resources/als_logo.ico \
             -n als \
             --windowed \
             --version-file=file_version_info.txt \
-            --add-data 'src/resources/qt.conf:.' \
+            --add-data 'src/resources/ci/win/qt.conf:.' \
             src/als/main.py
 
 # Build the Inno Setup installer

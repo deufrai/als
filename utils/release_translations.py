@@ -7,7 +7,7 @@ from pathlib import Path
 def main():
     project_root_path = Path(__file__).parent.parent
     i18n_path = project_root_path / "i18n"
-    resources_path = project_root_path / "src" / "resources"
+    resources_path = project_root_path / "src" / "resources" / "i18n"
 
     print("Releasing translation files\n" + "=" * 27)
 

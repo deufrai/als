@@ -14,7 +14,7 @@ echo "version = \"${ALS_VERSION_STRING}\"" > src/als/version.py
 
 echo "Building package ${artifact_name} ..."
 
-pyinstaller -i src/resources/als_logo.icns \
+pyinstaller -i src/resources/ci/mac/als_logo.icns \
             -n als \
             --windowed \
             --exclude-module tkinter \
@@ -33,7 +33,7 @@ create-dmg --volname "ALS ${ALS_VERSION_STRING}" \
            --icon "als.app" 120 140 \
            --hide-extension "als.app" \
            --app-drop-link 370 140 \
-           --background src/resources/starfield.png \
+           --background src/resources/ci/mac/starfield.png \
            ${artifact_name} dist/als.app
 
 echo "Build of package ${artifact_name} completed OK."
