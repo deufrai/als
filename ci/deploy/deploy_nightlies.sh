@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2019-2026 The ALS Authors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 set -e
 
 TIMESTAMP=$(echo -n "${CI_PIPELINE_CREATED_AT}" | cut -d'T' -f1)

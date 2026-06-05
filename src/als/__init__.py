@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2019-2026 The ALS Authors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 """The main ALS package"""
 from pkg_resources import get_distribution, DistributionNotFound
 

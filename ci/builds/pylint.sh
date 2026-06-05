@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2019-2026 The ALS Authors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # check pylint on als package and return nonzero only in these cases :
 #
 #  - pylint encountered a fatal error

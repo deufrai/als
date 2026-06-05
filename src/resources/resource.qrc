@@ -41,4 +41,6 @@
         <file alias="zoomout_pressed.png">webicons/zoomout_pressed.png</file>
         <file alias="zoomout_rest.png">webicons/zoomout_rest.png</file>
     </qresource>
+    <!-- SPDX-FileCopyrightText: 2019-2026 The ALS Authors -->
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 </RCC>
