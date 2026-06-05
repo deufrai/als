@@ -72,8 +72,8 @@ class Stacker(QueueConsumer):
         self._align_before_stack = True
         self._profile = profile
         self._variance_accumulator = None
-        self._sigma_clip_k = 4
-        self._sigma_clip_min_size = 3
+        self._sigma_clip_k = 5
+        self._sigma_clip_min_stack_size = 5
 
     @property
     @log
@@ -459,7 +459,7 @@ class Stacker(QueueConsumer):
                 new_values = image.data.astype(np.float32)
                 previous_mean = previous_mean.astype(np.float32)
 
-                if n >= self._sigma_clip_min_size:
+                if n >= self._sigma_clip_min_stack_size:
                     variance = self._variance_accumulator / float(n)
                     sigma = np.sqrt(variance)
                     upper_threshold = previous_mean + self._sigma_clip_k * sigma

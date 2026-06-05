@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T21:32:44Z
+lastmod: 2026-06-05T20:40:21Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -110,9 +110,9 @@ flowchart LR
 En mode **moyenne** et lorsque le profil actif est **Astrophoto**, ALS effectue une moyenne avec rejet sigma-clippé pour
 supprimer les artefacts lumineux transitoires comme les traînées de satellites. 
 
-Le Stacker conserve une moyenne et une variance glissantes basées sur l'algorithme en ligne de Welford pour chaque pixel, 
-et dès qu'au moins **3** brutes sont accumulées, toute nouvelle valeur de pixel dépassant la moyenne précédente de plus 
-de **4σ** est remplacée par la moyenne précédente. 
+Le Stacker conserve une moyenne et une variance glissantes basées sur l'algorithme en ligne de Welford pour chaque pixel,
+et dès qu'au moins **5** brutes sont accumulées, toute nouvelle valeur de pixel dépassant la moyenne précédente de plus
+de **5σ** est remplacée par la moyenne précédente.
 
 Ce rejet par pixel se fait en un seul passage, sans itérations supplémentaires.
 

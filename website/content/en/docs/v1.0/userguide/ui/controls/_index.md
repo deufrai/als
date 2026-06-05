@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2026-06-05T17:01:34Z
+lastmod: 2026-06-05T20:40:21Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "threshold", "outlier rejection", "save", "issues", "panels" ]
@@ -125,7 +125,7 @@ The **stack** section of the panel controls the **Stacker** module.
 
       ⚙️ _The value of each pixel in the generated stack is the **average value** of that pixel across all subs in the **stack**._
 
-      ℹ️ _Outliers are rejected automatically once at least **3** subs are present in the stack and the **Astrophoto**
+      ℹ️ _Outliers are rejected automatically once at least **5** subs are present in the stack and the **Astrophoto**
       profile is in use_
 
     - `sum`
