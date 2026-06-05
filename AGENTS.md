@@ -48,6 +48,8 @@ repository. Follow it in addition to any direct user instructions.
   mechanism; do not leave visible labels, messages, tooltips, or dropdown text
   as plain non-extracted literals.
 - When updating TS files, use `pylupdate5 -noobsolete -verbose als.pro`.
+- When adding or changing a translation, keep or set `type="unfinished"` so Qt
+  Linguist can find it for review. 
 - Do not run translation release/generation commands such as `lrelease` unless
   the user explicitly asks for them. The user releases translations through Qt
   Linguist.

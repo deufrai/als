@@ -1237,9 +1237,9 @@ If another device needs to browse the image server, change the Displayed address
         <translation>К</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/als_ui.ui" line="644"/>
-        <source>Workers</source>
-        <translation>Рабочие процессы</translation>
+        <location filename="../src/als/ui/als_ui.ui" line="662"/>
+        <source>Modules</source>
+        <translation>Модули</translation>
     </message>
     <message>
         <location filename="../src/als/ui/als_ui.ui" line="758"/>

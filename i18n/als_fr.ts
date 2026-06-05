@@ -1182,8 +1182,8 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Enr. chaque image</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/als_ui.ui" line="644"/>
-        <source>Workers</source>
+        <location filename="../src/als/ui/als_ui.ui" line="662"/>
+        <source>Modules</source>
         <translation>Modules</translation>
     </message>
     <message>
