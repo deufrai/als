@@ -141,8 +141,8 @@
             </font>
            </property>
            <property name="text">
-            <string>• where to expect subs
-• where to save results</string>
+            <string>- where to expect subs
+- where to save results</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -184,8 +184,8 @@
            <property name="text">
             <string>Let ALS create folders on your desktop:
 
-• als-scan : Monitored for new subs
-• als-work : Stores stacking results</string>
+- als-scan : Monitored for new subs
+- als-work : Stores stacking results</string>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
