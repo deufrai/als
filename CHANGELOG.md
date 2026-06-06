@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-05-31T13:30:05Z
+lastmod: 2026-06-06T15:58:54Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -21,6 +21,7 @@ weight: 100550
 
 ### Bug Fixes
 
+- System language detection failed on macOS
 - Webview image and exposition data could display stale values because browsers cached the resources between subs.
 
 ---
