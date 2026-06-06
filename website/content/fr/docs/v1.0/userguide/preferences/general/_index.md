@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-06T18:11:21Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -223,7 +223,7 @@ Sachez que :
 
 ALS et nos outils de suivi sont des logiciels **opensource**, leur code source est disponible publiquement.
 
-- <a href="https://github.com/deufrai/als/blob/v1.0/src/als/main.py#L50" target="_blank">code de l'envoi
+- <a href="https://github.com/deufrai/als/blob/v1.0/src/als/main.py#L51" target="_blank">code de l'envoi
   des statistiques par ALS</a> <i class="fa-brands fa-square-github"></i>
 - <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L42" target="_blank">code de
   l'enregistrement des statistiques reçues par nos serveurs</a> <i class="fa-brands fa-square-github"></i>

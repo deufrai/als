@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-06T18:11:21Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -219,7 +219,7 @@ Please note that:
 
 ALS and our tracking tools are **opensource** software, their source code is publicly available.
 
-- <a href="https://github.com/deufrai/als/blob/v1.0/src/als/main.py#L50" target="_blank">code for sending
+- <a href="https://github.com/deufrai/als/blob/v1.0/src/als/main.py#L51" target="_blank">code for sending
   statistics by ALS</a> <i class="fa-brands fa-square-github"></i>
 - <a href="https://github.com/deufrai/als-stats-receiver/blob/master/listen.py#L42" target="_blank">code for recording
   received statistics by our servers</a> <i class="fa-brands fa-square-github"></i>
