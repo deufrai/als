@@ -9,10 +9,9 @@ import os
 import platform
 import socket
 import sys
-from locale import getlocale
 from logging import getLogger
 
-from PyQt5.QtCore import QTranslator, QT_TRANSLATE_NOOP, QThread, Qt
+from PyQt5.QtCore import QLocale, QTranslator, QT_TRANSLATE_NOOP, QThread, Qt
 from PyQt5.QtWidgets import QApplication, QDialog
 
 from als import config
@@ -24,6 +23,8 @@ from als.ui.dialogs import FirstRunDialog
 from als.ui.windows import MainWindow
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
+
+SUPPORTED_LANGUAGES = {"en", "fr", "ru"}
 
 
 def log_system_infos():
@@ -151,6 +152,22 @@ def main():
 
     sys.exit(app_return_code)
 
+
+def _detect_system_language() -> str:
+    """
+    Detect the first system UI language supported by ALS.
+    """
+    system_languages = QLocale.system().uiLanguages()
+    _LOGGER.debug("System UI languages = %s", system_languages)
+
+    for locale_name in system_languages:
+        language = locale_name.replace("_", "-").split("-")[0].lower()
+        if language in SUPPORTED_LANGUAGES:
+            return language
+
+    return "en"
+
+
 @log
 def setup_i18n(app: QApplication, lang: str = "") -> list:
     """
@@ -189,16 +206,8 @@ def setup_i18n(app: QApplication, lang: str = "") -> list:
     translators = list()
 
     if lang_choice == 'sys':
-        try:
-            system_locale = getlocale()[0]
-            if system_locale is None:
-                raise ValueError()
-            effective_lang = system_locale.split('_')[0]
-            _LOGGER.debug(f"System locale = {effective_lang}")
-
-        except (ValueError, IndexError):
-            _LOGGER.warning("Failed to detect system locale. Falling back to english")
-            effective_lang = "en"
+        effective_lang = _detect_system_language()
+        _LOGGER.debug("Selected system language = %s", effective_lang)
 
     if effective_lang != "en":
 
