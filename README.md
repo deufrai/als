@@ -21,15 +21,16 @@ All you need is your camera, a clear sky, and a sense of wonder.
 
 ## 🔭 Main Features
 
-- Multi-platform support (PCs and small boards alike)
-- Hot pixel removal
-- Automatic debayer
-- Automatic dark calibration
-- Real-time image alignment and stacking
-- Live histogram
-- Auto-stretch, levels and color balance
-- Integrated web viewer for remote session sharing
-- Open-source and community-driven spirit ✨
+- Real-time alignment and stacking of incoming subs
+- Profiles for assisted visual observing and astrophoto sessions
+- FITS, common image formats, and DSLR raw file support
+- Hot pixel removal, dark subtraction, flat calibration, and debayering
+- Mean and sum stacking modes, with outlier rejection for astrophoto workflows
+- Live histogram, auto-stretch, levels, RGB balance, and saturation control
+- Integrated web viewer with QR-code sharing for phones and tablets
+- Image saving in common formats, with optional autosave during sessions
+- Dark theme, night mode, and English/French/Russian interface
+- Multi-platform builds for Linux PCs and ARM boards, Windows, and macOS on Apple Silicon and Intel
 
 ---
 
