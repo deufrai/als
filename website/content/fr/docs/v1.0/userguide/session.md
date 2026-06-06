@@ -3,7 +3,7 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:54:32Z
+lastmod: 2026-06-06T19:08:44Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
@@ -95,7 +95,8 @@ Surveillez votre session en consultant les retours d'ALS sur les performances et
 
 ## 🌦️ Adaptez-vous
 
-Ajustez le seuil d'alignement pour gérer les changements de conditions météorologiques et les spécificités de votre setup.
+Ajustez le nombre minimal de correspondances pour gérer les changements de conditions météorologiques et les
+spécificités de votre setup.
 
 ## 🎨 Ajustez votre image
 

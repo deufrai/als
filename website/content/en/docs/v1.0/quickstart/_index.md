@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-06-06T18:32:59Z
+lastmod: 2026-06-06T19:08:43Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -70,7 +70,7 @@ You can select or create any folder on your system, but we recommend using folde
 caption="ALS ready to start its very first session"
 width="1388px"
 height="761px"
-alt="ALS main window showing a software interface for stacking astronomical images in real-time. The interface includes sections for main controls (start, pause, stop), stack settings (align, threshold), image server (start, stop), image saver (save current, save every frame), workers (queue size, status), processing (histogram, auto stretch, levels, RGB balance), and session log." >}}
+alt="ALS main window showing a software interface for stacking astronomical images in real-time. The interface includes sections for main controls (start, pause, stop), stack settings (align, minimum matches), image server (start, stop), image saver (save current, save every frame), workers (queue size, status), processing (histogram, auto stretch, levels, RGB balance), and session log." >}}
 {{< /center >}}
 
 ## Starting the Session {#starting-the-session}

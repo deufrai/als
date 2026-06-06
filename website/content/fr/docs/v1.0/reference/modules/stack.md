@@ -2,12 +2,12 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-05T20:40:21Z
+lastmod: 2026-06-06T19:08:44Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
 categories: [ "documentations détaillées" ]
-tags: [ "module", "traitement", "stack", "seuil", "rejet sigma" ]
+tags: [ "module", "traitement", "stack", "correspondances minimales", "rejet sigma" ]
 weight: 100356
 ---
 
@@ -21,7 +21,7 @@ Le module **Stacker** prend en charge l'alignement et l'empilement des brutes ca
 |----------------------------|-----------------------------------------------------------------------------|---------------------------------|--------|-------------------|
 | Activation de l'alignement | Interface : [Contrôles de stacking](../../userguide/ui/controls/#controls)  | ON/OFF                          | ∅      | ON                |
 | Mode d'empilement          | Interface : [Contrôles de stacking](../../userguide/ui/controls/#controls)  | choix :<br>- moyenne<br>- somme | OUI    | moyenne           |
-| Seuil de détection         | Interface : [Contrôles de stacking](../../userguide/ui/controls/#threshold) | entier                          | OUI    | 25                |
+| Correspondances minimales  | Interface : [Contrôles de stacking](../../userguide/ui/controls/#threshold) | entier                          | OUI    | 25                |
 
 # Contrôle
 
@@ -81,17 +81,17 @@ flowchart LR
 
 **Si l'alignement est activé**
 
-1. recherche des similitudes entre la brute calibrée et la **référence d'alignement** de la session.
+1. recherche des correspondances entre la brute calibrée et la **référence d'alignement** de la session.
 
-   ALS recherche les similitudes sur des zones centrées progressivement plus grandes de l'image : **10 %**, puis
-   **33 %**, puis l'**image complète**. La première zone qui atteint le seuil de détection configuré est utilisée
-   pour calculer la transformation.
+   ALS recherche les correspondances sur des zones centrées progressivement plus grandes de l'image : **10 %**, puis
+   **33 %**, puis l'**image complète**. La première zone produisant au moins le nombre minimal de correspondances
+   configuré est utilisée pour calculer la transformation.
 
    Les brutes carrées au format 1:1 utilisent une recherche uniquement sur l'image complète afin d'éviter les
    problèmes d'alignement connus avec les images carrées.
 
    {{% alert color="info" %}}
-   Si la brute calibrée présente un nombre de similitudes **inférieur** au seuil de détection configuré, elle est
+   Si aucune zone de recherche ne produit le nombre minimal de correspondances configuré, la brute calibrée est
    **abandonnée** et le module **Stack** se remet à l'écoute de sa file d'attente.
    {{% /alert %}}
 

@@ -368,7 +368,7 @@ class Stacker(QueueConsumer):
                 matches_count = len(matches[0])
 
                 if matches_count < minimum_matches_for_valid_transform:
-                    raise StackingError(f"Alignment matches count is lower than configured threshold : "
+                    raise StackingError(f"Alignment match count is lower than configured minimum: "
                                         f"{matches_count} < {minimum_matches_for_valid_transform}.")
 
                 _LOGGER.debug("*SD-ALIGNOK* Image matching vs ref: Accepted")

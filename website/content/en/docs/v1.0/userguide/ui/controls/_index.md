@@ -2,10 +2,10 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2026-06-05T20:40:21Z
+lastmod: 2026-06-06T19:08:44Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
-tags: [ "stack", "session", "server", "output", "threshold", "outlier rejection", "save", "issues", "panels" ]
+tags: [ "stack", "session", "server", "output", "minimum matches", "outlier rejection", "save", "issues", "panels" ]
 categories: ["usage", "configuration"]
 weight: 100321
 ---
@@ -55,7 +55,7 @@ Located on the left side of the ALS interface, it organizes the most used contro
 caption="The main controls panel" 
 width="294px"
 height="613px"
-alt="The main controls panel of ALS, with several sections: Session controls with START, PAUSE, and STOP buttons, Stack Size 39, Stack Exposure 0:02:36, Status started; Stack settings with Align, mean, and threshold slider at 19; Image server with START and STOP buttons, Status started with URL http://10.0.2.15:8000; Image saver with options Save current image and Save each image; Modules with Queue size and Busy status; Issues with a warning icon and the label Issues." >}}
+alt="The main controls panel of ALS, with several sections: Session controls with START, PAUSE, and STOP buttons, Stack Size 39, Stack Exposure 0:02:36, Status started; Stack settings with Align, mean, and Min. matches slider at 19; Image server with START and STOP buttons, Status started with URL http://10.0.2.15:8000; Image saver with options Save current image and Save each image; Modules with Queue size and Busy status; Issues with a warning icon and the label Issues." >}}
 </div>
 
 </div>
@@ -134,20 +134,20 @@ The **stack** section of the panel controls the **Stacker** module.
 
       ⚙️ _The value of each pixel in the generated stack is the **sum of the values** of that pixel across all subs in the **stack**._
 
-## Detection Threshold {#threshold}
+## Minimum Matches {#threshold}
 
-Alignment works by comparing the subs with the **alignment reference**, looking for similar star groups.
+Alignment works by comparing each sub with the **alignment reference**, looking for matching star groups.
 
-Poor quality subs, with too few or distorted stars, are discarded using a threshold:
+Poor quality subs, with too few or distorted stars, may not produce enough matches to be aligned reliably.
 
-Any sub with a number of similarities **below** this threshold is discarded.
+Any sub with fewer matches than the configured minimum is discarded.
 
-- 🖱️ Use the `Threshold` slider to adjust the value of this **detection threshold**.
+- 🖱️ Use the `Min. matches` slider to adjust the **minimum number of matches** required.
 
 **When a sub is discarded**:
 
 - The sub is not added to the stack and the **Stacker** module waits for the next sub.
-- A **WARNING** is added to the **Session log**. It contains the text '_Alignment matches count is lower than configured threshold_'
+- A **WARNING** is added to the **Session log**. It contains the text '_Alignment match count is lower than configured minimum_'
 - The `Acknowledge` button in the `Session Log` panel is activated.
 
   _If the_ `session log` _panel is hidden, the issue indicator appears in the_ **Issues** _section._
@@ -159,26 +159,26 @@ Any sub with a number of similarities **below** this threshold is discarded.
 caption="The stack section"
 width="294px"
 height="106px"
-alt="User interface of the stack section showing a checkbox labeled Align, checked, and a dropdown menu with the mean option selected. Below, a slider labeled Threshold set to 19, positioned towards the left side of its range." >}}
+alt="User interface of the stack section showing a checkbox labeled Align, checked, and a dropdown menu with the mean option selected. Below, a slider labeled Min. matches set to 19, positioned towards the left side of its range." >}}
 {{< /center >}}
 
 </div>
 </div>
 
 {{% alert title="💡" color="light" %}}
-- Aim to set the detection threshold as high as possible without causing sub discards.
-- Lowering the stacking threshold is useful for long focal length shots where stars are few.
+- Aim to set the minimum matches value as high as possible without causing sub discards.
+- Lowering the minimum matches value is useful for long focal length shots where stars are few.
 {{% /alert %}}
 
 {{% alert title="ℹ️" color="info" %}}
 - Alignment is enabled at each ALS startup.
 - The stacking mode is set to **mean** at each ALS startup.
-- The detection threshold is global and constantly saved.
+- The minimum matches value is global and constantly saved.
 {{% /alert %}}
 
 ## Stack Information
 
-On the right of the alignment controls and threshold, you will find information about the **stack**:
+On the right of the alignment controls and minimum matches setting, you will find information about the **stack**:
 
 - the number of subs currently in the **stack**
 - the cumulative exposure times of the subs in the **stack**.

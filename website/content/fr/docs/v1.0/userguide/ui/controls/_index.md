@@ -2,11 +2,11 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-06T19:08:44Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
-tags: [ "stack", "session", "serveur", "output", "seuil", "rejet sigma", "save", "problèmes", "panneaux" ]
+tags: [ "stack", "session", "serveur", "output", "correspondances minimales", "rejet sigma", "save", "problèmes", "panneaux" ]
 weight: 100321
 ---
 
@@ -56,7 +56,7 @@ Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages 
 caption="Le panneau des contrôles principaux" 
 width="298px" 
 height="613px"
-alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : Contrôles de session avec les boutons START, PAUSE et STOP, Taille Stack 39, Exposition Stack 0:02:36, Statut démarrée ; Paramètres de la stack avec Aligner, moyenne, et curseur de seuil à 19 ; Serveur d'images avec les boutons START et STOP, Statut démarré avec l'URL http://10.0.2.15:8000 ; Enregistreur d'images avec les options Enr. image courante et Enr. chaque image ; Modules avec les statuts Taille file d'attente et Statut occupé ; Problèmes avec une icône d'avertissement et le label Problèmes." >}}
+alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : Contrôles de session avec les boutons START, PAUSE et STOP, Taille Stack 39, Exposition Stack 0:02:36, Statut démarrée ; Paramètres de la stack avec Aligner, moyenne, et curseur Corresp. min. à 19 ; Serveur d'images avec les boutons START et STOP, Statut démarré avec l'URL http://10.0.2.15:8000 ; Enregistreur d'images avec les options Enr. image courante et Enr. chaque image ; Modules avec les statuts Taille file d'attente et Statut occupé ; Problèmes avec une icône d'avertissement et le label Problèmes." >}}
 </div>
 
 </div>
@@ -136,23 +136,23 @@ La section **stack** du panneau contrôle le module **Stacker**.
       ⚙️ _La valeur de chaque pixel de l'empilement généré est la **somme des valeurs** de ce pixel sur toutes
       les brutes de la **stack**_.
 
-## Seuil de détection {#threshold}
+## Correspondances minimales {#threshold}
 
-L'alignement fonctionne en comparant les brutes avec la **référence d'alignement**, à la recherche de groupes 
-d'étoiles similaires. 
+L'alignement fonctionne en comparant chaque brute avec la **référence d'alignement**, à la recherche de groupes
+d'étoiles correspondants.
 
-Les brutes de mauvaise qualité, présentant des étoiles top peu nombreuses ou déformées, sont écartées en utilisant un 
-seuil :
+Les brutes de mauvaise qualité, présentant des étoiles trop peu nombreuses ou déformées, peuvent ne pas produire assez
+de correspondances pour être alignées de manière fiable.
 
-Toute brute présentant un nombre de similitudes **inférieur** à ce seuil est abandonnée.
+Toute brute présentant moins de correspondances que le minimum configuré est abandonnée.
 
-- 🖱️ Utilisez le curseur `Seuil` pour modifier la valeur de ce **seuil de détection**
+- 🖱️ Utilisez le curseur `Corresp. min.` pour modifier le **nombre minimal de correspondances** requis.
 
 **Quand une brute est abandonnée** :
 
 - L'image n'est pas ajoutée à la pile et le module **Stacker** se met en attente de la prochaine brute.
-- Un **WARNING** est ajouté au **Journal de session**. Il porte le texte '_Alignment matches count
-  is lower than configured threshold_'
+- Un **WARNING** est ajouté au **Journal de session**. Il porte le texte '_Alignment match count
+  is lower than configured minimum_'
 - Le bouton `Acquitter` du panneau `Journal de session` est activé
   
   _Si le panneau_ `journal de session` _est caché, l'indicateur de problèmes apparaît dans la section_ **Problèmes**
@@ -164,26 +164,27 @@ Toute brute présentant un nombre de similitudes **inférieur** à ce seuil est 
 caption="La section stack"
 width="298px"
 height="107px"
-alt="Interface utilisateur de la section stack montrant une case à cocher intitulée Aligner, cochée, et un menu déroulant avec l'option moyenne sélectionnée. En dessous, un curseur intitulé Seuil réglé à 19, positionné vers le côté gauche de sa plage." >}}
+alt="Interface utilisateur de la section stack montrant une case à cocher intitulée Aligner, cochée, et un menu déroulant avec l'option moyenne sélectionnée. En dessous, un curseur intitulé Corresp. min. réglé à 19, positionné vers le côté gauche de sa plage." >}}
 {{< /center >}}
 
 </div>
 </div>
 
 {{% alert title="💡" color="light" %}}
-- Cherchez à régler le seuil de détection le plus haut possible, sans provoquer d'abandons de brutes
-- Réduire le seuil d'empilement est utile sur les prises de vues à longue focale où les étoiles sont peu nombreuses
+- Cherchez à régler le nombre minimal de correspondances le plus haut possible, sans provoquer d'abandons de brutes
+- Réduire le nombre minimal de correspondances est utile sur les prises de vues à longue focale où les étoiles sont peu
+  nombreuses
 {{% /alert %}}
 
 {{% alert title="ℹ️" color="info" %}}
 - L'alignement est activé à chaque démarrage d'ALS
 - Le mode de stacking est réglé sur **moyenne** à chaque démarrage d'ALS
-- Le seuil de détection est global et sauvegardé en permanence
+- Le nombre minimal de correspondances est global et sauvegardé en permanence
 {{% /alert %}}
 
 ## Informations sur la stack
 
-A droite des contrôles d'alignement et de seuil, vous trouverez les informations sur la **stack** :
+À droite des contrôles d'alignement et des correspondances minimales, vous trouverez les informations sur la **stack** :
 
 - le nombre de brutes actuellement dans la **stack**
 - le cumul des temps d'expositions des brutes de la **stack**.

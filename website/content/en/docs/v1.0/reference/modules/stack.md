@@ -2,12 +2,12 @@
 title: "Stacker"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2026-06-05T20:40:21Z
+lastmod: 2026-06-06T19:08:43Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
 categories: [ "detailed documentations" ]
-tags: [ "module", "process", "stack", "threshold", "outlier rejection" ]
+tags: [ "module", "process", "stack", "minimum matches", "outlier rejection" ]
 weight: 100356
 ---
 
@@ -21,7 +21,7 @@ The **Stacker** module handles the alignment and stacking of calibrated subs.
 |---------------------|------------------------------------------------------------------------|-----------------------------|----------|---------------|
 | Alignment ON/OFF    | Interface: [Stacking controls](../../userguide/ui/controls/#controls)  | ON/OFF                      | ∅        | ON            |
 | Stacking mode       | Interface: [Stacking controls](../../userguide/ui/controls/#controls)  | choices:<br>- mean<br>- sum | YES      | mean          |
-| Detection threshold | Interface: [Stacking controls](../../userguide/ui/controls/#threshold) | integer                     | YES      | 25            |
+| Minimum matches     | Interface: [Stacking controls](../../userguide/ui/controls/#threshold) | integer                     | YES      | 25            |
 
 # Control
 
@@ -81,17 +81,17 @@ class CheckShape,CheckAlign,FirstSub test
 
 **If alignment is ON**
 
-1. Search for similarities between the calibrated sub and the session **alignment reference**.
+1. Search for matches between the calibrated sub and the session **alignment reference**.
 
-   ALS searches for similarities on progressively larger centered areas of the image: **10%**, then **33%**, then the
-   **full frame**. The first area that reaches the configured detection threshold is used to compute the
+   ALS searches for matches on progressively larger centered areas of the image: **10%**, then **33%**, then the
+   **full frame**. The first area producing at least the configured minimum number of matches is used to compute the
    transformation.
 
    Square 1:1 subs use a full-frame-only alignment search to avoid known alignment issues with square images.
 
    {{% alert color="info" %}}
-   If the calibrated sub has similarities count **below** the configured detection threshold, it is **discarded** and
-   the **Stack** module resumes listening to its queue.
+   If no search area produces the configured minimum number of matches, the calibrated sub is **discarded** and the
+   **Stack** module resumes listening to its queue.
    {{% /alert %}}
 
 2. Compute required transformations for the calibrated sub to align with the reference:

@@ -3,7 +3,7 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2025-11-07T14:54:31Z
+lastmod: 2026-06-06T19:08:43Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
@@ -97,7 +97,7 @@ Keep track of your session by reviewing ALS feedback on performance and potentia
 
 ## 🌦️ Adapt to Conditions
 
-Adapt the alignment threshold to match changing weather conditions or specific acquisition setups.
+Adapt the minimum matches setting to changing weather conditions or specific acquisition setups.
 
 ## 🎨 Tweak Your Image
 
