@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-06T15:58:54Z
+lastmod: 2026-06-06T17:20:54Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -17,7 +17,7 @@ weight: 100550
 - Dark theme
 - Color saturation adjustment
 - Flat frame calibration
-- Outlier rejection when stacking in mean mode
+- Sigma-clipping outlier rejection when stacking in mean mode with the Photo profile
 
 ### Bug Fixes
 
