@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-06-03T19:59:26Z
+lastmod: 2026-06-06T18:32:59Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -54,7 +54,10 @@ alt="ALS custom folder setup screen" >}}
 {{< /center >}}
 
 - 🖱️ Click both buttons to select the **Scan folder** and the **Work folder** ALS will use
- 
+
+ALS also monitors subfolders, so if your acquisition system organizes subs into folders by date, target name, frame type,
+or similar criteria, select their common parent folder as ALS's **Scan folder**.
+
 You can select or create any folder on your system, but we recommend using folders on a fast drive
 
 - 🖱️ Once both folders are set, click `GO !` to start the application
@@ -103,6 +106,9 @@ alt="Session log showing informational messages with timestamps. The entries inc
 {{< /center >}}
 
 ---
+
+🎛️ Before starting your acquisitions, make sure that new subs will be saved in the **Scan folder** configured in ALS, or
+any of its subfolders.
 
 🎛️ Now start the acquisitions with your usual system. ALS detects and processes each new sub.
 

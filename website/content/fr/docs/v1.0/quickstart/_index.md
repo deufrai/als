@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-06-03T19:59:26Z
+lastmod: 2026-06-06T18:32:59Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -55,6 +55,10 @@ alt="Écran de configuration personnalisée des dossiers" >}}
 
 - 🖱️ Cliquez sur les deux boutons pour sélectionner le **dossier scanné** et le **dossier de travail** qu'ALS utilisera
 
+ALS surveille également les sous-dossiers, donc si votre système d'acquisition organise les brutes dans des dossiers 
+par date, nom de cible, type d'image ou selon d'autres critères similaires, sélectionnez leur dossier parent commun
+comme **Dossier scanné** d'ALS. 
+
 Vous pouvez sélectionner ou créer n'importe quel dossier sur votre système, mais nous recommandons d'utiliser des
 dossiers situés sur un disque rapide
 
@@ -103,6 +107,9 @@ alt="Journal de session affichant des messages d'information avec horodatages. L
 {{< /center >}}
 
 --- 
+
+🎛️ Avant de démarrer vos acquisitions, assurez-vous que les nouvelles brutes seront enregistrées dans le
+**Dossier scanné** configuré dans ALS, ou l'un de ses sous-dossiers.
 
 🎛️ Démarrez maintenant les acquisitions avec votre système habituel. ALS détecte et traite chaque nouvelle brute détectée.
 
