@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "saturation", "sliders", "processing", "panels" ]
@@ -14,10 +14,10 @@ weight: 100322
 
 In this chapter, you will learn how to improve your images using the `Processing` panel.
 
+# Overview
+
 <div class="row">
 <div class="col-md-8">
-
-# Overview
 
 The `Processing` panel is the control room for the **Process** module in ALS.
 

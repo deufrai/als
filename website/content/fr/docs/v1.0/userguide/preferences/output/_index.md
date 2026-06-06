@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: [ "ALS output settings", "préférences Sortie d'ALS" ]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100333
 
 Les réglages régissant les sorties d'ALS présentés dans l'onglet `Sortie`.
 
+# Vue d'ensemble
+
 <div class="row">
 <div class="col-md-4">
-
-# Vue d'ensemble
 
 Cet onglet est divisé en 2 sections :
 

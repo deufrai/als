@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-06T00:44:33Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100331
 
 The most critical ALS settings are presented in the `General` tab.
 
+# Overview
+
 <div class="row">
 <div class="col-md-4">
-
-# Overview
 
 This tab is divided into 3 sections:
 

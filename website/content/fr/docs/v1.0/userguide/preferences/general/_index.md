@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T00:44:33Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100331
 
 Les réglages les plus critiques d'ALS sont présentés dans l'onglet `Général`
 
+# Vue d'ensemble
+
 <div class="row">
 <div class="col-md-4">
-
-# Vue d'ensemble
 
 Cet onglet est divisé en 3 sections :
 

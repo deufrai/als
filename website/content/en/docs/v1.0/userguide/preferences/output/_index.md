@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100333
 
 The settings governing ALS outputs are presented in the `Output` tab.
 
+# Overview
+
 <div class="row">
 <div class="col-md-4">
-
-# Overview
 
 This tab is divided into 2 sections:
 

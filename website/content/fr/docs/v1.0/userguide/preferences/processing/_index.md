@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-06T18:50:56Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100332
 
 Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement`
 
+# Vue d'ensemble
+
 <div class="row">
 <div class="col-md-6">
-
-# Vue d'ensemble
 
 Cet onglet ne contient qu'une seule section : [Preprocess](#preprocess)
 

@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "ALS Preferences Process Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-11-06T18:50:56Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100332
 
 The ALS processing settings are presented in the Preferences page `Process` tab
 
+# Overview
+
 <div class="row">
 <div class="col-md-6">
-
-# Overview
 
 This tab contains only one section: [Preprocess](#preprocess)
 

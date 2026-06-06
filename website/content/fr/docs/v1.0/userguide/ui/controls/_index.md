@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-05T20:40:21Z
+lastmod: 2026-06-06T17:30:43Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -16,7 +16,7 @@ Au cours de ce chapitre, vous allez :
 - vous familiariser avec les contrôles principaux d'ALS
 - approfondir vos connaissances sur les fonctionnalités clés
 
-# Présentation
+# Vue d'ensemble
 
 <div class="row">
   <div class="col-md-8">
