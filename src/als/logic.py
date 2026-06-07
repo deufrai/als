@@ -598,7 +598,8 @@ class Controller:
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STARTING
         self._notify_model_observers()
 
-        Controller._setup_web_initial_content()
+        Controller._setup_web_static_content()
+        self._setup_web_initial_image()
         self.write_stack_info_json()
 
         port_number = config.get_www_server_port_number()
@@ -747,16 +748,14 @@ class Controller:
 
     @staticmethod
     @log
-    def _setup_web_initial_content():
-        """Prepares the web folder with the content required before a session starts."""
+    def _setup_web_static_content():
+        """Prepares the web folder with the static content required by the server."""
 
         Controller._save_web_file("index.html", source_file=QFile(":/web/index.html"))
 
         Controller._save_web_file("favicon.ico", source_file=QFile(":/icons/als_logo.ico"))
 
         Controller._save_web_file("openseadragon.min.js", source_file=QFile(":/web/openseadragon.min.js"))
-
-        Controller._setup_web_waiting_image()
 
         icons_dir = Path(config.get_web_folder_path()) / "icons"
         icons_dir.mkdir(parents=True, exist_ok=True)
@@ -771,6 +770,18 @@ class Controller:
         for icon_file in icon_files:
             Controller._save_web_file(f"icons/{icon_file}", source_file=QFile(f":/webicons/{icon_file}"))
 
+    @log
+    def _setup_web_initial_image(self):
+        """Writes the image that must be served when the server starts."""
+        if DYNAMIC_DATA.stack_size > 0 and DYNAMIC_DATA.post_processor_result is not None:
+            self.save_image(
+                DYNAMIC_DATA.post_processor_result,
+                IMAGE_SAVE_TYPE_JPEG,
+                config.get_web_folder_path(),
+                WEB_SERVED_IMAGE_FILE_NAME_BASE)
+            return
+
+        Controller._setup_web_waiting_image()
 
     @log
     def write_stack_info_json(self):
