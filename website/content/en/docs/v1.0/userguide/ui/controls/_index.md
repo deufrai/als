@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T19:08:44Z
+lastmod: 2026-06-07T15:53:25Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "minimum matches", "outlier rejection", "save", "issues", "panels" ]
@@ -204,7 +204,8 @@ The **Image Server** section of the panel controls the **Server** module.
 Below the server controls, you will find its status display.
 
 When the server is **started**:
-- its URL is added to the status.
+- the URL built from the displayed address and port configured in
+  [Preferences](../../preferences/output/#server) is added to the status.
 - {{< als-ks >}}Q{{< /als-ks >}} toggles the display of the QR code for the server URL.
 
 </div>

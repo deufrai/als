@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-07T15:53:25Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -13,24 +13,24 @@ weight: 100333
 
 The settings governing ALS outputs are presented in the `Output` tab.
 
-# Overview
-
 <div class="row">
 <div class="col-md-4">
+
+# Overview {#overview}
 
 This tab is divided into 2 sections:
 
 - [File Saver](#save)
-- [Image Server](#server)
+- [image server](#server)
 
 </div>
 <div class="col-md-8 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="The Output tab in preferences"
-width="622px"
-height="660px"
-alt="" >}}
+width="628px"
+height="663px"
+alt="ALS preferences window with the Output tab selected, showing save format options, output folder settings, autosave, displayed address, and port number settings." >}}
 {{< /center >}}
 
 </div>
@@ -38,7 +38,7 @@ alt="" >}}
 
 # Save {#save}
 
-Here are the output file format, output folders, and autosave function settings 
+Here are the output file format, output folders, and autosave function settings.
 
 ## Format {#format}
 
@@ -130,7 +130,45 @@ alt="" >}}
 
 # Server {#server}
 
-Here are the settings for the ALS image server
+Here are the settings for the ALS image server.
+
+{{< center >}}
+{{< figure src="web_config.png"
+caption="Image server settings"
+width="628px"
+height="187px"
+alt="Image server settings showing the Displayed address dropdown set to Auto - recommended and the port number set to 8000." >}}
+{{< /center >}}
+
+## Displayed Address {#server-address}
+
+Defines the network address shown in the `Main controls` panel, the status bar, and the QR code window
+when the image server is running.
+
+The list contains `Auto - recommended`, followed by the network addresses discovered on the system running ALS. Each
+listed address belongs to one detected network adapter.
+
+Listed addresses are ordered by likely usefulness:
+
+1. Addresses likely to be reachable from another device on a local network.
+2. Addresses from common Wi-Fi or Ethernet adapters.
+3. Addresses from other adapters, including hotspot, sharing, bridge, virtual, Docker, VPN, and tunnel adapters.
+4. Link-local addresses, when no better local address is available.
+5. Loopback addresses, as a last fallback for local-only access.
+
+- 🖱️ Choose `Auto - recommended` to use the first address in the ordered list
+- 🖱️ Choose a specific address when another device must connect through a particular network, such as a Wi-Fi hotspot
+  or a dedicated local network
+
+ℹ️ Default: Auto - recommended
+
+{{% alert title="Troubleshooting" color="warning" %}}
+If another device cannot browse the image server while it is running, open the Output preferences and
+select another **Displayed address**. Choose an address that belongs to the same network as the browser device, click
+`OK`, then retry the URL or QR code.
+
+The displayed address can be changed without stopping the image server.
+{{% /alert %}}
 
 ## Port Number {#server-port}
 
@@ -142,11 +180,6 @@ Allowed values: 1024 to 65535
 
 ℹ️ Default: 8000
 
-{{< center >}}
-{{< figure src="web_config.png"
-caption="Web server settings"
-width="622px"
-height="175px"
-alt="" >}}
-{{< /center >}}
-
+{{% alert color="info" %}}
+Changing the port number requires stopping the image server first.
+{{% /alert %}}

@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T19:08:44Z
+lastmod: 2026-06-07T15:53:25Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -211,7 +211,8 @@ La section **Serveur d'images** du panneau contrôle le module **Server**
 Sous les contrôles du serveur, vous trouverez l'affichage de son statut
 
 Quand le serveur est **démarré** :
-- son URL est ajoutée au statut
+- l'URL construite à partir de l'adresse affichée et du port configurés dans les
+  [Préférences](../../preferences/output/#server) est ajoutée au statut
 - {{< als-ks >}}Q{{< /als-ks >}} bascule l'affichaque du QR code pour l'URL du serveur 
 
 </div>
