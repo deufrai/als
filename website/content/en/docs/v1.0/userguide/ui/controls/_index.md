@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2026-06-07T15:53:25Z
+lastmod: 2026-06-07T18:56:59Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "minimum matches", "outlier rejection", "save", "issues", "panels" ]
@@ -220,10 +220,6 @@ alt="The image server section, containing the 2 buttons START (grayed out) and S
 
 </div>
 </div>
-
-{{% alert title="ℹ️" color="info" %}}
-Image server settings are available in the [Preferences](../../preferences/output#server)
-{{% /alert %}}
 
 ---
 
