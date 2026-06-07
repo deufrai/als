@@ -598,7 +598,7 @@ class Controller:
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STARTING
         self._notify_model_observers()
 
-        Controller._setup_web_static_content()
+        Controller._setup_web_initial_content()
         self.write_stack_info_json()
 
         port_number = config.get_www_server_port_number()
@@ -747,14 +747,16 @@ class Controller:
 
     @staticmethod
     @log
-    def _setup_web_static_content():
-        """Prepares the web folder."""
+    def _setup_web_initial_content():
+        """Prepares the web folder with the content required before a session starts."""
 
         Controller._save_web_file("index.html", source_file=QFile(":/web/index.html"))
 
         Controller._save_web_file("favicon.ico", source_file=QFile(":/icons/als_logo.ico"))
 
         Controller._save_web_file("openseadragon.min.js", source_file=QFile(":/web/openseadragon.min.js"))
+
+        Controller._setup_web_waiting_image()
 
         icons_dir = Path(config.get_web_folder_path()) / "icons"
         icons_dir.mkdir(parents=True, exist_ok=True)
