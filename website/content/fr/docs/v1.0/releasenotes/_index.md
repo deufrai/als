@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-06T17:20:54Z
+lastmod: 2026-06-07T17:10:50Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ 'notes de version', 'journal des modifications' ]
 weight: 100550
@@ -22,6 +22,7 @@ weight: 100550
 ### Corrections
 
 - La détection de la langue du système ne fonctionnait pas sur les systèmes macOS
+- Le serveur d'images n'affichait pas son image d'attente lorsqu'il était démarré avant une session
 - L'image et les données d'exposition du webview pouvaient rester périmées à cause de la mise en cache navigateur entre 
   deux brutes.
 

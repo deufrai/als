@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-06T17:20:54Z
+lastmod: 2026-06-07T17:10:49Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -22,6 +22,7 @@ weight: 100550
 ### Bug Fixes
 
 - System language detection failed on macOS
+- Image server did not display its waiting image when started before a session
 - Webview image and exposition data could display stale values because browsers cached the resources between subs.
 
 ---
