@@ -147,12 +147,13 @@ section {
     box-shadow: 0 10px 10px 8px rgba(0, 0, 0, .5);
     border-radius: 4px;
     margin: 0 auto;
+    padding-top: 0;
 }
 
 .screenshot img {
     display: block;
     width: auto;
-    max-height: min(55vh, 419px);
+    max-height: min(55vh, 420px);
     max-width: min(90vw, 886px);
     height: auto;
     border-radius: 4px;
