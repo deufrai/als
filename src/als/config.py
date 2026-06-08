@@ -77,7 +77,7 @@ _DEFAULTS = {
     _USE_MASTER_FLAT:       0,
     _MASTER_DARK_FILE_PATH: "",
     _MASTER_FLAT_FILE_PATH: "",
-    _USE_HOT_PIXEL_REMOVER: 0,
+    _USE_HOT_PIXEL_REMOVER: 1,
     _LANG:                  "sys",
     _BAYER_PATTERN:         "AUTO",
     _NIGHT_MODE:            0,
