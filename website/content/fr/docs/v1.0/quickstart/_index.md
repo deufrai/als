@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-06-06T19:08:44Z
+lastmod: 2026-06-08T23:29:53Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -66,11 +66,15 @@ dossiers situés sur un disque rapide
 
 # Votre toute première session {#your-very-first-session}
 
+Pour préserver vos yeux jusqu'à la fin de ce guide, nous basculons ALS en **thème sombre**, en utilisant soit :
+- le menu `Vue > Thème sombre`
+- le raccourci clavier {{< als-ks >}}T{{< /als-ks >}}
+
 {{< center >}}
 {{< figure src="ready.png"
 caption="ALS prêt à démarrer sa toute première session"
-width="1388px"
-height="761px"
+width="1920px"
+height="1080px"
 alt="Fenêtre principale d'ALS montrant une interface logicielle pour empiler des images astronomiques en temps réel. L'interface comprend des sections pour les contrôles principaux (démarrer, pause, arrêter), les paramètres d'empilement (aligner, correspondances minimales), le serveur d'images (démarrer, arrêter), la sauvegarde d'images (sauvegarder l'image actuelle, sauvegarder chaque image), les modules (taille de la file d'attente, statut), le traitement (histogramme, étirement automatique, niveaux, balance RGB) et le journal de session." >}}
 {{< /center >}}
 
@@ -79,8 +83,8 @@ alt="Fenêtre principale d'ALS montrant une interface logicielle pour empiler de
 {{< center >}}
 {{< figure src="start.png"
 caption="Le bouton de démarrage de session"
-width="300px"
-height="129px"
+width="320px"
+height="130px"
 alt="Section des contrôles principaux d'ALS avec la sous-section Session, montrant les boutons START, PAUSE et STOP. Le bouton START est surligné avec une flèche rouge pointant vers lui. En dessous, des indicateurs pour la taille de la stack (0) et l'exposition de la pile (n/a) sont affichés. Le statut indique 'stoppée'." >}}
 {{< /center >}}
 
@@ -93,16 +97,16 @@ ALS confirme le bon démarrage de la session :
 {{< center >}}
 {{< figure src="started.png"
 caption="Le statut et les boutons de contrôle de la session sont mis à jour"
-width="301px"
-height="128px"
+width="319px"
+height="130px"
 alt="Section des contrôles principaux d'ALS avec la sous-section Session, montrant les boutons START, PAUSE et STOP. En dessous de ces boutons, des indicateurs pour la taille de la stack (0) et l'exposition de la stack (n/a) sont affichés. Le statut indique 'démarrée' avec une flèche rouge pointant vers lui." >}}
 {{< /center >}}
 
 {{< center >}}
 {{< figure src="status.png"
 caption="Le **journal de session** affiche les derniers événements et la **barre de statut** est mise à jour"
-width="978px"
-height="166px"
+width="900px"
+height="176px"
 alt="Journal de session affichant des messages d'information avec horodatages. Les entrées incluent 'Démarrage de nouvelle session...' 'Scanneur d'entrée démarré,' et 'Session démarrée en mode moyenne avec alignement True.' Des boutons étiquetés Acquitter, problèmes seuls, suivre. La barre de statut indique 'Session démarrée'." >}}
 {{< /center >}}
 
@@ -119,8 +123,8 @@ alt="Journal de session affichant des messages d'information avec horodatages. L
 {{< center >}}
 {{< figure src="stacked_01.png"
 caption="ALS après traitement de la 1<sup>ère</sup> image"
-width="1388px"
-height="761px"
+width="1920px"
+height="1080px"
 alt="Fenêtre principale d'ALS après le traitement de la première brute, affichant une image initiale et légèrement bruitée de la nébuleuse Messier 27 avec des étoiles éparpillées. Le journal de session montre des messages de traitement réussi. Le panneau de traitement sur la droite offre des ajustements de l'histogramme et des niveaux, l'équilibre RGB et les réglages d'étirement automatique." >}}
 {{< /center >}}
 
@@ -136,8 +140,8 @@ les brutes déjà traitées.
 {{< center >}}
 {{< figure src="stacked_15.png"
 caption="ALS après traitement de la 15<sup>ème</sup> image. Le contraste et le bruit s'améliorent"
-width="1388px"
-height="761px"
+width="1920px"
+height="1080px"
 alt="Fenêtre principale d'ALS après le traitement de la 15e brute, affichant une image moins bruitée et plus détaillée de la nébuleuse Messier 27 avec des étoiles éparpillées. Le journal de session montre des messages de traitement réussi. Le panneau de traitement sur la droite offre des ajustements de l'histogramme et des niveaux, l'équilibre RGB et les réglages d'étirement automatique." >}}
 {{< /center >}}
 
@@ -165,8 +169,8 @@ interrompre la navigation.
 {{< center >}}
 {{< figure src="stacked_200.png"
 caption="ALS après traitement de la 200<sup>ème</sup> image. Une belle image, détaillée et lissée"
-width="1388px"
-height="761px"
+width="1920px"
+height="1080px"
 alt="Fenêtre principale d'Astro Live Stacker (ALS) après le traitement de la 200e brute, affichant une image lisse, détaillée et à fort contraste de la nébuleuse Messier 27 avec de nombreuses étoiles. Le journal de session en bas montre des messages de traitement réussi et le panneau de sauvegarde d'images à gauche indique que les images ont été sauvegardées avec succès. Le panneau de droite comprend des options de traitement telles que les ajustements d'histogramme, l'étirement automatique, les niveaux et l'équilibre RGB." >}}
 {{< /center >}}
 
@@ -183,8 +187,8 @@ Notre visite guidée express touche à sa fin, arrêtez la session en cours.
 {{< center >}}
 {{< figure src="stopping.png"
 caption="Le bouton d'arrêt de session"
-width="301px"
-height="128px"
+width="319px"
+height="130px"
 alt="Section des contrôles principaux dans l'interface du logiciel ALS, plus précisément la zone Session affichant les boutons START, PAUSE et STOP. Le bouton STOP est surligné avec une flèche rouge pointant vers lui. En dessous des boutons se trouvent la taille de la stack (200) et l'exposition de la stack (0:13:20). Le statut indique 'démarrée'." >}}
 {{< /center >}}
 
@@ -195,8 +199,8 @@ alt="Section des contrôles principaux dans l'interface du logiciel ALS, plus pr
 {{< center >}}
 {{< figure src="stop.png"
 caption="Fenêtre de confirmation d'arrêt de session"
-width="608px"
-height="151px"
+width="604px"
+height="153px"
 alt="Boîte de dialogue intitulée 'Arrêt de session,' demandant une confirmation pour arrêter la session en cours avec un message : 'Stopper la session courante remettra la stack et les traitements à zéro. Êtes-vous sûr de vouloir stopper la session courante ?' En dessous du message se trouvent une case à cocher intitulée 'Sauver image avant arrêt' et deux boutons intitulés 'Non' et 'Oui.' Le bouton 'Non' est surligné en rouge et le bouton 'Oui' est surligné en vert." >}}
 {{< /center >}}
 
