@@ -853,174 +853,179 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Система</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="260"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="300"/>
         <source>Data</source>
         <translation>Данные</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="269"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="309"/>
         <source>Detailed &amp;logs</source>
         <translation>Подробные &amp;журналы</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="325"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="351"/>
         <source>Process</source>
         <translation>Процесс</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="331"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="357"/>
         <source>Preprocess</source>
         <translation>Предобработка</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="337"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="363"/>
         <source>Hot pixels</source>
         <translation>Горячие пиксели</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="343"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="369"/>
         <source>&amp;Remove</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="353"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="379"/>
         <source>Dark subtraction</source>
         <translation>Вычитание темнового кадра</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="364"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="390"/>
         <source>&amp;Active</source>
         <translation>&amp;Активный</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="373"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="399"/>
         <source>Master &amp;dark...</source>
         <translation>Мастер &amp;темновой кадр...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="447"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="473"/>
         <source>Debayering</source>
         <translation>Дебайеризация</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="521"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="547"/>
         <source>Output</source>
         <translation>Вывод</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="533"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="559"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="539"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="565"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="549"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="575"/>
         <source>T&amp;IFF</source>
         <translation>T&amp;IFF</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="556"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="582"/>
         <source>PN&amp;G</source>
         <translation>PN&amp;G</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="563"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="589"/>
         <source>&amp;JPEG</source>
         <translation>&amp;JPEG</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="590"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="616"/>
         <source>Output folders</source>
         <translation>Каталоги сохранения результата</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="598"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="624"/>
         <source>&amp;Work folder...</source>
         <translation>&amp;Рабочий каталог...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="623"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="649"/>
         <source>&amp;Dedicacted web folder</source>
         <translation>&amp;Выделенный веб-каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="632"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="658"/>
         <source>We&amp;b folder...</source>
         <translation>Ве&amp;б-каталог...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="660"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="686"/>
         <source>Autosave</source>
         <translation>Автосохранение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="666"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="692"/>
         <source>Save processed image to disk when stopping a running session. Can be overriden at runtime</source>
         <translation>Сохранять обработанное изображение на диск при остановке текущей сессии. Может быть переопределено во время выполнения</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="672"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="698"/>
         <source>Timestamped result on session &amp;stop</source>
         <translation>Результат с отметкой времени при &amp;остановке сессии</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="685"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="711"/>
         <source>Server</source>
         <translation>Сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="728"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="754"/>
         <source>&amp;Port number</source>
         <translation>Номер &amp;порта</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="762"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="788"/>
         <source>1024 to 65535</source>
         <translation>1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="822"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="848"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="829"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="855"/>
         <source>OK</source>
         <translation>ОК</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="404"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="430"/>
         <source>Flat calibration</source>
         <translation>Калибровка flat</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="410"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="436"/>
         <source>A&amp;ctive</source>
         <translation>А&amp;ктивно</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="419"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="445"/>
         <source>Master &amp;flat...</source>
         <translation>Master &amp;flat...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="691"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="717"/>
         <source>Displayed &amp;address</source>
         <translation>Отображаемый &amp;адрес</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="282"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="274"/>
         <source>Send &amp;usage statistics on startup</source>
         <translation>Отправлять статистику &amp;использования при запуске</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/prefs_ui.ui" line="298"/>
+        <location filename="../src/als/ui/prefs_ui.ui" line="290"/>
         <source>&amp;Check for updates on startup</source>
         <translation>&amp;Проверять обновления при запуске</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/prefs_ui.ui" line="262"/>
+        <source>Network</source>
+        <translation>Сеть</translation>
     </message>
 </context>
 <context>
