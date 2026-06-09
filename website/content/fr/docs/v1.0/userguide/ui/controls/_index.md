@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-09T02:55:06Z
+lastmod: 2026-06-09T21:45:45Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -58,9 +58,9 @@ Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages 
   
 {{< figure src="controls.png" 
 caption="Le panneau des contrôles principaux" 
-width="298px" 
-height="613px"
-alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : Contrôles de session avec les boutons START, PAUSE et STOP, Taille Stack 39, Exposition Stack 0:02:36, Statut démarrée ; Paramètres de la stack avec Aligner, moyenne, et curseur Corresp. min. à 19 ; Serveur d'images avec les boutons START et STOP, Statut démarré avec l'URL http://10.0.2.15:8000 ; Enregistreur d'images avec les options Enr. image courante et Enr. chaque image ; Modules avec les statuts Taille file d'attente et Statut occupé ; Problèmes avec une icône d'avertissement et le label Problèmes." >}}
+width="313px"
+height="684px"
+alt="Le panneau des contrôles principaux d'ALS, avec plusieurs sections : contrôles de session avec les boutons START, PAUSE et STOP et le statut démarrée ; paramètres de la stack avec Aligner, moyenne et Corresp. min. réglé à 25 ; taille de la stack 42 et exposition 2:06:00 ; serveur d'images démarré ; enregistreur d'images ; modules ; disponibilité d'ALS 1.0 et bouton Problèmes." >}}
 </div>
 
 </div>
@@ -98,9 +98,9 @@ _Dans cet exemple, la session est démarrée_
 {{< center >}}
 {{< figure src="session.png"
 caption="La section session"
-width="298px"
-height="106px"
-alt="Interface utilisateur de la section session montrant les boutons START, PAUSE et STOP. En dessous, des informations sur la session actuelle : Taille Stack 39, Exposition Stack 0:02:36, et statut démarrée." >}}
+width="313px"
+height="101px"
+alt="Interface utilisateur de la section session montrant les boutons START, PAUSE et STOP et le statut démarrée." >}}
 {{< /center >}}
 
 </div>
@@ -166,9 +166,9 @@ Toute brute présentant moins de correspondances que le minimum configuré est a
 {{< center >}}
 {{< figure src="stack.png"
 caption="La section stack"
-width="298px"
-height="107px"
-alt="Interface utilisateur de la section stack montrant une case à cocher intitulée Aligner, cochée, et un menu déroulant avec l'option moyenne sélectionnée. En dessous, un curseur intitulé Corresp. min. réglé à 19, positionné vers le côté gauche de sa plage." >}}
+width="313px"
+height="169px"
+alt="Interface utilisateur de la section stack montrant la case Aligner cochée, le mode moyenne, le curseur Corresp. min. réglé à 25, une taille de stack de 42 et une exposition de 2:06:00." >}}
 {{< /center >}}
 
 </div>
@@ -193,7 +193,7 @@ alt="Interface utilisateur de la section stack montrant une case à cocher intit
 - le nombre de brutes actuellement dans la **stack**
 - le cumul des temps d'expositions des brutes de la **stack**.
 
-_Dans cet exemple, nous avons empilé 42 brutes pour un total de 2m 48s._
+_Dans cet exemple, nous avons empilé 42 brutes pour un total de 2 h 6 min._
 
 
 ---
@@ -224,8 +224,8 @@ Quand le serveur est **démarré** :
 {{< center >}}
 {{< figure src="server.png"
 caption="La section server"
-width="294px"
-height="92px"
+width="313px"
+height="100px"
 alt="La section serveur d'images, contenant les 2 boutons START (grisé) et STOP, le statut : démarré et l'URL du serveur" >}}
 {{< /center >}}
 
@@ -254,8 +254,8 @@ fonctionnement par défaut du module **Save**
 {{< center >}}
 {{< figure src="saver.png"
 caption="La section Enregistreur d'images"
-width="294px"
-height="69px"
+width="313px"
+height="79px"
 alt="Section Enregistreur d'images de l'interface utilisateur montrant un bouton intitulé Enr. image courante et une case à cocher intitulée Enr. chaque image. La case à cocher est décochée." >}}
 {{< /center >}}
 
@@ -268,20 +268,15 @@ alt="Section Enregistreur d'images de l'interface utilisateur montrant un bouton
 
 ---
 
+<div class="row">
+  <div class="col-md-8">
+
 # Modules {#modules-section}
 
 La section **Modules** du panneau affiche les détails de chacun des modules principaux
 
 - La taille de la file d'attente associée
 - Le statut du module : Affiche **occupé** quand le module est en train de traiter une image
-
-{{< center >}}
-{{< figure src="modules.png"
-caption="La section Modules"
-width="294px"
-height="153px"
-alt="Section Modules de l'interface utilisateur montrant un tableau avec trois colonnes : Modules, Taille file d'attente et Statut. Le tableau liste quatre modules : Pre-process, Stack, Process et Sauvegarde. La taille des files d'attente pour tous les modules est 0. Le statut du module Stack est occupé, tandis que les statuts des autres modules sont indiqués par un tiret (-)." >}}
-{{< /center >}}
 
 ---
 
@@ -300,16 +295,22 @@ où `version` est le numéro de la version disponible.
 Quand un nouveau problème a été détecté **et que le `Journal de session` est caché**, le bouton `Problèmes`
 apparaît dans cette section.
 
+{{< als-ks >}}L{{< /als-ks >}} ou 🖱️ cliquez `Problèmes` pour afficher le `Journal de session` et consulter
+les nouveaux problèmes détectés.
+
+</div>
+<div class="col-md-4 d-flex align-items-center justify-content-center">
+
 {{< center >}}
-{{< figure src="problems.png"
-caption="L'indicateur de problème"
-width="294px"
-height="44px"
-alt="La section problèmes avec le bouton problèmes et son panneau rouge" >}}
+{{< figure src="modules_and_below.png"
+caption="Modules, mise à jour disponible et problèmes"
+width="313px"
+height="230px"
+alt="Les sections Modules, Mise à jour disponible et Problèmes. Les files d'attente sont vides, le module Process est occupé, ALS 1.0 est disponible et le bouton Problèmes est affiché." >}}
 {{< /center >}}
 
-{{< als-ks >}}L{{< /als-ks >}} ou 🖱️ cliquez `Problèmes` pour afficher le `Journal de session` et consulter 
-les nouveaux problèmes détectés.
+  </div>
+</div>
 
 ---
 
