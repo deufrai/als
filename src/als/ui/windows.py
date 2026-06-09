@@ -11,8 +11,10 @@ from os import chmod, makedirs
 from pathlib import Path
 from typing import List
 
-from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QUrl
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
+# pylint: disable=no-name-in-module
+from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
     QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
 from generated.als_ui import Ui_stack_window
@@ -34,10 +36,14 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
 from als.ui.widgets import Slider
+from als.updates import find_available_update
+from als.version import version as BUILD_VERSION
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
 ALS_DOCUMENTATION_URL = "https://als-app.org/docs/v1.0/?mtm_campaign=docFromApp"
+CURRENT_STABLE_VERSION_URL = "https://als-app.org/current-stable.txt"
+UPDATE_CHECK_TIMEOUT_MILLISECONDS = 20000
 
 # pylint: disable=R0904, R0902
 class MainWindow(QMainWindow):
@@ -67,6 +73,9 @@ class MainWindow(QMainWindow):
         self._qrDisplay.hide()
         self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
         self._web_server_was_running = False
+        self._update_network_manager = None
+        self._update_reply = None
+        self._update_timeout_timer = None
 
         # populate stacking mode combo box=
         self._ui.cb_stacking_mode.blockSignals(True)
@@ -176,6 +185,84 @@ class MainWindow(QMainWindow):
 
         self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
 
+        if config.get_check_updates_on_startup_active():
+            QTimer.singleShot(2000, self._start_update_check)
+
+    @log
+    def _start_update_check(self):
+        """
+        Starts the optional asynchronous check for a newer ALS release.
+        """
+        self._update_network_manager = QNetworkAccessManager(self)
+        request = QNetworkRequest(QUrl(CURRENT_STABLE_VERSION_URL))
+        request.setRawHeader(
+            b"User-Agent",
+            f"ALS/{BUILD_VERSION}".encode("ascii", "replace")
+        )
+
+        self._update_reply = self._update_network_manager.get(request)
+        self._update_reply.finished.connect(self._on_update_check_finished)
+
+        self._update_timeout_timer = QTimer(self)
+        self._update_timeout_timer.setSingleShot(True)
+        self._update_timeout_timer.timeout.connect(self._on_update_check_timeout)
+        self._update_timeout_timer.start(UPDATE_CHECK_TIMEOUT_MILLISECONDS)
+
+    @log
+    def _on_update_check_finished(self):
+        """
+        Processes a completed update request and releases request resources.
+        """
+        reply = self._update_reply
+        if reply is None:
+            return
+
+        if self._update_timeout_timer is not None:
+            self._update_timeout_timer.stop()
+
+        if reply.error() == QNetworkReply.NoError:
+            try:
+                remote_version_content = bytes(reply.readAll()).decode("utf-8")
+            except UnicodeDecodeError:
+                remote_version_content = ""
+
+            available_version = find_available_update(
+                BUILD_VERSION,
+                remote_version_content
+            )
+            if available_version is not None:
+                self._ui.lbl_available_update.setText(
+                    self.tr("ALS {} is available").format(available_version))
+                self._ui.lbl_available_update.show()
+
+        self._release_update_check_resources()
+
+    @log
+    def _on_update_check_timeout(self):
+        """
+        Aborts an update request that exceeded the configured timeout.
+        """
+        if self._update_reply is not None:
+            self._update_reply.abort()
+
+    @log
+    def _release_update_check_resources(self):
+        """
+        Releases objects used by the one-shot update request.
+        """
+        if self._update_reply is not None:
+            self._update_reply.deleteLater()
+            self._update_reply = None
+
+        if self._update_timeout_timer is not None:
+            self._update_timeout_timer.deleteLater()
+            self._update_timeout_timer = None
+
+        if self._update_network_manager is not None:
+            self._update_network_manager.deleteLater()
+            self._update_network_manager = None
+
+    @log
     def _setup_statusbar(self):
         """
         Initialize status bar widgets and layout.
@@ -206,6 +293,7 @@ class MainWindow(QMainWindow):
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_web_server_status)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_frame_total_proc)
 
+    @log
     def _apply_theme(self, dark_active: bool, night_active: bool) -> None:
         """
         Apply and persist the currently selected theme, ensuring dark and night

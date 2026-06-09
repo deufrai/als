@@ -50,9 +50,8 @@ Important files and responsibilities:
   - Defines the main controls panel.
 - `i18n/als_fr.ts` and `i18n/als_ru.ts`
   - Provide French and Russian translations.
-- `ci/deploy/deploy_website_to_prod.sh`
-  - Deploys the production website and is the appropriate place for the
-    release-maintenance reminder.
+- `website/static/current-stable.txt`
+  - Publishes the current release version as a Hugo-managed static asset.
 
 The project already depends on PyQt 5.13 and `setuptools`. The implementation
 should use Qt networking and project-owned version parsing without adding a new
@@ -253,17 +252,13 @@ pylupdate5 -noobsolete -verbose als.pro
 New or changed translations remain marked `type="unfinished"` for Qt Linguist
 review. Translation release generation is outside this task.
 
-## Production Release Reminder
+## Published Version File
 
-At the successful end of `ci/deploy/deploy_website_to_prod.sh`, print a
-conspicuous reminder:
+Store `current-stable.txt` under `website/static/` so Hugo includes it in every
+website build and the production deployment publishes it automatically.
 
-```text
-DON'T FORGET TO UPDATE current-stable.txt
-```
-
-This is a reminder only. The deployment job must not derive, rewrite, or upload
-the version file automatically as part of this feature.
+Release preparation must update this source file to the version being
+published. No special deployment-script logic or reminder is required.
 
 ## Guardrails
 
@@ -296,7 +291,7 @@ Do:
 3. Add the hidden update-available label to the main controls panel.
 4. Add the asynchronous request lifecycle to the main window.
 5. Add French and Russian translation entries.
-6. Add the production deployment reminder.
+6. Add the Hugo-managed current stable version file.
 7. Regenerate UI and translation sources required by the changed source files.
 
 Keep these points reviewable as separate semantic changes where practical.
@@ -347,8 +342,8 @@ plumbing.
 
 ### Project Validation
 
-Create and populate the `current-stable.txt` file on the production website with a valid published version. 
-This is required for the feature to work at all and should be done before the first release after implementation.
+Verify the Hugo build publishes `website/static/current-stable.txt` at the site
+root with the expected release version.
 
 Also verify manually that:
 

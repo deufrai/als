@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SPDX-FileCopyrightText: 2019-2026 The ALS Authors -->
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-
 <ui version="4.0">
  <class>PrefsDialog</class>
  <widget class="QDialog" name="PrefsDialog">
@@ -10,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>549</width>
-    <height>496</height>
+    <height>527</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -282,10 +279,23 @@
                 </size>
                </property>
                <property name="text">
-                <string>&amp;Usage stats</string>
+                <string>Send &amp;usage statistics on startup</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="chk_updates_on_startup">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>&amp;Check for updates on startup</string>
                </property>
               </widget>
              </item>
@@ -836,6 +846,7 @@
   <tabstop>cmb_lang</tabstop>
   <tabstop>chk_debug_logs</tabstop>
   <tabstop>chk_stats</tabstop>
+  <tabstop>chk_updates_on_startup</tabstop>
   <tabstop>chk_use_hpr</tabstop>
   <tabstop>chk_use_dark</tabstop>
   <tabstop>btn_browse_dark</tabstop>

@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-07T17:10:49Z
+lastmod: 2026-06-09T02:18:08Z
 keywords: [ 'ALS Release Notes' ]
 tags: [ 'release notes', 'changelog' ]
 weight: 100550
@@ -18,6 +18,7 @@ weight: 100550
 - Color saturation adjustment
 - Flat frame calibration
 - Sigma-clipping outlier rejection when stacking in mean mode with the Photo profile
+- Optional startup check for an available new ALS version
 
 ### Bug Fixes
 

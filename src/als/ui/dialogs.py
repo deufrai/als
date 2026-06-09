@@ -123,6 +123,8 @@ class PreferencesDialog(QDialog):
         self._ui.sld_mem_preserve.setValue(config.get_preserved_mem())
 
         self._ui.chk_stats.setChecked(config.get_send_stats_active())
+        self._ui.chk_updates_on_startup.setChecked(
+            config.get_check_updates_on_startup_active())
 
     @log
     def _validate_all_paths(self):
@@ -325,6 +327,8 @@ class PreferencesDialog(QDialog):
             config.set_lang(lang_new_value)
 
         config.set_bayer_pattern(self._ui.cmb_bayer_pattern.currentData())
+        config.set_check_updates_on_startup_active(
+            self._ui.chk_updates_on_startup.isChecked())
 
         PreferencesDialog._save_config()
 

@@ -1,6 +1,7 @@
 SOURCES += src/als/main.py \
   src/als/logic.py \
   src/als/stack.py \
+  src/als/updates.py \
   src/als/code_utilities.py \
   src/als/crunching.py \
   src/als/config.py \

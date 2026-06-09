@@ -42,6 +42,7 @@ _SAVE_ON_STOP = "save_on_stop"
 _PROFILE = "profile"
 _PRESERVED_MEM = "preserved_mem"
 _SEND_STATS = "send_stats"
+_CHECK_UPDATES_ON_STARTUP = "check_updates_on_startup"
 
 # keys used to describe logging level
 _LOG_LEVEL_DEBUG = "DEBUG"
@@ -85,7 +86,8 @@ _DEFAULTS = {
     _SAVE_ON_STOP:          1,
     _PROFILE:               0,
     _PRESERVED_MEM:         1,
-    _SEND_STATS:            0
+    _SEND_STATS:            0,
+    _CHECK_UPDATES_ON_STARTUP: 0
 }
 _MAIN_SECTION_NAME = "main"
 
@@ -174,6 +176,30 @@ def get_send_stats_active():
         return _DEFAULTS[_SEND_STATS]
     except TypeError:
         return _DEFAULTS[_SEND_STATS]
+
+
+def set_check_updates_on_startup_active(check_updates: bool):
+    """
+    Set startup update check indicator.
+
+    :param check_updates: should ALS check for updates on startup ?
+    """
+
+    _set(_CHECK_UPDATES_ON_STARTUP, "1" if check_updates else "0")
+
+
+def get_check_updates_on_startup_active():
+    """
+    Get startup update check indicator.
+
+    :return: True if ALS should check for updates on startup
+    :rtype: bool
+    """
+
+    try:
+        return int(_get(_CHECK_UPDATES_ON_STARTUP)) == 1
+    except (TypeError, ValueError):
+        return bool(_DEFAULTS[_CHECK_UPDATES_ON_STARTUP])
 
 
 def set_night_mode_active(night: bool):

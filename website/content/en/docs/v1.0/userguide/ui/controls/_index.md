@@ -2,7 +2,7 @@
 title: "main controls"
 description: "documentation of the main controls panel of ALS"
 author: "ALS Team"
-lastmod: 2026-06-07T18:56:59Z
+lastmod: 2026-06-09T02:55:06Z
 keywords: [ "main controls of ALS" ]
 type: "docs"
 tags: [ "stack", "session", "server", "output", "minimum matches", "outlier rejection", "save", "issues", "panels" ]
@@ -44,6 +44,10 @@ Located on the left side of the ALS interface, it organizes the most used contro
 - [**Modules**](#modules-section)
 
   Information on the usage status of the main modules
+
+- [**Available update**](#available-update)
+
+  Notification when a new ALS version is available
 
 - [**Issues**](#issues-section)
 
@@ -268,6 +272,16 @@ width="294px"
 height="153px"
 alt="Modules section of the user interface showing a table with three columns: Modules, Queue size, and Status. The table lists four modules: Pre-process, Stack, Process, and Save. The queue size for all modules is 0. The status of the Stack module is busy, while the statuses of the other modules are indicated by a dash (-)." >}}
 {{< /center >}}
+
+---
+
+# Available Update {#available-update}
+
+When `Check for updates on startup` is enabled in the
+[General preferences](../../preferences/general/), ALS checks for an available new version after startup.
+
+If a new version is available, the label `ALS version is available` appears below the **Modules** section,
+where `version` is the available version number.
 
 ---
 

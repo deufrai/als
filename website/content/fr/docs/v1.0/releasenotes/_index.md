@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-07T17:10:50Z
+lastmod: 2026-06-09T02:18:08Z
 keywords: [ 'Notes de version ALS' ]
 tags: [ 'notes de version', 'journal des modifications' ]
 weight: 100550
@@ -18,6 +18,7 @@ weight: 100550
 - Ajustement de la saturation des couleurs
 - Calibration par flat
 - Rejet des valeurs aberrantes par écrêtage sigma lors de l'empilement en mode moyenne, uniquement avec le profil Photo
+- Vérification optionnelle au démarrage d'une nouvelle version d'ALS disponible
 
 ### Corrections
 

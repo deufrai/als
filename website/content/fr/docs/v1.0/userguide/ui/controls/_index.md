@@ -2,7 +2,7 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-07T18:56:59Z
+lastmod: 2026-06-09T02:55:06Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
@@ -44,6 +44,10 @@ Situé à gauche de l'interface d'ALS, il organise les contrôles et affichages 
 - [**Modules**](#modules-section)
 
   Informations sur l'état d'utilisation des modules principaux
+
+- [**Mise à jour disponible**](#available-update)
+
+  Notification lorsqu'une nouvelle version d'ALS est disponible
 
 - [**Problèmes**](#issues-section)
 
@@ -278,6 +282,16 @@ width="294px"
 height="153px"
 alt="Section Modules de l'interface utilisateur montrant un tableau avec trois colonnes : Modules, Taille file d'attente et Statut. Le tableau liste quatre modules : Pre-process, Stack, Process et Sauvegarde. La taille des files d'attente pour tous les modules est 0. Le statut du module Stack est occupé, tandis que les statuts des autres modules sont indiqués par un tiret (-)." >}}
 {{< /center >}}
+
+---
+
+# Mise à jour disponible {#available-update}
+
+Quand `Rechercher les mises à jour au démarrage` est activé dans les
+[préférences générales](../../preferences/general/), ALS recherche une nouvelle version disponible après son démarrage.
+
+Si une nouvelle version est disponible, le label `ALS version est disponible` apparaît sous la section **Modules**,
+où `version` est le numéro de la version disponible.
 
 ---
 
