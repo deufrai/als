@@ -73,9 +73,9 @@ class MainWindow(QMainWindow):
         self._qrDisplay.hide()
         self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
         self._web_server_was_running = False
-        self._update_network_manager = None
-        self._update_reply = None
-        self._update_timeout_timer = None
+        self._update_check_network_manager = None
+        self._update_check_reply = None
+        self._update_check_timeout_timer = None
 
         # populate stacking mode combo box=
         self._ui.cb_stacking_mode.blockSignals(True)
@@ -193,32 +193,32 @@ class MainWindow(QMainWindow):
         """
         Starts the optional asynchronous check for a newer ALS release.
         """
-        self._update_network_manager = QNetworkAccessManager(self)
+        self._update_check_network_manager = QNetworkAccessManager(self)
         request = QNetworkRequest(QUrl(CURRENT_STABLE_VERSION_URL))
         request.setRawHeader(
             b"User-Agent",
             f"ALS/{BUILD_VERSION}".encode("ascii", "replace")
         )
 
-        self._update_reply = self._update_network_manager.get(request)
-        self._update_reply.finished.connect(self._on_update_check_finished)
+        self._update_check_reply = self._update_check_network_manager.get(request)
+        self._update_check_reply.finished.connect(self._on_update_check_finished)
 
-        self._update_timeout_timer = QTimer(self)
-        self._update_timeout_timer.setSingleShot(True)
-        self._update_timeout_timer.timeout.connect(self._on_update_check_timeout)
-        self._update_timeout_timer.start(UPDATE_CHECK_TIMEOUT_MILLISECONDS)
+        self._update_check_timeout_timer = QTimer(self)
+        self._update_check_timeout_timer.setSingleShot(True)
+        self._update_check_timeout_timer.timeout.connect(self._on_update_check_timeout)
+        self._update_check_timeout_timer.start(UPDATE_CHECK_TIMEOUT_MILLISECONDS)
 
     @log
     def _on_update_check_finished(self):
         """
         Processes a completed update request and releases request resources.
         """
-        reply = self._update_reply
+        reply = self._update_check_reply
         if reply is None:
             return
 
-        if self._update_timeout_timer is not None:
-            self._update_timeout_timer.stop()
+        if self._update_check_timeout_timer is not None:
+            self._update_check_timeout_timer.stop()
 
         if reply.error() == QNetworkReply.NoError:
             try:
@@ -242,25 +242,25 @@ class MainWindow(QMainWindow):
         """
         Aborts an update request that exceeded the configured timeout.
         """
-        if self._update_reply is not None:
-            self._update_reply.abort()
+        if self._update_check_reply is not None:
+            self._update_check_reply.abort()
 
     @log
     def _release_update_check_resources(self):
         """
         Releases objects used by the one-shot update request.
         """
-        if self._update_reply is not None:
-            self._update_reply.deleteLater()
-            self._update_reply = None
+        if self._update_check_reply is not None:
+            self._update_check_reply.deleteLater()
+            self._update_check_reply = None
 
-        if self._update_timeout_timer is not None:
-            self._update_timeout_timer.deleteLater()
-            self._update_timeout_timer = None
+        if self._update_check_timeout_timer is not None:
+            self._update_check_timeout_timer.deleteLater()
+            self._update_check_timeout_timer = None
 
-        if self._update_network_manager is not None:
-            self._update_network_manager.deleteLater()
-            self._update_network_manager = None
+        if self._update_check_network_manager is not None:
+            self._update_check_network_manager.deleteLater()
+            self._update_check_network_manager = None
 
     @log
     def _setup_statusbar(self):
