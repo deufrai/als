@@ -2,11 +2,11 @@
 title: "contrôles principaux"
 description: "documentation du panneau des contrôles principaux d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-10T23:57:06Z
+lastmod: 2026-06-10T23:59:12Z
 keywords: [ "controles principaux d'ALS" ]
 type: "docs"
 categories: ["utilisation", "configuration"]
-tags: [ "stack", "session", "serveur", "sorties", "seuil", "save", "problèmes", "panneaux" ]
+tags: [ "stack", "session", "serveur", "sorties", "correspondances minimales", "save", "problèmes", "panneaux" ]
 weight: 70321
 ---
 
