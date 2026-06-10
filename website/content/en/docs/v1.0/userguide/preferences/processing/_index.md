@@ -2,7 +2,7 @@
 title: "Process Tab"
 description: "ALS Preferences Process Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-10T17:27:30Z
 keywords: ["ALS processing settings", "ALS processing preferences"]
 draft: false
 type: "docs"
@@ -16,7 +16,7 @@ The ALS processing settings are presented in the Preferences page `Process` tab
 # Overview
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 
 This tab contains only one section: [Preprocess](#preprocess)
 
@@ -27,12 +27,12 @@ It gathers the settings for all **calibration** tasks:
 - [Debayering](#debayer)
 
 </div>
-<div class="col-md-6 d-flex align-items-center justify-content-center">
+<div class="col-md-8 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="Preferences page Process tab"
-width="628px"
-height="548px"
+width="551px"
+height="546px"
 alt="ALS preferences window with Process tab selected, showing settings for pre-processing images, including hot pixel remover, dark subtraction, and debayering pattern options, with paths specified and Change and Clear buttons." >}}
 {{< /center >}}
 
@@ -50,8 +50,8 @@ alt="ALS preferences window with Process tab selected, showing settings for pre-
 {{< center >}}
 {{< figure src="hot_remove.png"
 caption="Hot pixel removal settings"
-width="622px"
-height="224px"
+width="551px"
+height="211px"
 alt="Software interface showing the Pre-Processing category with an option to Use hot pixel remover checked." >}}
 {{< /center >}}
 
@@ -64,8 +64,8 @@ alt="Software interface showing the Pre-Processing category with an option to Us
 {{< center >}}
 {{< figure src="dark_remove.png"
 caption="Dark subtraction settings"
-width="628px"
-height="173px"
+width="551px"
+height="166px"
 alt="Software interface showing options to use dark subtraction and change the specified master dark path." >}}
 {{< /center >}}
 
@@ -101,8 +101,8 @@ If the dimensions are different:
 {{< center >}}
 {{< figure src="flat_remove.png"
 caption="Flat calibration settings"
-width="628px"
-height="184px"
+width="551px"
+height="168px"
 alt="Software interface showing options to use flat calibration and change the specified master flat path" >}}
 {{< /center >}}
 
@@ -130,8 +130,8 @@ If the dimensions are different:
 {{< center >}}
 {{< figure src="debayer.png"
 caption="Debayering settings"
-width="628px"
-height="210px"
+width="551px"
+height="216px"
 alt="Software interface showing image processing preferences with options for setting Dark path and selecting Debayering pattern, including AUTO and various color filter array patterns." >}}
 {{< /center >}}
 

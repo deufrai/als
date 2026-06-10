@@ -2,7 +2,7 @@
 title: "Onglet Traitement"
 description: "Documentation de l'onglet Traitement des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-10T17:27:30Z
 keywords: ["ALS processing settings", "préférences traitement ALS"]
 draft: false
 type: "docs"
@@ -16,7 +16,7 @@ Les réglages des traitements d'ALS sont présentés dans l'onglet `Traitement`
 # Vue d'ensemble
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-5">
 
 Cet onglet ne contient qu'une seule section : [Preprocess](#preprocess)
 
@@ -27,12 +27,12 @@ Elle regroupe les réglages des tâches de **calibration** :
 - [Dématriçage](#debayer)
 
 </div>
-<div class="col-md-6 d-flex align-items-center justify-content-center">
+<div class="col-md-7 d-flex align-items-center justify-content-center">
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="L'onglet Traitement des préférences"
-width="628px"
-height="548px"
+width="577px"
+height="546px"
 alt="Fenêtre de préférences ALS avec l'onglet Traitement sélectionné, affichant les paramètres de prétraitement des images, y compris les options de suppression des pixels chauds, de soustraction dark et de motif de dématriçage, avec chemins spécifiés et boutons Modifier et Effacer." >}}
 {{< /center >}}
 
@@ -50,8 +50,8 @@ alt="Fenêtre de préférences ALS avec l'onglet Traitement sélectionné, affic
 {{< center >}}
 {{< figure src="hot_remove.png"
 caption="Réglages de suppression des pixels chauds"
-width="622px"
-height="217px"
+width="577px"
+height="209px"
 alt="" >}}
 {{< /center >}}
 
@@ -64,8 +64,8 @@ alt="" >}}
 {{< center >}}
 {{< figure src="dark_remove.png"
 caption="Réglages de soustraction de dark"
-width="628px"
-height="177px"
+width="577px"
+height="163px"
 alt="Interface logicielle affichant les options pour utiliser la soustraction de dark et changer le chemin du master dark." >}}
 {{< /center >}}
 
@@ -102,8 +102,8 @@ Si les dimensions sont différentes :
 {{< center >}}
 {{< figure src="flat_remove.png"
 caption="Réglages de calibration flat"
-width="628px"
-height="177px"
+width="577px"
+height="166px"
 alt="Interface logicielle affichant les options pour utiliser la calibration flat et changer le chemin du master flat." >}}
 {{< /center >}}
 
@@ -134,8 +134,8 @@ Si les dimensions sont différentes :
 {{< center >}}
 {{< figure src="debayer.png"
 caption="Réglage du dématriçage"
-width="628px"
-height="212px"
+width="577px"
+height="203px"
 alt="Interface logicielle affichant les préférences de traitement d'image avec des options pour définir le chemin de signal noir et sélectionner le motif de dématriçage, y compris AUTO et divers motifs de filtres de couleur." >}}
 {{< /center >}}
 
