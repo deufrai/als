@@ -2,7 +2,7 @@
 title: "Onglet Sortie"
 description: "Documentation de l'onglet Sortie des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-07T15:53:25Z
+lastmod: 2026-06-10T17:50:29Z
 keywords: [ "ALS output settings", "préférences Sortie d'ALS" ]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100333
 
 Les réglages régissant les sorties d'ALS sont présentés dans l'onglet `Sortie`.
 
+# Vue d'ensemble {#overview}
+
 <div class="row">
 <div class="col-md-4">
-
-# Vue d'ensemble {#overview}
 
 Cet onglet est divisé en 2 sections :
 
@@ -28,8 +28,8 @@ Cet onglet est divisé en 2 sections :
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="L'onglet Sortie des préférences"
-width="628px"
-height="663px"
+width="577px"
+height="546px"
 alt="Fenêtre des préférences ALS avec l'onglet Sortie sélectionné, affichant les options de format, les dossiers de sortie, l'enregistrement auto, l'adresse affichée et le numéro de port du serveur." >}}
 {{< /center >}}
 
@@ -51,8 +51,8 @@ ALS enregistre les images de la sortie principale dans l'un des formats suivants
 {{< center >}}
 {{< figure src="formats.png"
 caption="Préférences du format de fichier de la sortie principale"
-width="628px"
-height="203px"
+width="577px"
+height="212px"
 alt="" >}}
 {{< /center >}}
 
@@ -80,8 +80,8 @@ ALS utilise deux dossiers de sortie :
 {{< center >}}
 {{< figure src="folders.png"
 caption="Préférences des dossiers de sortie"
-width="622px"
-height="213px"
+width="577px"
+height="199px"
 alt="" >}}
 {{< /center >}}
 
@@ -113,15 +113,14 @@ Active la sauvegarde, à **chaque arrêt de session**, du **dernier** résultat 
 {{% alert title="💡" color="light" %}}
 Cette fonction est utile quand vous enchaînez les sessions sur des cibles différentes
 
-À chaque arrêt de session, la meilleure version de l'image pour cette cible est sauvegardée dans un fichier qui
-ne risque pas d'être écrasé
+À chaque arrêt de session, le dernier résultat est sauvegardé dans un fichier qui ne risque pas d'être écrasé
 {{% /alert %}}
 
 {{< center >}}
 {{< figure src="autosave.png"
 caption="Préférences de l'autosave"
-width="622px"
-height="178px"
+width="577px"
+height="154px"
 alt="" >}}
 {{< /center >}}
 
@@ -136,8 +135,8 @@ Ici sont configurés l'adresse affichée et le port d'écoute du serveur d'image
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Réglages du serveur d'images"
-width="628px"
-height="176px"
+width="577px"
+height="187px"
 alt="Réglages du serveur d'images affichant la liste Adresse affichée réglée sur Auto - recommandé et le numéro de port réglé sur 8000." >}}
 {{< /center >}}
 

@@ -2,7 +2,7 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-07T15:53:25Z
+lastmod: 2026-06-10T17:50:29Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
@@ -13,10 +13,10 @@ weight: 100333
 
 The settings governing ALS outputs are presented in the `Output` tab.
 
+# Overview {#overview}
+
 <div class="row">
 <div class="col-md-4">
-
-# Overview {#overview}
 
 This tab is divided into 2 sections:
 
@@ -28,8 +28,8 @@ This tab is divided into 2 sections:
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="The Output tab in preferences"
-width="628px"
-height="663px"
+width="551px"
+height="546px"
 alt="ALS preferences window with the Output tab selected, showing save format options, output folder settings, autosave, displayed address, and port number settings." >}}
 {{< /center >}}
 
@@ -50,8 +50,8 @@ ALS saves the main output images in one of the following formats:
 {{< center >}}
 {{< figure src="formats.png"
 caption="Main output file format preferences"
-width="622px"
-height="213px"
+width="551px"
+height="212px"
 alt="" >}}
 {{< /center >}}
 
@@ -77,8 +77,8 @@ ALS uses two output folders:
 {{< center >}}
 {{< figure src="folders.png"
 caption="Output folders preferences"
-width="622px"
-height="213px"
+width="551px"
+height="209px"
 alt="" >}}
 {{< /center >}}
 
@@ -110,17 +110,16 @@ Activates the saving, on **each session stop**, of the **last** processing resul
 - **Format**: Configured output format
 
 {{% alert title="💡" color="light" %}}
-This function is useful when you chain sessions on different targets
+This feature is useful when you chain sessions on different targets
 
-At each session stop, the best image for that target is saved in a file that is not at risk 
-of being overwritten
+At each session stop, the latest result is saved in a file that is not at risk of being overwritten
 {{% /alert %}}
 
 {{< center >}}
 {{< figure src="autosave.png"
 caption="Autosave preferences"
-width="622px"
-height="179px"
+width="551px"
+height="150px"
 alt="" >}}
 {{< /center >}}
 
@@ -135,8 +134,8 @@ Here are the settings for the ALS image server.
 {{< center >}}
 {{< figure src="web_config.png"
 caption="Image server settings"
-width="628px"
-height="187px"
+width="551px"
+height="177px"
 alt="Image server settings showing the Displayed address dropdown set to Auto - recommended and the port number set to 8000." >}}
 {{< /center >}}
 
