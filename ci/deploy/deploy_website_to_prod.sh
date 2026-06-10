@@ -120,11 +120,9 @@ require_variable "PROD_DIR"
 require_variable "PROD_BACKUP_DIR"
 require_variable "NODE_PATH"
 require_variable "PROD_BASE_URL"
-require_variable "CI_COMMIT_TAG"
 require_variable "CI_PROJECT_DIR"
 
 repo_root="$CI_PROJECT_DIR"
-ensure_stable_release_tag "$CI_COMMIT_TAG"
 
 prod_dir="$(canonicalize_directory "PROD_DIR")"
 backup_root="$(canonicalize_directory "PROD_BACKUP_DIR")"
@@ -144,7 +142,7 @@ fi
 export PATH="$PATH:$NODE_PATH"
 cd "$repo_root"
 
-backup_name="${CI_COMMIT_TAG}-${CI_COMMIT_SHORT_SHA:-unknown}-$(date -u +%Y%m%dT%H%M%SZ)"
+backup_name="${CI_COMMIT_SHORT_SHA:-unknown}-$(date -u +%Y%m%dT%H%M%SZ)"
 backup_dir="$backup_root/$backup_name"
 backup_payload_dir="$backup_dir/prod"
 manifest_file="$backup_dir/manifest.txt"
@@ -157,7 +155,6 @@ echo "Repository root: $repo_root"
 echo "Production webroot: $prod_dir"
 echo "Production backup root: $backup_root"
 echo "Backup directory: $backup_dir"
-echo "Tag: $CI_COMMIT_TAG"
 
 echo "Installing project-level Node.js dependencies..."
 cd website
@@ -198,7 +195,6 @@ find "$prod_dir" -mindepth 1 -maxdepth 1 -type f -name 'offline-search-index.*.j
 
 {
   echo "Production deployment manifest"
-  echo "Tag: $CI_COMMIT_TAG"
   echo "Commit: ${CI_COMMIT_SHA:-UNDEFINED}"
   echo "Build directory: $build_dir"
   echo "Production webroot: $prod_dir"
