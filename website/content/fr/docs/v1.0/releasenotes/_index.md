@@ -2,9 +2,9 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-09T02:18:08Z
+lastmod: 2026-06-10T23:43:23Z
 keywords: [ 'Notes de version ALS' ]
-tags: [ 'notes de version', 'journal des modifications' ]
+tags: [ 'notes de version' ]
 weight: 100550
 ---
 
