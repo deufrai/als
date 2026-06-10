@@ -2,11 +2,10 @@
 title: "Préférences"
 description: "Visite détaillée des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-04T16:01:47Z
+lastmod: 2026-06-10T23:57:06Z
 keywords: ["préférences ALS"]
 type: "docs"
 categories: ["configuration"]
-tags: [ ]
 weight: 70330
 ---
 
@@ -25,4 +24,3 @@ Les préférences sont divisées en 3 groupes :
 - **[Sortie](output/)**
 
   Réglages de l'enregistrement sur disque et du serveur d'image
-

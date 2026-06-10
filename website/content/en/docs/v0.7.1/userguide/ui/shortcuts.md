@@ -3,12 +3,12 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2026-05-31T12:11:39Z
+lastmod: 2026-06-10T23:57:05Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
 categories: [ "usage" ]
-tags: [ "" ]
+tags: [ "keyboard shortcuts" ]
 weight: 71324
 ---
 

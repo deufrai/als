@@ -2,12 +2,11 @@
 title: "Preferences"
 description: "Detailed tour of ALS peferences"
 author: "ALS Team"
-lastmod: 2026-05-31T12:11:39Z
+lastmod: 2026-06-10T23:57:05Z
 keywords: ["ALS settings", "ALS preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
-tags: [ ]
 weight: 71330
 ---
 
