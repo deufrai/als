@@ -2,11 +2,11 @@
 title: "Preprocess"
 description: "Documentation détaillée du module Preprocess d'ALS"
 author: "ALS Team"
-lastmod: 2025-01-07T00:32:38Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: [ "ALS preprocess" ]
 draft: false
 type: "docs"
-categories: ["documentations détaillées"]
+categories: ["documentation détaillée"]
 tags: ["module", "calibration"]
 weight: 70352
 ---

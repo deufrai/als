@@ -2,11 +2,11 @@
 title: "Save"
 description: "Detailed documentation of the ALS Save module"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: ["ALS image Saver"]
 draft: false
 type: "docs"
-categories: ["detailed documentations"]
+categories: ["detailed documentation"]
 tags: ["module", "output", "web folder", "work folder", "save"]
 weight: 100361
 ---

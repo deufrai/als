@@ -2,11 +2,11 @@
 title: "Balance RVB"
 description: "Documentation détaillée du processus d’équilibrage des couleurs (Color Balance) dans le module Process d’ALS"
 author: "Équipe ALS"
-lastmod: 2025-10-23T16:03:39Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: [ "ALS balance des couleurs", "ajustement rvb", "correction colorimétrique", "traitement visuel" ]
 draft: false
 type: "docs"
-categories: [ "documentations détaillées" ]
+categories: [ "documentation détaillée" ]
 tags: [ "processus", "balance rvb", "ajustement d’image" ]
 weight: 70360
 ---

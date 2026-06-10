@@ -2,10 +2,10 @@
 title: "Soustraction de dark"
 description: "Documentation détaillée du traitement RemoveDark d'ALS"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: ["ALS soustraction de dark"]
 type: "docs"
-categories: ["documentations détaillées"]
+categories: ["documentation détaillée"]
 tags: ["traitement", "dark", "calibration"]
 weight: 100354
 ---

@@ -2,11 +2,11 @@
 title: "Save"
 description: "Documentation détaillée du module Save d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: ["module Save d'ALS"]
 draft: false
 type: "docs"
-categories: ["documentations détaillées"]
+categories: ["documentation détaillée"]
 tags: ["module", "output", "dossier web", "dossier de travail", "save"]
 weight: 71361
 ---

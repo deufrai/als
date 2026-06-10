@@ -2,11 +2,11 @@
 title: "Process"
 description: "Documentation détaillée du module Process d'ALS"
 author: "ALS Team"
-lastmod: 2026-05-31T12:11:40Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: [ "ALS process" ]
 draft: false
 type: "docs"
-categories: ["documentations détaillées"]
+categories: ["documentation détaillée"]
 tags: ["module"]
 weight: 71357
 ---

@@ -2,11 +2,11 @@
 title: "Serveur"
 description: "Documentation détaillée du module Serveur d'images d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-04T22:35:46Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: ["serveur d'images ALS", "module web ALS", "partage distant ALS"]
 draft: false
 type: "docs"
-categories: ["documentations détaillées"]
+categories: ["documentation détaillée"]
 tags: ["module", "serveur", "utilitaire", "web", "diffusion"]
 weight: 100362
 ---

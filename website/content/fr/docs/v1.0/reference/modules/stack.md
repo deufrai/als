@@ -2,11 +2,11 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T19:08:44Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
-categories: [ "documentations détaillées" ]
+categories: [ "documentation détaillée" ]
 tags: [ "module", "traitement", "stack", "correspondances minimales", "rejet sigma" ]
 weight: 100356
 ---

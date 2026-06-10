@@ -2,11 +2,11 @@
 title: "Levels"
 description: "Detailed documentation of the Levels process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2025-11-02T19:02:51Z
+lastmod: 2026-06-10T23:25:50Z
 keywords: [ "ALS levels", "black clipping", "white clipping", "midtones", "visual processing" ]
 draft: false
 type: "docs"
-categories: [ "detailed documentations" ]
+categories: [ "detailed documentation" ]
 tags: [ "process", "levels", "image adjustment" ]
 weight: 100359
 ---
