@@ -3,11 +3,11 @@ title: Installation sur un Mac Intel
 description: Installation d'ALS sur Mac Intel
 author: ALZ Team
 
-lastmod: 2026-06-10T23:25:50Z
+lastmod: 2026-06-10T23:53:27Z
 keywords: ["installation", "mac", "intel", "astro live stacker", "guide"]
 weight: 100240
 categories: ['procédures']
-tags: ['install', 'Mac', 'Apple Intel']
+tags: ['installation', 'Mac', 'Intel Mac']
 ---
 
 # 🖥️ Configuration minimale requise

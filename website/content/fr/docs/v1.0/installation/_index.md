@@ -2,10 +2,10 @@
 title: Installation
 description: installation d'ALS
 author: ALZ Team
-lastmod: 2025-11-02T19:02:52Z
+lastmod: 2026-06-10T23:53:27Z
 weight: 100200
 categories: ['procédures']
-tags: ['install']
+tags: ['installation']
 ---
 
 # Bienvenue dans le Guide d'Installation d'ALS

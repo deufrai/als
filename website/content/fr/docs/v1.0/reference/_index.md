@@ -2,12 +2,12 @@
 title: "Documentation de référence"
 description: "Documentation détaillée d'ALS"
 author: "Équipe ALS"
-lastmod: 2026-06-10T23:25:50Z
+lastmod: 2026-06-10T23:53:27Z
 keywords: ["documentation de référence ALS"]
 draft: false
 type: "docs"
 categories: ["documentation détaillée"]
-tags: ["module", "processus"]
+tags: ["module", "traitement"]
 weight: 100340
 ---
 

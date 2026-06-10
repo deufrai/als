@@ -2,10 +2,10 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-10T23:53:27Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
-tags: [ "histogramme", "stretch", "saturation", "curseurs", "traitements", "panneaux" ]
+tags: [ "histogramme", "stretch", "saturation", "curseurs", "traitement", "panneaux" ]
 categories: [ "utilisation", "configuration" ]
 weight: 100322
 ---
