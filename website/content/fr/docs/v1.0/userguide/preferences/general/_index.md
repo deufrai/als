@@ -2,7 +2,7 @@
 title: "Onglet général"
 description: "Documentation de l'onglet Général des préférences d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-06T18:11:21Z
+lastmod: 2026-06-10T16:56:40Z
 keywords: [ "ALS general settings", "préférences générales ALS" ]
 draft: false
 type: "docs"
@@ -21,7 +21,7 @@ Les réglages les plus critiques d'ALS sont présentés dans l'onglet `Général
 Cet onglet est divisé en 3 sections :
 
 - [Scanner](#scanner)
-- [Mémoire](#memory)
+- [Utilisation mémoire](#memory)
 - [Moteur](#core)
 
 </div>
@@ -29,9 +29,9 @@ Cet onglet est divisé en 3 sections :
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="L'onglet Général des préférences"
-width="622px"
-height="660px"
-alt="Fenêtre de préférences ALS avec l'onglet Général sélectionné, affichant les sections Chemins, Profil, Gestion de la mémoire et Paramètres de base, y compris les chemins des dossiers de numérisation et de travail, les options de profil, le curseur de mémoire, le paramètre de langue, les journaux de débogage et les statistiques d'utilisation." >}}
+width="577px"
+height="546px"
+alt="Fenêtre des préférences ALS avec l'onglet Général sélectionné, affichant le dossier scanné, l'utilisation mémoire, le profil, la langue, les options réseau et les journaux détaillés." >}}
 {{< /center >}}
 
 </div>
@@ -57,9 +57,9 @@ le dossier parent de ces sous-dossiers.
 {{< center >}}
 {{< figure src="scan_folder_01.png"
 caption="Préférences du dossier scanné"
-width="622px"
-height="311px"
-alt="Interface logicielle affichant les paramètres du dossier scanné avec le chemin défini sur /home/astrogeek/astroshots, et un bouton Modifier pour configurer ce chemin." >}}
+width="577px"
+height="213px"
+alt="Paramètres Scanner montrant le bouton Dossier scanné... et le chemin configuré /home/astrogeek/astroshots." >}}
 {{< /center >}}
 
 - 🖱️ cliquez `Dossier scanné...` pour configurer le **dossier scanné**
@@ -67,16 +67,16 @@ alt="Interface logicielle affichant les paramètres du dossier scanné avec le c
 
 ℹ️ Par défaut : ∅
 
-# Utilisation Mémoire {#memory}
+# Utilisation mémoire {#memory}
 
 Définit le comportement d'ALS concernant la quantité de mémoire à laisser à la disposition des autres applications
 
 {{< center >}}
 {{< figure src="memory.png"
-caption="Préférences de gestion de la mémoire"
-width="600px"
-height="209px"
-alt="" >}}
+caption="Préférences d'utilisation mémoire"
+width="577px"
+height="168px"
+alt="Préférences d'utilisation mémoire avec un curseur allant de Gourmand à Peureux et réglé sur Injuste." >}}
 {{< /center >}}
 
 Les noms associés aux valeurs de ce curseur sont aussi flous que la gestion de la mémoire peut l'être.
@@ -104,13 +104,13 @@ Les profils optimisent le comportement d'ALS pour des usages particuliers :
 
 | Profil                       | Réactivité Scanner | Priorité donnée à       | Rejet sigma |
 |------------------------------|--------------------|-------------------------|-------------|
-| Visuel assisté               | Élevée             | Calibration et stacking | OFF         |
-| Suivi session astrophoto     | Normale            | Traitements d'image     | ON          |
+| Visuel Assisté               | Élevée             | Calibration et stacking | OFF         |
+| Suivi Session Astrophoto     | Normale            | Traitements d'image     | ON          |
 
-`Visuel assisté` garde la détection, la calibration et le stacking réactifs afin que les nouvelles brutes soient
+`Visuel Assisté` garde la détection, la calibration et le stacking réactifs afin que les nouvelles brutes soient
 intégrées rapidement pendant une session live.
 
-`Suivi session astrophoto` donne plus de priorité aux traitements d'image, couramment utilisés entre les
+`Suivi Session Astrophoto` donne plus de priorité aux traitements d'image, couramment utilisés entre les
 brutes arrivant à cadence lente. Il active aussi le rejet sigma en stacking en mode **moyenne** afin d'éliminer les
 artefacts lumineux transitoires comme les traînées de satellites.
 
@@ -118,14 +118,14 @@ artefacts lumineux transitoires comme les traînées de satellites.
 
 ⚙️ Vous trouverez les détails de l'impact du profil sur le **Scanner** dans la [documentation dédiée](../../../reference/modules/scanner#wait)
 
-ℹ️ Par défaut : **Visuel assisté**
+ℹ️ Par défaut : **Visuel Assisté**
 
 {{< center >}}
 {{< figure src="proflang.png"
 caption="Préférences de profil et de langue"
-width="609px"
-height="153px"
-alt="Interface logicielle affichant les paramètres du dossier de travail avec le chemin défini sur /home/astrogeek/sorties_als, et un bouton Modifier pour configurer ce chemin." >}}
+width="577px"
+height="200px"
+alt="Paramètres Moteur montrant les profils Visuel Assisté et Suivi Session Astrophoto ainsi que le choix de la langue de l'interface." >}}
 {{< /center >}}
 
 ## Langue {#language}
@@ -147,63 +147,9 @@ Si vous choisissez **système** et que votre système utilise une langue non pri
 
 ---
 
-## Données {#data}
+## Réseau {#network}
 
-### Journaux détaillés {#logs}
-
-Gestion du niveau de détail des messages écrits dans le fichier journal
-
-Le fichier journal est nommé **als.log**. Il est situé dans votre dossier personnel :
-
-{{< tabpane text=true >}}
-  {{% tab header="Linux" %}}
-  <span style="font-family: monospace;">/home/astrogeek/als.log</span>
-  {{% /tab %}}
-  {{% tab header="Windows" %}}
-  <span style="font-family: monospace;">C:\Users\astrogeek\als.log</span>
-  {{% /tab %}}
-  {{% tab header="macOS"  %}}
-  <span style="font-family: monospace;">/Users/astrogeek/als.log</span>
-  {{% /tab %}}
-{{< /tabpane >}}
-
-
-- 🖱️ Cochez `Journaux détaillés` pour activer l'écriture de messages détaillés
-
-Les journaux détaillés peuvent ralentir l'application. Utilisez cette option quand vous avez besoin d'analyser
-un problème de fonctionnement ou que vous comptez [signaler un problème](https://github.com/deufrai/als/issues) et 
-nous fournir le plus d'informations possible 
-
-Les journaux détaillés contiennent :
-<div class="row">
-<div class="col-md-6">
-
-- la configuration de démarrage de l'application
-
-- les caractéristiques de votre système
-
-- des métriques spécifiques à l'application
-
-</div>
-<div class="col-md-6">
-
-- les communications entre les différents modules
-
-- les détails des étapes de traitement
-</div>
-</div>
-
-ℹ️ Par défaut : **OFF**
-
-{{< center >}}
-{{< figure src="data.png"
-caption="Préférences de données"
-width="622px"
-height="198px"
-alt="" >}}
-{{< /center >}}
-
-### Statistiques d'utilisation
+### Envoyer les statistiques d'utilisation au démarrage {#usage-stats}
 
 Il nous est très utile de savoir quelles versions d'ALS sont utilisées et sur quelle plateforme.
 
@@ -230,6 +176,61 @@ ALS et nos outils de suivi sont des logiciels **opensource**, leur code source e
 
 </details>
 
-- 🖱️ Cochez `Statistiques d'utilisation` pour activer la collecte de données d'utilisation d'ALS
+- 🖱️ Cochez `Envoyer les statistiques d'utilisation au démarrage` pour activer la collecte des données d'utilisation d'ALS.
+
+ℹ️ Par défaut : **OFF**
+
+### Rechercher les mises à jour au démarrage {#check-updates}
+
+ALS peut vérifier à chaque démarrage si une nouvelle version est disponible.
+
+Si une nouvelle version est disponible, un message est affiché sous le groupe `Modules` du panneau Contrôles principaux.
+
+- 🖱️ Cochez `Rechercher les mises à jour au démarrage` pour activer la recherche d'une nouvelle version.
+
+ℹ️ Par défaut : **OFF**
+
+{{< center >}}
+{{< figure src="net_data.png"
+caption="Préférences réseau et données"
+width="577px"
+height="205px"
+alt="Préférences Réseau et Données montrant les options Envoyer les statistiques d'utilisation au démarrage, Rechercher les mises à jour au démarrage et Journaux détaillés." >}}
+{{< /center >}}
+
+## Données {#data}
+
+### Journaux détaillés {#logs}
+
+Gestion du niveau de détail des messages écrits dans le fichier journal
+
+Le fichier journal est nommé **als.log**. Il est situé dans votre dossier personnel :
+
+{{< tabpane text=true >}}
+  {{% tab header="Linux" %}}
+  <span style="font-family: monospace;">/home/astrogeek/als.log</span>
+  {{% /tab %}}
+  {{% tab header="Windows" %}}
+  <span style="font-family: monospace;">C:\Users\astrogeek\als.log</span>
+  {{% /tab %}}
+  {{% tab header="macOS"  %}}
+  <span style="font-family: monospace;">/Users/astrogeek/als.log</span>
+  {{% /tab %}}
+{{< /tabpane >}}
+
+
+- 🖱️ Cochez `Journaux détaillés` pour activer l'écriture de messages détaillés
+
+Les journaux détaillés peuvent ralentir l'application. Utilisez cette option quand vous avez besoin d'analyser
+un problème de fonctionnement ou que vous comptez [signaler un problème](https://github.com/deufrai/als/issues) et
+nous fournir le plus d'informations possible.
+
+Les journaux détaillés contiennent :
+
+- la configuration de démarrage de l'application
+- les caractéristiques de votre système
+- des métriques spécifiques à l'application
+- les communications entre les différents modules
+- les détails des étapes de traitement
 
 ℹ️ Par défaut : **OFF**

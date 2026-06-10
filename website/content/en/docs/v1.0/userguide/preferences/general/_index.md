@@ -2,7 +2,7 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-06T18:11:21Z
+lastmod: 2026-06-10T16:56:40Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
@@ -21,7 +21,7 @@ The most critical ALS settings are presented in the `General` tab.
 This tab is divided into 3 sections:
 
 - [Scanner](#scanner)
-- [Memory](#memory)
+- [Memory use](#memory)
 - [Core](#core)
 
 </div>
@@ -29,9 +29,9 @@ This tab is divided into 3 sections:
 {{< center >}}
 {{< figure src="whole_tab.png"
 caption="The General tab in ALS preferences"
-width="622px"
-height="660px"
-alt="ALS preferences window with the General tab selected, displaying the Paths, Profile, Memory Management, and Basic Settings sections, including scan and work folder paths, profile options, memory slider, language setting, debug logs, and usage statistics." >}}
+width="551px"
+height="546px"
+alt="ALS preferences window with the General tab selected, displaying Scanner, Memory use, Core, Profile, Language, Network and Data settings." >}}
 {{< /center >}}
 
 </div>
@@ -39,7 +39,7 @@ alt="ALS preferences window with the General tab selected, displaying the Paths,
 
 # Scanner {#scanner}
 
-## Scan Folder {#scan-folder}
+## Scan folder {#scan-folder}
 
 {{% alert color="info" %}}
 ℹ️ This setting can only be modified when the session is stopped.
@@ -56,26 +56,26 @@ If your acquisition system saves subs in subfolders organized by target or date,
 {{< center >}}
 {{< figure src="scan_folder_01.png"
 caption="Scan folder preferences"
-width="622px"
-height="244px"
-alt="Software interface showing scan folder settings with the path set to /home/astrogeek/astroshots, and a Modify button to configure this path." >}}
+width="551px"
+height="215px"
+alt="Scanner settings showing the Scan folder... button and the configured path /home/astrogeek/astroshots." >}}
 {{< /center >}}
 
-- 🖱️ click `Scan Folder...` to configure the **scan folder**
+- 🖱️ click `Scan folder...` to configure the **scan folder**
 - The configured path is displayed to the right of the button
 
 ℹ️ Default: ∅
 
-# Memory Usage {#memory}
+# Memory use {#memory}
 
 Defines ALS's behavior regarding the amount of memory it leaves to other applications.
 
 {{< center >}}
 {{< figure src="memory.png"
-caption="Memory management preferences"
-width="600px"
-height="209px"
-alt="" >}}
+caption="Memory use preferences"
+width="551px"
+height="189px"
+alt="Memory use settings with a slider ranging from Greedy to Scared and set to Unfair." >}}
 {{< /center >}}
 
 The names associated with these slider steps are as vague as memory management can be.
@@ -118,6 +118,14 @@ such as satellite trails.
 
 ℹ️ Default: **Electronically Assisted Astronomy**
 
+{{< center >}}
+{{< figure src="proflang.png"
+caption="Profile and language preferences"
+width="551px"
+height="205px"
+alt="Core settings showing the Electronically Assisted Astronomy and Astrophoto Session Monitoring profiles and the interface language selection." >}}
+{{< /center >}}
+
 ## Language {#language}
 
 Defines the language of the ALS user interface.
@@ -135,71 +143,11 @@ Defines the language of the ALS user interface.
 If you chose **system** and your system is using a language not supported by ALS, the interface will be displayed in English.
 {{% /alert %}}
 
-{{< center >}}
-{{< figure src="proflang.png"
-caption="Profile and language preferences"
-width="609px"
-height="153px"
-alt="Software interface showing work folder settings with the path set to /home/astrogeek/sorties_als, and a Modify button to configure this path." >}}
-{{< /center >}}
-
 ---
 
-## Data {#data}
+## Network {#network}
 
-### Detailed Logs {#logs}
-
-Manages the level of detail in the messages written to the log file.
-
-The log file is named **als.log**. It is located in your home folder:
-
-{{< tabpane text=true >}}
-  {{% tab header="Linux" %}}
-  <span style="font-family: monospace;">/home/astrogeek/als.log</span>
-  {{% /tab %}}
-  {{% tab header="Windows" %}}
-  <span style="font-family: monospace;">C:\Users\astrogeek\als.log</span>
-  {{% /tab %}}
-  {{% tab header="macOS"  %}}
-  <span style="font-family: monospace;">/Users/astrogeek/als.log</span>
-  {{% /tab %}}
-{{< /tabpane >}}
-
-- 🖱️ Check `Detailed Logs` to enable detailed message logging.
-
-Detailed logs can slow down the application. Use this option when you need to analyze a malfunction
-or plan to [report an issue](https://github.com/deufrai/als/issues) and provide us with as much information as possible.
-
-Detailed logs include:
-<div class="row">
-<div class="col-md-6">
-
-- application startup configuration
-
-- your system's characteristics
-
-- application-specific metrics
-
-</div>
-<div class="col-md-6">
-
-- communications between all modules
-
-- detailed processing steps
-</div>
-</div>
-
-ℹ️ Default: **OFF**
-
-{{< center >}}
-{{< figure src="data.png"
-caption="Data preferences"
-width="622px"
-height="198px"
-alt="" >}}
-{{< /center >}}
-
-### Usage Stats
+### Send usage statistics on startup {#usage-stats}
 
 It is very useful for us to know which versions of ALS are being used and on which platform.
 
@@ -226,6 +174,59 @@ ALS and our tracking tools are **opensource** software, their source code is pub
 
 </details>
 
-- 🖱️ Check `Usage stats` to enable the collection of ALS usage data.
+- 🖱️ Check `Send usage statistics on startup` to enable the collection of ALS usage data.
+
+ℹ️ Default: **OFF**
+
+### Check for updates on startup {#check-updates}
+
+ALS can check if a new version is available at each startup.
+
+If a new version is available, a message will be displayed below the `Modules` group on the Main controls panel.
+
+- 🖱️ Check `Check for updates on startup` to enable the new version check.
+
+ℹ️ Default: **OFF**
+
+{{< center >}}
+{{< figure src="net_data.png"
+caption="Network and Data preferences"
+width="551px"
+height="198px"
+alt="TODO" >}}
+{{< /center >}}
+
+## Data {#data}
+
+### Detailed logs {#logs}
+
+Manages the level of detail in the messages written to the log file.
+
+The log file is named **als.log**. It is located in your home folder:
+
+{{< tabpane text=true >}}
+  {{% tab header="Linux" %}}
+  <span style="font-family: monospace;">/home/astrogeek/als.log</span>
+  {{% /tab %}}
+  {{% tab header="Windows" %}}
+  <span style="font-family: monospace;">C:\Users\astrogeek\als.log</span>
+  {{% /tab %}}
+  {{% tab header="macOS"  %}}
+  <span style="font-family: monospace;">/Users/astrogeek/als.log</span>
+  {{% /tab %}}
+{{< /tabpane >}}
+
+- 🖱️ Check `Detailed logs` to enable detailed message logging.
+
+Detailed logs can slow down the application. Use this option when you need to analyze a malfunction
+or plan to [report an issue](https://github.com/deufrai/als/issues) and provide us with as much information as possible.
+
+Detailed logs include:
+
+- application startup configuration
+- your system's characteristics
+- application-specific metrics
+- communications between all modules
+- detailed processing steps
 
 ℹ️ Default: **OFF**
