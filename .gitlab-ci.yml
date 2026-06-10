@@ -32,13 +32,13 @@ variables:
 
 .website_preprod_rules:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release/0.7"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "release/0.7" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master")'
       changes:
         - website/**/*
         - ci/deploy/deploy_website_to_preprod.sh
         - ci/deploy/deploy_website_to_prod.sh
         - .gitlab-ci.yml
-    - if: '$CI_COMMIT_BRANCH == "release/0.7"'
+    - if: '$CI_COMMIT_BRANCH == "release/0.7" || $CI_COMMIT_BRANCH == "master"'
       changes:
         - website/**/*
         - ci/deploy/deploy_website_to_preprod.sh
@@ -48,7 +48,7 @@ variables:
 
 .prod_deploy_manual_rules:
   rules:
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+(\.[0-9]+)*$/'
+    - if: '$CI_COMMIT_BRANCH == "master"'
       when: manual
     - when: never
 
