@@ -392,6 +392,8 @@ class FileReader(ImageProcessor):
     Handles image read from file
     """
 
+    ZERO_FILE_SIZE_TIMEOUT = 2.0
+
     def __init__(self, profile: RunningProfile):
         super().__init__()
         self._profile = profile
@@ -423,10 +425,26 @@ class FileReader(ImageProcessor):
 
         file_is_complete = False
         last_file_size = -1
+        zero_size_since = None
 
         while not file_is_complete:
             size = QFileInfo(image_path).size()
             _LOGGER.debug(f"File {image_path}'s size = {size}")
+
+            if size == 0:
+                if zero_size_since is None:
+                    zero_size_since = time.monotonic()
+                elif time.monotonic() - zero_size_since >= FileReader.ZERO_FILE_SIZE_TIMEOUT:
+
+                    zero_size_error_message = (f"File {image_path} remained empty for "
+                                               f"{FileReader.ZERO_FILE_SIZE_TIMEOUT} seconds. Abandoning wait")
+
+                    MESSAGE_HUB.dispatch_error(
+                        __name__,
+                        zero_size_error_message)
+                    return None
+            else:
+                zero_size_since = None
 
             if size > 0 and size == last_file_size:
                 file_is_complete = True
