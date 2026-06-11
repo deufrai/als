@@ -3,11 +3,10 @@ title: "main menu"
 description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2025-11-29T04:13:58Z
+lastmod: 2026-06-11T00:12:47Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["usage"]
-tags: [ "menu", "navigation" ]
 weight: 100325
 ---
 
