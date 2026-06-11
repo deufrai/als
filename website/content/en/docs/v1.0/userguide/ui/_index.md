@@ -3,7 +3,7 @@ title: "Interface"
 description: "A detailed walkthrough of the ALS user interface"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-11T00:53:59Z
 keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
 categories: ["usage"]
@@ -38,7 +38,7 @@ Below is an overview of these components:
 - **1: Main Menu**  
   Provides access to every ALS feature and setting.
 
-  *Learn more in the [Menu Documentation](menu).*
+  *Learn more in the [Menu Documentation](../menu).*
 
 - **2: Main Controls Panel**  
   Located on the left by default, it's your daily control panel.
@@ -144,4 +144,3 @@ Clicking directly on the slider bar adjusts the associated value in larger incre
 {{% alert color="info" %}}
 ℹ️ Certain sliders feature additional behaviors that are explained in the documentation of the specific panels where they are located.
 {{% /alert %}}
-

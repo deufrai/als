@@ -3,7 +3,7 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "Équipe ALS"
 
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-11T00:53:59Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
@@ -38,7 +38,7 @@ Voici un aperçu de ces composants :
 - **1 : Menu Principal**  
   Permet d'accéder à toutes les fonctionnalités et réglages d'ALS.
 
-  *Plus de détails dans la [documentation du Menu](menu).*
+  *Plus de détails dans la [documentation du Menu](../menu).*
 
 - **2 : Panneau Contrôles Principaux**  
   Situé à gauche par défaut, c'est votre panneau de contrôle quotidien.
