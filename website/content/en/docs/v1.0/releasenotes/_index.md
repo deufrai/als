@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-11T17:50:53Z
 keywords: [ 'ALS Release Notes' ]
 weight: 100550
 ---
@@ -23,6 +23,7 @@ weight: 100550
 
 - System language detection failed on macOS
 - Image server did not display its waiting image when started before a session
+- Progressive alignment could produce nested rectangular artifacts after large field rotations
 - Webview image and exposition data could display stale values because browsers cached the resources between subs.
 
 ---

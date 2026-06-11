@@ -339,16 +339,11 @@ class RunningProfile:
 
     @log
     def __init__(self):
-        self._align_detection_surface_ratios: list = []
         self._pre_process_priority: int = -1
         self._stacking_priority: int = -1
         self._post_process_priority: int = -1
         self._file_read_size_polling_period: float = -1
-        self._sigma_clipping_enabled: bool = None
-
-    @property
-    def ratios(self):
-        return self._align_detection_surface_ratios
+        self._sigma_clipping_enabled: bool = False
 
     @property
     def get_pre_process_priority(self):
@@ -376,7 +371,6 @@ class VisualProfile(RunningProfile):
     @log
     def __init__(self):
         super().__init__()
-        self._align_detection_surface_ratios = [.1, .33, 1.]
         self._pre_process_priority = QThread.HighestPriority
         self._stacking_priority = QThread.HighestPriority
         self._post_process_priority = QThread.LowPriority
@@ -389,7 +383,6 @@ class PhotoProfile(RunningProfile):
     @log
     def __init__(self):
         super().__init__()
-        self._align_detection_surface_ratios = [.1, .33, 1.]
         self._pre_process_priority = QThread.LowPriority
         self._stacking_priority = QThread.LowPriority
         self._post_process_priority = QThread.HighestPriority

@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-11T17:50:53Z
 keywords: [ 'Notes de version ALS' ]
 weight: 100550
 ---
@@ -23,6 +23,7 @@ weight: 100550
 
 - La détection de la langue du système ne fonctionnait pas sur les systèmes macOS
 - Le serveur d'images n'affichait pas son image d'attente lorsqu'il était démarré avant une session
+- L'alignement progressif pouvait produire des artefacts rectangulaires imbriqués après d'importantes rotations du champ
 - L'image et les données d'exposition du webview pouvaient rester périmées à cause de la mise en cache navigateur entre 
   deux brutes.
 

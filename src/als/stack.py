@@ -28,17 +28,27 @@ class StackingError(Exception):
     """
 
 
-def _get_alignment_detection_ratios_for_image(profile_ratios: list, image: Image) -> list:
+@log
+def _convert_subset_transform_to_full_frame(
+        transformation: SimilarityTransform,
+        left: int,
+        top: int
+) -> SimilarityTransform:
     """
-    Selects alignment detection ratios for an image.
-
-    Square images keep the historical full-frame-only path to avoid corrupted
-    alignment on cropped square subsets.
+    Converts a transform calculated on a cropped subset to full-frame coordinates.
     """
-    if image.width == image.height:
-        return [1.]
-
-    return profile_ratios
+    # Astroalign returns a transform in coordinates relative to the crop's top-left
+    # corner. Compose three matrices to move a full-frame point into crop
+    # coordinates, apply that transform, then move the result back.
+    subset_origin = SimilarityTransform(translation=(-left, -top))
+    full_frame_origin = SimilarityTransform(translation=(left, top))
+    full_frame_matrix = (
+        # Matrix composition is evaluated from right to left.
+        full_frame_origin.params
+        @ transformation.params
+        @ subset_origin.params
+    )
+    return SimilarityTransform(matrix=full_frame_matrix)
 
 
 # pylint: disable=R0902
@@ -348,7 +358,7 @@ class Stacker(QueueConsumer):
         minimum_matches_for_valid_transform = config.get_minimum_match_count()
         _LOGGER.debug(f"*SD-REQ* configured minimum match count: {minimum_matches_for_valid_transform}")
 
-        for ratio in _get_alignment_detection_ratios_for_image(self._profile.ratios, image):
+        for ratio in [.1, .33, 1.]:
 
             top, bottom, left, right = self._get_image_subset_boundaries(ratio)
 
@@ -364,12 +374,18 @@ class Stacker(QueueConsumer):
                 _LOGGER.debug(f"Searching valid transformation on subset "
                               f"with ratio:{ratio} and shape: {new_subset.shape}")
 
-                transformation, matches = al.find_transform(new_subset, ref_subset)
+                subset_transformation, matches = al.find_transform(new_subset, ref_subset)
                 matches_count = len(matches[0])
 
                 if matches_count < minimum_matches_for_valid_transform:
                     raise StackingError(f"Alignment match count is lower than configured minimum: "
                                         f"{matches_count} < {minimum_matches_for_valid_transform}.")
+
+                transformation = _convert_subset_transform_to_full_frame(
+                    subset_transformation,
+                    left,
+                    top
+                )
 
                 _LOGGER.debug("*SD-ALIGNOK* Image matching vs ref: Accepted")
                 _LOGGER.debug(f"*SD-RATIO* Accepted transformation with subset ratio: {ratio}")

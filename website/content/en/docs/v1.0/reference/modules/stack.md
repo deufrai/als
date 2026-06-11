@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-11T17:57:08Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -86,8 +86,6 @@ class CheckShape,CheckAlign,FirstSub test
    ALS searches for matches on progressively larger centered areas of the image: **10%**, then **33%**, then the
    **full frame**. The first area producing at least the configured minimum number of matches is used to compute the
    transformation.
-
-   Square 1:1 subs use a full-frame-only alignment search to avoid known alignment issues with square images.
 
    {{% alert color="info" %}}
    If no search area produces the configured minimum number of matches, the calibrated sub is **discarded** and the

@@ -2,7 +2,7 @@
 title: "Stacker"
 description: "Documentation détaillée du module Stack d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-11T17:57:08Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
@@ -86,9 +86,6 @@ flowchart LR
    ALS recherche les correspondances sur des zones centrées progressivement plus grandes de l'image : **10 %**, puis
    **33 %**, puis l'**image complète**. La première zone produisant au moins le nombre minimal de correspondances
    configuré est utilisée pour calculer la transformation.
-
-   Les brutes carrées au format 1:1 utilisent une recherche uniquement sur l'image complète afin d'éviter les
-   problèmes d'alignement connus avec les images carrées.
 
    {{% alert color="info" %}}
    Si aucune zone de recherche ne produit le nombre minimal de correspondances configuré, la brute calibrée est
