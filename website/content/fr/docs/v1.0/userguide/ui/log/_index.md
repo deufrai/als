@@ -2,7 +2,7 @@
 title: "Journal de session"
 description: "Documentation du panneau Journal de session de ALS"
 author: "Équipe ALS"
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-11T13:19:03Z
 keywords: [ "journal de session", "suivi", "erreurs", "log", "panneaux" ]
 type: "docs"
 tags: [ "journal", "problèmes", "panneaux" ]
@@ -23,8 +23,8 @@ Le `Journal de session` centralise la gestion des messages générés par ALS et
 {{< center >}}
 {{< figure src="log.png"
 caption="Le panneau Journal de session"
-width="1307px"
-height="210px"
+width="1334px"
+height="221px"
 alt="Le panneau Journal de session de ALS affichant des messages de traitement." >}}
 {{< /center >}}
 
@@ -100,8 +100,8 @@ Le bouton `Suivre` garantit que le dernier message du journal reste toujours vis
 {{< center >}}
 {{< figure src="controls.png"
 caption="Les boutons du Journal de session"
-width="164px"
-height="210px"
+width="166px"
+height="221px"
 alt="Les boutons Suivre, Problèmes seuls et Acquitter du panneau Journal de session." >}}
 {{< /center >}}
 </div>
