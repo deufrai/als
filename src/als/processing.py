@@ -534,6 +534,12 @@ class Debayer(ImageProcessor):
         cv_debay = bayer_pattern[3] + bayer_pattern[2]
 
         try:
+            if image.data.dtype not in (np.uint8, np.uint16):
+                raise ProcessingError(
+                    f"unsupported image data type for debayering: {image.data.dtype}. "
+                    "Expected uint8 or uint16"
+                )
+
             debayered_data = cv2.cvtColor(image.data, cv2_debayer_dict[cv_debay])
         except KeyError:
             raise ProcessingError(f"unsupported bayer pattern : {bayer_pattern}")
