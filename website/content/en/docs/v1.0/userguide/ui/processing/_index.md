@@ -2,7 +2,7 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-11T12:51:43Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
 tags: [ "histogram", "stretch", "levels", "color balance", "saturation", "image adjustment", "sliders", "processing", "panels" ]
@@ -39,7 +39,7 @@ Located on the right side of the interface, this panel organizes image processin
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="The Processing Panel" 
-width="297px"
+width="313px"
 height="677px"
 alt="The ALS Processing Panel, including the Histogram, Auto Stretch, Levels, and RGB Balance sections with their respective sliders and controls." >}}
 </div>
@@ -71,8 +71,8 @@ For monochrome images, a single curve is displayed, showing the intensity distri
 {{< center >}}
 {{< figure src="histo_mono.png"
 caption="Monochrome Histogram"
-width="321px"
-height="148px"
+width="313px"
+height="156px"
 alt="Dynamic histogram reflecting the intensity distribution of pixels in a monochrome image." >}}
 {{< /center >}}
 </div>
@@ -94,8 +94,8 @@ Overlapping regions are displayed in mixed colors that represent the resulting b
 {{< center >}}
 {{< figure src="histo.png"
 caption="Color Histogram"
-width="318px"
-height="147px"
+width="313px"
+height="154px"
 alt="Dynamic histogram reflecting the intensity distribution of pixels in a color image" >}}
 {{< /center >}}
 </div>
@@ -161,8 +161,8 @@ The **Auto Stretch** section adjusts the intensity of the automatic stretch appl
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="levels.png"
 caption="Histogram after Black adjustment"
-width="318px"
-height="147px"
+width="313px"
+height="151px"
 alt="Histogram showing the curves after precise adjustments to black levels." >}}
 </div>
 </div>
@@ -219,8 +219,8 @@ alt="Histogram showing the curves after precise adjustments to black levels." >}
   <div class="mb-3">
     {{< figure src="rgb.png"
     caption="Histogram of a neutral color image"
-    width="320px"
-    height="146px"
+    width="313px"
+    height="155px"
     alt="Histogram showing aligned peaks for RGB curves in a color-neutral image." >}}
   </div>
 
@@ -244,8 +244,8 @@ The blended colors of the histogram effectively reflect the image's red dominanc
   <div>
     {{< figure src="h-alpha.png"
     caption="Histogram of an H-alpha target"
-    width="320px"
-    height="146px"
+    width="313px"
+    height="155px"
     alt="Histogram showing the red dominance of a correctly adjusted H-alpha image." >}}
   </div>
 

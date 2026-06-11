@@ -2,7 +2,7 @@
 title: "Traitements"
 description: "Documentation du panneau Traitements de ALS"
 author: "Équipe ALS"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-11T12:51:43Z
 keywords: [ "traitements ALS", "histogramme", "auto stretch", "niveaux", "balance RVB", "curseurs", "panneaux" ]
 type: "docs"
 tags: [ "histogramme", "stretch", "niveaux", "balance rvb", "saturation", "ajustement d’image", "curseurs", "traitement", "panneaux" ]
@@ -39,8 +39,8 @@ Situé sur le côté droit de l’interface, ce panneau regroupe les contrôles 
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="panel.png" 
 caption="Le panneau Traitements" 
-width="297px"
-height="675px"
+width="313px"
+height="677px"
 alt="Le panneau Traitements de ALS, incluant les sections Histogramme, Auto Stretch, Niveaux, et Balance RVB avec leurs curseurs et contrôles associés." >}}
 </div>
 </div>
@@ -75,8 +75,8 @@ pixels de l’image.
 {{< center >}}
 {{< figure src="histo_mono.png"
 caption="Histogramme monochrome"
-width="321px"
-height="148px"
+width="313px"
+height="156px"
 alt="Histogramme dynamique reflétant la répartition des valeurs d’intensité lumineuse d'une image monochrome" >}}
 {{< /center >}}
 </div>
@@ -99,8 +99,8 @@ Les zones où les courbes se chevauchent sont colorées selon le mélange des co
 {{< center >}}
 {{< figure src="histo.png"
 caption="Histogramme couleur"
-width="318px"
-height="147px"
+width="313px"
+height="154px"
 alt="Histogramme dynamique reflétant la répartition des valeurs d’intensité lumineuse d'une image en couleurs" >}}
 {{< /center >}}
 </div>
@@ -173,8 +173,8 @@ images empilées exploitables.
 <div class="col-md-4 d-flex align-items-center justify-content-center">
 {{< figure src="levels.png"
 caption="Histogramme après ajustement du noir"
-width="318px"
-height="147px"
+width="313px"
+height="151px"
 alt="Histogramme montrant les courbes après réglages précis des niveaux noirs" >}}
 </div>
 </div>
@@ -234,8 +234,8 @@ alt="Histogramme montrant les courbes après réglages précis des niveaux noirs
   <div class="mb-3">
     {{< figure src="rgb.png"
     caption="Histogramme d'une image neutre"
-    width="320px"
-    height="146px"
+    width="313px"
+    height="155px"
     alt="Histogramme montrant des pics alignés pour une image colorimétriquement neutre." >}}
   </div>
 
@@ -259,8 +259,8 @@ Le mélange des couleurs de l'histogramme rend bien compte de la dominante rouge
   <div>
     {{< figure src="h-alpha.png"
     caption="Histogramme d'une cible H-alpha"
-    width="320px"
-    height="146px"
+    width="313px"
+    height="155px"
     alt="Histogramme montrant la dominance rouge d'une image H-alpha correctement ajustée." >}}
   </div>
 
