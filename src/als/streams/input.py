@@ -222,6 +222,8 @@ def _read_fit_image(path: Path):
         with fits.open(str(path.resolve())) as fit:
             # pylint: disable=E1101
             data = fit[0].data
+            if data is None:
+                raise ValueError("No data found in FITS primary HDU")
             header = fit[0].header
 
         image = Image(data)
@@ -233,7 +235,7 @@ def _read_fit_image(path: Path):
             image.exposure_time = header['EXPTIME']
             _LOGGER.debug(f"*SD-EXP_T* extracted exposure time: {image.exposure_time}")
 
-    except (OSError, TypeError) as error:
+    except (OSError, TypeError, ValueError) as error:
         _report_fs_error(path, error)
         return None
 
