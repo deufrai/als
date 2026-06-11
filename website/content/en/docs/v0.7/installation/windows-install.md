@@ -2,11 +2,11 @@
 title: Install on Windows
 description: Installing ALS on Windows
 author: ALZ Team
-lastmod: 2025-10-24T09:46:04Z
+lastmod: 2026-06-11T00:08:20Z
 keywords: [ "ALS install", "windows", "astro live stacker", "guide" ]
 weight: 70230
-tags: [ 'install', 'Windows', 'PC' ]
-categories : ['procedures']
+tags: [ 'Windows', 'PC' ]
+categories : ['installation procedures']
 ---
 
 # 🖥️ Minimum System Requirements

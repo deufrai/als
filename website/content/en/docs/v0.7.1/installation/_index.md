@@ -2,10 +2,9 @@
 title: Installation
 description: installation of ALS
 author: ALS Team
-lastmod: 2026-05-31T12:11:39Z
+lastmod: 2026-06-11T00:08:20Z
 weight: 71200
-tags: ['install']
-categories : ['procedures']
+categories : ['installation procedures']
 ---
 
 # Welcome to the ALS Installation Guide
