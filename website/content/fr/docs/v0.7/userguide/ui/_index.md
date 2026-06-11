@@ -3,11 +3,11 @@ title: "Interface"
 description: "Visite détaillée de la façade d'ALS"
 author: "Équipe ALS"
 
-lastmod: 2025-04-21T21:45:13Z
+lastmod: 2026-06-11T00:46:48Z
 keywords: ["ALS GUI", "Interface ALS"]
 type: "docs"
 categories: ["utilisation"]
-tags: [ "interface", "panneaux" ]
+tags: [ "panneaux", "curseurs" ]
 weight: 70320
 ---
 

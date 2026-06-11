@@ -3,11 +3,11 @@ title: "Interface"
 description: "A detailed walkthrough of the ALS user interface"
 author: "ALS Team"
 
-lastmod: 2026-05-31T12:11:39Z
+lastmod: 2026-06-11T00:46:48Z
 keywords: ["ALS GUI", "ALS Interface"]
 type: "docs"
 categories: ["usage"]
-tags: ["interface", "panels"]
+tags: ["panels", "sliders"]
 weight: 71320
 ---
 
@@ -144,5 +144,4 @@ Clicking directly on the slider bar adjusts the associated value in larger incre
 {{% alert color="info" %}}
 ℹ️ Certain sliders feature additional behaviors that are explained in the documentation of the specific panels where they are located.
 {{% /alert %}}
-
 

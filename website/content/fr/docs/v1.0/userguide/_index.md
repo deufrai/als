@@ -3,11 +3,10 @@ title: "Guide Utilisateur"
 description: "Guide utilisateur d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-03T20:47:13Z
+lastmod: 2026-06-11T00:46:48Z
 keywords: [ "guide utilisateur d'ALS" ]
 draft: false
 type: "docs"
-tags: [ "glossaire" , "typographie" ]
 weight: 100300
 ---
 

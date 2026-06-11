@@ -2,10 +2,10 @@
 title: "Journal de session"
 description: "Documentation du panneau Journal de session de ALS"
 author: "Équipe ALS"
-lastmod: 2026-05-31T12:11:40Z
+lastmod: 2026-06-11T00:46:48Z
 keywords: [ "journal de session", "suivi", "erreurs", "log", "panneaux" ]
 type: "docs"
-tags: [ "journal", "problèmes", "erreurs", "panneaux" ]
+tags: [ "journal", "problèmes", "panneaux" ]
 categories: [ "utilisation", "dépannage" ]
 weight: 71323
 ---

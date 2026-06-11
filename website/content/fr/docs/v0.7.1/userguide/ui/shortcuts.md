@@ -3,12 +3,11 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-10T23:57:05Z
+lastmod: 2026-06-11T00:46:48Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
 categories: [ "utilisation" ]
-tags: [ "raccourcis clavier" ]
 weight: 71324
 ---
 
@@ -101,7 +100,6 @@ weight: 71324
 <span class='als-ks'>F</span> ON/OFF sauvegarde **chaque image**
 </div>
 </div>
-
 
 
 

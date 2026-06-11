@@ -2,9 +2,8 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-10T23:57:05Z
+lastmod: 2026-06-11T00:46:48Z
 keywords: [ 'ALS Release Notes' ]
-tags: [ 'release notes' ]
 weight: 71550
 ---
 
