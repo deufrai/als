@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-11T17:50:53Z
+lastmod: 2026-06-11T22:23:16Z
 keywords: [ 'Notes de version ALS' ]
 weight: 100550
 ---
@@ -19,11 +19,17 @@ weight: 100550
 - Rejet des valeurs aberrantes par écrêtage sigma lors de l'empilement en mode moyenne, uniquement avec le profil Photo
 - Vérification optionnelle au démarrage d'une nouvelle version d'ALS disponible
 
+### Améliorations
+
+- Les données d'image FITS stockées dans des extensions Image ou d'image compressée sont maintenant prises en charge
+
 ### Corrections
 
 - La détection de la langue du système ne fonctionnait pas sur les systèmes macOS
 - Le serveur d'images n'affichait pas son image d'attente lorsqu'il était démarré avant une session
 - L'alignement progressif pouvait produire des artefacts rectangulaires imbriqués après d'importantes rotations du champ
+- Le profil Visuel assisté pouvait tenter de lire les brutes avant la fin de leur écriture sur le stockage
+- Les brutes de taille nulle pouvaient bloquer indéfiniment le prétraitement
 - L'image et les données d'exposition du webview pouvaient rester périmées à cause de la mise en cache navigateur entre 
   deux brutes.
 
