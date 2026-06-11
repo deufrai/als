@@ -2,12 +2,12 @@
 title: "Server"
 description: "Detailed documentation of the ALS Image Server module"
 author: "ALS Team"
-lastmod: 2026-06-10T23:25:50Z
+lastmod: 2026-06-11T00:20:09Z
 keywords: ["ALS image server", "ALS web module", "ALS remote view"]
 draft: false
 type: "docs"
 categories: ["detailed documentation"]
-tags: ["module", "server", "utility", "web", "stream"]
+tags: ["module", "image server"]
 weight: 100362
 ---
 

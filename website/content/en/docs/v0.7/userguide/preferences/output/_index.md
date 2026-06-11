@@ -2,12 +2,12 @@
 title: "Output Tab"
 description: "ALS Preferences Output Tab Documentation"
 author: "ALS Team"
-lastmod: 2025-01-23T23:53:01Z
+lastmod: 2026-06-11T00:20:09Z
 keywords: ["ALS output settings", "ALS Output preferences"]
 draft: false
 type: "docs"
 categories: ["configuration"]
-tags: ["output", "server", "web folder", "work folder", "save"]
+tags: ["output", "image server", "web folder", "work folder", "save"]
 weight: 70333
 ---
 
@@ -149,4 +149,3 @@ width="622px"
 height="175px"
 alt="" >}}
 {{< /center >}}
-
