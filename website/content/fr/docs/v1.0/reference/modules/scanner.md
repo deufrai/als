@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-11T18:38:13Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
@@ -60,7 +60,7 @@ Même si elles sont enregistrées dans des sous-dossiers créés après le déma
 flowchart LR
     START([Brute détectée])
     
-    WAIT_FILE[Attend fichier<br><br>Selon profil :<br>Visuel assisté : 10ms<br>Astrophoto : 1500ms]
+    WAIT_FILE[Attend fichier<br><br>Selon profil :<br>Visuel assisté : 20ms<br>Astrophoto : 1500ms]
     WAIT_RAM[Attend 200ms]
     
     CHECK_RAM{{Test RAM dispo<br><br>Selon préférences :<br>Gourmand : 256MiB<br>Injuste : 512MiB<br>Juste : 1 GiB<br>Peureux : 2 GiB<br><br>OK ?}}
@@ -135,7 +135,7 @@ Le temps d'attente entre les interrogations dépend du profil configuré :
 
 | profil         | temps d'attente entre 2 interrogations |
 |----------------|----------------------------------------|
-| Visuel assisté | 10ms                                   |
+| Visuel assisté | 20ms                                   |
 | Astrophoto     | 1500ms                                 |
 
 ## Chargement de l'image {#load}

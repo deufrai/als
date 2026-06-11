@@ -2,7 +2,7 @@
 title: "Scanner"
 description: "Detailed documentation of the ALS scanner module"
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-11T18:38:13Z
 keywords: ["ALS image detector", "ALS scanner"]
 draft: false
 type: "docs"
@@ -63,7 +63,7 @@ Even if they are saved in subfolders created after the **Scanner** module is sta
 flowchart LR
     START([Sub detected])
     
-    WAIT_FILE[Wait for file<br><br>According to profile:<br>EAA: 10ms<br>Astrophoto: 1500ms]
+    WAIT_FILE[Wait for file<br><br>According to profile:<br>EAA: 20ms<br>Astrophoto: 1500ms]
     WAIT_RAM[Wait 200ms]
     
     CHECK_RAM{{Check available RAM<br><br>According to preferences:<br>Greedy: 256 MiB<br>Unfair: 512 MiB<br>Fair: 1 GiB<br>Scared: 2 GiB<br><br>OK?}}
@@ -141,7 +141,7 @@ The polling interval depends on the configured profile:
 
 | Profile        | Polling Interval |
 |----------------|------------------|
-| EAA            | 10ms             |
+| EAA            | 20ms             |
 | Astrophoto     | 1500ms           |
 
 ## Image Loading {#load}
