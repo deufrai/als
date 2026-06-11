@@ -221,10 +221,21 @@ def _read_fit_image(path: Path):
     try:
         with fits.open(str(path.resolve())) as fit:
             # pylint: disable=E1101
-            data = fit[0].data
-            if data is None:
-                raise ValueError("No data found in FITS primary HDU")
-            header = fit[0].header
+            image_hdu = None
+
+            if fit[0].data is not None:
+                image_hdu = fit[0]
+            else:
+                for hdu in fit[1:]:
+                    if isinstance(hdu, (fits.ImageHDU, fits.CompImageHDU)) and hdu.data is not None:
+                        image_hdu = hdu
+                        break
+
+            if image_hdu is None:
+                raise ValueError("No image data found in FITS file")
+
+            data = image_hdu.data
+            header = image_hdu.header
 
         image = Image(data)
 
