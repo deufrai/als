@@ -3,12 +3,12 @@ title: "A successful session"
 description: "Step-by-step guide to running an ALS session"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:20:09Z
+lastmod: 2026-06-11T00:33:38Z
 keywords: [ "ALS typical session", "session workflow", "astrophotography guide" ]
 draft: false
 type: "docs"
 categories: [ "usage", "configuration" ]
-tags: [ "session", "image server", "profile" ]
+tags: [ "session", "stack", "processing", "calibration", "dark", "minimum matches", "image server", "output", "save", "work folder", "profile" ]
 weight: 71317
 ---
 

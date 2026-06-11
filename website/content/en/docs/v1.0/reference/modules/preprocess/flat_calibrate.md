@@ -2,12 +2,12 @@
 title: "Flat Calibration"
 description: "Detailed documentation of the ALS RemoveFlat process"
 author: "ALS Team"
-lastmod: 2026-06-10T23:25:50Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: ["ALS flat calibration", "ALS master flat"]
 draft: false
 type: "docs"
 categories: ["detailed documentation"]
-tags: ["process", "flat", "calibration"]
+tags: ["processing", "flat", "calibration"]
 weight: 100355
 ---
 

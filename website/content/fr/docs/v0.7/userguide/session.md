@@ -3,12 +3,12 @@ title: "Une session réussie"
 description: "Guide étape par étape pour réaliser une session avec ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:20:09Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "session ALS", "flux de travail ALS" ]
 draft: false
 type: "docs"
 categories: [ "utilisation", "configuration" ]
-tags: [ "session", "serveur d’images", "profil" ]
+tags: [ "session", "stack", "traitement", "calibration", "dark", "correspondances minimales", "serveur d’images", "sorties", "save", "dossier de travail", "profil" ]
 weight: 70317
 ---
 

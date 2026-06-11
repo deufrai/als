@@ -2,12 +2,12 @@
 title: "General Tab"
 description: "ALS Preferences General Tab Documentation"
 author: "ALS Team"
-lastmod: 2026-06-10T16:56:40Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "ALS general settings", "ALS general preferences" ]
 draft: false
 type: "docs"
 categories: ["configuration", "troubleshooting"]
-tags: [ "scan folder", "memory", "profile", "language" ]
+tags: [ "scanner", "input", "scan folder", "memory", "profile", "outlier rejection", "language", "log" ]
 weight: 100331
 ---
 

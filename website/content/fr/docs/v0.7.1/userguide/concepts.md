@@ -3,12 +3,12 @@ title: "Concepts"
 description: "Les concepts de base d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:20:09Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "concepts ALS" ]
 draft: false
 type: "docs"
 categories: [ "bien débuter" ]
-tags: [ "module", "stack", "traitement", "session","sorties", "dossier scanné", "dossier de travail", "dossier web", "serveur d’images", "scanner", "save", "calibration", "profil" ]
+tags: [ "module", "stack", "traitement", "session", "entrées", "sorties", "dossier scanné", "dossier de travail", "dossier web", "serveur d’images", "scanner", "save", "calibration", "pixels chauds", "dark", "dématriçage", "stretch", "niveaux", "balance rvb", "ajustement d’image", "profil" ]
 weight: 71315
 ---
 

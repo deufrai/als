@@ -2,12 +2,12 @@
 title: "Auto-Stretch"
 description: "Detailed documentation of the Auto-Stretch process in the ALS Process module"
 author: "ALS Team"
-lastmod: 2026-06-10T23:25:50Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "ALS auto stretch", "visual processing" ]
 draft: false
 type: "docs"
 categories: [ "detailed documentation" ]
-tags: [ "process", "stretch", "image adjustment" ]
+tags: [ "processing", "stretch", "image adjustment" ]
 weight: 100358
 ---
 

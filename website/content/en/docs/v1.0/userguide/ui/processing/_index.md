@@ -2,10 +2,10 @@
 title: "Processing"
 description: "Documentation for the ALS Processing Panel"
 author: "ALS Team"
-lastmod: 2026-06-06T17:30:43Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "ALS processing", "histogram", "auto stretch", "levels", "RGB balance", "sliders", "panels" ]
 type: "docs"
-tags: [ "histogram", "stretch", "saturation", "sliders", "processing", "panels" ]
+tags: [ "histogram", "stretch", "levels", "color balance", "saturation", "image adjustment", "sliders", "processing", "panels" ]
 categories: [ "usage", "configuration" ]
 weight: 100322
 ---

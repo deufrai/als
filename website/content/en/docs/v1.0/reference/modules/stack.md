@@ -2,12 +2,12 @@
 title: "Stacker"
 description: "Detailed documentation of the ALS Stack module"
 author: "ALS Team"
-lastmod: 2026-06-10T23:25:50Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "ALS stack" ]
 draft: false
 type: "docs"
 categories: [ "detailed documentation" ]
-tags: [ "module", "process", "stack", "minimum matches", "outlier rejection" ]
+tags: [ "module", "processing", "stack", "minimum matches", "outlier rejection", "profile" ]
 weight: 100356
 ---
 

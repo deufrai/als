@@ -2,12 +2,12 @@
 title: "Scanner"
 description: "Documentation détaillée du module scanner d'ALS"
 author: "ALS Team"
-lastmod: 2026-06-10T23:57:06Z
+lastmod: 2026-06-11T00:33:39Z
 keywords: [ "ALS image detector", "scanner ALS" ]
 draft: false
 type: "docs"
 categories: [ "documentation détaillée" ]
-tags: [ "module", "entrées", "dossier scanné", "scanner", "profil" ]
+tags: [ "module", "entrées", "dossier scanné", "scanner", "mémoire", "profil" ]
 weight: 70350
 ---
 
