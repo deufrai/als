@@ -79,6 +79,7 @@ repository. Follow it in addition to any direct user instructions.
 - If the user points to a specific part of the site, answer directly and avoid
   proposing extra changes up front.
 - Keep website edits narrowly scoped and avoid bundling unrelated changes.
+- Don't update lastmod front matter : they are handled by a pre-commit hook and should not be manually edited.
 
 
 ## Tests
