@@ -15,7 +15,8 @@ from PyQt5.QtCore import QLocale, QTranslator, QT_TRANSLATE_NOOP, QThread, Qt
 from PyQt5.QtWidgets import QApplication, QDialog
 
 from als import config
-from als.code_utilities import Timer, human_readable_byte_size, available_memory, AlsLogAdapter, log
+from als.code_utilities import Timer, human_readable_byte_size, available_memory, AlsLogAdapter, log, \
+    get_text_content_of_resource
 from als.logic import Controller
 from als.messaging import MESSAGE_HUB
 from als.model.data import I18n, VERSION, DYNAMIC_DATA
@@ -114,10 +115,15 @@ def main():
 
     with Timer() as startup_timer:
 
-        app = QApplication(sys.argv)
-        QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
         config.setup()
         log_system_infos()
+
+        app = QApplication(sys.argv)
+        style_sheet = get_text_content_of_resource(":/main/dark.css")
+        if sys.platform == "darwin":
+            style_sheet += "\n" + get_text_content_of_resource(":/main/dark-macos.css")
+        app.setStyleSheet(style_sheet)
+        QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
 
         # Translators must stay referenced while the app lives.
         # This assignment looks unused, but removing it breaks .ui translations.

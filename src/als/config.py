@@ -36,8 +36,6 @@ _MASTER_FLAT_FILE_PATH = "master_flat_file_path"
 _USE_HOT_PIXEL_REMOVER = "use_hot_pixel_remover"
 _LANG = "lang"
 _BAYER_PATTERN = "bayer_pattern"
-_NIGHT_MODE = "night_mode"
-_DARK_MODE = "dark_mode"
 _SAVE_ON_STOP = "save_on_stop"
 _PROFILE = "profile"
 _PRESERVED_MEM = "preserved_mem"
@@ -81,8 +79,6 @@ _DEFAULTS = {
     _USE_HOT_PIXEL_REMOVER: 1,
     _LANG:                  "sys",
     _BAYER_PATTERN:         "AUTO",
-    _NIGHT_MODE:            0,
-    _DARK_MODE:             0,
     _SAVE_ON_STOP:          1,
     _PROFILE:               0,
     _PRESERVED_MEM:         1,
@@ -200,56 +196,6 @@ def get_check_updates_on_startup_active():
         return int(_get(_CHECK_UPDATES_ON_STARTUP)) == 1
     except (TypeError, ValueError):
         return bool(_DEFAULTS[_CHECK_UPDATES_ON_STARTUP])
-
-
-def set_night_mode_active(night: bool):
-    """
-    Set night mode indicator
-
-    :param night: should app be launched in night mode ?
-    :type night: bool
-    """
-
-    _set(_NIGHT_MODE, "1" if night else "0")
-
-
-def get_night_mode_active():
-    """
-    Get night mode indicator
-
-    :return: True if app should be launched in night mode, False otherwise
-    :rtype: bool
-    """
-
-    try:
-        return int(_get(_NIGHT_MODE)) == 1
-    except ValueError:
-        return _DEFAULTS[_NIGHT_MODE]
-
-
-def set_dark_mode_active(dark: bool):
-    """
-    Set dark mode indicator
-
-    :param dark: should app be launched in dark theme ?
-    :type dark: bool
-    """
-
-    _set(_DARK_MODE, "1" if dark else "0")
-
-
-def get_dark_mode_active():
-    """
-    Get dark mode indicator
-
-    :return: True if app should be launched in dark theme, False otherwise
-    :rtype: bool
-    """
-
-    try:
-        return int(_get(_DARK_MODE)) == 1
-    except ValueError:
-        return _DEFAULTS[_DARK_MODE]
 
 
 def set_www_use_dedicated_folder(dedicated: bool):

@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-12T07:25:50Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -64,10 +64,6 @@ You can select or create any folder on your system, but we recommend using folde
 
 
 # Your Very First Session {#your-very-first-session}
-
-To save your sight until the end if this guide, we switch ALS to **dark mode**, using either :
-- the `View > Dark theme` menu
-- the {{< als-ks >}}T{{< /als-ks >}} keyboard sgortcut
 
 {{< center >}}
 {{< figure src="ready.png"

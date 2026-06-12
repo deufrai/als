@@ -62,10 +62,7 @@
     <addaction name="action_show_session_log"/>
     <addaction name="action_image_only"/>
     <addaction name="separator"/>
-    <addaction name="separator"/>
     <addaction name="action_full_screen"/>
-    <addaction name="action_dark_mode"/>
-    <addaction name="action_night_mode"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -1494,40 +1491,6 @@
    </property>
    <property name="shortcut">
     <string notr="true">I</string>
-   </property>
-  </action>
-  <action name="action_dark_mode">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Dark theme</string>
-   </property>
-   <property name="toolTip">
-    <string>Switch dark UI theme</string>
-   </property>
-   <property name="statusTip">
-    <string>Use a dark UI without the red-tinted night mode</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">T</string>
-   </property>
-  </action>
-  <action name="action_night_mode">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Night mode</string>
-   </property>
-   <property name="toolTip">
-    <string>switch night mode</string>
-   </property>
-   <property name="statusTip">
-    <string>use dark UI to preserve night vision</string>
-   </property>
-   <property name="shortcut">
-    <string notr="true">N</string>
    </property>
   </action>
   <action name="action_ack_issues">

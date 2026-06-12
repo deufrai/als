@@ -3,7 +3,7 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-12T07:25:50Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
@@ -39,10 +39,6 @@ weight: 100324
 ## Fenêtre
 
 {{< als-ks >}}D{{< /als-ks >}} bascule le mode **plein écran**
-
-{{< als-ks >}}T{{< /als-ks >}} bascule le **thème sombre**
-
-{{< als-ks >}}N{{< /als-ks >}} bascule le **mode nuit**
 
 </div>
 </div>
@@ -102,7 +98,6 @@ weight: 100324
 {{< als-ks >}}F{{< /als-ks >}} ON/OFF sauvegarde **chaque image**
 </div>
 </div>
-
 
 
 

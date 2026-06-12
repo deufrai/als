@@ -3,7 +3,7 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:46:48Z
+lastmod: 2026-06-12T07:25:50Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
@@ -39,10 +39,6 @@ weight: 100324
 ## Window
 
 {{< als-ks >}}D{{< /als-ks >}} toggles **full screen** mode
-
-{{< als-ks >}}T{{< /als-ks >}} toggles **dark theme**
-
-{{< als-ks >}}N{{< /als-ks >}} toggles **night mode**
 
 </div>
 </div>

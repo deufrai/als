@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="icons">
-        <file alias="tick-night.png">icons/tick-night.png</file>
         <file alias="tick-dark.png">icons/tick-dark.png</file>
         <file alias="tick-disabled.png">icons/tick-disabled.png</file>
+        <file alias="dropdown_arrow.svg">icons/dropdown_arrow.svg</file>
         <file alias="warning_sign.svg">icons/warning_sign.svg</file>
         <file alias="als_logo.png">icons/als_logo.png</file>
         <file alias="window_background.png">icons/window_background.png</file>
@@ -14,8 +14,8 @@
         <file alias="openseadragon.min.js">web/openseadragon.min.js</file>
     </qresource>
     <qresource prefix="main">
-        <file alias="night.css">main/night.css</file>
         <file alias="dark.css">main/dark.css</file>
+        <file alias="dark-macos.css">main/dark-macos.css</file>
     </qresource>
     <qresource prefix="i18n">
         <file alias="als_fr.qm">i18n/als_fr.qm</file>

@@ -1,0 +1,71 @@
+/* SPDX-FileCopyrightText: 2019-2026 The ALS Authors */
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
+QGroupBox {
+    background-color: #222222;
+}
+
+QGroupBox::title,
+QGroupBox QLabel,
+QGroupBox QSlider,
+QGroupBox QCheckBox,
+QGroupBox QRadioButton,
+QGroupBox QGroupBox,
+QGroupBox QGroupBox::title {
+    background-color: transparent;
+}
+
+QPushButton {
+    background-color: #333333;
+    border: 1px solid rgba(255, 255, 255, 45);
+    border-radius: 4px;
+    padding: 3px 10px;
+}
+
+QPushButton:hover {
+    background-color: #3b3b3b;
+}
+
+QPushButton:pressed,
+QPushButton:checked {
+    background-color: #292929;
+}
+
+QPushButton:disabled {
+    background-color: #292929;
+    border-color: rgba(255, 255, 255, 45);
+}
+
+QComboBox {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 45);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+QComboBox::drop-down {
+    border: 0;
+    width: 18px;
+}
+
+QComboBox::down-arrow {
+    image: url(:icons/dropdown_arrow.svg);
+    width: 8px;
+    height: 5px;
+}
+
+QCheckBox::indicator,
+QSlider::groove:horizontal,
+QSlider::groove:vertical,
+QSlider::handle:horizontal,
+QSlider::handle:vertical {
+    border-color: rgba(255, 255, 255, 45);
+}
+
+QCheckBox::indicator {
+    margin-right: 4px;
+}
+
+QComboBox:focus {
+    border-color: rgba(255, 255, 255, 45);
+}

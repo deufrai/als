@@ -36,7 +36,7 @@ from als.streams.network import (
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
-_NORMAL_STYLE_SHEET = "border: 1px"
+_NORMAL_STYLE_SHEET = ""
 class PreferencesDialog(QDialog):
     """
     Our main preferences dialog box
@@ -49,6 +49,7 @@ class PreferencesDialog(QDialog):
         self._ui.setupUi(self)
 
         self._ui.tabWidget.setCurrentIndex(0)
+        self._set_cancel_as_default_action()
         self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         web_server_is_active = (
@@ -125,6 +126,21 @@ class PreferencesDialog(QDialog):
         self._ui.chk_stats.setChecked(config.get_send_stats_active())
         self._ui.chk_updates_on_startup.setChecked(
             config.get_check_updates_on_startup_active())
+
+    def _set_cancel_as_default_action(self):
+        """
+        Make cancelling the predictable default when entering a preferences tab.
+        """
+        self._ui.btn_OK.setDefault(False)
+        self._ui.btn_Cancel.setDefault(True)
+        self._ui.btn_Cancel.setFocus(Qt.OtherFocusReason)
+
+    @pyqtSlot(int)
+    def on_tabWidget_currentChanged(self, _):
+        """
+        Restore Cancel as the default action after switching preferences tabs.
+        """
+        self._set_cancel_as_default_action()
 
     @log
     def _validate_all_paths(self):

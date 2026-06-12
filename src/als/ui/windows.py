@@ -16,12 +16,12 @@ from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
 # pylint: disable=no-name-in-module
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, qApp, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
+    QListWidgetItem, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
 from generated.als_ui import Ui_stack_window
 
 import als.model.data
 from als import config
-from als.code_utilities import log, get_text_content_of_resource, AlsLogAdapter
+from als.code_utilities import log, AlsLogAdapter
 from als.config import CouldNotSaveConfig
 from als.logic import Controller, SessionError, FolderSetupError, WebServerOnLoopback, \
     PortInUseError
@@ -161,11 +161,6 @@ class MainWindow(QMainWindow):
 
         self._setup_statusbar()
 
-        self._apply_theme(
-            dark_active=config.get_dark_mode_active(),
-            night_active=config.get_night_mode_active()
-        )
-
         self.update_display()
         MESSAGE_HUB.add_receiver(self)
 
@@ -292,38 +287,6 @@ class MainWindow(QMainWindow):
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_exposure)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_web_server_status)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_frame_total_proc)
-
-    @log
-    def _apply_theme(self, dark_active: bool, night_active: bool) -> None:
-        """
-        Apply and persist the currently selected theme, ensuring dark and night
-        modes stay mutually exclusive. Night mode wins when both are requested
-        to preserve user preference for red-safe UI.
-
-        :param dark_active: should the dark theme be active ?
-        :type dark_active: bool
-        :param night_active: should night mode be active ?
-        :type night_active: bool
-        """
-        resolved_night = bool(night_active)
-        resolved_dark = bool(dark_active) and not resolved_night
-
-        self._ui.action_dark_mode.blockSignals(True)
-        self._ui.action_night_mode.blockSignals(True)
-        self._ui.action_dark_mode.setChecked(resolved_dark)
-        self._ui.action_night_mode.setChecked(resolved_night)
-        self._ui.action_dark_mode.blockSignals(False)
-        self._ui.action_night_mode.blockSignals(False)
-
-        if resolved_night:
-            qApp.setStyleSheet(get_text_content_of_resource(":/main/night.css"))
-        elif resolved_dark:
-            qApp.setStyleSheet(get_text_content_of_resource(":/main/dark.css"))
-        else:
-            qApp.setStyleSheet("")
-
-        config.set_dark_mode_active(resolved_dark)
-        config.set_night_mode_active(resolved_night)
 
     @log
     @pyqtSlot(bool)
@@ -493,8 +456,6 @@ class MainWindow(QMainWindow):
 
         config.set_full_screen_active(self.isFullScreen())
         config.set_window_maximized(self.isMaximized())
-        config.set_night_mode_active(self._ui.action_night_mode.isChecked())
-        config.set_dark_mode_active(self._ui.action_dark_mode.isChecked())
         self._save_config()
 
         self._stop_session()
@@ -673,32 +634,6 @@ class MainWindow(QMainWindow):
             self.showFullScreen()
         else:
             self.showNormal()
-
-    # pylint: disable=no-self-use
-    @log
-    @pyqtSlot(bool)
-    def on_action_night_mode_toggled(self, checked: bool):
-        """
-        Sets night mode according to menu item state
-
-        :param checked: is 'night mode' menu item checked ?
-        :type checked: bool
-        """
-
-        self._apply_theme(dark_active=False, night_active=checked)
-
-    @log
-    @pyqtSlot(bool)
-    def on_action_dark_mode_toggled(self, checked: bool):
-        """
-        Sets dark theme according to menu item state
-
-        :param checked: is 'dark theme' menu item checked ?
-        :type checked: bool
-        """
-
-        self._apply_theme(dark_active=checked, night_active=False)
-
 
     @log
     @pyqtSlot(bool)

@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-06-11T00:33:39Z
+lastmod: 2026-06-12T07:25:50Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -65,10 +65,6 @@ dossiers situés sur un disque rapide
 - 🖱️ Une fois les deux dossiers définis, cliquez sur `GO !` pour démarrer l'application
 
 # Votre toute première session {#your-very-first-session}
-
-Pour préserver vos yeux jusqu'à la fin de ce guide, nous basculons ALS en **thème sombre**, en utilisant soit :
-- le menu `Vue > Thème sombre`
-- le raccourci clavier {{< als-ks >}}T{{< /als-ks >}}
 
 {{< center >}}
 {{< figure src="ready.png"

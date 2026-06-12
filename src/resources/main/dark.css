@@ -61,12 +61,24 @@ QComboBox {
     selection-background-color: #444444;
 }
 
+QLineEdit {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 45);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+QLineEdit:focus {
+    border-color: rgba(255, 255, 255, 45);
+}
+
 QCheckBox::indicator {
 
     width: 18px;
     height: 18px;
 
     border: 1px solid #444444;
+    border-radius: 4px;
 }
 
 QCheckBox::indicator:checked {
@@ -75,6 +87,11 @@ QCheckBox::indicator:checked {
 
 QCheckBox::indicator:checked:disabled {
     image: url(:icons/tick-disabled.png);
+}
+
+QPushButton#btn_follow_logs:checked {
+    background-color: #38A1E3;
+    color: #222222;
 }
 
 QSlider::groove:horizontal {

@@ -3,7 +3,7 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2026-06-11T00:12:47Z
+lastmod: 2026-06-12T07:50:52Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
@@ -112,11 +112,11 @@ Ouvre les préférences
 ## Vue
 
 {{< center >}}
-{{< figure src="menu_view.png" 
-    caption="Le menu Vue" 
-    width="485px" 
-    height="220px" 
-    alt="Menu Vue" >}}
+{{< figure src="menu_view.png"
+    caption="The View menu"
+    width="485px"
+    height="167px"
+    alt="View menu" >}}
 {{< /center >}}
 
 <div class="row">
@@ -135,26 +135,18 @@ Ouvre les préférences
 
   {{< als-ks >}}L{{< /als-ks >}} ON/OFF masquage `Journal de session`
 
-### Image seule
-
-  {{< als-ks >}}I{{< /als-ks >}} ON/OFF mode Image seule : tous les panneaux sont masqués
 
 </div>
 
 <div class="col-md-6">
 
+### Image seule
+
+  {{< als-ks >}}I{{< /als-ks >}} ON/OFF mode Image seule : tous les panneaux sont masqués
+
 ### Plein écran
 
   {{< als-ks >}}D{{< /als-ks >}} ON/OFF mode Plein écran
-
-### Thème sombre
-
-  {{< als-ks >}}T{{< /als-ks >}} ON/OFF thème sombre
-
-
-### Mode nuit
-
-  {{< als-ks >}}N{{< /als-ks >}} ON/OFF mode nuit
 
 </div>
 </div>
