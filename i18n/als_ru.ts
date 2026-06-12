@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="ru_RU" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.1" language="ru_RU" sourcelanguage="en">
 <context>
     <name></name>
     <message>
-        <location filename="../src/als/main.py" line="143"/>
+        <location filename="../src/als/main.py" line="147"/>
         <source>Astro Live Stacker version {} started in {} ms.</source>
         <translation>Astro Live Stacker версии {} запущен за {} мс.</translation>
     </message>
@@ -138,7 +139,7 @@ must not be the same as or a subfolder of your {} :
         <translation>Не удалось сохранить изображение : {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="284"/>
+        <location filename="../src/als/ui/dialogs.py" line="300"/>
         <source>Port number validation failed : {}</source>
         <translation>Ошибка проверки номера порта : {}</translation>
     </message>
@@ -173,11 +174,6 @@ must not be the same as or a subfolder of your {} :
         <translation>Master flat {} не содержит допустимого сигнала. Деление на flat ПРОПУЩЕНО</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="630"/>
-        <source>Web server started</source>
-        <translation>Веб-сервер запущен</translation>
-    </message>
-    <message>
         <location filename="../src/als/processing.py" line="615"/>
         <source>Master flat {} contains invalid values. Replacing NaN/Inf with 0 before normalization</source>
         <translation>Master flat {} содержит недопустимые значения. Замена NaN/Inf на 0 перед нормализацией</translation>
@@ -196,6 +192,11 @@ must not be the same as or a subfolder of your {} :
         <location filename="../src/als/processing.py" line="910"/>
         <source>Unknown Bayer pattern. Falling back to global flat normalization.</source>
         <translation>Неизвестный шаблон Байера. Используется глобальная нормализация flat.</translation>
+    </message>
+    <message>
+        <location filename="../src/als/logic.py" line="630"/>
+        <source>Image server started</source>
+        <translation>Сервер изображений запущен</translation>
     </message>
 </context>
 <context>
@@ -388,22 +389,22 @@ Define both folders yourself</source>
         <translation>Краткое руководство :</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="625"/>
+        <location filename="../src/als/ui/dialogs.py" line="641"/>
         <source>Select Scan folder...</source>
         <translation>Выбрать папку сканирования...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="626"/>
+        <location filename="../src/als/ui/dialogs.py" line="642"/>
         <source>Select Work folder...</source>
         <translation>Выбрать рабочую папку...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="677"/>
+        <location filename="../src/als/ui/dialogs.py" line="693"/>
         <source>Select scan folder</source>
         <translation>Выбрать папку сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="689"/>
+        <location filename="../src/als/ui/dialogs.py" line="705"/>
         <source>Select work folder</source>
         <translation>Выбрать рабочую папку</translation>
     </message>
@@ -710,32 +711,32 @@ If another device needs to browse the image server, change the Displayed address
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="243"/>
+        <location filename="../src/als/ui/dialogs.py" line="259"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="244"/>
+        <location filename="../src/als/ui/dialogs.py" line="260"/>
         <source>Debug logs</source>
         <translation>Журналы отладки</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="245"/>
+        <location filename="../src/als/ui/dialogs.py" line="261"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="282"/>
+        <location filename="../src/als/ui/dialogs.py" line="298"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Номер порта веб-сервера должен быть числом от 1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="283"/>
+        <location filename="../src/als/ui/dialogs.py" line="299"/>
         <source>Wrong value</source>
         <translation>Неправильное значение</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="336"/>
+        <location filename="../src/als/ui/dialogs.py" line="352"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -744,32 +745,32 @@ If another device needs to browse the image server, change the Displayed address
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="339"/>
+        <location filename="../src/als/ui/dialogs.py" line="355"/>
         <source>Restart needed</source>
         <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="353"/>
+        <location filename="../src/als/ui/dialogs.py" line="369"/>
         <source>Select scan folder</source>
         <translation>Выберите каталог для сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="366"/>
+        <location filename="../src/als/ui/dialogs.py" line="382"/>
         <source>Select work folder</source>
         <translation>Выберите рабочий каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="378"/>
+        <location filename="../src/als/ui/dialogs.py" line="394"/>
         <source>Select web folder</source>
         <translation>Выберите веб-каталог</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="390"/>
+        <location filename="../src/als/ui/dialogs.py" line="406"/>
         <source>Select master dark file</source>
         <translation>Выбрать файл master dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="403"/>
+        <location filename="../src/als/ui/dialogs.py" line="419"/>
         <source>Select master flat file</source>
         <translation>Выбрать файл master flat</translation>
     </message>

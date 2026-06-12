@@ -4,7 +4,7 @@
 <context>
     <name></name>
     <message>
-        <location filename="../src/als/main.py" line="143"/>
+        <location filename="../src/als/main.py" line="147"/>
         <source>Astro Live Stacker version {} started in {} ms.</source>
         <translation>Astro Live Stacker version {} démarré en {} ms.</translation>
     </message>
@@ -79,7 +79,7 @@
         <translation>Echec de sauvegarde image {}</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="284"/>
+        <location filename="../src/als/ui/dialogs.py" line="300"/>
         <source>Port number validation failed : {}</source>
         <translation>Numéro de port non valide : {}</translation>
     </message>
@@ -174,11 +174,6 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <translation>Le master flat {} ne contient aucun signal valide. La division du flat est IGNOREE</translation>
     </message>
     <message>
-        <location filename="../src/als/logic.py" line="630"/>
-        <source>Web server started</source>
-        <translation>Serveur web démarré</translation>
-    </message>
-    <message>
         <location filename="../src/als/processing.py" line="615"/>
         <source>Master flat {} contains invalid values. Replacing NaN/Inf with 0 before normalization</source>
         <translation>Le master flat {} contient des valeurs invalides. Remplacement des NaN/Inf par 0 avant normalisation</translation>
@@ -197,6 +192,11 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <location filename="../src/als/processing.py" line="910"/>
         <source>Unknown Bayer pattern. Falling back to global flat normalization.</source>
         <translation>Matrice de Bayer inconnue. Normalisation globale du flat utilisée.</translation>
+    </message>
+    <message>
+        <location filename="../src/als/logic.py" line="630"/>
+        <source>Image server started</source>
+        <translation>Serveur d&apos;images démarré</translation>
     </message>
 </context>
 <context>
@@ -389,22 +389,22 @@ Définir vous-même les deux dossiers</translation>
         <translation>Guide de démarrage rapide :</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="625"/>
+        <location filename="../src/als/ui/dialogs.py" line="641"/>
         <source>Select Scan folder...</source>
         <translation>Séléctionner le dossier scanné...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="626"/>
+        <location filename="../src/als/ui/dialogs.py" line="642"/>
         <source>Select Work folder...</source>
         <translation>Sélectionner le dossier de travail...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="677"/>
+        <location filename="../src/als/ui/dialogs.py" line="693"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier scanné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="689"/>
+        <location filename="../src/als/ui/dialogs.py" line="705"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
@@ -711,42 +711,42 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="282"/>
+        <location filename="../src/als/ui/dialogs.py" line="298"/>
         <source>Web server port number must be a number between 1024 and 65535</source>
         <translation>Le numéro de port du serveur web doit être un nombre entre 1024 &amp; 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="283"/>
+        <location filename="../src/als/ui/dialogs.py" line="299"/>
         <source>Wrong value</source>
         <translation>Valeur incorrecte</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="353"/>
+        <location filename="../src/als/ui/dialogs.py" line="369"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier à scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="366"/>
+        <location filename="../src/als/ui/dialogs.py" line="382"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="378"/>
+        <location filename="../src/als/ui/dialogs.py" line="394"/>
         <source>Select web folder</source>
         <translation>Selection le dossier web</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="243"/>
+        <location filename="../src/als/ui/dialogs.py" line="259"/>
         <source>Profile</source>
         <translation>Profil</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="245"/>
+        <location filename="../src/als/ui/dialogs.py" line="261"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="336"/>
+        <location filename="../src/als/ui/dialogs.py" line="352"/>
         <source>You need to restart ALS for these changes to take effect :
 
 </source>
@@ -755,22 +755,22 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
 </translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="339"/>
+        <location filename="../src/als/ui/dialogs.py" line="355"/>
         <source>Restart needed</source>
         <translation>Redémarrage nécessaire</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="244"/>
+        <location filename="../src/als/ui/dialogs.py" line="260"/>
         <source>Debug logs</source>
         <translation>Journaux détaillés</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="390"/>
+        <location filename="../src/als/ui/dialogs.py" line="406"/>
         <source>Select master dark file</source>
         <translation>Sélectionnez master dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="403"/>
+        <location filename="../src/als/ui/dialogs.py" line="419"/>
         <source>Select master flat file</source>
         <translation>Sélectionnez master flat</translation>
     </message>

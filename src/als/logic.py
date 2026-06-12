@@ -627,7 +627,7 @@ class Controller:
                 raise
 
         advertised_address = self.update_web_server_advertised_address()
-        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Web server started"))
+        MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Image server started"))
 
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_RUNNING
 
