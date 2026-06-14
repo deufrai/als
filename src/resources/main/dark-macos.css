@@ -1,46 +1,63 @@
 /* SPDX-FileCopyrightText: 2019-2026 The ALS Authors */
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 
-QGroupBox {
+* {
     background-color: #222222;
+    color: #b6b6b6;
 }
 
-QGroupBox::title,
-QGroupBox QLabel,
-QGroupBox QSlider,
-QGroupBox QCheckBox,
-QGroupBox QRadioButton,
-QGroupBox QGroupBox,
-QGroupBox QGroupBox::title {
-    background-color: transparent;
+QGroupBox {
+    background-color: rgba(34, 34, 34, 255);
+    border: 1px solid #333333;
+    border-radius: 2px;
+    padding-top: 1.2em;
 }
 
 QPushButton {
-    background-color: #333333;
-    border: 1px solid rgba(255, 255, 255, 45);
-    border-radius: 4px;
-    padding: 3px 10px;
+
+    margin: 0;
 }
 
-QPushButton:hover {
-    background-color: #3b3b3b;
+QGroupBox::title {
+    subcontrol-origin: border;
+    subcontrol-position: top left;
+    background-color: transparent;
+    margin: 2px 2px;
 }
 
-QPushButton:pressed,
-QPushButton:checked {
-    background-color: #292929;
+QSlider:horizontal {
+    min-height: 12px;
+    max-height: 12px;
 }
 
-QPushButton:disabled {
-    background-color: #292929;
-    border-color: rgba(255, 255, 255, 45);
+QGroupBox#groupBox_9 QLabel,
+QGroupBox#groupBox_6 QLabel,
+QGroupBox#rgbProcessBox QLabel,
+QLabel#label_3,
+QLabel#lbl_align_threshold {
+    min-height: 15px;
+    max-height: 15px;
+}
+
+QGroupBox#groupBox_9 QSlider:horizontal,
+QGroupBox#groupBox_6 QSlider:horizontal,
+QGroupBox#rgbProcessBox QSlider:horizontal {
+    margin-top: 3px;
 }
 
 QComboBox {
-    background-color: transparent;
+    background-color: #333333;
     border: 1px solid rgba(255, 255, 255, 45);
     border-radius: 4px;
     padding: 2px 6px;
+}
+
+QComboBox:disabled {
+    background-color: rgba( 34, 34, 34, 255);
+}
+
+QComboBox:focus {
+    border-color: rgba(255, 255, 255, 45);
 }
 
 QComboBox::drop-down {
@@ -54,6 +71,10 @@ QComboBox::down-arrow {
     height: 5px;
 }
 
+QComboBox:enabled:hover {
+    border: 2px solid #666666;
+}
+
 QCheckBox::indicator,
 QSlider::groove:horizontal,
 QSlider::groove:vertical,
@@ -62,10 +83,28 @@ QSlider::handle:vertical {
     border-color: rgba(255, 255, 255, 45);
 }
 
+QCheckBox::indicator:enabled:hover,
+QCheckBox::indicator:focus {
+
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #666666;
+    border-radius: 4px;
+}
+
 QCheckBox::indicator {
     margin-right: 4px;
 }
 
-QComboBox:focus {
-    border-color: rgba(255, 255, 255, 45);
+QRadioButton {
+    spacing: 5px;
+}
+
+QRadioButton {
+    margin: 2px 0;
+}
+
+QRadioButton#rd_photo_profile {
+    margin-top: 5px;
 }

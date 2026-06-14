@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="icons">
-        <file alias="tick-dark.png">icons/tick-dark.png</file>
-        <file alias="tick-disabled.png">icons/tick-disabled.png</file>
+        <file alias="tick-dark.svg">icons/tick-dark.svg</file>
+        <file alias="tick-disabled.svg">icons/tick-disabled.svg</file>
+        <file alias="radio-unchecked.svg">icons/radio-unchecked.svg</file>
+        <file alias="radio-checked.svg">icons/radio-checked.svg</file>
         <file alias="dropdown_arrow.svg">icons/dropdown_arrow.svg</file>
         <file alias="warning_sign.svg">icons/warning_sign.svg</file>
         <file alias="als_logo.png">icons/als_logo.png</file>
@@ -16,6 +18,7 @@
     <qresource prefix="main">
         <file alias="dark.css">main/dark.css</file>
         <file alias="dark-macos.css">main/dark-macos.css</file>
+        <file alias="dark-windows.css">main/dark-windows.css</file>
     </qresource>
     <qresource prefix="i18n">
         <file alias="als_fr.qm">i18n/als_fr.qm</file>

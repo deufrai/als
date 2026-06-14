@@ -182,12 +182,16 @@ class Stacker(QueueConsumer):
 
                 try:
                     if self._align_before_stack:
+                        _LOGGER.debug("Aligning image before stacking...")
 
                         # alignment is a memory greedy process, we take special care of such errors
                         try:
                             self._align_image(image)
                         except OSError as os_error:
                             raise StackingError(os_error)
+
+                    else:
+                        _LOGGER.debug("Aligning is disabled. Stacking image as is...")
 
                     self._stack_image(image)
 
@@ -443,14 +447,15 @@ class Stacker(QueueConsumer):
         :type image: Image
         """
 
-        _LOGGER.debug(f"Stacking in {self._stacking_mode} mode...")
-
         if self._stacking_mode == I18n.STACKING_MODE_SUM:
+            _LOGGER.debug("Stacking in Sum mode...")
             image.data = image.data + self._last_stacking_result.data
 
         elif self._stacking_mode == I18n.STACKING_MODE_MEAN:
+            _LOGGER.debug("Stacking in Mean mode...")
 
             if self._profile.is_sigma_clipping_enabled:
+                _LOGGER.debug("Sigma clipping enabled.")
                 # we do outlier rejection only for mean stacking, using sigma clipping with Welford's method
                 # for variance calculation
                 previous_mean = self._last_stacking_result.data
@@ -468,8 +473,10 @@ class Stacker(QueueConsumer):
                     sigma = np.sqrt(variance)
                     upper_threshold = previous_mean + self._sigma_clip_k * sigma
                     mask_high = new_values > upper_threshold
-                    _LOGGER.debug(f"Sigma clipping removed {np.count_nonzero(mask_high)} pixels out of sub {image.origin}")
+                    _LOGGER.debug(f"Sigma clipping removed {np.count_nonzero(mask_high)} samples out of sub {image.origin}")
                     new_values = np.where(mask_high, previous_mean, new_values)
+                else:
+                    _LOGGER.debug(f"Sigma clipping not applied, stack size {n} < {self._sigma_clip_min_stack_size}")
 
                 n1 = float(n + 1)
                 delta = new_values - previous_mean
@@ -479,7 +486,11 @@ class Stacker(QueueConsumer):
 
                 image.data = mean_new
             else:
+                _LOGGER.debug("Sigma clipping disabled.")
                 image.data = (self.size * self._last_stacking_result.data + image.data) / (self.size + 1)
+
+            _LOGGER.debug(f"Stacking done.")
+
         else:
             raise StackingError(f"Unsupported stacking mode : {self._stacking_mode}")
-        _LOGGER.debug(f"Stacking in {self._stacking_mode} done.")
+

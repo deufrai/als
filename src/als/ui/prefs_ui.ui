@@ -28,6 +28,9 @@
        <height>0</height>
       </size>
      </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -194,6 +197,9 @@
                <string>Profile</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_9">
+               <property name="spacing">
+                <number>9</number>
+               </property>
                <item>
                 <widget class="QRadioButton" name="rd_visual_profile">
                  <property name="text">
@@ -348,7 +354,7 @@
      </widget>
      <widget class="QWidget" name="processTab">
       <attribute name="title">
-       <string>Process</string>
+       <string>Processing</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_17">
        <item>
@@ -360,13 +366,13 @@
           <item>
            <widget class="QGroupBox" name="groupBox_9">
             <property name="title">
-             <string>Hot pixels</string>
+             <string>Hot pixels removal</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
               <widget class="QCheckBox" name="chk_use_hpr">
                <property name="text">
-                <string>&amp;Remove</string>
+                <string>Active</string>
                </property>
               </widget>
              </item>
@@ -387,7 +393,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>&amp;Active</string>
+                <string>Active</string>
                </property>
               </widget>
              </item>
@@ -433,7 +439,7 @@
              <item>
               <widget class="QCheckBox" name="chk_use_flat">
                <property name="text">
-                <string>A&amp;ctive</string>
+                <string>Active</string>
                </property>
               </widget>
              </item>
@@ -556,7 +562,7 @@
           </size>
          </property>
          <property name="title">
-          <string>Save</string>
+          <string>Storage</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>

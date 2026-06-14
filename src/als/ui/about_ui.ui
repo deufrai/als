@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SPDX-FileCopyrightText: 2019-2026 The ALS Authors -->
-<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-
 <ui version="4.0">
  <class>AboutDialog</class>
  <widget class="QDialog" name="AboutDialog">
@@ -233,7 +230,7 @@
               </font>
              </property>
              <property name="text">
-              <string notr="true">&lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#c60000;&quot;&gt;https://als-app.org&lt;/span&gt;&lt;/a&gt;</string>
+              <string notr="true">&lt;a href=&quot;https://als-app.org/?mtm_campaign=homeFromApp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://als-app.org&lt;/span&gt;&lt;/a&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -263,7 +260,7 @@
               </font>
              </property>
              <property name="text">
-              <string notr="true">&lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;</string>
+              <string notr="true">&lt;a href=&quot;https://als-app.org/discord&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://als-app.org/discord&lt;/span&gt;&lt;/a&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -293,7 +290,7 @@
               </font>
              </property>
              <property name="text">
-              <string>&lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;</string>
+              <string notr="true">&lt;a href=&quot;https://github.com/deufrai/als&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://github.com/deufrai/als&lt;/span&gt;&lt;/a&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -323,7 +320,7 @@
               </font>
              </property>
              <property name="text">
-              <string>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;</string>
+              <string notr="true">&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;GPLv3&lt;/span&gt;&lt;/a&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -640,8 +637,13 @@
             </item>
             <item>
              <widget class="QLabel" name="label_35">
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
               <property name="text">
-               <string notr="true">&lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;</string>
+               <string notr="true">&lt;a href=&quot;https://astroalign.quatrope.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://astroalign.quatrope.org&lt;/span&gt;&lt;/a&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -698,8 +700,13 @@
             </item>
             <item>
              <widget class="QLabel" name="label_37">
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
               <property name="text">
-               <string notr="true">&lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;</string>
+               <string notr="true">&lt;a href=&quot;https://lco.global/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://lco.global&lt;/span&gt;&lt;/a&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -756,8 +763,13 @@
             </item>
             <item>
              <widget class="QLabel" name="label_39">
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
               <property name="text">
-               <string notr="true">&lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;</string>
+               <string notr="true">&lt;a href=&quot;https://openseadragon.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://openseadragon.github.io&lt;/span&gt;&lt;/a&gt;</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -775,7 +787,7 @@
        <item>
         <widget class="QLabel" name="label_29">
          <property name="text">
-          <string>All libraries used in ALS are listed &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/1.0/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#cc0000;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;</string>
+          <string>All libraries used in ALS are listed &lt;a href=&quot;https://raw.githubusercontent.com/deufrai/als/refs/heads/release/1.0/requirements.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>

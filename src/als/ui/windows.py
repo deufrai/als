@@ -35,6 +35,7 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
     message_box, SessionStopDialog, QRDisplay
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
+from als.ui.platform_ui import configure_platform_ui
 from als.ui.widgets import Slider
 from als.updates import find_available_update
 from als.version import version as BUILD_VERSION
@@ -160,6 +161,7 @@ class MainWindow(QMainWindow):
         self.reset_image_view()
 
         self._setup_statusbar()
+        configure_platform_ui(self, self._ui.log)
 
         self.update_display()
         MESSAGE_HUB.add_receiver(self)
@@ -866,7 +868,7 @@ class MainWindow(QMainWindow):
             # update web server status and QR visibility
             if web_server_is_running:
                 url = DYNAMIC_DATA.web_server_advertised_url
-                web_server_status_text = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #CC0000">{url}</a>'
+                web_server_status_text = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #aa0000">{url}</a>'
                 self._ui.action_qrcode.setEnabled(True)
             elif web_server_is_starting:
                 web_server_status_text = I18n.STARTING
@@ -1027,7 +1029,7 @@ class MainWindow(QMainWindow):
                 do_stop_session = stop_dialog.exec()
 
             if do_stop_session:
-                if stop_dialog.save_on_stop and DYNAMIC_DATA.post_processor_result is not None:
+                if stop_dialog.save_on_stop and DYNAMIC_DATA.post_processor_result is not None and DYNAMIC_DATA.stack_size > 0:
                     self._controller.save_post_process_result(final=True)
                 self._controller.stop_session()
 

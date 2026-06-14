@@ -1,0 +1,112 @@
+/* SPDX-FileCopyrightText: 2019-2026 The ALS Authors */
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
+QGroupBox {
+    border: 1px solid #333333;
+    border-radius: 1px;
+    padding: 2px;
+    margin-top: 20px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: -5px;
+    top: 2px;
+    padding: 0 4px;
+}
+
+QComboBox:disabled {
+    background-color: #222222;
+}
+
+
+ImageView#image_view,
+QListWidget#log {
+    border: 1px solid #111111;
+    border-radius: 1px;
+    margin-top: 8px;
+    padding: 6px;
+}
+
+QTabWidget#tabWidget::pane {
+    border: 1px solid #444444;
+    border-radius: 1px;
+    padding: 6px;
+}
+
+QDialog#PrefsDialog QPushButton:focus,
+QDialog#PrefsDialog QCheckBox:focus,
+QDialog#PrefsDialog QRadioButton:focus,
+QDialog#PrefsDialog QLabel {
+    outline: 0;
+}
+
+
+QGroupBox#groupBox_9 QSlider:horizontal,
+QGroupBox#groupBox_6 QSlider:horizontal,
+QGroupBox#rgbProcessBox QSlider:horizontal,
+QGroupBox#groupBox_4 QSlider#sld_align_threshold {
+    margin-top: 0;
+}
+
+QGroupBox#groupBox_9 QLabel,
+QGroupBox#groupBox_6 QLabel,
+QGroupBox#rgbProcessBox QLabel,
+QLabel#label_3,
+QLabel#lbl_align_threshold {
+    min-height: 15px;
+    max-height: 15px;
+}
+
+QPushButton {
+    border: 1px solid #444444;
+    background-color: #333333;
+    border-radius: 2px;
+    padding: .4em 10px;
+    margin: 1px;
+}
+
+QPushButton:checked,
+QPushButton:enabled:hover {
+    border: 1px solid #666666;
+}
+
+
+QPushButton#btn_issues_only:checked,
+QPushButton#btn_follow_logs:checked {
+    background-color: #750000;
+}
+
+QComboBox {
+    background-color: #333333;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 4px 26px 4px 8px;
+}
+
+QComboBox::drop-down {
+    border: 0;
+    width: 22px;
+}
+
+QComboBox::down-arrow {
+    image: url(:icons/dropdown_arrow.svg);
+    width: 8px;
+    height: 5px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #222222;
+    border: 1px solid #444444;
+    outline: 0;
+    padding: 2px;
+    selection-background-color: #444444;
+}
+
+QFileDialog QHeaderView::section {
+    background-color: #333333;
+    border: 1px solid #444444;
+    color: #b6b6b6;
+    padding: 3px 6px;
+}

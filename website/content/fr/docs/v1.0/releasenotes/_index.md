@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-11T22:23:16Z
+lastmod: 2026-06-14T19:09:55Z
 keywords: [ 'Notes de version ALS' ]
 weight: 100550
 ---
@@ -13,7 +13,7 @@ weight: 100550
 
 ### Nouveautés
 
-- Thème sombre
+- Interface sombre unifiée
 - Ajustement de la saturation des couleurs
 - Calibration par flat
 - Rejet des valeurs aberrantes par écrêtage sigma lors de l'empilement en mode moyenne, uniquement avec le profil Photo
@@ -25,6 +25,8 @@ weight: 100550
 
 ### Corrections
 
+- L'arrêt d'une session vide pouvait enregistrer une image finale horodatée
+- Certaines transitions de session étaient loggées de manière incorrect
 - La détection de la langue du système ne fonctionnait pas sur les systèmes macOS
 - Le serveur d'images n'affichait pas son image d'attente lorsqu'il était démarré avant une session
 - L'alignement progressif pouvait produire des artefacts rectangulaires imbriqués après d'importantes rotations du champ

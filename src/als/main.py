@@ -21,6 +21,7 @@ from als.logic import Controller
 from als.messaging import MESSAGE_HUB
 from als.model.data import I18n, VERSION, DYNAMIC_DATA
 from als.ui.dialogs import FirstRunDialog
+from als.ui.platform_ui import install_windows_title_bar_styling
 from als.ui.windows import MainWindow
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -119,11 +120,9 @@ def main():
         log_system_infos()
 
         app = QApplication(sys.argv)
-        style_sheet = get_text_content_of_resource(":/main/dark.css")
-        if sys.platform == "darwin":
-            style_sheet += "\n" + get_text_content_of_resource(":/main/dark-macos.css")
-        app.setStyleSheet(style_sheet)
         QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
+
+        setup_ui_styling(app)
 
         # Translators must stay referenced while the app lives.
         # This assignment looks unused, but removing it breaks .ui translations.
@@ -175,6 +174,28 @@ def _detect_system_language() -> str:
 
 
 @log
+def setup_ui_styling(app: QApplication):
+    """Apply shared and platform-specific application styling."""
+
+    style_sheet = get_text_content_of_resource(":/main/dark.css")
+    _LOGGER.debug("loaded shared application stylesheet")
+
+    if sys.platform == "darwin":
+        style_sheet += "\n" + get_text_content_of_resource(":/main/dark-macos.css")
+        _LOGGER.debug("appended macOS specific stylesheet")
+
+    elif sys.platform == "win32":
+        default_font = app.font()
+        default_font.setPointSize(default_font.pointSize() + 1)
+        app.setFont(default_font)
+        style_sheet += "\n" + get_text_content_of_resource(":/main/dark-windows.css")
+        install_windows_title_bar_styling(app)
+        _LOGGER.debug("appended Windows specific stylesheet and installed title bar styling")
+
+    app.setStyleSheet(style_sheet)
+    _LOGGER.debug("composite stylesheet applied to application")
+
+
 def setup_i18n(app: QApplication, lang: str = "") -> list:
     """
     Setup i18n for the all application

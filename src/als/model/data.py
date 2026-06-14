@@ -93,8 +93,8 @@ class I18n(QObject):
         """
         Sets real values for localized strings
         """
-        I18n.STACKING_MODE_SUM = self.tr("sum")
-        I18n.STACKING_MODE_MEAN = self.tr("mean")
+        I18n.STACKING_MODE_SUM = self.tr("Sum")
+        I18n.STACKING_MODE_MEAN = self.tr("Mean")
         I18n.WORKER_STATUS_BUSY = self.tr("busy")
         I18n.SCANNER = self.tr("scanner")
         I18n.OF = self.tr("of")

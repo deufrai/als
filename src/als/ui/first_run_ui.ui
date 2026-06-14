@@ -352,6 +352,9 @@ Define both folders yourself</string>
            <property name="text">
             <string>GO !</string>
            </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -421,7 +424,7 @@ Define both folders yourself</string>
         </font>
        </property>
        <property name="text">
-        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://als-app.org/docs/v1.0/quickstart/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#CC0000;&quot;&gt;https://als-app.org/docs/v1.0/quickstart&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://als-app.org/docs/v1.0/quickstart/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#750000;&quot;&gt;https://als-app.org/docs/v1.0/quickstart&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="textFormat">
         <enum>Qt::RichText</enum>

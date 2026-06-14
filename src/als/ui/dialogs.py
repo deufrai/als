@@ -33,6 +33,7 @@ from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, build_advertised_address_preference,
     get_network_address_candidates
 )
+from als.ui.platform_ui import configure_platform_ui
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
@@ -47,9 +48,9 @@ class PreferencesDialog(QDialog):
         super().__init__(parent)
         self._ui = Ui_PrefsDialog()
         self._ui.setupUi(self)
+        configure_platform_ui(self)
 
         self._ui.tabWidget.setCurrentIndex(0)
-        self._set_cancel_as_default_action()
         self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
         web_server_is_active = (
@@ -126,21 +127,6 @@ class PreferencesDialog(QDialog):
         self._ui.chk_stats.setChecked(config.get_send_stats_active())
         self._ui.chk_updates_on_startup.setChecked(
             config.get_check_updates_on_startup_active())
-
-    def _set_cancel_as_default_action(self):
-        """
-        Make cancelling the predictable default when entering a preferences tab.
-        """
-        self._ui.btn_OK.setDefault(False)
-        self._ui.btn_Cancel.setDefault(True)
-        self._ui.btn_Cancel.setFocus(Qt.OtherFocusReason)
-
-    @pyqtSlot(int)
-    def on_tabWidget_currentChanged(self, _):
-        """
-        Restore Cancel as the default action after switching preferences tabs.
-        """
-        self._set_cancel_as_default_action()
 
     @log
     def _validate_all_paths(self):
@@ -464,6 +450,8 @@ class AboutDialog(QDialog):
         self._ui.setupUi(self)
         self._ui.lblVersionValue.setText(VERSION)
         self._ui.tabWidget.setCurrentIndex(0)
+        self._ui.tabWidget.currentChanged.connect(lambda x: self._ui.logo.setFocus())
+        self._ui.logo.setFocus()
 
 
 class SaveWaitDialog(QDialog):
@@ -594,11 +582,12 @@ class QRDisplay(QDialog):
                 version=1,
                 error_correction=qrcode.constants.ERROR_CORRECT_L,
                 box_size=7,
-                border=1,
+                border=2,
             )
             qr.add_data(DYNAMIC_DATA.web_server_advertised_url)
             qr.make(fit=True)
-            img = qr.make_image()
+
+            img = qr.make_image(fill_color=(68, 68, 68), back_color=(78, 17, 17))
             qim = ImageQt(img)
             pix = QPixmap.fromImage(qim)
             self._ui.lblQR.setPixmap(pix)
@@ -642,6 +631,7 @@ class FirstRunDialog(QDialog):
         self._work_btn_default_text = self.tr("Select Work folder...")
         self._ui.btn_scan.setText(self._scan_btn_default_text)
         self._ui.btn_work.setText(self._work_btn_default_text)
+        self._ui.lbl_welcome.setFocus()
 
     @pyqtSlot(bool)
     def on_btn_no_config_clicked(self):
@@ -683,6 +673,7 @@ class FirstRunDialog(QDialog):
         """
         displays custom config panel
         """
+        self._ui.lbl_welcome.setFocus()
         self._ui.stackedWidget.setCurrentIndex(1)
 
     @pyqtSlot(bool)
@@ -713,12 +704,19 @@ class FirstRunDialog(QDialog):
         """
         Enable "Go" button if both scan and work folder paths are set to existing folders
         """
-        self._ui.btn_go.setEnabled(
-            self._scan_folder_path != ""
-            and self._work_folder_path != ""
-            and Path(self._scan_folder_path).is_dir()
-            and Path(self._work_folder_path).is_dir()
-        )
+        if (
+                self._scan_folder_path != ""
+                and self._work_folder_path != ""
+                and Path(self._scan_folder_path).is_dir()
+                and Path(self._work_folder_path).is_dir()):
+
+            self._ui.btn_go.setEnabled(True)
+            self._ui.btn_go.setFocus()
+
+        else:
+            self._ui.btn_go.setEnabled(False)
+            self._ui.lbl_welcome.setFocus()
+
 
 @log
 def _address_preference_items(candidates):

@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-11T22:23:16Z
+lastmod: 2026-06-14T19:09:55Z
 keywords: [ 'ALS Release Notes' ]
 weight: 100550
 ---
@@ -13,7 +13,7 @@ weight: 100550
 
 ### New Features
 
-- Dark theme
+- Unified dark interface
 - Color saturation adjustment
 - Flat frame calibration
 - Sigma-clipping outlier rejection when stacking in mean mode with the Photo profile
@@ -25,6 +25,8 @@ weight: 100550
 
 ### Bug Fixes
 
+- Stopping an empty session could save a timestamped final image
+- Some session trasitions were inaccurately logged 
 - System language detection failed on macOS
 - Image server did not display its waiting image when started before a session
 - Progressive alignment could produce nested rectangular artifacts after large field rotations

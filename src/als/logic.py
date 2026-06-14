@@ -534,6 +534,11 @@ class Controller:
                                 QCoreApplication.translate("", message).format(*[role, path, I18n.SCAN_FOLDER, scan_folder_path])
                             )
 
+                MESSAGE_HUB.dispatch_info(
+                    __name__,
+                    QT_TRANSLATE_NOOP("", "Session started in mode {} with alignment {}"),
+                    [self._stacker.stacking_mode, self._stacker.align_before_stack])
+
                 # setup web content
                 try:
                     Controller._setup_web_waiting_image()
@@ -545,20 +550,16 @@ class Controller:
 
             else:
                 # session was paused when this start was ordered. No need for checks & setup
-                MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Restarting input scanner ..."))
+                MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Resuming session ..."))
 
             # start input scanner
             try:
                 self._input_scanner.start()
                 MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Input scanner started"))
+                DYNAMIC_DATA.session.set_status(Session.running)
+
             except ScannerStartError as scanner_start_error:
                 raise SessionError("Input scanner could not start", scanner_start_error)
-
-            MESSAGE_HUB.dispatch_info(
-                __name__,
-                QT_TRANSLATE_NOOP("", "Session running in mode {} with alignment {}"),
-                [self._stacker.stacking_mode, self._stacker.align_before_stack])
-            DYNAMIC_DATA.session.set_status(Session.running)
 
         except SessionError as session_error:
             MESSAGE_HUB.dispatch_error(__name__,
