@@ -497,6 +497,8 @@ class Controller:
         try:
             if DYNAMIC_DATA.session.is_stopped:
 
+                DYNAMIC_DATA.session.set_status(Session.starting)
+
                 MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Starting new session..."))
 
                 DYNAMIC_DATA.has_new_warnings = False

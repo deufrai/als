@@ -20,10 +20,11 @@ class Session(QObject):
     """
 
     stopped = 0
-    running = 1
-    paused = 2
+    starting = 1
+    running = 2
+    paused = 3
 
-    _ALLOWED_STATUSES = [stopped, running, paused]
+    _ALLOWED_STATUSES = [stopped, starting, running, paused]
 
     status_changed_signal = pyqtSignal()
     """Qt signal to emit when status changes"""
@@ -35,7 +36,17 @@ class Session(QObject):
             self._status = status
 
     @property
-    def is_running(self):
+    def is_starting(self) -> bool:
+        """
+        Is session starting ?
+
+        :return: True if session is starting, False otherwise
+        :rtype: bool
+        """
+        return self._status == Session.starting
+
+    @property
+    def is_running(self) -> bool:
         """
         Is session running ?
 
@@ -45,7 +56,7 @@ class Session(QObject):
         return self._status == Session.running
 
     @property
-    def is_stopped(self):
+    def is_stopped(self) -> bool:
         """
         Is session stopped ?
 
@@ -55,7 +66,7 @@ class Session(QObject):
         return self._status == Session.stopped
 
     @property
-    def is_paused(self):
+    def is_paused(self) -> bool:
         """
         Is session paused ?
 

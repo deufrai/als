@@ -593,10 +593,6 @@ class MainWindow(QMainWindow):
         Qt slot executed when START web button is clicked
         """
 
-        self._ui.btn_web_start.setEnabled(False)
-        self._ui.lbl_web_server_status_main.setText(I18n.STARTING)
-        QApplication.processEvents()
-
         try:
             self._controller.start_www()
             self._qrDisplay.update_code()
@@ -611,8 +607,6 @@ class MainWindow(QMainWindow):
         except WebServerOnLoopback:
             self._warn_web_server_access_is_limited()
 
-        finally:
-            self.update_display()
 
     @pyqtSlot()
     @log
@@ -817,12 +811,7 @@ class MainWindow(QMainWindow):
     def on_btn_session_start_clicked(self):
         """Qt slot for mouse clicks on the session START button"""
 
-        self._ui.btn_session_start.setEnabled(False)
-        self._ui.lbl_session_status.setText(I18n.STARTING)
-        QApplication.processEvents()
-
         self._start_session()
-        self.update_display()
 
     @log
     def on_message(self, message):
@@ -861,6 +850,7 @@ class MainWindow(QMainWindow):
             web_server_is_stopped = web_server_status == WEB_SERVER_STATUS_STOPPED
             web_server_is_stopping = web_server_status == WEB_SERVER_STATUS_STOPPING
             session = DYNAMIC_DATA.session
+            session_is_starting = session.is_starting
             session_is_running = session.is_running
             session_is_stopped = session.is_stopped
             session_is_paused = session.is_paused
@@ -893,6 +883,8 @@ class MainWindow(QMainWindow):
                 session_status = I18n.PAUSED
             elif session_is_running:
                 session_status = I18n.RUNNING_F
+            elif session_is_starting:
+                session_status = I18n.STARTING
             else:
                 # this should never happen, that's why we check ;)
                 session_status = "### BUG !"
@@ -977,10 +969,7 @@ class MainWindow(QMainWindow):
     def on_btn_session_pause_clicked(self):
         """Qt slot for mouse clicks on the session PAUSE button"""
 
-        self._ui.btn_session_pause.setEnabled(False)
-        QApplication.processEvents()
         self._controller.pause_session()
-        self.update_display()
 
     @log
     def _start_session(self, is_retry: bool = False):
