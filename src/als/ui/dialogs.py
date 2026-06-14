@@ -52,7 +52,17 @@ class PreferencesDialog(QDialog):
 
         self._ui.tabWidget.setCurrentIndex(0)
         self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
-        self._ui.preprocessBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
+
+        # preprocessing settings are only enable when session is stopped
+        self._ui.chk_use_hpr.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.chk_use_dark.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.btn_browse_dark.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.ln_master_dark_path.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.chk_use_flat.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.btn_browse_flat.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.ln_master_flat_path.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.cmb_bayer_pattern.setEnabled(DYNAMIC_DATA.session.is_stopped)
+
         web_server_is_active = (
             DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES)
         self._ui.pathsBox.setEnabled(
