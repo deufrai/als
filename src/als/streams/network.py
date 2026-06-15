@@ -12,8 +12,8 @@ from threading import Event
 from typing import Any, Iterable, List, Mapping, Optional, Sequence
 
 import psutil
-from aiohttp import web
 from PyQt5.QtCore import QObject, pyqtSignal
+from aiohttp import web
 
 from als import config
 from als.code_utilities import log, AlsLogAdapter

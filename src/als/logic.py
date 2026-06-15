@@ -30,8 +30,9 @@ from als.model.data import (
     WEB_SERVER_STATUS_STOPPED, WEB_SERVER_STATUS_STOPPING
 )
 from als.model.params import ProcessingParameter
-from als.processing import Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
-    HotPixelRemover, RemoveDark, FileReader, HistogramComputer, QImageGenerator, RemoveFlat, QueueConsumer
+
+from als.processing import FileReader, Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
+    HotPixelRemover, RemoveDark, HistogramComputer, QImageGenerator, RemoveFlat, QueueConsumer
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
 from als.streams.network import (
@@ -83,6 +84,7 @@ class Controller:
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
         self._save_every_image = False
 
+        DYNAMIC_DATA.file_reader_busy = False
         DYNAMIC_DATA.pre_processor_busy = False
         DYNAMIC_DATA.stacker_busy = False
         DYNAMIC_DATA.post_processor_busy = False
@@ -96,11 +98,16 @@ class Controller:
         self._profile = Controller.profiles[profile_code]
         _LOGGER.debug(f"*SD-PROFILE* Using running profile: {profile_code}")
 
+        self._file_reader_queue: SignalingQueue = DYNAMIC_DATA.file_reader_queue
+        self._fileReader = FileReader(self._file_reader_queue, self._profile)
+        self._fileReader.start()
+        self._input_scanner.new_image_path_signal[str].connect(self.on_new_image_path)
+
         self._pre_process_queue: SignalingQueue = DYNAMIC_DATA.pre_process_queue
         self._pre_process_pipeline: Pipeline = Pipeline(
             'pre-process',
             self._pre_process_queue,
-            [FileReader(self._profile), HotPixelRemover(), RemoveDark(), RemoveFlat(), Debayer(), Standardize()])
+            [HotPixelRemover(), RemoveDark(), RemoveFlat(), Debayer(), Standardize()])
         self._pre_process_pipeline.start(self._profile.get_pre_process_priority)
 
         self._stacker_queue: SignalingQueue = DYNAMIC_DATA.stacker_queue
@@ -132,19 +139,22 @@ class Controller:
         self._server_thread = None
 
         self._model_observers = list()
-        self._image_timings = dict()
+        self._subs_processing_start_times = dict()
 
-        self._input_scanner.new_image_path_signal[str].connect(self.on_new_image_path)
+        self._fileReader.image_read[Image].connect(self.on_new_image)
         self._pre_process_pipeline.new_result_signal[Image].connect(self.on_new_pre_processed_image)
         self._stacker.stack_size_changed_signal[int].connect(self.on_stack_size_changed)
         self._stacker.new_result_signal[Image].connect(self.on_new_stack_result)
         self._post_process_pipeline.new_result_signal[Image].connect(self.on_new_post_processor_result)
 
+        self._file_reader_queue.size_changed_signal[int].connect(self.on_file_reader_queue_size_changed)
         self._pre_process_queue.size_changed_signal[int].connect(self.on_pre_process_queue_size_changed)
         self._stacker_queue.size_changed_signal[int].connect(self.on_stacker_queue_size_changed)
         self._post_process_queue.size_changed_signal[int].connect(self.on_post_processor_queue_size_changed)
         self._saver_queue.size_changed_signal[int].connect(self.on_saver_queue_size_changed)
 
+        self._fileReader.busy_signal.connect(self.on_file_reader_busy)
+        self._fileReader.waiting_signal.connect(self.on_file_reader_waiting)
         self._pre_process_pipeline.busy_signal.connect(self.on_pre_processor_busy)
         self._pre_process_pipeline.waiting_signal.connect(self.on_pre_processor_waiting)
         self._stacker.busy_signal.connect(self.on_stacker_busy)
@@ -315,8 +325,9 @@ class Controller:
         :type image: Image
         """
 
-        if image.ticket in self._image_timings.keys():
-            delta = round(time.time() - self._image_timings[image.ticket], 3)
+        processing_start_time = self._subs_processing_start_times.pop(image.ticket, None)
+        if processing_start_time is not None:
+            delta = round(time.time() - processing_start_time, 3)
 
             _LOGGER.debug(f"*SD-FRMTIME* Total frame processing time: {delta}")
             message = QT_TRANSLATE_NOOP("", "* Full processing time for '{}' : {} s")
@@ -351,11 +362,21 @@ class Controller:
         """
         A new image as been detected by input scanner
 
-        :param image_path: the new image path
+        :param image_path: the path of the image to read
         :type image_path: str
         """
-        self._image_timings[image_path] = time.time()
-        self._pre_process_queue.put(image_path)
+        self._subs_processing_start_times[image_path] = time.time()
+        self._file_reader_queue.put(image_path)
+
+    @log
+    def on_new_image(self, image: Image):
+        """
+        A new image as been read from disk
+
+        :param image: the new image
+        :type image: Image
+        """
+        self._pre_process_queue.put(image)
 
     @log
     def on_new_pre_processed_image(self, image: Image):
@@ -366,6 +387,17 @@ class Controller:
         :type image: Image
         """
         self._stacker_queue.put(image)
+
+    @log
+    def on_file_reader_queue_size_changed(self, new_size):
+        """
+        Qt slot executed when an item has just been pushed to the file reader queue
+
+        :param new_size: new queue size
+        :type new_size: int
+        """
+        _LOGGER.debug(f"*SD-Q-READ* New file reader queue size: {new_size}")
+        self._notify_model_observers()
 
     @log
     def on_pre_process_queue_size_changed(self, new_size):
@@ -409,6 +441,22 @@ class Controller:
         :type new_size: int
         """
         _LOGGER.debug(f"*SD-Q-SAV* New saver queue size : {new_size}")
+        self._notify_model_observers()
+
+    @log
+    def on_file_reader_busy(self):
+        """
+        pre-processor just started working on new image
+        """
+        DYNAMIC_DATA.file_reader_busy = True
+        self._notify_model_observers()
+
+    @log
+    def on_file_reader_waiting(self):
+        """
+        pre-processor just finished working on new image
+        """
+        DYNAMIC_DATA.file_reader_busy = False
         self._notify_model_observers()
 
     @log
@@ -503,7 +551,7 @@ class Controller:
 
                 DYNAMIC_DATA.has_new_warnings = False
                 self._stacker.reset()
-                self._image_timings.clear()
+                self._subs_processing_start_times.clear()
                 DYNAMIC_DATA.last_timing = 0
                 DYNAMIC_DATA.total_exposure_time = 0
                 DYNAMIC_DATA.clear_master_calibration_cache()
@@ -575,9 +623,10 @@ class Controller:
         Stops session : stop input scanner and purge input queue
         """
         if not DYNAMIC_DATA.session.is_stopped:
-            self._image_timings.clear()
+            self._subs_processing_start_times.clear()
             DYNAMIC_DATA.session.set_status(Session.stopped)
             self._stop_input_scanner()
+            Controller.purge_queue(self._file_reader_queue)
             Controller.purge_queue(self._pre_process_queue)
             Controller.purge_queue(self._stacker_queue)
             Controller.purge_queue(self._post_process_queue)
@@ -874,6 +923,7 @@ class Controller:
         if DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES:
             self.stop_www(wait=True)
 
+        self._stop_queue_consumer(self._file_reader_queue, self._fileReader)
         self._stop_queue_consumer(self._pre_process_queue, self._pre_process_pipeline)
         self._stop_queue_consumer(self._stacker_queue, self._stacker)
         self._stop_queue_consumer(self._post_process_queue, self._post_process_pipeline)

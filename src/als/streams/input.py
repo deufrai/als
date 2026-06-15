@@ -9,6 +9,7 @@ We need to read file and in the future, get images from INDI
 from abc import abstractmethod
 from logging import getLogger
 from pathlib import Path
+from typing import Optional
 
 import cv2
 import exifread
@@ -20,9 +21,11 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers.polling import PollingObserver
 
 from als import config
-from als.code_utilities import log, AlsLogAdapter
+from als.code_utilities import AlsLogAdapter, log
+from als.crunching import _normalize_bayer_flat, _normalize_global_flat
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image
+from als.model.data import DYNAMIC_DATA
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -394,3 +397,68 @@ def _report_fs_error(path: Path, error: Exception):
         __name__,
         QT_TRANSLATE_NOOP("", "Error reading from file {} : {}"),
         [str(path.resolve()), str(error)])
+
+
+@log
+def get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
+    """
+    Retrieves the master dark frame from in-session cache or disk if missing.
+
+    :param master_dark_path: filesystem path to the master dark file
+    :type master_dark_path: str
+
+    :return: the cached or freshly read master dark, None if unavailable
+    :rtype: Optional[Image]
+    """
+    if not master_dark_path:
+        return None
+
+    if DYNAMIC_DATA.master_dark is not None:
+        _LOGGER.debug("Using cached master dark: %s", master_dark_path)
+        return DYNAMIC_DATA.master_dark
+
+    dark = read_disk_image(Path(master_dark_path))
+    if dark is not None:
+        _LOGGER.debug("Loaded master dark from disk: %s", master_dark_path)
+        DYNAMIC_DATA.master_dark = dark
+    else:
+        _LOGGER.debug("Failed to load master dark from disk: %s", master_dark_path)
+
+    return dark
+
+
+@log
+def get_cached_master_flat(master_flat_path: str, bayer_pattern: Optional[str]) -> Optional[Image]:
+    """
+    Retrieves the master flat from cache or disk and stores a normalized float32 version in cache.
+
+    :param master_flat_path: filesystem path to the master flat file
+    :type master_flat_path: str
+    :param bayer_pattern: Bayer pattern extracted from the first sub, if applicable
+    :type bayer_pattern: Optional[str]
+    :return: the cached or freshly read normalized master flat, None if unavailable
+    :rtype: Optional[Image]
+    """
+    if not master_flat_path:
+        return None
+
+    if DYNAMIC_DATA.master_flat is not None:
+        _LOGGER.debug("Using cached normalized master flat: %s", master_flat_path)
+        return DYNAMIC_DATA.master_flat
+
+    flat = read_disk_image(Path(master_flat_path))
+    if flat is None:
+        _LOGGER.debug("Failed to load master flat from disk: %s", master_flat_path)
+        return None
+
+    _LOGGER.debug("Loaded master flat from disk: %s", master_flat_path)
+
+    if bayer_pattern:
+        flat = _normalize_bayer_flat(flat, master_flat_path, bayer_pattern)
+    else:
+        flat = _normalize_global_flat(flat, master_flat_path)
+
+    if flat is not None:
+        DYNAMIC_DATA.master_flat = flat
+
+    return flat

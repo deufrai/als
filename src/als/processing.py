@@ -19,22 +19,20 @@ from qimage2ndarray import array2qimage
 from scipy.signal import convolve2d
 
 from als import config
-from als.code_utilities import log, Timer, SignalingQueue, human_readable_byte_size, available_memory, AlsLogAdapter
+from als.code_utilities import human_readable_byte_size, available_memory
+from als.code_utilities import log, Timer, SignalingQueue, AlsLogAdapter
 from als.crunching import compute_histograms_for_display
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image, RunningProfile
-from als.model.data import I18n, DYNAMIC_DATA
+from als.model.data import DYNAMIC_DATA, I18n
 from als.model.params import ProcessingParameter, RangeParameter, SwitchParameter
-from als.streams.input import read_disk_image
+from als.streams.input import get_cached_master_dark, get_cached_master_flat, read_disk_image
 from contrib.stretch import Stretch
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 _16_BITS_MAX_VALUE = 2**16 - 1
 _HOT_PIXEL_RATIO = 2
-_NORMALIZATION_EPSILON_FACTOR = 1e-6
-_NORMALIZATION_EPSILON_MIN = 1e-8
-_CHANNEL_SCALE_PERCENTILE_CLIP = 99.9
 
 
 class ProcessingError(Exception):
@@ -387,80 +385,6 @@ class Standardize(ImageProcessor):
         return image
 
 
-class FileReader(ImageProcessor):
-    """
-    Handles image read from file
-    """
-
-    ZERO_FILE_SIZE_TIMEOUT = 2.0
-
-    def __init__(self, profile: RunningProfile):
-        super().__init__()
-        self._profile = profile
-
-    MEMORY_CODES_MAPPING = {
-
-        0: 256 * 1024 ** 2,
-        1: 512 * 1024 ** 2,
-        2: 1024 ** 3,
-        3: 2 * 1024 ** 3
-    }
-
-    # //FIXME : BEWARE, in this specific processor, what we actually process is file paths, not image objects
-    def process_image(self, image: Image):
-        image_path = image
-
-        # TODO: Move this logic to Controller somehow
-        ram_to_preserve = FileReader.MEMORY_CODES_MAPPING[config.get_preserved_mem()]
-
-        _LOGGER.debug(f"RAM amount to preserve: {human_readable_byte_size(ram_to_preserve)}")
-        _LOGGER.debug(f" Available system memory : {human_readable_byte_size(available_memory())}")
-
-        while available_memory() < ram_to_preserve:
-            _LOGGER.info(f"RAM amount to preserve: {human_readable_byte_size(ram_to_preserve)} "
-                         f"/ Available: {human_readable_byte_size(available_memory())}. Waiting...")
-            time.sleep(.2)
-
-        _LOGGER.debug('RAM amount is OK. Reading new file...')
-
-        file_is_complete = False
-        last_file_size = -1
-        zero_size_since = None
-
-        while not file_is_complete:
-            size = QFileInfo(image_path).size()
-            _LOGGER.debug(f"File {image_path}'s size = {size}")
-
-            if size == 0:
-                if zero_size_since is None:
-                    zero_size_since = time.monotonic()
-                elif time.monotonic() - zero_size_since >= FileReader.ZERO_FILE_SIZE_TIMEOUT:
-
-                    zero_size_error_message = (f"File {image_path} remained empty for "
-                                               f"{FileReader.ZERO_FILE_SIZE_TIMEOUT} seconds. Abandoning wait")
-
-                    MESSAGE_HUB.dispatch_error(
-                        __name__,
-                        zero_size_error_message)
-                    return None
-            else:
-                zero_size_since = None
-
-            if size > 0 and size == last_file_size:
-                file_is_complete = True
-                _LOGGER.debug(f"File {image_path} is ready to be read")
-
-            last_file_size = size
-
-            if not file_is_complete:
-                time.sleep(self._profile.get_file_read_size_polling_period)
-
-        image = read_disk_image(Path(image_path))
-        if image:
-            image.ticket = image_path
-        return image
-
-
 class HotPixelRemover(ImageProcessor):
     """Provides hot pixels removal"""
 
@@ -569,199 +493,6 @@ class Debayer(ImageProcessor):
         return image
 
 
-@log
-def _get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
-    """
-    Retrieves the master dark frame from in-session cache or disk if missing.
-
-    :param master_dark_path: filesystem path to the master dark file
-    :type master_dark_path: str
-
-    :return: the cached or freshly read master dark, None if unavailable
-    :rtype: Optional[Image]
-    """
-    if not master_dark_path:
-        return None
-
-    if DYNAMIC_DATA.master_dark is not None:
-        _LOGGER.debug("Using cached master dark: %s", master_dark_path)
-        return DYNAMIC_DATA.master_dark
-
-    dark = read_disk_image(Path(master_dark_path))
-    if dark is not None:
-        _LOGGER.debug("Loaded master dark from disk: %s", master_dark_path)
-        DYNAMIC_DATA.master_dark = dark
-    else:
-        _LOGGER.debug("Failed to load master dark from disk: %s", master_dark_path)
-
-    return dark
-
-
-@log
-def _sanitize_flat_data(flat_data: np.ndarray, master_flat_path: str) -> np.ndarray:
-    """
-    Converts flat data to float32 and replaces non-finite values with zero, warning the user.
-
-    :param flat_data: raw flat data array
-    :type flat_data: numpy.ndarray
-    :param master_flat_path: path to the master flat file (for logging)
-    :type master_flat_path: str
-    :return: sanitized float32 flat data
-    :rtype: numpy.ndarray
-    """
-    sanitized_data = flat_data.astype(np.float32, copy=False)
-
-    if not np.isfinite(sanitized_data).all():
-        MESSAGE_HUB.dispatch_warning(
-            __name__,
-            QT_TRANSLATE_NOOP("", "Master flat {} contains invalid values. Replacing NaN/Inf with 0 before normalization"),
-            [master_flat_path]
-        )
-        sanitized_data = np.where(np.isfinite(sanitized_data), sanitized_data, 0.0)
-
-    return sanitized_data
-
-
-def _compute_robust_scale(values: np.ndarray) -> float:
-    """
-    Computes a robust scale using median with an upper percentile clamp to limit hot pixel influence.
-
-    :param values: data values for which scale is computed
-    :type values: numpy.ndarray
-    :return: the computed scale
-    :rtype: float
-    """
-    finite_values = values[np.isfinite(values)]
-
-    if finite_values.size == 0:
-        return 0.0
-
-    percentile_cap = np.percentile(finite_values, _CHANNEL_SCALE_PERCENTILE_CLIP)
-    clipped_values = np.clip(finite_values, None, percentile_cap)
-
-    return float(np.median(clipped_values))
-
-
-def _normalize_bayer_flat(flat: Image, master_flat_path: str, bayer_pattern: str) -> Optional[Image]:
-    """
-    Normalizes a Bayer flat per CFA position using per-channel robust scales.
-
-    :param flat: the flat image to normalize
-    :type flat: Image
-    :param master_flat_path: path to the master flat file (for logging)
-    :type master_flat_path: str
-    :param bayer_pattern: the Bayer pattern string (length 4)
-    :type bayer_pattern: str
-    :return: the flat with normalized data or None if normalization cannot proceed
-    :rtype: Optional[Image]
-    """
-    normalized_flat_data = _sanitize_flat_data(flat.data, master_flat_path)
-    pattern = bayer_pattern.upper()
-
-    if len(pattern) != 4:
-        MESSAGE_HUB.dispatch_warning(
-            __name__,
-            QT_TRANSLATE_NOOP("", "Unsupported Bayer pattern {}. Flat division is SKIPPED"),
-            [bayer_pattern]
-        )
-        return None
-
-    row_slices = [slice(0, None, 2), slice(1, None, 2)]
-    col_slices = [slice(0, None, 2), slice(1, None, 2)]
-    cfa_positions = [
-        (pattern[0], row_slices[0], col_slices[0]),
-        (pattern[1], row_slices[0], col_slices[1]),
-        (pattern[2], row_slices[1], col_slices[0]),
-        (pattern[3], row_slices[1], col_slices[1]),
-    ]
-
-    for position_index, (channel_name, row_slice, col_slice) in enumerate(cfa_positions):
-        channel_view = normalized_flat_data[row_slice, col_slice]
-        scale = _compute_robust_scale(channel_view)
-
-        if scale <= 0 or not np.isfinite(scale):
-            MESSAGE_HUB.dispatch_warning(
-                __name__,
-                QT_TRANSLATE_NOOP("", "Master flat {} has insufficient signal for channel {}. Flat division is SKIPPED"),
-                [master_flat_path, f"{channel_name}-{position_index}"]
-            )
-            return None
-
-        epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
-        np.maximum(channel_view, epsilon, out=channel_view)
-        channel_view /= scale
-
-    flat.data = normalized_flat_data
-    return flat
-
-
-def _normalize_global_flat(flat: Image, master_flat_path: str) -> Optional[Image]:
-    """
-    Normalizes a mono flat using a global robust scale.
-
-    :param flat: the flat image to normalize
-    :type flat: Image
-    :param master_flat_path: path to the master flat file (for logging)
-    :type master_flat_path: str
-    :return: the flat with normalized data or None if normalization cannot proceed
-    :rtype: Optional[Image]
-    """
-    normalized_flat_data = _sanitize_flat_data(flat.data, master_flat_path)
-    scale = _compute_robust_scale(normalized_flat_data)
-
-    if scale <= 0 or not np.isfinite(scale):
-        MESSAGE_HUB.dispatch_warning(
-            __name__,
-            QT_TRANSLATE_NOOP("", "Master flat {} contains no valid signal. Flat division is SKIPPED"),
-            [master_flat_path]
-        )
-        return None
-
-    epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
-    np.maximum(normalized_flat_data, epsilon, out=normalized_flat_data)
-    normalized_flat_data /= scale
-
-    flat.data = normalized_flat_data
-    return flat
-
-
-@log
-def _get_cached_master_flat(master_flat_path: str, bayer_pattern: Optional[str]) -> Optional[Image]:
-    """
-    Retrieves the master flat from cache or disk and stores a normalized float32 version in cache.
-
-    :param master_flat_path: filesystem path to the master flat file
-    :type master_flat_path: str
-    :param bayer_pattern: Bayer pattern extracted from the first sub, if applicable
-    :type bayer_pattern: Optional[str]
-    :return: the cached or freshly read normalized master flat, None if unavailable
-    :rtype: Optional[Image]
-    """
-    if not master_flat_path:
-        return None
-
-    if DYNAMIC_DATA.master_flat is not None:
-        _LOGGER.debug("Using cached normalized master flat: %s", master_flat_path)
-        return DYNAMIC_DATA.master_flat
-
-    flat = read_disk_image(Path(master_flat_path))
-    if flat is None:
-        _LOGGER.debug("Failed to load master flat from disk: %s", master_flat_path)
-        return None
-
-    _LOGGER.debug("Loaded master flat from disk: %s", master_flat_path)
-
-    if bayer_pattern:
-        flat = _normalize_bayer_flat(flat, master_flat_path, bayer_pattern)
-    else:
-        flat = _normalize_global_flat(flat, master_flat_path)
-
-    if flat is not None:
-        DYNAMIC_DATA.master_flat = flat
-
-    return flat
-
-
 class RemoveDark(ImageProcessor):
     """
     Provides image dark removal.
@@ -790,7 +521,7 @@ class RemoveDark(ImageProcessor):
         if do_subtract:
 
             master_dark_path = config.get_master_dark_file_path()
-            dark = _get_cached_master_dark(master_dark_path)
+            dark = get_cached_master_dark(master_dark_path)
 
             if dark is None:
                 read_error_message = QT_TRANSLATE_NOOP(
@@ -913,7 +644,7 @@ class RemoveFlat(ImageProcessor):
                     []
                 )
 
-            flat = _get_cached_master_flat(master_flat_path, bayer_pattern)
+            flat = get_cached_master_flat(master_flat_path, bayer_pattern)
 
             if flat is None:
                 read_error_message = QT_TRANSLATE_NOOP(
@@ -990,9 +721,6 @@ class QueueConsumer(QThread):
     actual processing payload is to be implemented in the following abstract method : _handle_image().
     """
 
-    new_result_signal = pyqtSignal(Image)
-    """Qt signal to emit when a new image has been processed"""
-
     busy_signal = pyqtSignal()
     """Qt signal to emit when an image has been retrieved and we are about to process it"""
 
@@ -1005,6 +733,65 @@ class QueueConsumer(QThread):
         self._name = name
         self._queue = queue
         self.setObjectName(name)
+
+    def _name_current_thread_for_logging(self) -> None:
+        """
+        Names the Python thread used by logging for this worker.
+        """
+        threading.current_thread().name = self._name
+
+    @abstractmethod
+    @log
+    def _handle_item(self, item_name: str):
+        """
+        Perform hopefully useful actions on an arbitrary string
+
+        :param image: the image to handle
+        :type image: Image
+        """
+
+    def run(self):
+        """
+        Starts polling the queue and perform processing units to each image.
+        Receiving a None sentinel stops the consumer.
+
+        If any processing error occurs, the current image is dropped
+        """
+        self._name_current_thread_for_logging()
+
+        while True:
+            item = self._queue.get()
+
+            if item is None:
+                MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "{} stopped"), [self._name, ])
+                break
+
+            self.busy_signal.emit()
+
+            with Timer() as timer:
+                self._handle_item(item)
+
+            _LOGGER.debug("End {} on {} in {} ms".format(
+                self._name, item.origin if type(item) == Image else item, timer.elapsed_in_milli_as_str))
+
+            self.waiting_signal.emit()
+
+
+class ImageQueueConsumer(QueueConsumer):
+    """
+    Abstract class for all our queue consumers.
+
+    Responsible of grabbing images from a queue
+
+    actual processing payload is to be implemented in the following abstract method : _handle_image().
+    """
+
+    new_result_signal = pyqtSignal(Image)
+    """Qt signal to emit when a new image has been processed"""
+
+    @log
+    def __init__(self, name: str, queue: SignalingQueue):
+        QueueConsumer.__init__(self, name, queue)
 
     def _name_current_thread_for_logging(self) -> None:
         """
@@ -1056,7 +843,8 @@ class QueueConsumer(QThread):
             self.waiting_signal.emit()
 
 
-class Pipeline(QueueConsumer):
+
+class Pipeline(ImageQueueConsumer):
     """
     QueueConsumer specialization allowing to apply a list of image processors to each image
     """
@@ -1090,3 +878,89 @@ class Pipeline(QueueConsumer):
         :type process: ImageProcessor
         """
         self._processes.append(process)
+
+
+class FileReader(QueueConsumer):
+    """
+    Handles image read from file
+    """
+
+    ZERO_FILE_SIZE_TIMEOUT = 2.0
+    RAM_AVAILABILITY_TIMEOUT = 2.0
+
+    image_read = pyqtSignal(Image)
+
+    def __init__(self, queue: SignalingQueue, profile: RunningProfile):
+        super().__init__("FileReader", queue)
+        self._profile = profile
+
+    MEMORY_CODES_MAPPING = {
+
+        0: 256 * 1024 ** 2,
+        1: 512 * 1024 ** 2,
+        2: 1024 ** 3,
+        3: 2 * 1024 ** 3
+    }
+
+    def _handle_item(self, item: str):
+
+        image_path = Path(item)
+
+        _LOGGER.debug("loading image from %s", image_path)
+
+        ram_to_preserve = FileReader.MEMORY_CODES_MAPPING[config.get_preserved_mem()]
+
+        _LOGGER.debug(f"RAM amount to preserve: {human_readable_byte_size(ram_to_preserve)}")
+        _LOGGER.debug(f" Available system memory : {human_readable_byte_size(available_memory())}")
+
+        waited = False
+        while available_memory() < ram_to_preserve:
+            waited = True
+            _LOGGER.info(f"RAM amount to preserve: {human_readable_byte_size(ram_to_preserve)} "
+                         f"/ Available: {human_readable_byte_size(available_memory())}. Waiting...")
+
+        time.sleep(FileReader.RAM_AVAILABILITY_TIMEOUT)
+
+        _LOGGER.debug('RAM amount is OK. Reading new file...')
+
+        if waited:
+            MESSAGE_HUB.dispatch_info(__name__, self.tr("Done waiting for available RAM, now reading new file..."),)
+
+
+        file_is_complete = False
+        last_file_size = -1
+        zero_size_since = None
+
+        while not file_is_complete:
+            size = QFileInfo(str(image_path)).size()
+            _LOGGER.debug(f"File {image_path}'s size = {size}")
+
+            if size == 0:
+                if zero_size_since is None:
+                    zero_size_since = time.monotonic()
+                elif time.monotonic() - zero_size_since >= FileReader.ZERO_FILE_SIZE_TIMEOUT:
+
+                    zero_size_error_message = (f"File {image_path} remained empty for "
+                                               f"{FileReader.ZERO_FILE_SIZE_TIMEOUT} seconds. Abandoning wait")
+
+                    MESSAGE_HUB.dispatch_error(
+                        __name__,
+                        zero_size_error_message)
+                    return
+            else:
+                zero_size_since = None
+
+            if size > 0 and size == last_file_size:
+                file_is_complete = True
+                _LOGGER.debug(f"File {image_path} is ready to be read")
+
+            last_file_size = size
+
+            if not file_is_complete:
+                time.sleep(self._profile.get_file_read_size_polling_period)
+
+        image = read_disk_image(Path(image_path))
+
+        if image is not None:
+            image.ticket = str(image_path)
+            self.image_read.emit(image)

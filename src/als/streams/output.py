@@ -18,12 +18,12 @@ import als.model.data
 from als.code_utilities import log, SignalingQueue, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image
-from als.processing import QueueConsumer
+from als.processing import ImageQueueConsumer
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 
-class ImageSaver(QueueConsumer):
+class ImageSaver(ImageQueueConsumer):
     """
     Saves images according to commands posted to IMAGE_SAVE_QUEUE in its own thread
 
@@ -34,7 +34,7 @@ class ImageSaver(QueueConsumer):
 
     @log
     def __init__(self, save_queue: SignalingQueue, controller):
-        QueueConsumer.__init__(self, "save", save_queue)
+        ImageQueueConsumer.__init__(self, "save", save_queue)
         self._controller = controller
 
     @log

@@ -895,7 +895,23 @@ class MainWindow(QMainWindow):
             self._ui.lbl_session_status.setText(f"{session_status}")
 
             # handle Start / Pause / Stop  buttons
-            self._ui.btn_session_start.setEnabled(session_is_stopped or session_is_paused)
+            all_modules_idle = not any([
+                         DYNAMIC_DATA.file_reader_busy,
+                         DYNAMIC_DATA.pre_processor_busy,
+                         DYNAMIC_DATA.stacker_busy,
+                         DYNAMIC_DATA.post_processor_busy
+                    ])
+
+            all_queues_empty = all([
+                        DYNAMIC_DATA.file_reader_queue.qsize() <1,
+                        DYNAMIC_DATA.pre_process_queue.qsize() <1,
+                        DYNAMIC_DATA.stacker_queue.qsize() <1,
+                        DYNAMIC_DATA.process_queue.qsize() <1
+                    ])
+
+            self._ui.btn_session_start.setEnabled(
+                (session_is_stopped and all_modules_idle and all_queues_empty) or session_is_paused)
+
             self._ui.btn_session_stop.setEnabled(session_is_running or session_is_paused)
             self._ui.btn_session_pause.setEnabled(session_is_running)
 
@@ -926,12 +942,14 @@ class MainWindow(QMainWindow):
                 self.tr("Total frame proc. time: {} s").format(f"{DYNAMIC_DATA.last_timing:6.1f}"))
 
             # update queues sizes
+            self._ui.lbl_file_reader_queue_size.setText(str(DYNAMIC_DATA.file_reader_queue.qsize()))
             self._ui.lbl_pre_process_queue_size.setText(str(DYNAMIC_DATA.pre_process_queue.qsize()))
             self._ui.lbl_stack_queue_size.setText(str(DYNAMIC_DATA.stacker_queue.qsize()))
             self._ui.lbl_process_queue_size.setText(str(DYNAMIC_DATA.process_queue.qsize()))
             self._ui.lbl_save_queue_size.setText(str(DYNAMIC_DATA.save_queue.qsize()))
 
             # handle component statuses
+            self._ui.lbl_file_reader_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.file_reader_busy else "-")
             self._ui.lbl_pre_processor_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.pre_processor_busy else "-")
             self._ui.lbl_stacker_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.stacker_busy else "-")
             self._ui.lbl_post_processor_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.post_processor_busy else "-")

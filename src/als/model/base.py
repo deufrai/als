@@ -341,6 +341,7 @@ class Image:
                           f'Data shape={self._data.shape}, '
                           f'Data type={self._data.dtype.name}, '
                           f'Origin={self.origin}, '
+                          f'Ticket={self.ticket}, '
                           f'Destination={self.destination}')
 
         return representation

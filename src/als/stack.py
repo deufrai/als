@@ -17,7 +17,7 @@ from als.code_utilities import log, Timer, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image, RunningProfile
 from als.model.data import I18n
-from als.processing import QueueConsumer
+from als.processing import ImageQueueConsumer
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -52,7 +52,7 @@ def _convert_subset_transform_to_full_frame(
 
 
 # pylint: disable=R0902
-class Stacker(QueueConsumer):
+class Stacker(ImageQueueConsumer):
     """
     Responsible for image stacking : alignment and registration
     """
@@ -62,7 +62,7 @@ class Stacker(QueueConsumer):
 
     @log
     def __init__(self, stack_queue, profile: RunningProfile):
-        QueueConsumer.__init__(self, "stack", stack_queue)
+        ImageQueueConsumer.__init__(self, "stack", stack_queue)
         self._size: int = 0
         self._last_stacking_result: Image = None
         self._align_reference: Image = None
@@ -493,4 +493,3 @@ class Stacker(QueueConsumer):
 
         else:
             raise StackingError(f"Unsupported stacking mode : {self._stacking_mode}")
-

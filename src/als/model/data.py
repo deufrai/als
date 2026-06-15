@@ -143,10 +143,12 @@ class DynamicData:
         self.stack_size = 0
         self.post_processor_result = None
         self.histogram_container: HistogramContainer = None
+        self.file_reader_queue = SignalingQueue()
         self.pre_process_queue = SignalingQueue()
         self.stacker_queue = SignalingQueue()
         self.process_queue = SignalingQueue()
         self.save_queue = SignalingQueue()
+        self.file_reader_busy = False
         self.pre_processor_busy = False
         self.stacker_busy = False
         self.post_processor_busy = False
