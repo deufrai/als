@@ -948,7 +948,7 @@ class MainWindow(QMainWindow):
 
             # disable color balance controls on B&W image
             if DYNAMIC_DATA.post_processor_result:
-                self._ui.rgbProcessBox.setEnabled(DYNAMIC_DATA.post_processor_result.is_color())
+                self._ui.rgbProcessBox.setVisible(DYNAMIC_DATA.post_processor_result.is_color())
 
             self._ui.sld_align_threshold.setValue(config.get_minimum_match_count())
             self._ui.lbl_align_threshold.setText(str(self._ui.sld_align_threshold.value()))
