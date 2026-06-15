@@ -182,6 +182,7 @@ class MainWindow(QMainWindow):
 
         self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
 
+        self._ui.lbl_available_update.setVisible(False)
         if config.get_check_updates_on_startup_active():
             QTimer.singleShot(2000, self._start_update_check)
 
