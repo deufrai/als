@@ -229,8 +229,10 @@ class MainWindow(QMainWindow):
                 remote_version_content
             )
             if available_version is not None:
-                self._ui.lbl_available_update.setText(
-                    self.tr("ALS {} is available").format(available_version))
+
+                message = self.tr("ALS {} is available").format(available_version)
+                MESSAGE_HUB.dispatch_info(__name__, message)
+                self._ui.lbl_available_update.setText(message)
                 self._ui.lbl_available_update.show()
 
         self._release_update_check_resources()
