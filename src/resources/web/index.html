@@ -102,6 +102,12 @@
     // Call fetchData on initial page load
     fetchData();
 
+    viewer.addHandler('full-page', function(event) {
+        if (!event.fullPage) {
+            fetchData();
+        }
+    });
+
     // WebSocket connection
     const ws = new WebSocket('ws://' + window.location.host + '/ws');
 
