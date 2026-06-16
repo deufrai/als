@@ -89,8 +89,8 @@ class MainWindow(QMainWindow):
         # update align checkbox
         self._ui.chk_align.setChecked(self._controller.get_align_before_stack())
 
-        # update save every frame checkbox
-        self._ui.chk_save_every_image.setChecked(self._controller.get_save_every_image())
+        # update save every frame state
+        self._ui.btn_save_every_image.setChecked(self._controller.get_save_every_image())
 
         # prevent log dock to be too tall
         self.resizeDocks([self._ui.log_dock], [MainWindow._LOG_DOCK_INITIAL_HEIGHT], Qt.Vertical)
@@ -580,9 +580,9 @@ class MainWindow(QMainWindow):
         self._controller.set_align_before_stack(checked)
 
     @log
-    def on_chk_save_every_image_toggled(self, checked: bool):
+    def on_btn_save_every_image_toggled(self, checked: bool):
         """
-        Qt slot executed when 'save ever image' check box is changed
+        Qt slot executed when 'save ever image' button is changed
 
         :param checked: is checkbox checked ?
         :type checked: bool

@@ -59,25 +59,6 @@ QLabel#lbl_align_threshold {
     max-height: 15px;
 }
 
-QPushButton {
-    border: 1px solid #444444;
-    background-color: #333333;
-    border-radius: 2px;
-    padding: .4em 10px;
-    margin: 1px;
-}
-
-QPushButton:checked,
-QPushButton:enabled:hover {
-    border: 1px solid #666666;
-}
-
-
-QPushButton#btn_issues_only:checked,
-QPushButton#btn_follow_logs:checked {
-    background-color: #750000;
-}
-
 QComboBox {
     background-color: #333333;
     border: 1px solid #444444;

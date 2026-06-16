@@ -27,6 +27,7 @@ QPushButton:disabled {
 }
 
 QPushButton:enabled:hover,
+QPushButton:enabled:hover:checked,
 QDialog#PrefsDialog QPushButton:enabled:focus {
     border: 1px solid #666666;
 
@@ -39,20 +40,12 @@ QPushButton:enabled:checked:pressed {
     border: 1px solid #666666;
 }
 
-QPushButton#btn_issues_only:enabled:checked,
-QPushButton#btn_follow_logs:enabled:checked {
+QPushButton:enabled:checked {
     background-color: #4e1111;
     border-left: 1px solid #111111;
     border-top: 1px solid #111111;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
-
-}
-
-QPushButton#btn_issues_only:enabled:checked:pressed,
-QPushButton#btn_follow_logs:enabled:checked:pressed {
-    background-color: #282828;
-    border: 1px solid #666666;
 
 }
 
@@ -64,18 +57,6 @@ QPushButton#btn_web_stop {
     font-size: 13pt;
     padding-top: .5em;
     padding-bottom: .5em;
-}
-
-QComboBox:enabled:hover {
-    border: 1px solid #666666;
-    background-color: #333333;
-    border-radius: 4px;
-}
-
-QDialog#PrefsDialog QComboBox:enabled:focus {
-    border: 1px solid #666666;
-    background-color: #333333;
-    border-radius: 4px;
 }
 
 QPushButton#btn_OK,
@@ -90,6 +71,17 @@ QPushButton#btn_Cancel:focus {
     border: 1px solid #666666;
 }
 
+QComboBox:enabled:hover {
+    border: 1px solid #666666;
+    background-color: #333333;
+    border-radius: 4px;
+}
+
+QDialog#PrefsDialog QComboBox:enabled:focus {
+    border: 1px solid #666666;
+    background-color: #333333;
+    border-radius: 4px;
+}
 
 /* #########################################################
 #### FTUE & fileoicker
