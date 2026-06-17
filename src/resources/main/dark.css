@@ -227,12 +227,7 @@ QLineEdit {
     selection-background-color: #4e1111;
 }
 
-QLabel#lbl_session_status,
-QLabel#lbl_web_server_status_main,
-QFrame#frm_stack_info,
 QFrame#frm_infos {
-    text-transform: uppercase;
-
     border-left: 1px solid #191919;
     border-top: 1px solid #191919;
     border-right: 1px solid #282828;
@@ -260,31 +255,33 @@ QLinedit::selection {
 }
 
 QCheckBox::indicator {
-
     width: 18px;
     height: 18px;
-
-    border: 1px solid #444444;
+    border: 1px solid transparent;
     border-radius: 4px;
 }
 
 QCheckBox::indicator:enabled:hover,
 QCheckBox::indicator:focus {
-
-    width: 18px;
-    height: 18px;
-
     border: 1px solid #666666;
-    border-radius: 4px;
 }
 
 QCheckBox::indicator:checked {
-    image: url(:icons/tick-dark.svg);
+    image: url(:icons/chkbox-checked.svg);
 }
 
 QCheckBox::indicator:checked:disabled {
-    image: url(:icons/tick-disabled.svg);
+    image: url(:icons/chkbox-checked-disabled.svg);
 }
+
+QCheckBox::indicator:unchecked {
+    image: url(:icons/chkbox-unchecked.svg);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+    image: url(:icons/chkbox-unchecked-disabled.svg);
+}
+
 
 QRadioButton::indicator:checked:enabled {
     background-color: transparent;

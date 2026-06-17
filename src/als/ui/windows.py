@@ -11,12 +11,12 @@ from os import chmod, makedirs
 from pathlib import Path
 from typing import List
 
-from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl, QT_TRANSLATE_NOOP, QEvent
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
 # pylint: disable=no-name-in-module
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
+    QListWidgetItem, QLabel, QFrame, QFileDialog, QMessageBox, QWidget, QToolTip, QPushButton
 from generated.als_ui import Ui_stack_window
 
 import als.model.data
@@ -179,7 +179,6 @@ class MainWindow(QMainWindow):
         self._setup_statusbar()
         configure_platform_ui(self, self._ui.log)
 
-        self.update_display()
         MESSAGE_HUB.add_receiver(self)
 
         if 0 == config.get_profile():
@@ -189,6 +188,13 @@ class MainWindow(QMainWindow):
 
         self._ui.action_full_screen.setChecked(config.get_full_screen_active())
 
+        self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
+
+        self._ui.lbl_web_url.clear()
+
+        self._ui.lbl_available_update.setVisible(False)
+
+        self.update_display()
         if config.get_full_screen_active():
             self.showFullScreen()
         elif config.get_window_maximized():
@@ -196,9 +202,6 @@ class MainWindow(QMainWindow):
         else:
             self.show()
 
-        self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
-
-        self._ui.lbl_available_update.setVisible(False)
         if config.get_check_updates_on_startup_active():
             QTimer.singleShot(2000, self._start_update_check)
 
@@ -291,8 +294,6 @@ class MainWindow(QMainWindow):
         self._lbl_statusbar_stack_exposure.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_session_status = QLabel(self._ui.statusBar)
         self._lbl_statusbar_session_status.setFrameStyle(QFrame.Panel | QFrame.Sunken)
-        self._lbl_statusbar_scanner_status = QLabel(self._ui.statusBar)
-        self._lbl_statusbar_scanner_status.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_stack_size = QLabel(self._ui.statusBar)
         self._lbl_statusbar_stack_size.setMinimumWidth(150)
         self._lbl_statusbar_stack_size.setAlignment(Qt.AlignHCenter)
@@ -303,7 +304,6 @@ class MainWindow(QMainWindow):
 
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_session_status)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_current_profile)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_scanner_status)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_size)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_exposure)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_web_server_status)
@@ -945,10 +945,9 @@ class MainWindow(QMainWindow):
             session_is_stopped = session.is_stopped
             session_is_paused = session.is_paused
 
-            # update web server status and QR visibility
+            # update web server status, URL and QR visibility
             if web_server_is_running:
-                url = DYNAMIC_DATA.web_server_advertised_url
-                web_server_status_text = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #750000">{url}</a>'
+                web_server_status_text = I18n.RUNNING_M
                 self._ui.action_qrcode.setEnabled(True)
             elif web_server_is_starting:
                 web_server_status_text = I18n.STARTING
@@ -965,8 +964,6 @@ class MainWindow(QMainWindow):
 
             self._web_server_was_running = web_server_is_running
 
-            self._ui.lbl_web_server_status_main.setText(f"{web_server_status_text}")
-
             if session_is_stopped:
                 session_status = I18n.STOPPED_F
             elif session_is_paused:
@@ -979,14 +976,11 @@ class MainWindow(QMainWindow):
                 # this should never happen, that's why we check ;)
                 session_status = "### BUG !"
 
-            self._ui.lbl_session_status.setText(f"{session_status}")
-
             # handle Start / Pause / Stop  buttons
-            all_modules_idle = not any([
+            session_modules_idle = not any([
                          DYNAMIC_DATA.file_reader_busy,
                          DYNAMIC_DATA.pre_processor_busy,
                          DYNAMIC_DATA.stacker_busy,
-                         DYNAMIC_DATA.post_processor_busy
                     ])
 
             all_queues_empty = all([
@@ -997,12 +991,13 @@ class MainWindow(QMainWindow):
                     ])
 
             self._ui.btn_session_start.setEnabled(
-                (session_is_stopped and all_modules_idle and all_queues_empty) or session_is_paused)
+                (session_is_stopped and session_modules_idle and all_queues_empty) or session_is_paused)
 
             self._ui.btn_session_stop.setEnabled(session_is_running or session_is_paused)
             self._ui.btn_session_pause.setEnabled(session_is_running)
 
             # handle align + stack mode buttons
+            self._ui.chk_align.setChecked(self._controller.get_align_before_stack())
             self._ui.chk_align.setEnabled(session_is_stopped)
             self._ui.radio_stack_mean.setEnabled(session_is_stopped)
             self._ui.radio_stack_sum.setEnabled(session_is_stopped)
@@ -1032,20 +1027,24 @@ class MainWindow(QMainWindow):
 
             config_to_image_save_type_mapping[config.get_image_save_format()].setChecked(True)
 
-            # update statusbar labels
-            scanner_status_message = f"{I18n.SCANNER} {I18n.OF} {config.get_scan_folder_path()} : "
-            scanner_status_message += f"{I18n.RUNNING_M}" if session_is_running else f"{I18n.STOPPED_M}"
-            self._lbl_statusbar_scanner_status.setText(scanner_status_message)
-            self._lbl_statusbar_web_server_status.setText(f"{I18n.WEB_SERVER} : {web_server_status_text}")
-            self._lbl_statusbar_session_status.setText(f"{I18n.SESSION} {session_status}")
-            self._lbl_statusbar_stack_size.setText(f"{I18n.STACK_SIZE} : {stack_size_str}")
-            self._lbl_statusbar_stack_exposure.setText(
-                self.tr("Total stack exp. time: {}").format(exposure_time_str))
-            self._lbl_statusbar_frame_total_proc.setText(
-                self.tr("Total frame proc. time: {} s").format(f"{DYNAMIC_DATA.last_timing:6.1f}"))
+            # update main info panel
+            css_active = "background-color: #4e1111; border-radius: 2px; border-left: 1px solid #171717; border-top: 1px solid #171717; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"
+            css_inactive = "background-color: #222222; color: #666666; border: 1px solid transparent"
 
-            # update queues sizes
-            busy_module_css = "background-color: #4e1111; border-radius: 2px;"
+            # image server status
+            self._ui.lbl_web_server_status_main.setText(web_server_status_text)
+            self._ui.lbl_web_server_status_main.setStyleSheet(css_active if not web_server_is_stopped else css_inactive)
+            image_server_url = self._build_clickable_image_server_url()
+            self._ui.lbl_web_url.setText(image_server_url if web_server_is_running else "")
+            self._ui.lbl_image_server.setStatusTip(
+                self.tr("Set web folder {}").format(config.get_web_folder_path()))
+
+            ## Session status
+            self._ui.lbl_session.setStatusTip(self.tr("Set scan folder {}").format(config.get_scan_folder_path()))
+            self._ui.lbl_session_status.setText(session_status)
+            if session_is_stopped and not (session_modules_idle and all_queues_empty):
+                self._ui.lbl_session_status.setText(self.tr("Purging"))
+            self._ui.lbl_session_status.setStyleSheet(css_active if not session_is_stopped else css_inactive)
 
             modules_labels_to_status_mapping = {
                 self._ui.lbl_file_reader_queue_size: {'busy': DYNAMIC_DATA.file_reader_busy,
@@ -1062,10 +1061,22 @@ class MainWindow(QMainWindow):
 
             for module_label in modules_labels_to_status_mapping.keys():
 
-                module_label.setStyleSheet(busy_module_css if modules_labels_to_status_mapping[module_label]['busy'] else "")
+                module_label.setStyleSheet(css_active if modules_labels_to_status_mapping[module_label]['busy'] else css_inactive)
                 queue_size = modules_labels_to_status_mapping[module_label]['size']
                 module_label.setText(str(queue_size) if queue_size > 0 else "")
 
+
+            # calibration steps
+            self._ui.lbl_calib_hot_pixel.setStyleSheet(css_active if config.get_hot_pixel_remover() else css_inactive)
+            self._ui.lbl_calib_dark.setStyleSheet(css_active if config.get_use_master_dark() else css_inactive)
+            self._ui.lbl_calib_flat.setStyleSheet(css_active if config.get_use_master_flat() else css_inactive)
+
+            dark_path = config.get_master_dark_file_path()
+            if dark_path != "":
+                self._ui.lbl_calib_dark.setStatusTip(self.tr("Set master dark file: {}").format(dark_path))
+            flat_path = config.get_master_flat_file_path()
+            if flat_path != "":
+                self._ui.lbl_calib_flat.setStatusTip(self.tr("Set master flat file: {}").format(flat_path))
 
             self._ui.lbl_sub_width.setText(str(DYNAMIC_DATA.current_sub_width))
             self._ui.lbl_sub_height.setText(str(DYNAMIC_DATA.current_sub_height))
@@ -1101,6 +1112,28 @@ class MainWindow(QMainWindow):
 
             self._ui.sld_align_threshold.setValue(config.get_minimum_match_count())
             self._ui.lbl_align_threshold.setText(str(self._ui.sld_align_threshold.value()))
+
+            # update statusbar labels
+
+            web_server_status_text = image_server_url if web_server_is_running else web_server_status_text
+            self._lbl_statusbar_web_server_status.setText(f"{I18n.WEB_SERVER} : {web_server_status_text}")
+            self._lbl_statusbar_session_status.setText(f"{I18n.SESSION} {session_status}")
+            self._lbl_statusbar_stack_size.setText(f"{I18n.STACK_SIZE} : {stack_size_str}")
+            self._lbl_statusbar_stack_exposure.setText(
+                self.tr("Total stack exp. time: {}").format(exposure_time_str))
+            self._lbl_statusbar_frame_total_proc.setText(
+                self.tr("Total frame proc. time: {} s").format(f"{DYNAMIC_DATA.last_timing:6.1f}"))
+
+    @log
+    def _build_clickable_image_server_url(self) -> str:
+        """
+        return a clickable URL to the image server
+
+        :return: clickable URL
+        :rtype: str
+        """
+        url = DYNAMIC_DATA.web_server_advertised_url
+        return f'<a href="{url}" style="color: #b6b6b6">{url.replace("http://","")}</a>'
 
     @pyqtSlot()
     @log
