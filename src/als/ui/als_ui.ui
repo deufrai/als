@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>322</width>
-     <height>747</height>
+     <width>338</width>
+     <height>766</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -708,25 +708,17 @@
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="grp_infos">
-       <property name="toolTip">
-        <string>Current sub infos :
-Details extracted from the current sub
-
-Modules status :
-A colored tag is displayed in front of busy module
-When a module has elements in its queue, their count is displayed</string>
+      <widget class="QFrame" name="frm_infos">
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
        </property>
-       <property name="statusTip">
-        <string>Modules status</string>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
        </property>
-       <property name="title">
-        <string>Infos</string>
+       <property name="lineWidth">
+        <number>0</number>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
-        <property name="spacing">
-         <number>8</number>
-        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
           <property name="spacing">
@@ -743,7 +735,7 @@ When a module has elements in its queue, their count is displayed</string>
                <string>Current sub</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -883,7 +875,7 @@ When a module has elements in its queue, their count is displayed</string>
                <string>Modules</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -1036,6 +1028,13 @@ When a module has elements in its queue, their count is displayed</string>
            </layout>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="lbl_available_update">

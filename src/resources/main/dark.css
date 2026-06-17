@@ -229,7 +229,8 @@ QLineEdit {
 
 QLabel#lbl_session_status,
 QLabel#lbl_web_server_status_main,
-QFrame#frm_stack_info {
+QFrame#frm_stack_info,
+QFrame#frm_infos {
     text-transform: uppercase;
 
     border-left: 1px solid #191919;
@@ -237,7 +238,7 @@ QFrame#frm_stack_info {
     border-right: 1px solid #282828;
     border-bottom: 1px solid #282828;
 
-    border-radius: 2px;
+    border-radius: 4px;
     color: #A8A8A8;
 }
 
