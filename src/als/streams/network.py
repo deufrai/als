@@ -319,9 +319,28 @@ def select_advertised_address(
     return candidates[0]
 
 
+@log
+def build_no_cache_file_response(static_path: str, file_name: str):
+    """
+    Builds a file response for content that must reflect current runtime state.
+
+    :param static_path: folder containing served files
+    :param file_name: name of the file to serve from the static path
+    """
+    return web.FileResponse(
+        os.path.join(static_path, file_name),
+        headers={
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0',
+        })
+
+
 class Server(QObject):
 
     stopped_signal = pyqtSignal()
+    startup_failed_signal = pyqtSignal(object)
+    startup_succeeded_signal = pyqtSignal()
 
     @log
     def __init__(self, static_path):
@@ -344,6 +363,8 @@ class Server(QObject):
         app = web.Application()
         app.add_routes([web.get('/ws', self._handle_websocket_request)])
         app.add_routes([web.get('/', self._handle_index_request)])
+        app.add_routes([web.get('/web_image.jpg', self._handle_dynamic_file_request)])
+        app.add_routes([web.get('/data.json', self._handle_dynamic_file_request)])
 
         # Catch-all route for static files
         app.router.add_static('/', self._static_path)
@@ -364,7 +385,12 @@ class Server(QObject):
 
     @log
     async def _handle_index_request(self, _):
-        return web.FileResponse(os.path.join(self._static_path, 'index.html'))
+        return build_no_cache_file_response(self._static_path, 'index.html')
+
+    @log
+    async def _handle_dynamic_file_request(self, request):
+        return build_no_cache_file_response(
+            self._static_path, request.path.lstrip('/'))
 
     @log
     async def _send_message_to_clients(self, message):
@@ -380,8 +406,11 @@ class Server(QObject):
         :param startup_future: future shared with the controller
         :param error: startup error to report
         """
-        if startup_future is not None and not startup_future.done():
+        if startup_future is not None and startup_future.done():
+            return
+        if startup_future is not None:
             startup_future.set_exception(error)
+        self.startup_failed_signal.emit(error)
 
     @log
     def _set_startup_success(self, startup_future: Optional[Future]) -> None:
@@ -390,8 +419,11 @@ class Server(QObject):
 
         :param startup_future: future shared with the controller
         """
-        if startup_future is not None and not startup_future.done():
+        if startup_future is not None and startup_future.done():
+            return
+        if startup_future is not None:
             startup_future.set_result(None)
+        self.startup_succeeded_signal.emit()
 
     @log
     async def _start_server(

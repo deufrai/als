@@ -43,12 +43,16 @@
     <div id="stack-size">Stack:</div>
 </div>
 <script>
+    function buildWebImageUrl(timestamp) {
+        return '/web_image.jpg?timestamp=' + timestamp;
+    }
+
     var viewer = OpenSeadragon({
         id: "openseadragon",
         prefixUrl: "/icons/",
         tileSources: {
             type: 'image',
-            url: '/web_image.jpg'
+            url: buildWebImageUrl(new Date().getTime())
         },
         minZoomLevel: 0.25,
         maxZoomLevel: 20
@@ -64,7 +68,7 @@
             type: 'image',
             // Changing hash forces OpenSeadragon to bypass cached tiles.
             hash: timestamp,
-            url: '/web_image.jpg?timestamp=' + timestamp
+            url: buildWebImageUrl(timestamp)
         };
 
         if (tiledImage && typeof tiledImage.setTileSource === 'function') {

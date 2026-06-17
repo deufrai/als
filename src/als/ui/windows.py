@@ -23,8 +23,7 @@ import als.model.data
 from als import config
 from als.code_utilities import log, AlsLogAdapter
 from als.config import CouldNotSaveConfig
-from als.logic import Controller, SessionError, FolderSetupError, WebServerOnLoopback, \
-    PortInUseError
+from als.logic import Controller, SessionError, FolderSetupError, PortInUseError
 from als.messaging import MESSAGE_HUB
 from als.model.data import (
     DYNAMIC_DATA, I18n, WEB_SERVER_STATUS_RUNNING,
@@ -156,6 +155,7 @@ class MainWindow(QMainWindow):
 
         # setup exchanges with dynamic data
         self._controller.add_model_observer(self)
+        self._controller.add_web_server_observer(self)
 
         self.setGeometry(*config.get_window_geometry())
 
@@ -487,6 +487,7 @@ class MainWindow(QMainWindow):
 
         config.set_full_screen_active(self.isFullScreen())
         config.set_window_maximized(self.isMaximized())
+        self._controller.remove_web_server_observer(self)
         self._save_config()
 
         self._stop_session()
@@ -659,20 +660,43 @@ class MainWindow(QMainWindow):
         Qt slot executed when START web button is clicked
         """
 
-        try:
-            self._controller.start_www()
-            self._qrDisplay.update_code()
+        self._controller.start_www()
 
-        except PortInUseError:
+    @log
+    def on_web_server_started(self):
+        """
+        Reacts to successful image server startup.
+        """
+        self._qrDisplay.update_code()
+
+    @log
+    def on_web_server_start_failed(self, error: Exception):
+        """
+        Reacts to failed image server startup.
+
+        :param error: startup error
+        """
+        error_title = self.tr("Could not start web server")
+
+        if isinstance(error, PortInUseError):
             error_message = self.tr("Port {} is already in use.").format(config.get_www_server_port_number())
             error_message_part2 = "\n\n" + self.tr("Change server port number in preferences and start server again")
-            error_title = self.tr("Could not start web server")
             MESSAGE_HUB.dispatch_error(__name__, error_title + ". " + error_message)
             error_box(error_title, error_message + error_message_part2)
+            return
 
-        except WebServerOnLoopback:
-            self._warn_web_server_access_is_limited()
+        error_message = str(error)
+        MESSAGE_HUB.dispatch_error(__name__, error_title + ". " + error_message)
+        error_box(error_title, error_message)
 
+    @log
+    def on_web_server_access_is_limited(self, displayed_address: str):
+        """
+        Reacts to image server startup with a loopback displayed address.
+
+        :param displayed_address: selected displayed address
+        """
+        self._warn_web_server_access_is_limited(displayed_address)
 
     @pyqtSlot()
     @log

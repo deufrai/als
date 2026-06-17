@@ -1,11 +1,13 @@
 import socket
 from collections import namedtuple
+from pathlib import Path
 from typing import Any
 
 import pytest
 
 from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO,
+    build_no_cache_file_response,
     build_advertised_address_preference,
     build_network_address_candidates,
     select_advertised_address,
@@ -97,3 +99,22 @@ def test_given_no_discovered_addresses_when_candidates_are_requested_then_loopba
 
     assert len(candidates) == 1
     assert candidates[0].ip == "127.0.0.1"
+
+
+def test_given_dynamic_web_file_when_response_is_built_then_browser_cache_is_disabled(tmp_path) -> None:
+    web_image_path = tmp_path / "web_image.jpg"
+    web_image_path.write_bytes(b"image")
+
+    response = build_no_cache_file_response(str(tmp_path), "web_image.jpg")
+
+    assert response.headers["Cache-Control"] == "no-store, no-cache, must-revalidate"
+    assert response.headers["Pragma"] == "no-cache"
+    assert response.headers["Expires"] == "0"
+
+
+def test_given_web_view_page_when_initial_image_source_is_defined_then_it_bypasses_browser_cache() -> None:
+    index_path = Path(__file__).parent.parent / "src" / "resources" / "web" / "index.html"
+
+    index_html = index_path.read_text()
+
+    assert "url: buildWebImageUrl(new Date().getTime())" in index_html

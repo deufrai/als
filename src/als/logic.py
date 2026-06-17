@@ -58,10 +58,6 @@ class PortInUseError(RuntimeError):
     """Raised when web server cannot start because port is already in use"""
 
 
-class WebServerOnLoopback(Exception):
-    """Raised when the selected web server displayed address is loopback-only"""
-
-
 # pylint: disable=R0902, R0904
 class Controller:
     """
@@ -138,6 +134,7 @@ class Controller:
         self._server_thread = None
 
         self._model_observers = list()
+        self._web_server_observers = list()
         self._subs_processing_start_times = dict()
 
         self._fileReader.image_read[Image].connect(self.on_new_image)
@@ -165,6 +162,8 @@ class Controller:
         self._saver.save_completed_signal[str].connect(self.on_image_saved)
 
         DYNAMIC_DATA.session.status_changed_signal.connect(self._notify_model_observers)
+        self._web_server.startup_failed_signal.connect(self.on_web_server_start_failed)
+        self._web_server.startup_succeeded_signal.connect(self.on_web_server_started)
         self._web_server.stopped_signal.connect(self.on_web_server_stopped)
 
         self._metrics_timer = QTimer()
@@ -215,6 +214,27 @@ class Controller:
         """
         if observer in self._model_observers:
             self._model_observers.remove(observer)
+
+    @log
+    def add_web_server_observer(self, observer):
+        """
+        Adds an observer for web server lifecycle events.
+
+        :param observer: the new observer
+        :type observer: any
+        """
+        self._web_server_observers.append(observer)
+
+    @log
+    def remove_web_server_observer(self, observer):
+        """
+        Removes an observer for web server lifecycle events.
+
+        :param observer: the observer to remove
+        :type observer: any
+        """
+        if observer in self._web_server_observers:
+            self._web_server_observers.remove(observer)
 
     @log
     def _notify_model_observers(self, image_only=False):
@@ -673,48 +693,114 @@ class Controller:
     def start_www(self):
         """Starts web server"""
 
-        # only setup web content if needed
+        if DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES:
+            return
+
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STARTING
         self._notify_model_observers()
 
+        port_number = config.get_www_server_port_number()
+
+        startup_future = Future()
+        self._server_thread = Thread(
+            target=self._run_web_server,
+            args=(port_number, startup_future),
+            name="WebServer")
+        self._server_thread.start()
+
+    @log
+    def _run_web_server(self, port_number: int, startup_future: Future) -> None:
+        """
+        Prepares web content and runs the web server thread.
+
+        :param port_number: port number to bind
+        :param startup_future: future used to guard startup completion signals
+        """
+        try:
+            self._prepare_web_server_content()
+        except Exception as error:
+            if not startup_future.done():
+                startup_future.set_exception(error)
+                self._web_server.startup_failed_signal.emit(error)
+            return
+
+        self._web_server.start(WEB_SERVER_BIND_HOST, port_number, startup_future)
+
+    @log
+    def _prepare_web_server_content(self) -> None:
+        """
+        Prepares files served by the web server.
+        """
         Controller._setup_web_static_content()
         self._setup_web_initial_image()
         self.write_stack_info_json()
 
-        port_number = config.get_www_server_port_number()
-
-        if self._server_thread is None:
-            startup_future = Future()
-            self._server_thread = Thread(
-                target=self._web_server.start,
-                args=(WEB_SERVER_BIND_HOST, port_number, startup_future),
-                name="WebServer")
-            self._server_thread.start()
-            try:
-                startup_future.result()
-            except OSError as error:
-                self._server_thread.join()
-                self._server_thread = None
-                DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
-                self._notify_model_observers()
-                raise PortInUseError() from error
-            except Exception:
-                self._server_thread.join()
-                self._server_thread = None
-                DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
-                self._notify_model_observers()
-                raise
+    @log
+    def on_web_server_started(self) -> None:
+        """
+        Completes web server start state changes after bind success.
+        """
+        if DYNAMIC_DATA.web_server_status != WEB_SERVER_STATUS_STARTING:
+            return
 
         advertised_address = self.update_web_server_advertised_address()
         MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Image server started"))
 
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_RUNNING
+        self._notify_model_observers()
+        self._notify_web_server_started_observers()
 
         # if we can only advertise loopback, keep running but notify the powers that be
         if advertised_address.is_loopback:
-            raise WebServerOnLoopback()
+            self._notify_web_server_access_is_limited_observers(advertised_address.ip)
 
+    @log
+    def on_web_server_start_failed(self, error: Exception) -> None:
+        """
+        Completes web server start state changes after startup failure.
+
+        :param error: startup error reported by the web server thread
+        """
+        if DYNAMIC_DATA.web_server_status != WEB_SERVER_STATUS_STARTING:
+            return
+
+        self._server_thread = None
+        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
         self._notify_model_observers()
+
+        if isinstance(error, OSError):
+            observer_error = PortInUseError()
+        else:
+            observer_error = error
+        self._notify_web_server_start_failed_observers(observer_error)
+
+    @log
+    def _notify_web_server_started_observers(self) -> None:
+        """
+        Notifies web server observers that startup succeeded.
+        """
+        for observer in self._web_server_observers:
+            observer.on_web_server_started()
+
+    @log
+    def _notify_web_server_access_is_limited_observers(self, displayed_address: str) -> None:
+        """
+        Notifies web server observers that only loopback access can be advertised.
+
+        :param displayed_address: selected displayed address
+        """
+        for observer in self._web_server_observers:
+            observer.on_web_server_access_is_limited(displayed_address)
+
+    @log
+    def _notify_web_server_start_failed_observers(self, error: Exception) -> None:
+        """
+        Notifies web server observers that startup failed.
+
+        :param error: startup error
+        """
+        for observer in self._web_server_observers:
+            observer.on_web_server_start_failed(error)
 
     @staticmethod
     @log
