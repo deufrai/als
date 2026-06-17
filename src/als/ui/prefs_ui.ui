@@ -785,6 +785,7 @@
   <tabstop>btn_browse_flat</tabstop>
   <tabstop>ln_master_flat_path</tabstop>
   <tabstop>cmb_bayer_pattern</tabstop>
+  <tabstop>chk_www_own_folder</tabstop>
   <tabstop>btn_browse_work</tabstop>
   <tabstop>ln_work_folder_path</tabstop>
   <tabstop>btn_browse_web</tabstop>
