@@ -3,7 +3,7 @@ title: "Raccourcis clavier"
 description: "Les raccourcis clavier d'ALS"
 author: "ALS Team"
 
-lastmod: 2026-06-12T07:25:50Z
+lastmod: 2026-06-16T23:04:38Z
 keywords: [ "raccourcis clavier", "shortcuts" ]
 draft: false
 type: "docs"
@@ -38,42 +38,65 @@ weight: 100324
 
 ## Fenêtre
 
-{{< als-ks >}}D{{< /als-ks >}} bascule le mode **plein écran**
+{{< als-ks >}}F{{< /als-ks >}} bascule le mode **plein écran**
 
 </div>
 </div>
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 
-## Livestacking
+## Session
 
 {{< als-ks >}}R{{< /als-ks >}} **démarre** / **met en pause** / **reprend** la session
 
 {{< als-ks >}}X{{< /als-ks >}} **stoppe** la session
 
-{{< als-ks >}}A{{< /als-ks >}} ON/OFF **alignement** des brutes
-
 {{< als-ks >}}K{{< /als-ks >}} **acquitte** les problèmes
 
 </div>
-<div class="col-md-6">
 
-## Panneaux
+<div class="col-md-4">
 
-{{< als-ks >}}C{{< /als-ks >}} ON/OFF masquage `Contrôles principaux`
+## Empilement
 
-{{< als-ks >}}L{{< /als-ks >}} ON/OFF masquage `Journal de session`
+{{< als-ks >}}A{{< /als-ks >}} ON/OFF **alignement** des brutes
 
-{{< als-ks >}}P{{< /als-ks >}} ON/OFF masquage `Traitements`
+{{< als-ks >}}M{{< /als-ks >}} empile en mode **moyenne**
 
-{{< als-ks >}}I{{< /als-ks >}} ON/OFF mode **image seule**
+{{< als-ks >}}S{{< /als-ks >}} empile en mode **somme**
+
+</div>
+
+<div class="col-md-4">
+
+## Enregistrement
+
+{{< als-ks >}}T{{< /als-ks >}} ON/OFF mode **timelapse**
+
+{{< als-ks >}}D{{< /als-ks >}} Enregistre le **resultat** courant, horodaté
+
 
 </div>
 </div>
 
 <div class="row">
-<div class="col-md-6">
+
+<div class="col-md-4">
+
+## Panneaux
+
+{{< als-ks >}}C{{< /als-ks >}} ON/OFF `Contrôles principaux`
+
+{{< als-ks >}}L{{< /als-ks >}} ON/OFF `Journal de session`
+
+{{< als-ks >}}P{{< /als-ks >}} ON/OFF `Traitements`
+
+{{< als-ks >}}I{{< /als-ks >}} ON/OFF mode **image seule**
+
+</div>
+
+<div class="col-md-4">
 
 ## Image
 
@@ -85,27 +108,13 @@ weight: 100324
 
 {{< als-ks >}}B{{< /als-ks >}} **ajuste l'image** à la zone centrale
 </div>
-<div class="col-md-6">
+<div class="col-md-4">
 
-## Sorties
+## Serveur d'images
 
 {{< als-ks >}}W{{< /als-ks >}} ON/OFF **serveur** d'images
 
 {{< als-ks >}}Q{{< /als-ks >}} ON/OFF affichage **QR code**
 
-{{< als-ks >}}S{{< /als-ks >}} sauvegarde l'**image courante**
-
-{{< als-ks >}}F{{< /als-ks >}} ON/OFF sauvegarde **chaque image**
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-

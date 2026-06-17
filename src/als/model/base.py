@@ -5,6 +5,7 @@
 Provide base application data types
 """
 from logging import getLogger
+from typing import List
 
 import numpy as np
 from PyQt5.QtCore import pyqtSignal, QObject, QThread
@@ -13,6 +14,8 @@ from als.code_utilities import log, AlsLogAdapter
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
+STACKING_MODE_MEAN = "M"
+STACKING_MODE_SUM = "S"
 
 class Session(QObject):
     """
@@ -400,3 +403,69 @@ class PhotoProfile(RunningProfile):
         self._post_process_priority = QThread.HighestPriority
         self._file_read_size_polling_period = 1.5
         self._sigma_clipping_enabled = True
+
+
+class HistogramContainer:
+    """
+    Holds histogram data for an image (color or b&w)
+
+    also holds the global maximum among all held histograms and a way to get the number of bins
+    """
+    @log
+    def __init__(self):
+        self._histograms: List[np.ndarray] = list()
+        self._global_maximum: int = 0
+
+    @log(condense=True)
+    def add_histogram(self, histogram: np.ndarray):
+        """
+        Add an histogram
+
+        :param histogram: the histogram to add
+        :type histogram: numpy.ndarray
+        :return:
+        """
+        self._histograms.append(histogram)
+
+    @log(condense=True)
+    def get_histograms(self) -> List[np.ndarray]:
+        """
+        Gets the histograms
+
+        :return: the histograms
+        :rtype: List[numpy.ndarray]
+        """
+        return self._histograms
+
+    @property
+    @log
+    def global_maximum(self) -> int:
+        """
+        Gets the global maximum among all histograms
+
+        :return: the global maximum among all histograms
+        :rtype: int
+        """
+        return self._global_maximum
+
+    @global_maximum.setter
+    @log
+    def global_maximum(self, value: int):
+        """
+        Sets the global maximum among all histograms
+
+        :param value: the global maximum among all histograms
+        :type value: int
+        """
+        self._global_maximum = value
+
+    @property
+    @log
+    def bin_count(self):
+        """
+        Get the bin count, that is the length of any stored histogram. We check the first one if exists
+
+        :return: the number of bins used to compute the stored histograms.
+        :rtype: int
+        """
+        return len(self._histograms[0]) if self._histograms else 0

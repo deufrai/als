@@ -3,7 +3,7 @@ title: "Keyboard Shortcuts"
 description: "ALS Keyboard Shortcuts"
 author: "ALS Team"
 
-lastmod: 2026-06-12T07:25:50Z
+lastmod: 2026-06-16T23:04:38Z
 keywords: [ "keyboard shortcuts", "shortcuts" ]
 draft: false
 type: "docs"
@@ -38,25 +38,51 @@ weight: 100324
 
 ## Window
 
-{{< als-ks >}}D{{< /als-ks >}} toggles **full screen** mode
+{{< als-ks >}}F{{< /als-ks >}} toggles **full screen** mode
 
 </div>
 </div>
 
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 
-## Livestacking
+## Session
 
 {{< als-ks >}}R{{< /als-ks >}} **starts** / **pauses** / **resumes** the session
 
 {{< als-ks >}}X{{< /als-ks >}} **stops** the session
 
+{{< als-ks >}}K{{< /als-ks >}} **acknowledges** issues
+
+</div>
+
+<div class="col-md-4">
+
+## Stacking
+
 {{< als-ks >}}A{{< /als-ks >}} ON/OFF subs **alignment**
 
-{{< als-ks >}}K{{< /als-ks >}} **acknowledges** issues
+{{< als-ks >}}M{{< /als-ks >}} stacks in **mean** mode
+
+{{< als-ks >}}S{{< /als-ks >}} stacks in **sum** mode
+
 </div>
-<div class="col-md-6">
+
+<div class="col-md-4">
+
+## Saving
+
+{{< als-ks >}}T{{< /als-ks >}} ON/OFF **timelapse** mode
+
+{{< als-ks >}}D{{< /als-ks >}} Save current **result** with timestamp
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4">
 
 ## Panels
 
@@ -69,10 +95,8 @@ weight: 100324
 {{< als-ks >}}I{{< /als-ks >}} ON/OFF **image-only** mode
 
 </div>
-</div>
 
-<div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 
 ## Image
 
@@ -84,16 +108,13 @@ weight: 100324
 
 {{< als-ks >}}B{{< /als-ks >}} **fit image** to central area
 </div>
-<div class="col-md-6">
+<div class="col-md-4">
 
-## Outputs
+## Image server
 
 {{< als-ks >}}W{{< /als-ks >}} ON/OFF image **server**
 
 {{< als-ks >}}Q{{< /als-ks >}} ON/OFF **QR code** display
 
-{{< als-ks >}}S{{< /als-ks >}} save **current image**
-
-{{< als-ks >}}F{{< /als-ks >}} ON/OFF save **every next image**
 </div>
 </div>

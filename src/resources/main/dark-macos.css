@@ -10,7 +10,7 @@ QGroupBox {
     background-color: rgba(34, 34, 34, 255);
     border: 1px solid #333333;
     border-radius: 2px;
-    padding-top: 1.2em;
+    padding-top: 1em;
 }
 
 QPushButton {

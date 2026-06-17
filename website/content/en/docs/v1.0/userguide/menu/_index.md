@@ -3,7 +3,7 @@ title: "main menu"
 description: "The main menu"
 author: "ALS Team"
 
-lastmod: 2026-06-12T07:50:52Z
+lastmod: 2026-06-16T22:07:25Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["usage"]
@@ -106,6 +106,10 @@ Opens preferences
 ---
 
 ## View
+
+/*  
+    TODO: redo screenshots for this menu
+*/
 
 {{< center >}}
 {{< figure src="menu_view.png"

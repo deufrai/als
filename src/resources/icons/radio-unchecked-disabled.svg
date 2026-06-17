@@ -6,10 +6,6 @@
           cy="9"
           r="7.375"
           fill="none"
-          stroke="#555555"
+          stroke="#333333"
           stroke-width="0.75"/>
-  <circle cx="9"
-          cy="9"
-          r="4"
-          fill="#4e1111"/>
 </svg>

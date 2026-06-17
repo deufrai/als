@@ -3,7 +3,7 @@ title: "menu principal"
 description: "Le menu principal"
 author: "ALS Team"
 
-lastmod: 2026-06-12T07:50:52Z
+lastmod: 2026-06-16T22:07:25Z
 keywords: ["ALS Menu"]
 type: "docs"
 categories: ["utilisation"]
@@ -110,6 +110,10 @@ Ouvre les préférences
 ---
 
 ## Vue
+
+/*  
+    TODO: redo screenshots for this menu
+*/
 
 {{< center >}}
 {{< figure src="menu_view.png"

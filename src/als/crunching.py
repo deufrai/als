@@ -12,8 +12,7 @@ from PyQt5.QtCore import QT_TRANSLATE_NOOP
 
 from als.code_utilities import AlsLogAdapter, log
 from als.messaging import MESSAGE_HUB
-from als.model.base import Image
-from als.model.data import HistogramContainer
+from als.model.base import Image, HistogramContainer
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 

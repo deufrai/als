@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>549</width>
-    <height>510</height>
+    <width>523</width>
+    <height>505</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -32,7 +32,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
@@ -543,161 +543,69 @@
       <attribute name="title">
        <string>Output</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_13">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QGroupBox" name="groupBox_4">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
+        <widget class="QGroupBox" name="pathsBox">
          <property name="title">
-          <string>Storage</string>
+          <string>Folders</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
+         <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="title">
-             <string>Format</string>
+           <widget class="QCheckBox" name="chk_www_own_folder">
+            <property name="text">
+             <string>&amp;Dedicated web folder</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_2">
-                 <item>
-                  <widget class="QRadioButton" name="radioSaveTiff">
-                   <property name="text">
-                    <string>T&amp;IFF</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioSavePng">
-                   <property name="text">
-                    <string>PN&amp;G</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioSaveJpeg">
-                   <property name="text">
-                    <string>&amp;JPEG</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_8">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-            </layout>
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="pathsBox">
-            <property name="title">
-             <string>Output folders</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_9">
-               <item>
-                <widget class="QPushButton" name="btn_browse_work">
-                 <property name="text">
-                  <string>&amp;Work folder...</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="ln_work_folder_path">
-                 <property name="minimumSize">
-                  <size>
-                   <width>350</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string notr="true"/>
-                 </property>
-                 <property name="readOnly">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="chk_www_own_folder">
-               <property name="text">
-                <string>&amp;Dedicacted web folder</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="lyt_www_folder">
-               <item>
-                <widget class="QPushButton" name="btn_browse_web">
-                 <property name="text">
-                  <string>We&amp;b folder...</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="ln_web_folder_path">
-                 <property name="minimumSize">
-                  <size>
-                   <width>350</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string notr="true"/>
-                 </property>
-                 <property name="readOnly">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_5">
-            <property name="title">
-             <string>Autosave</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
-             <item>
-              <widget class="QCheckBox" name="chk_save_on_stop">
-               <property name="toolTip">
-                <string>Save processed image to disk when stopping a running session. Can be overriden at runtime</string>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
-               </property>
-               <property name="text">
-                <string>Timestamped result on session &amp;stop</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btn_browse_work">
+              <property name="text">
+               <string>&amp;Work folder...</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="ln_work_folder_path">
+              <property name="minimumSize">
+               <size>
+                <width>350</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string notr="true"/>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="btn_browse_web">
+              <property name="text">
+               <string>We&amp;b folder...</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="ln_web_folder_path">
+              <property name="minimumSize">
+               <size>
+                <width>350</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string notr="true"/>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -877,15 +785,10 @@
   <tabstop>btn_browse_flat</tabstop>
   <tabstop>ln_master_flat_path</tabstop>
   <tabstop>cmb_bayer_pattern</tabstop>
-  <tabstop>radioSaveTiff</tabstop>
-  <tabstop>radioSavePng</tabstop>
-  <tabstop>radioSaveJpeg</tabstop>
   <tabstop>btn_browse_work</tabstop>
   <tabstop>ln_work_folder_path</tabstop>
-  <tabstop>chk_www_own_folder</tabstop>
   <tabstop>btn_browse_web</tabstop>
   <tabstop>ln_web_folder_path</tabstop>
-  <tabstop>chk_save_on_stop</tabstop>
   <tabstop>cmb_web_server_address</tabstop>
   <tabstop>ln_web_server_port</tabstop>
   <tabstop>btn_OK</tabstop>

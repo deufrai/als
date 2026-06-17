@@ -21,7 +21,7 @@ from als import config
 from als.code_utilities import log, AlsException, SignalingQueue, get_timestamp, \
     available_memory, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
-from als.model.base import Image, Session, VisualProfile, PhotoProfile
+from als.model.base import Image, Session, VisualProfile, PhotoProfile, STACKING_MODE_MEAN, STACKING_MODE_SUM
 from als.model.data import (
     DYNAMIC_DATA,
     I18n, STACKED_IMAGE_FILE_NAME_BASE,
@@ -30,8 +30,8 @@ from als.model.data import (
     WEB_SERVER_STATUS_STOPPED, WEB_SERVER_STATUS_STOPPING
 )
 from als.model.params import ProcessingParameter
-
-from als.processing import FileReader, Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, AutoStretch, \
+from als.processing import FileReader, Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, \
+    AutoStretch, \
     HotPixelRemover, RemoveDark, HistogramComputer, QImageGenerator, RemoveFlat, QueueConsumer
 from als.stack import Stacker
 from als.streams.input import InputScanner, ScannerStartError
@@ -112,7 +112,6 @@ class Controller:
 
         self._stacker_queue: SignalingQueue = DYNAMIC_DATA.stacker_queue
         self._stacker: Stacker = Stacker(self._stacker_queue, self._profile)
-        self._stacker.stacking_mode = I18n.STACKING_MODE_MEAN
         self._stacker.align_before_stack = True
         self._stacker.start(self._profile.get_stacking_priority)
 
@@ -172,6 +171,8 @@ class Controller:
         self._metrics_timer.setInterval(2000)
         self._metrics_timer.timeout.connect(self.collect_metrics)
         self._metrics_timer.start()
+
+        self._reset_current_sub_infos()
 
     @log
     def collect_metrics(self):
@@ -286,24 +287,42 @@ class Controller:
         self._stacker.align_before_stack = align
 
     @log
-    def get_stacking_mode(self):
+    def is_stacking_mode_mean(self):
         """
-        Gets current stacking mode
+        Is stacker set to mean stacking mode
 
-        :return: the stacking mode
-        :rtype: str
+        :return: the truth
+        :rtype: bool
         """
-        return self._stacker.stacking_mode
+        pass
+        return self._stacker.stacking_mode == STACKING_MODE_MEAN
+
 
     @log
-    def set_stacking_mode(self, mode):
+    def is_stacking_mode_sum(self):
         """
-        Sets current stacking mode
+        Is stacker set to sum stacking mode
 
-        :param mode: stacking mode
-        :type mode: str
+        :return: the truth
+        :rtype: bool
         """
-        self._stacker.stacking_mode = mode
+        return self._stacker.stacking_mode == STACKING_MODE_SUM
+
+    @log
+    def set_stacking_mode_mean(self):
+        """
+        Sets current stacking mode to mean
+        """
+        self._stacker.stacking_mode = STACKING_MODE_MEAN
+
+
+    @log
+    def set_stacking_mode_sum(self):
+        """
+        Sets current stacking mode to mean
+        """
+        self._stacker.stacking_mode = STACKING_MODE_SUM
+
 
     @log
     def on_stack_size_changed(self, size):
@@ -376,6 +395,13 @@ class Controller:
         :param image: the new image
         :type image: Image
         """
+        DYNAMIC_DATA.current_sub_width = image.width
+        DYNAMIC_DATA.current_sub_height = image.height
+        DYNAMIC_DATA.current_sub_exposure_time = image.exposure_time
+
+        DYNAMIC_DATA.current_sub_is_color = image.is_color() or image.bayer_pattern != ""
+
+        DYNAMIC_DATA.current_sub_bayer_pattern = image.bayer_pattern
         self._pre_process_queue.put(image)
 
     @log
@@ -552,6 +578,7 @@ class Controller:
                 DYNAMIC_DATA.has_new_warnings = False
                 self._stacker.reset()
                 self._subs_processing_start_times.clear()
+                self._reset_current_sub_infos()
                 DYNAMIC_DATA.last_timing = 0
                 DYNAMIC_DATA.total_exposure_time = 0
                 DYNAMIC_DATA.clear_master_calibration_cache()
@@ -587,7 +614,7 @@ class Controller:
                 MESSAGE_HUB.dispatch_info(
                     __name__,
                     QT_TRANSLATE_NOOP("", "Session started in mode {} with alignment {}"),
-                    [self._stacker.stacking_mode, self._stacker.align_before_stack])
+                    [I18n.STACKING_MODES[self._stacker.stacking_mode], self._stacker.align_before_stack])
 
                 # setup web content
                 try:
@@ -768,6 +795,15 @@ class Controller:
 
         while not queue.empty():
             queue.get()
+
+    @log
+    def _reset_current_sub_infos(self):
+        
+        DYNAMIC_DATA.current_sub_width = "n/a"
+        DYNAMIC_DATA.current_sub_height = "n/a"
+        DYNAMIC_DATA.current_sub_exposure_time = "n/a"
+        DYNAMIC_DATA.current_sub_is_color = False
+        DYNAMIC_DATA.current_sub_bayer_pattern = ""
 
     @staticmethod
     @log

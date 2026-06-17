@@ -7,12 +7,11 @@ Provides base application data
 from logging import getLogger
 from typing import List, Optional
 
-import numpy as np
 from PyQt5.QtCore import QObject
 
 import als
 from als.code_utilities import SignalingQueue, log, AlsLogAdapter
-from als.model.base import Image, Session
+from als.model.base import Image, Session, STACKING_MODE_MEAN, STACKING_MODE_SUM
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -46,9 +45,10 @@ class I18n(QObject):
     All strings are initialized with dummy text and MUST be defined in setup()
     """
 
-    STACKING_MODE_SUM = "TEMP"
-    STACKING_MODE_MEAN = "TEMP"
-    WORKER_STATUS_BUSY = "TEMP"
+    STACKING_MODE_SUM_STR = "TEMP"
+    STACKING_MODE_MEAN_STR = "TEMP"
+
+    STACKING_MODES = {}
 
     SCANNER = "TEMP"
     OF = "TEMP"
@@ -93,9 +93,8 @@ class I18n(QObject):
         """
         Sets real values for localized strings
         """
-        I18n.STACKING_MODE_SUM = self.tr("Sum")
-        I18n.STACKING_MODE_MEAN = self.tr("Mean")
-        I18n.WORKER_STATUS_BUSY = self.tr("busy")
+        I18n.STACKING_MODE_SUM_STR = self.tr("Sum")
+        I18n.STACKING_MODE_MEAN_STR = self.tr("Mean")
         I18n.SCANNER = self.tr("scanner")
         I18n.OF = self.tr("of")
         I18n.PROFILE = self.tr("Profile")
@@ -127,6 +126,9 @@ class I18n(QObject):
         I18n.SCAN_FOLDER = self.tr("scan folder")
         I18n.WORK_FOLDER = self.tr("work folder")
         I18n.WEB_FOLDER = self.tr("web folder")
+
+        I18n.STACKING_MODES[STACKING_MODE_MEAN] = I18n.STACKING_MODE_MEAN_STR
+        I18n.STACKING_MODES[STACKING_MODE_SUM] = I18n.STACKING_MODE_SUM_STR
 
 
 # pylint: disable=R0902, R0903
@@ -160,6 +162,11 @@ class DynamicData:
         self.total_exposure_time: int = 0
         self.master_dark: Optional[Image] = None
         self.master_flat: Optional[Image] = None
+        self.current_sub_width = "n/a"
+        self.current_sub_height = "n/a"
+        self.current_sub_exposure_time = "n/a"
+        self.current_sub_is_color = False
+        self.current_sub_bayer_pattern = ""
 
     @log
     def clear_master_calibration_cache(self) -> None:
@@ -168,72 +175,6 @@ class DynamicData:
         """
         self.master_dark = None
         self.master_flat = None
-
-
-class HistogramContainer:
-    """
-    Holds histogram data for an image (color or b&w)
-
-    also holds the global maximum among all held histograms and a way to get the number of bins
-    """
-    @log
-    def __init__(self):
-        self._histograms: List[np.ndarray] = list()
-        self._global_maximum: int = 0
-
-    @log(condense=True)
-    def add_histogram(self, histogram: np.ndarray):
-        """
-        Add an histogram
-
-        :param histogram: the histogram to add
-        :type histogram: numpy.ndarray
-        :return:
-        """
-        self._histograms.append(histogram)
-
-    @log(condense=True)
-    def get_histograms(self) -> List[np.ndarray]:
-        """
-        Gets the histograms
-
-        :return: the histograms
-        :rtype: List[numpy.ndarray]
-        """
-        return self._histograms
-
-    @property
-    @log
-    def global_maximum(self) -> int:
-        """
-        Gets the global maximum among all histograms
-
-        :return: the global maximum among all histograms
-        :rtype: int
-        """
-        return self._global_maximum
-
-    @global_maximum.setter
-    @log
-    def global_maximum(self, value: int):
-        """
-        Sets the global maximum among all histograms
-
-        :param value: the global maximum among all histograms
-        :type value: int
-        """
-        self._global_maximum = value
-
-    @property
-    @log
-    def bin_count(self):
-        """
-        Get the bin count, that is the length of any stored histogram. We check the first one if exists
-
-        :return: the number of bins used to compute the stored histograms.
-        :rtype: int
-        """
-        return len(self._histograms[0]) if self._histograms else 0
 
 
 DYNAMIC_DATA = DynamicData()

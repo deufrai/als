@@ -4,6 +4,8 @@
         <file alias="tick-disabled.svg">icons/tick-disabled.svg</file>
         <file alias="radio-unchecked.svg">icons/radio-unchecked.svg</file>
         <file alias="radio-checked.svg">icons/radio-checked.svg</file>
+        <file alias="radio-unchecked-disabled.svg">icons/radio-unchecked-disabled.svg</file>
+        <file alias="radio-checked-disabled.svg">icons/radio-checked-disabled.svg</file>
         <file alias="dropdown_arrow.svg">icons/dropdown_arrow.svg</file>
         <file alias="warning_sign.svg">icons/warning_sign.svg</file>
         <file alias="als_logo.png">icons/als_logo.png</file>

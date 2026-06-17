@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>345</width>
-     <height>721</height>
+     <width>322</width>
+     <height>747</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -122,42 +122,41 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QVBoxLayout" name="verticalLayout_6">
+    <layout class="QVBoxLayout" name="verticalLayout_16">
      <item>
-      <widget class="QGroupBox" name="groupBox">
+      <widget class="QGroupBox" name="grp_session">
        <property name="title">
         <string>Session</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
+         <widget class="QLabel" name="lbl_session_status">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string notr="true">SESSSTATE</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="openExternalLinks">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QPushButton" name="btn_session_start">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="toolTip">
-             <string>Start / Resume session</string>
+             <string>Starts a stopped session, pauses a running session or resumes a paused session</string>
             </property>
             <property name="statusTip">
-             <string>Start / Resume session</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
+             <string>Controls session start and pause</string>
             </property>
             <property name="text">
              <string>START</string>
@@ -165,39 +164,13 @@
             <property name="shortcut">
              <string>R</string>
             </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btn_session_pause">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string>Pause session</string>
-            </property>
-            <property name="statusTip">
-             <string>Pause session</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
             <property name="text">
              <string>PAUSE</string>
             </property>
@@ -251,232 +224,102 @@
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="lbl_session_status">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="openExternalLinks">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox_4">
-       <property name="title">
-        <string>Stack</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_16">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_11">
-          <property name="bottomMargin">
-           <number>7</number>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="topMargin">
+           <number>5</number>
           </property>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <item>
-             <widget class="QCheckBox" name="chk_align">
-              <property name="maximumSize">
-               <size>
-                <width>150</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string>Align frames before stacking</string>
-              </property>
-              <property name="statusTip">
-               <string>Align frames before stacking</string>
-              </property>
-              <property name="text">
-               <string>Align</string>
-              </property>
-              <property name="shortcut">
-               <string>A</string>
-              </property>
-              <property name="checked">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_11">
-              <property name="text">
-               <string>Mode</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="cb_stacking_mode">
-              <property name="minimumSize">
-               <size>
-                <width>110</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string>Stacking method</string>
-              </property>
-              <property name="statusTip">
-               <string>Stacking method</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QGridLayout" name="alignThresholdLayout">
-            <item row="0" column="2">
-             <widget class="QSlider" name="sld_align_threshold">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string>Required number of common asterisms with stack reference</string>
-              </property>
-              <property name="statusTip">
-               <string>Required number of common asterisms with stack reference</string>
-              </property>
-              <property name="minimum">
-               <number>5</number>
-              </property>
-              <property name="maximum">
-               <number>60</number>
-              </property>
-              <property name="pageStep">
-               <number>1</number>
-              </property>
-              <property name="value">
-               <number>25</number>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="tickPosition">
-               <enum>QSlider::NoTicks</enum>
-              </property>
-              <property name="tickInterval">
-               <number>10</number>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="lbl_align_threshold">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="text">
-               <string notr="true">0</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_3">
-              <property name="text">
-               <string>Min. matches</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_11">
-          <item>
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Size and exposure</string>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chk_align">
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Align frames before stacking</string>
+            </property>
+            <property name="statusTip">
+             <string>Align frames before stacking</string>
+            </property>
+            <property name="text">
+             <string>Align</string>
+            </property>
+            <property name="shortcut">
+             <string>A</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_14">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>12</number>
+            </property>
+            <property name="leftMargin">
+             <number>26</number>
+            </property>
             <item>
-             <widget class="QLabel" name="lbl_stack_size">
-              <property name="font">
-               <font>
-                <pointsize>22</pointsize>
-                <kerning>true</kerning>
-               </font>
-              </property>
+             <widget class="QRadioButton" name="radio_stack_mean">
               <property name="toolTip">
-               <string>stack size for this session</string>
+               <string>Switches stacking mode to Mean</string>
               </property>
               <property name="statusTip">
-               <string>stack size for this session</string>
+               <string>Switches stacking mode to Mean</string>
               </property>
               <property name="text">
-               <string notr="true">0</string>
+               <string>Mean</string>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
+              <property name="shortcut">
+               <string>M</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="lbl_stack_exposure">
-              <property name="font">
-               <font>
-                <family>Ubuntu</family>
-                <pointsize>10</pointsize>
-                <kerning>true</kerning>
-               </font>
-              </property>
+             <widget class="QRadioButton" name="radio_stack_sum">
               <property name="toolTip">
-               <string>Stack total exposure time</string>
+               <string>Switches stacking mode to Sum</string>
               </property>
               <property name="statusTip">
-               <string>Stack total exposure time</string>
+               <string>Switches stacking mode to Sum</string>
               </property>
               <property name="text">
-               <string notr="true">0</string>
+               <string>Sum</string>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
+              <property name="shortcut">
+               <string>S</string>
               </property>
              </widget>
             </item>
            </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -484,11 +327,180 @@
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="groupBox_2">
+      <widget class="QGroupBox" name="grp_stack">
+       <property name="title">
+        <string>Stack</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_11">
+        <item>
+         <widget class="QFrame" name="frm_stack_info">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>Total exposure</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_stack_exposure">
+               <property name="font">
+                <font>
+                 <family>Ubuntu</family>
+                 <pointsize>10</pointsize>
+                 <kerning>true</kerning>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Stack total exposure time</string>
+               </property>
+               <property name="statusTip">
+                <string>Stack total exposure time</string>
+               </property>
+               <property name="text">
+                <string notr="true">0</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="lbl_stack_size">
+             <property name="font">
+              <font>
+               <pointsize>22</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>stack size for this session</string>
+             </property>
+             <property name="statusTip">
+              <string>stack size for this session</string>
+             </property>
+             <property name="text">
+              <string notr="true">0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="1,0,0">
+          <item>
+           <widget class="QSlider" name="sld_align_threshold">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Required number of common asterisms with stack reference</string>
+            </property>
+            <property name="statusTip">
+             <string>Required number of common asterisms with stack reference</string>
+            </property>
+            <property name="minimum">
+             <number>5</number>
+            </property>
+            <property name="maximum">
+             <number>60</number>
+            </property>
+            <property name="pageStep">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>25</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::NoTicks</enum>
+            </property>
+            <property name="tickInterval">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_align_threshold">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string notr="true">0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>matches min.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="grp_server">
        <property name="title">
         <string>Image server</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="lbl_web_server_status_main">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="text">
+           <string notr="true">SERVSTATE</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="openExternalLinks">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_10">
           <item>
@@ -547,19 +559,494 @@
           </item>
          </layout>
         </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="grp_save">
+       <property name="title">
+        <string>Save</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QLabel" name="lbl_web_server_status_main">
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <item>
+           <widget class="QPushButton" name="btn_save_on_stop">
+            <property name="toolTip">
+             <string>On session stop, save the latest result in a timestamped file</string>
+            </property>
+            <property name="statusTip">
+             <string>On session stop, save result in timestamped file</string>
+            </property>
+            <property name="text">
+             <string>Auto</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_save_every_image">
+            <property name="toolTip">
+             <string>Save every new result in a timestamped file</string>
+            </property>
+            <property name="statusTip">
+             <string>Save every new result in a timestamped file</string>
+            </property>
+            <property name="text">
+             <string>Timelapse</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_save">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Save the current result in a timestamped file</string>
+            </property>
+            <property name="statusTip">
+             <string>Save the current result in a timestamped file</string>
+            </property>
+            <property name="text">
+             <string>Current</string>
+            </property>
+            <property name="shortcut">
+             <string>D</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <property name="spacing">
+           <number>12</number>
+          </property>
+          <property name="topMargin">
+           <number>4</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radio_save_tiff">
+            <property name="toolTip">
+             <string>Save images as TIFF</string>
+            </property>
+            <property name="statusTip">
+             <string>Save images as TIFF</string>
+            </property>
+            <property name="text">
+             <string>TIFF</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radio_save_png">
+            <property name="toolTip">
+             <string>Save images as PNG</string>
+            </property>
+            <property name="statusTip">
+             <string>Save images as PNG</string>
+            </property>
+            <property name="text">
+             <string>PNG</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radio_save_jpeg">
+            <property name="toolTip">
+             <string>Save images as JPEG</string>
+            </property>
+            <property name="statusTip">
+             <string>Save images as JPEG</string>
+            </property>
+            <property name="text">
+             <string>JPEG</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="grp_infos">
+       <property name="toolTip">
+        <string>Current sub infos :
+Details extracted from the current sub
+
+Modules status :
+A colored tag is displayed in front of busy module
+When a module has elements in its queue, their count is displayed</string>
+       </property>
+       <property name="statusTip">
+        <string>Modules status</string>
+       </property>
+       <property name="title">
+        <string>Infos</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_14">
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <property name="spacing">
+           <number>26</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <property name="spacing">
+             <number>4</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>Current sub</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QGridLayout" name="gridLayout_4" columnminimumwidth="0,0,0">
+              <property name="topMargin">
+               <number>4</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>4</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>2</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>Width</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="lbl_sub_width">
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string notr="true">px</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Height</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="lbl_sub_height">
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string notr="true">px</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>Exposure</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="lbl_sub_expo">
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="label_19">
+                <property name="text">
+                 <string notr="true">s</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLabel" name="lbl_sub_color">
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLabel" name="lbl_sub_bayer">
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_13">
+            <property name="spacing">
+             <number>4</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>Modules</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
+              <property name="topMargin">
+               <number>4</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>6</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>2</number>
+              </property>
+              <item row="4" column="0">
+               <widget class="QLabel" name="lbl_name_save">
+                <property name="text">
+                 <string>Save</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="lbl_file_reader_queue_size">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string notr="true">0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="lbl_name_process">
+                <property name="text">
+                 <string>Process</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="lbl_name_preprocess">
+                <property name="text">
+                 <string>Pre-process</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="lbl_name_stack">
+                <property name="text">
+                 <string>Stack</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="lbl_pre_process_queue_size">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string notr="true">0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLabel" name="lbl_save_queue_size">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string notr="true">0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="lbl_name_scanner">
+                <property name="text">
+                 <string>Scanner</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLabel" name="lbl_process_queue_size">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string notr="true">0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="lbl_stack_queue_size">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string notr="true">0</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_available_update">
+          <property name="toolTip">
+           <string>A new ALS version is available online. Check ALS website to know more...</string>
+          </property>
           <property name="text">
-           <string/>
+           <string notr="true">NEW VERSION UPDATE</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="openExternalLinks">
-           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -573,256 +1060,11 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>278</width>
-         <height>104</height>
+         <width>20</width>
+         <height>35</height>
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="lbl_available_update">
-       <property name="toolTip">
-        <string>A new ALS version is available online. Check ALS website to know more...</string>
-       </property>
-       <property name="text">
-        <string notr="true">NEW VERSION UPDATE</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout" rowminimumheight="20,0,0,0,0,0">
-       <property name="bottomMargin">
-        <number>10</number>
-       </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_24">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Module</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="label_22">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Queue size</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label_23">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Status</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_21">
-         <property name="text">
-          <string>Scanner</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="lbl_file_reader_queue_size">
-         <property name="text">
-          <string notr="true">0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="lbl_file_reader_status">
-         <property name="text">
-          <string>status</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>Pre-process</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="lbl_pre_process_queue_size">
-         <property name="text">
-          <string notr="true">0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLabel" name="lbl_pre_processor_status">
-         <property name="text">
-          <string>status</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_19">
-         <property name="text">
-          <string>Stack</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLabel" name="lbl_stack_queue_size">
-         <property name="text">
-          <string notr="true">0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QLabel" name="lbl_stacker_status">
-         <property name="text">
-          <string>status</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_18">
-         <property name="text">
-          <string>Process</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLabel" name="lbl_process_queue_size">
-         <property name="text">
-          <string notr="true">0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2">
-        <widget class="QLabel" name="lbl_post_processor_status">
-         <property name="text">
-          <string>status</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_20">
-         <property name="text">
-          <string>Save</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLabel" name="lbl_save_queue_size">
-         <property name="text">
-          <string notr="true">0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QLabel" name="lbl_saver_status">
-         <property name="text">
-          <string>status</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_12">
-       <item>
-        <widget class="QPushButton" name="btn_save">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>Save current image to disk</string>
-         </property>
-         <property name="statusTip">
-          <string>Save current image to disk</string>
-         </property>
-         <property name="text">
-          <string>Current result</string>
-         </property>
-         <property name="shortcut">
-          <string>S</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btn_save_every_image">
-         <property name="toolTip">
-          <string>Save every new image in a timestamped file</string>
-         </property>
-         <property name="statusTip">
-          <string>Save every new image in a timestamped file</string>
-         </property>
-         <property name="text">
-          <string>Each new result</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="btn_issues">
@@ -1000,7 +1242,7 @@
    <widget class="QWidget" name="dockWidgetContents_3">
     <layout class="QVBoxLayout" name="verticalLayout_9">
      <item>
-      <widget class="QGroupBox" name="groupBox_7">
+      <widget class="QGroupBox" name="grp_histo">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -1010,6 +1252,9 @@
        <property name="title">
         <string>Histogram</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
          <widget class="HistogramView" name="histogram_view" native="true">
@@ -1018,6 +1263,11 @@
             <width>250</width>
             <height>100</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <stylestrategy>PreferAntialias</stylestrategy>
+           </font>
           </property>
          </widget>
         </item>
@@ -1530,7 +1780,7 @@
     <string>Full Screen</string>
    </property>
    <property name="shortcut">
-    <string notr="true">D</string>
+    <string notr="true">F</string>
    </property>
   </action>
   <action name="action_image_only">

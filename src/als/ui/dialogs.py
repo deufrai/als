@@ -102,16 +102,6 @@ class PreferencesDialog(QDialog):
         self._ui.chk_use_dark.setChecked(config.get_use_master_dark())
         self._ui.chk_use_flat.setChecked(config.get_use_master_flat())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
-        self._ui.chk_save_on_stop.setChecked(config.get_save_on_stop())
-
-        config_to_image_save_type_mapping = {
-
-            als.model.data.IMAGE_SAVE_TYPE_JPEG: self._ui.radioSaveJpeg,
-            als.model.data.IMAGE_SAVE_TYPE_PNG:  self._ui.radioSavePng,
-            als.model.data.IMAGE_SAVE_TYPE_TIFF: self._ui.radioSaveTiff
-        }
-
-        config_to_image_save_type_mapping[config.get_image_save_format()].setChecked(True)
 
         self._profile_config_mapping = {
 
@@ -286,8 +276,6 @@ class PreferencesDialog(QDialog):
 
         config.set_hot_pixel_remover(self._ui.chk_use_hpr.isChecked())
 
-        config.set_save_on_stop(self._ui.chk_save_on_stop.isChecked())
-
         if web_server_port_number_str.isdigit() and 1024 <= int(web_server_port_number_str) <= 65535:
             config.set_www_server_port_number(int(web_server_port_number_str))
         else:
@@ -309,17 +297,6 @@ class PreferencesDialog(QDialog):
             config.set_debug_log(debug_new_value)
             settings_needing_restart[LOG] = True
 
-        image_save_type_to_config_mapping = {
-
-            self._ui.radioSaveJpeg: als.model.data.IMAGE_SAVE_TYPE_JPEG,
-            self._ui.radioSavePng: als.model.data.IMAGE_SAVE_TYPE_PNG,
-            self._ui.radioSaveTiff: als.model.data.IMAGE_SAVE_TYPE_TIFF
-        }
-
-        for radio_button, image_save_type in image_save_type_to_config_mapping.items():
-            if radio_button.isChecked():
-                config.set_image_save_format(image_save_type)
-                break
 
         # profile choice
         profile_old_value = config.get_profile()

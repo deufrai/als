@@ -15,8 +15,7 @@ from skimage.transform import SimilarityTransform
 from als import config
 from als.code_utilities import log, Timer, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
-from als.model.base import Image, RunningProfile
-from als.model.data import I18n
+from als.model.base import Image, RunningProfile, STACKING_MODE_SUM, STACKING_MODE_MEAN
 from als.processing import ImageQueueConsumer
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -50,7 +49,6 @@ def _convert_subset_transform_to_full_frame(
     )
     return SimilarityTransform(matrix=full_frame_matrix)
 
-
 # pylint: disable=R0902
 class Stacker(ImageQueueConsumer):
     """
@@ -66,7 +64,7 @@ class Stacker(ImageQueueConsumer):
         self._size: int = 0
         self._last_stacking_result: Image = None
         self._align_reference: Image = None
-        self._stacking_mode = I18n.STACKING_MODE_MEAN
+        self._stacking_mode = STACKING_MODE_MEAN
         self._align_before_stack = True
         self._profile = profile
         self._variance_accumulator = None
@@ -447,11 +445,11 @@ class Stacker(ImageQueueConsumer):
         :type image: Image
         """
 
-        if self._stacking_mode == I18n.STACKING_MODE_SUM:
+        if self._stacking_mode == STACKING_MODE_SUM:
             _LOGGER.debug("Stacking in Sum mode...")
             image.data = image.data + self._last_stacking_result.data
 
-        elif self._stacking_mode == I18n.STACKING_MODE_MEAN:
+        elif self._stacking_mode == STACKING_MODE_MEAN:
             _LOGGER.debug("Stacking in Mean mode...")
 
             if self._profile.is_sigma_clipping_enabled:

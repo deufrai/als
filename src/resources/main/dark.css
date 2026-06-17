@@ -13,7 +13,10 @@ QWidget:disabled {
 
 QPushButton {
     background-color: #333333;
-    border: 1px solid #444444;
+    border-left: 1px solid #525252;
+    border-top: 1px solid #525252;
+    border-right: 1px solid #383838;
+    border-bottom: 1px solid #383838;
     border-radius: 3px;
     padding: 5px 5px;
     margin: 0 2px;
@@ -22,7 +25,7 @@ QPushButton {
 QPushButton:disabled {
     background-color: #222222;
     border: 1px solid #333333;
-    color: #777777
+    color: #333333;
 
 }
 
@@ -42,8 +45,8 @@ QPushButton:enabled:checked:pressed {
 
 QPushButton:enabled:checked {
     background-color: #4e1111;
-    border-left: 1px solid #111111;
-    border-top: 1px solid #111111;
+    border-left: 1px solid #171717;
+    border-top: 1px solid #171717;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
 
@@ -224,6 +227,20 @@ QLineEdit {
     selection-background-color: #4e1111;
 }
 
+QLabel#lbl_session_status,
+QLabel#lbl_web_server_status_main,
+QFrame#frm_stack_info {
+    text-transform: uppercase;
+
+    border-left: 1px solid #191919;
+    border-top: 1px solid #191919;
+    border-right: 1px solid #282828;
+    border-bottom: 1px solid #282828;
+
+    border-radius: 2px;
+    color: #A8A8A8;
+}
+
 QToolTip
 {
      border-left: 1px solid #555555;
@@ -246,7 +263,7 @@ QCheckBox::indicator {
     width: 18px;
     height: 18px;
 
-    border: 1px solid #555555;
+    border: 1px solid #444444;
     border-radius: 4px;
 }
 
@@ -268,8 +285,15 @@ QCheckBox::indicator:checked:disabled {
     image: url(:icons/tick-disabled.svg);
 }
 
+QRadioButton::indicator:checked:enabled {
+    background-color: transparent;
+    border: 0;
+    width: 18px;
+    height: 18px;
+    image: url(:icons/radio-checked.svg);
+}
 
-QRadioButton::indicator {
+QRadioButton::indicator:unchecked:enabled {
     background-color: transparent;
     border: 0;
     width: 18px;
@@ -277,54 +301,77 @@ QRadioButton::indicator {
     image: url(:icons/radio-unchecked.svg);
 }
 
+QRadioButton::indicator:checked:disabled {
+    background-color: transparent;
+    border: 0;
+    width: 18px;
+    height: 18px;
+    image: url(:icons/radio-checked-disabled.svg);
+}
+
+QRadioButton::indicator:unchecked:disabled {
+    background-color: transparent;
+    border: 0;
+    width: 18px;
+    height: 18px;
+    image: url(:icons/radio-unchecked-disabled.svg);
+}
+
 QRadioButton::indicator:enabled:hover,
-QRadioButton::indicator:focus {
+QRadioButton::indicator:enabled:focus {
 
     border-radius: 8px;
     border: 1px solid #666666;
     width: 16px;
     height: 16px;
-
 }
-
-QRadioButton::indicator:checked {
-    image: url(:icons/radio-checked.svg);
-}
-
 
 QSlider::groove:horizontal {
     background-color: #222222;
-    border: 1px solid #444444;
+    border-left: 1px solid #171717;
+    border-top: 1px solid #171717;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
     border-radius: 2px;
     height: 4px;
 }
 
+QSlider::sub-page:horizontal {
+    background-color: #4e1111;
+    border-left: 1px solid #171717;
+    border-top: 1px solid #171717;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-radius: 2px;
+    height: 4px;
+}
+
+QSlider::groove:horizontal:disabled,
+QSlider::sub-page:horizontal:disabled {
+    background-color: #222222;
+    border: 1px solid #333333;
+}
+
 QSlider::handle:horizontal {
-    background-color: #444444;
-    border: 1px solid #222222;
+    background-color: #333333;
+    border-left: 1px solid #525252;
+    border-top: 1px solid #525252;
+    border-right: 1px solid #383838;
+    border-bottom: 1px solid #383838;
     border-radius: 3px;
     margin: -4px 0;
     width: 14px;
 }
 
+QSlider::handle:horizontal:disabled {
+    background-color: #333333;
+    border: 1px solid #333333;
+}
+
 QSlider::handle:horizontal:enabled:hover,
 QDialog#PrefsDialog QSlider::handle:horizontal:focus{
-    background-color: #333333;
     border: 1px solid #666666;
 }
-
-
-QSlider::sub-page:horizontal {
-    background-color: #750000;
-    border: 1px solid #444444;
-    border-radius: 2px;
-    height: 4px;
-}
-
-QSlider::sub-page:horizontal:disabled {
-    background-color: #444444;
-}
-
 
 QGroupBox#groupBox_9 QSlider:horizontal,
 QGroupBox#groupBox_6 QSlider:horizontal,

@@ -35,10 +35,12 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
     message_box, SessionStopDialog, QRDisplay
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
-from als.ui.platform_ui import configure_platform_ui
+from als.ui.platform_ui import configure_platform_ui, set_groupbox_spacing
 from als.ui.widgets import Slider
 from als.updates import find_available_update
 from als.version import version as BUILD_VERSION
+from als.model.data import IMAGE_SAVE_TYPE_TIFF, IMAGE_SAVE_TYPE_PNG, IMAGE_SAVE_TYPE_JPEG
+from als.model.base import Image
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
@@ -78,22 +80,28 @@ class MainWindow(QMainWindow):
         self._update_check_reply = None
         self._update_check_timeout_timer = None
 
-        # populate stacking mode combo box=
-        self._ui.cb_stacking_mode.blockSignals(True)
-        stacking_modes = [I18n.STACKING_MODE_SUM, I18n.STACKING_MODE_MEAN]
-        for stacking_mode in stacking_modes:
-            self._ui.cb_stacking_mode.addItem(stacking_mode)
-        self._ui.cb_stacking_mode.setCurrentIndex(stacking_modes.index(self._controller.get_stacking_mode()))
-        self._ui.cb_stacking_mode.blockSignals(False)
+        # set stacking mode display
+        self._ui.radio_stack_mean.setChecked(self._controller.is_stacking_mode_mean())
+        self._ui.radio_stack_sum.setChecked(self._controller.is_stacking_mode_sum())
 
         # update align checkbox
         self._ui.chk_align.setChecked(self._controller.get_align_before_stack())
 
-        # update save every frame state
-        self._ui.btn_save_every_image.setChecked(self._controller.get_save_every_image())
-
         # prevent log dock to be too tall
         self.resizeDocks([self._ui.log_dock], [MainWindow._LOG_DOCK_INITIAL_HEIGHT], Qt.Vertical)
+
+        # setup histogram view
+        self._ui.grp_histo.setStyleSheet(
+            """
+            border-left: 1px solid #191919;
+            border-top: 1px solid #191919;
+            border-right: 1px solid #282828;
+            border-bottom: 1px solid #282828;
+            padding-top: 1em;
+            border-radius: 2px;
+            color: #777777;
+            """
+        )
 
         # setup rgb controls and params
         self._rgb_controls = [
@@ -159,6 +167,14 @@ class MainWindow(QMainWindow):
         # setup image display
         self._image_item = None
         self.reset_image_view()
+
+        # setup info display
+        for groupbox in [
+            self._ui.grp_session, self._ui.grp_stack, self._ui.grp_server, self._ui.grp_save
+        ]:
+
+            set_groupbox_spacing(groupbox)
+
 
         self._setup_statusbar()
         configure_platform_ui(self, self._ui.log)
@@ -449,6 +465,16 @@ class MainWindow(QMainWindow):
         self._image_item = QGraphicsPixmapItem(QPixmap(":/icons/window_background.png"))
         self._ui.image_view.scene().addItem(self._image_item)
 
+    @log
+    def keyPressEvent(self, e):
+        """
+        A key has been pressed.
+        :param e: The received Qt event
+        """
+        if e.key() == Qt.Key_T:
+            self.on_btn_save_every_image_toggled(not self._ui.btn_save_every_image.isChecked())
+            self.update_display()
+
 
     @log
     def closeEvent(self, event):
@@ -558,16 +584,53 @@ class MainWindow(QMainWindow):
         """
         config.set_minimum_match_count(value)
 
-    # pylint: disable=C0103
-    @log
-    def on_cb_stacking_mode_currentTextChanged(self, stacking_mode: str):
-        """
-        Qt slot executed when stacking mode comb box changed
 
-        :param stacking_mode: new stacking mode
-        :type stacking_mode: str
+    @log
+    def on_radio_save_tiff_toggled(self, checked: bool):
+
+        if checked:
+            config.set_image_save_format(IMAGE_SAVE_TYPE_TIFF)
+
+    @log
+    def on_radio_save_png_toggled(self, checked: bool):
+
+        if checked:
+            config.set_image_save_format(IMAGE_SAVE_TYPE_PNG)
+
+    @log
+    def on_radio_save_jpeg_toggled(self, checked: bool):
+
+        if checked:
+            config.set_image_save_format(IMAGE_SAVE_TYPE_JPEG)
+
+    @log
+    def on_radio_stack_mean_toggled(self, checked: bool):
         """
-        self._controller.set_stacking_mode(stacking_mode)
+        Qt slot executed when 'stack mean' radio button is toggled
+
+        :param checked: is radio button checked ?
+        :type checked: bool
+        """
+        if checked:
+            self._controller.set_stacking_mode_mean()
+
+    @log
+    def on_radio_stack_sum_toggled(self, checked: bool):
+        """
+        Qt slot executed when 'stack sum' radio button is toggled
+
+        :param checked: is radio button checked ?
+        :type checked: bool
+        """
+        if checked:
+            self._controller.set_stacking_mode_sum()
+
+
+    @pyqtSlot(bool)
+    @log
+    def on_btn_save_on_stop_clicked(self, checked: bool = False):
+
+        config.set_save_on_stop(checked)
 
     @log
     def on_chk_align_toggled(self, checked: bool):
@@ -861,7 +924,7 @@ class MainWindow(QMainWindow):
             # update web server status and QR visibility
             if web_server_is_running:
                 url = DYNAMIC_DATA.web_server_advertised_url
-                web_server_status_text = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #aa0000">{url}</a>'
+                web_server_status_text = f'{I18n.RUNNING_M} : <a href="{url}" style="color: #750000">{url}</a>'
                 self._ui.action_qrcode.setEnabled(True)
             elif web_server_is_starting:
                 web_server_status_text = I18n.STARTING
@@ -917,7 +980,10 @@ class MainWindow(QMainWindow):
 
             # handle align + stack mode buttons
             self._ui.chk_align.setEnabled(session_is_stopped)
-            self._ui.cb_stacking_mode.setEnabled(session_is_stopped)
+            self._ui.radio_stack_mean.setEnabled(session_is_stopped)
+            self._ui.radio_stack_sum.setEnabled(session_is_stopped)
+            self._ui.radio_stack_mean.setChecked(self._controller.is_stacking_mode_mean())
+            self._ui.radio_stack_sum.setChecked(self._controller.is_stacking_mode_sum())
 
             # handle web stop start buttons
             self._ui.btn_web_start.setEnabled(web_server_is_stopped)
@@ -928,6 +994,19 @@ class MainWindow(QMainWindow):
             self._ui.lbl_stack_size.setText(stack_size_str)
             exposure_time_str = str(datetime.timedelta(seconds=int(round(DYNAMIC_DATA.total_exposure_time, 0))))
             self._ui.lbl_stack_exposure.setText(exposure_time_str)
+
+            # handle file saver controls
+            self._ui.btn_save_on_stop.setChecked(config.get_save_on_stop())
+            self._ui.btn_save_every_image.setChecked(self._controller.get_save_every_image())
+
+            config_to_image_save_type_mapping = {
+
+                als.model.data.IMAGE_SAVE_TYPE_JPEG: self._ui.radio_save_jpeg,
+                als.model.data.IMAGE_SAVE_TYPE_PNG: self._ui.radio_save_png,
+                als.model.data.IMAGE_SAVE_TYPE_TIFF: self._ui.radio_save_tiff
+            }
+
+            config_to_image_save_type_mapping[config.get_image_save_format()].setChecked(True)
 
             # update statusbar labels
             scanner_status_message = f"{I18n.SCANNER} {I18n.OF} {config.get_scan_folder_path()} : "
@@ -942,18 +1021,43 @@ class MainWindow(QMainWindow):
                 self.tr("Total frame proc. time: {} s").format(f"{DYNAMIC_DATA.last_timing:6.1f}"))
 
             # update queues sizes
-            self._ui.lbl_file_reader_queue_size.setText(str(DYNAMIC_DATA.file_reader_queue.qsize()))
-            self._ui.lbl_pre_process_queue_size.setText(str(DYNAMIC_DATA.pre_process_queue.qsize()))
-            self._ui.lbl_stack_queue_size.setText(str(DYNAMIC_DATA.stacker_queue.qsize()))
-            self._ui.lbl_process_queue_size.setText(str(DYNAMIC_DATA.process_queue.qsize()))
-            self._ui.lbl_save_queue_size.setText(str(DYNAMIC_DATA.save_queue.qsize()))
+            busy_module_css = "background-color: #4e1111; border-radius: 2px;"
 
-            # handle component statuses
-            self._ui.lbl_file_reader_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.file_reader_busy else "-")
-            self._ui.lbl_pre_processor_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.pre_processor_busy else "-")
-            self._ui.lbl_stacker_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.stacker_busy else "-")
-            self._ui.lbl_post_processor_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.post_processor_busy else "-")
-            self._ui.lbl_saver_status.setText(I18n.WORKER_STATUS_BUSY if DYNAMIC_DATA.saver_busy else "-")
+            modules_labels_to_status_mapping = {
+                self._ui.lbl_file_reader_queue_size: {'busy': DYNAMIC_DATA.file_reader_busy,
+                                                      "size": DYNAMIC_DATA.file_reader_queue.qsize()},
+                self._ui.lbl_pre_process_queue_size: {'busy': DYNAMIC_DATA.pre_processor_busy,
+                                                      "size": DYNAMIC_DATA.pre_process_queue.qsize()},
+                self._ui.lbl_stack_queue_size:       {'busy': DYNAMIC_DATA.stacker_busy,
+                                                      "size": DYNAMIC_DATA.stacker_queue.qsize()},
+                self._ui.lbl_process_queue_size:     {'busy': DYNAMIC_DATA.post_processor_busy,
+                                                      "size": DYNAMIC_DATA.process_queue.qsize()},
+                self._ui.lbl_save_queue_size:        {'busy': DYNAMIC_DATA.saver_busy,
+                                                      "size": DYNAMIC_DATA.save_queue.qsize()},
+            }
+
+            for module_label in modules_labels_to_status_mapping.keys():
+
+                module_label.setStyleSheet(busy_module_css if modules_labels_to_status_mapping[module_label]['busy'] else "")
+                queue_size = modules_labels_to_status_mapping[module_label]['size']
+                module_label.setText(str(queue_size) if queue_size > 0 else "")
+
+
+            self._ui.lbl_sub_width.setText(str(DYNAMIC_DATA.current_sub_width))
+            self._ui.lbl_sub_height.setText(str(DYNAMIC_DATA.current_sub_height))
+
+            if DYNAMIC_DATA.current_sub_is_color:
+                self._ui.lbl_sub_color.setText(self.tr("Color"))
+                self._ui.lbl_sub_bayer.setText(DYNAMIC_DATA.current_sub_bayer_pattern)
+            else:
+                self._ui.lbl_sub_color.setText(self.tr("Mono") if DYNAMIC_DATA.current_sub_width != self.tr("n/a") else "")
+                self._ui.lbl_sub_bayer.clear()
+
+            if DYNAMIC_DATA.current_sub_exposure_time != Image.UNDEF_EXP_TIME:
+                self._ui.lbl_sub_expo.setText(str(DYNAMIC_DATA.current_sub_exposure_time))
+            else:
+                self._ui.lbl_sub_expo.setText(self.tr("n/a"))
+
 
             # manage warnings
             new_warnings = DYNAMIC_DATA.has_new_warnings

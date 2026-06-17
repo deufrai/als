@@ -16,6 +16,7 @@ from PyQt5.QtWidgets import (
     QComboBox,
     QFileDialog,
     QFrame,
+    QGroupBox,
     QLabel,
     QMenu,
     QMenuBar,
@@ -452,3 +453,10 @@ def install_windows_title_bar_styling(app):
     title_bar_styler = _WindowsTitleBarStyler(app)
     app.installEventFilter(title_bar_styler)
     app._als_windows_title_bar_styler = title_bar_styler
+
+def set_groupbox_spacing(groupbox: QGroupBox):
+
+    if sys.platform == "darwin":
+        groupbox.layout().setSpacing(8)
+        groupbox.layout().setContentsMargins(10, 8, 10, 8)
+
