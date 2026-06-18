@@ -135,6 +135,9 @@
         <number>0</number>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
+        <property name="spacing">
+         <number>4</number>
+        </property>
         <item>
          <widget class="QFrame" name="frame_essentials">
           <property name="frameShape">
@@ -157,6 +160,9 @@
             <layout class="QGridLayout" name="gridLayout_5" columnstretch="0,1,1,1,1" rowminimumheight="20,20" columnminimumwidth="0,70,0,0,0">
              <property name="bottomMargin">
               <number>4</number>
+             </property>
+             <property name="spacing">
+              <number>3</number>
              </property>
              <item row="0" column="0">
               <widget class="QLabel" name="lbl_session">
