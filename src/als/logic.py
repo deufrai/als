@@ -40,6 +40,7 @@ from als.streams.network import (
     select_advertised_address
 )
 from als.streams.output import ImageSaver
+from model.base import RunningProfile
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -67,37 +68,75 @@ class Controller:
     @log
     def __init__(self):
 
-        DYNAMIC_DATA.session.set_status(Session.stopped)
-        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
-        DYNAMIC_DATA.file_reader_busy = False
-        DYNAMIC_DATA.pre_processor_busy = False
-        DYNAMIC_DATA.stacker_busy = False
-        DYNAMIC_DATA.post_processor_busy = False
-        DYNAMIC_DATA.saver_busy = False
-        DYNAMIC_DATA.last_timing = 0
-
+        self._init_dynamic_data()
         self._input_scanner: InputScanner = InputScanner.create_scanner()
-        self._save_every_image = False
-
         current_profile: RunningProfile = AVAILABLE_PROFILES[config.get_profile()]
+        self._init_filereader(current_profile)
+        self._init_preprocess_pipeline(current_profile)
+        self._init_stacker(current_profile)
+        self._init_postprocess_pipeline(current_profile)
+        self._init_saver()
+        self._last_stacking_result = None
+        self._save_every_image = False
+        self._web_server = Server(config.get_web_folder_path())
+        self._server_thread = None
+        self._model_observers = list()
+        self._web_server_observers = list()
+        self._subs_processing_start_times = dict()
+        self._setup_signals_connections()
+        self._setup_metrics_collection()
+        self._reset_current_sub_infos()
 
-        self._file_reader_queue: SignalingQueue = DYNAMIC_DATA.file_reader_queue
-        self._fileReader = FileReader(self._file_reader_queue)
-        self._fileReader.start(current_profile.get_pre_process_priority)
+    @log
+    def _setup_metrics_collection(self):
+        self._metrics_timer = QTimer()
+        self._metrics_timer.setInterval(2000)
+        self._metrics_timer.timeout.connect(self.collect_metrics)
+        self._metrics_timer.start()
+
+    @log
+    def _setup_signals_connections(self):
         self._input_scanner.new_image_path_signal[str].connect(self.on_new_image_path)
 
-        self._pre_process_queue: SignalingQueue = DYNAMIC_DATA.pre_process_queue
-        self._pre_process_pipeline: Pipeline = Pipeline(
-            'pre-process',
-            self._pre_process_queue,
-            [HotPixelRemover(), RemoveDark(), RemoveFlat(), Debayer(), Standardize()])
-        self._pre_process_pipeline.start(current_profile.get_pre_process_priority)
+        self._fileReader.image_read[Image].connect(self.on_new_image)
+        self._fileReader.busy_signal.connect(self.on_file_reader_busy)
+        self._fileReader.waiting_signal.connect(self.on_file_reader_waiting)
+        self._file_reader_queue.size_changed_signal[int].connect(self.on_file_reader_queue_size_changed)
 
-        self._stacker_queue: SignalingQueue = DYNAMIC_DATA.stacker_queue
-        self._stacker: Stacker = Stacker(self._stacker_queue)
-        self._stacker.align_before_stack = True
-        self._stacker.start(current_profile.get_stacking_priority)
+        self._pre_process_pipeline.new_result_signal[Image].connect(self.on_new_pre_processed_image)
+        self._pre_process_pipeline.busy_signal.connect(self.on_pre_processor_busy)
+        self._pre_process_pipeline.waiting_signal.connect(self.on_pre_processor_waiting)
+        self._pre_process_queue.size_changed_signal[int].connect(self.on_pre_process_queue_size_changed)
 
+        self._stacker.stack_size_changed_signal[int].connect(self.on_stack_size_changed)
+        self._stacker.new_result_signal[Image].connect(self.on_new_stack_result)
+        self._stacker.busy_signal.connect(self.on_stacker_busy)
+        self._stacker.waiting_signal.connect(self.on_stacker_waiting)
+        self._stacker_queue.size_changed_signal[int].connect(self.on_stacker_queue_size_changed)
+
+        self._post_process_pipeline.new_result_signal[Image].connect(self.on_new_post_processor_result)
+        self._post_process_pipeline.busy_signal.connect(self.on_post_processor_busy)
+        self._post_process_pipeline.waiting_signal.connect(self.on_post_processor_waiting)
+        self._post_process_queue.size_changed_signal[int].connect(self.on_post_processor_queue_size_changed)
+        self._saver_queue.size_changed_signal[int].connect(self.on_saver_queue_size_changed)
+
+        self._saver.busy_signal.connect(self.on_saver_busy)
+        self._saver.waiting_signal.connect(self.on_saver_waiting)
+        self._saver.save_completed_signal[str].connect(self.on_image_saved)
+
+        DYNAMIC_DATA.session.status_changed_signal.connect(self._notify_model_observers)
+        self._web_server.startup_failed_signal.connect(self.on_web_server_start_failed)
+        self._web_server.startup_succeeded_signal.connect(self.on_web_server_started)
+        self._web_server.stopped_signal.connect(self.on_web_server_stopped)
+
+    @log
+    def _init_saver(self):
+        self._saver_queue = DYNAMIC_DATA.save_queue
+        self._saver = ImageSaver(self._saver_queue, self)
+        self._saver.start(QThread.LowPriority)
+
+    @log
+    def _init_postprocess_pipeline(self, current_profile: RunningProfile):
         self._post_process_queue = DYNAMIC_DATA.process_queue
         self._post_process_pipeline: Pipeline = Pipeline(
             'post-process',
@@ -111,54 +150,38 @@ class Controller:
         self._post_process_pipeline.add_process(self._rgb_processor)
         self._post_process_pipeline.start(current_profile.get_post_process_priority)
 
-        self._saver_queue = DYNAMIC_DATA.save_queue
-        self._saver = ImageSaver(self._saver_queue, self)
-        self._saver.start(QThread.LowPriority)
+    @log
+    def _init_stacker(self, current_profile: RunningProfile):
+        self._stacker_queue: SignalingQueue = DYNAMIC_DATA.stacker_queue
+        self._stacker: Stacker = Stacker(self._stacker_queue)
+        self._stacker.align_before_stack = True
+        self._stacker.start(current_profile.get_stacking_priority)
 
-        self._last_stacking_result = None
+    @log
+    def _init_preprocess_pipeline(self, current_profile: RunningProfile):
+        self._pre_process_queue: SignalingQueue = DYNAMIC_DATA.pre_process_queue
+        self._pre_process_pipeline: Pipeline = Pipeline(
+            'pre-process',
+            self._pre_process_queue,
+            [HotPixelRemover(), RemoveDark(), RemoveFlat(), Debayer(), Standardize()])
+        self._pre_process_pipeline.start(current_profile.get_pre_process_priority)
 
-        self._web_server = Server(config.get_web_folder_path())
-        self._server_thread = None
+    @log
+    def _init_filereader(self, current_profile: RunningProfile):
+        self._file_reader_queue: SignalingQueue = DYNAMIC_DATA.file_reader_queue
+        self._fileReader = FileReader(self._file_reader_queue)
+        self._fileReader.start(current_profile.get_pre_process_priority)
 
-        self._model_observers = list()
-        self._web_server_observers = list()
-        self._subs_processing_start_times = dict()
-
-        self._fileReader.image_read[Image].connect(self.on_new_image)
-        self._pre_process_pipeline.new_result_signal[Image].connect(self.on_new_pre_processed_image)
-        self._stacker.stack_size_changed_signal[int].connect(self.on_stack_size_changed)
-        self._stacker.new_result_signal[Image].connect(self.on_new_stack_result)
-        self._post_process_pipeline.new_result_signal[Image].connect(self.on_new_post_processor_result)
-
-        self._file_reader_queue.size_changed_signal[int].connect(self.on_file_reader_queue_size_changed)
-        self._pre_process_queue.size_changed_signal[int].connect(self.on_pre_process_queue_size_changed)
-        self._stacker_queue.size_changed_signal[int].connect(self.on_stacker_queue_size_changed)
-        self._post_process_queue.size_changed_signal[int].connect(self.on_post_processor_queue_size_changed)
-        self._saver_queue.size_changed_signal[int].connect(self.on_saver_queue_size_changed)
-
-        self._fileReader.busy_signal.connect(self.on_file_reader_busy)
-        self._fileReader.waiting_signal.connect(self.on_file_reader_waiting)
-        self._pre_process_pipeline.busy_signal.connect(self.on_pre_processor_busy)
-        self._pre_process_pipeline.waiting_signal.connect(self.on_pre_processor_waiting)
-        self._stacker.busy_signal.connect(self.on_stacker_busy)
-        self._stacker.waiting_signal.connect(self.on_stacker_waiting)
-        self._post_process_pipeline.busy_signal.connect(self.on_post_processor_busy)
-        self._post_process_pipeline.waiting_signal.connect(self.on_post_processor_waiting)
-        self._saver.busy_signal.connect(self.on_saver_busy)
-        self._saver.waiting_signal.connect(self.on_saver_waiting)
-        self._saver.save_completed_signal[str].connect(self.on_image_saved)
-
-        DYNAMIC_DATA.session.status_changed_signal.connect(self._notify_model_observers)
-        self._web_server.startup_failed_signal.connect(self.on_web_server_start_failed)
-        self._web_server.startup_succeeded_signal.connect(self.on_web_server_started)
-        self._web_server.stopped_signal.connect(self.on_web_server_stopped)
-
-        self._metrics_timer = QTimer()
-        self._metrics_timer.setInterval(2000)
-        self._metrics_timer.timeout.connect(self.collect_metrics)
-        self._metrics_timer.start()
-
-        self._reset_current_sub_infos()
+    @log
+    def _init_dynamic_data(self):
+        DYNAMIC_DATA.session.set_status(Session.stopped)
+        DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
+        DYNAMIC_DATA.file_reader_busy = False
+        DYNAMIC_DATA.pre_processor_busy = False
+        DYNAMIC_DATA.stacker_busy = False
+        DYNAMIC_DATA.post_processor_busy = False
+        DYNAMIC_DATA.saver_busy = False
+        DYNAMIC_DATA.last_timing = 0
 
     @log
     def collect_metrics(self):
