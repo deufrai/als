@@ -5,7 +5,6 @@
 Provides image stacking features
 """
 from logging import getLogger
-from multiprocessing import Process, Manager
 
 import astroalign as al
 import numpy as np
@@ -72,7 +71,6 @@ class Stacker(ImageQueueConsumer):
         self._sigma_clip_min_stack_size = 5
 
     @property
-    @log
     def align_before_stack(self) -> bool:
         """
         Gets "align before stack" switch
@@ -83,7 +81,6 @@ class Stacker(ImageQueueConsumer):
         return self._align_before_stack
 
     @align_before_stack.setter
-    @log
     def align_before_stack(self, align: bool):
         """
         Sets "align before stack" switch
@@ -94,7 +91,6 @@ class Stacker(ImageQueueConsumer):
         self._align_before_stack = align
 
     @property
-    @log
     def stacking_mode(self) -> str:
         """
         Gets current stacking mode
@@ -105,7 +101,6 @@ class Stacker(ImageQueueConsumer):
         return self._stacking_mode
 
     @stacking_mode.setter
-    @log
     def stacking_mode(self, mode: str):
         """
         Sets current stacking mode
@@ -139,7 +134,6 @@ class Stacker(ImageQueueConsumer):
         self.new_result_signal.emit(image)
 
     @property
-    @log
     def size(self):
         """
         Retrieves the number of stacked images since last reset
@@ -150,7 +144,6 @@ class Stacker(ImageQueueConsumer):
         return self._size
 
     @size.setter
-    @log
     def size(self, size):
         """
         Sets stack size
@@ -228,9 +221,6 @@ class Stacker(ImageQueueConsumer):
         """
         Apply a transformation to an image.
 
-        If image is color, channels are processed using multiprocessing, allowing global operation to take less time on
-        a multi core CPU
-
         Image is modified in place by this function
 
         :param image: the image to apply transformation to
@@ -239,109 +229,19 @@ class Stacker(ImageQueueConsumer):
         :param transformation: the transformation to apply
         :type transformation: skimage.transform._geometric.SimilarityTransform
         """
+        reference_data = self._last_stacking_result.data
+        apply_transform = al.apply_transform
+
         if image.is_color():
-            _LOGGER.debug(f"Aligning color image...")
+            _LOGGER.debug("Aligning color image...")
+            for channel in range(3):
+                image.data[channel] = np.float32(apply_transform(transformation, image.data[channel], reference_data[0]))
+            _LOGGER.debug("Aligning color image: DONE")
+            return
 
-            # do_mp = platform.system() not in ["Darwin", "Windows"]
-            # TODO check if MP 'spawn' start method is stable, faster
-            # and suppports frozen apps when we switch to python >= 3.8
-            do_mp = False
-
-            if do_mp:
-
-                _LOGGER.debug("Using multiprocessing to align color image...")
-                manager = Manager()
-                results_dict = manager.dict()
-                channel_processors = []
-
-                for channel in range(3):
-                    processor = Process(target=Stacker._apply_single_channel_transformation,
-                                        args=(image,
-                                              self._last_stacking_result,
-                                              transformation,
-                                              results_dict,
-                                              channel))
-                    processor.start()
-                    channel_processors.append(processor)
-
-                for processor in channel_processors:
-                    processor.join()
-
-                _LOGGER.debug("Color channel processes are done. Fetching results and storing results...")
-
-                for channel, data in results_dict.items():
-                    image.data[channel] = data
-
-                _LOGGER.debug("Using multiprocessing to align color image: DONE")
-
-            else:
-
-                _LOGGER.debug("Aligning color image in single process...")
-
-                results_dict = dict()
-
-                for channel in range(3):
-                    Stacker._apply_single_channel_transformation(image,
-                                                                 self._last_stacking_result,
-                                                                 transformation,
-                                                                 results_dict,
-                                                                 channel)
-
-                for channel, data in results_dict.items():
-                    image.data[channel] = data
-
-                _LOGGER.debug("Aligning color image in single process: SONE")
-
-            _LOGGER.debug(f"Aligning color image DONE")
-
-        else:
-            _LOGGER.debug(f"Aligning b&w image...")
-
-            result_dict = dict()
-
-            Stacker._apply_single_channel_transformation(
-                image,
-                self._last_stacking_result,
-                transformation,
-                result_dict
-            )
-
-            image.data = result_dict[0]
-
-            _LOGGER.debug(f"Aligning b&w image : DONE")
-
-    @staticmethod
-    def _apply_single_channel_transformation(image, reference, transformation, results_dict, channel=None):
-        """
-        apply a transformation on a specific channel (RGB) of a color image, or whole data of a b&w image.
-
-        :param image: the image to apply transformation to
-        :type image: Image
-
-        :param reference: the align reference image
-        :type reference: Image
-
-        :param transformation: the transformation to apply
-        :type transformation: skimage.transform._geometric.SimilarityTransform
-
-        :param results_dict: the dict into which transformation result is to be stored. dict key is the channel number
-               for a color image, or 0 for a b&w image
-        :type results_dict: dict
-
-        :param channel: the 0 indexed number of the color channel to process (0=red, 1=green, 2=blue)
-        :type channel: int
-        """
-
-        if channel is not None:
-            target_index = channel
-            source_data = image.data[channel]
-            reference_data = reference.data[channel]
-        else:
-            target_index = 0
-            source_data = image.data
-            reference_data = reference.data
-
-        results_dict[target_index] = np.float32(al.apply_transform(transformation, source_data, reference_data))
+        _LOGGER.debug("Aligning b&w image...")
+        image.data = np.float32(apply_transform(transformation, image.data, reference_data))
+        _LOGGER.debug("Aligning b&w image: DONE")
 
     @log
     def _find_transformation(self, image: Image):
