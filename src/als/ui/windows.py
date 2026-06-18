@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import List
 
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl
-from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
+from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QScreen
 # pylint: disable=no-name-in-module
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
@@ -198,6 +198,8 @@ class MainWindow(QMainWindow):
             self.showMaximized()
         else:
             self.show()
+
+        QTimer.singleShot(5000, self._dump_display_info)
 
         if config.get_check_updates_on_startup_active():
             QTimer.singleShot(2000, self._start_update_check)
@@ -1146,6 +1148,36 @@ class MainWindow(QMainWindow):
             self._lbl_statusbar_stack_exposure.setText(
                 self.tr("Total stack exp. time: {}").format(exposure_time_str))
             self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:6.1f} s")
+
+    def _dump_display_info(self):
+
+        handle = self.windowHandle()
+        screen = handle.screen() if handle is not None else QApplication.primaryScreen()
+
+        _LOGGER.debug("Main window INIT")
+        _LOGGER.debug("***************************************************************************")
+        _LOGGER.debug('Display info dump - START')
+
+        if screen is not None:
+            logical_dpi = screen.logicalDotsPerInch()
+            physical_dpi = screen.physicalDotsPerInch()
+            ratio = screen.devicePixelRatio()
+            geometry = screen.geometry()
+            available = screen.availableGeometry()
+
+
+            _LOGGER.debug(f"logical_dpi             : {logical_dpi}")
+            _LOGGER.debug(f"physical_dpi            : {physical_dpi}")
+            _LOGGER.debug(f"device_pixel_ratio      : {ratio}")
+            _LOGGER.debug(f"available_geometry      : {available}")
+            _LOGGER.debug(f"geometry                  : {geometry}")
+
+        else:
+
+            _LOGGER.debug("screen is None, cannot get display info")
+
+        _LOGGER.debug('Display info dump - END')
+        _LOGGER.debug("***************************************************************************")
 
     @log
     def _build_clickable_image_server_url(self) -> str:
