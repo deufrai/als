@@ -11,7 +11,7 @@ from PyQt5.QtCore import QObject
 
 import als
 from als.code_utilities import SignalingQueue, log, AlsLogAdapter
-from als.model.base import Image, Session, STACKING_MODE_MEAN, STACKING_MODE_SUM
+from als.model.base import Image, Session, STACKING_MODE_MEAN, STACKING_MODE_SUM, VisualProfile, PhotoProfile
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
@@ -36,6 +36,15 @@ WEB_SERVER_ACTIVE_STATUSES = (
     WEB_SERVER_STATUS_STOPPING,
 )
 
+EAA_PROFILE_CODE = 0
+PHOTO_PROFILE_CODE = 1
+
+AVAILABLE_PROFILES = {
+
+    EAA_PROFILE_CODE: VisualProfile(),
+    PHOTO_PROFILE_CODE: PhotoProfile()
+}
+
 
 # pylint: disable=R0903
 class I18n(QObject):
@@ -59,6 +68,7 @@ class I18n(QObject):
 
     PROFILE = "TEMP"
     VISUAL = "TEMP"
+    PHOTO = "TEMP"
 
     STARTING = "TEMP"
     STOPPING = "TEMP"
@@ -99,6 +109,7 @@ class I18n(QObject):
         I18n.OF = self.tr("of")
         I18n.PROFILE = self.tr("Profile")
         I18n.VISUAL = self.tr("Visual")
+        I18n.PHOTO = self.tr("Photo")
         I18n.STARTING = self.tr("starting")
         I18n.STOPPING = self.tr("stopping")
         I18n.RUNNING_M = self.tr("running", "gender m")

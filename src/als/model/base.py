@@ -359,6 +359,7 @@ class RunningProfile:
         self._post_process_priority: int = -1
         self._file_read_size_polling_period: float = -1
         self._sigma_clipping_enabled: bool = False
+        self._name = ""
 
     @property
     def get_pre_process_priority(self):
@@ -380,6 +381,9 @@ class RunningProfile:
     def is_sigma_clipping_enabled(self):
         return self._sigma_clipping_enabled
 
+    def __repr__(self):
+        return self._name
+
 
 class VisualProfile(RunningProfile):
 
@@ -391,6 +395,7 @@ class VisualProfile(RunningProfile):
         self._post_process_priority = QThread.LowPriority
         self._file_read_size_polling_period = .02
         self._sigma_clipping_enabled = False
+        self._name = "EAA"
 
 
 class PhotoProfile(RunningProfile):
@@ -403,6 +408,7 @@ class PhotoProfile(RunningProfile):
         self._post_process_priority = QThread.HighestPriority
         self._file_read_size_polling_period = 1.5
         self._sigma_clipping_enabled = True
+        self._name = "Photo"
 
 
 class HistogramContainer:

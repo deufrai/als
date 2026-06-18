@@ -11,12 +11,12 @@ from os import chmod, makedirs
 from pathlib import Path
 from typing import List
 
-from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl, QT_TRANSLATE_NOOP, QEvent
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices
 # pylint: disable=no-name-in-module
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
-    QListWidgetItem, QLabel, QFrame, QFileDialog, QMessageBox, QWidget, QToolTip, QPushButton
+    QListWidgetItem, QLabel, QFrame, QFileDialog, QMessageBox, QWidget
 from generated.als_ui import Ui_stack_window
 
 import als.model.data
@@ -38,8 +38,10 @@ from als.ui.platform_ui import configure_platform_ui, set_groupbox_spacing
 from als.ui.widgets import Slider
 from als.updates import find_available_update
 from als.version import version as BUILD_VERSION
-from als.model.data import IMAGE_SAVE_TYPE_TIFF, IMAGE_SAVE_TYPE_PNG, IMAGE_SAVE_TYPE_JPEG
+from als.model.data import IMAGE_SAVE_TYPE_TIFF, IMAGE_SAVE_TYPE_PNG, IMAGE_SAVE_TYPE_JPEG, AVAILABLE_PROFILES, \
+    EAA_PROFILE_CODE, PHOTO_PROFILE_CODE
 from als.model.base import Image
+
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _INFO_LOG_TAG = 'INFO'
@@ -181,11 +183,6 @@ class MainWindow(QMainWindow):
 
         MESSAGE_HUB.add_receiver(self)
 
-        if 0 == config.get_profile():
-            self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : {I18n.VISUAL}")
-        else:
-            self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : Photo")
-
         self._ui.action_full_screen.setChecked(config.get_full_screen_active())
 
         self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
@@ -288,8 +285,6 @@ class MainWindow(QMainWindow):
         """
         self._lbl_statusbar_current_profile = QLabel(self._ui.statusBar)
         self._lbl_statusbar_current_profile.setFrameStyle(QFrame.Panel | QFrame.Sunken)
-        self._lbl_statusbar_frame_total_proc = QLabel(self._ui.statusBar)
-        self._lbl_statusbar_frame_total_proc.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_stack_exposure = QLabel(self._ui.statusBar)
         self._lbl_statusbar_stack_exposure.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_session_status = QLabel(self._ui.statusBar)
@@ -307,7 +302,6 @@ class MainWindow(QMainWindow):
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_size)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_stack_exposure)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_web_server_status)
-        self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_frame_total_proc)
 
     @log
     @pyqtSlot(bool)
@@ -626,6 +620,26 @@ class MainWindow(QMainWindow):
         if checked:
             self._controller.set_stacking_mode_sum()
 
+
+    @log
+    def on_radio_visual_profile_toggled(self, checked: bool):
+
+        profile_code = EAA_PROFILE_CODE
+
+        if checked:
+            self._controller.set_new_profile(profile_code)
+            config.set_profile(profile_code)
+            self.update_display()
+
+    @log
+    def on_radio_photo_profile_toggled(self, checked: bool):
+
+        profile_code = PHOTO_PROFILE_CODE
+
+        if checked:
+            self._controller.set_new_profile(profile_code)
+            config.set_profile(profile_code)
+            self.update_display()
 
     @pyqtSlot(bool)
     @log
@@ -1004,6 +1018,12 @@ class MainWindow(QMainWindow):
             self._ui.radio_stack_mean.setChecked(self._controller.is_stacking_mode_mean())
             self._ui.radio_stack_sum.setChecked(self._controller.is_stacking_mode_sum())
 
+            # handle profile choices
+            self._ui.radio_visual_profile.setChecked(config.get_profile() == EAA_PROFILE_CODE)
+            self._ui.radio_photo_profile.setChecked(config.get_profile() == PHOTO_PROFILE_CODE)
+            self._ui.radio_photo_profile.setEnabled(session_is_stopped)
+            self._ui.radio_visual_profile.setEnabled(session_is_stopped)
+
             # handle web stop start buttons
             self._ui.btn_web_start.setEnabled(web_server_is_stopped)
             self._ui.btn_web_stop.setEnabled(web_server_is_running)
@@ -1115,14 +1135,17 @@ class MainWindow(QMainWindow):
 
             # update statusbar labels
 
+            if DYNAMIC_DATA.current_profile is AVAILABLE_PROFILES[EAA_PROFILE_CODE]:
+                self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : {I18n.VISUAL}")
+            else:
+                self._lbl_statusbar_current_profile.setText(f"{I18n.PROFILE} : {I18n.PHOTO}")
             web_server_status_text = image_server_url if web_server_is_running else web_server_status_text
             self._lbl_statusbar_web_server_status.setText(f"{I18n.WEB_SERVER} : {web_server_status_text}")
             self._lbl_statusbar_session_status.setText(f"{I18n.SESSION} {session_status}")
             self._lbl_statusbar_stack_size.setText(f"{I18n.STACK_SIZE} : {stack_size_str}")
             self._lbl_statusbar_stack_exposure.setText(
                 self.tr("Total stack exp. time: {}").format(exposure_time_str))
-            self._lbl_statusbar_frame_total_proc.setText(
-                self.tr("Total frame proc. time: {} s").format(f"{DYNAMIC_DATA.last_timing:6.1f}"))
+            self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:6.1f} s")
 
     @log
     def _build_clickable_image_server_url(self) -> str:
@@ -1218,8 +1241,6 @@ class MainWindow(QMainWindow):
 
         if accepted:
 
-            self.update_display()
-
             if (
                     DYNAMIC_DATA.web_server_status == WEB_SERVER_STATUS_RUNNING
                     and previous_advertised_ip != DYNAMIC_DATA.web_server_advertised_ip):
@@ -1231,6 +1252,8 @@ class MainWindow(QMainWindow):
 
                 if advertised_address is not None and advertised_address.is_loopback:
                     self._warn_web_server_access_is_limited(advertised_address.ip)
+
+            self.update_display()
 
         return accepted
 

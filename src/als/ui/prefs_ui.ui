@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>523</width>
-    <height>505</height>
+    <height>477</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -32,13 +32,13 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
        <string>General</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_15">
+      <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
         <widget class="QGroupBox" name="scannerBox">
          <property name="title">
@@ -188,37 +188,9 @@
          <property name="title">
           <string>Core - restart needed</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_11">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
-            <item>
-             <widget class="QGroupBox" name="grp_profile">
-              <property name="title">
-               <string>Profile</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_9">
-               <property name="spacing">
-                <number>9</number>
-               </property>
-               <item>
-                <widget class="QRadioButton" name="rd_visual_profile">
-                 <property name="text">
-                  <string>&amp;Electronically Assisted Astronomy</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QRadioButton" name="rd_photo_profile">
-                 <property name="text">
-                  <string>Astro&amp;photo Session Monitoring</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-              <zorder>rd_photo_profile</zorder>
-              <zorder>rd_visual_profile</zorder>
-             </widget>
-            </item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
              <widget class="QGroupBox" name="groupBox_7">
               <property name="title">
@@ -258,54 +230,12 @@
               </layout>
              </widget>
             </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_11">
-            <item>
-             <widget class="QGroupBox" name="groupBox_8">
-              <property name="title">
-               <string>Network</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item>
-                <widget class="QCheckBox" name="chk_stats">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Send &amp;usage statistics on startup</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="chk_updates_on_startup">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>&amp;Check for updates on startup</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item>
              <widget class="QGroupBox" name="groupBox_12">
               <property name="title">
                <string>Data</string>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout_7">
+              <layout class="QVBoxLayout" name="verticalLayout_5">
                <item>
                 <widget class="QCheckBox" name="chk_debug_logs">
                  <property name="layoutDirection">
@@ -316,23 +246,48 @@
                  </property>
                 </widget>
                </item>
-               <item>
-                <spacer name="verticalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
               </layout>
              </widget>
             </item>
            </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>Network</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QCheckBox" name="chk_stats">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Send &amp;usage statistics on startup</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chk_updates_on_startup">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&amp;Check for updates on startup</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -772,8 +727,6 @@
   <tabstop>btn_browse_scan</tabstop>
   <tabstop>ln_scan_folder_path</tabstop>
   <tabstop>sld_mem_preserve</tabstop>
-  <tabstop>rd_visual_profile</tabstop>
-  <tabstop>rd_photo_profile</tabstop>
   <tabstop>cmb_lang</tabstop>
   <tabstop>chk_stats</tabstop>
   <tabstop>chk_updates_on_startup</tabstop>

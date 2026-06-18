@@ -15,7 +15,8 @@ from skimage.transform import SimilarityTransform
 from als import config
 from als.code_utilities import log, Timer, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
-from als.model.base import Image, RunningProfile, STACKING_MODE_SUM, STACKING_MODE_MEAN
+from als.model.base import Image, STACKING_MODE_SUM, STACKING_MODE_MEAN
+from als.model.data import AVAILABLE_PROFILES
 from als.processing import ImageQueueConsumer
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -59,14 +60,13 @@ class Stacker(ImageQueueConsumer):
     """Qt signal emitted when stack size changed"""
 
     @log
-    def __init__(self, stack_queue, profile: RunningProfile):
+    def __init__(self, stack_queue):
         ImageQueueConsumer.__init__(self, "stack", stack_queue)
         self._size: int = 0
         self._last_stacking_result: Image = None
         self._align_reference: Image = None
         self._stacking_mode = STACKING_MODE_MEAN
         self._align_before_stack = True
-        self._profile = profile
         self._variance_accumulator = None
         self._sigma_clip_k = 5
         self._sigma_clip_min_stack_size = 5
@@ -452,7 +452,7 @@ class Stacker(ImageQueueConsumer):
         elif self._stacking_mode == STACKING_MODE_MEAN:
             _LOGGER.debug("Stacking in Mean mode...")
 
-            if self._profile.is_sigma_clipping_enabled:
+            if AVAILABLE_PROFILES[config.get_profile()].is_sigma_clipping_enabled:
                 _LOGGER.debug("Sigma clipping enabled.")
                 # we do outlier rejection only for mean stacking, using sigma clipping with Welford's method
                 # for variance calculation

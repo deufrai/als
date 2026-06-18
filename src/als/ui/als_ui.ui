@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1600</width>
-    <height>994</height>
+    <height>965</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>380</width>
-     <height>732</height>
+     <width>376</width>
+     <height>734</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -134,7 +134,7 @@
        <property name="lineWidth">
         <number>0</number>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_16">
+       <layout class="QVBoxLayout" name="verticalLayout_19">
         <item>
          <widget class="QFrame" name="frame_essentials">
           <property name="frameShape">
@@ -156,7 +156,7 @@
            <item>
             <layout class="QGridLayout" name="gridLayout_5" columnstretch="0,1,1,1,1" rowminimumheight="20,20" columnminimumwidth="0,70,0,0,0">
              <property name="bottomMargin">
-              <number>9</number>
+              <number>4</number>
              </property>
              <item row="0" column="0">
               <widget class="QLabel" name="lbl_session">
@@ -281,6 +281,9 @@
            </property>
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_6">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QLabel" name="label_10">
                <property name="text">
@@ -318,6 +321,9 @@
            </item>
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_17">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QLabel" name="label_25">
                <property name="text">
@@ -357,9 +363,6 @@
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_13">
-          <property name="spacing">
-           <number>12</number>
-          </property>
           <item>
            <widget class="QFrame" name="frm_current_sub">
             <property name="frameShape">
@@ -372,6 +375,9 @@
              <number>0</number>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_12">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <property name="leftMargin">
               <number>0</number>
              </property>
@@ -524,6 +530,68 @@
            </widget>
           </item>
           <item>
+           <widget class="QFrame" name="frm_last_timing">
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_16">
+             <property name="spacing">
+              <number>2</number>
+             </property>
+             <item>
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>Last
+Processing</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_last_processing_time">
+               <property name="text">
+                <string>0</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
            <widget class="QFrame" name="frm_modules">
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -548,16 +616,6 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_17">
-               <property name="text">
-                <string>Modules activity</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
               <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
                <property name="sizeConstraint">
                 <enum>QLayout::SetMinAndMaxSize</enum>
@@ -574,6 +632,28 @@
                <property name="verticalSpacing">
                 <number>2</number>
                </property>
+               <item row="3" column="0">
+                <widget class="QLabel" name="lbl_process_queue_size">
+                 <property name="minimumSize">
+                  <size>
+                   <width>24</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>20</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string notr="true">0</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="4" column="1">
                 <widget class="QLabel" name="lbl_name_save">
                  <property name="text">
@@ -584,8 +664,8 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="lbl_file_reader_queue_size">
+               <item row="2" column="0">
+                <widget class="QLabel" name="lbl_stack_queue_size">
                  <property name="minimumSize">
                   <size>
                    <width>24</width>
@@ -610,26 +690,6 @@
                 <widget class="QLabel" name="lbl_name_process">
                  <property name="text">
                   <string>Process</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="lbl_name_preprocess">
-                 <property name="text">
-                  <string>Pre-process</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="lbl_name_stack">
-                 <property name="text">
-                  <string>Stack</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -682,6 +742,12 @@
                </item>
                <item row="0" column="1">
                 <widget class="QLabel" name="lbl_name_scanner">
+                 <property name="baseSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Scanner</string>
                  </property>
@@ -690,8 +756,18 @@
                  </property>
                 </widget>
                </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="lbl_process_queue_size">
+               <item row="1" column="1">
+                <widget class="QLabel" name="lbl_name_preprocess">
+                 <property name="text">
+                  <string>Pre-process</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="lbl_file_reader_queue_size">
                  <property name="minimumSize">
                   <size>
                    <width>24</width>
@@ -712,25 +788,13 @@
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="lbl_stack_queue_size">
-                 <property name="minimumSize">
-                  <size>
-                   <width>24</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>20</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
+               <item row="2" column="1">
+                <widget class="QLabel" name="lbl_name_stack">
                  <property name="text">
-                  <string notr="true">0</string>
+                  <string>Stack</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -831,7 +895,7 @@
            <number>5</number>
           </property>
           <item>
-           <spacer name="horizontalSpacer_2">
+           <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -844,74 +908,101 @@
            </spacer>
           </item>
           <item>
-           <widget class="QCheckBox" name="chk_align">
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>Align frames before stacking</string>
-            </property>
-            <property name="statusTip">
-             <string>Align frames before stacking</string>
-            </property>
-            <property name="text">
-             <string>Align</string>
-            </property>
-            <property name="shortcut">
-             <string>A</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <property name="spacing">
-             <number>12</number>
-            </property>
-            <property name="leftMargin">
-             <number>26</number>
+             <number>16</number>
             </property>
             <item>
-             <widget class="QRadioButton" name="radio_stack_mean">
+             <widget class="QCheckBox" name="chk_align">
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>20</height>
+               </size>
+              </property>
               <property name="toolTip">
-               <string>Switches stacking mode to Mean</string>
+               <string>Align frames before stacking</string>
               </property>
               <property name="statusTip">
-               <string>Switches stacking mode to Mean</string>
+               <string>Align frames before stacking</string>
               </property>
               <property name="text">
-               <string>Mean</string>
+               <string>Align</string>
               </property>
               <property name="shortcut">
-               <string>M</string>
+               <string>A</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radio_stack_sum">
-              <property name="toolTip">
-               <string>Switches stacking mode to Sum</string>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <property name="horizontalSpacing">
+               <number>16</number>
               </property>
-              <property name="statusTip">
-               <string>Switches stacking mode to Sum</string>
+              <property name="verticalSpacing">
+               <number>6</number>
               </property>
-              <property name="text">
-               <string>Sum</string>
-              </property>
-              <property name="shortcut">
-               <string>S</string>
-              </property>
-             </widget>
+              <item row="0" column="0">
+               <widget class="QRadioButton" name="radio_stack_mean">
+                <property name="toolTip">
+                 <string>Switches stacking mode to Mean</string>
+                </property>
+                <property name="statusTip">
+                 <string>Switches stacking mode to Mean</string>
+                </property>
+                <property name="text">
+                 <string>Mean staclking</string>
+                </property>
+                <property name="shortcut">
+                 <string>M</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QRadioButton" name="radio_stack_sum">
+                <property name="toolTip">
+                 <string>Switches stacking mode to Sum</string>
+                </property>
+                <property name="statusTip">
+                 <string>Switches stacking mode to Sum</string>
+                </property>
+                <property name="text">
+                 <string>Sum stacking</string>
+                </property>
+                <property name="shortcut">
+                 <string>S</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QRadioButton" name="radio_visual_profile">
+                <property name="text">
+                 <string>EAA Profile</string>
+                </property>
+                <attribute name="buttonGroup">
+                 <string notr="true">buttonGroup_2</string>
+                </attribute>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QRadioButton" name="radio_photo_profile">
+                <property name="text">
+                 <string>Photo Profile</string>
+                </property>
+                <attribute name="buttonGroup">
+                 <string notr="true">buttonGroup_2</string>
+                </attribute>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </item>
           <item>
-           <spacer name="horizontalSpacer">
+           <spacer name="horizontalSpacer_2">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -2200,4 +2291,7 @@
    </hints>
   </connection>
  </connections>
+ <buttongroups>
+  <buttongroup name="buttonGroup_2"/>
+ </buttongroups>
 </ui>

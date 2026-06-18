@@ -21,13 +21,13 @@ from als import config
 from als.code_utilities import log, AlsException, SignalingQueue, get_timestamp, \
     available_memory, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
-from als.model.base import Image, Session, VisualProfile, PhotoProfile, STACKING_MODE_MEAN, STACKING_MODE_SUM
+from als.model.base import Image, Session, STACKING_MODE_MEAN, STACKING_MODE_SUM, RunningProfile
 from als.model.data import (
     DYNAMIC_DATA,
     I18n, STACKED_IMAGE_FILE_NAME_BASE,
     IMAGE_SAVE_TYPE_JPEG, WEB_SERVED_IMAGE_FILE_NAME_BASE,
     WEB_SERVER_ACTIVE_STATUSES, WEB_SERVER_STATUS_RUNNING, WEB_SERVER_STATUS_STARTING,
-    WEB_SERVER_STATUS_STOPPED, WEB_SERVER_STATUS_STOPPING
+    WEB_SERVER_STATUS_STOPPED, WEB_SERVER_STATUS_STOPPING, AVAILABLE_PROFILES
 )
 from als.model.params import ProcessingParameter
 from als.processing import FileReader, Pipeline, Debayer, Standardize, ConvertForOutput, Levels, ColorBalance, \
@@ -64,39 +64,26 @@ class Controller:
     The application controller, in charge of implementing application logic
     """
 
-    EAA_PROFILE = 0
-    PHOTO_PROFILE = 1
-
-    profiles = {
-
-        EAA_PROFILE: VisualProfile(),
-        PHOTO_PROFILE: PhotoProfile()
-    }
-
     @log
     def __init__(self):
 
         DYNAMIC_DATA.session.set_status(Session.stopped)
         DYNAMIC_DATA.web_server_status = WEB_SERVER_STATUS_STOPPED
-        self._save_every_image = False
-
         DYNAMIC_DATA.file_reader_busy = False
         DYNAMIC_DATA.pre_processor_busy = False
         DYNAMIC_DATA.stacker_busy = False
         DYNAMIC_DATA.post_processor_busy = False
         DYNAMIC_DATA.saver_busy = False
-
         DYNAMIC_DATA.last_timing = 0
 
         self._input_scanner: InputScanner = InputScanner.create_scanner()
+        self._save_every_image = False
 
-        profile_code = config.get_profile()
-        self._profile = Controller.profiles[profile_code]
-        _LOGGER.debug(f"*SD-PROFILE* Using running profile: {profile_code}")
+        current_profile: RunningProfile = AVAILABLE_PROFILES[config.get_profile()]
 
         self._file_reader_queue: SignalingQueue = DYNAMIC_DATA.file_reader_queue
-        self._fileReader = FileReader(self._file_reader_queue, self._profile)
-        self._fileReader.start()
+        self._fileReader = FileReader(self._file_reader_queue)
+        self._fileReader.start(current_profile.get_pre_process_priority)
         self._input_scanner.new_image_path_signal[str].connect(self.on_new_image_path)
 
         self._pre_process_queue: SignalingQueue = DYNAMIC_DATA.pre_process_queue
@@ -104,12 +91,12 @@ class Controller:
             'pre-process',
             self._pre_process_queue,
             [HotPixelRemover(), RemoveDark(), RemoveFlat(), Debayer(), Standardize()])
-        self._pre_process_pipeline.start(self._profile.get_pre_process_priority)
+        self._pre_process_pipeline.start(current_profile.get_pre_process_priority)
 
         self._stacker_queue: SignalingQueue = DYNAMIC_DATA.stacker_queue
-        self._stacker: Stacker = Stacker(self._stacker_queue, self._profile)
+        self._stacker: Stacker = Stacker(self._stacker_queue)
         self._stacker.align_before_stack = True
-        self._stacker.start(self._profile.get_stacking_priority)
+        self._stacker.start(current_profile.get_stacking_priority)
 
         self._post_process_queue = DYNAMIC_DATA.process_queue
         self._post_process_pipeline: Pipeline = Pipeline(
@@ -122,7 +109,7 @@ class Controller:
         self._post_process_pipeline.add_process(self._autostretch_processor)
         self._post_process_pipeline.add_process(self._levels_processor)
         self._post_process_pipeline.add_process(self._rgb_processor)
-        self._post_process_pipeline.start(self._profile.get_post_process_priority)
+        self._post_process_pipeline.start(current_profile.get_post_process_priority)
 
         self._saver_queue = DYNAMIC_DATA.save_queue
         self._saver = ImageSaver(self._saver_queue, self)
@@ -342,6 +329,16 @@ class Controller:
         Sets current stacking mode to mean
         """
         self._stacker.stacking_mode = STACKING_MODE_SUM
+
+    @log
+    def set_new_profile(self, profile_code):
+        new_profile = AVAILABLE_PROFILES[profile_code]
+        DYNAMIC_DATA.current_profile = new_profile
+
+        self._fileReader.setPriority(new_profile.get_pre_process_priority)
+        self._pre_process_pipeline.setPriority(new_profile.get_pre_process_priority)
+        self._stacker.setPriority(new_profile.get_stacking_priority)
+        self._post_process_pipeline.setPriority(new_profile.get_post_process_priority)
 
 
     @log
@@ -633,8 +630,8 @@ class Controller:
 
                 MESSAGE_HUB.dispatch_info(
                     __name__,
-                    QT_TRANSLATE_NOOP("", "Session started in mode {} with alignment {}"),
-                    [I18n.STACKING_MODES[self._stacker.stacking_mode], self._stacker.align_before_stack])
+                    QT_TRANSLATE_NOOP("", "Session started : alignment {}, stacking mode {} and {} profile"),
+                    [self._stacker.align_before_stack, I18n.STACKING_MODES[self._stacker.stacking_mode], DYNAMIC_DATA.current_profile])
 
                 # setup web content
                 try:

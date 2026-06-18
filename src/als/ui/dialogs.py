@@ -103,15 +103,6 @@ class PreferencesDialog(QDialog):
         self._ui.chk_use_flat.setChecked(config.get_use_master_flat())
         self._ui.chk_use_hpr.setChecked(config.get_hot_pixel_remover())
 
-        self._profile_config_mapping = {
-
-            0: self._ui.rd_visual_profile,
-            1: self._ui.rd_photo_profile
-        }
-
-        for k, v in self._profile_config_mapping.items():
-            v.setChecked(config.get_profile() == k)
-
         self._ui.chk_www_own_folder.setChecked(config.get_www_use_dedicated_folder())
 
         self._web_folder_controls = [self._ui.ln_web_folder_path,
@@ -242,12 +233,10 @@ class PreferencesDialog(QDialog):
     def accept(self):
 
         # prepare flags for settings that require restart to take effect
-        PROFILE = self.tr("Profile")
         LOG = self.tr("Debug logs")
         LANG = self.tr("Language")
 
         settings_needing_restart = {
-            PROFILE: False,
             LOG: False,
             LANG: False
         }
@@ -296,16 +285,6 @@ class PreferencesDialog(QDialog):
         if debug_new_value != debug_old_value:
             config.set_debug_log(debug_new_value)
             settings_needing_restart[LOG] = True
-
-
-        # profile choice
-        profile_old_value = config.get_profile()
-        for k, v in self._profile_config_mapping.items():
-            if v.isChecked():
-                if k != profile_old_value:
-                    settings_needing_restart[PROFILE] = True
-                    config.set_profile(k)
-                break
 
         # lang choice
         lang_old_value = config.get_lang()

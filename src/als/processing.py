@@ -23,8 +23,8 @@ from als.code_utilities import human_readable_byte_size, available_memory
 from als.code_utilities import log, Timer, SignalingQueue, AlsLogAdapter
 from als.crunching import compute_histograms_for_display
 from als.messaging import MESSAGE_HUB
-from als.model.base import Image, RunningProfile
-from als.model.data import DYNAMIC_DATA, I18n
+from als.model.base import Image
+from als.model.data import DYNAMIC_DATA, I18n, AVAILABLE_PROFILES
 from als.model.params import ProcessingParameter, RangeParameter, SwitchParameter
 from als.streams.input import get_cached_master_dark, get_cached_master_flat, read_disk_image
 from contrib.stretch import Stretch
@@ -890,9 +890,8 @@ class FileReader(QueueConsumer):
 
     image_read = pyqtSignal(Image)
 
-    def __init__(self, queue: SignalingQueue, profile: RunningProfile):
+    def __init__(self, queue: SignalingQueue):
         super().__init__("FileReader", queue)
-        self._profile = profile
 
     MEMORY_CODES_MAPPING = {
 
@@ -957,7 +956,7 @@ class FileReader(QueueConsumer):
             last_file_size = size
 
             if not file_is_complete:
-                time.sleep(self._profile.get_file_read_size_polling_period)
+                time.sleep(AVAILABLE_PROFILES[config.get_profile()].get_file_read_size_polling_period)
 
         image = read_disk_image(Path(image_path))
 
