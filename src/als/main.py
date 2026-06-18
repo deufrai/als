@@ -123,22 +123,17 @@ def main():
         QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
 
         setup_ui_styling(app)
-        _log_application_font("after setup_ui_styling", app)
 
         # Translators must stay referenced while the app lives.
         # This assignment looks unused, but removing it breaks .ui translations.
         translators = setup_i18n(app, args.lang)
-        _log_application_font("after setup_i18n", app)
 
         if do_first_run_setup_if_needed() == STOP_STARTUP:
             return
-        _log_application_font("after first-run check", app)
 
         _LOGGER.debug("Building and showing main window")
         controller = Controller()
-        _log_application_font("before MainWindow", app)
         window = MainWindow(controller)
-        _log_application_font("after MainWindow", app)
 
         window.reset_image_view()
 
@@ -204,38 +199,10 @@ def setup_ui_styling(app: QApplication):
     _LOGGER.debug("composite stylesheet applied to application")
 
     if platform.machine() == "aarch64":
-        stylesheet_font = app.font()
-        _LOGGER.debug(
-            "Raspberry Pi font after stylesheet: family=%s point=%s pixel=%s",
-            stylesheet_font.family(),
-            stylesheet_font.pointSize(),
-            stylesheet_font.pixelSize(),
-        )
         default_font = app.font()
         default_font.setPointSize(default_font.pointSize() - 3)
         app.setFont(default_font)
-        actual_font = app.font()
-        _LOGGER.debug(
-            "Raspberry Pi font after tweak: family=%s point=%s pixel=%s",
-            actual_font.family(),
-            actual_font.pointSize(),
-            actual_font.pixelSize(),
-        )
-        _LOGGER.debug("applied Raspberry Pi specific UI tweaks : smaller text by 3 pt")
-
-
-def _log_application_font(label, app: QApplication):
-    if platform.machine() != "aarch64":
-        return
-
-    font = app.font()
-    _LOGGER.debug(
-        "Raspberry Pi application font %s: family=%s point=%s pixel=%s",
-        label,
-        font.family(),
-        font.pointSize(),
-        font.pixelSize(),
-    )
+        _LOGGER.debug("applied initial Raspberry Pi application font tweak")
 
 
 def setup_i18n(app: QApplication, lang: str = "") -> list:

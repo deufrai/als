@@ -6,6 +6,7 @@ Holds all windows used in the app
 """
 import datetime
 import platform
+import sys
 from logging import getLogger
 from os import chmod, makedirs
 from pathlib import Path
@@ -70,9 +71,7 @@ class MainWindow(QMainWindow):
 
         self._controller = controller
         self._ui = Ui_stack_window()
-        self._dump_application_font_info("before setupUi")
         self._ui.setupUi(self)
-        self._dump_application_font_info("after setupUi")
         self.setWindowTitle("Astro Live Stacker")
 
         self._qrDisplay = QRDisplay(self)
@@ -182,7 +181,6 @@ class MainWindow(QMainWindow):
 
         self._setup_statusbar()
         configure_platform_ui(self, self._ui.log)
-        self._dump_application_font_info("after configure_platform_ui")
 
         MESSAGE_HUB.add_receiver(self)
 
@@ -201,10 +199,9 @@ class MainWindow(QMainWindow):
             self.showMaximized()
         else:
             self.show()
-        self._dump_application_font_info("after show")
         self._schedule_raspberry_pi_font_tweak()
 
-        QTimer.singleShot(5000, self._dump_display_info)
+        QTimer.singleShot(5000, self._dump_platform_ui_info)
 
         if config.get_check_updates_on_startup_active():
             QTimer.singleShot(2000, self._start_update_check)
@@ -1154,36 +1151,30 @@ class MainWindow(QMainWindow):
                 self.tr("Total stack exp. time: {}").format(exposure_time_str))
             self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:6.1f} s")
 
-    def _dump_display_info(self):
+    def _dump_platform_ui_info(self):
 
         handle = self.windowHandle()
         screen = handle.screen() if handle is not None else QApplication.primaryScreen()
+        app = QApplication.instance()
 
-        _LOGGER.debug("Main window INIT")
         _LOGGER.debug("***************************************************************************")
-        _LOGGER.debug('Display info dump - START')
+        _LOGGER.debug("Platform UI diagnostics - START")
+        _LOGGER.debug("platform                 : sys=%s machine=%s", sys.platform, platform.machine())
+
+        if app is not None:
+            _LOGGER.debug("qt style                 : %s", QApplication.style().objectName())
 
         if screen is not None:
-            logical_dpi = screen.logicalDotsPerInch()
-            physical_dpi = screen.physicalDotsPerInch()
-            ratio = screen.devicePixelRatio()
-            geometry = screen.geometry()
-            available = screen.availableGeometry()
-
-
-            _LOGGER.debug(f"logical_dpi             : {logical_dpi}")
-            _LOGGER.debug(f"physical_dpi            : {physical_dpi}")
-            _LOGGER.debug(f"device_pixel_ratio      : {ratio}")
-            _LOGGER.debug(f"available_geometry      : {available}")
-            _LOGGER.debug(f"geometry                  : {geometry}")
+            _LOGGER.debug("screen logical DPI       : %s", screen.logicalDotsPerInch())
+            _LOGGER.debug("screen physical DPI      : %s", screen.physicalDotsPerInch())
+            _LOGGER.debug("screen pixel ratio       : %s", screen.devicePixelRatio())
+            _LOGGER.debug("screen geometry          : %s", screen.geometry())
+            _LOGGER.debug("screen available geometry: %s", screen.availableGeometry())
 
         else:
+            _LOGGER.debug("screen                   : unavailable")
 
-            _LOGGER.debug("screen is None, cannot get display info")
-
-        app = QApplication.instance()
         if app is not None:
-            _LOGGER.debug("style object             : %s", QApplication.style().objectName())
             self._dump_font_info("app", app)
 
         self._dump_font_info("menu bar", self._ui.menuBar)
@@ -1194,7 +1185,7 @@ class MainWindow(QMainWindow):
         self._dump_font_info("log", self._ui.log)
         self._dump_font_info("statusbar", self._ui.statusBar)
 
-        _LOGGER.debug('Display info dump - END')
+        _LOGGER.debug("Platform UI diagnostics - END")
         _LOGGER.debug("***************************************************************************")
 
     @staticmethod
@@ -1213,35 +1204,11 @@ class MainWindow(QMainWindow):
             metrics.averageCharWidth(),
         )
 
-    @staticmethod
-    def _dump_application_font_info(label):
-        if platform.machine() != "aarch64":
-            return
-
-        app = QApplication.instance()
-        if app is None:
-            return
-
-        font = app.font()
-        info = QFontInfo(font)
-        metrics = QFontMetrics(font)
-        _LOGGER.debug(
-            "Raspberry Pi application font %-28s family=%s actual=%s point=%s pixel=%s height=%s avg_width=%s",
-            label,
-            font.family(),
-            info.family(),
-            info.pointSize(),
-            info.pixelSize(),
-            metrics.height(),
-            metrics.averageCharWidth(),
-        )
-
     def _schedule_raspberry_pi_font_tweak(self):
         if platform.machine() != "aarch64":
             return
 
         QTimer.singleShot(100, self._apply_raspberry_pi_font_tweak)
-        QTimer.singleShot(500, self._dump_raspberry_pi_post_tweak_fonts)
 
     def _apply_raspberry_pi_font_tweak(self):
         if platform.machine() != "aarch64":
@@ -1252,19 +1219,13 @@ class MainWindow(QMainWindow):
             return
 
         font = app.font()
-        _LOGGER.debug(
-            "Raspberry Pi delayed font tweak before: family=%s point=%s pixel=%s",
-            font.family(),
-            font.pointSize(),
-            font.pixelSize(),
-        )
         font.setPointSize(9)
         app.setFont(font)
         self._set_inherited_font(font)
         configure_session_log_font(self._ui.log)
         actual_font = app.font()
         _LOGGER.debug(
-            "Raspberry Pi delayed font tweak after: family=%s point=%s pixel=%s",
+            "applied settled Raspberry Pi UI font tweak: family=%s point=%s pixel=%s",
             actual_font.family(),
             actual_font.pointSize(),
             actual_font.pixelSize(),
@@ -1294,15 +1255,6 @@ class MainWindow(QMainWindow):
             widget.testAttribute(Qt.WA_SetFont)
             or widget.objectName() in stylesheet_managed_font_widgets
         )
-
-    def _dump_raspberry_pi_post_tweak_fonts(self):
-        if platform.machine() != "aarch64":
-            return
-
-        self._dump_font_info("post-tweak app", QApplication.instance())
-        self._dump_font_info("post-tweak menu bar", self._ui.menuBar)
-        self._dump_font_info("post-tweak session dock", self._ui.session_dock)
-        self._dump_font_info("post-tweak statusbar", self._ui.statusBar)
 
     @log
     def _build_clickable_image_server_url(self) -> str:
