@@ -58,6 +58,7 @@ QPushButton#btn_session_stop,
 QPushButton#btn_web_start,
 QPushButton#btn_web_stop {
     font-size: 13pt;
+    font-weight: normal;
     padding-top: .5em;
     padding-bottom: .5em;
 }
@@ -65,6 +66,11 @@ QPushButton#btn_web_stop {
 QPushButton#btn_OK,
 QPushButton#btn_Cancel {
     width: 65px;
+}
+
+QLabel#lbl_stack_exposure,
+QLabel#lbl_stack_size {
+    font-size: 22pt;
 }
 
 QPushButton#btn_OK:enabled:hover,

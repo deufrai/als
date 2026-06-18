@@ -8,7 +8,7 @@ import platform
 import sys
 
 from PyQt5.QtCore import QEvent, QObject, QRect, QSize, Qt
-from PyQt5.QtGui import QColor, QFontDatabase, QFontInfo, QIcon, QPalette
+from PyQt5.QtGui import QColor, QFontDatabase, QIcon, QPalette
 from PyQt5.QtWidgets import (
     QAbstractSlider,
     QApplication,
@@ -33,8 +33,6 @@ from PyQt5.QtWidgets import (
 _WINDOWS_COMBO_BOX_ITEM_SPACING = 4
 _MACOS_COMBO_BOX_POPUP_HORIZONTAL_PADDING = 12
 _MACOS_SLIDER_WHEEL_STEP_MULTIPLIER = 2
-_RPI_SESSION_LOG_PIXEL_SIZE_REDUCTION = 3
-
 _file_dialog_focus_highlight_styler = None
 
 _PREFERRED_FIXED_PITCH_FONT_FAMILIES = (
@@ -66,7 +64,7 @@ def configure_platform_ui(parent: QWidget, session_log=None):
     _remove_native_status_bar_cell_frames(parent)
 
     if session_log is not None:
-        _configure_session_log_font(session_log)
+        configure_session_log_font(session_log)
 
 
 def _hide_preferences_focus_highlight(parent):
@@ -161,7 +159,7 @@ def _remove_native_status_bar_cell_frames(parent):
             label.setFrameStyle(QFrame.NoFrame)
 
 
-def _configure_session_log_font(session_log):
+def configure_session_log_font(session_log):
     if sys.platform in ("darwin", "win32"):
         log_font = QFontDatabase.systemFont(QFontDatabase.FixedFont)
         log_font.setPointSize(session_log.font().pointSize())
@@ -176,17 +174,9 @@ def _configure_session_log_font(session_log):
     if log_font_family is None:
         return
 
-    log_font_pixel_size = max(
-        1,
-        QFontInfo(session_log.font()).pixelSize()
-        - _RPI_SESSION_LOG_PIXEL_SIZE_REDUCTION
-    )
-    session_log.setStyleSheet(
-        'font-family: "{}"; font-size: {}px;'.format(
-            log_font_family,
-            log_font_pixel_size
-        )
-    )
+    log_font = session_log.font()
+    log_font.setFamily(log_font_family)
+    session_log.setFont(log_font)
 
 
 def _find_fixed_pitch_font_family(font_database):
@@ -459,4 +449,3 @@ def set_groupbox_spacing(groupbox: QGroupBox):
     if sys.platform == "darwin":
         groupbox.layout().setSpacing(8)
         groupbox.layout().setContentsMargins(10, 8, 10, 8)
-

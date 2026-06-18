@@ -300,18 +300,11 @@
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QLabel" name="lbl_stack_exposure">
-               <property name="font">
-                <font>
-                 <family>Ubuntu</family>
-                 <pointsize>22</pointsize>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="toolTip">
-                <string>Stack total exposure time</string>
-               </property>
+	             <item>
+	              <widget class="QLabel" name="lbl_stack_exposure">
+	               <property name="toolTip">
+	                <string>Stack total exposure time</string>
+	               </property>
                <property name="statusTip">
                 <string>Stack total exposure time</string>
                </property>
@@ -340,17 +333,11 @@
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QLabel" name="lbl_stack_size">
-               <property name="font">
-                <font>
-                 <pointsize>22</pointsize>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="toolTip">
-                <string>stack size for this session</string>
-               </property>
+	             <item>
+	              <widget class="QLabel" name="lbl_stack_size">
+	               <property name="toolTip">
+	                <string>stack size for this session</string>
+	               </property>
                <property name="statusTip">
                 <string>stack size for this session</string>
                </property>
@@ -868,14 +855,6 @@ Processing</string>
               <height>16777215</height>
              </size>
             </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
-              <bold>false</bold>
-              <underline>false</underline>
-             </font>
-            </property>
             <property name="toolTip">
              <string>Stop Session</string>
             </property>
@@ -1117,11 +1096,6 @@ Processing</string>
               <height>0</height>
              </size>
             </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
             <property name="toolTip">
              <string>Start image server</string>
             </property>
@@ -1143,11 +1117,6 @@ Processing</string>
               <width>0</width>
               <height>0</height>
              </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
             </property>
             <property name="toolTip">
              <string>Stop image server</string>

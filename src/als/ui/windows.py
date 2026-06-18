@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import List
 
 from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl
-from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QScreen
+from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFontInfo, QFontMetrics, QScreen
 # pylint: disable=no-name-in-module
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QGraphicsPixmapItem, QDialog, QApplication, \
@@ -34,7 +34,7 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
     message_box, SessionStopDialog, QRDisplay
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
-from als.ui.platform_ui import configure_platform_ui, set_groupbox_spacing
+from als.ui.platform_ui import configure_platform_ui, configure_session_log_font, set_groupbox_spacing
 from als.ui.widgets import Slider
 from als.updates import find_available_update
 from als.version import version as BUILD_VERSION
@@ -70,7 +70,9 @@ class MainWindow(QMainWindow):
 
         self._controller = controller
         self._ui = Ui_stack_window()
+        self._dump_application_font_info("before setupUi")
         self._ui.setupUi(self)
+        self._dump_application_font_info("after setupUi")
         self.setWindowTitle("Astro Live Stacker")
 
         self._qrDisplay = QRDisplay(self)
@@ -180,6 +182,7 @@ class MainWindow(QMainWindow):
 
         self._setup_statusbar()
         configure_platform_ui(self, self._ui.log)
+        self._dump_application_font_info("after configure_platform_ui")
 
         MESSAGE_HUB.add_receiver(self)
 
@@ -198,6 +201,8 @@ class MainWindow(QMainWindow):
             self.showMaximized()
         else:
             self.show()
+        self._dump_application_font_info("after show")
+        self._schedule_raspberry_pi_font_tweak()
 
         QTimer.singleShot(5000, self._dump_display_info)
 
@@ -1176,8 +1181,128 @@ class MainWindow(QMainWindow):
 
             _LOGGER.debug("screen is None, cannot get display info")
 
+        app = QApplication.instance()
+        if app is not None:
+            _LOGGER.debug("style object             : %s", QApplication.style().objectName())
+            self._dump_font_info("app", app)
+
+        self._dump_font_info("menu bar", self._ui.menuBar)
+        self._dump_font_info("session dock", self._ui.session_dock)
+        self._dump_font_info("stack exposure", self._ui.lbl_stack_exposure)
+        self._dump_font_info("session start button", self._ui.btn_session_start)
+        self._dump_font_info("web stop button", self._ui.btn_web_stop)
+        self._dump_font_info("log", self._ui.log)
+        self._dump_font_info("statusbar", self._ui.statusBar)
+
         _LOGGER.debug('Display info dump - END')
         _LOGGER.debug("***************************************************************************")
+
+    @staticmethod
+    def _dump_font_info(label, widget):
+        font = widget.font()
+        info = QFontInfo(font)
+        metrics = QFontMetrics(font)
+        _LOGGER.debug(
+            "%-28s family=%s actual=%s point=%s pixel=%s height=%s avg_width=%s",
+            label,
+            font.family(),
+            info.family(),
+            info.pointSize(),
+            info.pixelSize(),
+            metrics.height(),
+            metrics.averageCharWidth(),
+        )
+
+    @staticmethod
+    def _dump_application_font_info(label):
+        if platform.machine() != "aarch64":
+            return
+
+        app = QApplication.instance()
+        if app is None:
+            return
+
+        font = app.font()
+        info = QFontInfo(font)
+        metrics = QFontMetrics(font)
+        _LOGGER.debug(
+            "Raspberry Pi application font %-28s family=%s actual=%s point=%s pixel=%s height=%s avg_width=%s",
+            label,
+            font.family(),
+            info.family(),
+            info.pointSize(),
+            info.pixelSize(),
+            metrics.height(),
+            metrics.averageCharWidth(),
+        )
+
+    def _schedule_raspberry_pi_font_tweak(self):
+        if platform.machine() != "aarch64":
+            return
+
+        QTimer.singleShot(100, self._apply_raspberry_pi_font_tweak)
+        QTimer.singleShot(500, self._dump_raspberry_pi_post_tweak_fonts)
+
+    def _apply_raspberry_pi_font_tweak(self):
+        if platform.machine() != "aarch64":
+            return
+
+        app = QApplication.instance()
+        if app is None:
+            return
+
+        font = app.font()
+        _LOGGER.debug(
+            "Raspberry Pi delayed font tweak before: family=%s point=%s pixel=%s",
+            font.family(),
+            font.pointSize(),
+            font.pixelSize(),
+        )
+        font.setPointSize(9)
+        app.setFont(font)
+        self._set_inherited_font(font)
+        configure_session_log_font(self._ui.log)
+        actual_font = app.font()
+        _LOGGER.debug(
+            "Raspberry Pi delayed font tweak after: family=%s point=%s pixel=%s",
+            actual_font.family(),
+            actual_font.pointSize(),
+            actual_font.pixelSize(),
+        )
+
+    def _set_inherited_font(self, font):
+        if not self._has_stylesheet_managed_font(self):
+            self.setFont(font)
+
+        for widget in self.findChildren(QWidget):
+            if not self._has_stylesheet_managed_font(widget):
+                widget.setFont(font)
+
+    @staticmethod
+    def _has_stylesheet_managed_font(widget):
+        stylesheet_managed_font_widgets = {
+            "lbl_stack_exposure",
+            "lbl_stack_size",
+            "btn_session_start",
+            "btn_session_pause",
+            "btn_session_stop",
+            "btn_web_start",
+            "btn_web_stop",
+        }
+
+        return (
+            widget.testAttribute(Qt.WA_SetFont)
+            or widget.objectName() in stylesheet_managed_font_widgets
+        )
+
+    def _dump_raspberry_pi_post_tweak_fonts(self):
+        if platform.machine() != "aarch64":
+            return
+
+        self._dump_font_info("post-tweak app", QApplication.instance())
+        self._dump_font_info("post-tweak menu bar", self._ui.menuBar)
+        self._dump_font_info("post-tweak session dock", self._ui.session_dock)
+        self._dump_font_info("post-tweak statusbar", self._ui.statusBar)
 
     @log
     def _build_clickable_image_server_url(self) -> str:
