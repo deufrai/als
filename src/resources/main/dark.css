@@ -385,13 +385,14 @@ QGroupBox#groupBox_4 QSlider#sld_align_threshold {
 }
 
 QStatusBar::item {
-    border-top: 1px solid #111111;
-    border-left: 1px solid #111111;
-    border-right: 1px solid #444444;
-    border-bottom: 1px solid #444444;
-    border-radius: 1px;
+    background-color: #222222;
+    border: 1px solid transparent;
 }
 
 QStatusBar QLabel {
-    padding: 0 4px;
+    border-left: 1px solid #171717;
+    border-top: 1px solid #171717;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-radius: 2px;
 }
