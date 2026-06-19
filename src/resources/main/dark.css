@@ -346,18 +346,12 @@ QSlider::groove:horizontal {
     height: 4px;
 }
 
-QSlider::sub-page:horizontal {
-    background-color: #4e1111;
-    border-left: 1px solid #171717;
-    border-top: 1px solid #171717;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-radius: 2px;
-    height: 4px;
+
+QSlider::groove:horizontal:hover {
+    border: 1px solid #555555;
 }
 
-QSlider::groove:horizontal:disabled,
-QSlider::sub-page:horizontal:disabled {
+QSlider::groove:horizontal:disabled {
     background-color: #222222;
     border: 1px solid #333333;
 }
