@@ -1146,7 +1146,7 @@ class MainWindow(QMainWindow):
 
             if DYNAMIC_DATA.current_sub_is_color:
                 pattern = DYNAMIC_DATA.current_sub_bayer_pattern
-                self._ui.lbl_sub_color_mode.setText(self.tr("Color") + f' {pattern}' if pattern != "" else "")
+                self._ui.lbl_sub_color_mode.setText(self.tr("Color") + (f' {pattern}' if pattern != "" else ""))
             else:
                 self._ui.lbl_sub_color_mode.setText(self.tr("Mono") if DYNAMIC_DATA.current_sub_width != self.tr("n/a") else "")
 
