@@ -1111,9 +1111,10 @@ class MainWindow(QMainWindow):
             ## Session status
             self._ui.lbl_session.setStatusTip(self.tr("Set scan folder {}").format(config.get_scan_folder_path()))
             self._ui.lbl_session_status.setText(session_status)
-            if session_is_stopped and not (session_modules_idle and all_queues_empty):
-                self._ui.lbl_session_status.setText(self.tr("Purging"))
             self._ui.lbl_session_status.setStyleSheet(css_active if not session_is_stopped else css_inactive)
+            if session_is_stopped and not (session_modules_idle and all_queues_empty):
+                self._ui.lbl_session_status.setText(self.tr("purging"))
+                self._ui.lbl_session_status.setStyleSheet(css_active)
 
             modules_labels_to_status_mapping = {
                 self._ui.lbl_file_reader_queue_size: {'busy': DYNAMIC_DATA.file_reader_busy,
