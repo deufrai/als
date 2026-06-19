@@ -360,6 +360,7 @@ class MainWindow(QMainWindow):
         self._ui.btn_stretch_reset.setEnabled(checked)
         self._ui.btn_stretch_apply.setEnabled(checked)
         self._ui.sld_stretch_strength.setEnabled(checked)
+        self._ui.lbl_processing_stretch_strength.setEnabled(checked)
 
         self.on_btn_stretch_apply_clicked()
 
@@ -379,6 +380,9 @@ class MainWindow(QMainWindow):
         self._ui.sld_black.setEnabled(checked)
         self._ui.sld_midtones.setEnabled(checked)
         self._ui.sld_white.setEnabled(checked)
+        self._ui.lbl_processing_levels_black.setEnabled(checked)
+        self._ui.lbl_processing_levels_mids.setEnabled(checked)
+        self._ui.lbl_processing_levels_white.setEnabled(checked)
 
         self.on_btn_levels_apply_clicked()
 
@@ -399,6 +403,10 @@ class MainWindow(QMainWindow):
         self._ui.sld_rgb_g.setEnabled(checked)
         self._ui.sld_rgb_b.setEnabled(checked)
         self._ui.sld_rgb_saturation.setEnabled(checked)
+        self._ui.lbl_processing_colors_red.setEnabled(checked)
+        self._ui.lbl_processing_colors_green.setEnabled(checked)
+        self._ui.lbl_processing_colors_blue.setEnabled(checked)
+        self._ui.lbl_processing_colors_saturation.setEnabled(checked)
 
         self.on_btn_rgb_apply_clicked()
 

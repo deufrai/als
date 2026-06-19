@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>0</width>
-     <height>0</height>
+     <width>337</width>
+     <height>744</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -1573,7 +1573,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_8">
           <item>
-           <widget class="QLabel" name="label_8">
+           <widget class="QLabel" name="lbl_processing_stretch_strength">
             <property name="text">
              <string>Strength</string>
             </property>
@@ -1665,7 +1665,7 @@
            <number>4</number>
           </property>
           <item row="0" column="0">
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="lbl_processing_levels_black">
             <property name="text">
              <string>Black</string>
             </property>
@@ -1685,7 +1685,7 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="lbl_processing_levels_mids">
             <property name="text">
              <string>Midtones</string>
             </property>
@@ -1705,7 +1705,7 @@
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="lbl_processing_levels_white">
             <property name="text">
              <string>White</string>
             </property>
@@ -1794,7 +1794,7 @@
            <number>4</number>
           </property>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="lbl_processing_colors_red">
             <property name="text">
              <string>R</string>
             </property>
@@ -1814,7 +1814,7 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="lbl_processing_colors_green">
             <property name="text">
              <string>G</string>
             </property>
@@ -1834,7 +1834,7 @@
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_7">
+           <widget class="QLabel" name="lbl_processing_colors_blue">
             <property name="text">
              <string>B</string>
             </property>
@@ -1870,7 +1870,7 @@
            </spacer>
           </item>
           <item row="4" column="0">
-           <widget class="QLabel" name="lbl_rgb_saturation">
+           <widget class="QLabel" name="lbl_processing_colors_saturation">
             <property name="text">
              <string>Saturation</string>
             </property>
