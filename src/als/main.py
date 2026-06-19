@@ -129,20 +129,11 @@ def main():
         # This assignment looks unused, but removing it breaks .ui translations.
         translators = setup_i18n(app, args.lang)
 
+        controller = Controller()
+        setup_ui_styling(app)
         if do_first_run_setup_if_needed() == STOP_STARTUP:
             return
-
-        controller = Controller()
-
-        if args.start_session:
-            controller.start_session()
-
-        if args.start_server:
-            controller.start_www()
-
-        setup_ui_styling(app)
         window = MainWindow(controller)
-        # window.reset_image_view()
         window.update_display()
 
         if config.get_full_screen_active():
@@ -155,6 +146,12 @@ def main():
     start_message = QT_TRANSLATE_NOOP("", "Astro Live Stacker version {} started in {} ms.")
     start_message_values = [VERSION, startup_timer.elapsed_in_milli_as_str]
     MESSAGE_HUB.dispatch_info(__name__, start_message, start_message_values)
+
+    if args.start_session:
+        controller.start_session()
+
+    if args.start_server:
+        controller.start_www()
 
     app_return_code = app.exec()
     controller.shutdown()
