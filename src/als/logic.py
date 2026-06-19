@@ -40,7 +40,6 @@ from als.streams.network import (
     select_advertised_address
 )
 from als.streams.output import ImageSaver
-from model.base import RunningProfile
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
