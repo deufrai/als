@@ -728,6 +728,7 @@
   <tabstop>ln_scan_folder_path</tabstop>
   <tabstop>sld_mem_preserve</tabstop>
   <tabstop>cmb_lang</tabstop>
+  <tabstop>chk_debug_logs</tabstop>
   <tabstop>chk_stats</tabstop>
   <tabstop>chk_updates_on_startup</tabstop>
   <tabstop>chk_use_hpr</tabstop>

@@ -74,7 +74,6 @@ QComboBox:enabled:hover {
     border: 2px solid #666666;
 }
 
-QCheckBox::indicator,
 QSlider::groove:horizontal,
 QSlider::groove:vertical,
 QSlider::handle:horizontal,
@@ -82,15 +81,6 @@ QSlider::handle:vertical {
     border-color: rgba(255, 255, 255, 45);
 }
 
-QCheckBox::indicator:enabled:hover,
-QCheckBox::indicator:focus {
-
-    width: 16px;
-    height: 16px;
-
-    border: 2px solid #666666;
-    border-radius: 4px;
-}
 
 QCheckBox::indicator {
     margin-right: 4px;

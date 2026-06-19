@@ -128,6 +128,9 @@ def _teardown_file_dialog_focus_highlight_styling():
 
 
 def _hide_system_overlay(control):
+    if sys.platform == "darwin":
+        control.setAttribute(Qt.WA_MacShowFocusRect, False)
+
     control_palette = control.palette()
     control_palette.setColor(QPalette.Highlight, QColor("#222222"))
     control.setPalette(control_palette)
