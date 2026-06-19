@@ -84,10 +84,3 @@ QComboBox QAbstractItemView {
     padding: 2px;
     selection-background-color: #444444;
 }
-
-QFileDialog QHeaderView::section {
-    background-color: #333333;
-    border: 1px solid #444444;
-    color: #b6b6b6;
-    padding: 3px 6px;
-}

@@ -33,7 +33,11 @@ from als.streams.network import (
     ADVERTISED_ADDRESS_AUTO, build_advertised_address_preference,
     get_network_address_candidates
 )
-from als.ui.platform_ui import configure_platform_ui
+from als.ui.platform_ui import (
+    build_directory_dialog_options,
+    build_file_dialog_options,
+    configure_platform_ui
+)
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _WARNING_STYLE_SHEET = "border: 1px solid orange"
@@ -358,7 +362,7 @@ class PreferencesDialog(QDialog):
         dark_file_path = QFileDialog.getOpenFileName(self,
                                                      self.tr("Select master dark file"),
                                                      self._ui.ln_master_dark_path.text(),
-                                                     options=QFileDialog.DontUseNativeDialog)
+                                                     options=build_file_dialog_options())
         if dark_file_path[0]:
             self._ui.ln_master_dark_path.setText(dark_file_path[0])
 
@@ -371,7 +375,7 @@ class PreferencesDialog(QDialog):
         flat_file_path = QFileDialog.getOpenFileName(self,
                                                      self.tr("Select master flat file"),
                                                      self._ui.ln_master_flat_path.text(),
-                                                     options=QFileDialog.DontUseNativeDialog)
+                                                     options=build_file_dialog_options())
         if flat_file_path[0]:
             self._ui.ln_master_flat_path.setText(flat_file_path[0])
 
@@ -829,4 +833,4 @@ def ask_for_directory_path(parent, invite, start_folder= ""):
     return QFileDialog.getExistingDirectory(parent,
                                             invite,
                                             start_folder,
-                                            options=QFileDialog.DontUseNativeDialog | QFileDialog.ShowDirsOnly)
+                                            options=build_directory_dialog_options())

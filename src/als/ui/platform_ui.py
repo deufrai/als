@@ -67,6 +67,17 @@ def configure_platform_ui(parent: QWidget, session_log=None):
         configure_session_log_font(session_log)
 
 
+def build_file_dialog_options():
+    options = QFileDialog.Options()
+    if sys.platform.startswith("linux"):
+        options |= QFileDialog.DontUseNativeDialog
+    return options
+
+
+def build_directory_dialog_options():
+    return build_file_dialog_options() | QFileDialog.ShowDirsOnly
+
+
 def _hide_preferences_focus_highlight(parent):
 
     focus_highlight_control_types = (

@@ -35,7 +35,12 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
     message_box, SessionStopDialog, QRDisplay
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
-from als.ui.platform_ui import configure_platform_ui, configure_session_log_font, _set_groupbox_spacing
+from als.ui.platform_ui import (
+    build_file_dialog_options,
+    configure_platform_ui,
+    configure_session_log_font,
+    _set_groupbox_spacing
+)
 from als.ui.widgets import Slider
 from als.updates import find_available_update
 from als.version import version as BUILD_VERSION
@@ -1457,7 +1462,7 @@ class MainWindow(QMainWindow):
                                                    caption=self.tr("Select your ALS executable"),
                                                    directory=home_path,
                                                    filter=file_filter,
-                                                   options=QFileDialog.DontUseNativeDialog)[0]
+                                                   options=build_file_dialog_options())[0]
 
             if als_path:
 

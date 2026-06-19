@@ -18,6 +18,12 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>##VERSION##</string>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>ALS needs access to Desktop folders so you can select scan and work folders there.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>ALS needs access to Documents folders so you can select scan and work folders there.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>ALS needs access to Downloads folders so you can select scan and work folders there.</string>
 	<key>NSRequiresAquaSystemAppearance</key>
 	<string>False</string>
 	<key>NSPrincipalClass</key>
