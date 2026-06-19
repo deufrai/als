@@ -119,10 +119,11 @@ def main():
         config.setup()
         log_system_infos()
 
+        if config.get_send_stats_active():
+            call_home()
+
         app = QApplication(sys.argv)
         QThread.currentThread().setPriority(QThread.TimeCriticalPriority)
-
-        setup_ui_styling(app)
 
         # Translators must stay referenced while the app lives.
         # This assignment looks unused, but removing it breaks .ui translations.
@@ -131,11 +132,7 @@ def main():
         if do_first_run_setup_if_needed() == STOP_STARTUP:
             return
 
-        _LOGGER.debug("Building and showing main window")
         controller = Controller()
-        window = MainWindow(controller)
-
-        window.reset_image_view()
 
         if args.start_session:
             controller.start_session()
@@ -143,12 +140,21 @@ def main():
         if args.start_server:
             controller.start_www()
 
+        setup_ui_styling(app)
+        window = MainWindow(controller)
+        # window.reset_image_view()
+        window.update_display()
+
+        if config.get_full_screen_active():
+            window.showFullScreen()
+        elif config.get_window_maximized():
+            window.showMaximized()
+        else:
+            window.show()
+
     start_message = QT_TRANSLATE_NOOP("", "Astro Live Stacker version {} started in {} ms.")
     start_message_values = [VERSION, startup_timer.elapsed_in_milli_as_str]
     MESSAGE_HUB.dispatch_info(__name__, start_message, start_message_values)
-
-    if config.get_send_stats_active():
-        call_home()
 
     app_return_code = app.exec()
     controller.shutdown()

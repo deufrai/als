@@ -35,7 +35,7 @@ from als.ui.dialogs import PreferencesDialog, AboutDialog, error_box, warning_bo
     message_box, SessionStopDialog, QRDisplay
 from als.ui.params_utils import update_controls_from_params, update_params_from_controls, init_params, \
     set_sliders_defaults
-from als.ui.platform_ui import configure_platform_ui, configure_session_log_font, set_groupbox_spacing
+from als.ui.platform_ui import configure_platform_ui, configure_session_log_font, _set_groupbox_spacing
 from als.ui.widgets import Slider
 from als.updates import find_available_update
 from als.version import version as BUILD_VERSION
@@ -64,23 +64,37 @@ class MainWindow(QMainWindow):
 
         super().__init__(parent)
 
+        self._controller = controller
+
         self._warning_sign_off = QIcon()
         self._warning_sign_on = QIcon(QPixmap(":/icons/warning_sign.svg"))
-
         self.setWindowIcon(QIcon(":/icons/als_logo.png"))
-
-        self._controller = controller
-        self._ui = Ui_stack_window()
-        self._ui.setupUi(self)
         self.setWindowTitle("Astro Live Stacker")
 
-        self._qrDisplay = QRDisplay(self)
-        self._qrDisplay.hide()
-        self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
+        self._ui = Ui_stack_window()
+        self._ui.setupUi(self)
+        self._setup_ui()
+        self._setup_comms()
+
         self._web_server_was_running = False
-        self._update_check_network_manager = None
-        self._update_check_reply = None
-        self._update_check_timeout_timer = None
+
+        self._init_processing_params()
+
+        self._do_initial_update()
+        self._setup_statusbar()
+
+
+        # this must be done AFTER show...()
+        self._schedule_raspberry_pi_font_tweak()
+
+        QTimer.singleShot(5000, self._dump_platform_ui_info)
+
+        self._setup_check_for_online_updates()
+
+    def _do_initial_update(self):
+        self._ui.action_full_screen.setChecked(config.get_full_screen_active())
+        self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
+        self._ui.lbl_web_url.clear()
 
         # set stacking mode display
         self._ui.radio_stack_mean.setChecked(self._controller.is_stacking_mode_mean())
@@ -89,6 +103,14 @@ class MainWindow(QMainWindow):
         # update align checkbox
         self._ui.chk_align.setChecked(self._controller.get_align_before_stack())
 
+    @log
+    def _setup_comms(self):
+        self._controller.add_model_observer(self)
+        self._controller.add_web_server_observer(self)
+        MESSAGE_HUB.add_receiver(self)
+
+    @log
+    def _setup_ui(self):
         # prevent log dock to be too tall
         self.resizeDocks([self._ui.log_dock], [MainWindow._LOG_DOCK_INITIAL_HEIGHT], Qt.Vertical)
 
@@ -105,6 +127,45 @@ class MainWindow(QMainWindow):
             """
         )
 
+        self._init_qr_display()
+
+        self.setGeometry(*config.get_window_geometry())
+
+        # setup management of 'image only' mode
+        self._restore_log_dock = False
+        self._restore_session_dock = False
+        self._restore_processing_dock = False
+
+        # setup image display
+        self._image_item = None
+        self.reset_image_view()
+
+        # setup groupboxes specific spacing's
+        for groupbox in [
+            self._ui.grp_session, self._ui.grp_stack, self._ui.grp_server, self._ui.grp_save
+        ]:
+            _set_groupbox_spacing(groupbox)
+
+        configure_platform_ui(self, self._ui.log)
+
+        self._ui.lbl_available_update.setVisible(False)
+
+    @log
+    def _setup_check_for_online_updates(self):
+        self._update_check_network_manager = None
+        self._update_check_reply = None
+        self._update_check_timeout_timer = None
+        if config.get_check_updates_on_startup_active():
+            QTimer.singleShot(2000, self._start_update_check)
+
+    @log
+    def _init_qr_display(self):
+        self._qrDisplay = QRDisplay(self)
+        self._qrDisplay.hide()
+        self._qrDisplay.visibility_changed_signal[bool].connect(self.on_qr_display_visibility_changed)
+
+    @log
+    def _init_processing_params(self):
         # setup rgb controls and params
         self._rgb_controls = [
             self._ui.chk_rgb_active,
@@ -155,56 +216,6 @@ class MainWindow(QMainWindow):
         )
 
         init_params(self._levels_parameters, self._levels_controls)
-
-        # setup exchanges with dynamic data
-        self._controller.add_model_observer(self)
-        self._controller.add_web_server_observer(self)
-
-        self.setGeometry(*config.get_window_geometry())
-
-        # setup management of 'image only' mode
-        self._restore_log_dock = False
-        self._restore_session_dock = False
-        self._restore_processing_dock = False
-
-        # setup image display
-        self._image_item = None
-        self.reset_image_view()
-
-        # setup info display
-        for groupbox in [
-            self._ui.grp_session, self._ui.grp_stack, self._ui.grp_server, self._ui.grp_save
-        ]:
-
-            set_groupbox_spacing(groupbox)
-
-
-        self._setup_statusbar()
-        configure_platform_ui(self, self._ui.log)
-
-        MESSAGE_HUB.add_receiver(self)
-
-        self._ui.action_full_screen.setChecked(config.get_full_screen_active())
-
-        self._ui.action_create_launcher.setVisible(platform.system().lower() == 'linux')
-
-        self._ui.lbl_web_url.clear()
-
-        self._ui.lbl_available_update.setVisible(False)
-
-        self.update_display()
-        if config.get_full_screen_active():
-            self.showFullScreen()
-        elif config.get_window_maximized():
-            self.showMaximized()
-        else:
-            self.show()
-        self._schedule_raspberry_pi_font_tweak()
-
-        QTimer.singleShot(5000, self._dump_platform_ui_info)
-
-        if config.get_check_updates_on_startup_active():
-            QTimer.singleShot(2000, self._start_update_check)
 
     @log
     def _start_update_check(self):

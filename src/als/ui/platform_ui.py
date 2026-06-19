@@ -444,7 +444,7 @@ def install_windows_title_bar_styling(app):
     app.installEventFilter(title_bar_styler)
     app._als_windows_title_bar_styler = title_bar_styler
 
-def set_groupbox_spacing(groupbox: QGroupBox):
+def _set_groupbox_spacing(groupbox: QGroupBox):
 
     if sys.platform == "darwin":
         groupbox.layout().setSpacing(8)
