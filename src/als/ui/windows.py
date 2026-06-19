@@ -152,8 +152,31 @@ class MainWindow(QMainWindow):
             _set_groupbox_spacing(groupbox)
 
         configure_platform_ui(self, self._ui.log)
+        self._reserve_info_labels_widths()
 
         self._ui.lbl_available_update.setVisible(False)
+
+    def _reserve_info_labels_widths(self):
+        """
+        Reserve room for runtime current-sub values to avoid layout shifts.
+        """
+        self._set_minimum_text_width(self._ui.lbl_sub_width, ["n/a", "9999"])
+        self._set_minimum_text_width(self._ui.lbl_sub_height, ["n/a", "9999"])
+        self._set_minimum_text_width(self._ui.lbl_sub_expo, ["n/a", "999.9"])
+        self._set_minimum_text_width(self._ui.lbl_last_processing_time, ["0.0 s", "999.9 s"])
+        self._set_minimum_text_width(self._ui.lbl_session_status,
+                                     [I18n.STARTING, I18n.STOPPED_F, I18n.RUNNING_F, I18n.STOPPING])
+        self._set_minimum_text_width(self._ui.lbl_web_server_status_main,
+                                     [I18n.STARTING, I18n.STOPPED_F, I18n.RUNNING_F, I18n.STOPPING])
+        self._set_minimum_text_width(self._ui.lbl_web_url,
+                                     ["127.0.0.1:8000", "888.888.888.888:8888"])
+
+    @staticmethod
+    def _set_minimum_text_width(label, text_samples):
+        metrics = QFontMetrics(label.font())
+        text_width = max(metrics.horizontalAdvance(text) for text in text_samples)
+        label.setMinimumWidth(text_width + metrics.averageCharWidth())
+        label.setMinimumHeight(metrics.height())
 
     @log
     def _setup_check_for_online_updates(self):
@@ -1122,17 +1145,17 @@ class MainWindow(QMainWindow):
             self._ui.lbl_sub_height.setText(str(DYNAMIC_DATA.current_sub_height))
 
             if DYNAMIC_DATA.current_sub_is_color:
-                self._ui.lbl_sub_color.setText(self.tr("Color"))
-                self._ui.lbl_sub_bayer.setText(DYNAMIC_DATA.current_sub_bayer_pattern)
+                pattern = DYNAMIC_DATA.current_sub_bayer_pattern
+                self._ui.lbl_sub_color_mode.setText(self.tr("Color") + f' {pattern}' if pattern != "" else "")
             else:
-                self._ui.lbl_sub_color.setText(self.tr("Mono") if DYNAMIC_DATA.current_sub_width != self.tr("n/a") else "")
-                self._ui.lbl_sub_bayer.clear()
+                self._ui.lbl_sub_color_mode.setText(self.tr("Mono") if DYNAMIC_DATA.current_sub_width != self.tr("n/a") else "")
 
             if DYNAMIC_DATA.current_sub_exposure_time != Image.UNDEF_EXP_TIME:
                 self._ui.lbl_sub_expo.setText(str(DYNAMIC_DATA.current_sub_exposure_time))
             else:
                 self._ui.lbl_sub_expo.setText(self.tr("n/a"))
 
+            self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:.1f} s")
 
             # manage warnings
             new_warnings = DYNAMIC_DATA.has_new_warnings
@@ -1165,7 +1188,7 @@ class MainWindow(QMainWindow):
             self._lbl_statusbar_stack_size.setText(f"{I18n.STACK_SIZE} : {stack_size_str}")
             self._lbl_statusbar_stack_exposure.setText(
                 self.tr("Total stack exp. time: {}").format(exposure_time_str))
-            self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:6.1f} s")
+
 
     def _dump_platform_ui_info(self):
 

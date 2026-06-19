@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1600</width>
-    <height>965</height>
+    <height>1155</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>376</width>
-     <height>734</height>
+     <width>0</width>
+     <height>0</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -122,7 +122,7 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QVBoxLayout" name="verticalLayout_18">
+    <layout class="QVBoxLayout" name="verticalLayout_19">
      <item>
       <widget class="QFrame" name="frm_infos">
        <property name="frameShape">
@@ -134,7 +134,7 @@
        <property name="lineWidth">
         <number>0</number>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_19">
+       <layout class="QVBoxLayout" name="verticalLayout_18">
         <item>
          <widget class="QFrame" name="frame_essentials">
           <property name="frameShape">
@@ -154,7 +154,7 @@
             <number>0</number>
            </property>
            <item>
-            <layout class="QGridLayout" name="gridLayout_5" columnstretch="0,1,1,1,1" rowminimumheight="20,20" columnminimumwidth="0,70,0,0,0">
+            <layout class="QGridLayout" name="gridLayout_5" columnstretch="0,1,1,1,1" rowminimumheight="20,20" columnminimumwidth="0,0,0,0,0">
              <property name="bottomMargin">
               <number>4</number>
              </property>
@@ -268,13 +268,6 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QFrame" name="frm_stack_info">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -359,18 +352,24 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="1,0,1">
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
           <property name="spacing">
-           <number>6</number>
+           <number>20</number>
           </property>
           <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignTop">
            <widget class="QFrame" name="frm_current_sub">
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -408,15 +407,15 @@
               </widget>
              </item>
              <item>
-              <layout class="QGridLayout" name="gridLayout_4" columnminimumwidth="0,0,0">
+              <layout class="QGridLayout" name="gridLayout_4">
                <property name="topMargin">
-                <number>4</number>
+                <number>10</number>
                </property>
                <property name="bottomMargin">
-                <number>0</number>
+                <number>10</number>
                </property>
                <property name="horizontalSpacing">
-                <number>4</number>
+                <number>0</number>
                </property>
                <property name="verticalSpacing">
                 <number>2</number>
@@ -511,89 +510,17 @@
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
-                <widget class="QLabel" name="lbl_sub_color">
-                 <property name="text">
-                  <string notr="true">TextLabel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLabel" name="lbl_sub_bayer">
-                 <property name="text">
-                  <string notr="true">TextLabel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
               </layout>
              </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frm_last_timing">
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Plain</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_16">
-             <property name="spacing">
-              <number>2</number>
-             </property>
              <item>
-              <spacer name="verticalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>0</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_12">
+              <widget class="QLabel" name="lbl_sub_color_mode">
                <property name="text">
-                <string>Last
-Processing</string>
+                <string notr="true">COLOR</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
               </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="lbl_last_processing_time">
-               <property name="text">
-                <string notr="true">0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>0</height>
-                </size>
-               </property>
-              </spacer>
              </item>
             </layout>
            </widget>
@@ -627,11 +554,14 @@ Processing</string>
              </property>
              <item>
               <widget class="QLabel" name="label_3">
+               <property name="styleSheet">
+                <string notr="true">margin-left: 1em;</string>
+               </property>
                <property name="text">
                 <string>Pipeline</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -823,7 +753,91 @@ Processing</string>
             </layout>
            </widget>
           </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QFrame" name="frm_last_timing">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_16">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>Total processing time for last sub</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_last_processing_time">
+               <property name="text">
+                <string notr="true">0</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -966,7 +980,7 @@ Processing</string>
                  <string>Switches stacking mode to Mean</string>
                 </property>
                 <property name="text">
-                 <string>Mean staclking</string>
+                 <string>Average</string>
                 </property>
                 <property name="shortcut">
                  <string>M</string>
@@ -982,7 +996,7 @@ Processing</string>
                  <string>Switches stacking mode to Sum</string>
                 </property>
                 <property name="text">
-                 <string>Sum stacking</string>
+                 <string>Sum</string>
                 </property>
                 <property name="shortcut">
                  <string>S</string>
