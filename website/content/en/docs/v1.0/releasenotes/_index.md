@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-14T19:09:55Z
+lastmod: 2026-06-19T03:10:11Z
 keywords: [ 'ALS Release Notes' ]
 weight: 100550
 ---
@@ -28,6 +28,8 @@ weight: 100550
 - Stopping an empty session could save a timestamped final image
 - Some session trasitions were inaccurately logged 
 - System language detection failed on macOS
+- macOS folder pickers could show protected folders such as Desktop as empty
+- Starting the image server could block the interface while the server was starting
 - Image server did not display its waiting image when started before a session
 - Progressive alignment could produce nested rectangular artifacts after large field rotations
 - The Visual profile could attempt to read subs before they were completely written on storage

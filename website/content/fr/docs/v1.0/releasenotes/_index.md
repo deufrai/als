@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-14T19:09:55Z
+lastmod: 2026-06-19T03:10:11Z
 keywords: [ 'Notes de version ALS' ]
 weight: 100550
 ---
@@ -28,6 +28,8 @@ weight: 100550
 - L'arrêt d'une session vide pouvait enregistrer une image finale horodatée
 - Certaines transitions de session étaient loggées de manière incorrect
 - La détection de la langue du système ne fonctionnait pas sur les systèmes macOS
+- Les sélecteurs de fichiers sur macOS pouvaient afficher certains dossiers comme étant vides
+- Le démarrage du serveur d'images pouvait bloquer l'interface
 - Le serveur d'images n'affichait pas son image d'attente lorsqu'il était démarré avant une session
 - L'alignement progressif pouvait produire des artefacts rectangulaires imbriqués après d'importantes rotations du champ
 - Le profil Visuel assisté pouvait tenter de lire les brutes avant la fin de leur écriture sur le stockage
