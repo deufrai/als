@@ -20,10 +20,10 @@ SOURCES += src/als/main.py \
 TRANSLATIONS = i18n/als_fr.ts \
   i18n/als_ru.ts
 
-FORMS += src/als/ui/about_ui.ui \
-  src/als/ui/als_ui.ui \
-  src/als/ui/save_wait_ui.ui \
-  src/als/ui/prefs_ui.ui \
-  src/als/ui/qr_ui.ui \
-  src/als/ui/stop_ui.ui \
-  src/als/ui/first_run_ui.ui \
+FORMS += src/als/ui/forms/about_ui.ui \
+  src/als/ui/forms/als_ui.ui \
+  src/als/ui/forms/save_wait_ui.ui \
+  src/als/ui/forms/prefs_ui.ui \
+  src/als/ui/forms/qr_ui.ui \
+  src/als/ui/forms/stop_ui.ui \
+  src/als/ui/forms/first_run_ui.ui \

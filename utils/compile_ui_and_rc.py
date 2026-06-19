@@ -13,7 +13,7 @@ def main():
     print("Compiling UI files\n" + "=" * 18)
     command = "pyuic5"
 
-    for ui_file in (src_folder_path / "als" / "ui").glob("*.ui"):
+    for ui_file in (src_folder_path / "als" / "ui" / "forms").glob("*.ui"):
 
         target_file_path = generated_src_path / ui_file.name.replace('.ui', ".py")
         args = f"{ui_file} -o {target_file_path} --import-from={generated_src_path.stem}"

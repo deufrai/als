@@ -135,9 +135,6 @@
         <number>0</number>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
-        <property name="spacing">
-         <number>4</number>
-        </property>
         <item>
          <widget class="QFrame" name="frame_essentials">
           <property name="frameShape">
@@ -271,6 +268,13 @@
          </widget>
         </item>
         <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QFrame" name="frm_stack_info">
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -300,11 +304,11 @@
                </property>
               </widget>
              </item>
-	             <item>
-	              <widget class="QLabel" name="lbl_stack_exposure">
-	               <property name="toolTip">
-	                <string>Stack total exposure time</string>
-	               </property>
+             <item>
+              <widget class="QLabel" name="lbl_stack_exposure">
+               <property name="toolTip">
+                <string>Stack total exposure time</string>
+               </property>
                <property name="statusTip">
                 <string>Stack total exposure time</string>
                </property>
@@ -333,11 +337,11 @@
                </property>
               </widget>
              </item>
-	             <item>
-	              <widget class="QLabel" name="lbl_stack_size">
-	               <property name="toolTip">
-	                <string>stack size for this session</string>
-	               </property>
+             <item>
+              <widget class="QLabel" name="lbl_stack_size">
+               <property name="toolTip">
+                <string>stack size for this session</string>
+               </property>
                <property name="statusTip">
                 <string>stack size for this session</string>
                </property>
@@ -355,7 +359,17 @@
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="1,0,1">
+          <property name="spacing">
+           <number>6</number>
+          </property>
           <item>
            <widget class="QFrame" name="frm_current_sub">
             <property name="frameShape">
@@ -396,7 +410,7 @@
              <item>
               <layout class="QGridLayout" name="gridLayout_4" columnminimumwidth="0,0,0">
                <property name="topMargin">
-                <number>0</number>
+                <number>4</number>
                </property>
                <property name="bottomMargin">
                 <number>0</number>
@@ -561,7 +575,7 @@ Processing</string>
              <item>
               <widget class="QLabel" name="lbl_last_processing_time">
                <property name="text">
-                <string>0</string>
+                <string notr="true">0</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -596,6 +610,9 @@ Processing</string>
              <number>0</number>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_13">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <property name="leftMargin">
               <number>0</number>
              </property>
@@ -609,12 +626,22 @@ Processing</string>
               <number>0</number>
              </property>
              <item>
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>Pipeline</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
               <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
                <property name="sizeConstraint">
                 <enum>QLayout::SetMinAndMaxSize</enum>
                </property>
                <property name="topMargin">
-                <number>0</number>
+                <number>4</number>
                </property>
                <property name="bottomMargin">
                 <number>0</number>
@@ -1011,8 +1038,8 @@ Processing</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_11">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="1,0,0">
-          <item>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="0" column="0">
            <widget class="QSlider" name="sld_align_threshold">
             <property name="minimumSize">
              <size>
@@ -1049,7 +1076,7 @@ Processing</string>
             </property>
            </widget>
           </item>
-          <item>
+          <item row="0" column="1">
            <widget class="QLabel" name="lbl_align_threshold">
             <property name="minimumSize">
              <size>
@@ -1065,8 +1092,8 @@ Processing</string>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QLabel" name="label_3">
+          <item row="0" column="2">
+           <widget class="QLabel" name="lbl_align_threshold_suffix">
             <property name="text">
              <string>matches min.</string>
             </property>
@@ -1517,7 +1544,7 @@ Processing</string>
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="groupBox_9">
+      <widget class="QGroupBox" name="grp_auto_stretch">
        <property name="title">
         <string>Auto stretch</string>
        </property>
@@ -1600,7 +1627,7 @@ Processing</string>
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="groupBox_6">
+      <widget class="QGroupBox" name="grp_levels">
        <property name="font">
         <font>
          <weight>50</weight>
@@ -2150,7 +2177,7 @@ Processing</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../../resources/resource.qrc"/>
+  <include location="../../../resources/resource.qrc"/>
  </resources>
  <connections>
   <connection>

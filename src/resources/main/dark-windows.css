@@ -43,17 +43,16 @@ QDialog#PrefsDialog QLabel {
 }
 
 
-QGroupBox#groupBox_9 QSlider:horizontal,
-QGroupBox#groupBox_6 QSlider:horizontal,
+QGroupBox#grp_auto_stretch QSlider:horizontal,
+QGroupBox#grp_levels QSlider:horizontal,
 QGroupBox#rgbProcessBox QSlider:horizontal,
-QGroupBox#groupBox_4 QSlider#sld_align_threshold {
+QGroupBox#grp_stack QSlider#sld_align_threshold {
     margin-top: 0;
 }
 
-QGroupBox#groupBox_9 QLabel,
-QGroupBox#groupBox_6 QLabel,
+QGroupBox#grp_auto_stretch QLabel,
+QGroupBox#grp_levels QLabel,
 QGroupBox#rgbProcessBox QLabel,
-QLabel#label_3,
 QLabel#lbl_align_threshold {
     min-height: 15px;
     max-height: 15px;

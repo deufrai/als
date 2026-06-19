@@ -73,6 +73,12 @@ QLabel#lbl_stack_size {
     font-size: 22pt;
 }
 
+QDialog#AboutDialog QLabel#lbl_about_app_name {
+    font-size: 22pt;
+    font-weight: bold;
+    min-height: 40px;
+}
+
 QPushButton#btn_OK:enabled:hover,
 QPushButton#btn_OK:focus,
 QPushButton#btn_Cancel:enabled:hover,
@@ -377,10 +383,10 @@ QDialog#PrefsDialog QSlider::handle:horizontal:focus{
     border: 1px solid #666666;
 }
 
-QGroupBox#groupBox_9 QSlider:horizontal,
-QGroupBox#groupBox_6 QSlider:horizontal,
+QGroupBox#grp_auto_stretch QSlider:horizontal,
+QGroupBox#grp_levels QSlider:horizontal,
 QGroupBox#rgbProcessBox QSlider:horizontal,
-QGroupBox#groupBox_4 QSlider#sld_align_threshold {
+QGroupBox#grp_stack QSlider#sld_align_threshold {
     margin-top: 3px;
 }
 
