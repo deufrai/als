@@ -95,6 +95,7 @@ class Session(QObject):
 class Image:
 
     UNDEF_EXP_TIME = -1
+    UNDEF_DIMENSION = -1
     """
     Represents an image, our basic processing object.
 

@@ -160,9 +160,7 @@ class MainWindow(QMainWindow):
         """
         Reserve room for runtime current-sub values to avoid layout shifts.
         """
-        self._set_minimum_text_width(self._ui.lbl_sub_width, ["n/a", "9999"])
-        self._set_minimum_text_width(self._ui.lbl_sub_height, ["n/a", "9999"])
-        self._set_minimum_text_width(self._ui.lbl_sub_expo, ["n/a", "999.9"])
+        self._set_minimum_text_width(self._ui.lbl_sub_expo, ["", "999.9 s"])
         self._set_minimum_text_width(self._ui.lbl_last_processing_time, ["0.0 s", "999.9 s"])
         self._set_minimum_text_width(self._ui.lbl_session_status,
                                      [I18n.STARTING, I18n.STOPPED_F, I18n.RUNNING_F, I18n.STOPPING])
@@ -1149,19 +1147,26 @@ class MainWindow(QMainWindow):
             if flat_path != "":
                 self._ui.lbl_calib_flat.setStatusTip(self.tr("Set master flat file: {}").format(flat_path))
 
-            self._ui.lbl_sub_width.setText(str(DYNAMIC_DATA.current_sub_width))
-            self._ui.lbl_sub_height.setText(str(DYNAMIC_DATA.current_sub_height))
+            # sub details
 
-            if DYNAMIC_DATA.current_sub_is_color:
-                pattern = DYNAMIC_DATA.current_sub_bayer_pattern
-                self._ui.lbl_sub_color_mode.setText(self.tr("Color") + (f' {pattern}' if pattern != "" else ""))
-            else:
-                self._ui.lbl_sub_color_mode.setText(self.tr("Mono") if DYNAMIC_DATA.current_sub_width != self.tr("n/a") else "")
+            show_sub_details = DYNAMIC_DATA.current_sub_width != Image.UNDEF_DIMENSION
 
-            if DYNAMIC_DATA.current_sub_exposure_time != Image.UNDEF_EXP_TIME:
-                self._ui.lbl_sub_expo.setText(str(DYNAMIC_DATA.current_sub_exposure_time))
-            else:
-                self._ui.lbl_sub_expo.setText(self.tr("n/a"))
+            if show_sub_details:
+
+                self._ui.lbl_sub_dimensions.setText(f"{DYNAMIC_DATA.current_sub_width} x {DYNAMIC_DATA.current_sub_height} px")
+
+                if DYNAMIC_DATA.current_sub_is_color:
+                    pattern = DYNAMIC_DATA.current_sub_bayer_pattern
+                    self._ui.lbl_sub_color_mode.setText(self.tr("Color") + (f' {pattern}' if pattern != "" else ""))
+                else:
+                    self._ui.lbl_sub_color_mode.setText(self.tr("Mono"))
+
+                if DYNAMIC_DATA.current_sub_exposure_time != Image.UNDEF_EXP_TIME:
+                    self._ui.lbl_sub_expo.setText(f"{DYNAMIC_DATA.current_sub_exposure_time} s")
+                else:
+                    self._ui.lbl_sub_expo.setText("")
+
+            self._ui.frame_current_sub_details.setVisible(show_sub_details)
 
             self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:.1f} s")
 

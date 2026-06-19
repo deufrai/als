@@ -904,9 +904,9 @@ class Controller:
     @log
     def _reset_current_sub_infos(self):
         
-        DYNAMIC_DATA.current_sub_width = "n/a"
-        DYNAMIC_DATA.current_sub_height = "n/a"
-        DYNAMIC_DATA.current_sub_exposure_time = "n/a"
+        DYNAMIC_DATA.current_sub_width = Image.UNDEF_DIMENSION
+        DYNAMIC_DATA.current_sub_height = Image.UNDEF_DIMENSION
+        DYNAMIC_DATA.current_sub_exposure_time = Image.UNDEF_EXP_TIME
         DYNAMIC_DATA.current_sub_is_color = False
         DYNAMIC_DATA.current_sub_bayer_pattern = ""
 

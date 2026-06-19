@@ -173,9 +173,9 @@ class DynamicData:
         self.total_exposure_time: int = 0
         self.master_dark: Optional[Image] = None
         self.master_flat: Optional[Image] = None
-        self.current_sub_width = "n/a"
-        self.current_sub_height = "n/a"
-        self.current_sub_exposure_time = "n/a"
+        self.current_sub_width = Image.UNDEF_DIMENSION
+        self.current_sub_height = Image.UNDEF_DIMENSION
+        self.current_sub_exposure_time = Image.UNDEF_EXP_TIME
         self.current_sub_is_color = False
         self.current_sub_bayer_pattern = ""
 
