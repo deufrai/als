@@ -178,6 +178,10 @@ class DynamicData:
         self.current_sub_exposure_time = Image.UNDEF_EXP_TIME
         self.current_sub_is_color = False
         self.current_sub_bayer_pattern = ""
+        self.current_sub_x_translation = Image.UNDEF_DIMENSION
+        self.current_sub_y_translation = Image.UNDEF_DIMENSION
+        self.current_sub_rotation = Image.UNDEF_ROTATION
+        self.current_sub_match_count = Image.UNDEF_DIMENSION
 
     @log
     def clear_master_calibration_cache(self) -> None:

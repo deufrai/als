@@ -5,6 +5,7 @@
 Holds all windows used in the app
 """
 import datetime
+import math
 import platform
 import sys
 from logging import getLogger
@@ -1167,6 +1168,20 @@ class MainWindow(QMainWindow):
                 else:
                     self._ui.lbl_sub_expo.setText("")
 
+                show_align_data = DYNAMIC_DATA.current_sub_x_translation != Image.UNDEF_DIMENSION
+
+                if show_align_data:
+
+                    self._ui.lbl_sub_trans.setText(f"{round(DYNAMIC_DATA.current_sub_x_translation, 1):.1f} x "
+                                                   f"{DYNAMIC_DATA.current_sub_y_translation:.1f} px "+ self.tr("drift"))
+
+                    self._ui.lbl_sub_rotation.setText(
+                        f"{self._format_angle_deg(DYNAMIC_DATA.current_sub_rotation):.1f}° " + self.tr("rotation"))
+
+                    self._ui.lbl_sub_matches.setText(f"{DYNAMIC_DATA.current_sub_match_count} " + self.tr("matches"))
+
+                self._ui.frm_align_data.setVisible(show_align_data)
+
             self._ui.frame_current_sub_details.setVisible(show_sub_details)
 
             self._ui.lbl_last_processing_time.setText(f"{DYNAMIC_DATA.last_timing:.1f} s")
@@ -1203,6 +1218,17 @@ class MainWindow(QMainWindow):
             self._lbl_statusbar_stack_exposure.setText(
                 self.tr("Total stack exp. time: {}").format(exposure_time_str))
 
+
+    def _format_angle_deg(self, angle_rad: float) -> float:
+        """
+        Convert an angle in radians to a human-friendly degree value.
+
+        The angle is first normalized to [-π, +π), then converted to
+        degrees and rounded to one decimal place.
+        """
+        normalized_rad = (angle_rad + math.pi) % (2 * math.pi) - math.pi
+
+        return round(math.degrees(normalized_rad), 1)
 
     def _dump_platform_ui_info(self):
 

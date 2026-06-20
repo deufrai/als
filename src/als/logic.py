@@ -909,6 +909,10 @@ class Controller:
         DYNAMIC_DATA.current_sub_exposure_time = Image.UNDEF_EXP_TIME
         DYNAMIC_DATA.current_sub_is_color = False
         DYNAMIC_DATA.current_sub_bayer_pattern = ""
+        DYNAMIC_DATA.current_sub_x_translation = Image.UNDEF_DIMENSION
+        DYNAMIC_DATA.current_sub_y_translation = Image.UNDEF_DIMENSION
+        DYNAMIC_DATA.current_sub_rotation = Image.UNDEF_ROTATION
+        DYNAMIC_DATA.current_sub_match_count = Image.UNDEF_DIMENSION
 
     @staticmethod
     @log

@@ -15,7 +15,7 @@ from als import config
 from als.code_utilities import log, Timer, AlsLogAdapter
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image, STACKING_MODE_SUM, STACKING_MODE_MEAN
-from als.model.data import AVAILABLE_PROFILES
+from als.model.data import AVAILABLE_PROFILES, DYNAMIC_DATA
 from als.processing import ImageQueueConsumer
 
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
@@ -260,6 +260,9 @@ class Stacker(ImageQueueConsumer):
         minimum_matches_for_valid_transform = config.get_minimum_match_count()
         _LOGGER.debug(f"*SD-REQ* configured minimum match count: {minimum_matches_for_valid_transform}")
 
+        transformation = SimilarityTransform()
+        matches_count = 0
+
         for ratio in [.1, .33, 1.]:
 
             top, bottom, left, right = self._get_image_subset_boundaries(ratio)
@@ -279,10 +282,6 @@ class Stacker(ImageQueueConsumer):
                 subset_transformation, matches = al.find_transform(new_subset, ref_subset)
                 matches_count = len(matches[0])
 
-                if matches_count < minimum_matches_for_valid_transform:
-                    raise StackingError(f"Alignment match count is lower than configured minimum: "
-                                        f"{matches_count} < {minimum_matches_for_valid_transform}.")
-
                 transformation = _convert_subset_transform_to_full_frame(
                     subset_transformation,
                     left,
@@ -295,6 +294,12 @@ class Stacker(ImageQueueConsumer):
                 _LOGGER.debug(f"*SD-TRANS* Accepted translation: {transformation.translation}")
                 _LOGGER.debug(f"*SD-SCALE* Accepted scale: {transformation.scale}")
                 _LOGGER.debug(f"*SD-MATCHES* Accepted image matched features count : {matches_count}")
+
+                if matches_count < minimum_matches_for_valid_transform:
+                    raise StackingError(f"Alignment match count is lower than configured minimum: "
+                                        f"{matches_count} < {minimum_matches_for_valid_transform}.")
+
+                self._publish_sub_data(matches_count, transformation)
                 return transformation
 
             # pylint: disable=W0703
@@ -303,10 +308,18 @@ class Stacker(ImageQueueConsumer):
                 # this will catch MaxIterError as well...
                 if ratio == 1.:
                     _LOGGER.debug("*SD-ALIGNOK* Image matching vs ref: Rejected")
+                    self._publish_sub_data(matches_count, transformation)
                     raise StackingError(alignment_error)
 
                 _LOGGER.debug(f"Could not find valid transformation on subset with ratio = {ratio}.")
                 continue
+
+    def _publish_sub_data(self, matches_count: int, transformation: SimilarityTransform):
+        DYNAMIC_DATA.current_sub_x_translation = transformation.translation[0]
+        DYNAMIC_DATA.current_sub_y_translation = transformation.translation[1]
+        DYNAMIC_DATA.current_sub_rotation = transformation.rotation
+        DYNAMIC_DATA.current_sub_match_count = matches_count
+
 
     @log
     def _get_image_subset_boundaries(self, ratio: float):
