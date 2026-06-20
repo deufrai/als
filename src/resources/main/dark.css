@@ -213,6 +213,12 @@ QComboBox::down-arrow {
     height: 5px;
 }
 
+QTabWidget::pane {
+
+    border: 1px solid #333333;
+    border-radius: 3px;
+}
+
 QTabBar::tab {
     background-color: #333333;
     border: 0;
