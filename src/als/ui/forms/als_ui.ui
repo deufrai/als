@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>327</width>
-     <height>763</height>
+     <width>0</width>
+     <height>0</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -971,7 +971,7 @@
             <item>
              <layout class="QGridLayout" name="gridLayout_6">
               <property name="horizontalSpacing">
-               <number>16</number>
+               <number>12</number>
               </property>
               <property name="verticalSpacing">
                <number>6</number>

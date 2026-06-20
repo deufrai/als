@@ -168,7 +168,7 @@ class MainWindow(QMainWindow):
         self._set_minimum_text_width(self._ui.lbl_web_server_status_main,
                                      [I18n.STARTING, I18n.STOPPED_F, I18n.RUNNING_F, I18n.STOPPING])
         self._set_minimum_text_width(self._ui.lbl_web_url,
-                                     ["127.0.0.1:8000", "888.888.888.888:8888"])
+                                     ["127.0.0.1:8000", "888.888.8.888:8888"])
         self._set_minimum_text_width(self._ui.lbl_calib_hot_pixel,
                                      [self.tr("HPR"), self.tr("FLAT"), self.tr("DARK")])
         self._set_minimum_text_width(self._ui.lbl_calib_dark,
