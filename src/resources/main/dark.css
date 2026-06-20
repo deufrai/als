@@ -57,10 +57,8 @@ QPushButton#btn_session_pause,
 QPushButton#btn_session_stop,
 QPushButton#btn_web_start,
 QPushButton#btn_web_stop {
-    font-size: 13pt;
-    font-weight: normal;
-    padding-top: .5em;
-    padding-bottom: .5em;
+    min-height: 26px;
+    padding: 6px 18px;
 }
 
 QPushButton#btn_OK,

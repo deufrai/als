@@ -13,7 +13,7 @@ from os import chmod, makedirs
 from pathlib import Path
 from typing import List
 
-from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl
+from PyQt5.QtCore import pyqtSlot, Qt, QStandardPaths, QResource, QTimer, QUrl, QSize, QEvent
 from PyQt5.QtGui import QPixmap, QIcon, QDesktopServices, QFontInfo, QFontMetrics, QScreen
 # pylint: disable=no-name-in-module
 from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
@@ -63,6 +63,7 @@ class MainWindow(QMainWindow):
     """
 
     _LOG_DOCK_INITIAL_HEIGHT = 150
+    _TRANSPORT_ICON_SIZE = QSize(26, 26)
 
     # pylint: disable=too-many-statements
     @log
@@ -153,9 +154,39 @@ class MainWindow(QMainWindow):
             _set_groupbox_spacing(groupbox)
 
         configure_platform_ui(self, self._ui.log)
+        self._setup_transport_button_icons()
         self._reserve_info_labels_widths()
 
         self._ui.lbl_available_update.setVisible(False)
+
+    def _setup_transport_button_icons(self):
+        self._transport_buttons = (
+            (self._ui.btn_session_start, "transport-play"),
+            (self._ui.btn_session_pause, "transport-pause"),
+            (self._ui.btn_session_stop, "transport-stop"),
+            (self._ui.btn_web_start, "transport-play"),
+            (self._ui.btn_web_stop, "transport-stop"),
+        )
+
+        for button, icon_name in self._transport_buttons:
+            button.setText("")
+            button.setIconSize(MainWindow._TRANSPORT_ICON_SIZE)
+            button.installEventFilter(self)
+            self._set_transport_button_icon(button, icon_name)
+
+    def eventFilter(self, watched, event):
+        if event.type() == QEvent.EnabledChange:
+            for button, icon_name in self._transport_buttons:
+                if watched is button:
+                    self._set_transport_button_icon(button, icon_name)
+                    break
+
+        return super().eventFilter(watched, event)
+
+    @staticmethod
+    def _set_transport_button_icon(button, icon_name):
+        state_suffix = "" if button.isEnabled() else "-disabled"
+        button.setIcon(QIcon(f":/icons/{icon_name}{state_suffix}.svg"))
 
     def _reserve_info_labels_widths(self):
         """

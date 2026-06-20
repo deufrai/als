@@ -854,7 +854,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,0">
           <item>
            <widget class="QPushButton" name="btn_session_start">
             <property name="toolTip">
@@ -864,7 +864,7 @@
              <string>Controls session start and pause</string>
             </property>
             <property name="text">
-             <string>START</string>
+             <string/>
             </property>
             <property name="shortcut">
              <string>R</string>
@@ -877,7 +877,7 @@
           <item>
            <widget class="QPushButton" name="btn_session_pause">
             <property name="text">
-             <string>PAUSE</string>
+             <string/>
             </property>
             <property name="shortcut">
              <string>R</string>
@@ -911,7 +911,7 @@
              <string notr="true"/>
             </property>
             <property name="text">
-             <string>STOP</string>
+             <string/>
             </property>
             <property name="shortcut">
              <string>X</string>
@@ -1133,7 +1133,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0">
           <item>
            <widget class="QPushButton" name="btn_web_start">
             <property name="minimumSize">
@@ -1149,7 +1149,7 @@
              <string>Start image server</string>
             </property>
             <property name="text">
-             <string>START</string>
+             <string/>
             </property>
             <property name="shortcut">
              <string>W</string>
@@ -1171,7 +1171,7 @@
              <string>Stop image server</string>
             </property>
             <property name="text">
-             <string>STOP</string>
+             <string/>
             </property>
             <property name="shortcut">
              <string>W</string>

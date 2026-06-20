@@ -12,6 +12,12 @@
         <file alias="chkbox-unchecked-disabled.svg">icons/chkbox-unchecked-disabled.svg</file>
         <file alias="dropdown_arrow.svg">icons/dropdown_arrow.svg</file>
         <file alias="warning_sign.svg">icons/warning_sign.svg</file>
+        <file alias="transport-play.svg">icons/transport-play.svg</file>
+        <file alias="transport-play-disabled.svg">icons/transport-play-disabled.svg</file>
+        <file alias="transport-pause.svg">icons/transport-pause.svg</file>
+        <file alias="transport-pause-disabled.svg">icons/transport-pause-disabled.svg</file>
+        <file alias="transport-stop.svg">icons/transport-stop.svg</file>
+        <file alias="transport-stop-disabled.svg">icons/transport-stop-disabled.svg</file>
         <file alias="als_logo.png">icons/als_logo.png</file>
         <file alias="window_background.png">icons/window_background.png</file>
         <file alias="als_logo.ico">icons/als_logo.ico</file>
