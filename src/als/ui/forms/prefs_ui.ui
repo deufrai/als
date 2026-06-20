@@ -32,7 +32,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
@@ -235,6 +235,9 @@
           </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>16</number>
+            </property>
             <item>
              <widget class="QLabel" name="label_2">
               <property name="text">
@@ -456,6 +459,9 @@
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="spacing">
+          <number>16</number>
+         </property>
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
@@ -560,10 +566,19 @@
             <property name="verticalSpacing">
              <number>15</number>
             </property>
-            <item row="0" column="0">
-             <widget class="QPushButton" name="btn_browse_work">
-              <property name="text">
-               <string>&amp;Work folder...</string>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="ln_web_folder_path">
+              <property name="minimumSize">
+               <size>
+                <width>350</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string notr="true"/>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -583,26 +598,17 @@
               </property>
              </widget>
             </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btn_browse_work">
+              <property name="text">
+               <string>&amp;Work folder...</string>
+              </property>
+             </widget>
+            </item>
             <item row="1" column="0">
              <widget class="QPushButton" name="btn_browse_web">
               <property name="text">
                <string>We&amp;b folder...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="ln_web_folder_path">
-              <property name="minimumSize">
-               <size>
-                <width>350</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string notr="true"/>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -616,105 +622,93 @@
          <property name="title">
           <string>Server</string>
          </property>
-         <layout class="QFormLayout" name="formLayout_server">
-          <property name="verticalSpacing">
-           <number>9</number>
-          </property>
-          <item row="0" column="0">
-           <widget class="QLabel" name="lbl_server_address">
-            <property name="text">
-             <string>Displayed &amp;address</string>
-            </property>
-            <property name="buddy">
-             <cstring>cmb_web_server_address</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <layout class="QHBoxLayout" name="horizontalLayout_server_address">
-            <item>
-             <widget class="QComboBox" name="cmb_web_server_address">
-              <property name="minimumSize">
-               <size>
-                <width>220</width>
-                <height>0</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_server_address">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="lbl_server_port">
-            <property name="text">
-             <string>&amp;Port number</string>
-            </property>
-            <property name="textFormat">
-             <enum>Qt::AutoText</enum>
-            </property>
-            <property name="buddy">
-             <cstring>ln_web_server_port</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <layout class="QHBoxLayout" name="horizontalLayout_10">
-            <property name="spacing">
-             <number>9</number>
-            </property>
-            <item>
-             <widget class="QLineEdit" name="ln_web_server_port">
-              <property name="maximumSize">
-               <size>
-                <width>75</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="inputMask">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_4">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="lbl_server_address">
               <property name="text">
-               <string>1024 to 65535</string>
+               <string>Displayed &amp;address</string>
+              </property>
+              <property name="buddy">
+               <cstring>cmb_web_server_address</cstring>
               </property>
              </widget>
             </item>
-            <item>
-             <spacer name="horizontalSpacer_6">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+            <item row="0" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QComboBox" name="cmb_web_server_address">
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="lbl_server_port">
+              <property name="text">
+               <string>&amp;Port number</string>
               </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>62</width>
-                <height>20</height>
-               </size>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
               </property>
-             </spacer>
+              <property name="buddy">
+               <cstring>ln_web_server_port</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QLineEdit" name="ln_web_server_port">
+                <property name="maximumSize">
+                 <size>
+                  <width>75</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="inputMask">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>1024 to 65535</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>
@@ -727,7 +721,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>50</height>
           </size>
          </property>
         </spacer>

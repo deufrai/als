@@ -81,6 +81,9 @@ QSlider::handle:vertical {
     border-color: rgba(255, 255, 255, 45);
 }
 
+QCheckBox {
+    margin-right: 1em;
+}
 
 QCheckBox::indicator {
     margin-right: 4px;
@@ -92,8 +95,4 @@ QRadioButton {
 
 QRadioButton {
     margin: 2px 0;
-}
-
-QRadioButton#rd_photo_profile {
-    margin-top: 5px;
 }

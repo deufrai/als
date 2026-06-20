@@ -32,7 +32,6 @@ from PyQt5.QtWidgets import (
 
 _WINDOWS_COMBO_BOX_ITEM_SPACING = 4
 _MACOS_COMBO_BOX_POPUP_HORIZONTAL_PADDING = 12
-_MACOS_SLIDER_WHEEL_STEP_MULTIPLIER = 2
 _file_dialog_focus_highlight_styler = None
 
 _PREFERRED_FIXED_PITCH_FONT_FAMILIES = (
@@ -242,8 +241,8 @@ class _MacOSSliderWheelHandler(QObject):
                 if direction > 0
                 else QAbstractSlider.SliderSingleStepSub
             )
-            for _ in range(_MACOS_SLIDER_WHEEL_STEP_MULTIPLIER):
-                watched.triggerAction(action)
+
+            watched.triggerAction(action)
             event.accept()
             return True
 

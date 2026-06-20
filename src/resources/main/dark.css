@@ -79,6 +79,18 @@ QDialog#AboutDialog QLabel#lbl_about_app_name {
     min-height: 40px;
 }
 
+QDialog#SessionStopDialog QLabel#lbl_stop_message_1,
+QDialog#SessionStopDialog QLabel#lbl_stop_message_2,
+QDialog#SessionStopDialog QLabel#lbl_stop_message_3 {
+    font-size: 12pt;
+}
+
+QDialog#SessionStopDialog QLabel#lbl_stop_question {
+    font-size: 13pt;
+}
+
+
+
 QPushButton#btn_OK:enabled:hover,
 QPushButton#btn_OK:focus,
 QPushButton#btn_Cancel:enabled:hover,
