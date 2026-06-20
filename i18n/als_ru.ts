@@ -386,22 +386,22 @@ Define both folders yourself</source>
         <translation>Краткое руководство :</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="600"/>
+        <location filename="../src/als/ui/dialogs.py" line="601"/>
         <source>Select Scan folder...</source>
         <translation>Выбрать папку сканирования...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="601"/>
+        <location filename="../src/als/ui/dialogs.py" line="602"/>
         <source>Select Work folder...</source>
         <translation>Выбрать рабочую папку...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="654"/>
+        <location filename="../src/als/ui/dialogs.py" line="655"/>
         <source>Select scan folder</source>
         <translation>Выбрать папку сканирования</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="666"/>
+        <location filename="../src/als/ui/dialogs.py" line="667"/>
         <source>Select work folder</source>
         <translation>Выбрать рабочую папку</translation>
     </message>
@@ -1026,24 +1026,34 @@ If another device needs to browse the image server, change the Displayed address
 <context>
     <name>SessionStopDialog</name>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="20"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="17"/>
         <source>Session stop</source>
         <translation>Остановка сессии</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="34"/>
-        <source>Stopping the current session will reset the stack and all image enhancements.</source>
-        <translation>Остановка текущей сессии сбросит стек и все улучшения изображения.</translation>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="66"/>
+        <source>The stack content will be frozen</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="64"/>
-        <source>Are you sure you want to stop the current session ?</source>
-        <translation>Вы уверены, что хотите остановить текущую сессию ?</translation>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="81"/>
+        <source>The stack will reset on next session start</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/als/ui/forms/stop_ui.ui" line="96"/>
-        <source>Timestamped result on session &amp;stop</source>
-        <translation>Результат с отметкой времени при &amp;остановке сессии</translation>
+        <source>The current result will remain available for image processing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="125"/>
+        <source>Do you want to stop the current session now ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="168"/>
+        <source>&amp;Save timestamped result</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

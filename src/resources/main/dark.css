@@ -31,7 +31,7 @@ QPushButton:disabled {
 
 QPushButton:enabled:hover,
 QPushButton:enabled:hover:checked,
-QDialog#PrefsDialog QPushButton:enabled:focus {
+QPushButton:enabled:focus {
     border: 1px solid #666666;
 
 }

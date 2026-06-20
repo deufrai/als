@@ -387,22 +387,22 @@ Définir vous-même les deux dossiers</translation>
         <translation>Guide de démarrage rapide :</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="600"/>
+        <location filename="../src/als/ui/dialogs.py" line="601"/>
         <source>Select Scan folder...</source>
         <translation>Séléctionner le dossier scanné...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="601"/>
+        <location filename="../src/als/ui/dialogs.py" line="602"/>
         <source>Select Work folder...</source>
         <translation>Sélectionner le dossier de travail...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="654"/>
+        <location filename="../src/als/ui/dialogs.py" line="655"/>
         <source>Select scan folder</source>
         <translation>Sélectionner le dossier scanné</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/dialogs.py" line="666"/>
+        <location filename="../src/als/ui/dialogs.py" line="667"/>
         <source>Select work folder</source>
         <translation>Sélectionner le dossier de travail</translation>
     </message>
@@ -1027,24 +1027,34 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
 <context>
     <name>SessionStopDialog</name>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="20"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="17"/>
         <source>Session stop</source>
         <translation>Arrêt de session</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="34"/>
-        <source>Stopping the current session will reset the stack and all image enhancements.</source>
-        <translation>Stopper la session courante remettra le stack et les traitements à zéro.</translation>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="66"/>
+        <source>The stack content will be frozen</source>
+        <translation>Le contenu de la stack sera figé</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="64"/>
-        <source>Are you sure you want to stop the current session ?</source>
-        <translation>Etes-vous sûr de vouloir stopper la session courante ?</translation>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="81"/>
+        <source>The stack will reset on next session start</source>
+        <translation>La stack sera remise à zéro au prochain démarrage de session</translation>
     </message>
     <message>
         <location filename="../src/als/ui/forms/stop_ui.ui" line="96"/>
-        <source>Timestamped result on session &amp;stop</source>
-        <translation>Résultat horodaté à l&apos;arrêt de &amp;session</translation>
+        <source>The current result will remain available for image processing</source>
+        <translation>Le résultat courant restera disponible pour les traitements d&apos;image</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="125"/>
+        <source>Do you want to stop the current session now ?</source>
+        <translation>Voulez-vous stopper la session courante maintenant ?</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="168"/>
+        <source>&amp;Save timestamped result</source>
+        <translation>&amp;Enregistrer résultat horodaté</translation>
     </message>
 </context>
 <context>

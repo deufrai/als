@@ -511,6 +511,7 @@ class SessionStopDialog(QDialog):
         self._ui = Ui_SessionStopDialog()
         self._ui.setupUi(self)
         self._ui.chk_save.setChecked(config.get_save_on_stop())
+        configure_platform_ui(self)
 
     @property
     def save_on_stop(self):
