@@ -75,6 +75,7 @@ class Controller:
         self._init_stacker(current_profile)
         self._init_postprocess_pipeline(current_profile)
         self._init_saver()
+        self._keep_images_flowing = True
         self._last_stacking_result = None
         self._save_every_image = False
         self._web_server = Server(config.get_web_folder_path())
@@ -382,7 +383,6 @@ class Controller:
         :param image: the new processing result
         :type image: Image
         """
-
         processing_start_time = self._subs_processing_start_times.pop(image.ticket, None)
         if processing_start_time is not None:
             delta = round(time.time() - processing_start_time, 3)
@@ -406,14 +406,15 @@ class Controller:
         :param image: the result of the stack
         :type image: Image
         """
-        image.origin = "Stacking result"
-        self._last_stacking_result = image
+        if self._keep_images_flowing:
+            image.origin = "Stacking result"
+            self._last_stacking_result = image
 
-        if image.exposure_time != Image.UNDEF_EXP_TIME:
-            DYNAMIC_DATA.total_exposure_time += image.exposure_time
+            if image.exposure_time != Image.UNDEF_EXP_TIME:
+                DYNAMIC_DATA.total_exposure_time += image.exposure_time
 
-        self.purge_queue(self._post_process_queue)
-        self._post_process_queue.put(image)
+            self.purge_queue(self._post_process_queue)
+            self._post_process_queue.put(image)
 
     @log
     def on_new_image_path(self, image_path: str):
@@ -423,8 +424,9 @@ class Controller:
         :param image_path: the path of the image to read
         :type image_path: str
         """
-        self._subs_processing_start_times[image_path] = time.time()
-        self._file_reader_queue.put(image_path)
+        if self._keep_images_flowing:
+            self._subs_processing_start_times[image_path] = time.time()
+            self._file_reader_queue.put(image_path)
 
     @log
     def on_new_image(self, image: Image):
@@ -434,14 +436,15 @@ class Controller:
         :param image: the new image
         :type image: Image
         """
-        DYNAMIC_DATA.current_sub_width = image.width
-        DYNAMIC_DATA.current_sub_height = image.height
-        DYNAMIC_DATA.current_sub_exposure_time = image.exposure_time
+        if self._keep_images_flowing:
+            DYNAMIC_DATA.current_sub_width = image.width
+            DYNAMIC_DATA.current_sub_height = image.height
+            DYNAMIC_DATA.current_sub_exposure_time = image.exposure_time
 
-        DYNAMIC_DATA.current_sub_is_color = image.is_color() or image.bayer_pattern != ""
+            DYNAMIC_DATA.current_sub_is_color = image.is_color() or image.bayer_pattern != ""
 
-        DYNAMIC_DATA.current_sub_bayer_pattern = image.bayer_pattern
-        self._pre_process_queue.put(image)
+            DYNAMIC_DATA.current_sub_bayer_pattern = image.bayer_pattern
+            self._pre_process_queue.put(image)
 
     @log
     def on_new_pre_processed_image(self, image: Image):
@@ -451,7 +454,8 @@ class Controller:
         :param image: the image
         :type image: Image
         """
-        self._stacker_queue.put(image)
+        if self._keep_images_flowing:
+            self._stacker_queue.put(image)
 
     @log
     def on_file_reader_queue_size_changed(self, new_size):
@@ -615,6 +619,7 @@ class Controller:
                 MESSAGE_HUB.dispatch_info(__name__, QT_TRANSLATE_NOOP("", "Starting new session..."))
 
                 DYNAMIC_DATA.has_new_warnings = False
+                self._keep_images_flowing = True
                 self._stacker.reset()
                 self._subs_processing_start_times.clear()
                 self._reset_current_sub_infos()
@@ -689,6 +694,7 @@ class Controller:
         Stops session : stop input scanner and purge input queue
         """
         if not DYNAMIC_DATA.session.is_stopped:
+            self._keep_images_flowing = False
             self._subs_processing_start_times.clear()
             DYNAMIC_DATA.session.set_status(Session.stopped)
             self._stop_input_scanner()
@@ -1068,10 +1074,16 @@ class Controller:
         if DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES:
             self.stop_www(wait=True)
 
+        self._keep_images_flowing = False
+        self.purge_queue(self._file_reader_queue)
         self._stop_queue_consumer(self._file_reader_queue, self._fileReader)
+        self.purge_queue(self._pre_process_queue)
         self._stop_queue_consumer(self._pre_process_queue, self._pre_process_pipeline)
+        self.purge_queue(self._stacker_queue)
         self._stop_queue_consumer(self._stacker_queue, self._stacker)
+        self.purge_queue(self._post_process_queue)
         self._stop_queue_consumer(self._post_process_queue, self._post_process_pipeline)
+        self.purge_queue(self._saver_queue)
         self._stop_queue_consumer(self._saver_queue, self._saver)
 
     @log

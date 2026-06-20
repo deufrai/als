@@ -1009,19 +1009,19 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Enregistrement des images restantes</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="31"/>
-        <source>Please wait while all images are saved to disk</source>
-        <translation>Veuillez patienter pendant que toutes les images sont enregistrées sur disque</translation>
+        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="34"/>
+        <source>Saving remaining images to disk</source>
+        <translation>Enregistrement des images restantes</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="70"/>
-        <source>Discard unsaved images and quit</source>
-        <translation>Abandonner les images restantes et quitter</translation>
+        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="69"/>
+        <source>Images remaining</source>
+        <translation>Images restantes</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="43"/>
-        <source>Images to save</source>
-        <translation>Images à enregristrer</translation>
+        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="94"/>
+        <source>Discard and &amp;quit</source>
+        <translation>&amp;Quitter sans enregistrer</translation>
     </message>
 </context>
 <context>
@@ -1032,27 +1032,27 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Arrêt de session</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="66"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="40"/>
         <source>The stack content will be frozen</source>
         <translation>Le contenu de la stack sera figé</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="81"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="55"/>
         <source>The stack will reset on next session start</source>
         <translation>La stack sera remise à zéro au prochain démarrage de session</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="96"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="70"/>
         <source>The current result will remain available for image processing</source>
         <translation>Le résultat courant restera disponible pour les traitements d&apos;image</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="125"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="97"/>
         <source>Do you want to stop the current session now ?</source>
         <translation>Voulez-vous stopper la session courante maintenant ?</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="168"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="143"/>
         <source>&amp;Save timestamped result</source>
         <translation>&amp;Enregistrer résultat horodaté</translation>
     </message>

@@ -1008,18 +1008,18 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Сохранение оставшихся изображений</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="31"/>
-        <source>Please wait while all images are saved to disk</source>
-        <translation>Пожалуйста, дождитесь, пока все изображения сохранятся на диск</translation>
+        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="34"/>
+        <source>Saving remaining images to disk</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="70"/>
-        <source>Discard unsaved images and quit</source>
-        <translation>Отменить несохраненные изображения и выйти</translation>
+        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="69"/>
+        <source>Images remaining</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="43"/>
-        <source>Images to save</source>
+        <location filename="../src/als/ui/forms/save_wait_ui.ui" line="94"/>
+        <source>Discard and &amp;quit</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1031,27 +1031,27 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Остановка сессии</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="66"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="40"/>
         <source>The stack content will be frozen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="81"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="55"/>
         <source>The stack will reset on next session start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="96"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="70"/>
         <source>The current result will remain available for image processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="125"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="97"/>
         <source>Do you want to stop the current session now ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/stop_ui.ui" line="168"/>
+        <location filename="../src/als/ui/forms/stop_ui.ui" line="143"/>
         <source>&amp;Save timestamped result</source>
         <translation type="unfinished"></translation>
     </message>

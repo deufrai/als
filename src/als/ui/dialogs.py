@@ -457,39 +457,18 @@ class SaveWaitDialog(QDialog):
         """
         Count images that still need to be saved.
 
-        We count 1 image to save for each image in the queues and each worker still Busy and also
-        take 'save every image' setting and web server status into account
+        New sub processing is stopped before this dialog is shown. An already
+        running post-process may still publish the latest display result and
+        schedule saves, so keep waiting for it too.
 
         :return: the number of images remaining to be saved
         :rtype: int
         """
-
-        remaining_image_save_count = 0
-
-        remaining_image_save_count += [
-
-            DYNAMIC_DATA.pre_processor_busy,
-            DYNAMIC_DATA.stacker_busy,
-            DYNAMIC_DATA.post_processor_busy,
-
-        ].count(True)
-
-        for queue_size in [
-
-                DYNAMIC_DATA.pre_process_queue.qsize(),
-                DYNAMIC_DATA.stacker_queue.qsize(),
-                DYNAMIC_DATA.process_queue.qsize(),
-        ]:
-            remaining_image_save_count += queue_size
-
-        additional_saves_per_image = 1 if self._controller.get_save_every_image() else 0
-
-        remaining_image_save_count *= 1 + additional_saves_per_image
-
-        remaining_image_save_count += 1 if DYNAMIC_DATA.saver_busy else 0
-        remaining_image_save_count += DYNAMIC_DATA.save_queue.qsize()
-
-        return remaining_image_save_count
+        return (
+            DYNAMIC_DATA.save_queue.qsize()
+            + (1 if DYNAMIC_DATA.saver_busy else 0)
+            + (1 if DYNAMIC_DATA.post_processor_busy else 0)
+        )
 
     @log
     @pyqtSlot()
