@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>526</width>
-    <height>410</height>
+    <width>711</width>
+    <height>374</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -32,13 +32,13 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
        <string>General</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+      <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
         <widget class="QGroupBox" name="scannerBox">
          <property name="title">
@@ -187,137 +187,131 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_8">
-         <property name="title">
-          <string>Network</string>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <property name="spacing">
+          <number>12</number>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_9">
-          <item>
-           <widget class="QCheckBox" name="chk_updates_on_startup">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>&amp;Check for updates on startup</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chk_stats">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Send &amp;usage statistics on startup</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_2">
-         <property name="title">
-          <string>Core - restart needed</string>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_8">
-          <property name="spacing">
-           <number>2</number>
-          </property>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <property name="spacing">
-             <number>16</number>
-            </property>
+         <item>
+          <widget class="QGroupBox" name="groupBox_8">
+           <property name="title">
+            <string>Network</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="QLabel" name="label_2">
-              <property name="text">
-               <string>&amp;Language</string>
-              </property>
-              <property name="buddy">
-               <cstring>cmb_lang</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="cmb_lang">
+             <widget class="QCheckBox" name="chk_stats">
               <property name="minimumSize">
                <size>
-                <width>120</width>
+                <width>0</width>
                 <height>25</height>
                </size>
               </property>
-              <item>
-               <property name="text">
-                <string>System</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">English</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">Français</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">Русский</string>
-               </property>
-              </item>
+              <property name="text">
+               <string>Send &amp;usage statistics on startup</string>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_7">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
+             <widget class="QCheckBox" name="chk_updates_on_startup">
+              <property name="minimumSize">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>0</width>
+                <height>25</height>
                </size>
               </property>
-             </spacer>
+              <property name="text">
+               <string>&amp;Check for updates on startup</string>
+              </property>
+             </widget>
             </item>
            </layout>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chk_debug_logs">
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Core - restart needed</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>2</number>
             </property>
-            <property name="text">
-             <string>&amp;Detailed logs</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_8">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="spacing">
+               <number>16</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>&amp;Language</string>
+                </property>
+                <property name="buddy">
+                 <cstring>cmb_lang</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmb_lang">
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>System</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">English</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">Français</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">Русский</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chk_debug_logs">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="text">
+               <string>&amp;Detailed logs</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <spacer name="verticalSpacer_3">
@@ -338,189 +332,178 @@
       <attribute name="title">
        <string>Calibration</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_11">
-       <property name="spacing">
-        <number>26</number>
-       </property>
-       <property name="leftMargin">
-        <number>16</number>
-       </property>
-       <property name="topMargin">
-        <number>16</number>
-       </property>
-       <property name="rightMargin">
-        <number>16</number>
-       </property>
-       <property name="bottomMargin">
-        <number>16</number>
-       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
-        <widget class="QCheckBox" name="chk_use_hpr">
-         <property name="text">
-          <string>&amp;Hot Pixel Removal</string>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Calibration steps</string>
          </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <property name="spacing">
+             <number>28</number>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="chk_use_hpr">
+              <property name="text">
+               <string>&amp;Hot Pixel Removal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chk_use_dark">
+              <property name="font">
+               <font>
+                <kerning>true</kerning>
+               </font>
+              </property>
+              <property name="text">
+               <string>Dark &amp;subtraction</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chk_use_flat">
+              <property name="text">
+               <string>Flat &amp;calibration</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <property name="spacing">
+               <number>16</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>De&amp;bayering</string>
+                </property>
+                <property name="buddy">
+                 <cstring>cmb_bayer_pattern</cstring>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmb_bayer_pattern">
+                <property name="minimumSize">
+                 <size>
+                  <width>80</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">AUTO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">GRBG</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">RGGB</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">GBRG</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">BGGR</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="spacing">
-          <number>11</number>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Masters</string>
          </property>
-         <item>
-          <widget class="QCheckBox" name="chk_use_dark">
-           <property name="font">
-            <font>
-             <kerning>true</kerning>
-            </font>
-           </property>
-           <property name="text">
-            <string>Dark &amp;subtraction</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
-           <property name="spacing">
-            <number>9</number>
-           </property>
-           <item>
-            <widget class="QPushButton" name="btn_browse_dark">
-             <property name="text">
-              <string>Master &amp;dark...</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="ln_master_dark_path">
-             <property name="minimumSize">
-              <size>
-               <width>200</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string notr="true"/>
-             </property>
-             <property name="echoMode">
-              <enum>QLineEdit::Normal</enum>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_10">
-         <property name="spacing">
-          <number>11</number>
-         </property>
-         <item>
-          <widget class="QCheckBox" name="chk_use_flat">
-           <property name="text">
-            <string>Flat &amp;calibration</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <property name="spacing">
-            <number>9</number>
-           </property>
-           <item>
-            <widget class="QPushButton" name="btn_browse_flat">
-             <property name="text">
-              <string>Master &amp;flat...</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="ln_master_flat_path">
-             <property name="minimumSize">
-              <size>
-               <width>200</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string notr="true"/>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <property name="spacing">
-          <number>16</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>De&amp;bayering</string>
-           </property>
-           <property name="buddy">
-            <cstring>cmb_bayer_pattern</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="cmb_bayer_pattern">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>0</height>
-            </size>
-           </property>
-           <item>
-            <property name="text">
-             <string notr="true">AUTO</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string notr="true">GRBG</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string notr="true">RGGB</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string notr="true">GBRG</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string notr="true">BGGR</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="ln_master_flat_path">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string notr="true"/>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="ln_master_dark_path">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string notr="true"/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="btn_browse_flat">
+              <property name="text">
+               <string>Master &amp;flat...</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btn_browse_dark">
+              <property name="text">
+               <string>Master &amp;dark...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_2">
