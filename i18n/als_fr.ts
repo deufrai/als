@@ -836,12 +836,12 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Préférences ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="757"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="760"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="764"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="767"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -856,7 +856,7 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="533"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="536"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
@@ -896,32 +896,22 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Moteur - redémarrage requis</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="374"/>
-        <source>Dark subtraction</source>
-        <translation>Soustraction de dark</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="462"/>
-        <source>Debayering</source>
-        <translation>Dématriçage</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="563"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="566"/>
         <source>&amp;Work folder...</source>
         <translation>Dossier de tra&amp;vail...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="614"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="617"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="660"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="663"/>
         <source>&amp;Port number</source>
         <translation>Numéro de &amp;port</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="697"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="700"/>
         <source>1024 to 65535</source>
         <translation>1024 à 65535</translation>
     </message>
@@ -936,14 +926,9 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Master &amp;dark...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="586"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="589"/>
         <source>We&amp;b folder...</source>
         <translation>Dossier &amp;web...</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="421"/>
-        <source>Flat calibration</source>
-        <translation>Calibration flat</translation>
     </message>
     <message>
         <location filename="../src/als/ui/forms/prefs_ui.ui" line="433"/>
@@ -951,7 +936,7 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Master &amp;flat...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="623"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="626"/>
         <source>Displayed &amp;address</source>
         <translation>&amp;Adresse affichée</translation>
     </message>
@@ -971,12 +956,12 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="539"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="542"/>
         <source>Folders</source>
         <translation>Dossiers</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="548"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="551"/>
         <source>&amp;Dedicated web folder</source>
         <translation>Dossier web &amp;dédié</translation>
     </message>
@@ -999,6 +984,21 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <location filename="../src/als/ui/forms/prefs_ui.ui" line="336"/>
         <source>Calibration</source>
         <translation>Calibration</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="374"/>
+        <source>Dark &amp;subtraction</source>
+        <translation>&amp;Soustraction de dark</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="421"/>
+        <source>Flat &amp;calibration</source>
+        <translation>&amp;Calibration flat</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="462"/>
+        <source>De&amp;bayering</source>
+        <translation>Dé&amp;matriçage</translation>
     </message>
 </context>
 <context>

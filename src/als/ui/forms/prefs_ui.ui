@@ -371,7 +371,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Dark subtraction</string>
+            <string>Dark &amp;subtraction</string>
            </property>
           </widget>
          </item>
@@ -418,7 +418,7 @@
          <item>
           <widget class="QCheckBox" name="chk_use_flat">
            <property name="text">
-            <string>Flat calibration</string>
+            <string>Flat &amp;calibration</string>
            </property>
           </widget>
          </item>
@@ -459,7 +459,10 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Debayering</string>
+            <string>De&amp;bayering</string>
+           </property>
+           <property name="buddy">
+            <cstring>cmb_bayer_pattern</cstring>
            </property>
           </widget>
          </item>

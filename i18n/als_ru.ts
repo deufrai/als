@@ -885,64 +885,49 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Система</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="374"/>
-        <source>Dark subtraction</source>
-        <translation>Вычитание темнового кадра</translation>
-    </message>
-    <message>
         <location filename="../src/als/ui/forms/prefs_ui.ui" line="386"/>
         <source>Master &amp;dark...</source>
         <translation>Мастер &amp;темновой кадр...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="462"/>
-        <source>Debayering</source>
-        <translation>Дебайеризация</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="533"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="536"/>
         <source>Output</source>
         <translation>Вывод</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="563"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="566"/>
         <source>&amp;Work folder...</source>
         <translation>&amp;Рабочий каталог...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="586"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="589"/>
         <source>We&amp;b folder...</source>
         <translation>Ве&amp;б-каталог...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="614"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="617"/>
         <source>Server</source>
         <translation>Сервер</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="660"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="663"/>
         <source>&amp;Port number</source>
         <translation>Номер &amp;порта</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="697"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="700"/>
         <source>1024 to 65535</source>
         <translation>1024 до 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="757"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="760"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="764"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="767"/>
         <source>OK</source>
         <translation>ОК</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="421"/>
-        <source>Flat calibration</source>
-        <translation>Калибровка flat</translation>
     </message>
     <message>
         <location filename="../src/als/ui/forms/prefs_ui.ui" line="433"/>
@@ -950,7 +935,7 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Master &amp;flat...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="623"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="626"/>
         <source>Displayed &amp;address</source>
         <translation>Отображаемый &amp;адрес</translation>
     </message>
@@ -970,12 +955,12 @@ If another device needs to browse the image server, change the Displayed address
         <translation>Сеть</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="539"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="542"/>
         <source>Folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="548"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="551"/>
         <source>&amp;Dedicated web folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -997,6 +982,21 @@ If another device needs to browse the image server, change the Displayed address
     <message>
         <location filename="../src/als/ui/forms/prefs_ui.ui" line="336"/>
         <source>Calibration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="374"/>
+        <source>Dark &amp;subtraction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="421"/>
+        <source>Flat &amp;calibration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="462"/>
+        <source>De&amp;bayering</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
