@@ -169,11 +169,18 @@ class MainWindow(QMainWindow):
                                      [I18n.STARTING, I18n.STOPPED_F, I18n.RUNNING_F, I18n.STOPPING])
         self._set_minimum_text_width(self._ui.lbl_web_url,
                                      ["127.0.0.1:8000", "888.888.888.888:8888"])
+        self._set_minimum_text_width(self._ui.lbl_calib_hot_pixel,
+                                     [self.tr("HPR"), self.tr("FLAT"), self.tr("DARK")])
+        self._set_minimum_text_width(self._ui.lbl_calib_dark,
+                                     [self.tr("HPR"), self.tr("FLAT"), self.tr("DARK")])
+        self._set_minimum_text_width(self._ui.lbl_calib_flat,
+                                     [self.tr("HPR"), self.tr("FLAT"), self.tr("DARK")])
 
     @staticmethod
     def _set_minimum_text_width(label, text_samples):
         metrics = QFontMetrics(label.font())
         text_width = max(metrics.horizontalAdvance(text) for text in text_samples)
+        # label.setMinimumWidth(text_width + metrics.averageCharWidth()/2)
         label.setMinimumWidth(text_width + metrics.averageCharWidth())
         label.setMinimumHeight(metrics.height())
 
@@ -1114,7 +1121,7 @@ class MainWindow(QMainWindow):
             self._ui.lbl_session_status.setText(session_status)
             self._ui.lbl_session_status.setStyleSheet(css_active if not session_is_stopped else css_inactive)
             if session_is_stopped and not (session_modules_idle and all_queues_empty):
-                self._ui.lbl_session_status.setText(self.tr("purging"))
+                self._ui.lbl_session_status.setText(self.tr("PURGING"))
                 self._ui.lbl_session_status.setStyleSheet(css_active)
 
             modules_labels_to_status_mapping = {
