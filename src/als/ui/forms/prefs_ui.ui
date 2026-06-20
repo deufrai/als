@@ -756,17 +756,18 @@
   <tabstop>btn_browse_scan</tabstop>
   <tabstop>ln_scan_folder_path</tabstop>
   <tabstop>sld_mem_preserve</tabstop>
-  <tabstop>chk_debug_logs</tabstop>
   <tabstop>chk_stats</tabstop>
   <tabstop>chk_updates_on_startup</tabstop>
+  <tabstop>cmb_lang</tabstop>
+  <tabstop>chk_debug_logs</tabstop>
   <tabstop>chk_use_hpr</tabstop>
   <tabstop>chk_use_dark</tabstop>
+  <tabstop>chk_use_flat</tabstop>
+  <tabstop>cmb_bayer_pattern</tabstop>
   <tabstop>btn_browse_dark</tabstop>
   <tabstop>ln_master_dark_path</tabstop>
-  <tabstop>chk_use_flat</tabstop>
   <tabstop>btn_browse_flat</tabstop>
   <tabstop>ln_master_flat_path</tabstop>
-  <tabstop>cmb_bayer_pattern</tabstop>
   <tabstop>chk_www_own_folder</tabstop>
   <tabstop>btn_browse_work</tabstop>
   <tabstop>ln_work_folder_path</tabstop>
