@@ -128,7 +128,7 @@
            </size>
           </property>
           <property name="text">
-           <string>&amp;Yes</string>
+           <string>&amp;YES</string>
           </property>
           <property name="autoDefault">
            <bool>false</bool>
@@ -144,7 +144,7 @@
            </size>
           </property>
           <property name="text">
-           <string>&amp;No</string>
+           <string>&amp;NO</string>
           </property>
           <property name="default">
            <bool>true</bool>

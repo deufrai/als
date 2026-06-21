@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>711</width>
-    <height>374</height>
+    <height>375</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -32,7 +32,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
@@ -189,14 +189,17 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_8">
          <property name="spacing">
-          <number>12</number>
+          <number>9</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignTop">
           <widget class="QGroupBox" name="groupBox_8">
            <property name="title">
             <string>Network</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="rightMargin">
+             <number>60</number>
+            </property>
             <item>
              <widget class="QCheckBox" name="chk_stats">
               <property name="minimumSize">
@@ -229,14 +232,14 @@
            </layout>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignTop">
           <widget class="QGroupBox" name="groupBox_2">
            <property name="title">
             <string>Core - restart needed</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <property name="spacing">
-             <number>2</number>
+             <number>9</number>
             </property>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -451,6 +454,12 @@
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <layout class="QGridLayout" name="gridLayout_3">
+            <property name="horizontalSpacing">
+             <number>9</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
             <item row="1" column="1">
              <widget class="QLineEdit" name="ln_master_flat_path">
               <property name="minimumSize">
@@ -609,8 +618,17 @@
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <property name="spacing">
+           <number>0</number>
+          </property>
           <item>
            <layout class="QFormLayout" name="formLayout">
+            <property name="horizontalSpacing">
+             <number>9</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>15</number>
+            </property>
             <item row="0" column="0">
              <widget class="QLabel" name="lbl_server_address">
               <property name="text">
