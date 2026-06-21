@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>467</width>
-    <height>212</height>
+    <height>223</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -103,6 +103,9 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="topMargin">
+         <number>12</number>
+        </property>
         <item>
          <spacer name="horizontalSpacer">
           <property name="orientation">
@@ -171,7 +174,7 @@
          </font>
         </property>
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
          <string>&amp;Save timestamped result</string>
