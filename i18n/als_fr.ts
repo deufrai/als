@@ -836,17 +836,17 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Préférences ALS</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="755"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="748"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="762"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="755"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="269"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="230"/>
         <source>System</source>
         <translation>Système</translation>
     </message>
@@ -856,159 +856,159 @@ Si un autre appareil doit accéder au serveur d&apos;images, modifiez l&apos;adr
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="534"/>
-        <source>Output</source>
-        <translation>Sortie</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="45"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="491"/>
         <source>Scanner</source>
         <translation>Scanner</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="84"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="45"/>
         <source>Memory use</source>
         <translation>Utilisation mémoire</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="111"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="72"/>
         <source>Greedy</source>
         <translation>Gourmand</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="131"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="92"/>
         <source>Unfair</source>
         <translation>Injuste</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="154"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="115"/>
         <source>Fair</source>
         <translation>Juste</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="177"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="138"/>
         <source>Scared</source>
         <translation>Peureux</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="238"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="199"/>
         <source>Core - restart needed</source>
         <translation>Moteur - redémarrage requis</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="596"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="586"/>
         <source>&amp;Work folder...</source>
         <translation>Dossier de tra&amp;vail...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="615"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="605"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation>Serveur</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="659"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="649"/>
         <source>&amp;Port number</source>
         <translation>Numéro de &amp;port</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="693"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="686"/>
         <source>1024 to 65535</source>
         <translation>1024 à 65535</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="56"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="502"/>
         <source>&amp;Scan folder...</source>
         <translation>Dossier &amp;scanné...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="508"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="459"/>
         <source>Master &amp;dark...</source>
         <translation>Master &amp;dark...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="603"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="593"/>
         <source>We&amp;b folder...</source>
         <translation>Dossier &amp;web...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="501"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="452"/>
         <source>Master &amp;flat...</source>
         <translation>Master &amp;flat...</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="635"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="625"/>
         <source>Displayed &amp;address</source>
         <translation>&amp;Adresse affichée</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="212"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="173"/>
         <source>Send &amp;usage statistics on startup</source>
         <translation>Envoyer les statistiques d&apos;&amp;utilisation au démarrage</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="228"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="189"/>
         <source>&amp;Check for updates on startup</source>
         <translation>Rechercher les mises à &amp;jour au démarrage</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="197"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="158"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="540"/>
-        <source>Folders</source>
-        <translation>Dossiers</translation>
-    </message>
-    <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="549"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="539"/>
         <source>&amp;Dedicated web folder</source>
         <translation>Dossier web &amp;dédié</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="252"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="213"/>
         <source>&amp;Language</source>
         <translation>&amp;Langue</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="310"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="271"/>
         <source>&amp;Detailed logs</source>
         <translation>Journaux &amp;détaillés</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="356"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="309"/>
         <source>&amp;Hot Pixel Removal</source>
         <translation>Sppression pi&amp;xels chauds</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="336"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="297"/>
         <source>Calibration</source>
         <translation>Calibration</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="368"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="321"/>
         <source>Dark &amp;subtraction</source>
         <translation>&amp;Soustraction de dark</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="375"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="328"/>
         <source>Flat &amp;calibration</source>
         <translation>&amp;Calibration flat</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="387"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="340"/>
         <source>De&amp;bayering</source>
         <translation>Dé&amp;matriçage</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="342"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="303"/>
         <source>Calibration steps</source>
         <translation>Etapes</translation>
     </message>
     <message>
-        <location filename="../src/als/ui/forms/prefs_ui.ui" line="452"/>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="403"/>
         <source>Masters</source>
         <translation>Masters</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="485"/>
+        <source>I/O</source>
+        <translation>E/S</translation>
+    </message>
+    <message>
+        <location filename="../src/als/ui/forms/prefs_ui.ui" line="530"/>
+        <source>Saver</source>
+        <translation>Enregistreur</translation>
     </message>
 </context>
 <context>
