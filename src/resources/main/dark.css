@@ -311,35 +311,30 @@ QCheckBox::indicator:unchecked:disabled {
 }
 
 
-QRadioButton::indicator:checked:enabled {
+QRadioButton::indicator {
     background-color: transparent;
     border: 0;
     width: 18px;
     height: 18px;
+}
+
+QRadioButton::indicator:checked:enabled {
+
     image: url(:icons/radio-checked.svg);
 }
 
 QRadioButton::indicator:unchecked:enabled {
-    background-color: transparent;
-    border: 0;
-    width: 18px;
-    height: 18px;
+
     image: url(:icons/radio-unchecked.svg);
 }
 
 QRadioButton::indicator:checked:disabled {
-    background-color: transparent;
-    border: 0;
-    width: 18px;
-    height: 18px;
+
     image: url(:icons/radio-checked-disabled.svg);
 }
 
 QRadioButton::indicator:unchecked:disabled {
-    background-color: transparent;
-    border: 0;
-    width: 18px;
-    height: 18px;
+
     image: url(:icons/radio-unchecked-disabled.svg);
 }
 
