@@ -108,8 +108,8 @@
   <widget class="QDockWidget" name="session_dock">
    <property name="minimumSize">
     <size>
-     <width>0</width>
-     <height>0</height>
+     <width>323</width>
+     <height>763</height>
     </size>
    </property>
    <property name="allowedAreas">
@@ -858,10 +858,10 @@
           <item>
            <widget class="QPushButton" name="btn_session_start">
             <property name="toolTip">
-             <string>Starts a stopped session, pauses a running session or resumes a paused session</string>
+             <string>Start a stopped session or resume a paused session</string>
             </property>
             <property name="statusTip">
-             <string>Controls session start and pause</string>
+             <string/>
             </property>
             <property name="text">
              <string/>
@@ -876,6 +876,9 @@
           </item>
           <item>
            <widget class="QPushButton" name="btn_session_pause">
+            <property name="toolTip">
+             <string>pause a running session</string>
+            </property>
             <property name="text">
              <string/>
             </property>
