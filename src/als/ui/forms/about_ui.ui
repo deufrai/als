@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>427</width>
-    <height>497</height>
+    <height>433</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,6 +32,9 @@
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="topMargin">
+          <number>12</number>
+         </property>
          <item>
           <spacer name="horizontalSpacer_5">
            <property name="orientation">
@@ -69,7 +72,7 @@
             <string notr="true"/>
            </property>
            <property name="pixmap">
-            <pixmap resource="../../resources/resource.qrc">:/icons/als_logo.png</pixmap>
+            <pixmap>:/icons/als_logo.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -810,58 +813,10 @@
      </widget>
     </widget>
    </item>
-   <item>
-    <widget class="QLabel" name="label_28">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnOK">
-       <property name="text">
-        <string>Close</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
   </layout>
  </widget>
  <resources>
   <include location="../../resources/resource.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>btnOK</sender>
-   <signal>clicked()</signal>
-   <receiver>AboutDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>332</x>
-     <y>268</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>375</x>
-     <y>157</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
