@@ -80,6 +80,7 @@ def call_home():
         pass
 
 CONTINUE_STARTUP = "continue"
+FIRST_RUN = "first-run"
 STOP_STARTUP = "stop"
 
 # pylint: disable=R0914
@@ -131,17 +132,21 @@ def main():
 
         controller = Controller()
         setup_ui_styling(app)
-        if do_first_run_setup_if_needed() == STOP_STARTUP:
+        start_up_mode = do_first_run_setup_if_needed()
+        if start_up_mode == STOP_STARTUP:
             return
         window = MainWindow(controller)
         window.update_display()
 
-        if config.get_full_screen_active():
-            window.showFullScreen()
-        elif config.get_window_maximized():
+        if start_up_mode == FIRST_RUN:
             window.showMaximized()
         else:
-            window.show()
+            if config.get_full_screen_active():
+                window.showFullScreen()
+            elif config.get_window_maximized():
+                window.showMaximized()
+            else:
+                window.show()
 
     start_message = QT_TRANSLATE_NOOP("", "Astro Live Stacker version {} started in {} ms.")
     start_message_values = [VERSION, startup_timer.elapsed_in_milli_as_str]
@@ -283,7 +288,7 @@ def do_first_run_setup_if_needed():
     _LOGGER.info("First run detected. Launching first run setup dialog")
     if FirstRunDialog().exec_() == QDialog.Accepted:
         _LOGGER.debug("First run setup completed successfully. Continuing startup")
-        return CONTINUE_STARTUP
+        return FIRST_RUN
 
     _LOGGER.info("First run setup was not completed. Stopping startup")
     return STOP_STARTUP
