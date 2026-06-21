@@ -55,7 +55,9 @@ class PreferencesDialog(QDialog):
         configure_platform_ui(self)
 
         self._ui.tabWidget.setCurrentIndex(0)
-        self._ui.scannerBox.setEnabled(DYNAMIC_DATA.session.is_stopped)
+
+        self._ui.btn_browse_scan.setEnabled(DYNAMIC_DATA.session.is_stopped)
+        self._ui.ln_scan_folder_path.setEnabled(DYNAMIC_DATA.session.is_stopped)
 
         # preprocessing settings are only enable when session is stopped
         self._ui.chk_use_hpr.setEnabled(DYNAMIC_DATA.session.is_stopped)
@@ -67,13 +69,15 @@ class PreferencesDialog(QDialog):
         self._ui.ln_master_flat_path.setEnabled(DYNAMIC_DATA.session.is_stopped)
         self._ui.cmb_bayer_pattern.setEnabled(DYNAMIC_DATA.session.is_stopped)
 
-        web_server_is_active = (
-            DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES)
-        self._ui.pathsBox.setEnabled(
-            not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
-        _set_web_server_port_controls_enabled(
-            self._ui, not web_server_is_active)
+        web_server_is_active = DYNAMIC_DATA.web_server_status in WEB_SERVER_ACTIVE_STATUSES
 
+        self._ui.chk_www_own_folder.setEnabled(not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
+        self._ui.btn_browse_work.setEnabled(not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
+        self._ui.ln_work_folder_path.setEnabled(not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
+        self._ui.btn_browse_web.setEnabled(not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
+        self._ui.ln_web_folder_path.setEnabled(not web_server_is_active and DYNAMIC_DATA.session.is_stopped)
+
+        _set_web_server_port_controls_enabled(self._ui, not web_server_is_active)
 
         self._ui.cmb_lang.setItemData(0, 'sys')
         self._ui.cmb_lang.setItemData(1, 'en')
