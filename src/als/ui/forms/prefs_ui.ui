@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>711</width>
+    <width>578</width>
     <height>375</height>
    </rect>
   </property>
@@ -32,7 +32,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="generalTab">
       <attribute name="title">
@@ -342,104 +342,94 @@
           <string>Calibration steps</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
-          <property name="spacing">
-           <number>6</number>
-          </property>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <widget class="QCheckBox" name="chk_use_hpr">
+            <property name="text">
+             <string>&amp;Hot Pixel Removal</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chk_use_dark">
+            <property name="font">
+             <font>
+              <kerning>true</kerning>
+             </font>
+            </property>
+            <property name="text">
+             <string>Dark &amp;subtraction</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chk_use_flat">
+            <property name="text">
+             <string>Flat &amp;calibration</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <property name="spacing">
-             <number>28</number>
+             <number>16</number>
             </property>
             <item>
-             <widget class="QCheckBox" name="chk_use_hpr">
+             <widget class="QLabel" name="label">
               <property name="text">
-               <string>&amp;Hot Pixel Removal</string>
+               <string>De&amp;bayering</string>
+              </property>
+              <property name="buddy">
+               <cstring>cmb_bayer_pattern</cstring>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="chk_use_dark">
-              <property name="font">
-               <font>
-                <kerning>true</kerning>
-               </font>
+             <widget class="QComboBox" name="cmb_bayer_pattern">
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
               </property>
-              <property name="text">
-               <string>Dark &amp;subtraction</string>
-              </property>
+              <item>
+               <property name="text">
+                <string notr="true">AUTO</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">GRBG</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">RGGB</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">GBRG</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">BGGR</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="chk_use_flat">
-              <property name="text">
-               <string>Flat &amp;calibration</string>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <property name="spacing">
-               <number>16</number>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
               </property>
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="text">
-                 <string>De&amp;bayering</string>
-                </property>
-                <property name="buddy">
-                 <cstring>cmb_bayer_pattern</cstring>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="cmb_bayer_pattern">
-                <property name="minimumSize">
-                 <size>
-                  <width>80</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">AUTO</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">GRBG</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">RGGB</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">GBRG</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">BGGR</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -668,6 +658,9 @@
             </item>
             <item row="1" column="1">
              <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="spacing">
+               <number>12</number>
+              </property>
               <item>
                <widget class="QLineEdit" name="ln_web_server_port">
                 <property name="maximumSize">
