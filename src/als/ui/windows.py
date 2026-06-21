@@ -76,6 +76,14 @@ class MainWindow(QMainWindow):
         self._warning_sign_off = QIcon()
         self._warning_sign_on = QIcon(QPixmap(":/icons/warning_sign.svg"))
         self.setWindowIcon(QIcon(":/icons/als_logo.png"))
+
+        self._play_icon = QIcon(":/icons/transport-play.svg")
+        self._pause_icon = QIcon(":/icons/transport-pause.svg")
+        self._stop_icon = QIcon(":/icons/transport-stop.svg")
+        self._play_icon_disabled_disabled = QIcon(":/icons/transport-play-disabled.svg")
+        self._pause_icon_disabled = QIcon(":/icons/transport-pause-disabled.svg")
+        self._stop_icon_disabled = QIcon(":/icons/transport-stop-disabled.svg")
+
         self.setWindowTitle("Astro Live Stacker")
 
         self._ui = Ui_stack_window()
@@ -154,34 +162,10 @@ class MainWindow(QMainWindow):
             _set_groupbox_spacing(groupbox)
 
         configure_platform_ui(self, self._ui.log)
-        self._setup_transport_button_icons()
         self._reserve_info_labels_widths()
 
         self._ui.lbl_available_update.setVisible(False)
 
-    def _setup_transport_button_icons(self):
-        self._transport_buttons = (
-            (self._ui.btn_session_start, "transport-play"),
-            (self._ui.btn_session_pause, "transport-pause"),
-            (self._ui.btn_session_stop, "transport-stop"),
-            (self._ui.btn_web_start, "transport-play"),
-            (self._ui.btn_web_stop, "transport-stop"),
-        )
-
-        for button, icon_name in self._transport_buttons:
-            button.setText("")
-            button.setIconSize(MainWindow._TRANSPORT_ICON_SIZE)
-            button.installEventFilter(self)
-            self._set_transport_button_icon(button, icon_name)
-
-    def eventFilter(self, watched, event):
-        if event.type() == QEvent.EnabledChange:
-            for button, icon_name in self._transport_buttons:
-                if watched is button:
-                    self._set_transport_button_icon(button, icon_name)
-                    break
-
-        return super().eventFilter(watched, event)
 
     @staticmethod
     def _set_transport_button_icon(button, icon_name):
@@ -1097,6 +1081,42 @@ class MainWindow(QMainWindow):
 
             self._ui.btn_session_stop.setEnabled(session_is_running or session_is_paused)
             self._ui.btn_session_pause.setEnabled(session_is_running)
+            self._ui.btn_web_start.setEnabled(web_server_is_stopped)
+            self._ui.btn_web_stop.setEnabled(web_server_is_running)
+
+            transport_icons = {
+
+                self._ui.btn_session_start: {
+                    True: self._play_icon,
+                    False: self._play_icon_disabled_disabled
+                },
+
+                self._ui.btn_session_stop: {
+                    True: self._stop_icon,
+                    False: self._stop_icon_disabled
+                },
+
+                self._ui.btn_session_pause: {
+                    True: self._pause_icon,
+                    False: self._pause_icon_disabled
+                },
+
+                self._ui.btn_web_start: {
+                    True: self._play_icon,
+                    False: self._play_icon_disabled_disabled
+                },
+
+                self._ui.btn_web_stop: {
+                    True: self._stop_icon,
+                    False: self._stop_icon_disabled
+                }
+
+            }
+
+            for button in transport_icons.keys():
+                button.setIcon(transport_icons[button][button.isEnabled()])
+                button.setText("")
+                button.setIconSize(MainWindow._TRANSPORT_ICON_SIZE)
 
             # handle align + stack mode buttons
             self._ui.chk_align.setChecked(self._controller.get_align_before_stack())
@@ -1111,10 +1131,6 @@ class MainWindow(QMainWindow):
             self._ui.radio_photo_profile.setChecked(config.get_profile() == PHOTO_PROFILE_CODE)
             self._ui.radio_photo_profile.setEnabled(session_is_stopped)
             self._ui.radio_visual_profile.setEnabled(session_is_stopped)
-
-            # handle web stop start buttons
-            self._ui.btn_web_start.setEnabled(web_server_is_stopped)
-            self._ui.btn_web_stop.setEnabled(web_server_is_running)
 
             # update stack size and total exposure time
             stack_size_str = str(DYNAMIC_DATA.stack_size)
