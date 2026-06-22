@@ -343,9 +343,8 @@ class Server(QObject):
     startup_succeeded_signal = pyqtSignal()
 
     @log
-    def __init__(self, static_path):
+    def __init__(self):
         QObject.__init__(self)
-        self._static_path = static_path
         self._app = None
         self._clients = []
         self._runner = None
@@ -367,7 +366,7 @@ class Server(QObject):
         app.add_routes([web.get('/data.json', self._handle_dynamic_file_request)])
 
         # Catch-all route for static files
-        app.router.add_static('/', self._static_path)
+        app.router.add_static('/', config.get_web_folder_path())
         return app
 
     @log
@@ -385,12 +384,11 @@ class Server(QObject):
 
     @log
     async def _handle_index_request(self, _):
-        return build_no_cache_file_response(self._static_path, 'index.html')
+        return build_no_cache_file_response(config.get_web_folder_path(), 'index.html')
 
     @log
     async def _handle_dynamic_file_request(self, request):
-        return build_no_cache_file_response(
-            self._static_path, request.path.lstrip('/'))
+        return build_no_cache_file_response(config.get_web_folder_path(), request.path.lstrip('/'))
 
     @log
     async def _send_message_to_clients(self, message):
@@ -398,8 +396,7 @@ class Server(QObject):
             await ws.send_str(json.dumps(message))
 
     @log
-    def _set_startup_exception(
-            self, startup_future: Optional[Future], error: Exception) -> None:
+    def _set_startup_exception(self, startup_future: Optional[Future], error: Exception) -> None:
         """
         Stores server startup failure for the controller thread.
 
@@ -509,10 +506,8 @@ class Server(QObject):
         asyncio.set_event_loop(self._loop)
         if port is None:
             port = config.get_www_server_port_number()
-        self._server_task = self._loop.create_task(
-            self._start_server(host, port, startup_future))
-        self._server_task.add_done_callback(
-            lambda task: self._on_server_task_done(task, startup_future))
+        self._server_task = self._loop.create_task(self._start_server(host, port, startup_future))
+        self._server_task.add_done_callback( lambda task: self._on_server_task_done(task, startup_future))
         try:
             self._loop.run_forever()
         finally:

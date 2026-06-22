@@ -2,7 +2,7 @@
 title: Release Notes
 description: ALS Release Notes
 author: ALS Team
-lastmod: 2026-06-19T03:10:11Z
+lastmod: 2026-06-22T00:13:38Z
 keywords: [ 'ALS Release Notes' ]
 weight: 100550
 ---
@@ -25,6 +25,7 @@ weight: 100550
 
 ### Bug Fixes
 
+- Changing web folder path required a restart to take effect
 - Stopping an empty session could save a timestamped final image
 - Some session trasitions were inaccurately logged 
 - System language detection failed on macOS

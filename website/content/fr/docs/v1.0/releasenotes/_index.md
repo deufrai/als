@@ -2,7 +2,7 @@
 title: Notes de versions
 description: Notes de version d'ALS
 author: ALS Team
-lastmod: 2026-06-19T03:10:11Z
+lastmod: 2026-06-22T00:13:38Z
 keywords: [ 'Notes de version ALS' ]
 weight: 100550
 ---
@@ -25,6 +25,7 @@ weight: 100550
 
 ### Corrections
 
+- Changer le chemin du dossier web nécessitait un redémarrage pour prendre effet
 - L'arrêt d'une session vide pouvait enregistrer une image finale horodatée
 - Certaines transitions de session étaient loggées de manière incorrect
 - La détection de la langue du système ne fonctionnait pas sur les systèmes macOS

@@ -78,7 +78,7 @@ class Controller:
         self._keep_images_flowing = True
         self._last_stacking_result = None
         self._save_every_image = False
-        self._web_server = Server(config.get_web_folder_path())
+        self._web_server = Server()
         self._server_thread = None
         self._model_observers = list()
         self._web_server_observers = list()
