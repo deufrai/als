@@ -1153,7 +1153,7 @@ class MainWindow(QMainWindow):
 
             # update main info panel
             css_active = "background-color: #4e1111; border-radius: 2px; border-left: 1px solid #171717; border-top: 1px solid #171717; border-right: 1px solid #333333; border-bottom: 1px solid #333333;"
-            css_inactive = "background-color: #222222; color: #666666; border: 1px solid transparent"
+            css_inactive = "background-color: #222222; border: 1px solid transparent"
 
             # image server status
             self._ui.lbl_web_server_status_main.setText(web_server_status_text)
