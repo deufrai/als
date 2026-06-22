@@ -522,6 +522,7 @@ class MainWindow(QMainWindow):
         self._ui.image_view.setScene(QGraphicsScene(self))
         self._ui.image_view.reset_zoom()
         self._image_item = QGraphicsPixmapItem(QPixmap(":/icons/window_background.png"))
+        self._image_item.setTransformationMode(Qt.SmoothTransformation)
         self._ui.image_view.scene().addItem(self._image_item)
 
     @log

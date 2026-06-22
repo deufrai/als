@@ -79,6 +79,7 @@ class ImageView(QGraphicsView):
         super().__init__(parent)
         self.setDragMode(QGraphicsView.ScrollHandDrag)
         self.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
+        self.setRenderHint(QPainter.SmoothPixmapTransform, True)
         self.setBackgroundBrush(QBrush(QColor("#222222"), Qt.SolidPattern))
 
     # pylint: disable=C0103
