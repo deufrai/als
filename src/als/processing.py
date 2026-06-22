@@ -16,7 +16,6 @@ import numpy as np
 from PyQt5.QtCore import QThread, pyqtSignal, QT_TRANSLATE_NOOP, QFileInfo
 from PyQt5.QtGui import QPixmap
 from qimage2ndarray import array2qimage
-from scipy.signal import convolve2d
 
 from als import config
 from als.code_utilities import human_readable_byte_size, available_memory
@@ -32,7 +31,8 @@ from contrib.stretch import Stretch
 _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 
 _16_BITS_MAX_VALUE = 2**16 - 1
-_HOT_PIXEL_RATIO = 2
+_HOT_PIXEL_RATIO = 1.25
+_HOT_PIXEL_MIN_DELTA = 256
 
 
 class ProcessingError(Exception):
@@ -389,30 +389,49 @@ class HotPixelRemover(ImageProcessor):
     """Provides hot pixels removal"""
 
     @staticmethod
-    def _neighbors_average(data):
+    def _replace_hot_pixels_from_local_median(data: np.ndarray) -> None:
         """
-        returns an array containing the means of all original array's pixels' neighbors
-        :param data: the image to compute means for
-        :return: an array containing the means of all original array's pixels' neighbors
-        :rtype: np.Array
+        Replaces isolated high pixels from same-channel local medians.
+
+        The median is robust against the candidate hot pixel itself, and the
+        input array is updated in-place to avoid allocating a replacement image.
+
+        :param data: the image channel to process
+        :type data: np.ndarray
         """
+        local_median = cv2.medianBlur(np.ascontiguousarray(data), 3)
+        median_values = local_median.astype(np.float32)
+        threshold = median_values.copy()
+        threshold *= _HOT_PIXEL_RATIO
+        median_values += _HOT_PIXEL_MIN_DELTA
+        np.maximum(threshold, median_values, out=threshold)
+        hot_pixels = data > threshold
+        data[hot_pixels] = local_median[hot_pixels]
 
-        kernel = np.ones((3, 3))
-        kernel[1, 1] = 0
+    @staticmethod
+    def _replace_bayer_hot_pixels(data: np.ndarray) -> None:
+        """
+        Removes hot pixels from each Bayer phase independently.
 
-        neighbor_sum = convolve2d(data, kernel, mode='same', boundary='fill', fillvalue=0)
-        num_neighbor = convolve2d(np.ones(data.shape), kernel, mode='same', boundary='fill', fillvalue=0)
+        Bayer raw frames store different colors in adjacent pixels. Processing
+        each 2x2 phase plane separately compares each pixel only with nearby
+        pixels from the same color position.
 
-        return (neighbor_sum / num_neighbor).astype(data.dtype)
+        :param data: raw Bayer mosaic image
+        :type data: np.ndarray
+        """
+        for row_offset in range(2):
+            for column_offset in range(2):
+                HotPixelRemover._replace_hot_pixels_from_local_median(
+                    data[row_offset::2, column_offset::2]
+                )
 
     @log
     def process_image(self, image: Image):
 
-        # the idea is to check every pixel value against its 8 neighbors
-        # if its value is more than _HOT_RATIO times the mean of its neighbors' values
-        # me replace its value with that mean
-
-        # this can only work on B&W or non-debayered color images
+        # The detector replaces isolated high pixels with a local median. Raw
+        # Bayer frames are processed phase-by-phase so pixels are compared only
+        # with same-color neighbors.
 
         if not image:
             return None
@@ -423,9 +442,10 @@ class HotPixelRemover(ImageProcessor):
 
         if hpr_on:
 
-            if not image.is_color():
-                means = HotPixelRemover._neighbors_average(image.data)
-                image.data = np.where(image.data / means > _HOT_PIXEL_RATIO, means, image.data)
+            if image.needs_debayering():
+                HotPixelRemover._replace_bayer_hot_pixels(image.data)
+            elif image.is_bw():
+                HotPixelRemover._replace_hot_pixels_from_local_median(image.data)
             else:
                 _LOGGER.debug("Hot Pixel Remover skipped on color image")
 
