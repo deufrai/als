@@ -23,6 +23,10 @@ def parse_args():
         "period",
         type=float,
         help="Delay in seconds between two copied files")
+    parser.add_argument(
+        "--noloop",
+        action="store_true",
+        help="Replay files once and then exit")
     return parser.parse_args()
 
 
@@ -61,7 +65,7 @@ def copy_source_files(source_files, target_folder: Path, period: float) -> None:
             time.sleep(period)
 
 
-def replay_subs(source_folder: Path, target_folder: Path, period: float) -> None:
+def replay_subs(source_folder: Path, target_folder: Path, period: float, noloop: bool) -> None:
     while True:
         source_files = list_source_files(source_folder)
         if not source_files:
@@ -75,13 +79,16 @@ def replay_subs(source_folder: Path, target_folder: Path, period: float) -> None
 
         copy_source_files(source_files, target_folder, period)
 
+        if noloop:
+            break
+
 
 def main():
     args = parse_args()
 
     try:
         validate_args(args.source_folder, args.target_folder, args.period)
-        replay_subs(args.source_folder, args.target_folder, args.period)
+        replay_subs(args.source_folder, args.target_folder, args.period, args.noloop)
     except KeyboardInterrupt:
         print("\nInterrupted")
 
