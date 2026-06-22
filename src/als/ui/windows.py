@@ -348,18 +348,11 @@ class MainWindow(QMainWindow):
         Initialize status bar widgets and layout.
         """
         self._lbl_statusbar_current_profile = QLabel(self._ui.statusBar)
-        self._lbl_statusbar_current_profile.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_stack_exposure = QLabel(self._ui.statusBar)
-        self._lbl_statusbar_stack_exposure.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_session_status = QLabel(self._ui.statusBar)
-        self._lbl_statusbar_session_status.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_stack_size = QLabel(self._ui.statusBar)
-        self._lbl_statusbar_stack_size.setMinimumWidth(150)
-        self._lbl_statusbar_stack_size.setAlignment(Qt.AlignHCenter)
-        self._lbl_statusbar_stack_size.setFrameStyle(QFrame.Panel | QFrame.Sunken)
         self._lbl_statusbar_web_server_status = QLabel(self._ui.statusBar)
         self._lbl_statusbar_web_server_status.setOpenExternalLinks(True)
-        self._lbl_statusbar_web_server_status.setFrameStyle(QFrame.Panel | QFrame.Sunken)
 
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_session_status)
         self._ui.statusBar.addPermanentWidget(self._lbl_statusbar_current_profile)

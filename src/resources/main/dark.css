@@ -395,15 +395,15 @@ QGroupBox#grp_stack QSlider#sld_align_threshold {
     margin-top: 3px;
 }
 
-QStatusBar::item {
-    background-color: #222222;
-    border: 1px solid transparent;
-}
-
 QStatusBar QLabel {
     border-left: 1px solid #171717;
     border-top: 1px solid #171717;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-radius: 2px;
+    padding: 2px 0.5em;
+    margin-left: 0;
+    margin-right: 4px;
+    margin-top: 0;
+    margin-bottom: 2px;
 }
