@@ -170,6 +170,81 @@ def _normalize_color_flat(flat: Image, normalized_flat_data: np.ndarray, master_
     return flat
 
 
+def _normalize_bayer_dark(dark: Image, master_dark_path: str, bayer_pattern: str) -> Optional[Image]:
+    """
+    Normalizes Bayer dark phase baselines without removing dark structure.
+
+    :param dark: the dark image to normalize
+    :type dark: Image
+    :param master_dark_path: path to the master dark file
+    :type master_dark_path: str
+    :param bayer_pattern: the Bayer pattern string (length 4)
+    :type bayer_pattern: str
+    :return: the dark with normalized data or None if normalization cannot proceed
+    :rtype: Optional[Image]
+    """
+    normalized_dark_data = _as_working_dark_data(dark.data)
+    pattern = bayer_pattern.upper()
+
+    if len(pattern) != 4:
+        MESSAGE_HUB.dispatch_warning(
+            __name__,
+            QT_TRANSLATE_NOOP("", "Unsupported Bayer pattern {}. Dark subtraction is SKIPPED"),
+            [bayer_pattern]
+        )
+        return None
+
+    row_slices = [slice(0, None, 2), slice(1, None, 2)]
+    col_slices = [slice(0, None, 2), slice(1, None, 2)]
+    cfa_positions = [
+        (pattern[0], row_slices[0], col_slices[0]),
+        (pattern[1], row_slices[0], col_slices[1]),
+        (pattern[2], row_slices[1], col_slices[0]),
+        (pattern[3], row_slices[1], col_slices[1]),
+    ]
+    phase_views = [
+        normalized_dark_data[row_slice, col_slice]
+        for _channel_name, row_slice, col_slice in cfa_positions
+    ]
+    phase_labels = [
+        "{}-{}".format(channel_name, position_index)
+        for position_index, (channel_name, _row_slice, _col_slice) in enumerate(cfa_positions)
+    ]
+
+    if not _normalize_dark_channel_baselines(phase_views, master_dark_path, phase_labels):
+        return None
+
+    dark.data = _restore_dark_data_type(normalized_dark_data, dark.data.dtype)
+    return dark
+
+
+def _normalize_global_dark(dark: Image, master_dark_path: str) -> Optional[Image]:
+    """
+    Normalizes color dark baselines and leaves mono darks unchanged.
+
+    :param dark: the dark image to normalize
+    :type dark: Image
+    :param master_dark_path: path to the master dark file
+    :type master_dark_path: str
+    :return: the dark with normalized data or None if normalization cannot proceed
+    :rtype: Optional[Image]
+    """
+    if dark.data.ndim <= 2:
+        return dark
+
+    normalized_dark_data = _as_working_dark_data(dark.data)
+    channel_views = [
+        normalized_dark_data[:, :, channel_index]
+        for channel_index in range(normalized_dark_data.shape[2])
+    ]
+
+    if not _normalize_dark_channel_baselines(channel_views, master_dark_path):
+        return None
+
+    dark.data = _restore_dark_data_type(normalized_dark_data, dark.data.dtype)
+    return dark
+
+
 @log
 def _sanitize_flat_data(flat_data: np.ndarray, master_flat_path: str) -> np.ndarray:
     """
@@ -193,6 +268,75 @@ def _sanitize_flat_data(flat_data: np.ndarray, master_flat_path: str) -> np.ndar
         sanitized_data = np.where(np.isfinite(sanitized_data), sanitized_data, 0.0)
 
     return sanitized_data
+
+
+def _as_working_dark_data(dark_data: np.ndarray) -> np.ndarray:
+    """
+    Converts dark data to a signed working representation for baseline updates.
+
+    :param dark_data: raw dark data array
+    :type dark_data: numpy.ndarray
+    :return: dark data as float32
+    :rtype: numpy.ndarray
+    """
+    return dark_data.astype(np.float32, copy=True)
+
+
+def _restore_dark_data_type(dark_data: np.ndarray, original_dtype: np.dtype) -> np.ndarray:
+    """
+    Clips normalized dark data back to its original dtype range.
+
+    :param dark_data: normalized dark data
+    :type dark_data: numpy.ndarray
+    :param original_dtype: original dark dtype
+    :type original_dtype: numpy.dtype
+    :return: restored dark data
+    :rtype: numpy.ndarray
+    """
+    if issubclass(original_dtype.type, np.integer):
+        limits = np.iinfo(original_dtype)
+        return np.clip(dark_data, limits.min, limits.max).astype(original_dtype)
+
+    return dark_data.astype(original_dtype, copy=False)
+
+
+def _normalize_dark_channel_baselines(channel_views, master_dark_path: str, channel_labels=None) -> bool:
+    """
+    Makes dark channel medians match while preserving local dark structure.
+
+    :param channel_views: writable 2D views into dark data
+    :type channel_views: list[numpy.ndarray]
+    :param master_dark_path: path to the master dark file
+    :type master_dark_path: str
+    :param channel_labels: warning labels for channel views
+    :type channel_labels: list[str] or None
+    :return: True if normalization succeeded, False otherwise
+    :rtype: bool
+    """
+    if channel_labels is None:
+        channel_labels = list(range(len(channel_views)))
+
+    medians = []
+    for channel_index, channel_view in enumerate(channel_views):
+        median = _compute_robust_median(channel_view)
+
+        if not np.isfinite(median):
+            MESSAGE_HUB.dispatch_warning(
+                __name__,
+                QT_TRANSLATE_NOOP("", "Master dark {} has no valid signal for channel {}. Dark subtraction is SKIPPED"),
+                [master_dark_path, channel_labels[channel_index]]
+            )
+            return False
+
+        medians.append(median)
+
+    common_median = float(np.median(medians))
+    _warn_if_dark_has_chromatic_baseline(medians, common_median, master_dark_path)
+
+    for channel_view, median in zip(channel_views, medians):
+        channel_view += common_median - median
+
+    return True
 
 
 def _normalize_flat_channel_views(channel_views, master_flat_path: str, channel_labels=None) -> bool:
@@ -268,6 +412,23 @@ def _compute_robust_scale(values: np.ndarray) -> float:
     return float(np.median(clipped_values))
 
 
+def _compute_robust_median(values: np.ndarray) -> float:
+    """
+    Computes a robust median on finite values.
+
+    :param values: data values for which median is computed
+    :type values: numpy.ndarray
+    :return: the computed median, or NaN when no finite values exist
+    :rtype: float
+    """
+    finite_values = values[np.isfinite(values)]
+
+    if finite_values.size == 0:
+        return float("nan")
+
+    return float(np.median(finite_values))
+
+
 def _warn_if_flat_has_chromatic_shading(
         normalized_phase_data: np.ndarray,
         common_correction: np.ndarray,
@@ -298,7 +459,43 @@ def _warn_if_flat_has_chromatic_shading(
         )
 
 
+def _warn_if_dark_has_chromatic_baseline(medians, common_median: float, master_dark_path: str) -> None:
+    """
+    Warns when dark channel baselines differ enough to affect color balance.
+
+    :param medians: robust channel medians
+    :type medians: list[float]
+    :param common_median: shared median applied to channels
+    :type common_median: float
+    :param master_dark_path: path to the master dark file
+    :type master_dark_path: str
+    """
+    if common_median == 0:
+        max_relative_deviation = 0.0
+    else:
+        max_relative_deviation = max(
+            abs(median - common_median) / abs(common_median)
+            for median in medians
+        )
+
+    max_absolute_deviation = max(abs(median - common_median) for median in medians)
+
+    if (max_relative_deviation > _DARK_CHROMA_WARNING_THRESHOLD
+            and max_absolute_deviation > _DARK_CHROMA_WARNING_MIN_DELTA):
+        MESSAGE_HUB.dispatch_warning(
+            __name__,
+            QT_TRANSLATE_NOOP(
+                "",
+                "Master dark {} contains {:.1f}% chromatic baseline offset. "
+                "Applying color-neutral dark correction to avoid color imbalance."
+            ),
+            [master_dark_path, max_relative_deviation * 100.0]
+        )
+
+
 _NORMALIZATION_EPSILON_FACTOR = 1e-6
 _NORMALIZATION_EPSILON_MIN = 1e-8
 _CHANNEL_SCALE_PERCENTILE_CLIP = 99.9
 _FLAT_CHROMA_WARNING_THRESHOLD = 0.02
+_DARK_CHROMA_WARNING_THRESHOLD = 0.02
+_DARK_CHROMA_WARNING_MIN_DELTA = 8.0

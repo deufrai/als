@@ -33,6 +33,7 @@ _LOGGER = AlsLogAdapter(getLogger(__name__), {})
 _16_BITS_MAX_VALUE = 2**16 - 1
 _HOT_PIXEL_RATIO = 1.25
 _HOT_PIXEL_MIN_DELTA = 256
+_DARK_SUBTRACTION_CLIPPING_WARNING_THRESHOLD = 0.01
 
 
 class ProcessingError(Exception):
@@ -541,7 +542,7 @@ class RemoveDark(ImageProcessor):
         if do_subtract:
 
             master_dark_path = config.get_master_dark_file_path()
-            dark = get_cached_master_dark(master_dark_path)
+            dark = get_cached_master_dark(master_dark_path, image.bayer_pattern)
 
             if dark is None:
                 read_error_message = QT_TRANSLATE_NOOP(
@@ -599,7 +600,7 @@ class RemoveDark(ImageProcessor):
             _LOGGER.debug("Subtracting dark frame...")
 
             with Timer() as subtraction_timer:
-                image.data = np.where(image.data > dark_data, image.data - dark_data, 0)
+                image.data = RemoveDark._subtract_dark_data(image.data, dark_data, master_dark_path)
             _LOGGER.debug(f"Dark frame subtracted in {subtraction_timer.elapsed_in_milli_as_str} ms")
 
         return image
@@ -625,6 +626,41 @@ class RemoveDark(ImageProcessor):
             raise TypeError("Data type must be float or integer")
 
         return allowed_min, allowed_max
+
+    @staticmethod
+    def _subtract_dark_data(image_data: np.ndarray, dark_data: np.ndarray, master_dark_path: str) -> np.ndarray:
+        """
+        Subtracts dark data through a signed intermediate and clips once.
+
+        :param image_data: light image data
+        :type image_data: numpy.ndarray
+        :param dark_data: master dark data
+        :type dark_data: numpy.ndarray
+        :param master_dark_path: master dark path used for warning context
+        :type master_dark_path: str
+        :return: dark-subtracted image data
+        :rtype: numpy.ndarray
+        """
+        subtracted_data = image_data.astype(np.float32) - dark_data.astype(np.float32)
+        clipped_pixels = subtracted_data < 0
+        clipped_fraction = float(np.count_nonzero(clipped_pixels)) / clipped_pixels.size
+
+        if clipped_fraction > _DARK_SUBTRACTION_CLIPPING_WARNING_THRESHOLD:
+            MESSAGE_HUB.dispatch_warning(
+                __name__,
+                QT_TRANSLATE_NOOP(
+                    "",
+                    "Dark subtraction with master dark {} clipped {:.1f}% of pixels to black. "
+                    "The master dark may be too strong or mismatched."
+                ),
+                [master_dark_path, clipped_fraction * 100.0]
+            )
+
+        if issubclass(image_data.dtype.type, np.integer):
+            limits = np.iinfo(image_data.dtype)
+            return np.clip(subtracted_data, 0, limits.max).astype(image_data.dtype)
+
+        return np.clip(subtracted_data, 0.0, None).astype(image_data.dtype, copy=False)
 
 
 class RemoveFlat(ImageProcessor):

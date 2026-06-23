@@ -22,7 +22,12 @@ from watchdog.observers.polling import PollingObserver
 
 from als import config
 from als.code_utilities import AlsLogAdapter, log
-from als.crunching import _normalize_bayer_flat, _normalize_global_flat
+from als.crunching import (
+    _normalize_bayer_dark,
+    _normalize_bayer_flat,
+    _normalize_global_dark,
+    _normalize_global_flat,
+)
 from als.messaging import MESSAGE_HUB
 from als.model.base import Image
 from als.model.data import DYNAMIC_DATA
@@ -400,29 +405,39 @@ def _report_fs_error(path: Path, error: Exception):
 
 
 @log
-def get_cached_master_dark(master_dark_path: str) -> Optional[Image]:
+def get_cached_master_dark(master_dark_path: str, bayer_pattern: Optional[str] = None) -> Optional[Image]:
     """
-    Retrieves the master dark frame from in-session cache or disk if missing.
+    Retrieves the normalized master dark frame from in-session cache or disk if missing.
 
     :param master_dark_path: filesystem path to the master dark file
     :type master_dark_path: str
+    :param bayer_pattern: Bayer pattern extracted from the current sub, if applicable
+    :type bayer_pattern: Optional[str]
 
-    :return: the cached or freshly read master dark, None if unavailable
+    :return: the cached or freshly read normalized master dark, None if unavailable
     :rtype: Optional[Image]
     """
     if not master_dark_path:
         return None
 
     if DYNAMIC_DATA.master_dark is not None:
-        _LOGGER.debug("Using cached master dark: %s", master_dark_path)
+        _LOGGER.debug("Using cached normalized master dark: %s", master_dark_path)
         return DYNAMIC_DATA.master_dark
 
     dark = read_disk_image(Path(master_dark_path))
-    if dark is not None:
-        _LOGGER.debug("Loaded master dark from disk: %s", master_dark_path)
-        DYNAMIC_DATA.master_dark = dark
-    else:
+    if dark is None:
         _LOGGER.debug("Failed to load master dark from disk: %s", master_dark_path)
+        return None
+
+    _LOGGER.debug("Loaded master dark from disk: %s", master_dark_path)
+
+    if bayer_pattern:
+        dark = _normalize_bayer_dark(dark, master_dark_path, bayer_pattern)
+    else:
+        dark = _normalize_global_dark(dark, master_dark_path)
+
+    if dark is not None:
+        DYNAMIC_DATA.master_dark = dark
 
     return dark
 
