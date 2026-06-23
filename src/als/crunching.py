@@ -53,7 +53,14 @@ def _compute_single_channel_histogram_for_display(channel_data, bin_count):
 
 def _normalize_bayer_flat(flat: Image, master_flat_path: str, bayer_pattern: str) -> Optional[Image]:
     """
-    Normalizes a Bayer flat per CFA position using per-channel robust scales.
+    Normalizes a Bayer flat into a color-neutral correction field.
+
+    Each CFA position is first normalized by its own robust scale so the
+    sensor/filter response does not leak into the flat correction. The four
+    normalized CFA positions are then merged into a shared 2x2-cell correction
+    and written back to every phase. This keeps luminance vignetting and dust
+    correction while preventing the master flat from adding spatial color
+    balance shifts.
 
     :param flat: the flat image to normalize
     :type flat: Image
@@ -84,21 +91,17 @@ def _normalize_bayer_flat(flat: Image, master_flat_path: str, bayer_pattern: str
         (pattern[3], row_slices[1], col_slices[1]),
     ]
 
-    for position_index, (channel_name, row_slice, col_slice) in enumerate(cfa_positions):
-        channel_view = normalized_flat_data[row_slice, col_slice]
-        scale = _compute_robust_scale(channel_view)
+    phase_views = [
+        normalized_flat_data[row_slice, col_slice]
+        for _channel_name, row_slice, col_slice in cfa_positions
+    ]
+    phase_labels = [
+        "{}-{}".format(channel_name, position_index)
+        for position_index, (channel_name, _row_slice, _col_slice) in enumerate(cfa_positions)
+    ]
 
-        if scale <= 0 or not np.isfinite(scale):
-            MESSAGE_HUB.dispatch_warning(
-                __name__,
-                QT_TRANSLATE_NOOP("", "Master flat {} has insufficient signal for channel {}. Flat division is SKIPPED"),
-                [master_flat_path, f"{channel_name}-{position_index}"]
-            )
-            return None
-
-        epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
-        np.maximum(channel_view, epsilon, out=channel_view)
-        channel_view /= scale
+    if not _normalize_flat_channel_views(phase_views, master_flat_path, phase_labels):
+        return None
 
     flat.data = normalized_flat_data
     return flat
@@ -106,7 +109,11 @@ def _normalize_bayer_flat(flat: Image, master_flat_path: str, bayer_pattern: str
 
 def _normalize_global_flat(flat: Image, master_flat_path: str) -> Optional[Image]:
     """
-    Normalizes a mono flat using a global robust scale.
+    Normalizes a mono or color flat into a correction field.
+
+    Mono flats are normalized using a global robust scale. Color flats are
+    normalized per channel, then merged into a shared luminance correction and
+    written back to every channel to avoid adding color imbalance.
 
     :param flat: the flat image to normalize
     :type flat: Image
@@ -116,6 +123,10 @@ def _normalize_global_flat(flat: Image, master_flat_path: str) -> Optional[Image
     :rtype: Optional[Image]
     """
     normalized_flat_data = _sanitize_flat_data(flat.data, master_flat_path)
+
+    if normalized_flat_data.ndim > 2:
+        return _normalize_color_flat(flat, normalized_flat_data, master_flat_path)
+
     scale = _compute_robust_scale(normalized_flat_data)
 
     if scale <= 0 or not np.isfinite(scale):
@@ -129,6 +140,31 @@ def _normalize_global_flat(flat: Image, master_flat_path: str) -> Optional[Image
     epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
     np.maximum(normalized_flat_data, epsilon, out=normalized_flat_data)
     normalized_flat_data /= scale
+
+    flat.data = normalized_flat_data
+    return flat
+
+
+def _normalize_color_flat(flat: Image, normalized_flat_data: np.ndarray, master_flat_path: str) -> Optional[Image]:
+    """
+    Normalizes a color flat into a shared correction field for all channels.
+
+    :param flat: the flat image to normalize
+    :type flat: Image
+    :param normalized_flat_data: sanitized flat data
+    :type normalized_flat_data: numpy.ndarray
+    :param master_flat_path: path to the master flat file
+    :type master_flat_path: str
+    :return: the flat with normalized data or None if normalization cannot proceed
+    :rtype: Optional[Image]
+    """
+    channel_views = [
+        normalized_flat_data[:, :, channel_index]
+        for channel_index in range(normalized_flat_data.shape[2])
+    ]
+
+    if not _normalize_flat_channel_views(channel_views, master_flat_path):
+        return None
 
     flat.data = normalized_flat_data
     return flat
@@ -159,6 +195,59 @@ def _sanitize_flat_data(flat_data: np.ndarray, master_flat_path: str) -> np.ndar
     return sanitized_data
 
 
+def _normalize_flat_channel_views(channel_views, master_flat_path: str, channel_labels=None) -> bool:
+    """
+    Normalizes channel views in-place and replaces them with a shared correction.
+
+    :param channel_views: writable 2D views into flat data
+    :type channel_views: list[numpy.ndarray]
+    :param master_flat_path: path to the master flat file
+    :type master_flat_path: str
+    :param channel_labels: warning labels for channel views
+    :type channel_labels: list[str] or None
+    :return: True if normalization succeeded, False otherwise
+    :rtype: bool
+    """
+    if channel_labels is None:
+        channel_labels = list(range(len(channel_views)))
+
+    for channel_index, channel_view in enumerate(channel_views):
+        scale = _compute_robust_scale(channel_view)
+
+        if scale <= 0 or not np.isfinite(scale):
+            MESSAGE_HUB.dispatch_warning(
+                __name__,
+                QT_TRANSLATE_NOOP("", "Master flat {} has insufficient signal for channel {}. Flat division is SKIPPED"),
+                [master_flat_path, channel_labels[channel_index]]
+            )
+            return False
+
+        epsilon = max(scale * _NORMALIZATION_EPSILON_FACTOR, _NORMALIZATION_EPSILON_MIN)
+        np.maximum(channel_view, epsilon, out=channel_view)
+        channel_view /= scale
+
+    common_height = min(channel_view.shape[0] for channel_view in channel_views)
+    common_width = min(channel_view.shape[1] for channel_view in channel_views)
+    common_shape_views = [
+        channel_view[:common_height, :common_width]
+        for channel_view in channel_views
+    ]
+    stacked_views = np.stack(common_shape_views, axis=0)
+    common_correction = np.median(stacked_views, axis=0).astype(np.float32)
+    np.maximum(common_correction, _NORMALIZATION_EPSILON_MIN, out=common_correction)
+
+    _warn_if_flat_has_chromatic_shading(
+        stacked_views,
+        common_correction,
+        master_flat_path
+    )
+
+    for channel_view in channel_views:
+        channel_view[:common_height, :common_width] = common_correction
+
+    return True
+
+
 def _compute_robust_scale(values: np.ndarray) -> float:
     """
     Computes a robust scale using median with an upper percentile clamp to limit hot pixel influence.
@@ -179,6 +268,37 @@ def _compute_robust_scale(values: np.ndarray) -> float:
     return float(np.median(clipped_values))
 
 
+def _warn_if_flat_has_chromatic_shading(
+        normalized_phase_data: np.ndarray,
+        common_correction: np.ndarray,
+        master_flat_path: str) -> None:
+    """
+    Warns when flat channels disagree after global channel normalization.
+
+    :param normalized_phase_data: normalized channel data with shape (n, y, x)
+    :type normalized_phase_data: numpy.ndarray
+    :param common_correction: shared color-neutral correction field
+    :type common_correction: numpy.ndarray
+    :param master_flat_path: path to the master flat file
+    :type master_flat_path: str
+    """
+    safe_common_correction = np.maximum(common_correction, _NORMALIZATION_EPSILON_MIN)
+    relative_deviation = np.abs(normalized_phase_data - common_correction) / safe_common_correction
+    chromatic_deviation = float(np.percentile(np.max(relative_deviation, axis=0), 95))
+
+    if chromatic_deviation > _FLAT_CHROMA_WARNING_THRESHOLD:
+        MESSAGE_HUB.dispatch_warning(
+            __name__,
+            QT_TRANSLATE_NOOP(
+                "",
+                "Master flat {} contains {:.1f}% chromatic shading. "
+                "Applying color-neutral flat correction to avoid color imbalance."
+            ),
+            [master_flat_path, chromatic_deviation * 100.0]
+        )
+
+
 _NORMALIZATION_EPSILON_FACTOR = 1e-6
 _NORMALIZATION_EPSILON_MIN = 1e-8
 _CHANNEL_SCALE_PERCENTILE_CLIP = 99.9
+_FLAT_CHROMA_WARNING_THRESHOLD = 0.02
