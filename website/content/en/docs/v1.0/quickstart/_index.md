@@ -2,7 +2,7 @@
 title: "Quick Start"
 description: "Everything you need to know to get started with ALS."
 author: "ALS Team"
-lastmod: 2026-06-12T07:25:50Z
+lastmod: 2026-06-24T14:43:39Z
 keywords: [ "Quick start with ALS" ]
 draft: false
 type: "docs"
@@ -30,8 +30,8 @@ ALS needs to know the paths of two **critical folders**:
 {{< center >}}
 {{< figure src="welcome.png"
 caption="ALS welcome screen with setup options"
-width="787px"
-height="461px"
+width="813px"
+height="495px"
 alt="ALS welcome screen with setup options" >}}
 {{< /center >}}
 
@@ -48,8 +48,8 @@ You have two options:
 {{< center >}}
 {{< figure src="custom_config.png"
 caption="ALS custom folder setup screen"
-width="787px"
-height="461px"
+width="813px"
+height="495px"
 alt="ALS custom folder setup screen" >}}
 {{< /center >}}
 

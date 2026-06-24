@@ -2,7 +2,7 @@
 title: "Premier démarrage"
 description: "Tout savoir pour bien débuter avec ALS."
 author: "ALS Team"
-lastmod: 2026-06-12T07:25:50Z
+lastmod: 2026-06-24T14:43:39Z
 keywords: [ "Premier démarrage d'ALS" ]
 draft: false
 type: "docs"
@@ -30,8 +30,8 @@ ALS a besoin de connaître le chemin de deux **dossiers critiques** :
 {{< center >}}
 {{< figure src="welcome.png"
 caption="Écran d'accueil ALS avec les options de configuration"
-width="787px"
-height="461px"
+width="813px"
+height="495px"
 alt="Écran d'accueil ALS avec les options de configuration" >}}
 {{< /center >}}
 
@@ -48,8 +48,8 @@ Vous avez deux options :
 {{< center >}}
 {{< figure src="custom_config.png"
 caption="Écran de configuration personnalisée des dossiers"
-width="787px"
-height="461px"
+width="813px"
+height="495px"
 alt="Écran de configuration personnalisée des dossiers" >}}
 {{< /center >}}
 

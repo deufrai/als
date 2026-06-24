@@ -352,7 +352,7 @@ ne doit pas être identique ou un sous-dossier de votre {} :
         <source>Custom config:
 
 Define both folders yourself</source>
-        <translation>Configuration personnalisée
+        <translation>Configuration personnalisée :
 
 Définir vous-même les deux dossiers</translation>
     </message>
